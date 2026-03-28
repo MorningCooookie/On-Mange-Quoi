@@ -1,0 +1,295 @@
+{
+  "weekStart": "2026-03-30",
+  "weekEnd": "2026-04-05",
+  "profile": "famille_jeunes_enfants",
+  "days": [
+    {
+      "date": "2026-03-30",
+      "label": "Lundi",
+      "meals": {
+        "breakfast": {
+          "name": "Porridge d'avoine, banane, miel",
+          "icon": "🌅",
+          "cadmiumRisk": "low",
+          "note": "Flocons d'avoine nature (pas de céréales industrielles)"
+        },
+        "lunch": {
+          "name": "Poulet rôti, haricots verts, riz basmati",
+          "icon": "🥗",
+          "cadmiumRisk": "low",
+          "note": "Riz basmati : faible teneur en cadmium vs riz long grain"
+        },
+        "snack": {
+          "name": "Pomme fraîche, fromage blanc",
+          "icon": "🍎",
+          "cadmiumRisk": "low"
+        },
+        "dinner": {
+          "name": "Soupe lentilles corail, tartine levain, jambon blanc",
+          "icon": "🌙",
+          "cadmiumRisk": "low",
+          "note": "Lentilles corail : riche en fer et protéines"
+        }
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "label": "Mardi",
+      "meals": {
+        "breakfast": {
+          "name": "Œufs brouillés, tartine complet, jus d'orange pressé",
+          "icon": "🌅",
+          "cadmiumRisk": "low"
+        },
+        "lunch": {
+          "name": "Saumon vapeur, brocolis, quinoa",
+          "icon": "🥗",
+          "cadmiumRisk": "low",
+          "note": "Saumon d'élevage : faible exposition cadmium vs poissons de fond"
+        },
+        "snack": {
+          "name": "Poire fraîche, amandes (petite poignée)",
+          "icon": "🍐",
+          "cadmiumRisk": "low"
+        },
+        "dinner": {
+          "name": "Gratin de pois chiches aux légumes du soleil",
+          "icon": "🌙",
+          "cadmiumRisk": "low",
+          "note": "Courgette, poivron, tomate pelée"
+        }
+      }
+    },
+    {
+      "date": "2026-04-01",
+      "label": "Mercredi",
+      "meals": {
+        "breakfast": {
+          "name": "Yaourt nature, fraises, granola maison",
+          "icon": "🌅",
+          "cadmiumRisk": "low",
+          "note": "Granola fait maison : contrôle des ingrédients"
+        },
+        "lunch": {
+          "name": "Escalope de dinde, purée de carottes, salade verte",
+          "icon": "🥗",
+          "cadmiumRisk": "low"
+        },
+        "snack": {
+          "name": "Banane, carré de chocolat noir 70%",
+          "icon": "🍌",
+          "cadmiumRisk": "medium",
+          "note": "Chocolat noir : consommation occasionnelle, teneur cadmium modérée"
+        },
+        "dinner": {
+          "name": "Soupe poireaux-pommes de terre, œuf dur, pain levain",
+          "icon": "🌙",
+          "cadmiumRisk": "low"
+        }
+      }
+    },
+    {
+      "date": "2026-04-02",
+      "label": "Jeudi",
+      "meals": {
+        "breakfast": {
+          "name": "Porridge d'avoine, myrtilles, graines de chia",
+          "icon": "🌅",
+          "cadmiumRisk": "low"
+        },
+        "lunch": {
+          "name": "Haricots blancs mijotés, saucisse de volaille, carottes",
+          "icon": "🥗",
+          "cadmiumRisk": "low",
+          "note": "Haricots blancs : légumineuse de base, anti-cadmium"
+        },
+        "snack": {
+          "name": "Clémentines (2), fromage blanc",
+          "icon": "🍊",
+          "cadmiumRisk": "low"
+        },
+        "dinner": {
+          "name": "Cabillaud en papillote, fenouil, pommes de terre vapeur",
+          "icon": "🌙",
+          "cadmiumRisk": "low",
+          "note": "Cabillaud : poisson blanc maigre, faible teneur en polluants"
+        }
+      }
+    },
+    {
+      "date": "2026-04-03",
+      "label": "Vendredi",
+      "meals": {
+        "breakfast": {
+          "name": "Pain perdu maison, compote pomme-cannelle",
+          "icon": "🌅",
+          "cadmiumRisk": "low"
+        },
+        "lunch": {
+          "name": "Taboulé de boulgour, falafels maison, tzatziki",
+          "icon": "🥗",
+          "cadmiumRisk": "low",
+          "note": "Boulgour : faible indice glycémique, faible cadmium"
+        },
+        "snack": {
+          "name": "Raisins frais, cacahuètes nature",
+          "icon": "🍇",
+          "cadmiumRisk": "low"
+        },
+        "dinner": {
+          "name": "Lentilles vertes aux lardon, salade de roquette",
+          "icon": "🌙",
+          "cadmiumRisk": "low",
+          "note": "5ème légumineuse de la semaine — objectif atteint"
+        }
+      }
+    },
+    {
+      "date": "2026-04-04",
+      "label": "Samedi",
+      "meals": {
+        "breakfast": {
+          "name": "Pancakes flocons d'avoine, sirop d'érable, fraises",
+          "icon": "🌅",
+          "cadmiumRisk": "low",
+          "note": "Recette sans farine industrielle"
+        },
+        "lunch": {
+          "name": "Poulet basquaise, riz basmati, pain de campagne",
+          "icon": "🥗",
+          "cadmiumRisk": "low"
+        },
+        "snack": {
+          "name": "Kiwi, yaourt à la vanille naturelle",
+          "icon": "🥝",
+          "cadmiumRisk": "low"
+        },
+        "dinner": {
+          "name": "Pizza maison pâte fine, mozzarella, légumes grillés",
+          "icon": "🌙",
+          "cadmiumRisk": "low",
+          "note": "Pâte maison ou levain — éviter les pizzas industrielles"
+        }
+      }
+    },
+    {
+      "date": "2026-04-05",
+      "label": "Dimanche",
+      "meals": {
+        "breakfast": {
+          "name": "Brioche maison, beurre, confiture maison, lait chaud",
+          "icon": "🌅",
+          "cadmiumRisk": "low"
+        },
+        "lunch": {
+          "name": "Gigot d'agneau, flageolets, gratin dauphinois",
+          "icon": "🥗",
+          "cadmiumRisk": "low",
+          "note": "Repas dominical festif — flageolets : légumineuse douce"
+        },
+        "snack": {
+          "name": "Salade de fruits frais de saison",
+          "icon": "🍓",
+          "cadmiumRisk": "low"
+        },
+        "dinner": {
+          "name": "Velouté courgettes-chèvre, œuf mollet, pain levain",
+          "icon": "🌙",
+          "cadmiumRisk": "low"
+        }
+      }
+    }
+  ],
+  "shoppingList": [
+    {
+      "category": "Légumes & fruits",
+      "emoji": "🥦",
+      "items": [
+        { "name": "Haricots verts surgelés", "qty": "1kg", "price_discount": 2.20, "price_standard": 2.90, "price_bio": 4.50 },
+        { "name": "Carottes", "qty": "1kg", "price_discount": 0.90, "price_standard": 1.20, "price_bio": 2.20 },
+        { "name": "Brocolis", "qty": "500g", "price_discount": 1.40, "price_standard": 1.90, "price_bio": 3.20 },
+        { "name": "Courgettes", "qty": "3 pièces", "price_discount": 1.50, "price_standard": 2.10, "price_bio": 3.80 },
+        { "name": "Poireaux", "qty": "1 botte", "price_discount": 1.20, "price_standard": 1.60, "price_bio": 2.90 },
+        { "name": "Fenouil", "qty": "2 bulbes", "price_discount": 1.80, "price_standard": 2.50, "price_bio": 4.20 },
+        { "name": "Pommes de terre", "qty": "2kg", "price_discount": 2.10, "price_standard": 2.80, "price_bio": 4.90 },
+        { "name": "Poivrons (rouge + jaune)", "qty": "4 pièces", "price_discount": 2.40, "price_standard": 3.20, "price_bio": 5.60 },
+        { "name": "Tomates pelées (boîte)", "qty": "400g", "price_discount": 0.75, "price_standard": 0.95, "price_bio": 1.80 },
+        { "name": "Salade roquette", "qty": "150g", "price_discount": 1.20, "price_standard": 1.60, "price_bio": 2.80 },
+        { "name": "Bananes", "qty": "1kg", "price_discount": 1.30, "price_standard": 1.70, "price_bio": 2.90 },
+        { "name": "Pommes", "qty": "1.5kg", "price_discount": 2.40, "price_standard": 3.20, "price_bio": 5.50 },
+        { "name": "Poires", "qty": "1kg", "price_discount": 2.20, "price_standard": 2.90, "price_bio": 5.00 },
+        { "name": "Fraises", "qty": "500g", "price_discount": 3.50, "price_standard": 4.50, "price_bio": 7.20 },
+        { "name": "Clémentines", "qty": "1kg", "price_discount": 1.90, "price_standard": 2.50, "price_bio": 4.20 },
+        { "name": "Kiwis", "qty": "6 pièces", "price_discount": 2.10, "price_standard": 2.80, "price_bio": 4.60 },
+        { "name": "Raisins", "qty": "500g", "price_discount": 2.80, "price_standard": 3.80, "price_bio": 6.20 },
+        { "name": "Myrtilles", "qty": "250g", "price_discount": 2.90, "price_standard": 3.90, "price_bio": 6.50 }
+      ]
+    },
+    {
+      "category": "Viandes & poissons",
+      "emoji": "🐟",
+      "items": [
+        { "name": "Poulet entier (ou cuisses)", "qty": "1.5kg", "price_discount": 7.50, "price_standard": 9.80, "price_bio": 17.50 },
+        { "name": "Filet de saumon", "qty": "600g", "price_discount": 9.20, "price_standard": 12.50, "price_bio": 18.90 },
+        { "name": "Cabillaud (filet)", "qty": "500g", "price_discount": 7.80, "price_standard": 10.50, "price_bio": 15.80 },
+        { "name": "Escalopes de dinde", "qty": "4 pièces", "price_discount": 5.90, "price_standard": 7.80, "price_bio": 13.50 },
+        { "name": "Saucisses de volaille", "qty": "4 pièces", "price_discount": 3.80, "price_standard": 4.90, "price_bio": 8.50 },
+        { "name": "Lardons nature", "qty": "200g", "price_discount": 1.60, "price_standard": 2.10, "price_bio": 3.90 },
+        { "name": "Jambon blanc (4 tranches)", "qty": "200g", "price_discount": 2.50, "price_standard": 3.40, "price_bio": 6.20 },
+        { "name": "Gigot d'agneau", "qty": "1.2kg", "price_discount": 14.90, "price_standard": 19.50, "price_bio": 30.00 }
+      ]
+    },
+    {
+      "category": "Légumineuses & féculents",
+      "emoji": "🌾",
+      "items": [
+        { "name": "Lentilles corail", "qty": "500g", "price_discount": 1.80, "price_standard": 2.40, "price_bio": 4.20 },
+        { "name": "Pois chiches (boîte)", "qty": "2 × 400g", "price_discount": 1.60, "price_standard": 2.10, "price_bio": 3.80 },
+        { "name": "Haricots blancs (boîte)", "qty": "400g", "price_discount": 0.90, "price_standard": 1.20, "price_bio": 2.20 },
+        { "name": "Lentilles vertes", "qty": "500g", "price_discount": 1.70, "price_standard": 2.20, "price_bio": 3.90 },
+        { "name": "Flageolets (boîte)", "qty": "400g", "price_discount": 1.10, "price_standard": 1.50, "price_bio": 2.70 },
+        { "name": "Riz basmati", "qty": "1kg", "price_discount": 2.20, "price_standard": 2.90, "price_bio": 4.80 },
+        { "name": "Quinoa", "qty": "500g", "price_discount": 2.90, "price_standard": 3.80, "price_bio": 6.20 },
+        { "name": "Boulgour", "qty": "500g", "price_discount": 1.90, "price_standard": 2.50, "price_bio": 4.10 },
+        { "name": "Flocons d'avoine", "qty": "500g", "price_discount": 1.20, "price_standard": 1.60, "price_bio": 2.90 }
+      ]
+    },
+    {
+      "category": "Produits laitiers & œufs",
+      "emoji": "🥚",
+      "items": [
+        { "name": "Œufs", "qty": "12 pièces", "price_discount": 2.80, "price_standard": 3.80, "price_bio": 6.50 },
+        { "name": "Yaourts nature (pot verre)", "qty": "8 pots", "price_discount": 2.90, "price_standard": 3.90, "price_bio": 6.80 },
+        { "name": "Fromage blanc 0%", "qty": "500g", "price_discount": 1.50, "price_standard": 2.00, "price_bio": 3.60 },
+        { "name": "Beurre demi-sel", "qty": "250g", "price_discount": 2.50, "price_standard": 3.20, "price_bio": 5.50 },
+        { "name": "Lait demi-écrémé", "qty": "1L", "price_discount": 1.10, "price_standard": 1.40, "price_bio": 2.40 },
+        { "name": "Mozzarella", "qty": "125g", "price_discount": 1.20, "price_standard": 1.60, "price_bio": 2.90 },
+        { "name": "Chèvre frais", "qty": "150g", "price_discount": 1.90, "price_standard": 2.50, "price_bio": 4.20 },
+        { "name": "Crème fraîche épaisse", "qty": "200g", "price_discount": 1.40, "price_standard": 1.90, "price_bio": 3.40 }
+      ]
+    },
+    {
+      "category": "Épicerie",
+      "emoji": "🫙",
+      "items": [
+        { "name": "Pain levain (boulangerie)", "qty": "1 miche", "price_discount": 3.50, "price_standard": 4.50, "price_bio": 6.80 },
+        { "name": "Huile d'olive", "qty": "75cl", "price_discount": 4.90, "price_standard": 6.50, "price_bio": 10.80 },
+        { "name": "Miel", "qty": "250g", "price_discount": 3.20, "price_standard": 4.20, "price_bio": 7.50 },
+        { "name": "Graines de chia", "qty": "200g", "price_discount": 2.80, "price_standard": 3.70, "price_bio": 5.90 },
+        { "name": "Amandes nature", "qty": "200g", "price_discount": 3.50, "price_standard": 4.60, "price_bio": 7.80 },
+        { "name": "Cacahuètes non salées", "qty": "200g", "price_discount": 1.90, "price_standard": 2.50, "price_bio": 4.20 },
+        { "name": "Chocolat noir 70%", "qty": "100g", "price_discount": 1.50, "price_standard": 2.00, "price_bio": 3.50 },
+        { "name": "Confiture maison ou artisanale", "qty": "250g", "price_discount": 2.20, "price_standard": 2.90, "price_bio": 4.80 },
+        { "name": "Sirop d'érable", "qty": "250ml", "price_discount": 4.20, "price_standard": 5.50, "price_bio": 8.90 },
+        { "name": "Bouillon de légumes (cubes)", "qty": "8 cubes", "price_discount": 1.20, "price_standard": 1.60, "price_bio": 2.80 }
+      ]
+    }
+  ],
+  "cadmiumAlerts": {
+    "news": [
+      "ANSES 2026 : les céréales complètes industrielles (corn flakes, muesli sucré) restent la 1ère source d'exposition au cadmium chez les enfants de 3 à 10 ans. Préférer les flocons d'avoine nature.",
+      "Rappel EFSA : la dose hebdomadaire tolérable au cadmium est fixée à 2,5 µg/kg de poids corporel. Pour un enfant de 20 kg, cela représente 50 µg/semaine — seuil facilement dépassé avec une alimentation industrielle.",
+      "Étude INRAE 2025 : les légumineuses (lentilles, pois chiches, haricots) consommées régulièrement contribuent à réduire l'absorption intestinale du cadmium grâce à leur teneur en phytates et zinc."
+    ]
+  }
+}

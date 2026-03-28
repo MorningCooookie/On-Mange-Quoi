@@ -1,0 +1,16 @@
+{
+  "menus": [
+    {
+      "weekStart": "2026-03-30",
+      "weekEnd": "2026-04-05",
+      "file": "data/menus/2026-03-30.json",
+      "label": "Semaine du 30 mars 2026",
+      "highlights": [
+        "Saumon vapeur & quinoa",
+        "Cabillaud en papillote",
+        "Lentilles corail & pois chiches",
+        "Gigot d'agneau dominical"
+      ]
+    }
+  ]
+}
