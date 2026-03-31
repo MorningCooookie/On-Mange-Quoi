@@ -3,240 +3,257 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Table Saine — Menus familiaux anti-cadmium</title>
-  <meta name="description" content="Menus hebdomadaires familiaux anti-cadmium avec liste de courses et budget par enseigne.">
+  <title>On mange quoi ? — Menus familiaux sains</title>
+  <meta name="description" content="Menus hebdomadaires familiaux sains : anti-cadmium, anti-mercure, faibles pesticides. Liste de courses et budget par enseigne.">
+  <meta property="og:title" content="On mange quoi ? — Menus familiaux sains">
+  <meta property="og:description" content="Un menu validé chaque semaine selon les recommandations ANSES/EFSA, avec liste de courses et budget.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <!-- Favicon inline -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥗</text></svg>">
 </head>
 <body>
 
-  <!-- Skip link accessibilité clavier -->
-  <a href="#menu" class="skip-link">Aller au contenu principal</a>
+  <!-- Skip to content -->
+  <a class="skip-link" href="#main">Aller au contenu principal</a>
 
-  <!-- ── Header fixe ── -->
+  <!-- ── Header ─────────────────────────────────────────────── -->
   <header id="site-header">
     <div class="header-inner">
-      <a href="#" class="logo">
+      <a class="logo" href="#" aria-label="On mange quoi ? — accueil">
         <span class="logo-icon">🥗</span>
-        <span>Table Saine</span>
+        On mange quoi ?
       </a>
 
-      <div id="profile-selector" class="profile-selector" role="group" aria-label="Sélecteur de profil">
-        <!-- Injecté par app.js -->
-      </div>
+      <!-- Desktop nav -->
+      <nav class="header-nav" aria-label="Navigation principale">
+        <a class="nav-link" href="#menu">Menu</a>
+        <a class="nav-link" href="#courses">Courses</a>
+        <a class="nav-link" href="#historique">Historique</a>
+        <a class="nav-link" href="#cadmium">Veille santé</a>
+        <a class="nav-link" href="fiche.html">Fiche mémo</a>
+      </nav>
 
-      <div id="store-selector" class="store-selector" role="group" aria-label="Sélecteur d'enseigne">
-        <!-- Injecté par app.js -->
+      <!-- Desktop selectors -->
+      <div class="header-controls">
+        <div class="selector-group" id="profile-selector" role="group" aria-label="Sélecteur de profil"></div>
+        <div class="selector-group" id="store-selector" role="group" aria-label="Sélecteur d'enseigne"></div>
       </div>
     </div>
   </header>
 
-  <!-- ── Navigation ── -->
-  <nav id="site-nav" aria-label="Navigation principale">
-    <div class="nav-inner">
-      <a href="#menu"       class="nav-link active">📅 Menu semaine</a>
-      <a href="#courses"    class="nav-link">🛒 Liste de courses</a>
-      <a href="#historique" class="nav-link">📚 Historique</a>
-      <a href="#cadmium"    class="nav-link">⚠️ Veille cadmium</a>
-      <a href="#apropos"    class="nav-link">ℹ️ À propos</a>
+  <!-- ── Error screen ─────────────────────────────────────────── -->
+  <div id="error-screen" role="alert" aria-live="assertive">
+    <div class="error-card">
+      <h2>🚧 Serveur local requis</h2>
+      <p>Ce site charge ses données via des fichiers JSON.<br>
+         Il ne peut pas s'ouvrir en double-cliquant sur <code>index.html</code>.</p>
+      <p>Lancez un serveur local depuis le terminal :</p>
+      <div class="error-code">cd /chemin/vers/le/dossier
+python3 -m http.server 8000</div>
+      <p>Puis ouvrez <strong>http://localhost:8000</strong> dans votre navigateur.</p>
+      <p style="margin-top:.75rem">Pour une version partageble sans serveur, utilisez <a href="table-saine-preview.html">table-saine-preview.html</a>.</p>
     </div>
-  </nav>
+  </div>
 
-  <!-- ── Contenu principal ── -->
-  <main>
+  <!-- ── App content ──────────────────────────────────────────── -->
+  <div id="app-content">
+    <main id="main" class="app-container">
 
-    <!-- État de chargement -->
-    <div id="loading" class="loading-state">
-      <div class="spinner"></div>
-      <span>Chargement du menu…</span>
-    </div>
-
-    <div id="app-content" style="display:none;">
-
-      <!-- ══════════════════════════════════════════
-           Section 1 — Menu de la semaine
-      ══════════════════════════════════════════ -->
-      <section id="menu">
+      <!-- Menu 7 jours -->
+      <section class="section" id="menu" aria-labelledby="menu-heading">
         <div class="section-header">
-          <h2 class="section-title">Menu de la semaine</h2>
-          <span class="section-subtitle">7 jours · 4 repas · anti-cadmium</span>
+          <div class="section-header__left">
+            <h2 class="section-title" id="menu-heading">
+              <span class="section-title-icon">📅</span> Menu de la semaine
+            </h2>
+            <span id="score-badge-inline"></span>
+            <span id="score-date-inline" class="section-date"></span>
+          </div>
+          <button class="btn-semaine" id="btn-vue-semaine">Partager le menu</button>
         </div>
-
-        <!-- Légende risque cadmium -->
-        <div class="cad-legend">
-          <span>Risque cadmium :</span>
-          <span class="cad-legend-item">
-            <span class="cad-dot low"></span> Faible
-          </span>
-          <span class="cad-legend-item">
-            <span class="cad-dot medium"></span> Modéré
-          </span>
-          <span class="cad-legend-item">
-            <span class="cad-dot high"></span> Élevé
-          </span>
-        </div>
-
-        <!-- Bandeau menu historique -->
-        <div id="menu-history-banner" class="menu-history-banner" hidden>
+        <div class="score-highlights" id="score-highlights"></div>
+        <div id="menu-history-banner" hidden role="status">
+          <span>📚</span>
           <span id="menu-history-banner-text"></span>
-          <a href="#" id="menu-history-banner-link" class="menu-history-banner-link">Voir la semaine en cours →</a>
+          <button class="btn-view-current" id="btn-view-current">← Semaine en cours</button>
         </div>
-
-        <div id="week-grid" class="week-grid">
-          <!-- Injecté par app.js -->
-        </div>
-        <p class="swipe-hint" aria-hidden="true">← Glisse pour voir tous les jours →</p>
+        <div class="week-grid" id="week-grid" role="list" aria-label="Grille des 7 jours"></div>
+        <p class="swipe-hint" id="swipe-hint" aria-hidden="true">← Glisse pour voir les 7 jours →</p>
       </section>
 
-      <!-- ══════════════════════════════════════════
-           Section 2 — Liste de courses + Budget
-      ══════════════════════════════════════════ -->
-      <section id="courses">
-        <div class="section-header">
-          <h2 class="section-title">Liste de courses</h2>
-          <span class="section-subtitle">Prix mis à jour selon l'enseigne choisie</span>
-        </div>
+      <!-- Courses + Budget -->
+      <section class="section" id="courses" aria-labelledby="courses-heading">
+        <h2 class="section-title" id="courses-heading">
+          <span class="section-title-icon">🛒</span> Liste de courses &amp; budget
+        </h2>
 
-        <!-- Titre pour impression -->
-        <span class="print-title">🛒 Table Saine — Liste de courses</span>
+        <div class="courses-layout">
 
-        <div class="shopping-actions">
-          <button id="btn-copy" class="btn btn-primary">
-            📋 Copier en texte
-          </button>
-          <button id="btn-print" class="btn btn-secondary">
-            🖨️ Imprimer
-          </button>
-        </div>
+          <!-- Shopping list -->
+          <div class="shopping-panel">
+            <div class="shopping-toolbar">
+              <div class="shopping-toolbar-title">🛒 Liste de la semaine</div>
+              <div class="shopping-actions">
+                <button class="btn-action btn-fridge" id="btn-fridge" title="Mode frigo vide" aria-pressed="false">
+                  🧊 Frigo vide
+                  <span class="fridge-badge" aria-label="articles déjà disponibles">0</span>
+                </button>
+                <button class="btn-action" id="btn-copy" title="Copier la liste (WhatsApp, SMS…)">
+                  📋 Copier
+                </button>
+                <button class="btn-action" id="btn-print" title="Imprimer la liste de courses">
+                  🖨️ Imprimer
+                </button>
+              </div>
+            </div>
 
-        <div class="shopping-layout">
-          <!-- Liste par catégorie -->
-          <div id="shopping-list">
-            <!-- Injecté par app.js -->
+            <!-- Fridge bar -->
+            <div id="fridge-bar" hidden role="status" aria-live="polite">
+              <span class="fridge-bar-text"></span>
+              <button class="btn-fridge-reset" id="btn-fridge-reset">Réinitialiser</button>
+            </div>
+
+            <!-- Items -->
+            <div id="shopping-list" aria-label="Liste de courses par catégorie"></div>
           </div>
 
-          <!-- Panneau budget -->
-          <aside class="budget-panel" aria-label="Récapitulatif budget">
-            <div class="budget-panel-title">💰 Budget estimé</div>
+          <!-- Budget panel -->
+          <aside class="budget-panel" aria-label="Budget estimé">
+            <div class="budget-header">💰 Budget estimé</div>
 
-            <!-- Cards par enseigne -->
-            <div id="budget-store-cards" class="budget-stores">
-              <!-- Injecté par app.js -->
+            <div class="budget-total-block">
+              <div class="budget-total-amount" id="budget-total">—</div>
+              <div class="budget-total-label">Total semaine (enseigne sélectionnée)</div>
             </div>
 
-            <!-- Barres comparatives -->
-            <div id="budget-bars" class="budget-bars">
-              <!-- Injecté par app.js -->
+            <div class="budget-sub-grid">
+              <div class="budget-sub-item">
+                <div class="budget-sub-val" id="budget-per-day">—</div>
+                <div class="budget-sub-label">Par jour</div>
+              </div>
+              <div class="budget-sub-item">
+                <div class="budget-sub-val" id="budget-per-person">—</div>
+                <div class="budget-sub-label">Par personne</div>
+              </div>
+              <div class="budget-sub-item">
+                <div class="budget-sub-val" id="budget-per-person-day">—</div>
+                <div class="budget-sub-label">Pers. / jour</div>
+              </div>
+              <div class="budget-sub-item">
+                <div class="budget-sub-val" id="budget-persons">—</div>
+                <div class="budget-sub-label">Personnes</div>
+              </div>
             </div>
 
-            <!-- Stats -->
-            <div class="budget-stats">
-              <div class="budget-stat">
-                <div class="budget-stat-value" id="budget-total">—</div>
-                <div class="budget-stat-label">Total semaine</div>
-              </div>
-              <div class="budget-stat">
-                <div class="budget-stat-value" id="budget-per-day">—</div>
-                <div class="budget-stat-label">Par jour</div>
-              </div>
-              <div class="budget-stat">
-                <div class="budget-stat-value" id="budget-per-person">—</div>
-                <div class="budget-stat-label">Par personne</div>
-              </div>
-              <div class="budget-stat">
-                <div class="budget-stat-value" id="budget-per-person-day">—</div>
-                <div class="budget-stat-label">Par pers. / jour</div>
-              </div>
+            <div class="budget-stores" aria-label="Comparaison par enseigne">
+              <div class="budget-stores-title">Comparaison enseignes</div>
+              <div id="budget-bars"></div>
             </div>
+
+            <div class="price-freshness" id="price-freshness" aria-live="polite"></div>
+
+            <div id="budget-store-cards" role="group" aria-label="Choisir une enseigne"></div>
+
+            <div id="budget-fridge-savings" hidden
+                 style="padding:.55rem 1.1rem; font-size:.8rem; color:#1E40AF; background:#EFF6FF; border-top:1px solid #BFDBFE;"
+                 aria-live="polite"></div>
           </aside>
         </div>
       </section>
 
-      <!-- ══════════════════════════════════════════
-           Section 3 — Historique des menus
-      ══════════════════════════════════════════ -->
-      <section id="historique">
-        <div class="section-header">
-          <h2 class="section-title">Historique des menus</h2>
-          <span class="section-subtitle">Semaines précédentes</span>
-        </div>
-
-        <div id="history-grid" class="history-grid">
-          <!-- Injecté par app.js -->
-        </div>
+      <!-- Historique -->
+      <section class="section" id="historique" aria-labelledby="history-heading">
+        <h2 class="section-title" id="history-heading">
+          <span class="section-title-icon">📚</span> Semaines précédentes
+        </h2>
+        <div class="history-grid" id="history-grid" role="list"></div>
       </section>
 
-      <!-- ══════════════════════════════════════════
-           Section 4 — Veille cadmium
-      ══════════════════════════════════════════ -->
-      <section id="cadmium">
-        <div class="section-header">
-          <div class="cadmium-icon">⚠️</div>
-          <div>
-            <h2 class="section-title">Veille cadmium</h2>
-            <span class="section-subtitle">Actualités ANSES · EFSA · INRAE</span>
-          </div>
-        </div>
-
-        <div id="cadmium-news" class="cadmium-news-list">
-          <!-- Injecté par app.js -->
-        </div>
+      <!-- Veille santé -->
+      <section class="section" id="cadmium" aria-labelledby="health-heading">
+        <h2 class="section-title" id="health-heading">
+          <span>🔬</span> Veille santé alimentaire
+        </h2>
+        <div class="health-news-grid" id="health-news" aria-live="polite"></div>
+        <p class="health-sources">
+          Sources : <a href="https://www.anses.fr" target="_blank" rel="noopener">ANSES</a> ·
+          <a href="https://www.efsa.europa.eu" target="_blank" rel="noopener">EFSA</a> ·
+          <a href="https://www.generations-futures.fr" target="_blank" rel="noopener">Générations Futures</a> ·
+          <a href="https://inrae.fr" target="_blank" rel="noopener">INRAE</a>
+        </p>
       </section>
 
-      <!-- ══════════════════════════════════════════
-           Section 5 — À propos
-      ══════════════════════════════════════════ -->
-      <section id="apropos">
-        <div class="section-header">
-          <h2 class="section-title">À propos de Table Saine</h2>
-        </div>
-
-        <div class="apropos-grid">
-          <div class="apropos-card">
-            <div class="apropos-card-icon">🎯</div>
-            <div class="apropos-card-title">Objectif</div>
-            <div class="apropos-card-text">
-              Réduire l'exposition au cadmium alimentaire de la famille en proposant chaque semaine des menus équilibrés, savoureux et faciles à préparer.
-            </div>
+      <!-- À propos -->
+      <section class="section" id="apropos" aria-labelledby="about-heading">
+        <h2 class="section-title" id="about-heading">
+          <span>ℹ️</span> À propos
+        </h2>
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>🎯 L'objectif</h3>
+            <p>Des menus hebdomadaires familiaux validés selon les recommandations ANSES et EFSA — anti-cadmium, anti-mercure, faibles pesticides.</p>
           </div>
-          <div class="apropos-card">
-            <div class="apropos-card-icon">🔬</div>
-            <div class="apropos-card-title">Cadmium, c'est quoi ?</div>
-            <div class="apropos-card-text">
-              Métal lourd présent naturellement dans les sols. Il s'accumule dans certains aliments (céréales industrielles, abats, crustacés). L'exposition chronique est néfaste pour les reins.
-            </div>
+          <div class="about-card">
+            <h3>💡 Le score santé</h3>
+            <p><strong>A</strong> : 0 repas à risque élevé, max 2 modérés, bonne diversité protéinée et au moins 1 légumineuse.<br>
+               <strong>B</strong> : 1 à 3 repas modérés.<br>
+               <strong>C</strong> : risque élevé présent.</p>
           </div>
-          <div class="apropos-card">
-            <div class="apropos-card-icon">✅</div>
-            <div class="apropos-card-title">Règles anti-cadmium</div>
-            <div class="apropos-card-text">
-              Max 2× pâtes/semaine · Max 4× pommes de terre · Légumineuses 4-5×/semaine · Poisson 2-3×/semaine · Pas de céréales industrielles au petit-déjeuner · Fruit frais au goûter.
-            </div>
+          <div class="about-card">
+            <h3>🧊 Frigo vide</h3>
+            <p>Activez "Frigo vide", cochez les articles déjà dans votre frigo — ils seront soustraits du total en temps réel.</p>
           </div>
-          <div class="apropos-card">
-            <div class="apropos-card-icon">💻</div>
-            <div class="apropos-card-title">Technologie</div>
-            <div class="apropos-card-text">
-              Site statique HTML/CSS/JS vanilla. Aucune dépendance externe. Hébergeable gratuitement sur GitHub Pages ou Netlify. Données dans des fichiers JSON simples à éditer.
-            </div>
+          <div class="about-card">
+            <h3>🍂 Saison</h3>
+            <p>Les badges 🌸☀️🍂❄️ indiquent les repas et ingrédients de saison, détectés automatiquement selon la date du jour.</p>
+          </div>
+          <div class="about-card">
+            <h3>⏱ Temps de prépa</h3>
+            <p>Badge vert (≤ 10 min) · jaune (≤ 25 min) · rouge (> 25 min) sur chaque repas.</p>
+          </div>
+          <div class="about-card">
+            <h3>📄 Fiche mémo</h3>
+            <p>La <a href="fiche.html">fiche mémo partageable</a> résume les aliments à limiter et à privilégier pour les 4 contaminants.</p>
           </div>
         </div>
       </section>
 
-    </div><!-- /app-content -->
-  </main>
+    </main>
 
-  <footer>
-    <p>Table Saine · Site familial · Données basées sur ANSES, EFSA et INRAE · Mis à jour chaque semaine</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+      <p>🥗 <strong>On mange quoi ?</strong> · Menus familiaux sains · Données ANSES / EFSA / Générations Futures</p>
+      <p style="margin-top:.3rem">Aucune donnée personnelle collectée · <a href="fiche.html">Fiche mémo</a></p>
+    </footer>
+  </div>
 
-  <!-- Bottom bar mobile (profil + enseigne) -->
-  <nav id="bottom-bar" class="bottom-bar" aria-label="Sélecteurs mobile">
-    <div id="profile-selector-bottom" class="profile-selector" role="group" aria-label="Sélecteur de profil"></div>
-    <div id="store-selector-bottom" class="store-selector" role="group" aria-label="Sélecteur d'enseigne"></div>
-  </nav>
+  <!-- ── Mobile bottom bar ─────────────────────────────────── -->
+  <div class="bottom-bar" aria-label="Navigation mobile">
+    <!-- Row 1 : profiles + stores on one line -->
+    <div class="bottom-bar-row bottom-bar-row--selectors">
+      <div class="selector-group" id="profile-selector-mobile" role="group" aria-label="Profil"></div>
+      <span class="bottom-bar-sep" aria-hidden="true"></span>
+      <div class="selector-group" id="store-selector-mobile" role="group" aria-label="Enseigne"></div>
+    </div>
+    <!-- Row 2 : nav links -->
+    <nav class="bottom-nav-row" aria-label="Navigation rapide">
+      <a class="bottom-nav-link nav-link" href="#menu"><span class="nav-icon">📅</span>Menu</a>
+      <a class="bottom-nav-link nav-link" href="#courses"><span class="nav-icon">🛒</span>Courses</a>
+      <a class="bottom-nav-link nav-link" href="#historique"><span class="nav-icon">📚</span>Historique</a>
+      <a class="bottom-nav-link nav-link" href="#cadmium"><span class="nav-icon">🔬</span>Veille</a>
+      <a class="bottom-nav-link" href="fiche.html"><span class="nav-icon">📄</span>Fiche</a>
+    </nav>
+  </div>
 
-  <!-- Toast notification -->
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <!-- Print frigo overlay (populated by JS) -->
+  <div id="print-frigo-overlay" aria-hidden="true"></div>
+
+  <!-- Toast notifications -->
+  <div id="toast" role="status" aria-live="polite"></div>
 
   <script src="app.js"></script>
 </body>

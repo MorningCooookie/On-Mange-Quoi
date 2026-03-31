@@ -1,0 +1,215 @@
+/* ============================================================
+   SEMAINE.CSS — Vue semaine partageable
+   Mobile-first · Pensé pour screenshot / partage
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green: #1B4332;
+  --green-light: #40916C;
+  --bg: #FFFFFF;
+  --card-bg: #FAF7F2;
+  --border: #E5E0D8;
+  --text: #1A1A1A;
+  --text-muted: #6B7280;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Work Sans', system-ui, sans-serif;
+  --score-a: #1B4332;
+  --score-b: #1E3A5F;
+  --score-c: #92400E;
+}
+
+html { font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+.semaine-header {
+  background: linear-gradient(135deg, var(--green), var(--green-light));
+  color: #fff;
+  padding: .75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+}
+
+.semaine-logo {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+
+.semaine-score {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .2rem .65rem .2rem .4rem;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 600;
+  background: rgba(255,255,255,.15);
+  color: #fff;
+}
+
+.semaine-score__letter {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #52B788;
+  line-height: 1;
+}
+
+/* ── Main container ─────────────────────────────────────── */
+.semaine-main {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 2rem;
+}
+
+/* ── Date ───────────────────────────────────────────────── */
+.semaine-date {
+  font-size: .82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* ── Day grid ───────────────────────────────────────────── */
+.semaine-grid {
+  display: flex;
+  flex-direction: column;
+  gap: .65rem;
+  margin-bottom: 1.5rem;
+}
+
+.semaine-loading {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: .9rem;
+  padding: 2rem;
+}
+
+/* ── Day card ───────────────────────────────────────────── */
+.semaine-day-card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.semaine-day-header {
+  background: var(--green);
+  color: #fff;
+  padding: .45rem .85rem;
+}
+
+.semaine-day-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.semaine-day-date {
+  font-size: .72rem;
+  color: rgba(255,255,255,.7);
+  margin-left: .5rem;
+}
+
+.semaine-day-meals {
+  padding: .25rem 0;
+}
+
+/* ── Meal row ───────────────────────────────────────────── */
+.semaine-meal-row {
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+  padding: .35rem .85rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.semaine-meal-row:last-child {
+  border-bottom: none;
+}
+
+.semaine-meal-icon {
+  font-size: .9rem;
+  flex-shrink: 0;
+  margin-top: .05rem;
+  width: 1.3em;
+  text-align: center;
+}
+
+.semaine-meal-info { flex: 1; min-width: 0; }
+
+.semaine-meal-type {
+  font-size: .65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--text-muted);
+  margin-bottom: .06rem;
+}
+
+.semaine-meal-name {
+  font-size: .85rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+/* ── Footer ─────────────────────────────────────────────── */
+.semaine-footer {
+  text-align: center;
+  font-size: .72rem;
+  color: var(--text-muted);
+  padding: .75rem 0 0;
+  border-top: 1px solid var(--border);
+  margin-bottom: 1.25rem;
+}
+
+/* ── Actions ────────────────────────────────────────────── */
+.semaine-actions {
+  display: flex;
+  gap: .65rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.semaine-btn {
+  font-family: var(--font-body);
+  font-size: .83rem;
+  font-weight: 600;
+  padding: .5rem 1.1rem;
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 150ms;
+}
+
+.semaine-btn:hover { background: var(--card-bg); }
+
+.semaine-btn--share {
+  background: var(--green);
+  color: #fff;
+  border-color: transparent;
+}
+
+.semaine-btn--share:hover { background: var(--green-light); }
+
+/* ── Error state ────────────────────────────────────────── */
+.semaine-error {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: .9rem;
+  padding: 2.5rem 1rem;
+}

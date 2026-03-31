@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu de la semaine — On mange quoi ?</title>
+  <meta name="description" content="Menu hebdomadaire familial sain — On mange quoi ?">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥗</text></svg>">
+  <link rel="stylesheet" href="semaine.css">
+</head>
+<body>
+
+  <header class="semaine-header">
+    <span class="semaine-logo">🥗 On mange quoi ?</span>
+    <span class="semaine-score" id="semaine-score"></span>
+  </header>
+
+  <main class="semaine-main">
+    <div class="semaine-date" id="semaine-date"></div>
+
+    <div class="semaine-grid" id="semaine-grid">
+      <div class="semaine-loading">Chargement du menu…</div>
+    </div>
+
+    <footer class="semaine-footer">
+      onmangequoi.eu · Menu complet, liste de courses et budget sur le site
+    </footer>
+
+    <div class="semaine-actions">
+      <button class="semaine-btn semaine-btn--back" onclick="window.history.back()">← Retour</button>
+      <button class="semaine-btn semaine-btn--share" id="btn-partager">Partager ce lien</button>
+    </div>
+  </main>
+
+  <script src="semaine.js"></script>
+</body>
+</html>

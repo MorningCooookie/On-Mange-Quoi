@@ -1,143 +1,143 @@
-# Table Saine 🥗
+# 🥗 On mange quoi ?
 
-Site web statique familial affichant des menus hebdomadaires anti-cadmium avec liste de courses et budget par enseigne.
+Site web statique familial — menus hebdomadaires sains avec liste de courses, budget par enseigne, score santé, mode frigo vide et fiche mémo partageable.
 
 ---
 
-## Lancer le site en local
+## Structure des fichiers
 
-Le site utilise `fetch()` pour charger les fichiers JSON, ce qui nécessite un serveur HTTP (même minimal) :
+```
+/
+├── index.html              ← Page principale
+├── fiche.html              ← Fiche mémo partageable (imprimable / Web Share API)
+├── styles.css              ← Styles (mobile-first, pas de dépendances)
+├── app.js                  ← Logique (Vanilla JS, fetch JSON)
+├── data/
+│   ├── config.json         ← Enseignes, profils, date de mise à jour des prix
+│   ├── history.json        ← Historique des semaines
+│   └── menus/
+│       └── 2026-03-30.json ← Menu 7 jours × 4 repas
+└── table-saine-preview.html ← Version standalone (sans serveur)
+```
+
+---
+
+## Lancer en local
+
+Ce site utilise `fetch()` pour charger les fichiers JSON — il requiert un serveur HTTP local :
 
 ```bash
 # Python 3
-python3 -m http.server 8080
+cd /chemin/vers/le/dossier
+python3 -m http.server 8000
+# → http://localhost:8000
 
-# Node.js (si installé)
+# Node.js (npx)
 npx serve .
-
-# PHP
-php -S localhost:8080
+# → http://localhost:3000
 ```
 
-Puis ouvrir `http://localhost:8080` dans le navigateur.
-
-> **Attention :** ouvrir `index.html` directement via `file://` bloque les requêtes fetch sur certains navigateurs (Chrome notamment). Firefox l'autorise souvent.
+> **Version sans serveur** : ouvrez `table-saine-preview.html` directement dans le navigateur — toutes les données sont embarquées.
 
 ---
 
 ## Déployer sur GitHub Pages
 
-1. Créer un dépôt GitHub (ex. `table-saine`)
-2. Pousser tous les fichiers à la racine du dépôt
-3. Dans les Settings du dépôt → Pages → Source : `main` / `root`
-4. Le site sera disponible sur `https://votre-pseudo.github.io/table-saine/`
+1. Créez un dépôt GitHub public
+2. Poussez ce dossier à la racine
+3. Dans les réglages du dépôt → *Pages* → Source : **main branch / root**
+4. Votre site sera disponible sur `https://votre-pseudo.github.io/nom-du-repo/`
+
+```bash
+git init
+git add .
+git commit -m "Initial commit — On mange quoi ?"
+git remote add origin https://github.com/VOTRE_PSEUDO/NOM_REPO.git
+git push -u origin main
+```
 
 ---
 
 ## Ajouter un nouveau menu
 
-### 1. Créer le fichier JSON du menu
+1. Créez `data/menus/YYYY-MM-DD.json` en suivant le format existant
+2. Ajoutez une entrée dans `data/history.json` pointant vers ce fichier
+3. Dans `app.js`, mettez à jour l'URL fetch dans `loadData()` :
+   ```js
+   fetch('data/menus/2026-04-06.json')
+   ```
 
-Dupliquer `data/menus/2026-03-30.json` et le renommer avec la date du lundi de la semaine :
-
-```
-data/menus/2026-04-06.json
-```
-
-Modifier les champs :
-- `weekStart` et `weekEnd`
-- `days[]` : 7 jours × 4 repas
-- `shoppingList[]` : items par catégorie avec prix
-- `cadmiumAlerts.news[]` : actualités de la semaine
-
-### 2. Mettre à jour history.json
-
-Ajouter une entrée **en tête de liste** dans `data/history.json` :
+### Format d'un repas
 
 ```json
 {
-  "weekStart": "2026-04-06",
-  "weekEnd": "2026-04-12",
-  "file": "data/menus/2026-04-06.json",
-  "label": "Semaine du 6 avril 2026",
-  "highlights": [
-    "Plat vedette 1",
-    "Plat vedette 2",
-    "Plat vedette 3"
-  ]
+  "name": "Sardines grillées, haricots verts, riz basmati",
+  "icon": "🥗",
+  "riskLevel": "low",
+  "riskType": null,
+  "prepTime": "20",
+  "isSeasonal": false,
+  "note": "Sardines fraîches ou en boîte — faible teneur en mercure"
 }
 ```
 
-Le site charge automatiquement le premier menu de la liste comme menu en cours.
+- `riskLevel` : `"low"` | `"medium"` | `"high"`
+- `riskType` : `null` | `"cadmium"` | `"mercury"` | `"pesticides"` | `"elevage"`
+- `prepTime` : durée en minutes (string)
+- `isSeasonal` : badge 🌸☀️🍂❄️ affiché si `true`
+
+### Score santé
+
+| Score | Critères |
+|-------|---------|
+| **A** | 0 repas `high`, max 2 `medium`, diversité protéines, ≥ 1 légumineuse |
+| **B** | 1–3 repas `medium`, rotation respectée |
+| **C** | Repas `high` présents ou rotation non respectée |
 
 ---
 
-## Structure des données
+## Modifier les prix
 
-### `data/config.json`
-
-Contient deux objets :
-
-- **`stores`** : les 3 types d'enseignes (discount, standard, bio) avec leur multiplicateur de prix
-- **`profiles`** : les 4 profils familiaux avec leur multiplicateur de quantité
-
-### `data/menus/YYYY-MM-DD.json`
-
-Structure d'un menu hebdomadaire :
-
-```json
-{
-  "weekStart": "YYYY-MM-DD",
-  "weekEnd": "YYYY-MM-DD",
-  "profile": "famille_jeunes_enfants",
-  "days": [ /* 7 jours */ ],
-  "shoppingList": [ /* catégories */ ],
-  "cadmiumAlerts": { "news": [] }
-}
-```
-
-#### Niveaux de risque cadmium (`cadmiumRisk`)
-
-| Valeur | Couleur | Exemples |
-|--------|---------|----------|
-| `low` | Vert | Fruits, légumes frais, viandes blanches, poissons blancs |
-| `medium` | Jaune | Chocolat noir, céréales complètes artisanales |
-| `high` | Rouge | Abats, crustacés, céréales industrielles |
-
-#### Prix dans `shoppingList`
-
-Chaque item doit avoir 3 prix de base (pour 4 personnes, profil famille) :
-
-```json
-{
-  "name": "Haricots verts",
-  "qty": "500g",
-  "price_discount": 1.20,
-  "price_standard": 1.60,
-  "price_bio": 2.80
-}
-```
-
-L'app applique automatiquement le multiplicateur de profil (0.32 pour solo, 0.6 pour couple, 1.0 pour famille enfants, 1.15 pour famille ados).
+Éditez `data/config.json` → chaque item du menu JSON a `price_discount`, `price_standard`, `price_bio`.
+Mettez à jour `pricesLastUpdated` au format `YYYY-MM-DD` — l'indicateur de fraîcheur s'affiche automatiquement.
 
 ---
 
-## Modifier les prix de référence
+## Mode Frigo vide
 
-Éditer `data/config.json` → section `stores` → ajuster les `multiplier` si les écarts de prix entre enseignes changent.
-
-Pour ajuster les prix de base des articles, éditer directement les fichiers JSON de menus (`price_discount`, `price_standard`, `price_bio`).
+- Bouton **🧊 Frigo vide** dans la section courses
+- Mode **OFF** : cases à cocher classiques (articles achetés)
+- Mode **ON** : cochez les articles déjà dans votre frigo → soustraits du total en temps réel
+- L'état est sauvegardé dans `localStorage` (clé `omq_fridge_items`)
+- "Réinitialiser" efface toutes les cases frigo
 
 ---
 
-## Règles anti-cadmium appliquées aux menus
+## Fiche mémo partageable
 
-- **Max 2×** pâtes industrielles par semaine
-- **Max 3-4×** pommes de terre
-- **Légumineuses 4-5×/semaine** (lentilles, pois chiches, haricots)
-- **Poisson 2-3×/semaine** (poissons blancs préférés)
-- **Pas de céréales industrielles** au petit-déjeuner (flocons d'avoine nature OK)
-- **Fruit frais** au goûter chaque jour
-- **Chocolat noir** : occasionnel (teneur en cadmium modérée)
+`fiche.html` est une page autonome listant les aliments à limiter et à privilégier pour les 4 contaminants (cadmium, mercure, pesticides, élevage).
 
-Sources : ANSES, EFSA, INRAE.
+- **Imprimer** : `window.print()` → format A5 paysage, conçu pour être plastifié sur le frigo
+- **Partager** : Web Share API natif (iOS, Android) — fallback copie du lien
+
+---
+
+## Imprimer le planning frigo
+
+Bouton **🖨️ Coller sur le frigo** dans la section Score santé → impression A4 paysage avec les 7 jours × 4 repas en grandes colonnes lisibles à distance.
+
+---
+
+## Sources scientifiques
+
+- [ANSES](https://www.anses.fr) — Agence nationale de sécurité sanitaire
+- [EFSA](https://www.efsa.europa.eu) — Autorité européenne de sécurité des aliments
+- [Générations Futures](https://www.generations-futures.fr) — Rapports pesticides
+- [INRAE](https://inrae.fr) — Institut national de recherche pour l'agriculture
+- [BLOOM](https://bloomassociation.org) — Association de protection des océans
+
+---
+
+## Licence
+
+Usage personnel et familial. Données nutritionnelles à titre indicatif — consultez un professionnel de santé pour des besoins spécifiques.

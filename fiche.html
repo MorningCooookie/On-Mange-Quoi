@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiche mémo — Aliments à limiter & à privilégier</title>
+  <meta name="description" content="Fiche mémo partageable : aliments à limiter et à privilégier pour le cadmium, mercure, pesticides et élevage intensif.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
+  <style>
+    /* ── Fiche-specific overrides ── */
+    body { background: #fff; }
+    .fiche-page { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+    #fiche-site-header {
+      background: linear-gradient(135deg, #1B4332, #40916C);
+      color: #fff; padding: .6rem 1.25rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    #fiche-site-header a { color: rgba(255,255,255,.8); font-size: .85rem; text-decoration: none; }
+    #fiche-site-header a:hover { color: #fff; text-decoration: underline; }
+    #fiche-site-header strong { font-weight: 700; font-size: .95rem; display: flex; align-items: center; gap: .35rem; }
+
+    /* Two-col grid */
+    .fiche-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.25rem; }
+    @media (max-width: 600px) { .fiche-grid { grid-template-columns: 1fr; } }
+
+    .fiche-col-title {
+      font-size: 1rem; font-weight: 800; padding: .5rem .85rem;
+      border-radius: 8px; text-align: center; margin-bottom: 1rem;
+    }
+    .fiche-col-title.limit  { background: #FEE2E2; color: #7F1D1D; }
+    .fiche-col-title.prefer { background: #DCFCE7; color: #14532D; }
+
+    /* Contaminant section */
+    .fiche-section { margin-bottom: 1.1rem; }
+    .fiche-section-title {
+      font-size: .72rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: .08em; padding: .2rem .45rem;
+      border-radius: 4px; display: inline-block; margin-bottom: .45rem;
+    }
+    .fiche-section-title.cadmium     { background: #DBEAFE; color: #1E3A5F; }
+    .fiche-section-title.mercury     { background: #FEE2E2; color: #7F1D1D; }
+    .fiche-section-title.pesticides  { background: #FEF9C3; color: #713F12; }
+    .fiche-section-title.elevage     { background: #FFEDD5; color: #7C2D12; }
+
+    /* Rows */
+    .fiche-row {
+      display: flex; align-items: flex-start; gap: .55rem;
+      padding: .3rem 0; border-bottom: 1px dashed #E5E0D8; font-size: .81rem;
+    }
+    .fiche-row:last-child { border-bottom: none; }
+    .fiche-row-item { font-weight: 600; min-width: 130px; flex-shrink: 0; }
+    .fiche-row-detail { color: #6B7280; font-size: .76rem; line-height: 1.4; }
+    .fiche-row-limit {
+      display: block; margin-top: .15rem;
+      color: #EF4444; font-weight: 500; font-size: .73rem;
+    }
+    /* Green rows for "à privilégier" */
+    .prefer-row {
+      display: flex; align-items: flex-start; gap: .5rem;
+      padding: .3rem 0; border-bottom: 1px dashed #D1FAE5; font-size: .81rem;
+    }
+    .prefer-row:last-child { border-bottom: none; }
+    .prefer-row::before { content: '✓'; color: #16A34A; font-weight: 900; flex-shrink: 0; margin-top: .05rem; }
+    .prefer-row-text { line-height: 1.4; }
+    .prefer-row-text strong { color: #14532D; }
+
+    /* Share / print buttons */
+    .fiche-actions {
+      display: flex; gap: .75rem; justify-content: center;
+      margin-top: 1.5rem; flex-wrap: wrap;
+    }
+    .fiche-btn {
+      display: flex; align-items: center; gap: .4rem;
+      padding: .6rem 1.2rem; border-radius: 8px;
+      font-size: .88rem; font-weight: 600; cursor: pointer;
+      transition: all .15s; border: none; text-decoration: none;
+    }
+    .fiche-btn.primary { background: #1B4332; color: #fff; }
+    .fiche-btn.primary:hover { background: #40916C; }
+    .fiche-btn.secondary { background: #F7F3EE; border: 1px solid #E5E0D8; color: #1A1A1A; }
+    .fiche-btn.secondary:hover { background: #E5E0D8; }
+
+    .fiche-header { text-align: center; margin-bottom: 1rem; }
+    .fiche-header h1 { font-size: 1.55rem; font-weight: 900; color: #1B4332; }
+    .fiche-header p { font-size: .82rem; color: #6B7280; margin-top: .3rem; }
+
+    .fiche-legend {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+      margin-top: .6rem; font-size: .75rem; color: #6B7280;
+    }
+    .legend-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: .25rem; vertical-align: middle; }
+
+    @media print {
+      #fiche-site-header, .fiche-actions { display: none !important; }
+      body { background: white; }
+      .fiche-page { padding: .5cm; max-width: 100%; }
+      @page { size: A5 landscape; margin: .5cm; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mini header -->
+  <header id="fiche-site-header">
+    <strong>🥗 On mange quoi ?</strong>
+    <a href="index.html">← Retour au menu</a>
+  </header>
+
+  <div class="fiche-page">
+
+    <div class="fiche-header">
+      <h1>📄 Fiche mémo — Alimentation saine</h1>
+      <p>Synthèse des recommandations ANSES · EFSA · Générations Futures</p>
+      <div class="fiche-legend">
+        <span><span class="legend-dot" style="background:#1E3A5F"></span>🔵 Cadmium</span>
+        <span><span class="legend-dot" style="background:#7F1D1D"></span>🔴 Mercure</span>
+        <span><span class="legend-dot" style="background:#713F12"></span>🟡 Pesticides</span>
+        <span><span class="legend-dot" style="background:#7C2D12"></span>🟠 Élevage intensif</span>
+      </div>
+    </div>
+
+    <div class="fiche-grid">
+
+      <!-- ── Colonne gauche : À limiter ── -->
+      <div class="fiche-col-left">
+        <div class="fiche-col-title limit">⚠️ À limiter ou éviter</div>
+
+        <!-- CADMIUM -->
+        <div class="fiche-section">
+          <span class="fiche-section-title cadmium">🔵 Cadmium</span>
+          <div class="fiche-row">
+            <span class="fiche-row-item">Céréales industrielles</span>
+            <span class="fiche-row-detail">Corn flakes, muesli sucré, céréales petit-déj.
+              <span class="fiche-row-limit">Éviter pour les enfants — préférer flocons d'avoine nature</span>
+            </span>
+          </div>
+          <div class="fiche-row">
+            <span class="fiche-row-item">Pâtes</span>
+            <span class="fiche-row-detail">Complètes industrielles surtout.
+              <span class="fiche-row-limit">Max 2× par semaine</span>
+            </span>
+          </div>
+          <div class="fiche-row">
+            <span class="fiche-row-item">Pain (tous types)</span>
+            <span class="fiche-row-detail">Le blé est une source majeure de cadmium — 20–30 % de l'exposition adulte. Pain complet industriel en tête, mais pain de campagne et brioche aussi concernés.
+              <span class="fiche-row-limit">Préférer pain au levain · max 2 tranches/jour enfants</span>
+            </span>
+          </div>
+          <div class="fiche-row">
+            <span class="fiche-row-item">Pommes de terre</span>
+            <span class="fiche-row-detail">Principale source cadmium chez l'adulte.
+              <span class="fiche-row-limit">Max 3–4× par semaine</span>
+            </span>
+          </div>
+          <div class="fiche-row">
+            <span class="fiche-row-item">Abats</span>
+            <span class="fiche-row-detail">Foie, rognons — concentration élevée.
+              <span class="fiche-row-limit">À éviter pour les enfants</span>
+            </span>
+          </div>
+          <div class="fiche-row">
+            <span class="fiche-row-item">Chocolat noir</span>
+            <span class="fiche-row-detail">Teneur modérée en cadmium.
+              <span class="fiche-row-limit">Consommation occasionnelle</span>
+            </span>
+          </div>
+          <div class="fiche-row">
+            <span class="fiche-row-item">Coquillages</span>
+            <span class="fiche-row-detail">Huîtres, moules — concentration variable.
+              <span class="fiche-row-limit">Adultes uniquement, max 1×/mois</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- MERCURE -->
+        <div class="fiche-section">
+          <span class="fiche-section-title mercury">🔴 Mercure</span>
+          <div class="fiche-row">
+            <span class="fiche-row-item">Thon (conserve ou frais)</span>
+            <span class="fiche-row-detail">1ère source de mercure chez les enfants.
+              <span class="fiche-row-limit">Adultes : max 1×/sem · Enfants : max 1×/2 sem</span>
+            </span>
+          </div>
+          <div class="fiche-row">
+            <span class="fiche-row-item">Espadon · Marlin · Requin · Thon rouge</span>
+            <span class="fiche-row-detail">Poissons prédateurs — concentration très élevée.
+              <span class="fiche-row-limit">À proscrire (enfants, femmes enceintes)</span>
+            </span>
+          </div>
+          <div class="fiche-row">
+            <span class="fiche-row-item">Saumon d'élevage atlantique</span>
+            <span class="fiche-row-detail">Mercure + contaminants organiques.
+              <span class="fiche-row-limit">Max 2×/mois — alterner sardines / maquereau</span>
+            </span>
+          </div>
+          <div class="fiche-row">
+            <span class="fiche-row-item">Raie · Lotte · Bar sauvage</span>
+            <span class="fiche-row-detail">Poissons à vie longue — accumulation.
+              <span class="fiche-row-limit">Limiter adultes · Éviter enfants</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- PESTICIDES -->
+        <div class="fiche-section">
+          <span class="fiche-section-title pesticides">🟡 Pesticides</span>
+          <div class="fiche-row">
+            <span class="fiche-row-item">Fraises · Cerises</span>
+            <span class="fiche-row-detail">Fruits les plus contaminés.
+              <span class="fiche-row-limit">Acheter bio ou ne pas éplucher</span>
+            </span>
+          </div>
+          <div class="fiche-row">
+            <span class="fiche-row-item">Pêches · Nectarines · Raisins</span>
+            <span class="fiche-row-detail">73 % d'échantillons non-bio contaminés.
+              <span class="fiche-row-limit">Bio en priorité</span>
+            </span>
+          </div>
+          <div class="fiche-row">
+            <span class="fiche-row-item">Épinards · Salades · Poivrons</span>
+            <span class="fiche-row-detail">Légumes-feuilles très absorbants.
+              <span class="fiche-row-limit">Bio, surtout pour les enfants</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- ÉLEVAGE -->
+        <div class="fiche-section">
+          <span class="fiche-section-title elevage">🟠 Élevage intensif</span>
+          <div class="fiche-row">
+            <span class="fiche-row-item">Poulet / dinde intensif</span>
+            <span class="fiche-row-detail">Antibiotiques, conditions d'élevage.
+              <span class="fiche-row-limit">Éviter code 3 — préférer Label Rouge / AB</span>
+            </span>
+          </div>
+          <div class="fiche-row">
+            <span class="fiche-row-item">Œufs code 3</span>
+            <span class="fiche-row-detail">Poules en cage — qualité nutritionnelle moindre.
+              <span class="fiche-row-limit">Préférer code 0 (bio) ou 1 (plein air)</span>
+            </span>
+          </div>
+          <div class="fiche-row">
+            <span class="fiche-row-item">Charcuterie industrielle</span>
+            <span class="fiche-row-detail">Nitrites, additifs.
+              <span class="fiche-row-limit">Jambon supérieur français — limiter la quantité</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Colonne droite : À privilégier ── -->
+      <div class="fiche-col-right">
+        <div class="fiche-col-title prefer">✅ À privilégier</div>
+
+        <!-- CADMIUM -->
+        <div class="fiche-section">
+          <span class="fiche-section-title cadmium">🔵 Alternatives cadmium</span>
+          <div class="prefer-row">
+            <span class="prefer-row-text"><strong>Riz basmati</strong> — bien plus faible en cadmium que le riz long grain</span>
+          </div>
+          <div class="prefer-row">
+            <span class="prefer-row-text"><strong>Flocons d'avoine nature</strong> — céréale du petit-déjeuner idéale</span>
+          </div>
+          <div class="prefer-row">
+            <span class="prefer-row-text"><strong>Légumineuses</strong> — lentilles, pois chiches, haricots : réduisent l'absorption du cadmium</span>
+          </div>
+          <div class="prefer-row">
+            <span class="prefer-row-text"><strong>Pain au levain</strong> — fermentation réduit la disponibilité du cadmium</span>
+          </div>
+          <div class="prefer-row">
+            <span class="prefer-row-text"><strong>Boulgour · quinoa</strong> — faible indice glycémique et faible teneur</span>
+          </div>
+        </div>
+
+        <!-- MERCURE -->
+        <div class="fiche-section">
+          <span class="fiche-section-title mercury">🔴 Poissons sûrs</span>
+          <div class="prefer-row">
+            <span class="prefer-row-text"><strong>Sardines · Anchois · Maquereaux · Harengs</strong> — petits poissons gras, très faible mercure et riches en oméga-3</span>
+          </div>
+          <div class="prefer-row">
+            <span class="prefer-row-text"><strong>Cabillaud · Lieu noir · Merlu</strong> — poissons blancs maigres, très sûrs</span>
+          </div>
+          <div class="prefer-row">
+            <span class="prefer-row-text"><strong>Truite d'élevage France</strong> — filière contrôlée, faible contamination</span>
+          </div>
+          <div class="prefer-row">
+            <span class="prefer-row-text"><strong>Dorade · Bar d'élevage</strong> — bien plus sûrs que les espèces sauvages prédatrices</span>
+          </div>
+        </div>
+
+        <!-- PESTICIDES -->
+        <div class="fiche-section">
+          <span class="fiche-section-title pesticides">🟡 Sans pesticides</span>
+          <div class="prefer-row">
+            <span class="prefer-row-text"><strong>Bananes · Avocats · Oignons</strong> — peau épaisse = protection naturelle, pas besoin de bio</span>
+          </div>
+          <div class="prefer-row">
+            <span class="prefer-row-text"><strong>Carottes · Choux · Brocolis</strong> — légumes à faible résidu en France</span>
+          </div>
+          <div class="prefer-row">
+            <span class="prefer-row-text"><strong>Courgettes · Courges</strong> — faible absorption, production souvent locale</span>
+          </div>
+          <div class="prefer-row">
+            <span class="prefer-row-text"><strong>Fruits et légumes de saison locaux</strong> — moins de traitements post-récolte</span>
+          </div>
+        </div>
+
+        <!-- ÉLEVAGE -->
+        <div class="fiche-section">
+          <span class="fiche-section-title elevage">🟠 Élevage responsable</span>
+          <div class="prefer-row">
+            <span class="prefer-row-text"><strong>Label Rouge · Agriculture Biologique</strong> — garanties sur les conditions d'élevage</span>
+          </div>
+          <div class="prefer-row">
+            <span class="prefer-row-text"><strong>Œufs code 0 (bio) ou 1 (plein air)</strong> — premier chiffre sur l'emballage</span>
+          </div>
+          <div class="prefer-row">
+            <span class="prefer-row-text"><strong>Légumineuses comme protéines</strong> — lentilles, pois chiches, haricots 3–5×/sem</span>
+          </div>
+          <div class="prefer-row">
+            <span class="prefer-row-text"><strong>Volailles plein air France</strong> — meilleur profil nutritionnel et éthique</span>
+          </div>
+          <div class="prefer-row">
+            <span class="prefer-row-text"><strong>Jambon supérieur français</strong> — sans additifs superflus, limité à 2–3 tranches/sem</span>
+          </div>
+        </div>
+
+        <!-- Rotation féculents -->
+        <div class="fiche-section">
+          <span class="fiche-section-title cadmium">✅ Rotation féculents</span>
+          <div class="prefer-row">
+            <span class="prefer-row-text">Aucun féculent ne doit revenir plus de <strong>2 fois dans la même semaine</strong> pour limiter l'exposition globale</span>
+          </div>
+          <div class="prefer-row">
+            <span class="prefer-row-text">Alterner : riz basmati · quinoa · boulgour · lentilles · pain levain · pomme de terre (max 3×)</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /fiche-grid -->
+
+    <!-- Actions -->
+    <div class="fiche-actions" id="fiche-actions">
+      <button class="fiche-btn primary" onclick="window.print()">
+        🖨️ Imprimer / Sauvegarder en PDF
+      </button>
+      <button class="fiche-btn secondary" id="btn-share">
+        📤 Partager
+      </button>
+      <a class="fiche-btn secondary" href="index.html">
+        ← Retour au menu
+      </a>
+    </div>
+
+    <p style="text-align:center; font-size:.72rem; color:#9CA3AF; margin-top:1rem;">
+      Sources : <a href="https://www.anses.fr" target="_blank" rel="noopener" style="color:#40916C">ANSES</a> ·
+      <a href="https://www.efsa.europa.eu" target="_blank" rel="noopener" style="color:#40916C">EFSA</a> ·
+      <a href="https://www.generations-futures.fr" target="_blank" rel="noopener" style="color:#40916C">Générations Futures</a> ·
+      <a href="https://bloomassociation.org" target="_blank" rel="noopener" style="color:#40916C">BLOOM</a> ·
+      <a href="https://inrae.fr" target="_blank" rel="noopener" style="color:#40916C">INRAE</a>
+    </p>
+
+  </div><!-- /fiche-page -->
+
+  <script>
+    // Share API
+    document.getElementById('btn-share')?.addEventListener('click', async () => {
+      const shareData = {
+        title: 'Fiche mémo — Alimentation saine',
+        text: 'Aliments à limiter et à privilégier : cadmium, mercure, pesticides, élevage. Recommandations ANSES / EFSA.',
+        url: window.location.href
+      };
+      if (navigator.share && navigator.canShare?.(shareData)) {
+        try {
+          await navigator.share(shareData);
+        } catch (e) { if (e.name !== 'AbortError') copyLink(); }
+      } else {
+        copyLink();
+      }
+    });
+
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href)
+        .then(() => alert('✓ Lien copié dans le presse-papier !'))
+        .catch(() => alert('Copiez ce lien manuellement : ' + window.location.href));
+    }
+  </script>
+
+</body>
+</html>

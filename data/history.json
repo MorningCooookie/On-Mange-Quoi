@@ -5,10 +5,11 @@
       "weekEnd": "2026-04-05",
       "file": "data/menus/2026-03-30.json",
       "label": "Semaine du 30 mars 2026",
+      "healthScore": "A",
       "highlights": [
         "Saumon vapeur & quinoa",
         "Cabillaud en papillote",
-        "Lentilles corail & pois chiches",
+        "5 légumineuses cette semaine",
         "Gigot d'agneau dominical"
       ]
     }

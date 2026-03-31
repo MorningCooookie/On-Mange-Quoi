@@ -1,4 +1,5 @@
 {
+  "pricesLastUpdated": "2026-03-30",
   "stores": {
     "discount": {
       "label": "Discount (Lidl, Aldi)",
@@ -6,12 +7,12 @@
       "multiplier": 1.0
     },
     "standard": {
-      "label": "Standard (Leclerc, Carrefour, Auchan)",
+      "label": "Standard (Leclerc, Carrefour)",
       "color": "#4FC3F7",
       "multiplier": 1.14
     },
     "bio": {
-      "label": "Bio (Biocoop, Naturalia, La Fourche)",
+      "label": "Bio (Biocoop, Naturalia)",
       "color": "#81C784",
       "multiplier": 1.55
     }
@@ -22,28 +23,21 @@
       "emoji": "👨‍👩‍👧‍👦",
       "persons": 4,
       "description": "2 adultes + 2 enfants < 10 ans",
-      "multiplier": 1.0
-    },
-    "famille_ados": {
-      "label": "Famille · Ados",
-      "emoji": "🧑‍🤝‍🧑",
-      "persons": 4,
-      "description": "2 adultes + 2 ados 12-17 ans",
-      "multiplier": 1.15
+      "portionMultiplier": 1.0
     },
     "couple": {
       "label": "Couple",
       "emoji": "👫",
       "persons": 2,
       "description": "2 adultes",
-      "multiplier": 0.6
+      "portionMultiplier": 0.55
     },
     "solo": {
       "label": "Solo",
       "emoji": "🧑",
       "persons": 1,
       "description": "1 personne",
-      "multiplier": 0.32
+      "portionMultiplier": 0.3
     }
   }
 }
