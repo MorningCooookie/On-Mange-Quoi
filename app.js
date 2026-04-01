@@ -358,11 +358,9 @@ function renderMenu() {
   state.menuData.days.forEach(day => {
     const col = document.createElement('div');
     col.className = 'day-card';
-    const todayBadge = isToday(day.date) ? '<span class="badge-today">Aujourd\'hui</span>' : '';
     col.innerHTML = `
       <div class="day-header">
         <span class="day-label">${day.label}</span>
-        ${todayBadge}
       </div>
       <div class="day-meals" id="meals-${day.date}"></div>`;
     grid.appendChild(col);

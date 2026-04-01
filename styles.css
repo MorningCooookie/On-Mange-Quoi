@@ -320,8 +320,7 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.25rem 2.5rem; }
   transition: transform .2s, box-shadow .2s;
   scroll-snap-align: start; flex-shrink: 0;
 }
-/* Fix 2 — carte assez large pour afficher le badge "Aujourd'hui" en entier */
-@media (max-width: 767px) { .day-card { width: min(290px, 80vw); } }
+@media (max-width: 767px) { .day-card { width: min(260px, 80vw); } }
 
 /* Swipe hint */
 .swipe-hint {
@@ -345,14 +344,6 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.25rem 2.5rem; }
   display: flex; align-items: center; justify-content: space-between;
 }
 .day-label { font-family: var(--font-display); font-size: .88rem; font-weight: 700; }
-.badge-today {
-  background: #FCD34D; color: #78350F;
-  font-size: .72rem; font-weight: 700;
-  padding: .18rem .55rem; border-radius: 20px;
-  text-transform: uppercase; letter-spacing: .04em;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
 
 .day-meals { padding: .3rem 0; }
 .meal-row {

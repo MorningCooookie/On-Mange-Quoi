@@ -281,4 +281,6 @@
   .recettes-form-card { padding: 1.25rem 1rem; }
   .recipe-card { padding: 1.25rem 1rem; }
   .form-row { flex-direction: column; gap: .75rem; }
+  /* Sur mobile, flex-basis: 200px s'applique à la hauteur en colonne → on le reset */
+  .form-group--half { flex: 0 0 auto; }
 }
