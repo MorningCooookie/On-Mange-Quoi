@@ -8,6 +8,10 @@ Thumbs.db
 .idea/
 *.swp
 
+# Dépendances et build
+node_modules/
+.netlify/
+
 # Fichiers de travail Cowork (ne pas publier)
 Design-Review.md
 Prompt-Claude-Code-Site-Menu.md
