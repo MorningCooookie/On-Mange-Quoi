@@ -269,6 +269,7 @@ function buildStoreButtons(container, mobile = false) {
     const btn = document.createElement('button');
     btn.className = `selector-btn store-${key}${key === state.currentStore ? ' active' : ''}`;
     btn.setAttribute('aria-pressed', key === state.currentStore);
+    btn.dataset.storeKey = key;
     const shortLabel = s.label.split(' (')[0];
     btn.textContent = shortLabel;
     btn.addEventListener('click', () => {
