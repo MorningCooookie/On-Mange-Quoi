@@ -320,8 +320,8 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.25rem 2.5rem; }
   transition: transform .2s, box-shadow .2s;
   scroll-snap-align: start; flex-shrink: 0;
 }
-/* Fix 2 — carte légèrement plus étroite pour laisser dépasser la suivante ~30px */
-@media (max-width: 767px) { .day-card { width: min(260px, 74vw); } }
+/* Fix 2 — carte assez large pour afficher le badge "Aujourd'hui" en entier */
+@media (max-width: 767px) { .day-card { width: min(290px, 80vw); } }
 
 /* Swipe hint */
 .swipe-hint {
