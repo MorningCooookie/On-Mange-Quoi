@@ -1,0 +1,284 @@
+/* ============================================================
+   RECETTES.CSS — Générateur de recettes
+   Utilise les variables CSS de styles.css
+   ============================================================ */
+
+/* ── Hero ──────────────────────────────────────────────────── */
+.recettes-page {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 6rem;
+}
+
+.recettes-hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.recettes-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--header-from);
+  margin-bottom: .5rem;
+}
+
+.recettes-subtitle {
+  color: var(--text-secondary);
+  font-size: .95rem;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── Formulaire ────────────────────────────────────────────── */
+.recettes-form-card {
+  background: var(--white);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow);
+  padding: 1.75rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group--half {
+  flex: 1 1 200px;
+}
+
+.form-label {
+  display: block;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: .5rem;
+}
+
+.form-textarea {
+  width: 100%;
+  padding: .75rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-inner);
+  font-family: var(--font-body);
+  font-size: .95rem;
+  color: var(--text);
+  background: var(--bg);
+  resize: vertical;
+  min-height: 80px;
+  transition: border-color .15s;
+}
+
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--header-to);
+}
+
+.form-hint {
+  font-size: .78rem;
+  color: var(--text-secondary);
+  margin-top: .35rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* ── Pill toggles ───────────────────────────────────────────── */
+.pill-group {
+  display: flex;
+  gap: .4rem;
+  flex-wrap: wrap;
+}
+
+.pill {
+  padding: .35rem .8rem;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  font-family: var(--font-body);
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s;
+  white-space: nowrap;
+}
+
+.pill:hover {
+  border-color: var(--header-to);
+  color: var(--header-from);
+}
+
+.pill--active {
+  background: var(--header-from);
+  border-color: var(--header-from);
+  color: #fff;
+}
+
+/* ── Bouton générer ─────────────────────────────────────────── */
+.btn-generate {
+  width: 100%;
+  margin-top: .5rem;
+  padding: .85rem 1.5rem;
+  background: linear-gradient(135deg, var(--header-from), var(--header-to));
+  color: #fff;
+  border: none;
+  border-radius: var(--r-inner);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity .15s, transform .1s;
+}
+
+.btn-generate:hover {
+  opacity: .92;
+}
+
+.btn-generate:active {
+  transform: scale(.98);
+}
+
+.btn-generate:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+/* ── Zone résultat ──────────────────────────────────────────── */
+#result-zone {
+  margin-top: .5rem;
+}
+
+/* Loading */
+.result-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+  padding: 2.5rem;
+  color: var(--text-secondary);
+  font-size: .9rem;
+}
+
+.loading-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--header-to);
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Erreur */
+.result-error {
+  background: #FEE2E2;
+  border: 1px solid #FECACA;
+  border-radius: var(--r-inner);
+  padding: 1rem 1.25rem;
+  color: #991B1B;
+  font-size: .9rem;
+}
+
+/* Recette */
+.recipe-card {
+  background: var(--white);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow);
+  padding: 1.75rem 1.5rem;
+}
+
+.recipe-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--header-from);
+  margin-bottom: .35rem;
+}
+
+.recipe-content em {
+  display: block;
+  font-style: italic;
+  color: var(--text-secondary);
+  font-size: .88rem;
+  margin-bottom: 1.1rem;
+}
+
+.recipe-content strong {
+  display: block;
+  font-size: .82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--header-from);
+  margin: 1rem 0 .45rem;
+}
+
+.recipe-content ul,
+.recipe-content ol {
+  padding-left: 1.3rem;
+  margin-bottom: .5rem;
+}
+
+.recipe-content li {
+  font-size: .92rem;
+  line-height: 1.65;
+  margin-bottom: .2rem;
+}
+
+.recipe-content .astuce {
+  background: #D1FAE5;
+  border-left: 3px solid var(--header-to);
+  border-radius: 0 var(--r-inner) var(--r-inner) 0;
+  padding: .6rem .9rem;
+  font-size: .88rem;
+  color: var(--header-from);
+  margin-top: 1rem;
+}
+
+/* Bouton retenter */
+.btn-retry {
+  display: block;
+  margin: 1.25rem auto 0;
+  padding: .5rem 1.25rem;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  font-family: var(--font-body);
+  font-size: .85rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: border-color .15s, color .15s;
+}
+
+.btn-retry:hover {
+  border-color: var(--header-to);
+  color: var(--header-from);
+}
+
+/* ── Nav active state ───────────────────────────────────────── */
+.nav-link--active {
+  background: rgba(255,255,255,.18) !important;
+  color: #fff !important;
+}
+
+.bottom-nav-link--active {
+  color: var(--header-from) !important;
+  font-weight: 600;
+}
+
+/* ── Mobile ─────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .recettes-page { padding: 1.5rem 1rem 7rem; }
+  .recettes-title { font-size: 1.55rem; }
+  .recettes-form-card { padding: 1.25rem 1rem; }
+  .recipe-card { padding: 1.25rem 1rem; }
+  .form-row { flex-direction: column; gap: .75rem; }
+}
