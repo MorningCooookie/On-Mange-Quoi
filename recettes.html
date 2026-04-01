@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recettes — On mange quoi ?</title>
+  <meta name="description" content="Générateur de recettes saines : anti-cadmium, anti-mercure, faibles pesticides. Avec ou sans Thermomix.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="recettes.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍳</text></svg>">
+</head>
+<body>
+
+  <!-- ── Header ───────────────────────────────────────────── -->
+  <header id="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="On mange quoi ? — accueil">
+        <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true">
+          <circle cx="10" cy="10" r="8.5" stroke-width="1.6"/>
+          <circle cx="10" cy="10" r="5" stroke-width="1.4"/>
+        </svg>
+        On mange quoi ?
+      </a>
+      <nav class="header-nav" aria-label="Navigation principale">
+        <a class="nav-link" href="index.html#menu">Menu</a>
+        <a class="nav-link" href="index.html#courses">Courses</a>
+        <a class="nav-link" href="index.html#historique">Historique</a>
+        <a class="nav-link" href="index.html#cadmium">Veille santé</a>
+        <a class="nav-link" href="fiche.html">Fiche mémo</a>
+        <a class="nav-link nav-link--active" href="recettes.html" aria-current="page">🍳 Recettes</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Contenu principal ────────────────────────────────── -->
+  <main class="recettes-page" id="main">
+
+    <div class="recettes-hero">
+      <h1 class="recettes-title">🍳 Générateur de recettes</h1>
+      <p class="recettes-subtitle">Une recette saine à partir de ce que t'as dans le frigo — anti-cadmium, anti-mercure, faibles pesticides.</p>
+    </div>
+
+    <div class="recettes-form-card">
+
+      <!-- Ingrédients -->
+      <div class="form-group">
+        <label class="form-label" for="ingredients">Ce que j'ai dans mon frigo</label>
+        <textarea
+          id="ingredients"
+          class="form-textarea"
+          placeholder="Ex : poulet, carottes, lentilles corail, oignon…"
+          rows="3"
+          aria-describedby="ingredients-hint"
+        ></textarea>
+        <p class="form-hint" id="ingredients-hint">Liste tes ingrédients séparés par des virgules</p>
+      </div>
+
+      <!-- Toggles -->
+      <div class="form-row">
+
+        <!-- Mode cuisson -->
+        <div class="form-group form-group--half">
+          <span class="form-label" id="mode-label">Mode de cuisson</span>
+          <div class="pill-group" role="group" aria-labelledby="mode-label">
+            <button class="pill pill--active" data-group="mode" data-value="classique" aria-pressed="true">
+              🍳 Cuisine classique
+            </button>
+            <button class="pill" data-group="mode" data-value="thermomix" aria-pressed="false">
+              ⚙️ Thermomix
+            </button>
+          </div>
+        </div>
+
+        <!-- Profil -->
+        <div class="form-group form-group--half">
+          <span class="form-label" id="profil-label">Profil</span>
+          <div class="pill-group" role="group" aria-labelledby="profil-label">
+            <button class="pill pill--active" data-group="profil" data-value="famille" aria-pressed="true">
+              👨‍👩‍👧‍👦 Famille
+            </button>
+            <button class="pill" data-group="profil" data-value="couple" aria-pressed="false">
+              👫 Couple
+            </button>
+            <button class="pill" data-group="profil" data-value="solo" aria-pressed="false">
+              🧑 Solo
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bouton -->
+      <button class="btn-generate" id="btn-generate">
+        Générer une recette
+      </button>
+
+    </div>
+
+    <!-- Zone résultat -->
+    <div id="result-zone" hidden>
+
+      <!-- Loading -->
+      <div id="result-loading" class="result-loading" hidden aria-live="polite">
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <p>Génération en cours…</p>
+      </div>
+
+      <!-- Erreur -->
+      <div id="result-error" class="result-error" hidden role="alert">
+        <p id="result-error-text"></p>
+      </div>
+
+      <!-- Recette -->
+      <div id="result-recipe" class="recipe-card" hidden aria-live="polite">
+        <div id="recipe-content" class="recipe-content"></div>
+        <button class="btn-retry" id="btn-retry">↻ Générer une autre recette</button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ── Footer ────────────────────────────────────────────── -->
+  <footer>
+    <p>🥗 <strong>On mange quoi ?</strong> · Menus familiaux sains · Données ANSES / EFSA / Générations Futures</p>
+    <p style="margin-top:.3rem"><a href="index.html">← Retour au menu</a> · <a href="fiche.html">Fiche mémo</a></p>
+  </footer>
+
+  <!-- ── Barre mobile ──────────────────────────────────────── -->
+  <div class="bottom-bar" aria-label="Navigation mobile">
+    <nav class="bottom-nav-row" aria-label="Navigation rapide">
+      <a class="bottom-nav-link nav-link" href="index.html#menu"><span class="nav-icon">📅</span>Menu</a>
+      <a class="bottom-nav-link nav-link" href="index.html#courses"><span class="nav-icon">🛒</span>Courses</a>
+      <a class="bottom-nav-link nav-link" href="index.html#historique"><span class="nav-icon">📚</span>Historique</a>
+      <a class="bottom-nav-link" href="fiche.html"><span class="nav-icon">📄</span>Fiche</a>
+      <a class="bottom-nav-link bottom-nav-link--active" href="recettes.html" aria-current="page"><span class="nav-icon">🍳</span>Recettes</a>
+    </nav>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <script src="recettes.js"></script>
+</body>
+</html>
