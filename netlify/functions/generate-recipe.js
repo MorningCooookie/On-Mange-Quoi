@@ -12,16 +12,16 @@ CONTRAINTES SANTÉ (toujours actives) :
 - Élevage : préférer volailles Label Rouge ou plein air, œufs code 0 ou 1
 - Privilégier légumineuses (lentilles, pois chiches, haricots), poissons blancs, légumes colorés`;
 
-// Profils familiaux
+// Profils génériques
 const PROFILES = {
-  famille: "Famille Jordan O'Shea : Kevin (adulte), Mina (adulte), enfant 6 ans, enfant 3 ans → 4 portions. Sans porc (pas de lardons, chorizo, jambon de charcuterie industrielle). Pas épicé (enfants) — paprika doux, cumin, curcuma OK, pas de piment ni curry fort.",
-  couple: "Couple adulte : 2 portions. Sans porc. Peut être légèrement relevé mais rester accessible.",
-  solo: "1 personne adulte : 1 portion. Sans porc."
+  famille: "Famille avec enfants : 4 portions adultes et enfants. Pas épicé (enfants) — paprika doux, cumin, curcuma OK, pas de piment ni curry fort. Recette accessible et conviviale.",
+  couple: "Couple adulte : 2 portions. Peut être légèrement relevé mais rester accessible.",
+  solo: "1 personne adulte : 1 portion."
 };
 
 // Prompt Thermomix
 function buildThermomixPrompt(profile) {
-  return `Tu es un assistant culinaire Thermomix (TM5 ou TM6) pour la famille.
+  return `Tu es un assistant culinaire Thermomix (TM5 ou TM6).
 
 PROFIL : ${PROFILES[profile] || PROFILES.famille}
 ${HEALTH_CONSTRAINTS}
@@ -43,12 +43,12 @@ FORMAT EXACT :
 **Préparation**
 1. [action] → *[température]°C / vitesse [X] / [durée]*
 
-**💡 Astuce famille** : [conseil adapté]`;
+**💡 Astuce** : [conseil pratique]`;
 }
 
 // Prompt cuisine classique
 function buildClassicPrompt(profile) {
-  return `Tu es un assistant culinaire pour la famille.
+  return `Tu es un assistant culinaire.
 
 PROFIL : ${PROFILES[profile] || PROFILES.famille}
 ${HEALTH_CONSTRAINTS}
@@ -69,7 +69,7 @@ FORMAT EXACT :
 **Préparation**
 1. [action avec ustensile et durée]
 
-**💡 Astuce famille** : [conseil adapté]`;
+**💡 Astuce** : [conseil pratique]`;
 }
 
 exports.handler = async (event) => {

@@ -117,13 +117,13 @@ function markdownToHtml(text) {
   return text
     // Titres ### 🍽️ ...
     .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    // Gras **...** (doit être traité AVANT l'italique)
+    .replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>')
     // Italique *...*
     .replace(/\*([^*\n]+)\*/g, '<em>$1</em>')
-    // Gras **...**
-    .replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>')
-    // Astuce famille 💡 → bloc coloré
-    .replace(/<strong>💡 Astuce famille<\/strong>\s*:?\s*(.+)/g,
-      '<div class="astuce">💡 <strong>Astuce famille</strong> : $1</div>')
+    // Astuce 💡 → bloc coloré
+    .replace(/<strong>💡 Astuce[^<]*<\/strong>\s*:?\s*(.+)/g,
+      '<div class="astuce">💡 <strong>Astuce</strong> : $1</div>')
     // Listes à puces
     .replace(/^- (.+)$/gm, '<li>$1</li>')
     .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
