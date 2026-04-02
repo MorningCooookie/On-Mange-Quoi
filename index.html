@@ -62,7 +62,9 @@
 
   <!-- ============ LOGIN MODAL ============ -->
   <div id="auth-modal" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:10000;display:none;align-items:center;justify-content:center;">
-    <div style="background:white;padding:2rem;border-radius:12px;max-width:400px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);">
+    <div style="background:white;padding:2rem;border-radius:12px;max-width:400px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);position:relative;">
+      <button id="btn-close-modal" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#999;padding:0;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;">✕</button>
+
       <h2 style="margin-top:0;text-align:center;color:#1B4332;">Connexion</h2>
 
       <input type="email" id="login-email" placeholder="Votre email" style="width:100%;padding:0.75rem;margin:1rem 0 0.5rem 0;border:1px solid #ddd;border-radius:6px;box-sizing:border-box;font-size:1rem;">
@@ -296,7 +298,10 @@ python3 -m http.server 8000</div>
   <!-- Toast notifications -->
   <div id="toast" role="status" aria-live="polite"></div>
 
-  <script type="module" src="auth.js"></script>
+  <!-- Supabase client library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script src="auth.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

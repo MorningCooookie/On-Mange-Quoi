@@ -7,31 +7,53 @@ const SUPABASE_KEY = 'sb_publishable_QZK_OFTOFeLGgGgT8_Yd9w_CMFLFFfP';
 
 let supabase = null;
 
-// Initialize Supabase
-(async () => {
+// Wait for Supabase to load from CDN
+function initSupabase() {
   try {
-    const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2');
-    supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
-    // Set up auth state listener
-    supabase.auth.onAuthStateChange((event, session) => {
-      updateAuthUI(session);
-    });
-
-    // Check initial auth state
-    const { data: { session } } = await supabase.auth.getSession();
-    updateAuthUI(session);
+    if (window.supabase && window.supabase.createClient) {
+      supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+      setupAuthListener();
+      return true;
+    }
   } catch (err) {
     console.error('Supabase init failed:', err);
   }
-})();
+  return false;
+}
+
+// Try immediately, then retry if not ready
+if (!initSupabase()) {
+  setTimeout(() => {
+    if (!initSupabase()) {
+      setTimeout(initSupabase, 1000);
+    }
+  }, 100);
+}
 
 // ============================================
-// UI STATE MANAGEMENT
+// AUTH STATE LISTENER
+// ============================================
+function setupAuthListener() {
+  if (!supabase) return;
+
+  supabase.auth.onAuthStateChange((event, session) => {
+    updateAuthUI(session);
+  });
+
+  // Check initial state
+  supabase.auth.getSession().then(({ data: { session } }) => {
+    updateAuthUI(session);
+  });
+}
+
+// ============================================
+// UI STATE
 // ============================================
 function updateAuthUI(session) {
   const authButtons = document.getElementById('auth-button-group');
   const userMenu = document.getElementById('user-menu-header');
+
+  if (!authButtons || !userMenu) return;
 
   if (session) {
     authButtons.style.display = 'none';
@@ -53,17 +75,27 @@ function hideModal() {
 }
 
 // ============================================
-// BUTTON CLICK HANDLERS - ALWAYS WORK
+// MODAL CLOSE BUTTON
+// ============================================
+document.getElementById('btn-close-modal')?.addEventListener('click', hideModal);
+
+// Click outside modal to close
+document.getElementById('auth-modal')?.addEventListener('click', (e) => {
+  if (e.target.id === 'auth-modal') hideModal();
+});
+
+// ============================================
+// HEADER BUTTON HANDLERS - ALWAYS WORK
 // ============================================
 document.getElementById('btn-login-header')?.addEventListener('click', showModal);
 document.getElementById('btn-signup-header')?.addEventListener('click', showModal);
 
 // ============================================
-// MODAL HANDLERS - REQUIRE SUPABASE
+// LOGIN HANDLER
 // ============================================
 document.getElementById('btn-login')?.addEventListener('click', async () => {
   if (!supabase) {
-    alert('❌ Service d\'authentification indisponible');
+    alert('❌ Service d\'authentification indisponible. Vérifiez votre connexion internet.');
     return;
   }
 
@@ -95,9 +127,12 @@ document.getElementById('btn-login')?.addEventListener('click', async () => {
   }
 });
 
+// ============================================
+// SIGNUP HANDLER
+// ============================================
 document.getElementById('btn-signup')?.addEventListener('click', async () => {
   if (!supabase) {
-    alert('❌ Service d\'authentification indisponible');
+    alert('❌ Service d\'authentification indisponible. Vérifiez votre connexion internet.');
     return;
   }
 
@@ -134,6 +169,9 @@ document.getElementById('btn-signup')?.addEventListener('click', async () => {
   }
 });
 
+// ============================================
+// LOGOUT HANDLERS
+// ============================================
 document.getElementById('btn-logout-header')?.addEventListener('click', async () => {
   if (!supabase) {
     localStorage.removeItem('user-email');
