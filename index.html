@@ -71,7 +71,24 @@
 
       <input type="password" id="login-password" placeholder="Mot de passe" style="width:100%;padding:0.75rem;margin:0.5rem 0 1rem 0;border:1px solid #ddd;border-radius:6px;box-sizing:border-box;font-size:1rem;">
 
-      <button id="btn-login" onclick="alert('TEST: Login button clicked'); handleLogin();" style="width:100%;padding:0.75rem;background:#1B4332;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:bold;font-size:1rem;">Se connecter</button>
+      <button id="btn-login" onclick="loginHandler();" style="width:100%;padding:0.75rem;background:#1B4332;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:bold;font-size:1rem;">Se connecter</button>
+      <script>
+        function loginHandler() {
+          alert('Login handler called');
+          const email = document.getElementById('login-email').value;
+          const password = document.getElementById('login-password').value;
+          if (!email || !password) {
+            alert('Entrez email et mot de passe');
+            return;
+          }
+          alert('Tentative de connexion avec: ' + email);
+          if (typeof handleLogin === 'function') {
+            handleLogin();
+          } else {
+            alert('Erreur: handleLogin function not found');
+          }
+        }
+      </script>
     </div>
   </div>
 
@@ -86,7 +103,28 @@
 
       <input type="password" id="signup-password" placeholder="Mot de passe" style="width:100%;padding:0.75rem;margin:0.5rem 0 1rem 0;border:1px solid #ddd;border-radius:6px;box-sizing:border-box;font-size:1rem;">
 
-      <button id="btn-signup" onclick="alert('TEST: Button clicked'); handleSignup();" style="width:100%;padding:0.75rem;background:#1B4332;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:bold;font-size:1rem;">Créer un compte</button>
+      <button id="btn-signup" onclick="signupHandler();" style="width:100%;padding:0.75rem;background:#1B4332;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:bold;font-size:1rem;">Créer un compte</button>
+      <script>
+        function signupHandler() {
+          alert('Signup handler called');
+          const email = document.getElementById('signup-email').value;
+          const password = document.getElementById('signup-password').value;
+          if (!email || !password) {
+            alert('Entrez email et mot de passe');
+            return;
+          }
+          if (password.length < 6) {
+            alert('Mot de passe: min 6 caractères');
+            return;
+          }
+          alert('Tentative d\'inscription avec: ' + email);
+          if (typeof handleSignup === 'function') {
+            handleSignup();
+          } else {
+            alert('Erreur: handleSignup function not found');
+          }
+        }
+      </script>
     </div>
   </div>
 
