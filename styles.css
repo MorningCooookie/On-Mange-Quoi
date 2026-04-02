@@ -169,7 +169,7 @@ a { color: inherit; }
 
 /* User menu in header */
 #user-menu-header {
-  display: none !important;
+  display: none;
   flex-direction: column;
   gap: 0.5rem;
   align-items: flex-end;
@@ -210,7 +210,7 @@ a { color: inherit; }
   #profile-selector, #store-selector {
     display: none !important;
   }
-  #auth-button-group, #user-menu-header {
+  #auth-button-group {
     display: flex !important;
   }
   #btn-login-header, #btn-signup-header, #btn-logout-header {

@@ -87,8 +87,25 @@ document.getElementById('auth-modal')?.addEventListener('click', (e) => {
 // ============================================
 // HEADER BUTTON HANDLERS - ALWAYS WORK
 // ============================================
-document.getElementById('btn-login-header')?.addEventListener('click', showModal);
-document.getElementById('btn-signup-header')?.addEventListener('click', showModal);
+const btnLoginHeader = document.getElementById('btn-login-header');
+const btnSignupHeader = document.getElementById('btn-signup-header');
+
+if (btnLoginHeader) {
+  btnLoginHeader.addEventListener('click', showModal);
+  console.log('✓ btn-login-header listener attached');
+} else {
+  console.error('❌ btn-login-header not found in DOM');
+}
+
+if (btnSignupHeader) {
+  btnSignupHeader.addEventListener('click', showModal);
+  console.log('✓ btn-signup-header listener attached');
+} else {
+  console.error('❌ btn-signup-header not found in DOM');
+}
+
+// Test modal function
+console.log('Auth module loaded. Modal ID exists:', !!document.getElementById('auth-modal'));
 
 // ============================================
 // LOGIN HANDLER
