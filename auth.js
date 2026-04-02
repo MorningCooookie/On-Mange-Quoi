@@ -78,13 +78,18 @@ function hideModal() {
 // LOGIN/SIGNUP HANDLERS
 // ============================================
 async function handleLogin() {
+  console.log('handleLogin called');
+
   if (!supabase) {
+    console.error('Supabase not initialized');
     alert('❌ Service d\'authentification indisponible. Vérifiez votre connexion internet.');
     return;
   }
 
   const email = document.getElementById('login-email').value.trim();
   const password = document.getElementById('login-password').value;
+
+  console.log('Login attempt with email:', email);
 
   if (!email || !password) {
     alert('Veuillez entrer email et mot de passe');
@@ -92,33 +97,42 @@ async function handleLogin() {
   }
 
   try {
+    console.log('Calling Supabase signInWithPassword...');
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password
     });
+
+    console.log('Supabase response:', { data, error });
 
     if (error) {
       alert('❌ Erreur: ' + error.message);
       return;
     }
 
-    hideModal();
+    document.getElementById('login-modal').style.display = 'none';
     document.getElementById('login-email').value = '';
     document.getElementById('login-password').value = '';
     alert('✅ Connecté!');
   } catch (err) {
+    console.error('Login error:', err);
     alert('Erreur: ' + err.message);
   }
 }
 
 async function handleSignup() {
+  console.log('handleSignup called');
+
   if (!supabase) {
+    console.error('Supabase not initialized');
     alert('❌ Service d\'authentification indisponible. Vérifiez votre connexion internet.');
     return;
   }
 
-  const email = document.getElementById('login-email').value.trim();
-  const password = document.getElementById('login-password').value;
+  const email = document.getElementById('signup-email').value.trim();
+  const password = document.getElementById('signup-password').value;
+
+  console.log('Signup attempt with email:', email);
 
   if (!email || !password) {
     alert('Veuillez entrer email et mot de passe');
@@ -131,21 +145,25 @@ async function handleSignup() {
   }
 
   try {
+    console.log('Calling Supabase signUp...');
     const { data, error } = await supabase.auth.signUp({
       email,
       password
     });
+
+    console.log('Supabase response:', { data, error });
 
     if (error) {
       alert('❌ Erreur: ' + error.message);
       return;
     }
 
+    document.getElementById('signup-modal').style.display = 'none';
+    document.getElementById('signup-email').value = '';
+    document.getElementById('signup-password').value = '';
     alert('✅ Compte créé! Vérifiez votre email pour confirmer.');
-    hideModal();
-    document.getElementById('login-email').value = '';
-    document.getElementById('login-password').value = '';
   } catch (err) {
+    console.error('Signup error:', err);
     alert('Erreur: ' + err.message);
   }
 }
