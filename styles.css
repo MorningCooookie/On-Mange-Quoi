@@ -185,9 +185,9 @@ a { color: inherit; }
   }
   .bottom-nav-link {
     display: flex; flex-direction: column; align-items: center;
-    font-size: .6rem; color: rgba(255,255,255,.65);
-    text-decoration: none; gap: .05rem;
-    padding: .15rem .3rem; border-radius: 6px; transition: all .15s;
+    font-size: .85rem; color: rgba(255,255,255,.65);
+    text-decoration: none; gap: .15rem;
+    padding: .3rem .5rem; border-radius: 6px; transition: all .15s;
   }
   .bottom-nav-link .nav-icon { font-size: 1rem; }
   .bottom-nav-link.active, .bottom-nav-link:hover { color: #fff; background: rgba(255,255,255,.15); }
@@ -248,16 +248,21 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.25rem 2.5rem; }
 }
 .score-highlight-chip::before { content: '✓ '; color: #52B788; font-weight: 700; }
 
-/* Bouton Partager le menu */
+/* Boutons d'action (Partager + Recettes) */
+.section-header__actions {
+  display: flex; gap: .5rem; align-items: center; flex-wrap: wrap;
+}
 .btn-semaine {
   font-family: var(--font-body);
-  font-size: .82rem; font-weight: 600;
+  font-size: .82rem; font-weight: 600; line-height: 1;
   background: var(--header-from); color: #fff;
   border: none; border-radius: var(--r-inner);
   padding: .45rem .9rem; cursor: pointer; transition: background .15s;
-  white-space: nowrap;
+  white-space: nowrap; text-decoration: none; display: inline-flex;
+  align-items: center; box-sizing: border-box;
 }
 .btn-semaine:hover { background: var(--header-to); }
+
 
 /* ═══════════════════════════════════════════════════════════
    SCORE SANTÉ
@@ -533,11 +538,14 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.25rem 2.5rem; }
 .budget-bar-value { font-size: .75rem; font-weight: 700; min-width: 46px; text-align: right; }
 
 .price-freshness {
-  display: flex; align-items: center; gap: .38rem;
+  display: flex; align-items: center; gap: .38rem; flex-wrap: wrap;
   padding: .45rem 1.1rem; font-size: .72rem; color: var(--text-secondary);
   border-bottom: 1px solid var(--border);
 }
 .freshness-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.price-indicative-note {
+  margin-left: auto; font-style: italic; opacity: .7; white-space: nowrap;
+}
 
 .budget-store-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: .35rem; padding: .7rem 1.1rem; }
 .budget-store-card {
