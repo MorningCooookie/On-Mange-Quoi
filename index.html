@@ -49,8 +49,8 @@
         <div class="selector-group" id="profile-selector" role="group" aria-label="Sélecteur de profil"></div>
         <div class="selector-group" id="store-selector" role="group" aria-label="Sélecteur d'enseigne"></div>
         <div id="auth-button-group">
-          <button id="btn-login-header">Connexion</button>
-          <button id="btn-signup-header">Créer un compte</button>
+          <button id="btn-login-header" onclick="document.getElementById('auth-modal').style.display='flex'; document.getElementById('login-email').focus();">Connexion</button>
+          <button id="btn-signup-header" onclick="document.getElementById('auth-modal').style.display='flex'; document.getElementById('login-email').focus();">Créer un compte</button>
         </div>
         <div id="user-menu-header">
           <div id="user-email-header"></div>
@@ -61,9 +61,9 @@
   </header>
 
   <!-- ============ LOGIN MODAL ============ -->
-  <div id="auth-modal" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:10000;display:none;align-items:center;justify-content:center;">
+  <div id="auth-modal" onclick="if(event.target.id==='auth-modal') document.getElementById('auth-modal').style.display='none'" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:10000;display:none;align-items:center;justify-content:center;">
     <div style="background:white;padding:2rem;border-radius:12px;max-width:400px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);position:relative;">
-      <button id="btn-close-modal" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#999;padding:0;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;">✕</button>
+      <button id="btn-close-modal" onclick="document.getElementById('auth-modal').style.display='none'" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#999;padding:0;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;">✕</button>
 
       <h2 style="margin-top:0;text-align:center;color:#1B4332;">Connexion</h2>
 
