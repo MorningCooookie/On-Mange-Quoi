@@ -150,37 +150,21 @@ a { color: inherit; }
 }
 
 #btn-login-header, #btn-signup-header {
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  padding: 0.55rem 1.1rem;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   transition: all 0.15s;
   border: none;
   white-space: nowrap;
-}
-
-#btn-login-header {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,.4);
-  color: rgba(255,255,255,.9);
-}
-
-#btn-login-header:hover {
-  background: rgba(255,255,255,.15);
-  border-color: rgba(255,255,255,.6);
-  color: #fff;
-}
-
-#btn-signup-header {
-  background: rgba(255,255,255,.95);
-  color: var(--header-from);
-  font-weight: 600;
-}
-
-#btn-signup-header:hover {
   background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  color: var(--header-from);
+}
+
+#btn-login-header:hover, #btn-signup-header:hover {
+  background: rgba(255,255,255,.95);
+  box-shadow: 0 2px 8px rgba(0,0,0,.2);
 }
 
 /* User menu in header */

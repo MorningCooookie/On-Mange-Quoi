@@ -5,28 +5,68 @@
 const SUPABASE_URL = 'https://pozhsrnsezklfyqjoues.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_QZK_OFTOFeLGgGgT8_Yd9w_CMFLFFfP';
 
-// Importe Supabase depuis CDN
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+let supabase = null;
 
-// Debug: confirm script is loaded
-console.log('✅ auth.js loaded');
+// Initialize Supabase
+(async () => {
+  try {
+    const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2');
+    supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    // Set up auth state listener
+    supabase.auth.onAuthStateChange((event, session) => {
+      updateAuthUI(session);
+    });
+
+    // Check initial auth state
+    const { data: { session } } = await supabase.auth.getSession();
+    updateAuthUI(session);
+  } catch (err) {
+    console.error('Supabase init failed:', err);
+  }
+})();
 
 // ============================================
-// SHOW LOGIN MODAL (FROM HEADER BUTTONS)
+// UI STATE MANAGEMENT
 // ============================================
-const btnLoginHeader = document.getElementById('btn-login-header');
-console.log('btn-login-header element:', btnLoginHeader);
-btnLoginHeader?.addEventListener('click', () => {
-  console.log('✅ Login button clicked');
+function updateAuthUI(session) {
+  const authButtons = document.getElementById('auth-button-group');
+  const userMenu = document.getElementById('user-menu-header');
+
+  if (session) {
+    authButtons.style.display = 'none';
+    userMenu.style.display = 'flex';
+    document.getElementById('user-email-header').textContent = session.user.email;
+  } else {
+    authButtons.style.display = 'flex';
+    userMenu.style.display = 'none';
+  }
+}
+
+function showModal() {
   document.getElementById('auth-modal').style.display = 'flex';
   document.getElementById('login-email').focus();
-});
+}
+
+function hideModal() {
+  document.getElementById('auth-modal').style.display = 'none';
+}
 
 // ============================================
-// LOGIN HANDLER
+// BUTTON CLICK HANDLERS - ALWAYS WORK
+// ============================================
+document.getElementById('btn-login-header')?.addEventListener('click', showModal);
+document.getElementById('btn-signup-header')?.addEventListener('click', showModal);
+
+// ============================================
+// MODAL HANDLERS - REQUIRE SUPABASE
 // ============================================
 document.getElementById('btn-login')?.addEventListener('click', async () => {
+  if (!supabase) {
+    alert('❌ Service d\'authentification indisponible');
+    return;
+  }
+
   const email = document.getElementById('login-email').value.trim();
   const password = document.getElementById('login-password').value;
 
@@ -46,32 +86,21 @@ document.getElementById('btn-login')?.addEventListener('click', async () => {
       return;
     }
 
-    // Connexion réussie
-    document.getElementById('auth-modal').style.display = 'none';
+    hideModal();
     document.getElementById('login-email').value = '';
     document.getElementById('login-password').value = '';
-    localStorage.setItem('user-email', email);
     alert('✅ Connecté!');
   } catch (err) {
     alert('Erreur: ' + err.message);
   }
 });
 
-// ============================================
-// SHOW SIGNUP MODAL (FROM HEADER BUTTON)
-// ============================================
-const btnSignupHeader = document.getElementById('btn-signup-header');
-console.log('btn-signup-header element:', btnSignupHeader);
-btnSignupHeader?.addEventListener('click', () => {
-  console.log('✅ Signup button clicked');
-  document.getElementById('auth-modal').style.display = 'flex';
-  document.getElementById('login-email').focus();
-});
-
-// ============================================
-// SIGNUP HANDLER
-// ============================================
 document.getElementById('btn-signup')?.addEventListener('click', async () => {
+  if (!supabase) {
+    alert('❌ Service d\'authentification indisponible');
+    return;
+  }
+
   const email = document.getElementById('login-email').value.trim();
   const password = document.getElementById('login-password').value;
 
@@ -97,22 +126,23 @@ document.getElementById('btn-signup')?.addEventListener('click', async () => {
     }
 
     alert('✅ Compte créé! Vérifiez votre email pour confirmer.');
+    hideModal();
     document.getElementById('login-email').value = '';
     document.getElementById('login-password').value = '';
-    document.getElementById('auth-modal').style.display = 'none';
   } catch (err) {
     alert('Erreur: ' + err.message);
   }
 });
 
-// ============================================
-// LOGOUT HANDLER (HEADER BUTTON)
-// ============================================
 document.getElementById('btn-logout-header')?.addEventListener('click', async () => {
+  if (!supabase) {
+    localStorage.removeItem('user-email');
+    updateAuthUI(null);
+    return;
+  }
+
   try {
     await supabase.auth.signOut();
-    document.getElementById('login-email').value = '';
-    document.getElementById('login-password').value = '';
     localStorage.removeItem('user-email');
     alert('✅ Déconnecté');
   } catch (err) {
@@ -120,40 +150,18 @@ document.getElementById('btn-logout-header')?.addEventListener('click', async ()
   }
 });
 
-// ============================================
-// LOGOUT HANDLER (MODAL - kept for backwards compatibility)
-// ============================================
 document.getElementById('btn-logout')?.addEventListener('click', async () => {
+  if (!supabase) {
+    localStorage.removeItem('user-email');
+    updateAuthUI(null);
+    return;
+  }
+
   try {
     await supabase.auth.signOut();
-    document.getElementById('auth-modal').style.display = 'none';
-    document.getElementById('user-menu').style.display = 'none';
-    document.getElementById('login-email').value = '';
-    document.getElementById('login-password').value = '';
     localStorage.removeItem('user-email');
     alert('✅ Déconnecté');
   } catch (err) {
     alert('Erreur: ' + err.message);
-  }
-});
-
-// ============================================
-// CHECK IF USER IS ALREADY LOGGED IN
-// ============================================
-supabase.auth.onAuthStateChange((event, session) => {
-  if (session) {
-    // User is logged in - show header user menu
-    document.getElementById('auth-modal').style.display = 'none';
-    document.getElementById('auth-button-group').style.display = 'none';
-    document.getElementById('user-menu-header').style.display = 'flex';
-    document.getElementById('user-email-header').textContent = session.user.email;
-    document.getElementById('user-menu').style.display = 'none';
-    localStorage.setItem('user-email', session.user.email);
-  } else {
-    // User is logged out - show header login buttons
-    document.getElementById('auth-modal').style.display = 'none';
-    document.getElementById('auth-button-group').style.display = 'flex';
-    document.getElementById('user-menu-header').style.display = 'none';
-    document.getElementById('user-menu').style.display = 'none';
   }
 });
