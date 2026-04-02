@@ -152,8 +152,8 @@
         return;
       }
 
-      if (!window.supabaseClient) {
-        alert('❌ Service d\'authentification indisponible');
+      if (!window.supabaseClient || !window.supabaseClient.auth) {
+        alert('❌ Service d\'authentification indisponible. Rechargez la page.');
         return;
       }
 
@@ -182,8 +182,8 @@
         return;
       }
 
-      if (!window.supabaseClient) {
-        alert('❌ Service d\'authentification indisponible');
+      if (!window.supabaseClient || !window.supabaseClient.auth) {
+        alert('❌ Service d\'authentification indisponible. Rechargez la page.');
         return;
       }
 
@@ -422,16 +422,29 @@ python3 -m http.server 8000</div>
 
   <!-- Initialize Supabase client immediately -->
   <script>
-    (function initSupabaseClient() {
+    (function initSupabaseClient(attempt = 0) {
       if (window.supabase && window.supabase.createClient) {
-        window.supabaseClient = window.supabase.createClient(
-          'https://pozhsrnsezklfyqjoues.supabase.co',
-          'sb_publishable_QZK_OFTOFeLGgGgT8_Yd9w_CMFLFFfP'
-        );
-        console.log('✅ Supabase client initialized');
+        try {
+          window.supabaseClient = window.supabase.createClient(
+            'https://pozhsrnsezklfyqjoues.supabase.co',
+            'sb_publishable_QZK_OFTOFeLGgGgT8_Yd9w_CMFLFFfP'
+          );
+          if (window.supabaseClient && window.supabaseClient.auth) {
+            console.log('✅ Supabase client initialized successfully');
+          } else {
+            throw new Error('Client created but auth module missing');
+          }
+        } catch (err) {
+          console.error('Failed to initialize Supabase:', err.message);
+          if (attempt < 5) {
+            setTimeout(() => initSupabaseClient(attempt + 1), 200);
+          }
+        }
+      } else if (attempt < 5) {
+        console.log('⏳ Supabase library not ready (attempt ' + (attempt + 1) + '/5)');
+        setTimeout(() => initSupabaseClient(attempt + 1), 200);
       } else {
-        console.log('⏳ Supabase library not ready, retrying in 100ms');
-        setTimeout(initSupabaseClient, 100);
+        console.error('❌ Supabase library failed to load after 5 attempts');
       }
     })();
   </script>
