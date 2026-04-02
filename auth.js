@@ -75,6 +75,82 @@ function hideModal() {
 }
 
 // ============================================
+// LOGIN/SIGNUP HANDLERS
+// ============================================
+async function handleLogin() {
+  if (!supabase) {
+    alert('❌ Service d\'authentification indisponible. Vérifiez votre connexion internet.');
+    return;
+  }
+
+  const email = document.getElementById('login-email').value.trim();
+  const password = document.getElementById('login-password').value;
+
+  if (!email || !password) {
+    alert('Veuillez entrer email et mot de passe');
+    return;
+  }
+
+  try {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password
+    });
+
+    if (error) {
+      alert('❌ Erreur: ' + error.message);
+      return;
+    }
+
+    hideModal();
+    document.getElementById('login-email').value = '';
+    document.getElementById('login-password').value = '';
+    alert('✅ Connecté!');
+  } catch (err) {
+    alert('Erreur: ' + err.message);
+  }
+}
+
+async function handleSignup() {
+  if (!supabase) {
+    alert('❌ Service d\'authentification indisponible. Vérifiez votre connexion internet.');
+    return;
+  }
+
+  const email = document.getElementById('login-email').value.trim();
+  const password = document.getElementById('login-password').value;
+
+  if (!email || !password) {
+    alert('Veuillez entrer email et mot de passe');
+    return;
+  }
+
+  if (password.length < 6) {
+    alert('Le mot de passe doit faire au moins 6 caractères');
+    return;
+  }
+
+  try {
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password
+    });
+
+    if (error) {
+      alert('❌ Erreur: ' + error.message);
+      return;
+    }
+
+    alert('✅ Compte créé! Vérifiez votre email pour confirmer.');
+    hideModal();
+    document.getElementById('login-email').value = '';
+    document.getElementById('login-password').value = '';
+  } catch (err) {
+    alert('Erreur: ' + err.message);
+  }
+}
+
+// ============================================
 // MODAL CLOSE BUTTON
 // ============================================
 document.getElementById('btn-close-modal')?.addEventListener('click', hideModal);
@@ -106,6 +182,8 @@ if (btnSignupHeader) {
 
 // Test modal function
 console.log('Auth module loaded. Modal ID exists:', !!document.getElementById('auth-modal'));
+console.log('Supabase library available:', !!window.supabase);
+console.log('Supabase client initialized:', !!supabase);
 
 // ============================================
 // LOGIN HANDLER
