@@ -135,6 +135,74 @@
     <button id="btn-logout" style="width:100%;padding:0.5rem;background:#e74c3c;color:white;border:none;border-radius:4px;cursor:pointer;font-weight:bold;">Déconnexion</button>
   </div>
 
+  <script>
+    // Global signup/login functions (moved from auth.js to ensure they're available)
+    async function handleSignup() {
+      console.log('handleSignup called');
+      const email = document.getElementById('signup-email').value.trim();
+      const password = document.getElementById('signup-password').value;
+
+      if (!email || !password) {
+        alert('Veuillez entrer email et mot de passe');
+        return;
+      }
+
+      if (password.length < 6) {
+        alert('Le mot de passe doit faire au moins 6 caractères');
+        return;
+      }
+
+      if (!window.supabase) {
+        alert('❌ Service d\'authentification indisponible');
+        return;
+      }
+
+      try {
+        const { data, error } = await window.supabase.auth.signUp({ email, password });
+        if (error) {
+          alert('❌ Erreur: ' + error.message);
+          return;
+        }
+        document.getElementById('signup-modal').style.display = 'none';
+        document.getElementById('signup-email').value = '';
+        document.getElementById('signup-password').value = '';
+        alert('✅ Compte créé! Vérifiez votre email pour confirmer.');
+      } catch (err) {
+        alert('Erreur: ' + err.message);
+      }
+    }
+
+    async function handleLogin() {
+      console.log('handleLogin called');
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+
+      if (!email || !password) {
+        alert('Veuillez entrer email et mot de passe');
+        return;
+      }
+
+      if (!window.supabase) {
+        alert('❌ Service d\'authentification indisponible');
+        return;
+      }
+
+      try {
+        const { data, error } = await window.supabase.auth.signInWithPassword({ email, password });
+        if (error) {
+          alert('❌ Erreur: ' + error.message);
+          return;
+        }
+        document.getElementById('login-modal').style.display = 'none';
+        document.getElementById('login-email').value = '';
+        document.getElementById('login-password').value = '';
+        alert('✅ Connecté!');
+      } catch (err) {
+        alert('Erreur: ' + err.message);
+      }
+    }
+  </script>
+
   <!-- ── Error screen ─────────────────────────────────────────── -->
   <div id="error-screen" role="alert" aria-live="assertive">
     <div class="error-card">
