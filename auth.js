@@ -7,27 +7,26 @@ const SUPABASE_KEY = 'sb_publishable_QZK_OFTOFeLGgGgT8_Yd9w_CMFLFFfP';
 
 let supabase = null;
 
-// Wait for Supabase to load from CDN
+// Initialize Supabase directly - expose as window.supabaseClient for global access
 function initSupabase() {
-  try {
-    if (window.supabase && window.supabase.createClient) {
+  if (window.supabase && window.supabase.createClient) {
+    try {
       supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+      window.supabaseClient = supabase; // Make globally accessible
       setupAuthListener();
+      console.log('✅ Supabase initialized');
       return true;
+    } catch (err) {
+      console.error('❌ Supabase initialization error:', err.message);
     }
-  } catch (err) {
-    console.error('Supabase init failed:', err);
   }
   return false;
 }
 
-// Try immediately, then retry if not ready
+// Initialize immediately or retry
 if (!initSupabase()) {
-  setTimeout(() => {
-    if (!initSupabase()) {
-      setTimeout(initSupabase, 1000);
-    }
-  }, 100);
+  console.log('⏳ Supabase library not ready yet, retrying...');
+  setTimeout(initSupabase, 500);
 }
 
 // ============================================
@@ -304,14 +303,15 @@ document.getElementById('btn-signup')?.addEventListener('click', async () => {
 // LOGOUT HANDLERS
 // ============================================
 document.getElementById('btn-logout-header')?.addEventListener('click', async () => {
-  if (!supabase) {
+  const client = supabase || window.supabaseClient;
+  if (!client) {
     localStorage.removeItem('user-email');
     updateAuthUI(null);
     return;
   }
 
   try {
-    await supabase.auth.signOut();
+    await client.auth.signOut();
     localStorage.removeItem('user-email');
     alert('✅ Déconnecté');
   } catch (err) {
@@ -320,14 +320,15 @@ document.getElementById('btn-logout-header')?.addEventListener('click', async ()
 });
 
 document.getElementById('btn-logout')?.addEventListener('click', async () => {
-  if (!supabase) {
+  const client = supabase || window.supabaseClient;
+  if (!client) {
     localStorage.removeItem('user-email');
     updateAuthUI(null);
     return;
   }
 
   try {
-    await supabase.auth.signOut();
+    await client.auth.signOut();
     localStorage.removeItem('user-email');
     alert('✅ Déconnecté');
   } catch (err) {

@@ -152,13 +152,13 @@
         return;
       }
 
-      if (!window.supabase) {
+      if (!window.supabaseClient) {
         alert('❌ Service d\'authentification indisponible');
         return;
       }
 
       try {
-        const { data, error } = await window.supabase.auth.signUp({ email, password });
+        const { data, error } = await window.supabaseClient.auth.signUp({ email, password });
         if (error) {
           alert('❌ Erreur: ' + error.message);
           return;
@@ -182,13 +182,13 @@
         return;
       }
 
-      if (!window.supabase) {
+      if (!window.supabaseClient) {
         alert('❌ Service d\'authentification indisponible');
         return;
       }
 
       try {
-        const { data, error } = await window.supabase.auth.signInWithPassword({ email, password });
+        const { data, error } = await window.supabaseClient.auth.signInWithPassword({ email, password });
         if (error) {
           alert('❌ Erreur: ' + error.message);
           return;
@@ -419,6 +419,22 @@ python3 -m http.server 8000</div>
 
   <!-- Supabase client library -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Initialize Supabase client immediately -->
+  <script>
+    (function initSupabaseClient() {
+      if (window.supabase && window.supabase.createClient) {
+        window.supabaseClient = window.supabase.createClient(
+          'https://pozhsrnsezklfyqjoues.supabase.co',
+          'sb_publishable_QZK_OFTOFeLGgGgT8_Yd9w_CMFLFFfP'
+        );
+        console.log('✅ Supabase client initialized');
+      } else {
+        console.log('⏳ Supabase library not ready, retrying in 100ms');
+        setTimeout(initSupabaseClient, 100);
+      }
+    })();
+  </script>
 
   <script src="auth.js"></script>
   <script src="app.js"></script>
