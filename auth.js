@@ -10,6 +10,14 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // ============================================
+// SHOW LOGIN MODAL (FROM HEADER BUTTONS)
+// ============================================
+document.getElementById('btn-login-header')?.addEventListener('click', () => {
+  document.getElementById('auth-modal').style.display = 'flex';
+  document.getElementById('login-email').focus();
+});
+
+// ============================================
 // LOGIN HANDLER
 // ============================================
 document.getElementById('btn-login')?.addEventListener('click', async () => {
@@ -34,13 +42,21 @@ document.getElementById('btn-login')?.addEventListener('click', async () => {
 
     // Connexion réussie
     document.getElementById('auth-modal').style.display = 'none';
-    document.getElementById('user-menu').style.display = 'block';
-    document.getElementById('user-email').textContent = email;
+    document.getElementById('login-email').value = '';
+    document.getElementById('login-password').value = '';
     localStorage.setItem('user-email', email);
     alert('✅ Connecté!');
   } catch (err) {
     alert('Erreur: ' + err.message);
   }
+});
+
+// ============================================
+// SHOW SIGNUP MODAL (FROM HEADER BUTTON)
+// ============================================
+document.getElementById('btn-signup-header')?.addEventListener('click', () => {
+  document.getElementById('auth-modal').style.display = 'flex';
+  document.getElementById('login-email').focus();
 });
 
 // ============================================
@@ -74,18 +90,34 @@ document.getElementById('btn-signup')?.addEventListener('click', async () => {
     alert('✅ Compte créé! Vérifiez votre email pour confirmer.');
     document.getElementById('login-email').value = '';
     document.getElementById('login-password').value = '';
+    document.getElementById('auth-modal').style.display = 'none';
   } catch (err) {
     alert('Erreur: ' + err.message);
   }
 });
 
 // ============================================
-// LOGOUT HANDLER
+// LOGOUT HANDLER (HEADER BUTTON)
+// ============================================
+document.getElementById('btn-logout-header')?.addEventListener('click', async () => {
+  try {
+    await supabase.auth.signOut();
+    document.getElementById('login-email').value = '';
+    document.getElementById('login-password').value = '';
+    localStorage.removeItem('user-email');
+    alert('✅ Déconnecté');
+  } catch (err) {
+    alert('Erreur: ' + err.message);
+  }
+});
+
+// ============================================
+// LOGOUT HANDLER (MODAL - kept for backwards compatibility)
 // ============================================
 document.getElementById('btn-logout')?.addEventListener('click', async () => {
   try {
     await supabase.auth.signOut();
-    document.getElementById('auth-modal').style.display = 'flex';
+    document.getElementById('auth-modal').style.display = 'none';
     document.getElementById('user-menu').style.display = 'none';
     document.getElementById('login-email').value = '';
     document.getElementById('login-password').value = '';
@@ -101,12 +133,18 @@ document.getElementById('btn-logout')?.addEventListener('click', async () => {
 // ============================================
 supabase.auth.onAuthStateChange((event, session) => {
   if (session) {
+    // User is logged in - show header user menu
     document.getElementById('auth-modal').style.display = 'none';
-    document.getElementById('user-menu').style.display = 'block';
-    document.getElementById('user-email').textContent = session.user.email;
+    document.getElementById('auth-button-group').style.display = 'none';
+    document.getElementById('user-menu-header').style.display = 'flex';
+    document.getElementById('user-email-header').textContent = session.user.email;
+    document.getElementById('user-menu').style.display = 'none';
     localStorage.setItem('user-email', session.user.email);
   } else {
-    document.getElementById('auth-modal').style.display = 'flex';
+    // User is logged out - show header login buttons
+    document.getElementById('auth-modal').style.display = 'none';
+    document.getElementById('auth-button-group').style.display = 'flex';
+    document.getElementById('user-menu-header').style.display = 'none';
     document.getElementById('user-menu').style.display = 'none';
   }
 });

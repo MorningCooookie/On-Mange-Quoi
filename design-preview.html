@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>On mange quoi ? — Direction design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-deep:    #1B4332;
+      --green-mid:     #2D6A4F;
+      --green-light:   #52B788;
+      --green-pale:    #D8F3DC;
+      --cream:         #FAF7F2;
+      --cream-dark:    #F0EAE0;
+      --amber:         #C8891A;
+      --text:          #1C1C1C;
+      --text-muted:    #6B6560;
+      --white:         #FFFFFF;
+
+      --font-display:  'Fraunces', Georgia, serif;
+      --font-body:     'Work Sans', system-ui, sans-serif;
+
+      --radius-sm:  4px;
+      --radius-md:  10px;
+      --radius-lg:  16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    /* ─── LABEL ─── */
+    .preview-label {
+      background: #1C1C1C;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.5rem;
+      text-align: center;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      background: var(--green-deep);
+      padding: 0 2rem;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 58px;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--green-light);
+    }
+
+    nav {
+      display: flex;
+      gap: 0.25rem;
+      align-items: center;
+    }
+
+    nav a {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-sm);
+      transition: color 150ms, background 150ms;
+    }
+
+    nav a:hover { color: var(--white); background: rgba(255,255,255,0.1); }
+
+    .profile-pills {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .pill {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      transition: all 150ms;
+    }
+
+    .pill--active {
+      background: var(--white);
+      color: var(--green-deep);
+    }
+
+    .pill--inactive {
+      border-color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.7);
+    }
+
+    .pill--inactive:hover {
+      border-color: rgba(255,255,255,0.6);
+      color: var(--white);
+    }
+
+    .store-pills {
+      display: flex;
+      gap: 0.3rem;
+      align-items: center;
+      margin-left: 1rem;
+      padding-left: 1rem;
+      border-left: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .store-pill {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 150ms;
+    }
+
+    .store-pill--active {
+      background: #F4A827;
+      color: #1C1C1C;
+    }
+
+    .store-pill--inactive {
+      color: rgba(255,255,255,0.65);
+      border: 1.5px solid rgba(255,255,255,0.2);
+    }
+
+    /* ─── MAIN ─── */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 4rem;
+    }
+
+    /* ─── SCORE BADGE INLINE ─── */
+    .score-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--green-deep);
+      color: var(--white);
+      padding: 0.25rem 0.65rem 0.25rem 0.45rem;
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      vertical-align: middle;
+      position: relative;
+      top: -2px;
+      cursor: default;
+    }
+
+    .score-badge-letter {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--green-light);
+      line-height: 1;
+    }
+
+    .score-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .highlight-chip {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 0.2rem 0.65rem;
+      background: var(--cream-dark);
+      border-radius: 999px;
+    }
+
+    .highlight-chip::before {
+      content: '✓ ';
+      color: var(--green-light);
+      font-weight: 700;
+    }
+
+    .print-btn {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      background: var(--white);
+      color: var(--text-muted);
+      border: 1.5px solid var(--cream-dark);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 150ms;
+    }
+
+    .print-btn:hover {
+      border-color: var(--green-light);
+      color: var(--green-deep);
+    }
+
+    /* ─── SECTION TITLE ─── */
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .section-date {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ─── WEEK GRID ─── */
+    .week-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .day-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      transition: transform 200ms, box-shadow 200ms;
+    }
+
+    .day-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .day-header {
+      background: var(--green-deep);
+      padding: 0.6rem 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .day-name {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+
+    .today-badge {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: #F4A827;
+      color: #1C1C1C;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+    }
+
+    .meal-slot {
+      padding: 0.55rem 0.85rem;
+      border-bottom: 1px solid #F5F0EB;
+      border-left: 3px solid transparent;
+      position: relative;
+    }
+
+    .meal-slot:last-child { border-bottom: none; }
+
+    .meal-slot--breakfast { border-left-color: #818CF8; background: #FAFAFE; }
+    .meal-slot--lunch     { border-left-color: #34D399; background: #FAFFFE; }
+    .meal-slot--snack     { border-left-color: #FB923C; background: #FFFAF8; }
+    .meal-slot--dinner    { border-left-color: #C084FC; background: #FEFAFF; }
+
+    .meal-name {
+      font-size: 0.77rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .meal-meta {
+      display: flex;
+      gap: 0.4rem;
+      margin-top: 0.3rem;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+    }
+
+    .badge--time-fast   { background: #DCFCE7; color: #166534; }
+    .badge--time-mid    { background: #FEF9C3; color: #713F12; }
+    .badge--time-slow   { background: #FEE2E2; color: #991B1B; }
+    .badge--season      { background: #D1FAE5; color: #065F46; }
+    .badge--risk-low    { background: #DCFCE7; color: #166534; border-radius: 999px; width: 8px; height: 8px; padding: 0; display: inline-block; }
+
+    /* ─── SHOPPING SECTION ─── */
+    .shopping-layout {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 2rem;
+    }
+
+    .shopping-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .shopping-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+
+    .shopping-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .shopping-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .btn-sm {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--cream-dark);
+      background: var(--white);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 150ms;
+    }
+
+    .btn-sm:hover { border-color: var(--green-light); color: var(--green-deep); }
+
+    .btn-sm--fridge {
+      border-color: #BFDBFE;
+      color: #1D4ED8;
+      background: #EFF6FF;
+    }
+
+    .category-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    .category-title:first-of-type { margin-top: 0; }
+
+    .item-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #F5F0EB;
+    }
+
+    .item-row:last-child { border-bottom: none; }
+
+    .item-check {
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid #D1C9C0;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .item-name {
+      flex: 1;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    .item-badges {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .item-price {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--amber);
+      min-width: 52px;
+      text-align: right;
+    }
+
+    /* ─── BUDGET PANEL ─── */
+    .budget-panel {
+      background: var(--green-deep);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      color: var(--white);
+    }
+
+    .budget-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .budget-total {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .budget-sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 1.5rem;
+    }
+
+    .budget-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .stat-val {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .stat-key {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .budget-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin-bottom: 1.25rem;
+    }
+
+    .store-compare-title {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 0.75rem;
+    }
+
+    .store-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .store-row-name {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.7);
+      min-width: 72px;
+    }
+
+    .store-bar-wrap {
+      flex: 1;
+      height: 6px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .store-bar { height: 100%; border-radius: 999px; }
+    .store-bar--discount { background: #F4A827; width: 45%; }
+    .store-bar--standard { background: #60B4F5; width: 60%; }
+    .store-bar--bio      { background: #52B788; width: 100%; }
+
+    .store-price {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      min-width: 52px;
+      text-align: right;
+    }
+
+    .price-freshness {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .freshness-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #52B788;
+      flex-shrink: 0;
+    }
+
+    /* ─── COMPARISON STRIP ─── */
+    .comparison-note {
+      background: var(--cream-dark);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 1rem;
+      margin-top: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* ─── SIDE NOTE ─── */
+    .sidenote {
+      background: #FFF;
+      border-left: 3px solid var(--amber);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 0.6rem 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 2rem;
+      max-width: 480px;
+      line-height: 1.5;
+    }
+
+    /* ─── SPACER ─── */
+    .section-gap { margin-bottom: 3.5rem; }
+  </style>
+</head>
+<body>
+
+<div class="preview-label">Direction design — "On mange quoi ?" · Prototype statique · Fonts: Fraunces + Work Sans</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">On mange quoi<span> ?</span></a>
+
+    <nav>
+      <a href="#">Menu</a>
+      <a href="#">Courses</a>
+      <a href="#">Historique</a>
+      <a href="#">Veille santé</a>
+      <a href="#">Fiche mémo</a>
+    </nav>
+
+    <div style="display:flex; align-items:center; gap:0.5rem;">
+      <div class="profile-pills">
+        <span class="pill pill--active">Famille</span>
+        <span class="pill pill--inactive">Ados</span>
+        <span class="pill pill--inactive">Couple</span>
+        <span class="pill pill--inactive">Solo</span>
+      </div>
+      <div class="store-pills">
+        <span class="store-pill store-pill--active">Discount</span>
+        <span class="store-pill store-pill--inactive">Standard</span>
+        <span class="store-pill store-pill--inactive">Bio</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main>
+
+  <!-- MENU SEMAINE -->
+  <div class="section-gap">
+    <div class="section-header" style="justify-content: space-between;">
+      <div style="display:flex; align-items:baseline; gap: 0.75rem; flex-wrap:wrap;">
+        <h2 class="section-title">Menu de la semaine</h2>
+        <span class="section-date">30 mars – 5 avril 2026</span>
+        <span class="score-badge">
+          <span class="score-badge-letter">A</span>
+          Score santé
+        </span>
+      </div>
+      <button class="print-btn">🖨 Coller sur le frigo</button>
+    </div>
+
+    <div class="score-highlights">
+      <span class="highlight-chip">0 thon cette semaine</span>
+      <span class="highlight-chip">3 poissons certifiés sûrs</span>
+      <span class="highlight-chip">5 légumineuses au programme</span>
+      <span class="highlight-chip">Aucun repas à risque élevé</span>
+    </div>
+
+    <div class="week-grid">
+
+      <!-- Lundi -->
+      <div class="day-card">
+        <div class="day-header">
+          <span class="day-name">Lundi</span>
+          <span class="today-badge">Aujourd'hui</span>
+        </div>
+        <div class="meal-slot meal-slot--breakfast">
+          <div class="meal-name">Porridge d'avoine, banane, miel</div>
+          <div class="meal-meta">
+            <span class="badge badge--time-fast">⏱ 10 min</span>
+          </div>
+        </div>
+        <div class="meal-slot meal-slot--lunch">
+          <div class="meal-name">Poulet Label Rouge, haricots verts, riz basmati</div>
+          <div class="meal-meta">
+            <span class="badge badge--time-mid">⏱ 35 min</span>
+          </div>
+        </div>
+        <div class="meal-slot meal-slot--snack">
+          <div class="meal-name">Pomme fraîche, fromage blanc</div>
+          <div class="meal-meta">
+            <span class="badge badge--time-fast">⏱ 5 min</span>
+            <span class="badge badge--season">🌸 saison</span>
+          </div>
+        </div>
+        <div class="meal-slot meal-slot--dinner">
+          <div class="meal-name">Soupe lentilles corail, tartine levain, jambon</div>
+          <div class="meal-meta">
+            <span class="badge badge--time-mid">⏱ 20 min</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mardi -->
+      <div class="day-card">
+        <div class="day-header">
+          <span class="day-name">Mardi</span>
+        </div>
+        <div class="meal-slot meal-slot--breakfast">
+          <div class="meal-name">Œufs brouillés, tartine pain campagne, jus d'orange</div>
+          <div class="meal-meta"><span class="badge badge--time-fast">⏱ 10 min</span></div>
+        </div>
+        <div class="meal-slot meal-slot--lunch">
+          <div class="meal-name">Saumon vapeur, brocolis, quinoa</div>
+          <div class="meal-meta"><span class="badge badge--time-mid">⏱ 20 min</span></div>
+        </div>
+        <div class="meal-slot meal-slot--snack">
+          <div class="meal-name">Poire fraîche, amandes nature</div>
+          <div class="meal-meta">
+            <span class="badge badge--time-fast">⏱ 2 min</span>
+            <span class="badge badge--season">🌸 saison</span>
+          </div>
+        </div>
+        <div class="meal-slot meal-slot--dinner">
+          <div class="meal-name">Gratin de pois chiches aux légumes du soleil</div>
+          <div class="meal-meta"><span class="badge badge--time-mid">⏱ 30 min</span></div>
+        </div>
+      </div>
+
+      <!-- Mercredi -->
+      <div class="day-card">
+        <div class="day-header"><span class="day-name">Mercredi</span></div>
+        <div class="meal-slot meal-slot--breakfast">
+          <div class="meal-name">Yaourt nature, fraises de saison, granola maison</div>
+          <div class="meal-meta">
+            <span class="badge badge--time-fast">⏱ 5 min</span>
+            <span class="badge badge--season">🌸 saison</span>
+          </div>
+        </div>
+        <div class="meal-slot meal-slot--lunch">
+          <div class="meal-name">Escalope de dinde plein air, purée carottes, salade</div>
+          <div class="meal-meta"><span class="badge badge--time-mid">⏱ 25 min</span></div>
+        </div>
+        <div class="meal-slot meal-slot--snack">
+          <div class="meal-name">Banane, carré de chocolat noir 70%</div>
+          <div class="meal-meta"><span class="badge badge--time-fast">⏱ 2 min</span></div>
+        </div>
+        <div class="meal-slot meal-slot--dinner">
+          <div class="meal-name">Soupe poireaux, œuf dur, pain levain</div>
+          <div class="meal-meta">
+            <span class="badge badge--time-mid">⏱ 25 min</span>
+            <span class="badge badge--season">🌸 saison</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jeudi -->
+      <div class="day-card">
+        <div class="day-header"><span class="day-name">Jeudi</span></div>
+        <div class="meal-slot meal-slot--breakfast">
+          <div class="meal-name">Porridge d'avoine, myrtilles, graines de chia</div>
+          <div class="meal-meta"><span class="badge badge--time-fast">⏱ 10 min</span></div>
+        </div>
+        <div class="meal-slot meal-slot--lunch">
+          <div class="meal-name">Haricots blancs mijotés, saucisse volaille plein air</div>
+          <div class="meal-meta">
+            <span class="badge badge--time-mid">⏱ 30 min</span>
+            <span class="badge badge--season">🌸 saison</span>
+          </div>
+        </div>
+        <div class="meal-slot meal-slot--snack">
+          <div class="meal-name">Clémentines, fromage blanc</div>
+          <div class="meal-meta"><span class="badge badge--time-fast">⏱ 2 min</span></div>
+        </div>
+        <div class="meal-slot meal-slot--dinner">
+          <div class="meal-name">Cabillaud en papillote, fenouil, pommes vapeur</div>
+          <div class="meal-meta">
+            <span class="badge badge--time-mid">⏱ 25 min</span>
+            <span class="badge badge--season">🌸 saison</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vendredi -->
+      <div class="day-card">
+        <div class="day-header"><span class="day-name">Vendredi</span></div>
+        <div class="meal-slot meal-slot--breakfast">
+          <div class="meal-name">Pain perdu maison, compote pomme-cannelle</div>
+          <div class="meal-meta">
+            <span class="badge badge--time-fast">⏱ 15 min</span>
+            <span class="badge badge--season">🌸 saison</span>
+          </div>
+        </div>
+        <div class="meal-slot meal-slot--lunch">
+          <div class="meal-name">Taboulé de boulgour, falafels maison, tzatziki</div>
+          <div class="meal-meta"><span class="badge badge--time-mid">⏱ 30 min</span></div>
+        </div>
+        <div class="meal-slot meal-slot--snack">
+          <div class="meal-name">Raisins frais bio, cacahuètes nature</div>
+          <div class="meal-meta"><span class="badge badge--time-fast">⏱ 2 min</span></div>
+        </div>
+        <div class="meal-slot meal-slot--dinner">
+          <div class="meal-name">Lentilles vertes aux lardons, salade de roquette</div>
+          <div class="meal-meta"><span class="badge badge--time-mid">⏱ 30 min</span></div>
+        </div>
+      </div>
+
+      <!-- Samedi -->
+      <div class="day-card">
+        <div class="day-header"><span class="day-name">Samedi</span></div>
+        <div class="meal-slot meal-slot--breakfast">
+          <div class="meal-name">Pancakes flocons d'avoine, sirop d'érable, fraises</div>
+          <div class="meal-meta">
+            <span class="badge badge--time-mid">⏱ 20 min</span>
+            <span class="badge badge--season">🌸 saison</span>
+          </div>
+        </div>
+        <div class="meal-slot meal-slot--lunch">
+          <div class="meal-name">Poulet basquaise Label Rouge, riz basmati, salade</div>
+          <div class="meal-meta"><span class="badge badge--time-slow">⏱ 45 min</span></div>
+        </div>
+        <div class="meal-slot meal-slot--snack">
+          <div class="meal-name">Kiwi, yaourt à la vanille naturelle</div>
+          <div class="meal-meta"><span class="badge badge--time-fast">⏱ 2 min</span></div>
+        </div>
+        <div class="meal-slot meal-slot--dinner">
+          <div class="meal-name">Pizza maison pâte fine, mozzarella, légumes grillés</div>
+          <div class="meal-meta"><span class="badge badge--time-slow">⏱ 40 min</span></div>
+        </div>
+      </div>
+
+      <!-- Dimanche -->
+      <div class="day-card">
+        <div class="day-header"><span class="day-name">Dimanche</span></div>
+        <div class="meal-slot meal-slot--breakfast">
+          <div class="meal-name">Brioche maison, beurre, confiture, lait chaud</div>
+          <div class="meal-meta"><span class="badge badge--time-mid">⏱ 20 min</span></div>
+        </div>
+        <div class="meal-slot meal-slot--lunch">
+          <div class="meal-name">Gigot d'agneau, flageolets, gratin dauphinois</div>
+          <div class="meal-meta"><span class="badge badge--time-slow">⏱ 1h30</span></div>
+        </div>
+        <div class="meal-slot meal-slot--snack">
+          <div class="meal-name">Salade de fraises et pommes fraîches</div>
+          <div class="meal-meta">
+            <span class="badge badge--time-fast">⏱ 10 min</span>
+            <span class="badge badge--season">🌸 saison</span>
+          </div>
+        </div>
+        <div class="meal-slot meal-slot--dinner">
+          <div class="meal-name">Velouté courgettes-chèvre, œuf mollet, pain levain</div>
+          <div class="meal-meta"><span class="badge badge--time-mid">⏱ 20 min</span></div>
+        </div>
+      </div>
+
+    </div><!-- /week-grid -->
+  </div><!-- /section-gap -->
+
+  <!-- COURSES + BUDGET -->
+  <div class="section-header">
+    <h2 class="section-title">Liste de courses & budget</h2>
+  </div>
+
+  <div class="shopping-layout">
+
+    <div class="shopping-card">
+      <div class="shopping-header">
+        <span class="shopping-title">Liste de la semaine</span>
+        <div class="shopping-actions">
+          <button class="btn-sm btn-sm--fridge">🧊 Frigo vide</button>
+          <button class="btn-sm">Copier</button>
+          <button class="btn-sm">Imprimer</button>
+        </div>
+      </div>
+
+      <div class="category-title">🥦 Légumes & fruits</div>
+      <div class="item-row">
+        <div class="item-check"></div>
+        <span class="item-name">Carottes</span>
+        <div class="item-badges"><span class="badge badge--season">🌸 saison</span></div>
+        <span class="item-price">0,90 €</span>
+      </div>
+      <div class="item-row">
+        <div class="item-check"></div>
+        <span class="item-name">Poireaux</span>
+        <div class="item-badges"><span class="badge badge--season">🌸 saison</span></div>
+        <span class="item-price">1,20 €</span>
+      </div>
+      <div class="item-row">
+        <div class="item-check"></div>
+        <span class="item-name">Poivrons rouge + jaune <em style="font-size:0.72rem;color:#92400E;font-style:normal;">bio recommandé</em></span>
+        <div class="item-badges"></div>
+        <span class="item-price">2,40 €</span>
+      </div>
+      <div class="item-row">
+        <div class="item-check"></div>
+        <span class="item-name">Fraises <em style="font-size:0.72rem;color:#92400E;font-style:normal;">bio recommandé</em></span>
+        <div class="item-badges"><span class="badge badge--season">🌸 saison</span></div>
+        <span class="item-price">3,50 €</span>
+      </div>
+
+      <div class="category-title">🐟 Viandes & poissons</div>
+      <div class="item-row">
+        <div class="item-check"></div>
+        <span class="item-name">Poulet entier ou cuisses <em style="font-size:0.72rem;color:#065F46;font-style:normal;">Label Rouge ou AB</em></span>
+        <div class="item-badges"></div>
+        <span class="item-price">7,50 €</span>
+      </div>
+      <div class="item-row">
+        <div class="item-check"></div>
+        <span class="item-name">Filet de saumon <em style="font-size:0.72rem;color:#92400E;font-style:normal;">max 2×/mois</em></span>
+        <div class="item-badges"></div>
+        <span class="item-price">9,20 €</span>
+      </div>
+
+      <div class="comparison-note">
+        Basé sur les prix Discount (Lidl, Aldi) — mise à jour mars 2026
+      </div>
+    </div>
+
+    <!-- BUDGET -->
+    <div class="budget-panel">
+      <div class="budget-label">Budget estimé</div>
+      <div class="budget-total">147,25 €</div>
+      <div class="budget-sub">Total semaine · Discount</div>
+
+      <div class="budget-stats">
+        <div class="stat"><span class="stat-val">21,04 €</span><span class="stat-key">Par jour</span></div>
+        <div class="stat"><span class="stat-val">36,81 €</span><span class="stat-key">Par personne</span></div>
+        <div class="stat"><span class="stat-val">5,26 €</span><span class="stat-key">Pers. / jour</span></div>
+        <div class="stat"><span class="stat-val">4</span><span class="stat-key">Personnes</span></div>
+      </div>
+
+      <div class="budget-divider"></div>
+      <div class="store-compare-title">Comparaison enseignes</div>
+
+      <div class="store-row">
+        <span class="store-row-name">Discount</span>
+        <div class="store-bar-wrap"><div class="store-bar store-bar--discount"></div></div>
+        <span class="store-price">147 €</span>
+      </div>
+      <div class="store-row">
+        <span class="store-row-name">Standard</span>
+        <div class="store-bar-wrap"><div class="store-bar store-bar--standard"></div></div>
+        <span class="store-price">195 €</span>
+      </div>
+      <div class="store-row">
+        <span class="store-row-name">Bio</span>
+        <div class="store-bar-wrap"><div class="store-bar store-bar--bio"></div></div>
+        <span class="store-price">325 €</span>
+      </div>
+
+      <div class="price-freshness">
+        <span class="freshness-dot"></span>
+        Prix mis à jour ce mois-ci
+      </div>
+    </div>
+
+  </div><!-- /shopping-layout -->
+
+  <div class="sidenote">
+    Ce prototype illustre uniquement la direction typographique et visuelle. Le contenu, les interactions et la logique JS restent identiques au site existant.
+  </div>
+
+</main>
+</body>
+</html>

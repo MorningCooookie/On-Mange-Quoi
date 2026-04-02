@@ -44,16 +44,24 @@
         <a class="nav-link" href="recettes.html">🍳 Recettes</a>
       </nav>
 
-      <!-- Desktop selectors -->
+      <!-- Desktop selectors + Auth buttons -->
       <div class="header-controls">
         <div class="selector-group" id="profile-selector" role="group" aria-label="Sélecteur de profil"></div>
         <div class="selector-group" id="store-selector" role="group" aria-label="Sélecteur d'enseigne"></div>
+        <div id="auth-button-group" style="display:flex;gap:0.5rem;align-items:center;">
+          <button id="btn-login-header" style="padding:0.5rem 1rem;background:transparent;border:1px solid #ddd;border-radius:4px;cursor:pointer;font-size:0.9rem;color:#333;">Connexion</button>
+          <button id="btn-signup-header" style="padding:0.5rem 1rem;background:#1B4332;color:white;border:none;border-radius:4px;cursor:pointer;font-size:0.9rem;font-weight:bold;">Créer un compte</button>
+        </div>
+        <div id="user-menu-header" style="display:none;flex-direction:column;gap:0.5rem;align-items:flex-end;">
+          <div style="font-size:0.85rem;color:#666;" id="user-email-header"></div>
+          <button id="btn-logout-header" style="padding:0.5rem 1rem;background:#e74c3c;color:white;border:none;border-radius:4px;cursor:pointer;font-size:0.9rem;">Déconnexion</button>
+        </div>
       </div>
     </div>
   </header>
 
   <!-- ============ LOGIN MODAL ============ -->
-  <div id="auth-modal" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:10000;display:flex;align-items:center;justify-content:center;">
+  <div id="auth-modal" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:10000;display:none;align-items:center;justify-content:center;">
     <div style="background:white;padding:2rem;border-radius:12px;max-width:400px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);">
       <h2 style="margin-top:0;text-align:center;color:#1B4332;">Connexion</h2>
 

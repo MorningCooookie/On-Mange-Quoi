@@ -1,0 +1,146 @@
+- generic [active] [ref=e1]:
+  - link "Aller au contenu principal" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - link "On mange quoi ? — accueil" [ref=e5] [cursor=pointer]:
+      - /url: "#"
+      - img [ref=e6]
+      - text: On mange quoi ?
+  - generic [ref=e9]:
+    - main [ref=e10]:
+      - region "📅 Menu de la semaine" [ref=e11]:
+        - generic [ref=e12]:
+          - heading "📅 Menu de la semaine" [level=2] [ref=e14]:
+            - generic [ref=e15]: 📅
+            - text: Menu de la semaine
+          - button "Partager le menu" [ref=e16] [cursor=pointer]
+        - list "Grille des 7 jours" [ref=e17]
+        - paragraph: ← Glisse pour voir les 7 jours →
+      - region "🛒 Liste de courses & budget" [ref=e18]:
+        - heading "🛒 Liste de courses & budget" [level=2] [ref=e19]:
+          - generic [ref=e20]: 🛒
+          - text: Liste de courses & budget
+        - generic [ref=e21]:
+          - generic [ref=e22]:
+            - generic [ref=e23]:
+              - generic [ref=e24]: 🛒 Liste de la semaine
+              - generic [ref=e25]:
+                - button "🧊 Frigo vide" [ref=e26] [cursor=pointer]
+                - button "📋 Copier" [ref=e27] [cursor=pointer]
+                - button "🖨️ Imprimer" [ref=e28] [cursor=pointer]
+            - generic "Liste de courses par catégorie"
+          - complementary "Budget estimé" [ref=e29]:
+            - generic [ref=e30]: 💰 Budget estimé
+            - generic [ref=e31]:
+              - generic [ref=e32]: —
+              - generic [ref=e33]: Total semaine (enseigne sélectionnée)
+            - generic [ref=e34]:
+              - generic [ref=e35]:
+                - generic [ref=e36]: —
+                - generic [ref=e37]: Par jour
+              - generic [ref=e38]:
+                - generic [ref=e39]: —
+                - generic [ref=e40]: Par personne
+              - generic [ref=e41]:
+                - generic [ref=e42]: —
+                - generic [ref=e43]: Pers. / jour
+              - generic [ref=e44]:
+                - generic [ref=e45]: —
+                - generic [ref=e46]: Personnes
+            - generic "Comparaison par enseigne" [ref=e47]:
+              - generic [ref=e48]: Comparaison enseignes
+            - group "Choisir une enseigne"
+      - region "📚 Semaines précédentes" [ref=e50]:
+        - heading "📚 Semaines précédentes" [level=2] [ref=e51]:
+          - generic [ref=e52]: 📚
+          - text: Semaines précédentes
+        - list
+      - region "🔬 Veille santé alimentaire" [ref=e53]:
+        - heading "🔬 Veille santé alimentaire" [level=2] [ref=e54]:
+          - generic [ref=e55]: 🔬
+          - text: Veille santé alimentaire
+        - paragraph [ref=e56]:
+          - text: "Sources :"
+          - link "ANSES" [ref=e57] [cursor=pointer]:
+            - /url: https://www.anses.fr
+          - text: ·
+          - link "EFSA" [ref=e58] [cursor=pointer]:
+            - /url: https://www.efsa.europa.eu
+          - text: ·
+          - link "Générations Futures" [ref=e59] [cursor=pointer]:
+            - /url: https://www.generations-futures.fr
+          - text: ·
+          - link "INRAE" [ref=e60] [cursor=pointer]:
+            - /url: https://inrae.fr
+      - region "ℹ️ À propos" [ref=e61]:
+        - heading "ℹ️ À propos" [level=2] [ref=e62]:
+          - generic [ref=e63]: ℹ️
+          - text: À propos
+        - generic [ref=e64]:
+          - generic [ref=e65]:
+            - heading "🎯 L'objectif" [level=3] [ref=e66]
+            - paragraph [ref=e67]: Des menus hebdomadaires familiaux validés selon les recommandations ANSES et EFSA — anti-cadmium, anti-mercure, faibles pesticides.
+          - generic [ref=e68]:
+            - heading "💡 Le score santé" [level=3] [ref=e69]
+            - paragraph [ref=e70]:
+              - strong [ref=e71]: A
+              - text: ": 0 repas à risque élevé, max 2 modérés, bonne diversité protéinée et au moins 1 légumineuse."
+              - strong [ref=e72]: B
+              - text: ": 1 à 3 repas modérés."
+              - strong [ref=e73]: C
+              - text: ": risque élevé présent."
+          - generic [ref=e74]:
+            - heading "🧊 Frigo vide" [level=3] [ref=e75]
+            - paragraph [ref=e76]: Activez "Frigo vide", cochez les articles déjà dans votre frigo — ils seront soustraits du total en temps réel.
+          - generic [ref=e77]:
+            - heading "🍂 Saison" [level=3] [ref=e78]
+            - paragraph [ref=e79]: Les badges 🌸☀️🍂❄️ indiquent les repas et ingrédients de saison, détectés automatiquement selon la date du jour.
+          - generic [ref=e80]:
+            - heading "⏱ Temps de prépa" [level=3] [ref=e81]
+            - paragraph [ref=e82]: Badge vert (≤ 10 min) · jaune (≤ 25 min) · rouge (> 25 min) sur chaque repas.
+          - generic [ref=e83]:
+            - heading "📄 Fiche mémo" [level=3] [ref=e84]
+            - paragraph [ref=e85]:
+              - text: La
+              - link "fiche mémo partageable" [ref=e86] [cursor=pointer]:
+                - /url: /fiche
+              - text: résume les aliments à limiter et à privilégier pour les 4 contaminants.
+    - contentinfo [ref=e87]:
+      - paragraph [ref=e88]:
+        - text: 🥗
+        - strong [ref=e89]: On mange quoi ?
+        - text: · Menus familiaux sains · Données ANSES / EFSA / Générations Futures
+      - paragraph [ref=e90]:
+        - text: Aucune donnée personnelle collectée ·
+        - link "Fiche mémo" [ref=e91] [cursor=pointer]:
+          - /url: /fiche
+  - generic "Navigation mobile" [ref=e92]:
+    - generic [ref=e93]:
+      - group "Profil"
+      - group "Enseigne"
+    - navigation "Navigation rapide" [ref=e95]:
+      - link "📅 Menu" [ref=e96] [cursor=pointer]:
+        - /url: "#menu"
+        - generic [ref=e97]: 📅
+        - text: Menu
+      - link "🛒 Courses" [ref=e98] [cursor=pointer]:
+        - /url: "#courses"
+        - generic [ref=e99]: 🛒
+        - text: Courses
+      - link "📚 Historique" [ref=e100] [cursor=pointer]:
+        - /url: "#historique"
+        - generic [ref=e101]: 📚
+        - text: Historique
+      - link "🔬 Veille" [ref=e102] [cursor=pointer]:
+        - /url: "#cadmium"
+        - generic [ref=e103]: 🔬
+        - text: Veille
+      - link "📄 Fiche" [ref=e104] [cursor=pointer]:
+        - /url: /fiche
+        - generic [ref=e105]: 📄
+        - text: Fiche
+      - link "🍳 Recettes" [ref=e106] [cursor=pointer]:
+        - /url: /recettes
+        - generic [ref=e107]: 🍳
+        - text: Recettes
+  - status

@@ -177,25 +177,60 @@ function calcSavings() {
 
 // ── Data loading ───────────────────────────────────────────
 async function loadData() {
+  // Chemins absolus pour éviter tout bug de résolution d'URL sur mobile
+  let cfg, menu, hist;
   try {
-    const [cfg, menu, hist] = await Promise.all([
-      fetch('data/config.json').then(r => { if (!r.ok) throw r; return r.json(); }),
-      fetch('data/menus/2026-03-30.json').then(r => { if (!r.ok) throw r; return r.json(); }),
-      fetch('data/history.json').then(r => { if (!r.ok) throw r; return r.json(); })
+    [cfg, menu, hist] = await Promise.all([
+      fetch('/data/config.json').then(r => { if (!r.ok) throw new Error(`HTTP ${r.status} — config.json`); return r.json(); }),
+      fetch('/data/menus/2026-03-30.json').then(r => { if (!r.ok) throw new Error(`HTTP ${r.status} — menu.json`); return r.json(); }),
+      fetch('/data/history.json').then(r => { if (!r.ok) throw new Error(`HTTP ${r.status} — history.json`); return r.json(); })
     ]);
-    state.config      = cfg;
-    state.menuData    = menu;
-    state.historyData = hist;
+  } catch (err) {
+    showError('fetch', err);
+    return;
+  }
+
+  state.config      = cfg;
+  state.menuData    = menu;
+  state.historyData = hist;
+
+  // Render séparé du fetch pour isoler les erreurs
+  try {
     renderAll();
   } catch (err) {
-    showError(err);
+    showError('render', err);
   }
 }
 
-function showError(err) {
+function showError(stage, err) {
   const el = document.getElementById('error-screen');
-  if (el) el.classList.add('visible');
-  console.error('[On mange quoi ?]', err);
+  if (!el) return;
+  const card = el.querySelector('.error-card');
+  if (card) {
+    const isLocalFile = window.location.protocol === 'file:';
+    if (isLocalFile) {
+      card.innerHTML = `
+        <h2>🚧 Serveur local requis</h2>
+        <p>Ce site charge ses données via des fichiers JSON.<br>
+           Il ne peut pas s'ouvrir en double-cliquant sur <code>index.html</code>.</p>
+        <p>Lancez un serveur local depuis le terminal :</p>
+        <div class="error-code">cd /chemin/vers/le/dossier
+python3 -m http.server 8000</div>
+        <p>Puis ouvrez <strong>http://localhost:8000</strong> dans votre navigateur.</p>`;
+    } else {
+      const errMsg = err instanceof Error ? err.message : (err && err.status ? `HTTP ${err.status}` : String(err));
+      card.innerHTML = `
+        <h2>⚠️ Erreur de chargement</h2>
+        <p>Le site n'a pas pu charger ses données.<br>Essayez de <strong>rafraîchir la page</strong>.</p>
+        <button onclick="window.location.reload()" style="margin:1rem auto;display:block;padding:.6rem 1.4rem;background:#1B4332;color:#fff;border:none;border-radius:8px;font-size:.95rem;cursor:pointer">↺ Rafraîchir</button>
+        <details style="margin-top:.75rem;font-size:.75rem;color:#999;text-align:left">
+          <summary style="cursor:pointer">Détails techniques</summary>
+          <code style="display:block;margin-top:.4rem;word-break:break-all">[${stage}] ${errMsg}</code>
+        </details>`;
+    }
+  }
+  el.classList.add('visible');
+  console.error(`[On mange quoi ?][${stage}]`, err);
 }
 
 // ── Render all ─────────────────────────────────────────────
@@ -345,7 +380,9 @@ function renderMenu() {
       grid.removeEventListener('scroll', onFirstScroll);
       try { localStorage.setItem('omq_swipe_seen', '1'); } catch (_) {}
     };
-    if (localStorage.getItem('omq_swipe_seen')) {
+    let swipeSeen = false;
+    try { swipeSeen = !!localStorage.getItem('omq_swipe_seen'); } catch (_) {}
+    if (swipeSeen) {
       hint.classList.add('hidden');
     } else {
       grid.addEventListener('scroll', onFirstScroll, { passive: true });
@@ -627,7 +664,7 @@ function renderBudget() {
   if (freshEl && state.config.pricesLastUpdated) {
     const f = getPriceFreshness(state.config.pricesLastUpdated);
     if (f) {
-      freshEl.innerHTML = `<span class="freshness-dot" style="background:${f.color}"></span><span>${f.msg}</span>`;
+      freshEl.innerHTML = `<span class="freshness-dot" style="background:${f.color}"></span><span>${f.msg}</span><span class="price-indicative-note">* Prix indicatifs basés sur une veille de marché</span>`;
     }
   }
 }

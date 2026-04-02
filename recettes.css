@@ -3,6 +3,9 @@
    Utilise les variables CSS de styles.css
    ============================================================ */
 
+/* Garantir que l'attribut hidden fonctionne malgré display:flex sur certains éléments */
+[hidden] { display: none !important; }
+
 /* ── Hero ──────────────────────────────────────────────────── */
 .recettes-page {
   max-width: 740px;

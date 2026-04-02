@@ -1,0 +1,55 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "On mange quoi ? — accueil" [ref=e4] [cursor=pointer]:
+        - /url: index.html
+        - img [ref=e5]
+        - text: On mange quoi ?
+      - navigation "Navigation principale" [ref=e8]:
+        - link "Menu" [ref=e9] [cursor=pointer]:
+          - /url: index.html#menu
+        - link "Courses" [ref=e10] [cursor=pointer]:
+          - /url: index.html#courses
+        - link "Historique" [ref=e11] [cursor=pointer]:
+          - /url: index.html#historique
+        - link "Veille santé" [ref=e12] [cursor=pointer]:
+          - /url: index.html#cadmium
+        - link "Fiche mémo" [ref=e13] [cursor=pointer]:
+          - /url: fiche.html
+        - link "🍳 Recettes" [ref=e14] [cursor=pointer]:
+          - /url: recettes.html
+  - main [ref=e15]:
+    - generic [ref=e16]:
+      - heading "🍳 Générateur de recettes" [level=1] [ref=e17]
+      - paragraph [ref=e18]: Une recette saine à partir de ce que t'as dans le frigo — anti-cadmium, anti-mercure, faibles pesticides.
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]: Ce que j'ai dans mon frigo
+        - textbox "Ce que j'ai dans mon frigo" [ref=e22]:
+          - /placeholder: "Ex : poulet, carottes, lentilles corail, oignon…"
+        - paragraph [ref=e23]: Liste tes ingrédients séparés par des virgules
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - generic [ref=e26]: Mode de cuisson
+          - group "Mode de cuisson" [ref=e27]:
+            - button "🍳 Cuisine classique" [pressed] [ref=e28] [cursor=pointer]
+            - button "⚙️ Thermomix" [ref=e29] [cursor=pointer]
+        - generic [ref=e30]:
+          - generic [ref=e31]: Profil
+          - group "Profil" [ref=e32]:
+            - button "👨‍👩‍👧‍👦 Famille" [pressed] [ref=e33] [cursor=pointer]
+            - button "👫 Couple" [ref=e34] [cursor=pointer]
+            - button "🧑 Solo" [ref=e35] [cursor=pointer]
+      - button "Générer une recette" [ref=e36] [cursor=pointer]
+  - contentinfo [ref=e37]:
+    - paragraph [ref=e38]:
+      - text: 🥗
+      - strong [ref=e39]: On mange quoi ?
+      - text: · Menus familiaux sains · Données ANSES / EFSA / Générations Futures
+    - paragraph [ref=e40]:
+      - link "← Retour au menu" [ref=e41] [cursor=pointer]:
+        - /url: index.html
+      - text: ·
+      - link "Fiche mémo" [ref=e42] [cursor=pointer]:
+        - /url: fiche.html
+  - status
