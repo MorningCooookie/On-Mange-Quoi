@@ -9,10 +9,16 @@ const SUPABASE_KEY = 'sb_publishable_QZK_OFTOFeLGgGgT8_Yd9w_CMFLFFfP';
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
+// Debug: confirm script is loaded
+console.log('✅ auth.js loaded');
+
 // ============================================
 // SHOW LOGIN MODAL (FROM HEADER BUTTONS)
 // ============================================
-document.getElementById('btn-login-header')?.addEventListener('click', () => {
+const btnLoginHeader = document.getElementById('btn-login-header');
+console.log('btn-login-header element:', btnLoginHeader);
+btnLoginHeader?.addEventListener('click', () => {
+  console.log('✅ Login button clicked');
   document.getElementById('auth-modal').style.display = 'flex';
   document.getElementById('login-email').focus();
 });
@@ -54,7 +60,10 @@ document.getElementById('btn-login')?.addEventListener('click', async () => {
 // ============================================
 // SHOW SIGNUP MODAL (FROM HEADER BUTTON)
 // ============================================
-document.getElementById('btn-signup-header')?.addEventListener('click', () => {
+const btnSignupHeader = document.getElementById('btn-signup-header');
+console.log('btn-signup-header element:', btnSignupHeader);
+btnSignupHeader?.addEventListener('click', () => {
+  console.log('✅ Signup button clicked');
   document.getElementById('auth-modal').style.display = 'flex';
   document.getElementById('login-email').focus();
 });
