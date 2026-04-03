@@ -47,32 +47,12 @@ const ProfileManager = {
   },
 
   async checkSubscription() {
-    if (!this.userId || !window.supabaseClient) return;
-
-    try {
-      const { data, error } = await window.supabaseClient
-        .from('subscriptions')
-        .select('*')
-        .eq('user_id', this.userId)
-        .eq('status', 'active')
-        .single();
-
-      this.isSubscribed = !error && data;
-    } catch (err) {
-      console.log('Subscription check (expected if no subscription):', err.message);
-      this.isSubscribed = false;
-    }
+    // Subscription checking removed - all users have full access
+    this.isSubscribed = true;
   },
 
   async createProfile(name) {
     if (!this.userId || !window.supabaseClient) return;
-
-    // Check free limit (1 profile)
-    if (!this.isSubscribed && this.profiles.length >= 1) {
-      showToast('Limite atteinte', 'Passez à Family Sharing pour créer plus de profils.', 'error');
-      this.showPaywall();
-      return false;
-    }
 
     try {
       const { data, error } = await window.supabaseClient
@@ -139,33 +119,14 @@ const ProfileManager = {
       </div>
     `).join('');
 
-    // Update status display
-    const statusEl = document.getElementById('profile-status');
+    // Update profile count display
     const countEl = document.getElementById('profile-count');
-    const limitEl = document.getElementById('profile-limit');
-    const paywallEl = document.getElementById('paywall-section');
-
-    if (statusEl) {
-      statusEl.textContent = this.isSubscribed ? '✅ Family Sharing actif' : '🆓 Version gratuite';
-      statusEl.style.color = this.isSubscribed ? '#16A34A' : '#DC2626';
-    }
     if (countEl) countEl.textContent = this.profiles.length;
-    if (limitEl) limitEl.style.display = !this.isSubscribed ? 'inline' : 'none';
-    if (paywallEl) paywallEl.style.display = (!this.isSubscribed && this.profiles.length >= 1) ? 'block' : 'none';
-  },
-
-  showPaywall() {
-    const paywallEl = document.getElementById('paywall-section');
-    if (paywallEl) {
-      paywallEl.style.display = 'block';
-      paywallEl.scrollIntoView({ behavior: 'smooth' });
-    }
   },
 
   setupEventListeners() {
     const addBtn = document.getElementById('btn-add-profile');
     const input = document.getElementById('new-profile-name');
-    const subscribeBtn = document.getElementById('btn-subscribe');
     const familyBtn = document.getElementById('btn-family-sharing');
 
     if (addBtn) {
@@ -182,12 +143,6 @@ const ProfileManager = {
     if (input) {
       input.onkeypress = (e) => {
         if (e.key === 'Enter') addBtn?.click();
-      };
-    }
-
-    if (subscribeBtn) {
-      subscribeBtn.onclick = async () => {
-        await this.startCheckout();
       };
     }
 

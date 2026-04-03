@@ -1,0 +1,143 @@
+- generic [active] [ref=e1]:
+  - link "Aller au contenu principal" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "On mange quoi ? — accueil" [ref=e5] [cursor=pointer]:
+        - /url: "#"
+        - img [ref=e6]
+        - text: On mange quoi ?
+      - navigation "Navigation principale" [ref=e9]:
+        - link "Menu" [ref=e10] [cursor=pointer]:
+          - /url: "#menu"
+        - link "Courses" [ref=e11] [cursor=pointer]:
+          - /url: "#courses"
+        - link "Historique" [ref=e12] [cursor=pointer]:
+          - /url: "#historique"
+        - link "Veille santé" [ref=e13] [cursor=pointer]:
+          - /url: "#cadmium"
+        - link "Fiche mémo" [ref=e14] [cursor=pointer]:
+          - /url: /fiche
+        - link "🍳 Recettes" [ref=e15] [cursor=pointer]:
+          - /url: /recettes
+      - generic [ref=e16]:
+        - group "Sélecteur de profil"
+        - group "Sélecteur d'enseigne"
+        - generic [ref=e17]:
+          - button "Connexion" [ref=e18] [cursor=pointer]
+          - button "Créer un compte" [ref=e19] [cursor=pointer]
+  - generic [ref=e20]:
+    - text: 🔧
+    - strong [ref=e21]: Amélioration en cours
+    - text: — Nous améliorons la création de compte. Le menu de cette semaine reste accessible. Merci pour votre patience!
+  - generic [ref=e22]:
+    - main [ref=e23]:
+      - region "📅 Menu de la semaine" [ref=e24]:
+        - generic [ref=e25]:
+          - heading "📅 Menu de la semaine" [level=2] [ref=e27]:
+            - generic [ref=e28]: 📅
+            - text: Menu de la semaine
+          - generic [ref=e29]:
+            - link "Génère des recettes" [ref=e30] [cursor=pointer]:
+              - /url: /recettes
+            - button "Partager le menu" [ref=e31] [cursor=pointer]
+        - list "Grille des 7 jours"
+      - region "🛒 Liste de courses & budget" [ref=e32]:
+        - heading "🛒 Liste de courses & budget" [level=2] [ref=e33]:
+          - generic [ref=e34]: 🛒
+          - text: Liste de courses & budget
+        - generic [ref=e35]:
+          - generic [ref=e36]:
+            - generic [ref=e37]:
+              - generic [ref=e38]: 🛒 Liste de la semaine
+              - generic [ref=e39]:
+                - button "🧊 Frigo vide" [ref=e40] [cursor=pointer]
+                - button "📋 Copier" [ref=e41] [cursor=pointer]
+                - button "🖨️ Imprimer" [ref=e42] [cursor=pointer]
+            - generic "Liste de courses par catégorie"
+          - complementary "Budget estimé" [ref=e43]:
+            - generic [ref=e44]: 💰 Budget estimé
+            - generic [ref=e45]:
+              - generic [ref=e46]: —
+              - generic [ref=e47]: Total semaine (enseigne sélectionnée)
+            - generic [ref=e48]:
+              - generic [ref=e49]:
+                - generic [ref=e50]: —
+                - generic [ref=e51]: Par jour
+              - generic [ref=e52]:
+                - generic [ref=e53]: —
+                - generic [ref=e54]: Par personne
+              - generic [ref=e55]:
+                - generic [ref=e56]: —
+                - generic [ref=e57]: Pers. / jour
+              - generic [ref=e58]:
+                - generic [ref=e59]: —
+                - generic [ref=e60]: Personnes
+            - generic "Comparaison par enseigne" [ref=e61]:
+              - generic [ref=e62]: Comparaison enseignes
+            - group "Choisir une enseigne"
+      - region "📚 Semaines précédentes" [ref=e64]:
+        - heading "📚 Semaines précédentes" [level=2] [ref=e65]:
+          - generic [ref=e66]: 📚
+          - text: Semaines précédentes
+        - list
+      - region "🔬 Veille santé alimentaire" [ref=e67]:
+        - heading "🔬 Veille santé alimentaire" [level=2] [ref=e68]:
+          - generic [ref=e69]: 🔬
+          - text: Veille santé alimentaire
+        - paragraph [ref=e70]:
+          - text: "Sources :"
+          - link "ANSES" [ref=e71] [cursor=pointer]:
+            - /url: https://www.anses.fr
+          - text: ·
+          - link "EFSA" [ref=e72] [cursor=pointer]:
+            - /url: https://www.efsa.europa.eu
+          - text: ·
+          - link "Générations Futures" [ref=e73] [cursor=pointer]:
+            - /url: https://www.generations-futures.fr
+          - text: ·
+          - link "INRAE" [ref=e74] [cursor=pointer]:
+            - /url: https://inrae.fr
+      - region "ℹ️ À propos" [ref=e75]:
+        - heading "ℹ️ À propos" [level=2] [ref=e76]:
+          - generic [ref=e77]: ℹ️
+          - text: À propos
+        - generic [ref=e78]:
+          - generic [ref=e79]:
+            - heading "🎯 L'objectif" [level=3] [ref=e80]
+            - paragraph [ref=e81]: Des menus hebdomadaires familiaux validés selon les recommandations ANSES et EFSA — anti-cadmium, anti-mercure, faibles pesticides.
+          - generic [ref=e82]:
+            - heading "💡 Le score santé" [level=3] [ref=e83]
+            - paragraph [ref=e84]:
+              - strong [ref=e85]: A
+              - text: ": 0 repas à risque élevé, max 2 modérés, bonne diversité protéinée et au moins 1 légumineuse."
+              - strong [ref=e86]: B
+              - text: ": 1 à 3 repas modérés."
+              - strong [ref=e87]: C
+              - text: ": risque élevé présent."
+          - generic [ref=e88]:
+            - heading "🧊 Frigo vide" [level=3] [ref=e89]
+            - paragraph [ref=e90]: Activez "Frigo vide", cochez les articles déjà dans votre frigo — ils seront soustraits du total en temps réel.
+          - generic [ref=e91]:
+            - heading "🍂 Saison" [level=3] [ref=e92]
+            - paragraph [ref=e93]: Les badges 🌸☀️🍂❄️ indiquent les repas et ingrédients de saison, détectés automatiquement selon la date du jour.
+          - generic [ref=e94]:
+            - heading "⏱ Temps de prépa" [level=3] [ref=e95]
+            - paragraph [ref=e96]: Badge vert (≤ 10 min) · jaune (≤ 25 min) · rouge (> 25 min) sur chaque repas.
+          - generic [ref=e97]:
+            - heading "📄 Fiche mémo" [level=3] [ref=e98]
+            - paragraph [ref=e99]:
+              - text: La
+              - link "fiche mémo partageable" [ref=e100] [cursor=pointer]:
+                - /url: /fiche
+              - text: résume les aliments à limiter et à privilégier pour les 4 contaminants.
+    - contentinfo [ref=e101]:
+      - paragraph [ref=e102]:
+        - text: 🥗
+        - strong [ref=e103]: On mange quoi ?
+        - text: · Menus familiaux sains · Données ANSES / EFSA / Générations Futures
+      - paragraph [ref=e104]:
+        - text: Aucune donnée personnelle collectée ·
+        - link "Fiche mémo" [ref=e105] [cursor=pointer]:
+          - /url: /fiche
+  - status
