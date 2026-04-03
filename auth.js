@@ -14,6 +14,11 @@ function updateAuthUI(session) {
     authButtons.style.display = 'none';
     userMenu.style.display = 'flex';
     document.getElementById('user-email-header').textContent = session.user.email;
+
+    // Initialize profile management
+    if (typeof ProfileManager !== 'undefined') {
+      ProfileManager.init(session.user.id);
+    }
   } else {
     authButtons.style.display = 'flex';
     userMenu.style.display = 'none';

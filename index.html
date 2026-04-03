@@ -60,6 +60,12 @@
     </div>
   </header>
 
+  <!-- ── MAINTENANCE BANNER ─────────────────────────────────── -->
+  <!-- À supprimer une fois la création de compte corrigée -->
+  <div style="background:#FEF3C7;border-bottom:1px solid #FBBF24;padding:1rem;text-align:center;color:#78350F;font-size:1rem;line-height:1.5;">
+    🔧 <strong>Amélioration en cours</strong> — Nous améliorons la création de compte. Le menu de cette semaine reste accessible. Merci pour votre patience!
+  </div>
+
   <!-- ============ LOGIN MODAL ============ -->
   <div id="login-modal" onclick="if(event.target.id==='login-modal') document.getElementById('login-modal').style.display='none'" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:10000;display:none;align-items:center;justify-content:center;">
     <div style="background:white;padding:2rem;border-radius:12px;max-width:400px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);position:relative;">
@@ -71,19 +77,19 @@
 
       <input type="password" id="login-password" placeholder="Mot de passe" style="width:100%;padding:0.75rem;margin:0.5rem 0 1rem 0;border:1px solid #ddd;border-radius:6px;box-sizing:border-box;font-size:1rem;">
 
-      <button id="btn-login" onclick="loginHandler();" style="width:100%;padding:0.75rem;background:#1B4332;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:bold;font-size:1rem;">Se connecter</button>
+      <button id="btn-login" onclick="loginHandler();" style="width:100%;padding:1rem;background:#1B4332;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:bold;font-size:1.05rem;font-family:'Work Sans',system-ui,sans-serif;">Se connecter</button>
       <script>
         function loginHandler() {
           const email = document.getElementById('login-email').value;
           const password = document.getElementById('login-password').value;
           if (!email || !password) {
-            alert('Entrez email et mot de passe');
+            showToast('Champ manquant', 'Veuillez entrer votre email et mot de passe.', 'error');
             return;
           }
           if (typeof handleLogin === 'function') {
             handleLogin();
           } else {
-            alert('Erreur: handleLogin function not found');
+            showToast('Erreur', 'Service d\'authentification indisponible.', 'error');
           }
         }
       </script>
@@ -101,23 +107,23 @@
 
       <input type="password" id="signup-password" placeholder="Mot de passe" style="width:100%;padding:0.75rem;margin:0.5rem 0 1rem 0;border:1px solid #ddd;border-radius:6px;box-sizing:border-box;font-size:1rem;">
 
-      <button id="btn-signup" onclick="signupHandler();" style="width:100%;padding:0.75rem;background:#1B4332;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:bold;font-size:1rem;">Créer un compte</button>
+      <button id="btn-signup" onclick="signupHandler();" style="width:100%;padding:1rem;background:#1B4332;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:bold;font-size:1.05rem;font-family:'Work Sans',system-ui,sans-serif;">Créer un compte</button>
       <script>
         function signupHandler() {
           const email = document.getElementById('signup-email').value;
           const password = document.getElementById('signup-password').value;
           if (!email || !password) {
-            alert('Entrez email et mot de passe');
+            showToast('Champ manquant', 'Veuillez entrer votre email et mot de passe.', 'error');
             return;
           }
           if (password.length < 6) {
-            alert('Mot de passe: min 6 caractères');
+            showToast('Mot de passe trop court', 'Le mot de passe doit faire au moins 6 caractères.', 'error');
             return;
           }
           if (typeof handleSignup === 'function') {
             handleSignup();
           } else {
-            alert('Erreur: handleSignup function not found');
+            showToast('Erreur', 'Service d\'authentification indisponible.', 'error');
           }
         }
       </script>
@@ -128,43 +134,247 @@
   <div id="user-menu" style="position:absolute;top:60px;right:20px;background:white;border:1px solid #ddd;border-radius:8px;padding:1rem;min-width:200px;z-index:9999;display:none;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
     <div style="font-weight:bold;margin-bottom:0.5rem;color:#1B4332;">Connecté:</div>
     <div id="user-email" style="margin-bottom:1rem;font-size:0.9rem;color:#666;word-break:break-all;"></div>
+    <button id="btn-family-sharing" style="width:100%;padding:0.5rem;background:#1B4332;color:white;border:none;border-radius:4px;cursor:pointer;font-weight:bold;margin-bottom:0.5rem;">👥 Profils familiaux</button>
     <button id="btn-logout" style="width:100%;padding:0.5rem;background:#e74c3c;color:white;border:none;border-radius:4px;cursor:pointer;font-weight:bold;">Déconnexion</button>
   </div>
 
+  <!-- ============ FAMILY SHARING / PROFILES MODAL ============ -->
+  <div id="profiles-modal" onclick="if(event.target.id==='profiles-modal') document.getElementById('profiles-modal').style.display='none'" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:10000;display:none;align-items:center;justify-content:center;">
+    <div style="background:white;padding:2rem;border-radius:12px;max-width:500px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);position:relative;max-height:80vh;overflow-y:auto;">
+      <button onclick="document.getElementById('profiles-modal').style.display='none'" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#999;padding:0;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;">✕</button>
+
+      <h2 style="margin-top:0;text-align:center;color:#1B4332;">👥 Profils familiaux</h2>
+      <p style="text-align:center;color:#666;margin:0.5rem 0 1.5rem 0;font-size:0.95rem;">Créez un profil par membre de la famille. Chacun verra son propre menu adapté.</p>
+
+      <div id="profiles-list" style="margin-bottom:1.5rem;"></div>
+
+      <div style="background:#F3F4F6;padding:1rem;border-radius:8px;margin-bottom:1.5rem;">
+        <div style="font-size:0.85rem;color:#666;margin-bottom:0.5rem;">
+          <strong>Statut:</strong> <span id="profile-status">Chargement...</span>
+        </div>
+        <div style="font-size:0.8rem;color:#999;">
+          <span id="profile-count">0</span> profil(s) créé(s)
+          <span id="profile-limit" style="display:none;"> · Limite: 1 (payant pour >1)</span>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:0.5rem;margin-bottom:1rem;">
+        <input type="text" id="new-profile-name" placeholder="Nom du profil (ex: Maman, Enfants...)" style="flex:1;padding:0.75rem;border:1px solid #ddd;border-radius:6px;box-sizing:border-box;font-size:1rem;">
+        <button id="btn-add-profile" style="padding:0.75rem 1rem;background:#1B4332;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:bold;white-space:nowrap;">+ Ajouter</button>
+      </div>
+
+      <div id="paywall-section" style="display:none;background:#FEF3C7;border:1px solid #FBBF24;padding:1rem;border-radius:8px;margin-bottom:1rem;text-align:center;">
+        <p style="margin:0 0 1rem 0;font-size:0.95rem;color:#78350F;font-weight:bold;">🔒 Vous avez atteint la limite gratuite</p>
+        <p style="margin:0 0 1rem 0;font-size:0.9rem;color:#78350F;">Débloquez profils illimités pour <strong>4,99 €/mois</strong></p>
+        <button id="btn-subscribe" style="width:100%;padding:0.75rem;background:#FBBF24;color:#78350F;border:none;border-radius:6px;cursor:pointer;font-weight:bold;">Souscrire à Family Sharing</button>
+      </div>
+
+      <div style="text-align:center;font-size:0.85rem;color:#999;">
+        <p style="margin:0;">Chaque profil peut avoir ses préférences alimentaires (phase 2).</p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* Toast notification styles */
+    #toast-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 99999;
+      pointer-events: none;
+      display: flex;
+      justify-content: center;
+      padding-top: 1.5rem;
+    }
+
+    .toast {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      max-width: 520px;
+      width: 90%;
+      animation: slideDown 0.3s ease-out;
+      pointer-events: auto;
+      border-left: 4px solid #1B4332;
+    }
+
+    .toast.success {
+      border-left-color: #22c55e;
+    }
+
+    .toast.error {
+      border-left-color: #ef4444;
+    }
+
+    .toast.email {
+      border-left-color: #3b82f6;
+    }
+
+    .toast-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .toast-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    .toast-text {
+      flex: 1;
+    }
+
+    .toast-title {
+      font-weight: 600;
+      color: #1B4332;
+      margin: 0 0 0.5rem 0;
+      font-size: 1.05rem;
+    }
+
+    .toast-message {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .toast-close {
+      background: none;
+      border: none;
+      color: #999;
+      cursor: pointer;
+      font-size: 1.25rem;
+      padding: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s;
+    }
+
+    .toast-close:hover {
+      color: #333;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+    }
+
+    .toast.removing {
+      animation: slideUp 0.3s ease-out forwards;
+    }
+  </style>
+
   <script>
+    // Toast notification system
+    function showToast(title, message, type = 'success') {
+      let container = document.getElementById('toast-container');
+      if (!container) {
+        container = document.createElement('div');
+        container.id = 'toast-container';
+        document.body.insertBefore(container, document.body.firstChild);
+      }
+
+      const toast = document.createElement('div');
+      toast.className = `toast ${type}`;
+
+      const icon = type === 'success' ? '🍽️' : type === 'email' ? '📧' : '❌';
+
+      toast.innerHTML = `
+        <div class="toast-content">
+          <div class="toast-icon">${icon}</div>
+          <div class="toast-text">
+            <h3 class="toast-title">${title}</h3>
+            <p class="toast-message">${message}</p>
+          </div>
+          <button class="toast-close" aria-label="Fermer">✕</button>
+        </div>
+      `;
+
+      const closeBtn = toast.querySelector('.toast-close');
+      const removeToast = () => {
+        toast.classList.add('removing');
+        setTimeout(() => toast.remove(), 300);
+      };
+
+      closeBtn.addEventListener('click', removeToast);
+      container.appendChild(toast);
+
+      // Auto-dismiss after 3 seconds
+      setTimeout(removeToast, 3000);
+    }
+
     // Global signup/login functions (moved from auth.js to ensure they're available)
     async function handleSignup() {
       console.log('handleSignup called');
       const email = document.getElementById('signup-email').value.trim();
       const password = document.getElementById('signup-password').value;
+      const signupBtn = document.getElementById('btn-signup');
 
       if (!email || !password) {
-        alert('Veuillez entrer email et mot de passe');
+        showToast('Champ manquant', 'Veuillez entrer votre email et mot de passe', 'error');
         return;
       }
 
       if (password.length < 6) {
-        alert('Le mot de passe doit faire au moins 6 caractères');
+        showToast('Mot de passe faible', 'Le mot de passe doit faire au moins 6 caractères', 'error');
         return;
       }
 
       if (!window.supabaseClient || !window.supabaseClient.auth) {
-        alert('❌ Service d\'authentification indisponible. Rechargez la page.');
+        showToast('Erreur', 'Service d\'authentification indisponible. Rechargez la page.', 'error');
         return;
       }
+
+      // Set loading state
+      signupBtn.disabled = true;
+      signupBtn.textContent = 'Envoi en cours...';
 
       try {
         const { data, error } = await window.supabaseClient.auth.signUp({ email, password });
         if (error) {
-          alert('❌ Erreur: ' + error.message);
+          const errorMsg = error.message || JSON.stringify(error) || 'Erreur inconnue';
+          console.error('Signup error:', error);
+          showToast('Erreur création compte', errorMsg, 'error');
           return;
         }
         document.getElementById('signup-modal').style.display = 'none';
         document.getElementById('signup-email').value = '';
         document.getElementById('signup-password').value = '';
-        alert('🍽️ Bienvenue dans On Mange Quoi!\n\nVotre compte a été créé avec succès.\n\nUn email de confirmation vous a été envoyé. Cliquez sur le lien pour activer votre compte et commencer à planifier vos repas.');
+        showToast('📧 Vérifiez votre boîte mail', `Un email de confirmation a été envoyé à <strong>${email}</strong>. Cliquez sur le lien pour activer votre compte.`, 'email');
       } catch (err) {
-        alert('Erreur: ' + err.message);
+        const errorMsg = err.message || JSON.stringify(err) || 'Erreur inconnue';
+        console.error('Signup exception:', err);
+        showToast('Erreur', errorMsg, 'error');
+      } finally {
+        // Reset button state
+        signupBtn.disabled = false;
+        signupBtn.textContent = 'Créer un compte';
       }
     }
 
@@ -172,29 +382,51 @@
       console.log('handleLogin called');
       const email = document.getElementById('login-email').value.trim();
       const password = document.getElementById('login-password').value;
+      const loginBtn = document.getElementById('btn-login');
 
       if (!email || !password) {
-        alert('Veuillez entrer email et mot de passe');
+        showToast('Champ manquant', 'Veuillez entrer votre email et mot de passe', 'error');
         return;
       }
 
       if (!window.supabaseClient || !window.supabaseClient.auth) {
-        alert('❌ Service d\'authentification indisponible. Rechargez la page.');
+        showToast('Erreur', 'Service d\'authentification indisponible. Rechargez la page.', 'error');
         return;
       }
+
+      // Set loading state
+      loginBtn.disabled = true;
+      loginBtn.textContent = 'Connexion en cours...';
 
       try {
         const { data, error } = await window.supabaseClient.auth.signInWithPassword({ email, password });
         if (error) {
-          alert('❌ Erreur: ' + error.message);
+          const errorMsg = error.message || JSON.stringify(error) || 'Erreur inconnue';
+          console.error('Login error:', error);
+
+          // Specific handling for common errors
+          let displayMsg = errorMsg;
+          if (errorMsg.toLowerCase().includes('not confirmed')) {
+            displayMsg = 'Veuillez d\'abord confirmer votre email — vérifiez votre boîte mail pour le lien d\'activation.';
+          } else if (errorMsg.toLowerCase().includes('invalid') || errorMsg.toLowerCase().includes('credentials')) {
+            displayMsg = 'Email ou mot de passe incorrect.';
+          }
+
+          showToast('Erreur de connexion', displayMsg, 'error');
           return;
         }
         document.getElementById('login-modal').style.display = 'none';
         document.getElementById('login-email').value = '';
         document.getElementById('login-password').value = '';
-        alert('🍽️ Bienvenue!\n\nVous êtes connecté(e). Consultez votre menu de la semaine et optimisez vos courses.');
+        showToast('Bienvenue!', 'Vous êtes connecté(e). Consultez votre menu de la semaine.', 'success');
       } catch (err) {
-        alert('Erreur: ' + err.message);
+        const errorMsg = err.message || JSON.stringify(err) || 'Erreur inconnue';
+        console.error('Login exception:', err);
+        showToast('Erreur', errorMsg, 'error');
+      } finally {
+        // Reset button state
+        loginBtn.disabled = false;
+        loginBtn.textContent = 'Se connecter';
       }
     }
   </script>
@@ -416,6 +648,9 @@ python3 -m http.server 8000</div>
   <!-- Supabase client library -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+  <!-- Stripe for payments -->
+  <script src="https://js.stripe.com/v3/"></script>
+
   <!-- Initialize Supabase client immediately -->
   <script>
     (function initSupabaseClient(attempt = 0) {
@@ -445,6 +680,7 @@ python3 -m http.server 8000</div>
     })();
   </script>
 
+  <script src="profiles.js"></script>
   <script src="auth.js"></script>
   <script src="app.js"></script>
 </body>
