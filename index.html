@@ -48,13 +48,12 @@
       <div class="header-controls">
         <div class="selector-group" id="profile-selector" role="group" aria-label="Sélecteur de profil"></div>
         <div class="selector-group" id="store-selector" role="group" aria-label="Sélecteur d'enseigne"></div>
-        <div id="auth-button-group">
-          <button id="btn-login-header" onclick="document.getElementById('login-modal').style.display='flex'; document.getElementById('login-email').focus();">Connexion</button>
-          <button id="btn-signup-header" onclick="document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();">Créer un compte</button>
+        <div id="auth-button-group" style="display:flex;gap:0.75rem;">
+          <button id="btn-login-header" onclick="document.getElementById('login-modal').style.display='flex'; document.getElementById('login-email').focus();" style="padding:0.6rem 1.2rem;background:none;border:1px solid #1B4332;color:#1B4332;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.95rem;font-family:'Work Sans',system-ui,sans-serif;">Connexion</button>
+          <button id="btn-signup-header" onclick="document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();" style="padding:0.6rem 1.2rem;background:#1B4332;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.95rem;font-family:'Work Sans',system-ui,sans-serif;">Créer un compte</button>
         </div>
         <div id="user-menu-header">
-          <div id="user-email-header" style="cursor:pointer;" onclick="const m=document.getElementById('user-menu'); if(m) m.style.display = m.style.display === 'none' || !m.style.display ? 'block' : 'none';"></div>
-          <button id="btn-logout-header">Déconnexion</button>
+          <button id="user-email-header" style="cursor:pointer;background:none;border:none;color:#1B4332;font-weight:600;font-size:0.95rem;font-family:'Work Sans',system-ui,sans-serif;padding:0.5rem 0;max-width:200px;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" onclick="const m=document.getElementById('user-menu'); if(m) m.style.display = m.style.display === 'none' || !m.style.display ? 'block' : 'none'; event.stopPropagation();"></button>
         </div>
       </div>
     </div>
@@ -131,11 +130,12 @@
   </div>
 
   <!-- ============ USER MENU ============ -->
-  <div id="user-menu" style="position:absolute;top:60px;right:20px;background:white;border:1px solid #ddd;border-radius:8px;padding:1rem;min-width:200px;z-index:9999;display:none;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
-    <div style="font-weight:bold;margin-bottom:0.5rem;color:#1B4332;">Connecté:</div>
-    <div id="user-email" style="margin-bottom:1rem;font-size:0.9rem;color:#666;word-break:break-all;"></div>
-    <button id="btn-family-sharing" style="width:100%;padding:0.5rem;background:#1B4332;color:white;border:none;border-radius:4px;cursor:pointer;font-weight:bold;margin-bottom:0.5rem;">👥 Profils familiaux</button>
-    <button id="btn-logout" style="width:100%;padding:0.5rem;background:#e74c3c;color:white;border:none;border-radius:4px;cursor:pointer;font-weight:bold;">Déconnexion</button>
+  <div id="user-menu" style="position:absolute;top:60px;right:20px;background:white;border:1px solid #E5E7EB;border-radius:12px;padding:1.5rem;min-width:240px;z-index:9999;display:none;box-shadow:0 4px 16px rgba(0,0,0,0.1);">
+    <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.5px;color:#999;margin-bottom:0.75rem;font-weight:600;">Compte</div>
+    <div id="user-email" style="margin-bottom:1.5rem;font-size:0.95rem;color:#1B4332;word-break:break-all;font-weight:500;"></div>
+
+    <button id="btn-family-sharing" style="width:100%;padding:0.75rem;background:#1B4332;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:600;margin-bottom:0.75rem;transition:background 0.2s;">👥 Profils familiaux</button>
+    <button id="btn-logout" style="width:100%;padding:0.75rem;background:#F3F4F6;color:#666;border:1px solid #ddd;border-radius:6px;cursor:pointer;font-weight:600;transition:background 0.2s;">Déconnexion</button>
   </div>
 
   <!-- ============ FAMILY SHARING / PROFILES MODAL ============ -->

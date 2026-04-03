@@ -66,27 +66,7 @@ setupAuthListener();
 // LOGOUT HANDLERS
 // ============================================
 function setupLogoutHandlers() {
-  const logoutHeaderBtn = document.getElementById('btn-logout-header');
   const logoutBtn = document.getElementById('btn-logout');
-
-  if (logoutHeaderBtn) {
-    logoutHeaderBtn.addEventListener('click', async () => {
-      if (!window.supabaseClient || !window.supabaseClient.auth) {
-        updateAuthUI(null);
-        return;
-      }
-
-      try {
-        await window.supabaseClient.auth.signOut();
-        showToast('Déconnecté', 'À bientôt!', 'success');
-        // Close menu if open
-        const menu = document.getElementById('user-menu');
-        if (menu) menu.style.display = 'none';
-      } catch (err) {
-        showToast('Erreur', err.message, 'error');
-      }
-    });
-  }
 
   if (logoutBtn) {
     logoutBtn.addEventListener('click', async () => {
@@ -98,6 +78,9 @@ function setupLogoutHandlers() {
       try {
         await window.supabaseClient.auth.signOut();
         showToast('Déconnecté', 'À bientôt!', 'success');
+        // Close menu if open
+        const menu = document.getElementById('user-menu');
+        if (menu) menu.style.display = 'none';
       } catch (err) {
         showToast('Erreur', err.message, 'error');
       }
