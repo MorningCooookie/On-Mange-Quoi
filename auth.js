@@ -7,13 +7,24 @@
 function updateAuthUI(session) {
   const authButtons = document.getElementById('auth-button-group');
   const userMenu = document.getElementById('user-menu-header');
+  const userEmail = document.getElementById('user-email-header');
 
   if (!authButtons || !userMenu) return;
 
   if (session) {
     authButtons.style.display = 'none';
     userMenu.style.display = 'flex';
-    document.getElementById('user-email-header').textContent = session.user.email;
+    if (userEmail) {
+      userEmail.textContent = session.user.email;
+      // Make email clickable to toggle user menu
+      userEmail.style.cursor = 'pointer';
+      userEmail.onclick = () => {
+        const menu = document.getElementById('user-menu');
+        if (menu) {
+          menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+        }
+      };
+    }
 
     // Initialize profile management
     if (typeof ProfileManager !== 'undefined') {
