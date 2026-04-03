@@ -58,7 +58,7 @@ exports.handler = async (event, context) => {
       payment_method_types: ['card'],
       line_items: [
         {
-          price: 'price_YOUR_PRICE_ID', // Replace with your Stripe price ID
+          price: 'price_1TIAitRSlTwKkI4x64vK5CTG',
           quantity: 1
         }
       ],

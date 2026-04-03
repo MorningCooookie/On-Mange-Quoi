@@ -227,7 +227,7 @@ const ProfileManager = {
         return;
       }
 
-      const stripe = window.Stripe('pk_live_YOUR_KEY_HERE'); // Replace with actual Stripe key
+      const stripe = window.Stripe('pk_live_51TEo6ARSlTwKkI4xVuOB4z3b6IC3QnwsVYypBLSP2gxxW5t2EZBN4FZmD5rB6N08lRyP3njybKyphjwD6yLInXre00FUl5vZrY');
       await stripe.redirectToCheckout({ sessionId });
     } catch (err) {
       console.error('Checkout error:', err);
