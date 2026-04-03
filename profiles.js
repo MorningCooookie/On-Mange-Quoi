@@ -207,17 +207,17 @@ const ProfileManager = {
     try {
       showToast('Redirection...', 'Vous serez redirigé vers le paiement.', 'success');
 
-      // Call your Stripe backend endpoint
-      // This is a placeholder - you'll need a backend for this
-      const response = await fetch('/api/create-checkout-session', {
+      // Call Netlify serverless function for Stripe checkout
+      const response = await fetch('/.netlify/functions/create-checkout-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId: this.userId })
       });
 
       if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Stripe API error:', response.status, response.statusText, errorText);
         showToast('Erreur Stripe', 'Le service de paiement est actuellement indisponible. Contactez hello@onmangequoi.eu', 'error');
-        console.error('Stripe API error:', response.statusText);
         return;
       }
 
