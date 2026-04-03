@@ -17,18 +17,13 @@ function updateAuthUI(session) {
     if (userEmail) {
       userEmail.textContent = session.user.email;
       userEmail.style.cursor = 'pointer';
-
-      // Remove old listeners to prevent duplicates
-      const newEmail = userEmail.cloneNode(true);
-      userEmail.parentNode.replaceChild(newEmail, userEmail);
-
-      // Add click listener to new element
-      newEmail.addEventListener('click', () => {
+      userEmail.onclick = function(e) {
+        e.stopPropagation();
         const menu = document.getElementById('user-menu');
         if (menu) {
-          menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+          menu.style.display = menu.style.display === 'none' || !menu.style.display ? 'block' : 'none';
         }
-      });
+      };
     }
 
     // Initialize profile management
