@@ -2,6 +2,8 @@
   "name": "table-saine",
   "version": "1.0.0",
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.39.0"
+    "@anthropic-ai/sdk": "^0.39.0",
+    "stripe": "^13.0.0",
+    "@supabase/supabase-js": "^2.38.0"
   }
 }
