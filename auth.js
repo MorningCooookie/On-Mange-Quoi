@@ -16,14 +16,19 @@ function updateAuthUI(session) {
     userMenu.style.display = 'flex';
     if (userEmail) {
       userEmail.textContent = session.user.email;
-      // Make email clickable to toggle user menu
       userEmail.style.cursor = 'pointer';
-      userEmail.onclick = () => {
+
+      // Remove old listeners to prevent duplicates
+      const newEmail = userEmail.cloneNode(true);
+      userEmail.parentNode.replaceChild(newEmail, userEmail);
+
+      // Add click listener to new element
+      newEmail.addEventListener('click', () => {
         const menu = document.getElementById('user-menu');
         if (menu) {
           menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
         }
-      };
+      });
     }
 
     // Initialize profile management
@@ -65,30 +70,45 @@ setupAuthListener();
 // ============================================
 // LOGOUT HANDLERS
 // ============================================
-document.getElementById('btn-logout-header')?.addEventListener('click', async () => {
-  if (!window.supabaseClient || !window.supabaseClient.auth) {
-    updateAuthUI(null);
-    return;
+function setupLogoutHandlers() {
+  const logoutHeaderBtn = document.getElementById('btn-logout-header');
+  const logoutBtn = document.getElementById('btn-logout');
+
+  if (logoutHeaderBtn) {
+    logoutHeaderBtn.addEventListener('click', async () => {
+      if (!window.supabaseClient || !window.supabaseClient.auth) {
+        updateAuthUI(null);
+        return;
+      }
+
+      try {
+        await window.supabaseClient.auth.signOut();
+        showToast('Déconnecté', 'À bientôt!', 'success');
+        // Close menu if open
+        const menu = document.getElementById('user-menu');
+        if (menu) menu.style.display = 'none';
+      } catch (err) {
+        showToast('Erreur', err.message, 'error');
+      }
+    });
   }
 
-  try {
-    await window.supabaseClient.auth.signOut();
-    alert('✅ Déconnecté');
-  } catch (err) {
-    alert('Erreur: ' + err.message);
-  }
-});
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', async () => {
+      if (!window.supabaseClient || !window.supabaseClient.auth) {
+        updateAuthUI(null);
+        return;
+      }
 
-document.getElementById('btn-logout')?.addEventListener('click', async () => {
-  if (!window.supabaseClient || !window.supabaseClient.auth) {
-    updateAuthUI(null);
-    return;
+      try {
+        await window.supabaseClient.auth.signOut();
+        showToast('Déconnecté', 'À bientôt!', 'success');
+      } catch (err) {
+        showToast('Erreur', err.message, 'error');
+      }
+    });
   }
+}
 
-  try {
-    await window.supabaseClient.auth.signOut();
-    alert('✅ Déconnecté');
-  } catch (err) {
-    alert('Erreur: ' + err.message);
-  }
-});
+// Setup logout when page is ready
+setTimeout(setupLogoutHandlers, 500);
