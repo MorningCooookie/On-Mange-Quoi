@@ -53,7 +53,7 @@
           <button id="btn-signup-header" onclick="document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();">Créer un compte</button>
         </div>
         <div id="user-menu-header">
-          <div id="user-email-header"></div>
+          <div id="user-email-header" style="cursor:pointer;" onclick="const m=document.getElementById('user-menu'); if(m) m.style.display = m.style.display === 'none' || !m.style.display ? 'block' : 'none';"></div>
           <button id="btn-logout-header">Déconnexion</button>
         </div>
       </div>
