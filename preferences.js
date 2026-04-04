@@ -249,22 +249,22 @@ const PreferenceManager = {
             <button class="modal-close" onclick="document.getElementById('preference-modal-${profileId}').style.display='none'; return false;">✕</button>
           </div>
 
-          <div class="modal-body" style="padding: 1.5rem;">
+          <div class="modal-body" style="padding: 1.5rem; background: #FAFAFA;">
             <!-- Allergies Section -->
-            <fieldset style="margin-bottom: 1.5rem; border: none;">
-              <legend style="font-weight: 600; margin-bottom: 0.75rem; color: #1B4332;">Allergies et intolérances</legend>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <fieldset style="margin-bottom: 1.75rem; border: none;">
+              <legend style="font-weight: 700; margin-bottom: 1rem; color: #1B4332; font-size: 0.95rem;">Allergies et intolérances</legend>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
     `;
 
     // Allergies checkboxes
     this.ALLERGIES.forEach(allergen => {
       const isChecked = prefs.allergies?.includes(allergen) ? 'checked' : '';
       html += `
-        <label style="display: flex; align-items: center; cursor: pointer;">
+        <label style="display: flex; align-items: center; cursor: pointer; padding: 0.5rem; border-radius: 6px; transition: background 0.15s ease;">
           <input type="checkbox" name="allergy" value="${allergen}" ${isChecked}
                  data-profile-id="${profileId}" data-user-id="${userId}"
-                 style="margin-right: 0.5rem;">
-          <span>${allergen}</span>
+                 style="margin-right: 0.75rem; width: 18px; height: 18px; cursor: pointer; accent-color: #1B4332;">
+          <span style="font-size: 0.9rem; color: #333;">${allergen}</span>
         </label>
       `;
     });
@@ -274,20 +274,20 @@ const PreferenceManager = {
             </fieldset>
 
             <!-- Restrictions Section -->
-            <fieldset style="margin-bottom: 1.5rem; border: none;">
-              <legend style="font-weight: 600; margin-bottom: 0.75rem; color: #1B4332;">Régimes alimentaires</legend>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <fieldset style="margin-bottom: 1.75rem; border: none;">
+              <legend style="font-weight: 700; margin-bottom: 1rem; color: #1B4332; font-size: 0.95rem;">Régimes alimentaires</legend>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
     `;
 
     // Restrictions checkboxes
     this.RESTRICTIONS.forEach(restriction => {
       const isChecked = prefs.restrictions?.includes(restriction) ? 'checked' : '';
       html += `
-        <label style="display: flex; align-items: center; cursor: pointer;">
+        <label style="display: flex; align-items: center; cursor: pointer; padding: 0.5rem; border-radius: 6px; transition: background 0.15s ease;">
           <input type="checkbox" name="restriction" value="${restriction}" ${isChecked}
                  data-profile-id="${profileId}" data-user-id="${userId}"
-                 style="margin-right: 0.5rem;">
-          <span>${restriction}</span>
+                 style="margin-right: 0.75rem; width: 18px; height: 18px; cursor: pointer; accent-color: #1B4332;">
+          <span style="font-size: 0.9rem; color: #333;">${restriction}</span>
         </label>
       `;
     });
@@ -297,8 +297,8 @@ const PreferenceManager = {
             </fieldset>
 
             <!-- Dislikes Section -->
-            <fieldset style="margin-bottom: 1.5rem; border: none;">
-              <legend style="font-weight: 600; margin-bottom: 0.75rem; color: #1B4332;">Ingrédients à éviter (optionnel)</legend>
+            <fieldset style="margin-bottom: 1.75rem; border: none;">
+              <legend style="font-weight: 700; margin-bottom: 1rem; color: #1B4332; font-size: 0.95rem;">Ingrédients à éviter (optionnel)</legend>
               <input type="text" id="dislikes-${profileId}"
                      placeholder="coriandre, champignons, etc. (séparés par des virgules)"
                      value="${(prefs.dislikes || []).join(', ')}"
