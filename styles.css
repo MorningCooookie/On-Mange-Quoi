@@ -50,6 +50,16 @@
   --header-selector-height: 26px;
   --header-gap-major: 1rem;
   --header-gap-minor: 0.4rem;
+
+  /* Button standardization */
+  --btn-font-size-primary: 0.85rem;
+  --btn-font-size-small: 0.78rem;
+  --btn-padding-primary: 0.5rem 0.9rem;
+  --btn-padding-compact: 0.45rem 0.8rem;
+  --btn-border-radius: 8px;
+  --btn-transition: all 0.2s ease;
+  --btn-focus-outline: 3px solid #1B4332;
+  --btn-focus-offset: 2px;
 }
 
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -406,14 +416,15 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
 }
 .btn-semaine {
   font-family: var(--font-body);
-  font-size: .82rem; font-weight: 600; line-height: 1;
-  background: var(--header-from); color: #fff;
+  font-size: var(--btn-font-size-primary); font-weight: 600; line-height: 1;
+  background: linear-gradient(135deg, var(--header-from), var(--header-to)); color: #fff;
   border: none; border-radius: var(--r-inner);
-  padding: .45rem .9rem; cursor: pointer; transition: background .15s;
+  padding: var(--btn-padding-primary); cursor: pointer; transition: var(--btn-transition);
   white-space: nowrap; text-decoration: none; display: inline-flex;
   align-items: center; box-sizing: border-box;
 }
-.btn-semaine:hover { background: var(--header-to); }
+.btn-semaine:hover { background: linear-gradient(135deg, var(--header-to), var(--header-from)); transform: translateY(-1px); }
+.btn-semaine:focus-visible { outline: var(--btn-focus-outline); outline-offset: var(--btn-focus-offset); }
 
 
 /* ═══════════════════════════════════════════════════════════
@@ -446,10 +457,11 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
   display: flex; align-items: center; gap: .35rem;
   background: var(--header-from); color: #fff; border: none;
   border-radius: var(--r-inner); padding: .48rem .9rem;
-  font-size: .82rem; font-weight: 600; cursor: pointer; transition: background .15s;
+  font-size: var(--btn-font-size-primary); font-weight: 600; cursor: pointer; transition: var(--btn-transition);
   white-space: nowrap;
 }
-.btn-print-frigo:hover { background: var(--header-to); }
+.btn-print-frigo:hover { background: var(--header-to); transform: translateY(-1px); }
+.btn-print-frigo:focus-visible { outline: var(--btn-focus-outline); outline-offset: var(--btn-focus-offset); }
 .score-print-hint { font-size: .72rem; color: var(--text-secondary); display: flex; align-items: center; gap: .3rem; }
 
 /* ═══════════════════════════════════════════════════════════
@@ -604,7 +616,7 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
   color: var(--text);
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--btn-transition);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 .shopping-selector button:hover {
@@ -612,6 +624,9 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
   border-color: rgba(27, 67, 50, 0.35);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
   transform: translateY(-1px);
+}
+.shopping-selector button:focus-visible {
+  outline: var(--btn-focus-outline); outline-offset: var(--btn-focus-offset);
 }
 .shopping-selector button.active {
   background: linear-gradient(135deg, var(--header-from), var(--header-to));
@@ -652,9 +667,10 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
   background: var(--bg); border: 1.5px solid var(--border);
   color: var(--text); padding: 0.5rem 0.9rem;
   border-radius: var(--r-inner); font-size: 0.85rem; font-weight: 600;
-  cursor: pointer; transition: all .15s; white-space: nowrap;
+  cursor: pointer; transition: var(--btn-transition); white-space: nowrap;
 }
-.btn-action:hover { background: var(--border); }
+.btn-action:hover { background: var(--border); transform: translateY(-1px); }
+.btn-action:focus-visible { outline: var(--btn-focus-outline); outline-offset: var(--btn-focus-offset); }
 .btn-action:disabled { cursor: not-allowed; opacity: 0.6; }
 .btn-action.btn-fridge { border-color: #93C5FD; }
 .btn-action.btn-fridge.active { background: #2563EB; border-color: #2563EB; color: #fff; }
@@ -689,10 +705,11 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
 .fridge-bar-text strong { font-weight: 700; }
 .btn-fridge-reset {
   background: none; border: 1px solid #93C5FD; color: #1D4ED8;
-  padding: .22rem .55rem; border-radius: 6px; font-size: .75rem; font-weight: 600;
-  cursor: pointer; transition: all .15s;
+  padding: .22rem .55rem; border-radius: 6px; font-size: var(--btn-font-size-small); font-weight: 600;
+  cursor: pointer; transition: var(--btn-transition);
 }
-.btn-fridge-reset:hover { background: #DBEAFE; }
+.btn-fridge-reset:hover { background: #DBEAFE; transform: translateY(-1px); }
+.btn-fridge-reset:focus-visible { outline: var(--btn-focus-outline); outline-offset: var(--btn-focus-offset); }
 
 /* Category */
 .shopping-category { border-bottom: 1px solid var(--border); }
@@ -842,9 +859,10 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
 .btn-view-current {
   margin-left: auto; background: var(--header-from); color: #fff;
   border: none; border-radius: 6px; padding: .28rem .65rem;
-  font-size: .78rem; font-weight: 600; cursor: pointer; transition: background .15s;
+  font-size: var(--btn-font-size-small); font-weight: 600; cursor: pointer; transition: var(--btn-transition);
 }
-.btn-view-current:hover { background: var(--header-to); }
+.btn-view-current:hover { background: var(--header-to); transform: translateY(-1px); }
+.btn-view-current:focus-visible { outline: var(--btn-focus-outline); outline-offset: var(--btn-focus-offset); }
 
 /* ═══════════════════════════════════════════════════════════
    VEILLE SANTÉ
