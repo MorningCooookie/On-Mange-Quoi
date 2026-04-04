@@ -503,9 +503,9 @@ main { max-width: 1400px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
 }
 .day-label { font-family: var(--font-display); font-size: 1rem; font-weight: 700; }
 
-.day-meals { padding: 0.5rem 0; }
+.day-meals { padding: 0.75rem 0; }
 .meal-row {
-  padding: 0.6rem 1rem; border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);
   transition: background .15s; border-left: 4px solid transparent;
 }
 .meal-row:last-child { border-bottom: none; }
@@ -516,7 +516,7 @@ main { max-width: 1400px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
 .meal-row.dinner    { border-left-color: var(--dinner-accent); }
 .meal-row.meal-unsafe { opacity: 0.5; }
 
-.meal-header { display: flex; align-items: flex-start; gap: 0.4rem; margin-bottom: 0.35rem; }
+.meal-header { display: flex; align-items: flex-start; gap: 0.4rem; margin-bottom: 0.5rem; }
 .meal-icon { font-size: 1rem; flex-shrink: 0; margin-top: 0.08rem; }
 .meal-name { font-size: 0.85rem; line-height: 1.4; font-weight: 500; flex: 1; }
 .meal-badges { display: flex; gap: .25rem; flex-wrap: wrap; align-items: center; }
