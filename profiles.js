@@ -162,6 +162,12 @@ const ProfileManager = {
     // Update profile count display
     const countEl = document.getElementById('profile-count');
     if (countEl) countEl.textContent = this.profiles.length;
+
+    // Auto-select first profile (ensures preferences are loaded into cache)
+    if (this.profiles.length > 0 && typeof setSupabaseProfile === 'function') {
+      const firstProfile = this.profiles[0];
+      setSupabaseProfile(firstProfile.id, firstProfile.name);
+    }
   },
 
   openPreferenceModal(profileId, profileName) {

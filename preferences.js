@@ -78,18 +78,27 @@ const PreferenceManager = {
     }
 
     try {
-      console.log('📤 Upserting to Supabase...');
-      const prefData = {
-        profile_id: profileId,
-        user_id: userId,
-        allergies: allergies || [],
-        restrictions: restrictions || [],
-        dislikes: dislikes || []
-      };
+      console.log('📤 Deleting existing preferences...');
 
+      // Delete any existing preference record for this profile/user pair first
+      await window.supabaseClient
+        .from('preferences')
+        .delete()
+        .eq('profile_id', profileId)
+        .eq('user_id', userId);
+
+      console.log('📤 Inserting fresh preferences...');
+
+      // Now insert fresh
       const { data, error } = await window.supabaseClient
         .from('preferences')
-        .upsert(prefData)
+        .insert({
+          profile_id: profileId,
+          user_id: userId,
+          allergies: allergies || [],
+          restrictions: restrictions || [],
+          dislikes: dislikes || []
+        })
         .select()
         .single();
 
