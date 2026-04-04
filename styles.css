@@ -941,3 +941,30 @@ footer a:hover { text-decoration: underline; }
   .frigo-meal-type { font-size: 6pt; color: #9333EA; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
   .frigo-meal-name { font-size: 7pt; line-height: 1.3; font-weight: 500; }
 }
+
+/* Touch target sizing for mobile (WCAG 2.1 Level AAA: 44×44px minimum) */
+@media (max-width: 767px) {
+  a, button, input[type="button"], input[type="submit"], input[type="reset"], [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Ensure padding maintains minimum touch size */
+  .profile-pill, .selector-btn, .btn-auth-ghost, .btn-auth-primary, #user-email-header {
+    min-height: 44px;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
+
+  /* Navigation links touch targets */
+  .header-nav a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Menu items touch targets */
+  .day-meals a, .day-meals button {
+    padding: 0.75rem;
+  }
+}
