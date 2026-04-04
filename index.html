@@ -56,7 +56,7 @@
           <button id="btn-signup-header" class="btn-auth-primary" onclick="document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();">Créer un compte</button>
         </div>
         <div id="user-menu-header">
-          <button id="user-email-header" style="cursor:pointer;background:rgba(255,255,255,0.2);border:none;color:white;font-weight:600;font-size:0.9rem;font-family:'Work Sans',system-ui,sans-serif;padding:0.5rem 1rem;border-radius:6px;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'" onclick="const m=document.getElementById('user-menu'); if(m) m.style.display = m.style.display === 'none' || !m.style.display ? 'flex' : 'none'; event.stopPropagation();"></button>
+          <button id="user-email-header" style="cursor:pointer;background:rgba(255,255,255,0.2);border:none;color:white;font-weight:600;font-size:0.9rem;font-family:'Work Sans',system-ui,sans-serif;padding:0.5rem 1rem;border-radius:6px;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'"></button>
         </div>
       </div>
     </div>
@@ -477,9 +477,6 @@
     /* User menu dropdown styles */
     #user-menu {
       position: fixed;
-      top: 68px;
-      right: auto;
-      left: auto;
       z-index: 20000;
       min-width: 280px;
       background: white;
@@ -488,18 +485,10 @@
       border: 1px solid #E5E7EB;
       overflow: hidden;
       animation: slideDown 0.2s ease-out;
-    }
-
-    /* Position menu under the account button */
-    #user-menu {
-      right: 1.5rem;
-    }
-
-    @media (max-width: 767px) {
-      #user-menu {
-        left: 1rem;
-        right: 1rem;
-      }
+      top: 0;
+      right: 0;
+      display: none;
+      flex-direction: column;
     }
 
     .user-menu-header {
@@ -593,14 +582,44 @@
       setTimeout(removeToast, 3000);
     }
 
-    // Close user menu dropdown when clicking outside
+    // Position user menu under the account button
+    function positionUserMenu() {
+      const menu = document.getElementById('user-menu');
+      const accountBtn = document.getElementById('user-email-header');
+      if (menu && accountBtn && menu.style.display === 'flex') {
+        const btnRect = accountBtn.getBoundingClientRect();
+        const menuWidth = menu.offsetWidth || 280;
+
+        // Position menu below button, aligned to right edge
+        menu.style.position = 'fixed';
+        menu.style.top = (btnRect.bottom + 8) + 'px';
+        menu.style.right = (window.innerWidth - btnRect.right) + 'px';
+        menu.style.left = 'auto';
+      }
+    }
+
+    // Reposition menu when button is clicked
     document.addEventListener('click', (e) => {
       const menu = document.getElementById('user-menu');
       const accountBtn = document.getElementById('user-email-header');
-      if (menu && accountBtn && !menu.contains(e.target) && !accountBtn.contains(e.target)) {
+      const userMenuHeader = document.getElementById('user-menu-header');
+
+      if (accountBtn && accountBtn.contains(e.target)) {
+        // Button was clicked, show/toggle menu
+        const isVisible = menu.style.display === 'flex';
+        menu.style.display = isVisible ? 'none' : 'flex';
+        if (!isVisible) {
+          // Use requestAnimationFrame to ensure DOM is updated before positioning
+          requestAnimationFrame(positionUserMenu);
+        }
+      } else if (menu && accountBtn && !menu.contains(e.target) && !accountBtn.contains(e.target)) {
+        // Clicked outside menu and button, close menu
         menu.style.display = 'none';
       }
     });
+
+    // Reposition menu on window resize
+    window.addEventListener('resize', positionUserMenu);
 
     // Hamburger menu mobile nav toggle
     document.addEventListener('DOMContentLoaded', () => {
@@ -802,14 +821,14 @@ python3 -m http.server 8000</div>
                 <div id="store-selector-shopping" class="selector-group shopping-selector" role="group" aria-label="Sélecteur d'enseigne"></div>
                 <div class="shopping-actions">
                   <button class="btn-action btn-fridge" id="btn-fridge" title="Mode frigo vide" aria-pressed="false">
-                    <span class="btn-label-icon">⊚</span>Frigo vide
+                    <span class="btn-label-icon">🧊</span>Frigo vide
                     <span class="fridge-badge" aria-label="articles déjà disponibles">0</span>
                   </button>
                   <button class="btn-action" id="btn-copy" title="Copier la liste (WhatsApp, SMS…)">
-                    <span class="btn-label-icon">◻</span>Copier
+                    <span class="btn-label-icon">📋</span>Copier
                   </button>
                   <button class="btn-action" id="btn-print" title="Imprimer la liste de courses">
-                    <span class="btn-label-icon">↓</span>Imprimer
+                    <span class="btn-label-icon">🖨️</span>Imprimer
                   </button>
                 </div>
               </div>
