@@ -54,6 +54,11 @@ const LS = {
 function setSupabaseProfile(profileId, profileName) {
   state.supabaseProfileId = profileId;
   state.supabaseProfileName = profileName;
+  // Update user menu to show current profile name
+  const menuProfileName = document.getElementById('current-profile-name');
+  if (menuProfileName) {
+    menuProfileName.textContent = profileName || 'Mon profil';
+  }
   renderAll();
 }
 

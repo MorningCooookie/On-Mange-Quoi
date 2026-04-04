@@ -134,8 +134,7 @@
   <!-- ============ USER MENU ============ -->
   <div id="user-menu" style="display:none;">
     <div class="user-menu-header">
-      <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.5px;color:#999;margin-bottom:0.25rem;">Compte</div>
-      <div id="user-email" class="user-menu-email">—</div>
+      <div id="current-profile-name" class="user-menu-profile-name">Mon profil</div>
     </div>
     <div class="user-menu-body">
       <button id="btn-family-sharing" class="user-menu-btn">👥 Mes profils</button>
@@ -493,14 +492,14 @@
     .user-menu-header {
       padding: 1rem 1.25rem;
       background: #F3F4F6;
-      border-bottom: none;
+      border-bottom: 1px solid #E5E7EB;
     }
 
-    .user-menu-email {
-      font-size: 0.85rem;
-      color: #374151;
+    .user-menu-profile-name {
+      font-size: 0.95rem;
+      color: #1B4332;
       font-weight: 600;
-      word-break: break-all;
+      display: block;
     }
 
     .user-menu-body {
