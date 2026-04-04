@@ -35,7 +35,7 @@
   --font-body: 'Work Sans', system-ui, sans-serif;
 
   /* Header design tokens — compact & professional */
-  --header-padding-vertical: 0.5rem;
+  --header-padding-vertical: 0.75rem;
   --header-padding-horizontal: 1.25rem;
   --header-text-size: 0.8rem;
   --header-text-weight: 500;
@@ -348,13 +348,13 @@ a { color: inherit; }
 /* ═══════════════════════════════════════════════════════════
    LAYOUT
    ═══════════════════════════════════════════════════════════ */
-main { max-width: 1400px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
-.app-container { max-width: 1200px; margin: 0 auto; padding: 2.5rem 2rem 5rem; }
+main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
+.app-container { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
 @media (max-width: 767px) {
   main, .app-container { padding-bottom: calc(90px + 1.5rem); }
 }
 
-.section { margin-bottom: 3.5rem; scroll-margin-top: 5rem; }
+.section { margin-bottom: 2.5rem; scroll-margin-top: 5rem; }
 .section-title {
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 2.8vw, 1.55rem); font-weight: 700;
@@ -884,7 +884,7 @@ main { max-width: 1400px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
 @media (min-width: 768px) { #toast { bottom: 2rem; } }
 
 /* ── Footer ────────────────────────────────────────────────── */
-footer { text-align: center; padding: 2rem 1.5rem; font-size: 0.8rem; color: var(--text-secondary); border-top: 1px solid var(--border); background: #FAFAF9; }
+footer { text-align: center; padding: 1.5rem 1.5rem; font-size: 0.8rem; color: var(--text-secondary); border-top: 1px solid var(--border); background: #FAFAF9; }
 footer a { color: var(--header-to); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
 
