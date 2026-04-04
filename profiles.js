@@ -219,6 +219,7 @@ const ProfileManager = {
 
     if (familyBtn) {
       familyBtn.onclick = () => {
+        document.getElementById('user-menu').style.display = 'none';
         document.getElementById('profiles-modal').style.display = 'flex';
       };
     }

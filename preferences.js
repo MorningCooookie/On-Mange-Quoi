@@ -79,20 +79,23 @@ const PreferenceManager = {
 
     try {
       console.log('📤 Upserting to Supabase...');
+      const prefData = {
+        profile_id: profileId,
+        user_id: userId,
+        allergies: allergies || [],
+        restrictions: restrictions || [],
+        dislikes: dislikes || []
+      };
+
       const { data, error } = await window.supabaseClient
         .from('preferences')
-        .upsert({
-          profile_id: profileId,
-          user_id: userId,
-          allergies: allergies || [],
-          restrictions: restrictions || [],
-          dislikes: dislikes || []
-        }, { onConflict: 'profile_id' })
+        .upsert(prefData)
         .select()
         .single();
 
       if (error) {
         console.error('❌ Supabase error:', error);
+        console.error('Error details:', { code: error.code, message: error.message, details: error.details });
         showToast('Erreur Supabase', 'Code: ' + error.code + ' - ' + error.message, 'error');
         return false;
       }

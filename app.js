@@ -244,10 +244,8 @@ python3 -m http.server 8000</div>
 
 // ── Render all ─────────────────────────────────────────────
 function renderAll() {
-  renderProfileSelector();
-  renderMobileProfileSelector();
-  renderStoreSelector();
-  renderMobileStoreSelector();
+  renderProfileSelectorShopping();
+  renderStoreSelectorShopping();
   renderHealthScore();
   renderMenu();
   renderShoppingList();
@@ -274,7 +272,7 @@ function buildProfileButtons(container, mobile = false) {
   container.innerHTML = '';
   if (!mobile) {
     const lbl = document.createElement('label');
-    lbl.textContent = 'Profil :';
+    lbl.textContent = '👤';
     container.appendChild(lbl);
   }
   Object.entries(state.config.profiles).forEach(([key, p]) => {
@@ -299,6 +297,9 @@ function renderProfileSelector() {
 function renderMobileProfileSelector() {
   buildProfileButtons(document.getElementById('profile-selector-mobile'), true);
 }
+function renderProfileSelectorShopping() {
+  buildProfileButtons(document.getElementById('profile-selector-shopping'), false);
+}
 
 // ── Store selector ─────────────────────────────────────────
 function buildStoreButtons(container, mobile = false) {
@@ -306,7 +307,7 @@ function buildStoreButtons(container, mobile = false) {
   container.innerHTML = '';
   if (!mobile) {
     const lbl = document.createElement('label');
-    lbl.textContent = 'Enseigne :';
+    lbl.textContent = '🏪';
     container.appendChild(lbl);
   }
   Object.entries(state.config.stores).forEach(([key, s]) => {
@@ -333,6 +334,9 @@ function renderStoreSelector() {
 }
 function renderMobileStoreSelector() {
   buildStoreButtons(document.getElementById('store-selector-mobile'), true);
+}
+function renderStoreSelectorShopping() {
+  buildStoreButtons(document.getElementById('store-selector-shopping'), false);
 }
 
 function syncStoreSelectorStates() {
@@ -407,35 +411,9 @@ function renderMenu() {
   const season = getSeasonEmoji();
   grid.innerHTML = '';
 
-  // Show guidance if no profile selected
-  if (!state.supabaseProfileId) {
-    const guidance = document.createElement('div');
-    guidance.style.cssText = 'padding:1.5rem;background:#FEF3C7;border:1px solid #FBBF24;border-radius:8px;margin-bottom:1rem;text-align:center;';
-    guidance.innerHTML = `
-      <div style="font-weight:600;color:#92400e;margin-bottom:0.5rem;">👤 Sélectionnez un profil</div>
-      <div style="font-size:0.9rem;color:#b45309;">Cliquez sur <strong>👥 Profils familiaux</strong> pour choisir un profil et voir votre menu personnalisé</div>
-    `;
-    grid.appendChild(guidance);
-  }
+  // Guidance section removed temporarily - will restore when layout is fixed
 
-  // Render preference header if user has profile selected
-  if (state.supabaseProfileId && state.supabaseProfileName) {
-    const header = document.createElement('div');
-    header.className = 'preference-header';
-
-    let headerContent = `<div style="font-weight:600;color:#1B4332;margin-bottom:0.5rem;">✅ Menu pour: <span style="color:#0f3d26;">${state.supabaseProfileName}</span></div>`;
-
-    if (currentPreferences && (currentPreferences.allergies?.length || currentPreferences.restrictions?.length)) {
-      const preferenceTags = PreferenceManager.getPreferenceTags(currentPreferences);
-      if (preferenceTags.length > 0) {
-        headerContent += `<div style="font-size:0.9rem;color:#666;margin-top:0.5rem;">${preferenceTags.join(' ')}</div>`;
-      }
-    }
-
-    header.innerHTML = headerContent;
-    header.style.cssText = 'padding:1rem;background:#E8F5E9;border-radius:8px;margin-bottom:1rem;text-align:center;';
-    grid.appendChild(header);
-  }
+  // Preference header removed - preferences are shown inline with meals instead
 
   state.menuData.days.forEach(day => {
     const col = document.createElement('div');
@@ -466,7 +444,7 @@ function renderMenu() {
       // Check if meal is safe for current preferences
       let mealWarning = '';
       let rowClass = `meal-row ${type}`;
-      if (currentPreferences && (currentPreferences.allergies?.length || currentPreferences.restrictions?.length)) {
+      if (currentPreferences && (currentPreferences.allergies?.length || currentPreferences.restrictions?.length || currentPreferences.dislikes?.length)) {
         const mealIngredients = meal.ingredients || [];
         const isSafe = PreferenceManager.isDishSafe(meal.name, mealIngredients, currentPreferences);
         if (!isSafe) {
