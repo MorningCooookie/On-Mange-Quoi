@@ -593,8 +593,8 @@ main { max-width: 1400px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
 }
 .budget-header {
   background: var(--header-from); color: #fff;
-  padding: .8rem 1.1rem; font-size: .95rem; font-weight: 700;
-  display: flex; align-items: center; gap: .4rem;
+  padding: 1rem 1.25rem; font-size: 1rem; font-weight: 700;
+  display: flex; align-items: center; gap: 0.5rem;
 }
 .budget-total-block { padding: 1rem 1.1rem; border-bottom: 1px solid var(--border); text-align: center; }
 .budget-total-amount { font-family: var(--font-display); font-size: 1.9rem; font-weight: 900; letter-spacing: -.03em; color: var(--header-from); }
@@ -651,12 +651,12 @@ main { max-width: 1400px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
 .history-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1rem; }
 .history-card {
   background: var(--white); border-radius: var(--r-card);
-  box-shadow: var(--shadow); padding: 1rem 1.1rem;
+  box-shadow: var(--shadow); padding: 1.15rem 1.25rem;
   border: 2px solid transparent; transition: all .2s; cursor: pointer;
 }
 .history-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
-.history-card.current { border-color: var(--header-to); }
-.history-card-label { font-size: .73rem; font-weight: 600; color: var(--text-secondary); display: flex; align-items: center; gap: .3rem; margin-bottom: .3rem; }
+.history-card.current { border-color: var(--header-to); background: #F0F9FF; }
+.history-card-label { font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.4rem; }
 .badge-current { background: #D1FAE5; color: #065F46; font-size: .65rem; font-weight: 700; padding: .06rem .38rem; border-radius: 20px; }
 .history-card-score {
   display: inline-block; font-size: .72rem; font-weight: 800;
@@ -693,9 +693,9 @@ main { max-width: 1400px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
 #cadmium .section-title { color: #fff; }
 .health-news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: .7rem; }
 .health-news-item {
-  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
-  border-radius: var(--r-inner); padding: .85rem 1rem;
-  font-size: .82rem; line-height: 1.55; color: #E0E7FF;
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+  border-radius: var(--r-inner); padding: 1rem 1.1rem;
+  font-size: 0.88rem; line-height: 1.6; color: #E0E7FF;
 }
 .health-sources { margin-top: .65rem; font-size: .7rem; color: rgba(255,255,255,.38); }
 .health-sources a { color: rgba(255,255,255,.55); }
@@ -704,9 +704,9 @@ main { max-width: 1400px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
    À PROPOS
    ═══════════════════════════════════════════════════════════ */
 .about-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: .9rem; }
-.about-card { background: var(--white); border-radius: var(--r-card); padding: 1rem; box-shadow: var(--shadow); }
-.about-card h3 { font-size: .87rem; font-weight: 700; margin-bottom: .35rem; display: flex; gap: .3rem; }
-.about-card p { font-size: .8rem; color: var(--text-secondary); line-height: 1.5; }
+.about-card { background: var(--white); border-radius: var(--r-card); padding: 1.2rem; box-shadow: var(--shadow); border: 1px solid var(--border); }
+.about-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; gap: 0.4rem; color: var(--header-from); }
+.about-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
 
 /* ═══════════════════════════════════════════════════════════
    TOAST
@@ -724,8 +724,9 @@ main { max-width: 1400px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
 @media (min-width: 768px) { #toast { bottom: 2rem; } }
 
 /* ── Footer ────────────────────────────────────────────────── */
-footer { text-align: center; padding: 1.5rem; font-size: .76rem; color: var(--text-secondary); border-top: 1px solid var(--border); }
-footer a { color: var(--header-to); }
+footer { text-align: center; padding: 2rem 1.5rem; font-size: 0.8rem; color: var(--text-secondary); border-top: 1px solid var(--border); background: #FAFAF9; }
+footer a { color: var(--header-to); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
 
 /* ═══════════════════════════════════════════════════════════
    PRINT — courses
