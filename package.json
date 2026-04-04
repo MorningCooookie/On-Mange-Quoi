@@ -1,9 +1,11 @@
 {
-  "name": "table-saine",
+  "name": "on-mange-quoi",
   "version": "1.0.0",
+  "description": "Meal planning app with food safety verification",
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.39.0",
-    "stripe": "^13.0.0",
-    "@supabase/supabase-js": "^2.38.0"
-  }
+    "stripe": "^15.0.0",
+    "@supabase/supabase-js": "^2.39.0",
+    "@anthropic-ai/sdk": "^0.24.3"
+  },
+  "devDependencies": {}
 }

@@ -165,11 +165,16 @@ const ProfileManager = {
   },
 
   openPreferenceModal(profileId, profileName) {
-    // Create modal container if it doesn't exist
-    let modalContainer = document.getElementById(`preference-modal-${profileId}`);
-    if (modalContainer) {
-      modalContainer.style.display = 'flex';
-      return;
+    // Close user menu dropdown first
+    const userMenu = document.getElementById('user-menu');
+    if (userMenu) {
+      userMenu.style.display = 'none';
+    }
+
+    // Always destroy and recreate the modal to get fresh state
+    const existing = document.getElementById(`preference-modal-${profileId}`);
+    if (existing) {
+      existing.remove();
     }
 
     // Create the modal
@@ -177,6 +182,7 @@ const ProfileManager = {
     const container = document.createElement('div');
     container.innerHTML = modal;
     const modalEl = container.firstElementChild;
+    modalEl.style.zIndex = '30000';
 
     // Close on background click
     modalEl.addEventListener('click', (e) => {

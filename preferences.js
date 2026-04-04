@@ -10,23 +10,23 @@ const PreferenceManager = {
 
   // Fixed preference options (UI dropdowns)
   ALLERGIES: [
-    'Peanuts',
-    'Tree nuts',
-    'Shellfish',
-    'Fish',
-    'Dairy',
+    'Arachides',
+    'Fruits à coque',
+    'Crustacés',
+    'Poisson',
+    'Produits laitiers',
     'Gluten',
-    'Eggs',
-    'Soy'
+    'Œufs',
+    'Soja'
   ],
 
   RESTRICTIONS: [
-    'Vegan',
-    'Vegetarian',
-    'Kosher',
+    'Végétalien',
+    'Végétarien',
+    'Cachère',
     'Halal',
-    'Low-sodium',
-    'Low-sugar'
+    'Faible en sel',
+    'Faible en sucre'
   ],
 
   // Initialize preference manager
@@ -69,12 +69,16 @@ const PreferenceManager = {
 
   // Save preferences for a profile
   async savePreferences(profileId, userId, allergies, restrictions, dislikes) {
+    console.log('savePreferences: checking inputs', { profileId, userId, hasSupabase: !!window.supabaseClient });
+
     if (!profileId || !userId || !window.supabaseClient) {
-      console.error('Missing required fields for savePreferences');
+      console.error('❌ Missing required fields: profileId=' + profileId + ', userId=' + userId + ', supabaseClient=' + !!window.supabaseClient);
+      showToast('Erreur', 'Données manquantes. Reconnectez-vous et réessayez.', 'error');
       return false;
     }
 
     try {
+      console.log('📤 Upserting to Supabase...');
       const { data, error } = await window.supabaseClient
         .from('preferences')
         .upsert({
@@ -88,17 +92,18 @@ const PreferenceManager = {
         .single();
 
       if (error) {
-        console.error('Error saving preferences:', error);
-        showToast('Erreur', 'Impossible de sauvegarder les préférences.', 'error');
+        console.error('❌ Supabase error:', error);
+        showToast('Erreur Supabase', 'Code: ' + error.code + ' - ' + error.message, 'error');
         return false;
       }
 
+      console.log('✅ Data saved:', data);
       this.preferences[profileId] = data;
       showToast('Succès', 'Préférences mises à jour.', 'success');
       return true;
     } catch (err) {
-      console.error('Preference save error:', err);
-      showToast('Erreur', 'Erreur lors de la sauvegarde.', 'error');
+      console.error('❌ Catch block - Preference save error:', err.message);
+      showToast('Erreur', 'Erreur: ' + err.message, 'error');
       return false;
     }
   },
@@ -154,7 +159,7 @@ const PreferenceManager = {
   breaksRestriction(dishText, restriction) {
     const restrictionLower = restriction.toLowerCase();
 
-    if (restrictionLower === 'vegan') {
+    if (restrictionLower === 'végétalien') {
       // Vegan = no animal products
       return dishText.includes('meat') ||
              dishText.includes('fish') ||
@@ -165,12 +170,12 @@ const PreferenceManager = {
              dishText.includes('honey');
     }
 
-    if (restrictionLower === 'vegetarian') {
+    if (restrictionLower === 'végétarien') {
       // Vegetarian = no meat/fish
       return dishText.includes('meat') || dishText.includes('fish');
     }
 
-    if (restrictionLower === 'gluten-free') {
+    if (restrictionLower === 'gluten') {
       // Check for common gluten sources
       return dishText.includes('wheat') ||
              dishText.includes('gluten') ||
@@ -179,7 +184,7 @@ const PreferenceManager = {
              dishText.includes('flour');
     }
 
-    if (restrictionLower === 'kosher') {
+    if (restrictionLower === 'cachère') {
       // Simplified: certain animals not allowed
       return dishText.includes('pork') || dishText.includes('shellfish');
     }
@@ -189,12 +194,12 @@ const PreferenceManager = {
       return dishText.includes('pork') || dishText.includes('alcohol');
     }
 
-    if (restrictionLower === 'low-sodium') {
+    if (restrictionLower === 'faible en sel') {
       // This would require nutritional data; skip for now
       return false;
     }
 
-    if (restrictionLower === 'low-sugar') {
+    if (restrictionLower === 'faible en sucre') {
       // This would require nutritional data; skip for now
       return false;
     }
@@ -202,7 +207,7 @@ const PreferenceManager = {
     return false;
   },
 
-  // Get preference tags for display (e.g., "🏥 Dairy-free")
+  // Get preference tags for display (e.g., "🏥 Sans lactose")
   getPreferenceTags(preferences) {
     if (!preferences || (!preferences.allergies?.length && !preferences.restrictions?.length)) {
       return [];
@@ -210,10 +215,10 @@ const PreferenceManager = {
 
     const tags = [];
 
-    if (preferences.restrictions?.includes('Vegan')) tags.push('🌱 Vegan');
-    if (preferences.restrictions?.includes('Vegetarian')) tags.push('🥬 Vegetarian');
-    if (preferences.allergies?.includes('Gluten')) tags.push('🚫 Gluten-free');
-    if (preferences.allergies?.includes('Dairy')) tags.push('🏥 Dairy-free');
+    if (preferences.restrictions?.includes('Végétalien')) tags.push('🌱 Végétalien');
+    if (preferences.restrictions?.includes('Végétarien')) tags.push('🥬 Végétarien');
+    if (preferences.allergies?.includes('Gluten')) tags.push('🚫 Sans gluten');
+    if (preferences.allergies?.includes('Produits laitiers')) tags.push('🏥 Sans lactose');
 
     return tags;
   },
@@ -235,7 +240,7 @@ const PreferenceManager = {
           <div class="modal-body" style="padding: 1.5rem;">
             <!-- Allergies Section -->
             <fieldset style="margin-bottom: 1.5rem; border: none;">
-              <legend style="font-weight: 600; margin-bottom: 0.75rem; color: #1B4332;">Allergies</legend>
+              <legend style="font-weight: 600; margin-bottom: 0.75rem; color: #1B4332;">Allergies et intolérances</legend>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
     `;
 
@@ -283,13 +288,13 @@ const PreferenceManager = {
             <fieldset style="margin-bottom: 1.5rem; border: none;">
               <legend style="font-weight: 600; margin-bottom: 0.75rem; color: #1B4332;">Ingrédients à éviter (optionnel)</legend>
               <input type="text" id="dislikes-${profileId}"
-                     placeholder="cilantro, champignons, etc (séparés par des virgules)"
+                     placeholder="coriandre, champignons, etc. (séparés par des virgules)"
                      value="${(prefs.dislikes || []).join(', ')}"
                      style="width: 100%; padding: 0.75rem; border: 1px solid #E5E7EB; border-radius: 6px; font-family: inherit;">
             </fieldset>
 
             <!-- Save Button -->
-            <button onclick="PreferenceManager.saveFromModal('${profileId}', '${userId}')"
+            <button onclick="PreferenceManager.saveFromModal('${profileId}')"
                     style="width: 100%; padding: 0.75rem; background: #1B4332; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">
               Sauvegarder
             </button>
@@ -302,7 +307,16 @@ const PreferenceManager = {
   },
 
   // Save preferences from modal (called by onclick handler)
-  async saveFromModal(profileId, userId) {
+  async saveFromModal(profileId) {
+    const userId = ProfileManager.userId;
+    console.log('saveFromModal called: profileId=' + profileId + ', userId=' + userId);
+
+    if (!userId) {
+      console.error('❌ userId is null or undefined. ProfileManager.userId =', ProfileManager.userId);
+      showToast('Erreur', 'Session expirée. Reconnectez-vous.', 'error');
+      return;
+    }
+
     const allergies = Array.from(
       document.querySelectorAll(`input[name="allergy"][data-profile-id="${profileId}"]:checked`)
     ).map(el => el.value);
@@ -314,16 +328,21 @@ const PreferenceManager = {
     const dislikesText = document.getElementById(`dislikes-${profileId}`)?.value || '';
     const dislikes = dislikesText.split(',').map(d => d.trim()).filter(d => d.length > 0);
 
+    console.log('Saving preferences:', { profileId, userId, allergies, restrictions, dislikes });
     const success = await this.savePreferences(profileId, userId, allergies, restrictions, dislikes);
 
     if (success) {
-      document.getElementById(`preference-modal-${profileId}`).style.display = 'none';
+      console.log('✅ Preferences saved successfully');
+      const modalEl = document.getElementById(`preference-modal-${profileId}`);
+      if (modalEl) modalEl.style.display = 'none';
       // Refresh menu if currently viewing
       if (typeof renderAll === 'function') {
         renderAll();
       } else if (typeof renderMenu === 'function') {
         renderMenu();
       }
+    } else {
+      console.error('❌ Failed to save preferences');
     }
   }
 };
