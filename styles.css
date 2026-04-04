@@ -657,6 +657,17 @@ main { max-width: 1400px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
 .btn-action.btn-fridge { border-color: #93C5FD; }
 .btn-action.btn-fridge.active { background: #2563EB; border-color: #2563EB; color: #fff; }
 
+/* Button icons - text-based symbols without emoji */
+.btn-label-icon, .toolbar-icon, .budget-icon, .selector-label {
+  opacity: 0.7;
+  margin-right: 0.3rem;
+  font-weight: 400;
+  font-size: 0.9em;
+}
+
+.btn-label-icon { font-size: 0.85rem; }
+.selector-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
 .fridge-badge {
   background: #EF4444; color: #fff;
   font-size: .65rem; font-weight: 700;

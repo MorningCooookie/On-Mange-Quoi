@@ -312,7 +312,8 @@ function buildStoreButtons(container, mobile = false) {
   container.innerHTML = '';
   if (!mobile) {
     const lbl = document.createElement('label');
-    lbl.textContent = '🏪';
+    lbl.className = 'selector-label';
+    lbl.textContent = 'Enseigne';
     container.appendChild(lbl);
   }
   Object.entries(state.config.stores).forEach(([key, s]) => {

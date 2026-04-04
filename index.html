@@ -478,15 +478,28 @@
     #user-menu {
       position: fixed;
       top: 68px;
-      right: 20px;
+      right: auto;
+      left: auto;
       z-index: 20000;
-      min-width: 260px;
-      background: #FAFBFC;
+      min-width: 280px;
+      background: white;
       border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-      border: 1px solid #D1D5DB;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+      border: 1px solid #E5E7EB;
       overflow: hidden;
       animation: slideDown 0.2s ease-out;
+    }
+
+    /* Position menu under the account button */
+    #user-menu {
+      right: 1.5rem;
+    }
+
+    @media (max-width: 767px) {
+      #user-menu {
+        left: 1rem;
+        right: 1rem;
+      }
     }
 
     .user-menu-header {
@@ -783,20 +796,20 @@ python3 -m http.server 8000</div>
           <!-- Shopping list -->
           <div class="shopping-panel">
             <div class="shopping-toolbar">
-              <div class="shopping-toolbar-title">🛒 Liste de la semaine</div>
+              <div class="shopping-toolbar-title"><span class="toolbar-icon">□</span>Liste de la semaine</div>
               <div class="shopping-toolbar-right">
                 <div id="profile-selector-shopping" class="selector-group shopping-selector" role="group" aria-label="Sélecteur de profil"></div>
                 <div id="store-selector-shopping" class="selector-group shopping-selector" role="group" aria-label="Sélecteur d'enseigne"></div>
                 <div class="shopping-actions">
                   <button class="btn-action btn-fridge" id="btn-fridge" title="Mode frigo vide" aria-pressed="false">
-                    🧊 Frigo vide
+                    <span class="btn-label-icon">⊚</span>Frigo vide
                     <span class="fridge-badge" aria-label="articles déjà disponibles">0</span>
                   </button>
                   <button class="btn-action" id="btn-copy" title="Copier la liste (WhatsApp, SMS…)">
-                    📋 Copier
+                    <span class="btn-label-icon">◻</span>Copier
                   </button>
                   <button class="btn-action" id="btn-print" title="Imprimer la liste de courses">
-                    🖨️ Imprimer
+                    <span class="btn-label-icon">↓</span>Imprimer
                   </button>
                 </div>
               </div>
@@ -814,7 +827,7 @@ python3 -m http.server 8000</div>
 
           <!-- Budget panel -->
           <aside class="budget-panel" aria-label="Budget estimé">
-            <div class="budget-header">💰 Budget estimé</div>
+            <div class="budget-header"><span class="budget-icon">$</span>Budget estimé</div>
 
             <div class="budget-total-block">
               <div class="budget-total-amount" id="budget-total">—</div>
