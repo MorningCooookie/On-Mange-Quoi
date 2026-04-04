@@ -615,9 +615,10 @@
           }
         });
 
-        // Close nav when clicking a link
+        // Close nav when clicking a link (mobile only)
         nav.addEventListener('click', (e) => {
-          if (e.target.tagName === 'A') {
+          if (e.target.tagName === 'A' && nav.style.position === 'fixed') {
+            // Only close if nav is in mobile mode (fixed positioning = hamburger menu active)
             nav.style.display = 'none';
             hamburger.setAttribute('aria-expanded', 'false');
           }
