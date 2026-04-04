@@ -654,6 +654,7 @@ main { max-width: 1400px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
   cursor: pointer; transition: all .15s; white-space: nowrap;
 }
 .btn-action:hover { background: var(--border); }
+.btn-action:disabled { cursor: not-allowed; opacity: 0.6; }
 .btn-action.btn-fridge { border-color: #93C5FD; }
 .btn-action.btn-fridge.active { background: #2563EB; border-color: #2563EB; color: #fff; }
 

@@ -75,14 +75,16 @@
     }
     .fiche-btn {
       display: flex; align-items: center; gap: .4rem;
-      padding: .6rem 1.2rem; border-radius: 8px;
-      font-size: .88rem; font-weight: 600; cursor: pointer;
-      transition: all .15s; border: none; text-decoration: none;
+      padding: .5rem 1rem; border-radius: 8px;
+      font-size: .85rem; font-weight: 600; cursor: pointer;
+      transition: all .15s; border: 1.5px solid #E5E7EB; text-decoration: none;
+      background: #f9fafb; color: #1B4332;
     }
-    .fiche-btn.primary { background: #1B4332; color: #fff; }
-    .fiche-btn.primary:hover { background: #40916C; }
-    .fiche-btn.secondary { background: #F7F3EE; border: 1px solid #E5E0D8; color: #1A1A1A; }
-    .fiche-btn.secondary:hover { background: #E5E0D8; }
+    .fiche-btn:hover { background: #E5E7EB; }
+    .fiche-btn.primary { background: #1B4332; color: #fff; border-color: #1B4332; }
+    .fiche-btn.primary:hover { background: #2d6a4f; border-color: #2d6a4f; }
+    .fiche-btn.secondary { background: #f9fafb; border-color: #E5E7EB; color: #1B4332; }
+    .fiche-btn.secondary:hover { background: #E5E7EB; }
 
     .fiche-header { text-align: center; margin-bottom: 1rem; }
     .fiche-header h1 { font-size: 1.55rem; font-weight: 900; color: #1B4332; }
@@ -350,13 +352,13 @@
     <!-- Actions -->
     <div class="fiche-actions" id="fiche-actions">
       <button class="fiche-btn primary" onclick="window.print()">
-        🖨️ Imprimer / Sauvegarder en PDF
+        <span style="opacity: 0.7; margin-right: 0.3rem; font-size: 0.85rem;">↓</span>Imprimer / PDF
       </button>
       <button class="fiche-btn secondary" id="btn-share">
-        📤 Partager
+        <span style="opacity: 0.7; margin-right: 0.3rem; font-size: 0.85rem;">◻</span>Partager
       </button>
       <a class="fiche-btn secondary" href="index.html">
-        ← Retour au menu
+        <span style="opacity: 0.7; margin-right: 0.3rem; font-size: 0.85rem;">←</span>Retour au menu
       </a>
     </div>
 

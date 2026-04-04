@@ -795,10 +795,38 @@ function copyShoppingList() {
   lines.push(`💰 Total estimé : ${fmt(calcTotalForStore(state.currentStore))}`);
   if (state.fridgeMode && amount > 0) lines.push(`🧊 Économie frigo : ${fmt(amount)}`);
 
-  navigator.clipboard
-    .writeText(lines.join('\n'))
-    .then(() => showToast('✓ Liste copiée dans le presse-papier !'))
-    .catch(() => showToast('Copie impossible — essayez avec Chrome ou Firefox'));
+  const btn = document.getElementById('btn-copy');
+  if (btn) {
+    btn.disabled = true;
+    btn.style.opacity = '0.6';
+    btn.style.cursor = 'not-allowed';
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<span class="btn-label-icon">⏳</span>Copie...';
+
+    navigator.clipboard
+      .writeText(lines.join('\n'))
+      .then(() => {
+        showToast('✓ Liste copiée !');
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.style.opacity = '1';
+          btn.style.cursor = 'pointer';
+          btn.innerHTML = originalText;
+        }, 1000);
+      })
+      .catch(() => {
+        showToast('Copie impossible', 'error');
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        btn.style.cursor = 'pointer';
+        btn.innerHTML = originalText;
+      });
+  } else {
+    navigator.clipboard
+      .writeText(lines.join('\n'))
+      .then(() => showToast('✓ Liste copiée !'))
+      .catch(() => showToast('Copie impossible', 'error'));
+  }
 }
 
 // ── Reset fridge ────────────────────────────────────────────
