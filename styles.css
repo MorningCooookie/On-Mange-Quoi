@@ -942,6 +942,21 @@ footer a:hover { text-decoration: underline; }
   .frigo-meal-name { font-size: 7pt; line-height: 1.3; font-weight: 500; }
 }
 
+/* Focus states for keyboard navigation (WCAG accessibility) */
+a:focus-visible, button:focus-visible, input:focus-visible, [role="button"]:focus-visible {
+  outline: 3px solid #1B4332;
+  outline-offset: 2px;
+}
+
+/* Remove default outline and add custom focus ring for form controls */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px #1B4332;
+}
+
 /* Touch target sizing for mobile (WCAG 2.1 Level AAA: 44×44px minimum) */
 @media (max-width: 767px) {
   a, button, input[type="button"], input[type="submit"], input[type="reset"], [role="button"] {
