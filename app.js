@@ -21,7 +21,9 @@ const state = {
   checkedItems: {},   // { "Cat__idx": true }  — progress mode
   fridgeMode: false,
   fridgeItems: {},    // { "Cat__idx": true }  — already owned
-  isViewingCurrentMenu: true
+  isViewingCurrentMenu: true,
+  supabaseProfileId: null,  // User profile UUID from Supabase
+  supabaseProfileName: null // User profile name (for filtering)
 };
 
 // ── localStorage ───────────────────────────────────────────
@@ -47,6 +49,13 @@ const LS = {
     } catch (_) { /* ignore */ }
   }
 };
+
+// ── Profile bridge (called by ProfileManager when user selects a Supabase profile) ──
+function setSupabaseProfile(profileId, profileName) {
+  state.supabaseProfileId = profileId;
+  state.supabaseProfileName = profileName;
+  renderAll();
+}
 
 // ── Utilities ──────────────────────────────────────────────
 function fmt(n) { return n.toFixed(2).replace('.', ',') + '\u202f€'; }
@@ -369,6 +378,12 @@ function renderMenu() {
   const grid = document.getElementById('week-grid');
   if (!grid || !state.menuData) return;
 
+  // Load preferences for current profile (if available)
+  let currentPreferences = null;
+  if (state.supabaseProfileId && typeof PreferenceManager !== 'undefined') {
+    currentPreferences = PreferenceManager.getPreferences(state.supabaseProfileId);
+  }
+
   // History banner
   renderHistoryBanner();
 
@@ -391,6 +406,36 @@ function renderMenu() {
 
   const season = getSeasonEmoji();
   grid.innerHTML = '';
+
+  // Show guidance if no profile selected
+  if (!state.supabaseProfileId) {
+    const guidance = document.createElement('div');
+    guidance.style.cssText = 'padding:1.5rem;background:#FEF3C7;border:1px solid #FBBF24;border-radius:8px;margin-bottom:1rem;text-align:center;';
+    guidance.innerHTML = `
+      <div style="font-weight:600;color:#92400e;margin-bottom:0.5rem;">👤 Sélectionnez un profil</div>
+      <div style="font-size:0.9rem;color:#b45309;">Cliquez sur <strong>👥 Profils familiaux</strong> pour choisir un profil et voir votre menu personnalisé</div>
+    `;
+    grid.appendChild(guidance);
+  }
+
+  // Render preference header if user has profile selected
+  if (state.supabaseProfileId && state.supabaseProfileName) {
+    const header = document.createElement('div');
+    header.className = 'preference-header';
+
+    let headerContent = `<div style="font-weight:600;color:#1B4332;margin-bottom:0.5rem;">✅ Menu pour: <span style="color:#0f3d26;">${state.supabaseProfileName}</span></div>`;
+
+    if (currentPreferences && (currentPreferences.allergies?.length || currentPreferences.restrictions?.length)) {
+      const preferenceTags = PreferenceManager.getPreferenceTags(currentPreferences);
+      if (preferenceTags.length > 0) {
+        headerContent += `<div style="font-size:0.9rem;color:#666;margin-top:0.5rem;">${preferenceTags.join(' ')}</div>`;
+      }
+    }
+
+    header.innerHTML = headerContent;
+    header.style.cssText = 'padding:1rem;background:#E8F5E9;border-radius:8px;margin-bottom:1rem;text-align:center;';
+    grid.appendChild(header);
+  }
 
   state.menuData.days.forEach(day => {
     const col = document.createElement('div');
@@ -418,6 +463,19 @@ function renderMenu() {
       const seasonBadge = meal.isSeasonal
         ? `<span class="badge-season" title="De saison">${season} saison</span>` : '';
 
+      // Check if meal is safe for current preferences
+      let mealWarning = '';
+      let rowClass = `meal-row ${type}`;
+      if (currentPreferences && (currentPreferences.allergies?.length || currentPreferences.restrictions?.length)) {
+        const mealIngredients = meal.ingredients || [];
+        const isSafe = PreferenceManager.isDishSafe(meal.name, mealIngredients, currentPreferences);
+        if (!isSafe) {
+          rowClass += ' meal-unsafe';
+          mealWarning = '<div style="color:#dc2626;font-size:0.8rem;margin-top:0.25rem;font-weight:600;">⚠️ Incompatible avec vos préférences</div>';
+        }
+      }
+      row.className = rowClass;
+
       row.innerHTML = `
         <div class="meal-header">
           <span class="meal-icon">${meal.icon || '🍽'}</span>
@@ -427,7 +485,8 @@ function renderMenu() {
           <span class="risk-dot" style="background:${dotColor}" data-tooltip="${tooltip}" role="img" aria-label="${tooltip}"></span>
           <span class="badge-prep ${pc}" title="Temps de préparation">⏱ ${pl}</span>
           ${seasonBadge}
-        </div>`;
+        </div>
+        ${mealWarning}`;
 
       mealsContainer.appendChild(row);
     });
@@ -869,3 +928,109 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loadData();
 });
+
+// ============================================
+// MENU FILTERING — Dietary Personalization
+// ============================================
+
+// Get filtered menu data for current profile based on preferences
+async function getFilteredMenuData() {
+  if (!state.menuData || !state.currentProfile) return state.menuData;
+
+  // Load preferences for current profile
+  const prefs = await PreferenceManager.loadPreferences(state.currentProfile);
+  
+  if (!prefs || (!prefs.allergies?.length && !prefs.restrictions?.length && !prefs.dislikes?.length)) {
+    return state.menuData; // No filtering needed
+  }
+
+  // Create a copy of menu data with filtered meals
+  const filtered = JSON.parse(JSON.stringify(state.menuData));
+  
+  filtered.days.forEach(day => {
+    const mealOrder = ['breakfast', 'lunch', 'snack', 'dinner'];
+    mealOrder.forEach(type => {
+      const meal = day.meals[type];
+      if (meal) {
+        // Check if meal is safe for preferences
+        const isSafe = PreferenceManager.isDishSafe(meal.name, meal.ingredients || [], prefs);
+        meal.isSafe = isSafe;
+        meal.userPreferences = prefs; // Attach preferences for UI display
+      }
+    });
+  });
+
+  return filtered;
+}
+
+// Render preference tags in menu header
+function renderPreferenceHeader() {
+  const headerContainer = document.querySelector('.menu-preference-info');
+  if (!headerContainer) {
+    // Create header if it doesn't exist
+    const menu = document.querySelector('.menu');
+    if (!menu) return;
+    
+    const header = document.createElement('div');
+    header.className = 'menu-preference-info';
+    header.style.cssText = `
+      padding: 1rem;
+      background: #f0fdf4;
+      border-bottom: 1px solid #dcfce7;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    `;
+    menu.insertBefore(header, menu.firstChild);
+  }
+
+  const container = document.querySelector('.menu-preference-info');
+  if (!container) return;
+
+  // Get current profile preferences
+  const prefs = PreferenceManager.getPreferences(state.currentProfile);
+  const tags = PreferenceManager.getPreferenceTags(prefs);
+  
+  if (tags.length === 0) {
+    container.innerHTML = '<div style="font-size: 0.9rem; color: #666;">Aucune préférence alimentaire définie</div>';
+    return;
+  }
+
+  const tagsHtml = tags.map(tag => 
+    `<span style="display: inline-block; background: #10b981; color: white; padding: 0.25rem 0.75rem; border-radius: 20px; margin-right: 0.5rem; font-size: 0.85rem; font-weight: 600;">${tag}</span>`
+  ).join('');
+
+  container.innerHTML = `
+    <div style="font-weight: 600; margin-bottom: 0.5rem; color: #1B4332;">✅ Votre menu</div>
+    <div>${tagsHtml}</div>
+  `;
+}
+
+// Filter and display unsafe meals with warning
+function renderMealWithSafetyCheck(meal, mealType, dayDate) {
+  if (!meal) return null;
+
+  const isSafe = meal.isSafe !== undefined ? meal.isSafe : true;
+  
+  if (!isSafe) {
+    // Meal is not safe for current preferences - show warning
+    const row = document.createElement('div');
+    row.className = `meal-row ${mealType} unsafe-meal`;
+    row.style.cssText = `opacity: 0.5; background: #fef2f2; border-left: 4px solid #dc2626;`;
+    
+    row.innerHTML = `
+      <div class="meal-header">
+        <span class="meal-icon">⚠️</span>
+        <span class="meal-name">${meal.name}</span>
+      </div>
+      <div class="meal-badges">
+        <span style="font-size: 0.75rem; color: #dc2626; font-weight: 600;">Non recommandé</span>
+      </div>
+    `;
+    
+    return row;
+  } else {
+    // Meal is safe - render normally (existing code)
+    return null; // Return null to render using original logic
+  }
+}
+

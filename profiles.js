@@ -15,7 +15,7 @@ const ProfileManager = {
     }
     await this.loadProfiles();
     await this.checkSubscription();
-    this.renderProfiles();
+    await this.renderProfiles();
     this.setupEventListeners();
   },
 
@@ -105,23 +105,88 @@ const ProfileManager = {
     }
   },
 
-  renderProfiles() {
+  async selectProfile(profileId, profileName) {
+    // Load preferences for this profile
+    await PreferenceManager.loadPreferences(profileId);
+
+    // Notify app.js to update menu with this profile's preferences
+    if (typeof setSupabaseProfile === 'function') {
+      setSupabaseProfile(profileId, profileName);
+    }
+
+    // Close the modal
+    const modal = document.getElementById('profiles-modal');
+    if (modal) {
+      modal.style.display = 'none';
+    }
+  },
+
+  async renderProfiles() {
     const list = document.getElementById('profiles-list');
     if (!list) return;
 
-    list.innerHTML = this.profiles.map(profile => `
-      <div style="background:#F9FAFB;border:1px solid #E5E7EB;padding:0.75rem;border-radius:8px;margin-bottom:0.5rem;display:flex;justify-content:space-between;align-items:center;">
-        <div>
-          <div style="font-weight:600;color:#1B4332;">${profile.name}</div>
-          <div style="font-size:0.8rem;color:#999;">Créé le ${new Date(profile.created_at).toLocaleDateString('fr-FR')}</div>
+    // Load preferences for each profile
+    for (const profile of this.profiles) {
+      await PreferenceManager.loadPreferences(profile.id);
+    }
+
+    let html = '';
+
+    for (const profile of this.profiles) {
+      const prefs = PreferenceManager.getPreferences(profile.id);
+      const tags = PreferenceManager.getPreferenceTags(prefs);
+      const tagDisplay = tags.length > 0 ? `<div style="font-size:0.75rem;color:#666;margin-top:0.25rem;">${tags.join(' ')}</div>` : '';
+
+      html += `
+        <div style="background:#F9FAFB;border:1px solid #E5E7EB;padding:0.75rem;border-radius:8px;margin-bottom:0.5rem;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.5rem;">
+            <div style="flex:1;cursor:pointer;" onclick="ProfileManager.selectProfile('${profile.id}', '${profile.name}'); return false;">
+              <div style="font-weight:600;color:#1B4332;">${profile.name}</div>
+              <div style="font-size:0.8rem;color:#999;">Créé le ${new Date(profile.created_at).toLocaleDateString('fr-FR')}</div>
+              ${tagDisplay}
+            </div>
+            <div style="display:flex;gap:0.5rem;">
+              <button onclick="ProfileManager.openPreferenceModal('${profile.id}', '${profile.name}'); return false;"
+                      style="padding:0.25rem 0.75rem;background:#E8F5E9;color:#1B4332;border:none;border-radius:4px;cursor:pointer;font-size:0.85rem;font-weight:600;">
+                ⚙️ Préférences
+              </button>
+              ${this.profiles.length > 1 ? `<button onclick="ProfileManager.deleteProfile('${profile.id}'); return false;" style="padding:0.25rem 0.5rem;background:#fee2e2;color:#dc2626;border:none;border-radius:4px;cursor:pointer;font-size:0.85rem;font-weight:bold;">Supprimer</button>` : ''}
+            </div>
+          </div>
         </div>
-        ${this.profiles.length > 1 ? `<button onclick="ProfileManager.deleteProfile('${profile.id}'); return false;" style="padding:0.25rem 0.5rem;background:#fee2e2;color:#dc2626;border:none;border-radius:4px;cursor:pointer;font-size:0.85rem;font-weight:bold;">Supprimer</button>` : ''}
-      </div>
-    `).join('');
+      `;
+    }
+
+    list.innerHTML = html;
 
     // Update profile count display
     const countEl = document.getElementById('profile-count');
     if (countEl) countEl.textContent = this.profiles.length;
+  },
+
+  openPreferenceModal(profileId, profileName) {
+    // Create modal container if it doesn't exist
+    let modalContainer = document.getElementById(`preference-modal-${profileId}`);
+    if (modalContainer) {
+      modalContainer.style.display = 'flex';
+      return;
+    }
+
+    // Create the modal
+    const modal = PreferenceManager.renderPreferenceModal(profileId, profileName, this.userId);
+    const container = document.createElement('div');
+    container.innerHTML = modal;
+    const modalEl = container.firstElementChild;
+
+    // Close on background click
+    modalEl.addEventListener('click', (e) => {
+      if (e.target.id === `preference-modal-${profileId}`) {
+        modalEl.style.display = 'none';
+      }
+    });
+
+    document.body.appendChild(modalEl);
+    modalEl.style.display = 'flex';
   },
 
   setupEventListeners() {
