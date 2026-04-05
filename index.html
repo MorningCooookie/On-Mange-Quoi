@@ -810,14 +810,18 @@ python3 -m http.server 8000</div>
           <!-- Shopping list -->
           <div class="shopping-panel">
             <div class="shopping-toolbar">
-              <div class="shopping-toolbar-title"><span class="toolbar-icon">□</span>Liste de la semaine</div>
-              <div class="shopping-toolbar-right">
-                <div id="profile-selector-shopping" class="selector-group shopping-selector" role="group" aria-label="Sélecteur de profil"></div>
-                <div id="store-selector-shopping" class="selector-group shopping-selector" role="group" aria-label="Sélecteur d'enseigne"></div>
-                <div class="shopping-actions">
+              <!-- Left column: Profile selection -->
+              <div class="toolbar-column toolbar-left">
+                <div class="toolbar-section-label">Profil</div>
+                <div id="profile-selector-shopping" class="selector-group shopping-selector-column" role="group" aria-label="Sélecteur de profil"></div>
+              </div>
+
+              <!-- Center column: Shopping list & actions -->
+              <div class="toolbar-column toolbar-center">
+                <div class="shopping-toolbar-title"><span class="toolbar-icon">🛒</span>Liste de la semaine</div>
+                <div class="shopping-actions-row">
                   <button class="btn-action btn-fridge" id="btn-fridge" title="Mode frigo vide" aria-pressed="false">
-                    <span class="btn-label-icon">🧊</span>Frigo vide
-                    <span class="fridge-badge" aria-label="articles déjà disponibles">0</span>
+                    <span class="btn-label-icon">🧊</span>Frigo
                   </button>
                   <button class="btn-action" id="btn-copy" title="Copier la liste (WhatsApp, SMS…)">
                     <span class="btn-label-icon">📋</span>Copier
@@ -825,6 +829,18 @@ python3 -m http.server 8000</div>
                   <button class="btn-action" id="btn-print" title="Imprimer la liste de courses">
                     <span class="btn-label-icon">🖨️</span>Imprimer
                   </button>
+                </div>
+              </div>
+
+              <!-- Right column: Budget & Store selector -->
+              <div class="toolbar-column toolbar-right">
+                <div class="budget-quick-view">
+                  <div class="toolbar-section-label">Budget estimé</div>
+                  <div class="budget-amount" id="budget-quick">—</div>
+                </div>
+                <div class="store-selector-wrapper">
+                  <div class="toolbar-section-label">Enseigne</div>
+                  <div id="store-selector-shopping" class="selector-group shopping-selector-column" role="group" aria-label="Sélecteur d'enseigne"></div>
                 </div>
               </div>
             </div>
@@ -841,7 +857,7 @@ python3 -m http.server 8000</div>
 
           <!-- Budget panel -->
           <aside class="budget-panel" aria-label="Budget estimé">
-            <div class="budget-header"><span class="budget-icon">$</span>Budget estimé</div>
+            <div class="budget-header"><span class="budget-icon">€</span>Budget estimé</div>
 
             <div class="budget-total-block">
               <div class="budget-total-amount" id="budget-total">—</div>
@@ -876,9 +892,7 @@ python3 -m http.server 8000</div>
 
             <div id="budget-store-cards" role="group" aria-label="Choisir une enseigne"></div>
 
-            <div id="budget-fridge-savings" hidden
-                 style="padding:.55rem 1.1rem; font-size:.8rem; color:#1E40AF; background:#EFF6FF; border-top:1px solid #BFDBFE;"
-                 aria-live="polite"></div>
+            <div id="budget-fridge-savings" class="budget-fridge-savings" hidden aria-live="polite"></div>
           </aside>
         </div>
       </section>
