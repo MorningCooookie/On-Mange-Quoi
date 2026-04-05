@@ -62,42 +62,6 @@
   --btn-focus-offset: 2px;
 }
 
-/* ── Dark mode ─────────────────────────────────────────────── */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #141414;
-    --white: #1F1F1F;
-    --text: #E5E5E5;
-    --text-secondary: #9CA3AF;
-    --border: #2E2E2E;
-    --shadow: 0 2px 12px rgba(0,0,0,.3);
-    --shadow-hover: 0 8px 24px rgba(0,0,0,.45);
-    --score-a-bg: #0d2e18; --score-a-text: #6ee7a0;
-    --score-b-bg: #0d1f38; --score-b-text: #7db5f5;
-    --score-c-bg: #2a1e07; --score-c-text: #f5c76a;
-    --season-bg: #0c2318;  --season-text: #5ecc8f;
-  }
-  /* Cartes et surfaces */
-  .menu-card, .day-card, .history-card, .health-card,
-  .shopping-card, .alert-card, .profile-card, .week-selector-card {
-    background: var(--white);
-    border-color: var(--border);
-  }
-  /* Modales */
-  #login-modal > div, #signup-modal > div { background: #1F1F1F; color: var(--text); }
-  #login-modal input, #signup-modal input {
-    background: #2a2a2a; border-color: #3a3a3a; color: var(--text);
-  }
-  /* Popup Mon compte */
-  #user-menu { background: #1F1F1F; }
-  .user-menu-btn { color: #d0ffd0; }
-  .user-menu-btn:hover { background: rgba(255,255,255,.06); }
-  .user-menu-btn.danger { color: #f87171; }
-  .user-menu-divider { background: rgba(255,255,255,.08); }
-  /* Error card */
-  .error-card { background: var(--white); }
-}
-
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
   font-family: var(--font-body);
