@@ -11,6 +11,34 @@ const state = {
   profil: 'famille'     // 'famille' | 'couple' | 'solo'
 };
 
+// ── Vérification de session Supabase ─────────────────────────
+// Supabase stocke la session dans localStorage sous la clé sb-[ref]-auth-token
+function isLoggedIn() {
+  try {
+    const raw = localStorage.getItem('sb-pozhsrnsezklfyqjoues-auth-token');
+    const session = JSON.parse(raw);
+    return !!(session && session.access_token);
+  } catch {
+    return false;
+  }
+}
+
+// Affiche un message si l'utilisateur n'est pas connecté
+function checkAuthAndShowBanner() {
+  if (!isLoggedIn()) {
+    const card = document.querySelector('.recettes-form-card');
+    if (!card) return;
+    const banner = document.createElement('div');
+    banner.id = 'auth-banner';
+    banner.style.cssText = 'background:var(--cream,#fafaf9);border:1.5px solid var(--forest,#2D7A3C);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.25rem;text-align:center;color:var(--dark,#1F1F1F);';
+    banner.innerHTML = '🔒 <strong>Connecte-toi pour générer une recette</strong><br><span style="font-size:.9rem;opacity:.75">La génération de recettes est réservée aux membres connectés.</span><br><a href="index.html" style="display:inline-block;margin-top:.75rem;color:var(--forest,#2D7A3C);font-weight:600;text-decoration:underline;">→ Se connecter</a>';
+    card.insertBefore(banner, card.firstChild);
+  }
+}
+
+// Lancer la vérification au chargement
+checkAuthAndShowBanner();
+
 // ── Pill toggles ────────────────────────────────────────────
 document.querySelectorAll('.pill').forEach(pill => {
   pill.addEventListener('click', () => {
@@ -37,6 +65,11 @@ document.getElementById('btn-generate').addEventListener('click', generateRecipe
 document.getElementById('btn-retry').addEventListener('click', generateRecipe);
 
 async function generateRecipe() {
+  if (!isLoggedIn()) {
+    showToast('Connecte-toi pour générer une recette 🔒');
+    return;
+  }
+
   const ingredients = document.getElementById('ingredients').value.trim();
 
   if (!ingredients) {
