@@ -1,0 +1,157 @@
+{
+  "weekStart": "2026-04-06",
+  "weekEnd": "2026-04-12",
+  "healthScore": "A",
+  "healthScoreHighlights": [
+    "Asperges & petits pois de printemps",
+    "Maquereau, cabillaud et sardines",
+    "85% de plats de saison",
+    "Gigot d'agneau de lait dominical"
+  ],
+  "days": [
+    {
+      "date": "2026-04-06",
+      "dayName": "Lundi",
+      "meals": {
+        "dejeuner": {
+          "name": "Cabillaud vapeur, asperges vertes et riz complet",
+          "tags": ["poisson", "légumes", "saison"],
+          "calories": 480,
+          "prepTime": 25
+        },
+        "diner": {
+          "name": "Soupe de petits pois à la menthe, tartines de seigle",
+          "tags": ["végétarien", "saison", "léger"],
+          "calories": 320,
+          "prepTime": 20
+        }
+      }
+    },
+    {
+      "date": "2026-04-07",
+      "dayName": "Mardi",
+      "meals": {
+        "dejeuner": {
+          "name": "Maquereau grillé, purée de carottes au gingembre",
+          "tags": ["poisson", "oméga-3", "légumes"],
+          "calories": 510,
+          "prepTime": 30
+        },
+        "diner": {
+          "name": "Omelette aux herbes fraîches, salade verte",
+          "tags": ["végétarien", "protéines", "rapide"],
+          "calories": 380,
+          "prepTime": 15
+        }
+      }
+    },
+    {
+      "date": "2026-04-08",
+      "dayName": "Mercredi",
+      "meals": {
+        "dejeuner": {
+          "name": "Poulet rôti aux asperges et pommes de terre nouvelles",
+          "tags": ["viande", "saison", "four"],
+          "calories": 540,
+          "prepTime": 45
+        },
+        "diner": {
+          "name": "Lentilles corail aux épices douces et coriandre",
+          "tags": ["végétarien", "légumineuses", "protéines"],
+          "calories": 420,
+          "prepTime": 25
+        }
+      }
+    },
+    {
+      "date": "2026-04-09",
+      "dayName": "Jeudi",
+      "meals": {
+        "dejeuner": {
+          "name": "Sardines marinées, tabulé de quinoa et petits pois",
+          "tags": ["poisson", "saison", "céréales"],
+          "calories": 490,
+          "prepTime": 20
+        },
+        "diner": {
+          "name": "Velouté de brocoli, croûtons de pain complet",
+          "tags": ["végétarien", "saison", "léger"],
+          "calories": 300,
+          "prepTime": 20
+        }
+      }
+    },
+    {
+      "date": "2026-04-10",
+      "dayName": "Vendredi",
+      "meals": {
+        "dejeuner": {
+          "name": "Cabillaud en papillote, asperges et citron",
+          "tags": ["poisson", "saison", "santé"],
+          "calories": 460,
+          "prepTime": 25
+        },
+        "diner": {
+          "name": "Pâtes complètes, pesto de roquette maison",
+          "tags": ["végétarien", "céréales", "rapide"],
+          "calories": 520,
+          "prepTime": 20
+        }
+      }
+    },
+    {
+      "date": "2026-04-11",
+      "dayName": "Samedi",
+      "meals": {
+        "dejeuner": {
+          "name": "Risotto aux asperges vertes et parmesan",
+          "tags": ["végétarien", "saison", "riz"],
+          "calories": 560,
+          "prepTime": 35
+        },
+        "diner": {
+          "name": "Maquereau fumé, salade de betterave et fenouil",
+          "tags": ["poisson", "cru", "saison"],
+          "calories": 380,
+          "prepTime": 15
+        }
+      }
+    },
+    {
+      "date": "2026-04-12",
+      "dayName": "Dimanche",
+      "meals": {
+        "dejeuner": {
+          "name": "Gigot d'agneau de lait rôti, flageolets et gratin dauphinois",
+          "tags": ["viande", "festif", "saison"],
+          "calories": 720,
+          "prepTime": 120
+        },
+        "diner": {
+          "name": "Reste du gigot, salade verte à la moutarde",
+          "tags": ["viande", "rapide", "équilibré"],
+          "calories": 380,
+          "prepTime": 10
+        }
+      }
+    }
+  ],
+  "shoppingList": [
+    { "category": "Poissons & fruits de mer", "items": ["cabillaud (2 filets)", "maquereau (4 filets)", "sardines marinées (1 bocal)", "maquereau fumé (1 sachet)"] },
+    { "category": "Viandes", "items": ["gigot d'agneau de lait (1,5 kg)", "poulet fermier (1 entier)"] },
+    { "category": "Légumes de saison", "items": ["asperges vertes (500g)", "petits pois frais (400g)", "carottes (4)", "brocoli (1)", "betterave cuite (2)", "fenouil (1)", "pommes de terre nouvelles (500g)"] },
+    { "category": "Légumineuses & céréales", "items": ["riz complet (300g)", "quinoa (200g)", "lentilles corail (250g)", "flageolets en boîte (2)", "pâtes complètes (500g)"] },
+    { "category": "Produits frais", "items": ["oeufs (6)", "parmesan (100g)", "roquette (1 sachet)", "herbes fraîches (persil, coriandre, menthe)"] },
+    { "category": "Épicerie", "items": ["pain de seigle", "citrons (3)", "gingembre frais (1 morceau)", "huile d'olive", "moutarde à l'ancienne"] }
+  ],
+  "healthAlerts": [
+    {
+      "type": "info",
+      "message": "Semaine riche en oméga-3 grâce au maquereau, cabillaud et sardines — 3 repas poisson sur 7 jours."
+    },
+    {
+      "type": "tip",
+      "message": "Les asperges et petits pois sont en plein pic de saison — profites-en avant fin avril."
+    }
+  ]
+}

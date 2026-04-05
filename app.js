@@ -81,6 +81,16 @@ function isToday(dateStr) {
 
 function itemId(catName, idx) { return `${catName}__${idx}`; }
 
+// ── Current week menu date ──────────────────────────────────
+// Calcule le lundi de la semaine en cours au format YYYY-MM-DD
+function getCurrentMenuMonday() {
+  const d = new Date();
+  const day = d.getDay(); // 0=dim, 1=lun, ...
+  const diff = day === 0 ? -6 : 1 - day; // recule au lundi
+  d.setDate(d.getDate() + diff);
+  return d.toISOString().slice(0, 10);
+}
+
 // ── Season detection ───────────────────────────────────────
 function getCurrentSeason() {
   const m = new Date().getMonth(); // 0-11
@@ -193,10 +203,28 @@ function calcSavings() {
 async function loadData() {
   // Chemins absolus pour éviter tout bug de résolution d'URL sur mobile
   let cfg, menu, hist;
+
+  // Calcule la semaine courante dynamiquement — avec fallback sur la semaine précédente
+  const currentMonday = getCurrentMenuMonday();
+  const prevMonday = (() => {
+    const d = new Date(currentMonday + 'T12:00:00');
+    d.setDate(d.getDate() - 7);
+    return d.toISOString().slice(0, 10);
+  })();
+
+  // Essaie la semaine en cours, puis la semaine précédente si le fichier n'existe pas encore
+  async function fetchMenu() {
+    const r = await fetch(`/data/menus/${currentMonday}.json`);
+    if (r.ok) return r.json();
+    const r2 = await fetch(`/data/menus/${prevMonday}.json`);
+    if (r2.ok) return r2.json();
+    throw new Error(`Aucun menu trouvé pour ${currentMonday} ni ${prevMonday}`);
+  }
+
   try {
     [cfg, menu, hist] = await Promise.all([
       fetch('/data/config.json').then(r => { if (!r.ok) throw new Error(`HTTP ${r.status} — config.json`); return r.json(); }),
-      fetch('/data/menus/2026-03-30.json').then(r => { if (!r.ok) throw new Error(`HTTP ${r.status} — menu.json`); return r.json(); }),
+      fetchMenu(),
       fetch('/data/history.json').then(r => { if (!r.ok) throw new Error(`HTTP ${r.status} — history.json`); return r.json(); })
     ]);
   } catch (err) {
@@ -275,11 +303,6 @@ const PROFILE_SHORT_LABELS = {
 function buildProfileButtons(container, mobile = false) {
   if (!container || !state.config) return;
   container.innerHTML = '';
-  if (!mobile) {
-    const lbl = document.createElement('label');
-    lbl.textContent = '👤';
-    container.appendChild(lbl);
-  }
   Object.entries(state.config.profiles).forEach(([key, p]) => {
     const btn = document.createElement('button');
     const isActive = key === state.currentProfile;
@@ -310,12 +333,6 @@ function renderProfileSelectorShopping() {
 function buildStoreButtons(container, mobile = false) {
   if (!container || !state.config) return;
   container.innerHTML = '';
-  if (!mobile) {
-    const lbl = document.createElement('label');
-    lbl.className = 'selector-label';
-    lbl.textContent = 'Enseigne';
-    container.appendChild(lbl);
-  }
   Object.entries(state.config.stores).forEach(([key, s]) => {
     const btn = document.createElement('button');
     btn.className = `selector-btn store-${key}${key === state.currentStore ? ' active' : ''}`;
@@ -669,6 +686,9 @@ function renderBudget() {
   const cur = totals[state.currentStore] || 0;
   setText('budget-total',  fmt(cur));
   setText('budget-per-day', fmt(cur / 7));
+
+  // Mise à jour du budget quick view dans la toolbar courses
+  document.querySelectorAll('.budget-amount').forEach(el => { el.textContent = fmt(cur); });
 
   // Fix 4 — Solo : masquer les lignes redondantes
   const perPersonItem    = document.getElementById('budget-per-person')?.parentElement;

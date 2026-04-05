@@ -473,7 +473,7 @@
     #user-menu {
       position: fixed;
       z-index: 20000;
-      min-width: 300px;
+      min-width: 280px;
       background: white;
       border-radius: 12px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
@@ -484,6 +484,9 @@
       right: 0;
       display: none;
       flex-direction: column;
+    }
+    @media (max-width: 767px) {
+      #user-menu { min-width: calc(100vw - 32px); max-width: 360px; }
     }
 
     .user-menu-header {
@@ -584,12 +587,21 @@
       if (menu && accountBtn && menu.style.display === 'flex') {
         const btnRect = accountBtn.getBoundingClientRect();
         const menuWidth = menu.offsetWidth || 280;
+        const isMobile = window.innerWidth < 768;
 
-        // Position menu below button, right-aligned to button
         menu.style.position = 'fixed';
-        menu.style.top = (btnRect.bottom + 4) + 'px';
-        menu.style.left = Math.max(8, btnRect.right - menuWidth) + 'px';
-        menu.style.right = 'auto';
+        menu.style.top = (btnRect.bottom + 6) + 'px';
+
+        if (isMobile) {
+          // Centre horizontalement sur mobile
+          menu.style.left = Math.max(8, (window.innerWidth - menuWidth) / 2) + 'px';
+          menu.style.right = 'auto';
+        } else {
+          // Aligne le bord droit du menu avec le bord droit du bouton
+          const rightFromEdge = window.innerWidth - btnRect.right;
+          menu.style.right = Math.max(8, rightFromEdge) + 'px';
+          menu.style.left = 'auto';
+        }
       }
     }
 
@@ -816,9 +828,9 @@ python3 -m http.server 8000</div>
                 <div id="profile-selector-shopping" class="selector-group shopping-selector-column" role="group" aria-label="Sélecteur de profil"></div>
               </div>
 
-              <!-- Center column: Shopping list & actions -->
+              <!-- Center column: Actions -->
               <div class="toolbar-column toolbar-center">
-                <div class="shopping-toolbar-title"><span class="toolbar-icon">🛒</span>Liste de la semaine</div>
+                <div class="toolbar-section-label">Actions</div>
                 <div class="shopping-actions-row">
                   <button class="btn-action btn-fridge" id="btn-fridge" title="Mode frigo vide" aria-pressed="false">
                     <span class="btn-label-icon">🧊</span>Frigo
@@ -832,16 +844,10 @@ python3 -m http.server 8000</div>
                 </div>
               </div>
 
-              <!-- Right column: Budget & Store selector -->
+              <!-- Right column: Store selector -->
               <div class="toolbar-column toolbar-right">
-                <div class="budget-quick-view">
-                  <div class="toolbar-section-label">Budget estimé</div>
-                  <div class="budget-amount" id="budget-quick">—</div>
-                </div>
-                <div class="store-selector-wrapper">
-                  <div class="toolbar-section-label">Enseigne</div>
-                  <div id="store-selector-shopping" class="selector-group shopping-selector-column" role="group" aria-label="Sélecteur d'enseigne"></div>
-                </div>
+                <div class="toolbar-section-label">Enseigne</div>
+                <div id="store-selector-shopping" class="selector-group shopping-selector-column" role="group" aria-label="Sélecteur d'enseigne"></div>
               </div>
             </div>
 

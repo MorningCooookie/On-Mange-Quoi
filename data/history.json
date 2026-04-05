@@ -1,6 +1,19 @@
 {
   "menus": [
     {
+      "weekStart": "2026-04-06",
+      "weekEnd": "2026-04-12",
+      "file": "data/menus/2026-04-06.json",
+      "label": "Semaine du 6 avril 2026",
+      "healthScore": "A",
+      "highlights": [
+        "Asperges & petits pois de printemps",
+        "Maquereau, cabillaud et sardines",
+        "85% de plats de saison 🌸",
+        "Gigot d'agneau de lait dominical"
+      ]
+    },
+    {
       "weekStart": "2026-03-30",
       "weekEnd": "2026-04-05",
       "file": "data/menus/2026-03-30.json",
