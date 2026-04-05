@@ -473,57 +473,59 @@
     #user-menu {
       position: fixed;
       z-index: 20000;
-      min-width: 280px;
+      min-width: 200px;
+      max-width: 240px;
       background: white;
-      border-radius: 12px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-      border: none;
+      border-radius: 10px;
+      box-shadow: 0 6px 24px rgba(0,0,0,.15), 0 0 0 1px rgba(0,0,0,.06);
       overflow: hidden;
-      animation: slideDown 0.2s ease-out;
+      animation: slideDown 0.15s ease-out;
       top: 0;
       right: 0;
       display: none;
       flex-direction: column;
     }
     @media (max-width: 767px) {
-      #user-menu { min-width: calc(100vw - 32px); max-width: 360px; }
+      #user-menu { min-width: 200px; max-width: 260px; }
     }
 
     .user-menu-header {
-      padding: 1.25rem 1.5rem;
-      background: linear-gradient(135deg, #1B4332, #40916C);
+      padding: 0.7rem 1rem 0.6rem;
+      background: #1B4332;
       border-bottom: none;
     }
 
     .user-menu-profile-name {
-      font-size: 1rem;
-      color: white;
-      font-weight: 600;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,.85);
+      font-weight: 500;
       display: block;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
     }
 
     .user-menu-body {
-      padding: 0.75rem;
+      padding: 0.4rem;
     }
 
     .user-menu-btn {
       width: 100%;
-      padding: 0.85rem 1.25rem;
+      padding: 0.6rem 0.85rem;
       background: transparent;
       color: #1B4332;
       border: none;
-      border-radius: 6px;
+      border-radius: 5px;
       text-align: left;
       cursor: pointer;
       font-family: 'Work Sans', system-ui, sans-serif;
       font-weight: 500;
-      font-size: 0.95rem;
-      transition: background 0.15s;
+      font-size: 0.85rem;
+      transition: background 0.12s;
       display: block;
     }
 
     .user-menu-btn:hover {
-      background: rgba(27, 67, 50, 0.08);
+      background: rgba(27, 67, 50, 0.07);
     }
 
     .user-menu-btn.danger {
@@ -531,13 +533,21 @@
     }
 
     .user-menu-btn.danger:hover {
-      background: rgba(220, 38, 38, 0.08);
+      background: rgba(220, 38, 38, 0.07);
     }
 
     .user-menu-divider {
       height: 1px;
-      background: rgba(27, 67, 50, 0.1);
-      margin: 0.5rem 0;
+      background: rgba(0,0,0,.07);
+      margin: 0.25rem 0;
+    }
+    @media (prefers-color-scheme: dark) {
+      #user-menu { background: #1e1e1e; }
+      .user-menu-btn { color: #c8f5cc; }
+      .user-menu-btn:hover { background: rgba(255,255,255,.06); }
+      .user-menu-btn.danger { color: #f87171; }
+      .user-menu-btn.danger:hover { background: rgba(248,113,113,.08); }
+      .user-menu-divider { background: rgba(255,255,255,.08); }
     }
   </style>
 
