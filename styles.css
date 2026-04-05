@@ -30,7 +30,7 @@
   --r-card: 14px; --r-inner: 8px;
   --shadow: 0 2px 12px rgba(0,0,0,.07);
   --shadow-hover: 0 8px 24px rgba(0,0,0,.14);
-  --bottom-bar-h: 80px;
+  --bottom-bar-h: 58px;
   --font-display: 'Fraunces', Georgia, serif;
   --font-body: 'Work Sans', system-ui, sans-serif;
 
@@ -313,34 +313,12 @@ a { color: inherit; }
 
 @media (max-width: 767px) {
   .bottom-bar {
-    display: flex; flex-direction: column; gap: .5rem;
+    display: flex; flex-direction: column;
     position: fixed; bottom: 0; left: 0; right: 0; z-index: 90;
     background: linear-gradient(135deg, var(--header-from), var(--header-to));
     padding: 0;
     box-shadow: 0 -2px 16px rgba(0,0,0,.2);
   }
-  /* Selectors row: compact and clear */
-  .bottom-bar-row--selectors {
-    display: flex; align-items: center; gap: .2rem;
-    overflow-x: auto; scrollbar-width: none;
-    justify-content: center;
-    padding: .25rem .4rem;
-    border-bottom: 1px solid rgba(255,255,255,.15);
-    flex-wrap: nowrap;
-  }
-  .bottom-bar-row--selectors::-webkit-scrollbar { display: none; }
-  .bottom-bar .selector-group { display: flex; gap: .2rem; align-items: center; }
-  .bottom-bar .selector-group label { display: none; }
-  .bottom-bar-sep {
-    width: 1px; height: 18px; background: rgba(255,255,255,.35);
-    flex-shrink: 0; margin: 0 .15rem;
-  }
-  /* Profile pills on mobile */
-  .bottom-bar .profile-pill {
-    font-size: .75rem; padding: .35rem .65rem; font-weight: 500;
-  }
-  /* Store buttons on mobile */
-  .bottom-bar .selector-btn { font-size: .75rem; padding: .35rem .6rem; font-weight: 500; }
   /* Nav row */
   .bottom-nav-row {
     display: flex; justify-content: space-around;
@@ -751,23 +729,23 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
 }
 
 @media (max-width: 768px) {
+  /* Profil (gauche) | Enseigne (droite) sur une ligne, Actions en dessous */
   .shopping-toolbar {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1.5rem;
     padding: 1rem;
   }
 
-  .toolbar-column {
-    gap: 0.6rem;
-  }
-
+  .toolbar-left  { order: 1; }
+  .toolbar-right { order: 2; }
   .toolbar-center {
+    order: 3;
+    grid-column: 1 / -1;
     gap: 0.8rem;
   }
 
-  .toolbar-right {
-    gap: 1rem;
-    grid-column: 1;
+  .toolbar-column {
+    gap: 0.5rem;
   }
 
   .shopping-toolbar-title {

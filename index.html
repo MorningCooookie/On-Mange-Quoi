@@ -126,6 +126,7 @@
     </div>
   </div>
 
+
   <!-- ============ USER MENU ============ -->
   <div id="user-menu" style="display:none;">
     <div class="user-menu-header">
@@ -480,8 +481,6 @@
       box-shadow: 0 6px 24px rgba(0,0,0,.15), 0 0 0 1px rgba(0,0,0,.06);
       overflow: hidden;
       animation: slideDown 0.15s ease-out;
-      top: 0;
-      right: 0;
       display: none;
       flex-direction: column;
     }
@@ -582,53 +581,26 @@
       setTimeout(removeToast, 3000);
     }
 
-    // Position user menu under the account button
-    function positionUserMenu() {
-      const menu = document.getElementById('user-menu');
-      const accountBtn = document.getElementById('user-email-header');
-      if (menu && accountBtn && menu.style.display === 'flex') {
-        const btnRect = accountBtn.getBoundingClientRect();
-        const menuWidth = menu.offsetWidth || 280;
-        const isMobile = window.innerWidth < 768;
-
-        menu.style.position = 'fixed';
-        menu.style.top = (btnRect.bottom + 6) + 'px';
-
-        if (isMobile) {
-          // Centre horizontalement sur mobile
-          menu.style.left = Math.max(8, (window.innerWidth - menuWidth) / 2) + 'px';
-          menu.style.right = 'auto';
-        } else {
-          // Aligne le bord droit du menu avec le bord droit du bouton
-          const rightFromEdge = window.innerWidth - btnRect.right;
-          menu.style.right = Math.max(8, rightFromEdge) + 'px';
-          menu.style.left = 'auto';
-        }
-      }
-    }
-
-    // Reposition menu when button is clicked
+    // Ouvre/ferme le menu Mon compte — position calculée avant affichage
     document.addEventListener('click', (e) => {
       const menu = document.getElementById('user-menu');
       const accountBtn = document.getElementById('user-email-header');
-      const userMenuHeader = document.getElementById('user-menu-header');
 
       if (accountBtn && accountBtn.contains(e.target)) {
-        // Button was clicked, show/toggle menu
-        const isVisible = menu.style.display === 'flex';
-        menu.style.display = isVisible ? 'none' : 'flex';
-        if (!isVisible) {
-          // Use requestAnimationFrame to ensure DOM is updated before positioning
-          requestAnimationFrame(positionUserMenu);
+        if (menu.style.display === 'flex') {
+          menu.style.display = 'none';
+        } else {
+          // Calculer la position avant d'afficher pour éviter le flash
+          const r = accountBtn.getBoundingClientRect();
+          menu.style.top  = (r.bottom + 6) + 'px';
+          menu.style.right = Math.max(8, window.innerWidth - r.right) + 'px';
+          menu.style.left = 'auto';
+          menu.style.display = 'flex';
         }
-      } else if (menu && accountBtn && !menu.contains(e.target) && !accountBtn.contains(e.target)) {
-        // Clicked outside menu and button, close menu
+      } else if (menu && !menu.contains(e.target)) {
         menu.style.display = 'none';
       }
     });
-
-    // Reposition menu on window resize
-    window.addEventListener('resize', positionUserMenu);
 
     // Hamburger menu mobile nav toggle
     document.addEventListener('DOMContentLoaded', () => {
@@ -959,13 +931,6 @@
 
   <!-- ── Mobile bottom bar ─────────────────────────────────── -->
   <div class="bottom-bar" aria-label="Navigation mobile">
-    <!-- Row 1 : profiles + stores on one line -->
-    <div class="bottom-bar-row bottom-bar-row--selectors">
-      <div class="selector-group" id="profile-selector-mobile" role="group" aria-label="Profil"></div>
-      <span class="bottom-bar-sep" aria-hidden="true"></span>
-      <div class="selector-group" id="store-selector-mobile" role="group" aria-label="Enseigne"></div>
-    </div>
-    <!-- Row 2 : nav links -->
     <nav class="bottom-nav-row" aria-label="Navigation rapide">
       <a class="bottom-nav-link nav-link" href="#menu"><span class="nav-icon">📅</span>Menu</a>
       <a class="bottom-nav-link nav-link" href="#courses"><span class="nav-icon">🛒</span>Courses</a>
