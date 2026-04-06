@@ -443,15 +443,18 @@ function renderMenu() {
   state.menuData.days.forEach(day => {
     const col = document.createElement('div');
     col.className = 'day-card';
+    // Compatibilité : le JSON utilise dayName, label ou name selon les versions
+    const dayLabel = day.dayName || day.label || day.name || '';
     col.innerHTML = `
       <div class="day-header">
-        <span class="day-label">${day.label}</span>
+        <span class="day-label">${dayLabel}</span>
       </div>
       <div class="day-meals" id="meals-${day.date}"></div>`;
     grid.appendChild(col);
 
     const mealsContainer = col.querySelector('.day-meals');
-    const mealOrder = ['breakfast', 'lunch', 'snack', 'dinner'];
+    // Compatibilité : clés françaises (dejeuner/diner) ou anglaises (breakfast/lunch/dinner)
+    const mealOrder = ['breakfast', 'lunch', 'snack', 'dinner', 'dejeuner', 'diner', 'gouter'];
     mealOrder.forEach(type => {
       const meal = day.meals[type];
       if (!meal) return;
@@ -463,7 +466,9 @@ function renderMenu() {
       const tooltip  = riskTooltip(meal.riskLevel, meal.riskType);
       const pc       = prepClass(meal.prepTime);
       const pl       = prepLabel(meal.prepTime);
-      const seasonBadge = meal.isSeasonal
+      // isSeasonal peut être un booléen ou se déduire du tag "saison"
+      const isSeasonal = meal.isSeasonal || meal.tags?.includes('saison') || false;
+      const seasonBadge = isSeasonal
         ? `<span class="badge-season" title="De saison">${season} saison</span>` : '';
 
       // Check if meal is safe for current preferences
