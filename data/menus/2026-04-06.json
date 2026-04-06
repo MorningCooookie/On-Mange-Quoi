@@ -11,138 +11,371 @@
   "days": [
     {
       "date": "2026-04-06",
-      "dayName": "Lundi",
+      "label": "Lundi",
       "meals": {
-        "dejeuner": {
-          "name": "Cabillaud vapeur, asperges vertes et riz complet",
-          "tags": ["poisson", "légumes", "saison"],
-          "calories": 480,
-          "prepTime": 25
+        "breakfast": {
+          "name": "Yaourt nature, muesli maison, kiwi",
+          "icon": "🌅",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "5",
+          "isSeasonal": false,
+          "note": "Yaourt entier de ferme — muesli sans sucre ajouté"
         },
-        "diner": {
+        "lunch": {
+          "name": "Cabillaud vapeur, asperges vertes et riz complet",
+          "icon": "🐟",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "25",
+          "isSeasonal": true,
+          "note": "Asperges en plein pic de saison — riz basmati faible en cadmium"
+        },
+        "snack": {
+          "name": "Pomme fraîche, quelques noix",
+          "icon": "🍎",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "2",
+          "isSeasonal": true,
+          "note": "Pommes françaises de saison"
+        },
+        "dinner": {
           "name": "Soupe de petits pois à la menthe, tartines de seigle",
-          "tags": ["végétarien", "saison", "léger"],
-          "calories": 320,
-          "prepTime": 20
+          "icon": "🌙",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "20",
+          "isSeasonal": true,
+          "note": "Petits pois frais de saison — dîner léger"
         }
       }
     },
     {
       "date": "2026-04-07",
-      "dayName": "Mardi",
+      "label": "Mardi",
       "meals": {
-        "dejeuner": {
-          "name": "Maquereau grillé, purée de carottes au gingembre",
-          "tags": ["poisson", "oméga-3", "légumes"],
-          "calories": 510,
-          "prepTime": 30
+        "breakfast": {
+          "name": "Porridge d'avoine, banane, miel",
+          "icon": "🌅",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "10",
+          "isSeasonal": false,
+          "note": "Flocons d'avoine nature — pas de céréales industrielles"
         },
-        "diner": {
+        "lunch": {
+          "name": "Maquereau grillé, purée de carottes au gingembre",
+          "icon": "🐟",
+          "riskLevel": "medium",
+          "riskType": "cadmium",
+          "prepTime": "30",
+          "isSeasonal": true,
+          "note": "Maquereau riche en oméga-3 — limiter à 2x/semaine (cadmium modéré)"
+        },
+        "snack": {
+          "name": "Fromage blanc, miel",
+          "icon": "🍯",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "2",
+          "isSeasonal": false,
+          "note": "Fromage blanc 0% ou entier selon appétit"
+        },
+        "dinner": {
           "name": "Omelette aux herbes fraîches, salade verte",
-          "tags": ["végétarien", "protéines", "rapide"],
-          "calories": 380,
-          "prepTime": 15
+          "icon": "🌙",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "15",
+          "isSeasonal": false,
+          "note": "Œufs label rouge — herbes fraîches (persil, ciboulette)"
         }
       }
     },
     {
       "date": "2026-04-08",
-      "dayName": "Mercredi",
+      "label": "Mercredi",
       "meals": {
-        "dejeuner": {
-          "name": "Poulet rôti aux asperges et pommes de terre nouvelles",
-          "tags": ["viande", "saison", "four"],
-          "calories": 540,
-          "prepTime": 45
+        "breakfast": {
+          "name": "Pain complet, beurre, œuf à la coque",
+          "icon": "🌅",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "10",
+          "isSeasonal": false,
+          "note": "Pain de boulanger — œuf label rouge"
         },
-        "diner": {
+        "lunch": {
+          "name": "Poulet rôti aux asperges et pommes de terre nouvelles",
+          "icon": "🥗",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "45",
+          "isSeasonal": true,
+          "note": "Asperges et pommes de terre nouvelles de saison — poulet fermier"
+        },
+        "snack": {
+          "name": "Compote de pommes maison, biscuit sésame",
+          "icon": "🍎",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "5",
+          "isSeasonal": true,
+          "note": "Compote sans sucre ajouté"
+        },
+        "dinner": {
           "name": "Lentilles corail aux épices douces et coriandre",
-          "tags": ["végétarien", "légumineuses", "protéines"],
-          "calories": 420,
-          "prepTime": 25
+          "icon": "🌙",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "25",
+          "isSeasonal": false,
+          "note": "Lentilles corail riches en fer — anti-cadmium naturel"
         }
       }
     },
     {
       "date": "2026-04-09",
-      "dayName": "Jeudi",
+      "label": "Jeudi",
       "meals": {
-        "dejeuner": {
-          "name": "Sardines marinées, tabulé de quinoa et petits pois",
-          "tags": ["poisson", "saison", "céréales"],
-          "calories": 490,
-          "prepTime": 20
+        "breakfast": {
+          "name": "Smoothie banane-épinards, tartine levain",
+          "icon": "🌅",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "8",
+          "isSeasonal": false,
+          "note": "Épinards frais de saison — pain au levain artisanal"
         },
-        "diner": {
+        "lunch": {
+          "name": "Sardines marinées, tabulé de quinoa et petits pois",
+          "icon": "🐟",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "20",
+          "isSeasonal": true,
+          "note": "Sardines en boîte MSC — petits pois de saison"
+        },
+        "snack": {
+          "name": "Kiwi, amandes",
+          "icon": "🥝",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "2",
+          "isSeasonal": false,
+          "note": "Petite collation équilibrée"
+        },
+        "dinner": {
           "name": "Velouté de brocoli, croûtons de pain complet",
-          "tags": ["végétarien", "saison", "léger"],
-          "calories": 300,
-          "prepTime": 20
+          "icon": "🌙",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "20",
+          "isSeasonal": true,
+          "note": "Brocoli de saison — soupe légère pour le soir"
         }
       }
     },
     {
       "date": "2026-04-10",
-      "dayName": "Vendredi",
+      "label": "Vendredi",
       "meals": {
-        "dejeuner": {
-          "name": "Cabillaud en papillote, asperges et citron",
-          "tags": ["poisson", "saison", "santé"],
-          "calories": 460,
-          "prepTime": 25
+        "breakfast": {
+          "name": "Granola maison, lait végétal, fruits rouges",
+          "icon": "🌅",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "5",
+          "isSeasonal": false,
+          "note": "Granola sans huile de palme — lait d'avoine ou amande"
         },
-        "diner": {
+        "lunch": {
+          "name": "Cabillaud en papillote, asperges et citron",
+          "icon": "🐟",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "25",
+          "isSeasonal": true,
+          "note": "Cuisson papillote — zéro matière grasse ajoutée"
+        },
+        "snack": {
+          "name": "Yaourt grec, fraises de saison",
+          "icon": "🍓",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "2",
+          "isSeasonal": true,
+          "note": "Premières fraises françaises — choisir bio si possible"
+        },
+        "dinner": {
           "name": "Pâtes complètes, pesto de roquette maison",
-          "tags": ["végétarien", "céréales", "rapide"],
-          "calories": 520,
-          "prepTime": 20
+          "icon": "🌙",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "20",
+          "isSeasonal": true,
+          "note": "Roquette de saison — pesto maison sans additifs"
         }
       }
     },
     {
       "date": "2026-04-11",
-      "dayName": "Samedi",
+      "label": "Samedi",
       "meals": {
-        "dejeuner": {
-          "name": "Risotto aux asperges vertes et parmesan",
-          "tags": ["végétarien", "saison", "riz"],
-          "calories": 560,
-          "prepTime": 35
+        "breakfast": {
+          "name": "Pancakes à la banane, sirop d'érable, fruits frais",
+          "icon": "🌅",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "20",
+          "isSeasonal": false,
+          "note": "Petit-déjeuner du week-end — farine complète"
         },
-        "diner": {
+        "lunch": {
+          "name": "Risotto aux asperges vertes et parmesan",
+          "icon": "🥗",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "35",
+          "isSeasonal": true,
+          "note": "Asperges de saison — riz arborio, parmesan en petite quantité"
+        },
+        "snack": {
+          "name": "Tartine levain, houmous maison",
+          "icon": "🥙",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "5",
+          "isSeasonal": false,
+          "note": "Houmous maison : pois chiches, tahini, citron"
+        },
+        "dinner": {
           "name": "Maquereau fumé, salade de betterave et fenouil",
-          "tags": ["poisson", "cru", "saison"],
-          "calories": 380,
-          "prepTime": 15
+          "icon": "🌙",
+          "riskLevel": "medium",
+          "riskType": "cadmium",
+          "prepTime": "15",
+          "isSeasonal": true,
+          "note": "Fenouil de saison — salade fraîche et légère"
         }
       }
     },
     {
       "date": "2026-04-12",
-      "dayName": "Dimanche",
+      "label": "Dimanche",
       "meals": {
-        "dejeuner": {
-          "name": "Gigot d'agneau de lait rôti, flageolets et gratin dauphinois",
-          "tags": ["viande", "festif", "saison"],
-          "calories": 720,
-          "prepTime": 120
+        "breakfast": {
+          "name": "Brunch : œufs brouillés, avocat, saumon fumé, pain levain",
+          "icon": "🌅",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "20",
+          "isSeasonal": false,
+          "note": "Brunch dominical — saumon fumé Label Rouge"
         },
-        "diner": {
-          "name": "Reste du gigot, salade verte à la moutarde",
-          "tags": ["viande", "rapide", "équilibré"],
-          "calories": 380,
-          "prepTime": 10
+        "lunch": {
+          "name": "Gigot d'agneau de lait rôti, flageolets et gratin dauphinois",
+          "icon": "🍖",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "120",
+          "isSeasonal": true,
+          "note": "Agneau de lait de saison — plat festif du dimanche"
+        },
+        "snack": {
+          "name": "Tarte aux fraises maison",
+          "icon": "🍓",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "40",
+          "isSeasonal": true,
+          "note": "Fraises de saison — pâte sablée maison"
+        },
+        "dinner": {
+          "name": "Restes du gigot, salade verte à la moutarde",
+          "icon": "🌙",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "10",
+          "isSeasonal": false,
+          "note": "Anti-gaspi — les restes du gigot s'utilisent froids ou réchauffés"
         }
       }
     }
   ],
   "shoppingList": [
-    { "category": "Poissons & fruits de mer", "items": ["cabillaud (2 filets)", "maquereau (4 filets)", "sardines marinées (1 bocal)", "maquereau fumé (1 sachet)"] },
-    { "category": "Viandes", "items": ["gigot d'agneau de lait (1,5 kg)", "poulet fermier (1 entier)"] },
-    { "category": "Légumes de saison", "items": ["asperges vertes (500g)", "petits pois frais (400g)", "carottes (4)", "brocoli (1)", "betterave cuite (2)", "fenouil (1)", "pommes de terre nouvelles (500g)"] },
-    { "category": "Légumineuses & céréales", "items": ["riz complet (300g)", "quinoa (200g)", "lentilles corail (250g)", "flageolets en boîte (2)", "pâtes complètes (500g)"] },
-    { "category": "Produits frais", "items": ["oeufs (6)", "parmesan (100g)", "roquette (1 sachet)", "herbes fraîches (persil, coriandre, menthe)"] },
-    { "category": "Épicerie", "items": ["pain de seigle", "citrons (3)", "gingembre frais (1 morceau)", "huile d'olive", "moutarde à l'ancienne"] }
+    {
+      "category": "Poissons & fruits de mer",
+      "emoji": "🐟",
+      "items": [
+        { "name": "Cabillaud", "qty": "4 filets (600g)", "price_discount": 7.2, "price_standard": 9.5, "price_bio": 14.0, "isSeasonal": false },
+        { "name": "Maquereau frais", "qty": "4 filets", "price_discount": 4.5, "price_standard": 6.0, "price_bio": 9.0, "isSeasonal": false },
+        { "name": "Sardines marinées", "qty": "1 bocal", "price_discount": 2.8, "price_standard": 3.9, "price_bio": 5.5, "isSeasonal": false },
+        { "name": "Maquereau fumé", "qty": "1 sachet", "price_discount": 3.2, "price_standard": 4.5, "price_bio": 6.8, "isSeasonal": false },
+        { "name": "Saumon fumé", "qty": "4 tranches", "price_discount": 4.9, "price_standard": 6.5, "price_bio": 9.5, "isSeasonal": false, "label": "Label Rouge" }
+      ]
+    },
+    {
+      "category": "Viandes",
+      "emoji": "🥩",
+      "items": [
+        { "name": "Gigot d'agneau de lait", "qty": "1,5 kg", "price_discount": 18.0, "price_standard": 24.0, "price_bio": 34.0, "isSeasonal": true },
+        { "name": "Poulet fermier", "qty": "1 entier (1,4 kg)", "price_discount": 8.5, "price_standard": 11.5, "price_bio": 16.0, "isSeasonal": false, "label": "Label Rouge" }
+      ]
+    },
+    {
+      "category": "Légumes de saison",
+      "emoji": "🥦",
+      "items": [
+        { "name": "Asperges vertes", "qty": "500 g", "price_discount": 4.5, "price_standard": 5.9, "price_bio": 8.5, "isSeasonal": true },
+        { "name": "Petits pois frais", "qty": "400 g", "price_discount": 2.8, "price_standard": 3.8, "price_bio": 5.8, "isSeasonal": true },
+        { "name": "Carottes", "qty": "500 g", "price_discount": 0.9, "price_standard": 1.3, "price_bio": 2.4, "isSeasonal": false },
+        { "name": "Brocoli", "qty": "1 tête", "price_discount": 1.5, "price_standard": 2.1, "price_bio": 3.5, "isSeasonal": true },
+        { "name": "Betterave cuite", "qty": "2 pièces", "price_discount": 1.2, "price_standard": 1.8, "price_bio": 3.0, "isSeasonal": false },
+        { "name": "Fenouil", "qty": "1 bulbe", "price_discount": 1.4, "price_standard": 2.0, "price_bio": 3.4, "isSeasonal": true },
+        { "name": "Pommes de terre nouvelles", "qty": "500 g", "price_discount": 1.8, "price_standard": 2.5, "price_bio": 4.2, "isSeasonal": true },
+        { "name": "Roquette", "qty": "1 sachet (150 g)", "price_discount": 1.5, "price_standard": 2.1, "price_bio": 3.5, "isSeasonal": false, "label": "bio recommandé" },
+        { "name": "Épinards frais", "qty": "200 g", "price_discount": 1.8, "price_standard": 2.5, "price_bio": 4.0, "isSeasonal": true },
+        { "name": "Fraises", "qty": "500 g", "price_discount": 3.5, "price_standard": 4.8, "price_bio": 7.5, "isSeasonal": true, "label": "bio recommandé" }
+      ]
+    },
+    {
+      "category": "Légumineuses & céréales",
+      "emoji": "🫘",
+      "items": [
+        { "name": "Riz complet", "qty": "300 g", "price_discount": 1.2, "price_standard": 1.8, "price_bio": 3.2, "isSeasonal": false },
+        { "name": "Quinoa", "qty": "200 g", "price_discount": 2.2, "price_standard": 3.1, "price_bio": 5.0, "isSeasonal": false },
+        { "name": "Lentilles corail", "qty": "250 g", "price_discount": 1.5, "price_standard": 2.2, "price_bio": 3.8, "isSeasonal": false },
+        { "name": "Flageolets en boîte", "qty": "2 boîtes", "price_discount": 1.8, "price_standard": 2.4, "price_bio": 3.8, "isSeasonal": false },
+        { "name": "Pâtes complètes", "qty": "500 g", "price_discount": 1.4, "price_standard": 2.0, "price_bio": 3.5, "isSeasonal": false },
+        { "name": "Riz arborio (risotto)", "qty": "300 g", "price_discount": 2.0, "price_standard": 2.8, "price_bio": 4.5, "isSeasonal": false }
+      ]
+    },
+    {
+      "category": "Produits frais",
+      "emoji": "🥛",
+      "items": [
+        { "name": "Œufs", "qty": "12 pièces", "price_discount": 2.8, "price_standard": 3.8, "price_bio": 5.5, "isSeasonal": false, "label": "Label Rouge" },
+        { "name": "Yaourt nature", "qty": "4 pots", "price_discount": 1.5, "price_standard": 2.2, "price_bio": 3.8, "isSeasonal": false },
+        { "name": "Fromage blanc", "qty": "500 g", "price_discount": 1.8, "price_standard": 2.5, "price_bio": 4.0, "isSeasonal": false },
+        { "name": "Yaourt grec", "qty": "2 pots", "price_discount": 1.6, "price_standard": 2.3, "price_bio": 3.9, "isSeasonal": false },
+        { "name": "Parmesan", "qty": "100 g", "price_discount": 2.5, "price_standard": 3.5, "price_bio": 5.5, "isSeasonal": false },
+        { "name": "Herbes fraîches (persil, menthe, coriandre)", "qty": "3 bottes", "price_discount": 1.5, "price_standard": 2.1, "price_bio": 3.5, "isSeasonal": true }
+      ]
+    },
+    {
+      "category": "Épicerie",
+      "emoji": "🛒",
+      "items": [
+        { "name": "Pain de seigle", "qty": "1 miche", "price_discount": 2.5, "price_standard": 3.5, "price_bio": 5.5, "isSeasonal": false },
+        { "name": "Pain au levain", "qty": "1 miche", "price_discount": 2.8, "price_standard": 3.8, "price_bio": 5.8, "isSeasonal": false },
+        { "name": "Citrons", "qty": "4 pièces", "price_discount": 0.9, "price_standard": 1.3, "price_bio": 2.2, "isSeasonal": false },
+        { "name": "Gingembre frais", "qty": "1 morceau", "price_discount": 0.8, "price_standard": 1.2, "price_bio": 2.0, "isSeasonal": false },
+        { "name": "Huile d'olive", "qty": "50 cl", "price_discount": 4.5, "price_standard": 6.5, "price_bio": 10.0, "isSeasonal": false },
+        { "name": "Moutarde à l'ancienne", "qty": "1 pot", "price_discount": 1.8, "price_standard": 2.5, "price_bio": 3.9, "isSeasonal": false }
+      ]
+    }
   ],
   "healthAlerts": [
     {

@@ -513,6 +513,26 @@ function renderHistoryBanner() {
   banner.hidden = false;
 }
 
+// ── Emoji par défaut selon le nom de catégorie ──────────────
+const CATEGORY_EMOJIS = {
+  'Poissons': '🐟', 'Viandes': '🥩', 'Légumes': '🥦', 'Légumineuses': '🫘',
+  'Produits frais': '🥛', 'Épicerie': '🛒', 'Fruits': '🍎', 'Boulangerie': '🥖',
+  'Boissons': '🥤', 'Surgelés': '❄️', 'Hygiène': '🧴'
+};
+function categoryEmoji(cat) {
+  if (cat.emoji) return cat.emoji;
+  for (const [key, emoji] of Object.entries(CATEGORY_EMOJIS)) {
+    if (cat.category?.includes(key)) return emoji;
+  }
+  return '🛒';
+}
+
+// ── Normalise un item : string → objet compatible ────────────
+function normalizeItem(raw) {
+  if (typeof raw === 'string') return { name: raw, qty: '', label: '', isSeasonal: false };
+  return raw;
+}
+
 // ── Shopping list ───────────────────────────────────────────
 function renderShoppingList() {
   const container = document.getElementById('shopping-list');
@@ -530,7 +550,7 @@ function renderShoppingList() {
     header.setAttribute('role', 'button');
     header.setAttribute('aria-expanded', 'true');
     header.innerHTML = `
-      <span class="category-icon">${cat.emoji}</span>
+      <span class="category-icon">${categoryEmoji(cat)}</span>
       <span>${cat.category}</span>
       <span class="category-count">${cat.items.length} articles</span>
       <span class="category-toggle">▾</span>`;
@@ -545,7 +565,9 @@ function renderShoppingList() {
       body.style.display = isOpen ? 'none' : '';
     });
 
-    cat.items.forEach((item, idx) => {
+    cat.items.forEach((rawItem, idx) => {
+      // Compatibilité : item peut être une string ou un objet
+      const item = normalizeItem(rawItem);
       const id = itemId(cat.category, idx);
       const isChecked = state.checkedItems[id];
       const isFridgeOwned = state.fridgeMode && state.fridgeItems[id];
@@ -555,13 +577,16 @@ function renderShoppingList() {
       li.dataset.id = id;
 
       const price = calcItemPrice(item);
-      const priceHtml = isFridgeOwned
-        ? `<span class="item-price ${state.currentStore}" style="text-decoration:line-through;opacity:.5">${fmt(price)}</span>`
-        : `<span class="item-price ${state.currentStore}">${fmt(price)}</span>`;
+      const priceHtml = price > 0
+        ? (isFridgeOwned
+            ? `<span class="item-price ${state.currentStore}" style="text-decoration:line-through;opacity:.5">${fmt(price)}</span>`
+            : `<span class="item-price ${state.currentStore}">${fmt(price)}</span>`)
+        : '';
 
       const labelHtml = item.label
         ? `<span class="item-label ${itemLabelClass(item.label)}">${item.label}</span>` : '';
-      const seasonHtml = item.isSeasonal
+      const isSeasonal = item.isSeasonal || item.tags?.includes('saison') || false;
+      const seasonHtml = isSeasonal
         ? `<span class="item-season-badge">${season} saison</span>` : '';
       const fridgeLbl = isFridgeOwned ? '<span class="item-label quality">J\'ai déjà</span>' : '';
 
@@ -571,7 +596,7 @@ function renderShoppingList() {
         <input type="checkbox" id="item-${id}" ${(isChecked || isFridgeOwned) ? 'checked' : ''} title="${checkboxTitle}">
         <div class="item-info">
           <div class="item-name">${item.name}</div>
-          <div class="item-qty">${item.qty}</div>
+          ${item.qty ? `<div class="item-qty">${item.qty}</div>` : ''}
           <div class="item-meta">${labelHtml}${seasonHtml}${fridgeLbl}</div>
         </div>
         ${priceHtml}`;
