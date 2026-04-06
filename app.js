@@ -794,10 +794,24 @@ function renderHistory() {
       <ul class="history-highlights">${hlHtml}</ul>
       <a class="history-view-btn" href="#menu">Voir ce menu →</a>`;
 
-    card.querySelector('.history-view-btn').addEventListener('click', e => {
+    card.querySelector('.history-view-btn').addEventListener('click', async e => {
       e.preventDefault();
-      state.isViewingCurrentMenu = isCurrent;
-      renderHistoryBanner();
+      // Charger le JSON du menu sélectionné dans state.menuData
+      try {
+        const res = await fetch(menu.file);
+        if (!res.ok) throw new Error('Fichier introuvable');
+        state.menuData = await res.json();
+        state.isViewingCurrentMenu = isCurrent;
+        // Re-rendre tout ce qui dépend de menuData
+        renderMenu();
+        renderShoppingList();
+        updateFridgeBar();
+        renderBudget();
+        renderHealthAlerts();
+        renderHistoryBanner();
+      } catch (err) {
+        console.error('Impossible de charger le menu historique :', err);
+      }
       document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' });
     });
 
