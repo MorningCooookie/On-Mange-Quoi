@@ -7,5 +7,10 @@
     "@supabase/supabase-js": "^2.39.0",
     "@anthropic-ai/sdk": "^0.24.3"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "jest": "^29.0.0"
+  },
+  "scripts": {
+    "test": "jest"
+  }
 }
