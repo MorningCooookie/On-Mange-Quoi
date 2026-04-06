@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TableSaine Design System Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Primary Colors */
+            --primary: #1B4332;
+            --secondary: #E07A5F;
+            --bg: #FAFAF9;
+            --text-dark: #1F1F1F;
+            --text-muted: #6B6B6B;
+            --border-light: #E5E5E5;
+            --warning: #D97706;
+            --success: #10B981;
+            
+            /* Typography */
+            --serif: 'Fraunces', serif;
+            --sans: 'Work Sans', sans-serif;
+            --mono: 'IBM Plex Mono', monospace;
+            
+            /* Spacing (8px grid) */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            
+            /* Transitions */
+            --ease: 200ms ease-in-out;
+        }
+        
+        :root[data-theme="dark"] {
+            --bg: #1F1F1F;
+            --text-dark: #FAFAF9;
+            --text-muted: #A0A0A0;
+            --border-light: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--text-dark);
+            transition: background var(--ease), color var(--ease);
+            line-height: 1.6;
+        }
+        
+        body {
+            padding: var(--spacing-lg);
+        }
+        
+        /* Header & Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-2xl);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        h1 {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        
+        .theme-toggle {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--ease);
+        }
+        
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(27, 67, 50, 0.2);
+        }
+        
+        /* Section Styling */
+        section {
+            margin-bottom: var(--spacing-2xl);
+            padding: var(--spacing-xl);
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        :root[data-theme="dark"] section {
+            background: #2A2A2A;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        h2 {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-lg);
+            color: var(--primary);
+        }
+        
+        h3 {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+            color: var(--text-dark);
+        }
+        
+        /* Color Palette */
+        .colors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .color-swatch {
+            border-radius: 6px;
+            padding: var(--spacing-md);
+            text-align: center;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            color: white;
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .color-swatch.light {
+            color: var(--text-dark);
+        }
+        
+        /* Typography */
+        .typography-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .typography-sample {
+            padding: var(--spacing-md);
+            border-left: 3px solid var(--primary);
+            background: var(--bg);
+            border-radius: 4px;
+        }
+        
+        .sample-label {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        /* Buttons */
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            border: none;
+            font-family: var(--sans);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--ease);
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(27, 67, 50, 0.2);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(224, 122, 95, 0.2);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .btn-disabled {
+            background: var(--border-light);
+            color: var(--text-muted);
+            cursor: not-allowed;
+        }
+        
+        .btn-disabled:hover {
+            transform: none;
+        }
+        
+        /* Form Elements */
+        .form-group {
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            font-size: 0.85rem;
+            color: var(--text-dark);
+        }
+        
+        input,
+        textarea,
+        select {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            font-family: var(--sans);
+            font-size: 1rem;
+            background: white;
+            color: var(--text-dark);
+            transition: all var(--ease);
+        }
+        
+        :root[data-theme="dark"] input,
+        :root[data-theme="dark"] textarea,
+        :root[data-theme="dark"] select {
+            background: #333333;
+            border-color: #444444;
+            color: #FAFAF9;
+        }
+        
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.1);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        /* Checkboxes */
+        .checkbox-group {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+        
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .card {
+            background: white;
+            border-radius: 6px;
+            padding: var(--spacing-md);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all var(--ease);
+        }
+        
+        :root[data-theme="dark"] .card {
+            background: #2A2A2A;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+        
+        .card-title {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .card-text {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        /* Badges/Pills */
+        .badges-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 0.875rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .badge-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .badge-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .badge-success {
+            background: var(--success);
+            color: white;
+        }
+        
+        .badge-warning {
+            background: var(--warning);
+            color: white;
+        }
+        
+        /* Spacing Grid */
+        .spacing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .spacing-box {
+            background: var(--primary);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-align: center;
+            min-height: 80px;
+            padding: var(--spacing-sm);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: var(--spacing-md);
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            header {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+            
+            section {
+                padding: var(--spacing-md);
+            }
+            
+            .colors-grid,
+            .typography-grid,
+            .buttons-grid,
+            .cards-grid,
+            .spacing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Implementation Notes */
+        .notes {
+            background: var(--bg);
+            border-left: 3px solid var(--warning);
+            padding: var(--spacing-md);
+            border-radius: 4px;
+            margin-top: var(--spacing-lg);
+        }
+        
+        .notes code {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: var(--mono);
+            font-size: 0.85rem;
+        }
+        
+        :root[data-theme="dark"] .notes code {
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TableSaine Design System</h1>
+        <button class="theme-toggle" id="themeToggle">🌙 Dark Mode</button>
+    </header>
+    
+    <!-- Color Palette -->
+    <section>
+        <h2>Color Palette</h2>
+        <div class="colors-grid">
+            <div class="color-swatch" style="background: #1B4332;">
+                <span>Primary</span>
+                <span>#1B4332</span>
+            </div>
+            <div class="color-swatch" style="background: #E07A5F;">
+                <span>Secondary</span>
+                <span>#E07A5F</span>
+            </div>
+            <div class="color-swatch light" style="background: #FAFAF9; border: 1px solid #E5E5E5;">
+                <span>Background</span>
+                <span>#FAFAF9</span>
+            </div>
+            <div class="color-swatch" style="background: #1F1F1F;">
+                <span>Text Dark</span>
+                <span>#1F1F1F</span>
+            </div>
+            <div class="color-swatch light" style="background: #6B6B6B;">
+                <span>Text Muted</span>
+                <span>#6B6B6B</span>
+            </div>
+            <div class="color-swatch light" style="background: #E5E5E5; border: 1px solid #D0D0D0;">
+                <span>Border Light</span>
+                <span>#E5E5E5</span>
+            </div>
+            <div class="color-swatch" style="background: #D97706;">
+                <span>Warning</span>
+                <span>#D97706</span>
+            </div>
+            <div class="color-swatch" style="background: #10B981;">
+                <span>Success</span>
+                <span>#10B981</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Typography -->
+    <section>
+        <h2>Typography System</h2>
+        <div class="typography-grid">
+            <div class="typography-sample">
+                <div class="sample-label">H1 – Fraunces 700</div>
+                <h1 style="font-size: 2rem; margin: 0;">Heading 1</h1>
+            </div>
+            <div class="typography-sample">
+                <div class="sample-label">H2 – Fraunces 600</div>
+                <h2 style="font-size: 1.5rem; margin: 0; color: var(--text-dark);">Heading 2</h2>
+            </div>
+            <div class="typography-sample">
+                <div class="sample-label">H3 – Fraunces 600</div>
+                <h3 style="font-size: 1.25rem; margin: 0; color: var(--text-dark);">Heading 3</h3>
+            </div>
+            <div class="typography-sample">
+                <div class="sample-label">Body – Work Sans 400</div>
+                <p style="font-size: 1rem; margin: 0;">The quick brown fox jumps over the lazy dog.</p>
+            </div>
+            <div class="typography-sample">
+                <div class="sample-label">Small – Work Sans 400</div>
+                <p style="font-size: 0.875rem; margin: 0;">Helper text and small details.</p>
+            </div>
+            <div class="typography-sample">
+                <div class="sample-label">Label – Work Sans 600</div>
+                <p style="font-size: 0.85rem; font-weight: 600; margin: 0; letter-spacing: 0.3px;">FORM LABEL</p>
+            </div>
+            <div class="typography-sample">
+                <div class="sample-label">Monospace – IBM Plex Mono</div>
+                <code style="font-size: 0.9rem; display: block;">const value = 42;</code>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Buttons -->
+    <section>
+        <h2>Buttons</h2>
+        <div class="buttons-grid">
+            <div>
+                <h3>Primary</h3>
+                <button class="btn-primary">Primary Button</button>
+            </div>
+            <div>
+                <h3>Secondary</h3>
+                <button class="btn-secondary">Secondary Button</button>
+            </div>
+            <div>
+                <h3>Outline</h3>
+                <button class="btn-outline">Outline Button</button>
+            </div>
+            <div>
+                <h3>Disabled</h3>
+                <button class="btn-disabled" disabled>Disabled Button</button>
+            </div>
+        </div>
+        <div class="notes">
+            <strong>Hover State:</strong> All buttons translate up 2px and add shadow on hover (200ms ease-in-out).
+        </div>
+    </section>
+    
+    <!-- Form Elements -->
+    <section>
+        <h2>Form Elements</h2>
+        <form style="max-width: 400px;">
+            <div class="form-group">
+                <label for="text-input">Text Input</label>
+                <input type="text" id="text-input" placeholder="Enter text..." />
+            </div>
+            <div class="form-group">
+                <label for="email-input">Email Input</label>
+                <input type="email" id="email-input" placeholder="your@email.com" />
+            </div>
+            <div class="form-group">
+                <label for="password-input">Password Input</label>
+                <input type="password" id="password-input" placeholder="••••••••" />
+            </div>
+            <div class="form-group">
+                <label for="textarea">Textarea</label>
+                <textarea id="textarea" placeholder="Enter longer text..."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="select">Select Dropdown</label>
+                <select id="select">
+                    <option>Choose an option</option>
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Checkboxes</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="check1" />
+                        <label for="check1" style="margin: 0;">Option A</label>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="check2" />
+                        <label for="check2" style="margin: 0;">Option B</label>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="check3" />
+                        <label for="check3" style="margin: 0;">Option C</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="notes">
+            <strong>Focus State:</strong> Border changes to primary color with subtle shadow. All transitions use 200ms ease-in-out.
+        </div>
+    </section>
+    
+    <!-- Cards -->
+    <section>
+        <h2>Cards</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-title">Card Title</div>
+                <p class="card-text">This is a card component with hover elevation. It lifts up 2px and shows a deeper shadow on hover.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">Another Card</div>
+                <p class="card-text">Cards use 6px border radius and follow the 8px spacing grid for padding (1.5rem default).</p>
+            </div>
+            <div class="card">
+                <div class="card-title">Third Card</div>
+                <p class="card-text">All components maintain consistent visual language through CSS variables and shared transition timing.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Badges -->
+    <section>
+        <h2>Badges & Pills</h2>
+        <h3>Primary</h3>
+        <div class="badges-group">
+            <span class="badge badge-primary">Primary Badge</span>
+            <span class="badge badge-primary">Another Badge</span>
+        </div>
+        <h3>Secondary</h3>
+        <div class="badges-group">
+            <span class="badge badge-secondary">Secondary Badge</span>
+            <span class="badge badge-secondary">Variant</span>
+        </div>
+        <h3>Success & Warning</h3>
+        <div class="badges-group">
+            <span class="badge badge-success">Success</span>
+            <span class="badge badge-warning">Warning</span>
+        </div>
+    </section>
+    
+    <!-- Spacing Grid -->
+    <section>
+        <h2>Spacing System (8px Grid)</h2>
+        <div class="spacing-grid">
+            <div class="spacing-box" style="height: calc(var(--spacing-xs) * 8);">xs (0.5rem / 4px)</div>
+            <div class="spacing-box" style="height: calc(var(--spacing-sm) * 8);">sm (1rem / 8px)</div>
+            <div class="spacing-box" style="height: calc(var(--spacing-md) * 8);">md (1.5rem / 12px)</div>
+            <div class="spacing-box" style="height: calc(var(--spacing-lg) * 8);">lg (2rem / 16px)</div>
+            <div class="spacing-box" style="height: calc(var(--spacing-xl) * 8);">xl (3rem / 24px)</div>
+            <div class="spacing-box" style="height: calc(var(--spacing-2xl) * 8);">2xl (4rem / 32px)</div>
+        </div>
+    </section>
+    
+    <!-- Implementation Notes -->
+    <section>
+        <h2>Implementation Notes</h2>
+        <div class="notes">
+            <h3>CSS Variables</h3>
+            <p>All colors, fonts, and spacing are defined as CSS variables in <code>:root</code>. This enables easy dark mode switching and theme consistency.</p>
+            
+            <h3>Dark Mode</h3>
+            <p>Dark mode uses <code>:root[data-theme="dark"]</code> selector with localStorage persistence. System preference is checked on load via <code>prefers-color-scheme</code>.</p>
+            
+            <h3>Typography Stack</h3>
+            <p>Fonts loaded from Google Fonts CDN: Fraunces (display), Work Sans (body), IBM Plex Mono (data).</p>
+            
+            <h3>Responsive Design</h3>
+            <p>Mobile-first approach. Breakpoint at 768px switches to multi-column layouts. All grids use <code>repeat(auto-fit, minmax())</code> for fluid responsiveness.</p>
+            
+            <h3>Button Styling</h3>
+            <p>Primary buttons: <code>background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 6px;</code> with hover transform and shadow.</p>
+            
+            <h3>Transitions</h3>
+            <p>All interactive elements use <code>transition: all 200ms ease-in-out;</code> for smooth, GPU-accelerated animations. Avoid animating width/height; use transform instead.</p>
+            
+            <h3>Accessibility</h3>
+            <p>Color contrast tested against WCAG AA minimum (4.5:1 for text). Focus states use border + subtle shadow rather than outline.</p>
+        </div>
+    </section>
+    
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        // Initialize theme from localStorage or system preference
+        function initTheme() {
+            const saved = localStorage.getItem('theme');
+            const isDark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (isDark) {
+                html.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀️ Light Mode';
+            } else {
+                html.removeAttribute('data-theme');
+                themeToggle.textContent = '🌙 Dark Mode';
+            }
+        }
+        
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            
+            if (isDark) {
+                html.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '🌙 Dark Mode';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '☀️ Light Mode';
+            }
+        });
+        
+        // Initialize on load
+        initTheme();
+    </script>
+</body>
+</html>

@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>On mange quoi ? — Menus familiaux sains</title>
+  <meta name="description" content="Menus hebdomadaires familiaux sains : anti-cadmium, anti-mercure, faibles pesticides. Liste de courses et budget par enseigne.">
+  <meta property="og:title" content="On mange quoi ? — Menus familiaux sains">
+  <meta property="og:description" content="Un menu validé chaque semaine selon les recommandations ANSES/EFSA, avec liste de courses et budget.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Favicon inline -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231B4332'/><circle cx='16' cy='16' r='11' fill='none' stroke='white' stroke-width='2'/><circle cx='16' cy='16' r='6.5' fill='none' stroke='white' stroke-width='1.8'/></svg>">
+  <!-- Statistiques de fréquentation — Plausible Analytics (sans cookies, RGPD-compatible) -->
+  <script async src="https://plausible.io/js/pa-ZaRseIh-nGhXVtbtWwn2-.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+</head>
+<body>
+
+  <!-- Skip to content -->
+  <!-- Build refresh -->
+  <a class="skip-link" href="#main">Aller au contenu principal</a>
+
+  <!-- ── Header ─────────────────────────────────────────────── -->
+  <header id="site-header">
+    <div class="header-inner">
+      <a class="logo" href="#" aria-label="On mange quoi ? — accueil">
+        <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true">
+          <circle cx="10" cy="10" r="8.5" stroke-width="1.6"/>
+          <circle cx="10" cy="10" r="5" stroke-width="1.4"/>
+        </svg>
+        On mange quoi ?
+      </a>
+
+      <!-- Hamburger menu button (mobile only) -->
+      <button id="hamburger-menu" class="hamburger-menu" aria-label="Ouvrir le menu" aria-expanded="false" style="display:none;">☰</button>
+
+      <!-- Desktop nav -->
+      <nav class="header-nav" aria-label="Navigation principale">
+        <a class="nav-link" href="#menu">Menu</a>
+        <a class="nav-link" href="#courses">Courses</a>
+        <a class="nav-link" href="#historique">Historique</a>
+        <a class="nav-link" href="#cadmium">Veille santé</a>
+        <a class="nav-link" href="fiche.html">Fiche mémo</a>
+        <a class="nav-link" href="recettes.html">Recettes</a>
+      </nav>
+
+
+      <!-- User account button (top right) -->
+      <div class="header-account">
+        <div id="auth-button-group" style="display:flex;gap:0.75rem;">
+          <button id="btn-login-header" class="btn-auth-ghost" onclick="document.getElementById('login-modal').style.display='flex'; document.getElementById('login-email').focus();">Connexion</button>
+          <button id="btn-signup-header" class="btn-auth-primary" onclick="document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();">Créer un compte</button>
+        </div>
+        <div id="user-menu-header">
+          <button id="user-email-header" style="cursor:pointer;background:rgba(255,255,255,0.2);border:none;color:white;font-weight:600;font-size:0.9rem;font-family:'Work Sans',system-ui,sans-serif;padding:0.5rem 1rem;border-radius:6px;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'"></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ LOGIN MODAL ============ -->
+  <div id="login-modal" onclick="if(event.target.id==='login-modal') document.getElementById('login-modal').style.display='none'" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:10000;display:none;align-items:center;justify-content:center;">
+    <div style="background:white;padding:2rem;border-radius:12px;max-width:400px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);position:relative;">
+      <button onclick="document.getElementById('login-modal').style.display='none'" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#999;padding:0;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;">✕</button>
+
+      <h2 style="margin-top:0;text-align:center;color:#1B4332;">Connexion</h2>
+
+      <input type="email" id="login-email" placeholder="Votre email" style="width:100%;padding:0.75rem;margin:1rem 0 0.5rem 0;border:1px solid #ddd;border-radius:6px;box-sizing:border-box;font-size:1rem;">
+
+      <input type="password" id="login-password" placeholder="Mot de passe" style="width:100%;padding:0.75rem;margin:0.5rem 0 1rem 0;border:1px solid #ddd;border-radius:6px;box-sizing:border-box;font-size:1rem;">
+
+      <button id="btn-login" onclick="loginHandler();" style="width:100%;padding:1rem;background:#1B4332;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:bold;font-size:1.05rem;font-family:'Work Sans',system-ui,sans-serif;">Se connecter</button>
+      <script>
+        function loginHandler() {
+          const email = document.getElementById('login-email').value;
+          const password = document.getElementById('login-password').value;
+          if (!email || !password) {
+            showToast('Champ manquant', 'Veuillez entrer votre email et mot de passe.', 'error');
+            return;
+          }
+          if (typeof handleLogin === 'function') {
+            handleLogin();
+          } else {
+            showToast('Erreur', 'Service d\'authentification indisponible.', 'error');
+          }
+        }
+      </script>
+    </div>
+  </div>
+
+  <!-- ============ SIGNUP MODAL ============ -->
+  <div id="signup-modal" onclick="if(event.target.id==='signup-modal') document.getElementById('signup-modal').style.display='none'" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:10000;display:none;align-items:center;justify-content:center;">
+    <div style="background:white;padding:2rem;border-radius:12px;max-width:400px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);position:relative;">
+      <button onclick="document.getElementById('signup-modal').style.display='none'" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#999;padding:0;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;">✕</button>
+
+      <h2 style="margin-top:0;text-align:center;color:#1B4332;">Créer un compte</h2>
+
+      <input type="email" id="signup-email" placeholder="Votre email" style="width:100%;padding:0.75rem;margin:1rem 0 0.5rem 0;border:1px solid #ddd;border-radius:6px;box-sizing:border-box;font-size:1rem;">
+
+      <input type="password" id="signup-password" placeholder="Mot de passe" style="width:100%;padding:0.75rem;margin:0.5rem 0 1rem 0;border:1px solid #ddd;border-radius:6px;box-sizing:border-box;font-size:1rem;">
+
+      <button id="btn-signup" onclick="signupHandler();" style="width:100%;padding:1rem;background:#1B4332;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:bold;font-size:1.05rem;font-family:'Work Sans',system-ui,sans-serif;">Créer un compte</button>
+      <script>
+        function signupHandler() {
+          const email = document.getElementById('signup-email').value;
+          const password = document.getElementById('signup-password').value;
+          if (!email || !password) {
+            showToast('Champ manquant', 'Veuillez entrer votre email et mot de passe.', 'error');
+            return;
+          }
+          if (password.length < 6) {
+            showToast('Mot de passe trop court', 'Le mot de passe doit faire au moins 6 caractères.', 'error');
+            return;
+          }
+          if (typeof handleSignup === 'function') {
+            handleSignup();
+          } else {
+            showToast('Erreur', 'Service d\'authentification indisponible.', 'error');
+          }
+        }
+      </script>
+    </div>
+  </div>
+
+  <!-- ============ USER MENU ============ -->
+  <div id="user-menu" style="display:none;">
+    <div class="user-menu-header">
+      <div id="current-profile-name" class="user-menu-profile-name">Mon profil</div>
+    </div>
+    <div class="user-menu-body">
+      <button id="btn-family-sharing" class="user-menu-btn">👥 Mes profils</button>
+      <div class="user-menu-divider"></div>
+      <button id="btn-logout" class="user-menu-btn danger">Se déconnecter</button>
+    </div>
+  </div>
+
+  <!-- ============ FAMILY SHARING / PROFILES MODAL ============ -->
+  <div id="profiles-modal" onclick="if(event.target.id==='profiles-modal') document.getElementById('profiles-modal').style.display='none'" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:10000;display:none;align-items:center;justify-content:center;">
+    <div style="background:white;padding:2rem;border-radius:12px;max-width:500px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);position:relative;max-height:80vh;overflow-y:auto;">
+      <button onclick="document.getElementById('profiles-modal').style.display='none'" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#999;padding:0;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;">✕</button>
+
+      <h2 style="margin-top:0;text-align:center;color:#1B4332;">👥 Profils familiaux</h2>
+      <p style="text-align:center;color:#666;margin:0.5rem 0 0.5rem 0;font-size:0.95rem;">Créez un profil pour chaque membre et configurez ses préférences alimentaires.</p>
+      <p style="text-align:center;color:#2d6a4f;background:#E8F5E9;padding:0.75rem;border-radius:6px;margin:0 0 1.5rem 0;font-size:0.9rem;">💡 Astuce: Cliquez sur ⚙️ Préférences pour spécifier allergies, régimes, et ingrédients à éviter</p>
+
+      <div id="profiles-list" style="margin-bottom:1.5rem;"></div>
+
+      <div style="display:flex;gap:0.5rem;margin-bottom:1.5rem;">
+        <input type="text" id="new-profile-name" placeholder="Nom du profil (ex: Maman, Enfants, Papa...)" style="flex:1;padding:0.75rem;border:1px solid #ddd;border-radius:6px;box-sizing:border-box;font-size:1rem;">
+        <button id="btn-add-profile" style="padding:0.75rem 1rem;background:#1B4332;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:bold;white-space:nowrap;">+ Ajouter</button>
+      </div>
+
+      <div style="background:#E8F5E9;padding:1rem;border-radius:8px;text-align:center;">
+        <div style="font-size:0.9rem;color:#1B4332;margin:0;">
+          <strong><span id="profile-count">0</span> profil(s)</strong> créé(s)
+        </div>
+        <p style="margin:0.75rem 0 0 0;font-size:0.85rem;color:#2d6a4f;">✅ Cliquez sur un profil pour sélectionner, puis sur ⚙️ pour définir ses préférences alimentaires</p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* Toast notification styles */
+    #toast-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 99999;
+      pointer-events: none;
+      display: flex;
+      justify-content: center;
+      padding-top: 1.5rem;
+    }
+
+    .toast {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      max-width: 520px;
+      width: 90%;
+      animation: slideDown 0.3s ease-out;
+      pointer-events: auto;
+      border-left: 4px solid #1B4332;
+    }
+
+    .toast.success {
+      border-left-color: #22c55e;
+    }
+
+    .toast.error {
+      border-left-color: #ef4444;
+    }
+
+    .toast.email {
+      border-left-color: #3b82f6;
+    }
+
+    .toast-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .toast-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    .toast-text {
+      flex: 1;
+    }
+
+    .toast-title {
+      font-weight: 600;
+      color: #1B4332;
+      margin: 0 0 0.5rem 0;
+      font-size: 1.05rem;
+    }
+
+    .toast-message {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .toast-close {
+      background: none;
+      border: none;
+      color: #999;
+      cursor: pointer;
+      font-size: 1.25rem;
+      padding: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s;
+    }
+
+    .toast-close:hover {
+      color: #333;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+    }
+
+    .toast.removing {
+      animation: slideUp 0.3s ease-out forwards;
+    }
+
+    /* Preference filtering styles */
+    .meal-unsafe {
+      opacity: 0.65;
+      border-left: 3px solid #fca5a5;
+      padding-left: 12px;
+    }
+
+    .preference-header {
+      padding: 1rem;
+      background: #E8F5E9;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .preference-header-title {
+      font-weight: 600;
+      color: #1B4332;
+      margin-bottom: 0.5rem;
+    }
+
+    .preference-header-tags {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Modal styles for preference picker */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      width: 90%;
+      max-height: 85vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      border-bottom: 1px solid #E5E7EB;
+      position: sticky;
+      top: 0;
+      background: white;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      color: #1B4332;
+      font-size: 1.25rem;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #999;
+      padding: 0;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover {
+      color: #333;
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+    }
+
+    .modal-body fieldset {
+      margin-bottom: 1.5rem;
+      border: none;
+    }
+
+    .modal-body legend {
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #1B4332;
+      font-size: 0.95rem;
+    }
+
+    .modal-body fieldset > div {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .modal-body label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .modal-body label:hover {
+      background: #F3F4F6;
+    }
+
+    .modal-body input[type="checkbox"] {
+      margin-right: 0.5rem;
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
+      accent-color: #1B4332;
+    }
+
+    .modal-body input[type="text"] {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #E5E7EB;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    .modal-body button {
+      width: 100%;
+      padding: 0.75rem;
+      background: #1B4332;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+
+    .modal-body button:hover {
+      background: #0f3d26;
+    }
+
+    /* Auth button styles */
+    .btn-auth-ghost {
+      padding: 0.5rem 1.25rem;
+      background: transparent;
+      color: #1B4332;
+      border: 1.5px solid #1B4332;
+      border-radius: 6px;
+      font-family: 'Work Sans', system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-auth-ghost:hover {
+      background: #1B4332;
+      color: white;
+    }
+
+    .btn-auth-primary {
+      padding: 0.5rem 1.25rem;
+      background: #1B4332;
+      color: white;
+      border: 1.5px solid transparent;
+      border-radius: 6px;
+      font-family: 'Work Sans', system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-auth-primary:hover {
+      background: #2d6a4f;
+    }
+
+    /* User menu dropdown styles */
+    #user-menu {
+      position: fixed;
+      z-index: 20000;
+      min-width: 300px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      border: none;
+      overflow: hidden;
+      animation: slideDown 0.2s ease-out;
+      top: 0;
+      right: 0;
+      display: none;
+      flex-direction: column;
+    }
+
+    .user-menu-header {
+      padding: 1.25rem 1.5rem;
+      background: linear-gradient(135deg, #1B4332, #40916C);
+      border-bottom: none;
+    }
+
+    .user-menu-profile-name {
+      font-size: 1rem;
+      color: white;
+      font-weight: 600;
+      display: block;
+    }
+
+    .user-menu-body {
+      padding: 0.75rem;
+    }
+
+    .user-menu-btn {
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      background: transparent;
+      color: #1B4332;
+      border: none;
+      border-radius: 6px;
+      text-align: left;
+      cursor: pointer;
+      font-family: 'Work Sans', system-ui, sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: background 0.15s;
+      display: block;
+    }
+
+    .user-menu-btn:hover {
+      background: rgba(27, 67, 50, 0.08);
+    }
+
+    .user-menu-btn.danger {
+      color: #dc2626;
+    }
+
+    .user-menu-btn.danger:hover {
+      background: rgba(220, 38, 38, 0.08);
+    }
+
+    .user-menu-divider {
+      height: 1px;
+      background: rgba(27, 67, 50, 0.1);
+      margin: 0.5rem 0;
+    }
+  </style>
+
+  <script>
+    // Toast notification system
+    function showToast(title, message, type = 'success') {
+      let container = document.getElementById('toast-container');
+      if (!container) {
+        container = document.createElement('div');
+        container.id = 'toast-container';
+        document.body.insertBefore(container, document.body.firstChild);
+      }
+
+      const toast = document.createElement('div');
+      toast.className = `toast ${type}`;
+
+      const icon = type === 'success' ? '🍽️' : type === 'email' ? '📧' : '❌';
+
+      toast.innerHTML = `
+        <div class="toast-content">
+          <div class="toast-icon">${icon}</div>
+          <div class="toast-text">
+            <h3 class="toast-title">${title}</h3>
+            <p class="toast-message">${message}</p>
+          </div>
+          <button class="toast-close" aria-label="Fermer">✕</button>
+        </div>
+      `;
+
+      const closeBtn = toast.querySelector('.toast-close');
+      const removeToast = () => {
+        toast.classList.add('removing');
+        setTimeout(() => toast.remove(), 300);
+      };
+
+      closeBtn.addEventListener('click', removeToast);
+      container.appendChild(toast);
+
+      // Auto-dismiss after 3 seconds
+      setTimeout(removeToast, 3000);
+    }
+
+    // Position user menu under the account button
+    function positionUserMenu() {
+      const menu = document.getElementById('user-menu');
+      const accountBtn = document.getElementById('user-email-header');
+      if (menu && accountBtn && menu.style.display === 'flex') {
+        const btnRect = accountBtn.getBoundingClientRect();
+        const menuWidth = menu.offsetWidth || 280;
+
+        // Position menu below button, right-aligned to button
+        menu.style.position = 'fixed';
+        menu.style.top = (btnRect.bottom + 4) + 'px';
+        menu.style.left = Math.max(8, btnRect.right - menuWidth) + 'px';
+        menu.style.right = 'auto';
+      }
+    }
+
+    // Reposition menu when button is clicked
+    document.addEventListener('click', (e) => {
+      const menu = document.getElementById('user-menu');
+      const accountBtn = document.getElementById('user-email-header');
+      const userMenuHeader = document.getElementById('user-menu-header');
+
+      if (accountBtn && accountBtn.contains(e.target)) {
+        // Button was clicked, show/toggle menu
+        const isVisible = menu.style.display === 'flex';
+        menu.style.display = isVisible ? 'none' : 'flex';
+        if (!isVisible) {
+          // Use requestAnimationFrame to ensure DOM is updated before positioning
+          requestAnimationFrame(positionUserMenu);
+        }
+      } else if (menu && accountBtn && !menu.contains(e.target) && !accountBtn.contains(e.target)) {
+        // Clicked outside menu and button, close menu
+        menu.style.display = 'none';
+      }
+    });
+
+    // Reposition menu on window resize
+    window.addEventListener('resize', positionUserMenu);
+
+    // Hamburger menu mobile nav toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.getElementById('hamburger-menu');
+      const nav = document.querySelector('.header-nav');
+      if (hamburger && nav) {
+        hamburger.addEventListener('click', () => {
+          const isVisible = nav.style.display === 'flex';
+          nav.style.display = isVisible ? 'none' : 'flex';
+          hamburger.setAttribute('aria-expanded', !isVisible);
+
+          // Style the mobile nav popup
+          if (!isVisible) {
+            nav.style.position = 'fixed';
+            nav.style.top = '56px';
+            nav.style.left = '0';
+            nav.style.right = '0';
+            nav.style.flexDirection = 'column';
+            nav.style.gap = '0.5rem';
+            nav.style.background = '#1B4332';
+            nav.style.padding = '1rem';
+            nav.style.zIndex = '999';
+            nav.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+          }
+        });
+
+        // Close nav when clicking a link (mobile only)
+        nav.addEventListener('click', (e) => {
+          if (e.target.tagName === 'A' && nav.style.position === 'fixed') {
+            // Only close if nav is in mobile mode (fixed positioning = hamburger menu active)
+            nav.style.display = 'none';
+            hamburger.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+    });
+
+    // Global signup/login functions (moved from auth.js to ensure they're available)
+    async function handleSignup() {
+      console.log('handleSignup called');
+      const email = document.getElementById('signup-email').value.trim();
+      const password = document.getElementById('signup-password').value;
+      const signupBtn = document.getElementById('btn-signup');
+
+      if (!email || !password) {
+        showToast('Champ manquant', 'Veuillez entrer votre email et mot de passe', 'error');
+        return;
+      }
+
+      if (password.length < 6) {
+        showToast('Mot de passe faible', 'Le mot de passe doit faire au moins 6 caractères', 'error');
+        return;
+      }
+
+      if (!window.supabaseClient || !window.supabaseClient.auth) {
+        showToast('Erreur', 'Service d\'authentification indisponible. Rechargez la page.', 'error');
+        return;
+      }
+
+      // Set loading state
+      signupBtn.disabled = true;
+      signupBtn.textContent = 'Envoi en cours...';
+
+      try {
+        const { data, error } = await window.supabaseClient.auth.signUp({ email, password });
+        if (error) {
+          const errorMsg = error.message || JSON.stringify(error) || 'Erreur inconnue';
+          console.error('Signup error:', error);
+          showToast('Erreur création compte', errorMsg, 'error');
+          return;
+        }
+        document.getElementById('signup-modal').style.display = 'none';
+        document.getElementById('signup-email').value = '';
+        document.getElementById('signup-password').value = '';
+        showToast('📧 Vérifiez votre boîte mail', `Un email de confirmation a été envoyé à <strong>${email}</strong>. Cliquez sur le lien pour activer votre compte.`, 'email');
+      } catch (err) {
+        const errorMsg = err.message || JSON.stringify(err) || 'Erreur inconnue';
+        console.error('Signup exception:', err);
+        showToast('Erreur', errorMsg, 'error');
+      } finally {
+        // Reset button state
+        signupBtn.disabled = false;
+        signupBtn.textContent = 'Créer un compte';
+      }
+    }
+
+    async function handleLogin() {
+      console.log('handleLogin called');
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+      const loginBtn = document.getElementById('btn-login');
+
+      if (!email || !password) {
+        showToast('Champ manquant', 'Veuillez entrer votre email et mot de passe', 'error');
+        return;
+      }
+
+      if (!window.supabaseClient || !window.supabaseClient.auth) {
+        showToast('Erreur', 'Service d\'authentification indisponible. Rechargez la page.', 'error');
+        return;
+      }
+
+      // Set loading state
+      loginBtn.disabled = true;
+      loginBtn.textContent = 'Connexion en cours...';
+
+      try {
+        const { data, error } = await window.supabaseClient.auth.signInWithPassword({ email, password });
+        if (error) {
+          const errorMsg = error.message || JSON.stringify(error) || 'Erreur inconnue';
+          console.error('Login error:', error);
+
+          // Specific handling for common errors
+          let displayMsg = errorMsg;
+          if (errorMsg.toLowerCase().includes('not confirmed')) {
+            displayMsg = 'Veuillez d\'abord confirmer votre email — vérifiez votre boîte mail pour le lien d\'activation.';
+          } else if (errorMsg.toLowerCase().includes('invalid') || errorMsg.toLowerCase().includes('credentials')) {
+            displayMsg = 'Email ou mot de passe incorrect.';
+          }
+
+          showToast('Erreur de connexion', displayMsg, 'error');
+          return;
+        }
+        document.getElementById('login-modal').style.display = 'none';
+        document.getElementById('login-email').value = '';
+        document.getElementById('login-password').value = '';
+        showToast('Bienvenue!', 'Vous êtes connecté(e). Consultez votre menu de la semaine.', 'success');
+      } catch (err) {
+        const errorMsg = err.message || JSON.stringify(err) || 'Erreur inconnue';
+        console.error('Login exception:', err);
+        showToast('Erreur', errorMsg, 'error');
+      } finally {
+        // Reset button state
+        loginBtn.disabled = false;
+        loginBtn.textContent = 'Se connecter';
+      }
+    }
+  </script>
+
+  <!-- ── Error screen ─────────────────────────────────────────── -->
+  <div id="error-screen" role="alert" aria-live="assertive">
+    <div class="error-card">
+      <h2>🚧 Serveur local requis</h2>
+      <p>Ce site charge ses données via des fichiers JSON.<br>
+         Il ne peut pas s'ouvrir en double-cliquant sur <code>index.html</code>.</p>
+      <p>Lancez un serveur local depuis le terminal :</p>
+      <div class="error-code">cd /chemin/vers/le/dossier
+python3 -m http.server 8000</div>
+      <p>Puis ouvrez <strong>http://localhost:8000</strong> dans votre navigateur.</p>
+      <p style="margin-top:.75rem">Pour une version partageble sans serveur, utilisez <a href="table-saine-preview.html">table-saine-preview.html</a>.</p>
+    </div>
+  </div>
+
+  <!-- ── App content ──────────────────────────────────────────── -->
+  <div id="app-content">
+    <main id="main" class="app-container">
+      <!-- Page title for SEO and accessibility -->
+      <h1 style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">On mange quoi ? — Menu de la semaine</h1>
+
+      <!-- Menu 7 jours -->
+      <section class="section" id="menu" aria-labelledby="menu-heading">
+        <div class="section-header">
+          <div class="section-header__left">
+            <h2 class="section-title" id="menu-heading">
+              <span class="section-title-icon">📅</span> Menu de la semaine
+            </h2>
+            <span id="score-badge-inline"></span>
+            <span id="score-date-inline" class="section-date"></span>
+          </div>
+          <div class="section-header__actions">
+            <a href="recettes.html" class="btn-semaine btn-recettes">Génère des recettes</a>
+            <button class="btn-semaine" id="btn-vue-semaine">Partager le menu</button>
+          </div>
+        </div>
+        <div class="score-highlights" id="score-highlights"></div>
+        <div id="menu-history-banner" hidden role="status">
+          <span>📚</span>
+          <span id="menu-history-banner-text"></span>
+          <button class="btn-view-current" id="btn-view-current">← Semaine en cours</button>
+        </div>
+        <div class="week-grid" id="week-grid" role="list" aria-label="Grille des 7 jours"></div>
+        <p class="swipe-hint" id="swipe-hint" aria-hidden="true">← Glisse pour voir les 7 jours →</p>
+      </section>
+
+      <!-- Courses + Budget -->
+      <section class="section" id="courses" aria-labelledby="courses-heading">
+        <h2 class="section-title" id="courses-heading">
+          <span class="section-title-icon">🛒</span> Liste de courses &amp; budget
+        </h2>
+
+        <div class="courses-layout">
+
+          <!-- Shopping list -->
+          <div class="shopping-panel">
+            <div class="shopping-toolbar">
+              <!-- Left column: Profile selection -->
+              <div class="toolbar-column toolbar-left">
+                <div class="toolbar-section-label">Profil</div>
+                <div id="profile-selector-shopping" class="selector-group shopping-selector-column" role="group" aria-label="Sélecteur de profil"></div>
+              </div>
+
+              <!-- Center column: Shopping list & actions -->
+              <div class="toolbar-column toolbar-center">
+                <div class="shopping-toolbar-title"><span class="toolbar-icon">🛒</span>Liste de la semaine</div>
+                <div class="shopping-actions-row">
+                  <button class="btn-action btn-fridge" id="btn-fridge" title="Mode frigo vide" aria-pressed="false">
+                    <span class="btn-label-icon">🧊</span>Frigo
+                  </button>
+                  <button class="btn-action" id="btn-copy" title="Copier la liste (WhatsApp, SMS…)">
+                    <span class="btn-label-icon">📋</span>Copier
+                  </button>
+                  <button class="btn-action" id="btn-print" title="Imprimer la liste de courses">
+                    <span class="btn-label-icon">🖨️</span>Imprimer
+                  </button>
+                </div>
+              </div>
+
+              <!-- Right column: Budget & Store selector -->
+              <div class="toolbar-column toolbar-right">
+                <div class="budget-quick-view">
+                  <div class="toolbar-section-label">Budget estimé</div>
+                  <div class="budget-amount" id="budget-quick">—</div>
+                </div>
+                <div class="store-selector-wrapper">
+                  <div class="toolbar-section-label">Enseigne</div>
+                  <div id="store-selector-shopping" class="selector-group shopping-selector-column" role="group" aria-label="Sélecteur d'enseigne"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fridge bar -->
+            <div id="fridge-bar" hidden role="status" aria-live="polite">
+              <span class="fridge-bar-text"></span>
+              <button class="btn-fridge-reset" id="btn-fridge-reset">Réinitialiser</button>
+            </div>
+
+            <!-- Items -->
+            <div id="shopping-list" aria-label="Liste de courses par catégorie"></div>
+          </div>
+
+          <!-- Budget panel -->
+          <aside class="budget-panel" aria-label="Budget estimé">
+            <div class="budget-header"><span class="budget-icon">€</span>Budget estimé</div>
+
+            <div class="budget-total-block">
+              <div class="budget-total-amount" id="budget-total">—</div>
+              <div class="budget-total-label">Total semaine (enseigne sélectionnée)</div>
+            </div>
+
+            <div class="budget-sub-grid">
+              <div class="budget-sub-item">
+                <div class="budget-sub-val" id="budget-per-day">—</div>
+                <div class="budget-sub-label">Par jour</div>
+              </div>
+              <div class="budget-sub-item">
+                <div class="budget-sub-val" id="budget-per-person">—</div>
+                <div class="budget-sub-label">Par personne</div>
+              </div>
+              <div class="budget-sub-item">
+                <div class="budget-sub-val" id="budget-per-person-day">—</div>
+                <div class="budget-sub-label">Pers. / jour</div>
+              </div>
+              <div class="budget-sub-item">
+                <div class="budget-sub-val" id="budget-persons">—</div>
+                <div class="budget-sub-label">Personnes</div>
+              </div>
+            </div>
+
+            <div class="budget-stores" aria-label="Comparaison par enseigne">
+              <div class="budget-stores-title">Comparaison enseignes</div>
+              <div id="budget-bars"></div>
+            </div>
+
+            <div class="price-freshness" id="price-freshness" aria-live="polite"></div>
+
+            <div id="budget-store-cards" role="group" aria-label="Choisir une enseigne"></div>
+
+            <div id="budget-fridge-savings" hidden
+                 style="padding:.55rem 1.1rem; font-size:.8rem; color:#1E40AF; background:#EFF6FF; border-top:1px solid #BFDBFE;"
+                 aria-live="polite"></div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Historique -->
+      <section class="section" id="historique" aria-labelledby="history-heading">
+        <h2 class="section-title" id="history-heading">
+          <span class="section-title-icon">📚</span> Semaines précédentes
+        </h2>
+        <div class="history-grid" id="history-grid" role="list"></div>
+      </section>
+
+      <!-- Veille santé -->
+      <section class="section" id="cadmium" aria-labelledby="health-heading">
+        <h2 class="section-title" id="health-heading">
+          <span>🔬</span> Veille santé alimentaire
+        </h2>
+        <div class="health-news-grid" id="health-news" aria-live="polite"></div>
+        <p class="health-sources">
+          Sources : <a href="https://www.anses.fr" target="_blank" rel="noopener">ANSES</a> ·
+          <a href="https://www.efsa.europa.eu" target="_blank" rel="noopener">EFSA</a> ·
+          <a href="https://www.generations-futures.fr" target="_blank" rel="noopener">Générations Futures</a> ·
+          <a href="https://inrae.fr" target="_blank" rel="noopener">INRAE</a>
+        </p>
+      </section>
+
+      <!-- À propos -->
+      <section class="section" id="apropos" aria-labelledby="about-heading">
+        <h2 class="section-title" id="about-heading">
+          <span>ℹ️</span> À propos
+        </h2>
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>🎯 L'objectif</h3>
+            <p>Des menus hebdomadaires familiaux validés selon les recommandations ANSES et EFSA — anti-cadmium, anti-mercure, faibles pesticides.</p>
+          </div>
+          <div class="about-card">
+            <h3>💡 Le score santé</h3>
+            <p><strong>A</strong> : 0 repas à risque élevé, max 2 modérés, bonne diversité protéinée et au moins 1 légumineuse.<br>
+               <strong>B</strong> : 1 à 3 repas modérés.<br>
+               <strong>C</strong> : risque élevé présent.</p>
+          </div>
+          <div class="about-card">
+            <h3>🧊 Frigo vide</h3>
+            <p>Activez "Frigo vide", cochez les articles déjà dans votre frigo — ils seront soustraits du total en temps réel.</p>
+          </div>
+          <div class="about-card">
+            <h3>🍂 Saison</h3>
+            <p>Les badges 🌸☀️🍂❄️ indiquent les repas et ingrédients de saison, détectés automatiquement selon la date du jour.</p>
+          </div>
+          <div class="about-card">
+            <h3>⏱ Temps de prépa</h3>
+            <p>Badge vert (≤ 10 min) · jaune (≤ 25 min) · rouge (> 25 min) sur chaque repas.</p>
+          </div>
+          <div class="about-card">
+            <h3>📄 Fiche mémo</h3>
+            <p>La <a href="fiche.html">fiche mémo partageable</a> résume les aliments à limiter et à privilégier pour les 4 contaminants.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p><svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" style="display:inline;width:1.2em;height:1.2em;vertical-align:middle;margin-right:0.3em;" aria-hidden="true"><circle cx="10" cy="10" r="8.5" stroke-width="1.6"/><circle cx="10" cy="10" r="5" stroke-width="1.4"/></svg><strong>On mange quoi ?</strong> · Menus familiaux sains · Données ANSES / EFSA / Générations Futures</p>
+      <p style="margin-top:.3rem">Aucune donnée personnelle collectée · <a href="fiche.html">Fiche mémo</a></p>
+    </footer>
+  </div>
+
+  <!-- ── Mobile bottom bar ─────────────────────────────────── -->
+  <div class="bottom-bar" aria-label="Navigation mobile">
+    <!-- Row 1 : profiles + stores on one line -->
+    <div class="bottom-bar-row bottom-bar-row--selectors">
+      <div class="selector-group" id="profile-selector-mobile" role="group" aria-label="Profil"></div>
+      <span class="bottom-bar-sep" aria-hidden="true"></span>
+      <div class="selector-group" id="store-selector-mobile" role="group" aria-label="Enseigne"></div>
+    </div>
+    <!-- Row 2 : nav links -->
+    <nav class="bottom-nav-row" aria-label="Navigation rapide">
+      <a class="bottom-nav-link nav-link" href="#menu"><span class="nav-icon">📅</span>Menu</a>
+      <a class="bottom-nav-link nav-link" href="#courses"><span class="nav-icon">🛒</span>Courses</a>
+      <a class="bottom-nav-link nav-link" href="#historique"><span class="nav-icon">📚</span>Historique</a>
+      <a class="bottom-nav-link nav-link" href="#cadmium"><span class="nav-icon">🔬</span>Veille</a>
+      <a class="bottom-nav-link" href="fiche.html"><span class="nav-icon">📄</span>Fiche</a>
+      <a class="bottom-nav-link" href="recettes.html"><span class="nav-icon">🍳</span>Recettes</a>
+    </nav>
+  </div>
+
+  <!-- Print frigo overlay (populated by JS) -->
+  <div id="print-frigo-overlay" aria-hidden="true"></div>
+
+  <!-- Toast notifications -->
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Supabase client library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Stripe for payments -->
+  <script src="https://js.stripe.com/v3/"></script>
+
+  <!-- Initialize Supabase client immediately -->
+  <script>
+    (function initSupabaseClient(attempt = 0) {
+      if (window.supabase && window.supabase.createClient) {
+        try {
+          window.supabaseClient = window.supabase.createClient(
+            'https://pozhsrnsezklfyqjoues.supabase.co',
+            'sb_publishable_QZK_OFTOFeLGgGgT8_Yd9w_CMFLFFfP'
+          );
+          if (window.supabaseClient && window.supabaseClient.auth) {
+            console.log('✅ Supabase client initialized successfully');
+          } else {
+            throw new Error('Client created but auth module missing');
+          }
+        } catch (err) {
+          console.error('Failed to initialize Supabase:', err.message);
+          if (attempt < 5) {
+            setTimeout(() => initSupabaseClient(attempt + 1), 200);
+          }
+        }
+      } else if (attempt < 5) {
+        console.log('⏳ Supabase library not ready (attempt ' + (attempt + 1) + '/5)');
+        setTimeout(() => initSupabaseClient(attempt + 1), 200);
+      } else {
+        console.error('❌ Supabase library failed to load after 5 attempts');
+      }
+    })();
+  </script>
+
+<script src="preferences.js"></script>
+  <script src="profiles.js"></script>
+  <script src="auth.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

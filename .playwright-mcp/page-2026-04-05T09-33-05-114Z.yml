@@ -1,0 +1,809 @@
+- generic [active] [ref=e1]:
+  - link "Aller au contenu principal" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "On mange quoi ? — accueil" [ref=e5] [cursor=pointer]:
+        - /url: "#"
+        - img [ref=e6]
+        - text: On mange quoi ?
+      - navigation "Navigation principale" [ref=e9]:
+        - link "Menu" [ref=e10] [cursor=pointer]:
+          - /url: "#menu"
+        - link "Courses" [ref=e11] [cursor=pointer]:
+          - /url: "#courses"
+        - link "Historique" [ref=e12] [cursor=pointer]:
+          - /url: "#historique"
+        - link "Veille santé" [ref=e13] [cursor=pointer]:
+          - /url: "#cadmium"
+        - link "Fiche mémo" [ref=e14] [cursor=pointer]:
+          - /url: fiche.html
+        - link "Recettes" [ref=e15] [cursor=pointer]:
+          - /url: recettes.html
+      - generic [ref=e17]:
+        - button "Connexion" [ref=e18] [cursor=pointer]
+        - button "Créer un compte" [ref=e19] [cursor=pointer]
+  - generic [ref=e20]:
+    - main [ref=e21]:
+      - heading "On mange quoi ? — Menu de la semaine" [level=1] [ref=e22]
+      - region "📅 Menu de la semaine" [ref=e23]:
+        - generic [ref=e24]:
+          - generic [ref=e25]:
+            - heading "📅 Menu de la semaine" [level=2] [ref=e26]:
+              - generic [ref=e27]: 📅
+              - text: Menu de la semaine
+            - generic "Score santé A" [ref=e28]:
+              - generic [ref=e29]: A
+              - text: Score santé
+            - generic [ref=e30]: 30 mars – 5 avril
+          - generic [ref=e31]:
+            - link "Génère des recettes" [ref=e32] [cursor=pointer]:
+              - /url: recettes.html
+            - button "Partager le menu" [ref=e33] [cursor=pointer]
+        - generic [ref=e34]:
+          - generic [ref=e35]: ✓ 0 thon cette semaine
+          - generic [ref=e36]: ✓ 3 poissons certifiés sûrs (saumon, cabillaud, lieu noir)
+          - generic [ref=e37]: ✓ 5 légumineuses au programme
+          - generic [ref=e38]: ✓ 20 plats de saison · printemps 🌸
+        - list "Grille des 7 jours" [ref=e39]:
+          - generic [ref=e40]:
+            - generic [ref=e42]: Lundi
+            - generic [ref=e43]:
+              - generic [ref=e44]:
+                - generic [ref=e45]:
+                  - generic [ref=e46]: 🌅
+                  - generic [ref=e47]: Porridge d'avoine, banane, miel
+                - generic [ref=e48]:
+                  - img "Risque faible" [ref=e49]
+                  - generic "Temps de préparation" [ref=e50]: ⏱ 10 min
+              - generic [ref=e51]:
+                - generic [ref=e52]:
+                  - generic [ref=e53]: 🥗
+                  - generic [ref=e54]: Poulet rôti Label Rouge, carottes printanières, riz basmati
+                - generic [ref=e55]:
+                  - img "Risque faible" [ref=e56]
+                  - generic "Temps de préparation" [ref=e57]: ⏱ 35 min
+                  - generic "De saison" [ref=e58]: 🌸 saison
+              - generic [ref=e59]:
+                - generic [ref=e60]:
+                  - generic [ref=e61]: 🍎
+                  - generic [ref=e62]: Pomme fraîche, fromage blanc
+                - generic [ref=e63]:
+                  - img "Risque faible" [ref=e64]
+                  - generic "Temps de préparation" [ref=e65]: ⏱ 5 min
+                  - generic "De saison" [ref=e66]: 🌸 saison
+              - generic [ref=e67]:
+                - generic [ref=e68]:
+                  - generic [ref=e69]: 🌙
+                  - generic [ref=e70]: Soupe poireaux-lentilles corail, tartine levain, jambon supérieur
+                - generic [ref=e71]:
+                  - img "Risque faible" [ref=e72]
+                  - generic "Temps de préparation" [ref=e73]: ⏱ 20 min
+                  - generic "De saison" [ref=e74]: 🌸 saison
+          - generic [ref=e75]:
+            - generic [ref=e77]: Mardi
+            - generic [ref=e78]:
+              - generic [ref=e79]:
+                - generic [ref=e80]:
+                  - generic [ref=e81]: 🌅
+                  - generic [ref=e82]: Œufs brouillés, tartine pain de campagne, jus d'orange pressé
+                - generic [ref=e83]:
+                  - img "Risque modéré — Cadmium" [ref=e84]
+                  - generic "Temps de préparation" [ref=e85]: ⏱ 10 min
+                  - generic "De saison" [ref=e86]: 🌸 saison
+              - generic [ref=e87]:
+                - generic [ref=e88]:
+                  - generic [ref=e89]: 🥗
+                  - generic [ref=e90]: Saumon vapeur, brocolis, quinoa
+                - generic [ref=e91]:
+                  - img "Risque modéré — Élevage intensif" [ref=e92]
+                  - generic "Temps de préparation" [ref=e93]: ⏱ 20 min
+                  - generic "De saison" [ref=e94]: 🌸 saison
+              - generic [ref=e95]:
+                - generic [ref=e96]:
+                  - generic [ref=e97]: 🍐
+                  - generic [ref=e98]: Poire fraîche, amandes nature
+                - generic [ref=e99]:
+                  - img "Risque faible" [ref=e100]
+                  - generic "Temps de préparation" [ref=e101]: ⏱ 2 min
+                  - generic "De saison" [ref=e102]: 🌸 saison
+              - generic [ref=e103]:
+                - generic [ref=e104]:
+                  - generic [ref=e105]: 🌙
+                  - generic [ref=e106]: Gratin de pois chiches, carottes et poireaux
+                - generic [ref=e107]:
+                  - img "Risque faible" [ref=e108]
+                  - generic "Temps de préparation" [ref=e109]: ⏱ 30 min
+                  - generic "De saison" [ref=e110]: 🌸 saison
+          - generic [ref=e111]:
+            - generic [ref=e113]: Mercredi
+            - generic [ref=e114]:
+              - generic [ref=e115]:
+                - generic [ref=e116]:
+                  - generic [ref=e117]: 🌅
+                  - generic [ref=e118]: Yaourt nature, fraises de saison, granola maison
+                - generic [ref=e119]:
+                  - img "Risque faible" [ref=e120]
+                  - generic "Temps de préparation" [ref=e121]: ⏱ 5 min
+                  - generic "De saison" [ref=e122]: 🌸 saison
+              - generic [ref=e123]:
+                - generic [ref=e124]:
+                  - generic [ref=e125]: 🥗
+                  - generic [ref=e126]: Escalope de dinde plein air, purée de carottes, salade verte
+                - generic [ref=e127]:
+                  - img "Risque faible" [ref=e128]
+                  - generic "Temps de préparation" [ref=e129]: ⏱ 25 min
+                  - generic "De saison" [ref=e130]: 🌸 saison
+              - generic [ref=e131]:
+                - generic [ref=e132]:
+                  - generic [ref=e133]: 🍌
+                  - generic [ref=e134]: Banane, carré de chocolat noir 70%
+                - generic [ref=e135]:
+                  - img "Risque modéré — Cadmium" [ref=e136]
+                  - generic "Temps de préparation" [ref=e137]: ⏱ 2 min
+              - generic [ref=e138]:
+                - generic [ref=e139]:
+                  - generic [ref=e140]: 🌙
+                  - generic [ref=e141]: Soupe poireaux, œuf dur, pain levain
+                - generic [ref=e142]:
+                  - img "Risque faible" [ref=e143]
+                  - generic "Temps de préparation" [ref=e144]: ⏱ 25 min
+                  - generic "De saison" [ref=e145]: 🌸 saison
+          - generic [ref=e146]:
+            - generic [ref=e148]: Jeudi
+            - generic [ref=e149]:
+              - generic [ref=e150]:
+                - generic [ref=e151]:
+                  - generic [ref=e152]: 🌅
+                  - generic [ref=e153]: Porridge d'avoine, myrtilles, graines de chia
+                - generic [ref=e154]:
+                  - img "Risque faible" [ref=e155]
+                  - generic "Temps de préparation" [ref=e156]: ⏱ 10 min
+              - generic [ref=e157]:
+                - generic [ref=e158]:
+                  - generic [ref=e159]: 🥗
+                  - generic [ref=e160]: Haricots blancs mijotés, saucisse de volaille plein air, carottes
+                - generic [ref=e161]:
+                  - img "Risque faible" [ref=e162]
+                  - generic "Temps de préparation" [ref=e163]: ⏱ 30 min
+                  - generic "De saison" [ref=e164]: 🌸 saison
+              - generic [ref=e165]:
+                - generic [ref=e166]:
+                  - generic [ref=e167]: 🍊
+                  - generic [ref=e168]: Clémentines, fromage blanc
+                - generic [ref=e169]:
+                  - img "Risque faible" [ref=e170]
+                  - generic "Temps de préparation" [ref=e171]: ⏱ 2 min
+                  - generic "De saison" [ref=e172]: 🌸 saison
+              - generic [ref=e173]:
+                - generic [ref=e174]:
+                  - generic [ref=e175]: 🌙
+                  - generic [ref=e176]: Cabillaud en papillote, fenouil, pommes de terre vapeur
+                - generic [ref=e177]:
+                  - img "Risque faible" [ref=e178]
+                  - generic "Temps de préparation" [ref=e179]: ⏱ 25 min
+                  - generic "De saison" [ref=e180]: 🌸 saison
+          - generic [ref=e181]:
+            - generic [ref=e183]: Vendredi
+            - generic [ref=e184]:
+              - generic [ref=e185]:
+                - generic [ref=e186]:
+                  - generic [ref=e187]: 🌅
+                  - generic [ref=e188]: Pain perdu maison, compote pomme-cannelle
+                - generic [ref=e189]:
+                  - img "Risque modéré — Cadmium" [ref=e190]
+                  - generic "Temps de préparation" [ref=e191]: ⏱ 15 min
+                  - generic "De saison" [ref=e192]: 🌸 saison
+              - generic [ref=e193]:
+                - generic [ref=e194]:
+                  - generic [ref=e195]: 🥗
+                  - generic [ref=e196]: Taboulé de boulgour, roquette fraîche, falafels maison, tzatziki
+                - generic [ref=e197]:
+                  - img "Risque faible" [ref=e198]
+                  - generic "Temps de préparation" [ref=e199]: ⏱ 30 min
+                  - generic "De saison" [ref=e200]: 🌸 saison
+              - generic [ref=e201]:
+                - generic [ref=e202]:
+                  - generic [ref=e203]: 🍇
+                  - generic [ref=e204]: Raisins frais bio, cacahuètes nature
+                - generic [ref=e205]:
+                  - img "Risque faible" [ref=e206]
+                  - generic "Temps de préparation" [ref=e207]: ⏱ 2 min
+              - generic [ref=e208]:
+                - generic [ref=e209]:
+                  - generic [ref=e210]: 🌙
+                  - generic [ref=e211]: Lentilles vertes aux lardons, salade de roquette
+                - generic [ref=e212]:
+                  - img "Risque faible" [ref=e213]
+                  - generic "Temps de préparation" [ref=e214]: ⏱ 30 min
+                  - generic "De saison" [ref=e215]: 🌸 saison
+          - generic [ref=e216]:
+            - generic [ref=e218]: Samedi
+            - generic [ref=e219]:
+              - generic [ref=e220]:
+                - generic [ref=e221]:
+                  - generic [ref=e222]: 🌅
+                  - generic [ref=e223]: Pancakes flocons d'avoine, sirop d'érable, fraises
+                - generic [ref=e224]:
+                  - img "Risque faible" [ref=e225]
+                  - generic "Temps de préparation" [ref=e226]: ⏱ 20 min
+                  - generic "De saison" [ref=e227]: 🌸 saison
+              - generic [ref=e228]:
+                - generic [ref=e229]:
+                  - generic [ref=e230]: 🥗
+                  - generic [ref=e231]: Poulet basquaise Label Rouge, riz basmati, salade verte
+                - generic [ref=e232]:
+                  - img "Risque faible" [ref=e233]
+                  - generic "Temps de préparation" [ref=e234]: ⏱ 45 min
+                  - generic "De saison" [ref=e235]: 🌸 saison
+              - generic [ref=e236]:
+                - generic [ref=e237]:
+                  - generic [ref=e238]: 🥝
+                  - generic [ref=e239]: Kiwi, yaourt à la vanille naturelle
+                - generic [ref=e240]:
+                  - img "Risque faible" [ref=e241]
+                  - generic "Temps de préparation" [ref=e242]: ⏱ 2 min
+              - generic [ref=e243]:
+                - generic [ref=e244]:
+                  - generic [ref=e245]: 🌙
+                  - generic [ref=e246]: Pizza maison pâte fine, mozzarella, légumes grillés
+                - generic [ref=e247]:
+                  - img "Risque faible" [ref=e248]
+                  - generic "Temps de préparation" [ref=e249]: ⏱ 40 min
+          - generic [ref=e250]:
+            - generic [ref=e252]: Dimanche
+            - generic [ref=e253]:
+              - generic [ref=e254]:
+                - generic [ref=e255]:
+                  - generic [ref=e256]: 🌅
+                  - generic [ref=e257]: Brioche maison, beurre, confiture artisanale, lait chaud
+                - generic [ref=e258]:
+                  - img "Risque modéré — Cadmium" [ref=e259]
+                  - generic "Temps de préparation" [ref=e260]: ⏱ 20 min
+              - generic [ref=e261]:
+                - generic [ref=e262]:
+                  - generic [ref=e263]: 🥗
+                  - generic [ref=e264]: Gigot d'agneau, flageolets, gratin dauphinois
+                - generic [ref=e265]:
+                  - img "Risque modéré — Cadmium" [ref=e266]
+                  - generic "Temps de préparation" [ref=e267]: ⏱ 1h30
+              - generic [ref=e268]:
+                - generic [ref=e269]:
+                  - generic [ref=e270]: 🍓
+                  - generic [ref=e271]: Salade de fraises et pommes fraîches
+                - generic [ref=e272]:
+                  - img "Risque faible" [ref=e273]
+                  - generic "Temps de préparation" [ref=e274]: ⏱ 10 min
+                  - generic "De saison" [ref=e275]: 🌸 saison
+              - generic [ref=e276]:
+                - generic [ref=e277]:
+                  - generic [ref=e278]: 🌙
+                  - generic [ref=e279]: Velouté poireaux-chèvre, œuf mollet, pain levain
+                - generic [ref=e280]:
+                  - img "Risque faible" [ref=e281]
+                  - generic "Temps de préparation" [ref=e282]: ⏱ 20 min
+                  - generic "De saison" [ref=e283]: 🌸 saison
+      - region "🛒 Liste de courses & budget" [ref=e284]:
+        - heading "🛒 Liste de courses & budget" [level=2] [ref=e285]:
+          - generic [ref=e286]: 🛒
+          - text: Liste de courses & budget
+        - generic [ref=e287]:
+          - generic [ref=e288]:
+            - generic [ref=e289]:
+              - generic [ref=e290]:
+                - generic [ref=e291]: □
+                - text: Liste de la semaine
+              - generic [ref=e292]:
+                - group "Sélecteur de profil" [ref=e293]:
+                  - generic [ref=e294]: 👤
+                  - button "Famille" [pressed] [ref=e295] [cursor=pointer]
+                  - button "Couple" [ref=e296] [cursor=pointer]
+                  - button "Solo" [ref=e297] [cursor=pointer]
+                - group "Sélecteur d'enseigne" [ref=e298]:
+                  - generic [ref=e299]: Enseigne
+                  - button "Discount" [pressed] [ref=e300] [cursor=pointer]
+                  - button "Standard" [ref=e301] [cursor=pointer]
+                  - button "Bio" [ref=e302] [cursor=pointer]
+                - generic [ref=e303]:
+                  - button "🧊 Frigo vide" [ref=e304] [cursor=pointer]:
+                    - generic [ref=e305]: 🧊
+                    - text: Frigo vide
+                  - button "📋 Copier" [ref=e306] [cursor=pointer]:
+                    - generic [ref=e307]: 📋
+                    - text: Copier
+                  - button "🖨️ Imprimer" [ref=e308] [cursor=pointer]:
+                    - generic [ref=e309]: 🖨️
+                    - text: Imprimer
+            - generic "Liste de courses par catégorie" [ref=e310]:
+              - generic [ref=e311]:
+                - button "🥦 Légumes & fruits 16 articles ▾" [expanded] [ref=e312] [cursor=pointer]:
+                  - generic [ref=e313]: 🥦
+                  - generic [ref=e314]: Légumes & fruits
+                  - generic [ref=e315]: 16 articles
+                  - generic [ref=e316]: ▾
+                - generic [ref=e317]:
+                  - generic [ref=e318]:
+                    - checkbox "Cocher comme acheté" [ref=e319] [cursor=pointer]
+                    - generic [ref=e320]:
+                      - generic [ref=e321]: Carottes
+                      - generic [ref=e322]: 1,5 kg
+                      - generic [ref=e324]: 🌸 saison
+                    - generic [ref=e325]: 1,20 €
+                  - generic [ref=e326]:
+                    - checkbox "Cocher comme acheté" [ref=e327] [cursor=pointer]
+                    - generic [ref=e328]:
+                      - generic [ref=e329]: Poireaux
+                      - generic [ref=e330]: 2 bottes
+                      - generic [ref=e332]: 🌸 saison
+                    - generic [ref=e333]: 2,20 €
+                  - generic [ref=e334]:
+                    - checkbox "Cocher comme acheté" [ref=e335] [cursor=pointer]
+                    - generic [ref=e336]:
+                      - generic [ref=e337]: Brocolis
+                      - generic [ref=e338]: 500 g
+                      - generic [ref=e340]: 🌸 saison
+                    - generic [ref=e341]: 1,40 €
+                  - generic [ref=e342]:
+                    - checkbox "Cocher comme acheté" [ref=e343] [cursor=pointer]
+                    - generic [ref=e344]:
+                      - generic [ref=e345]: Fenouil
+                      - generic [ref=e346]: 2 bulbes
+                      - generic [ref=e348]: 🌸 saison
+                    - generic [ref=e349]: 1,80 €
+                  - generic [ref=e350]:
+                    - checkbox "Cocher comme acheté" [ref=e351] [cursor=pointer]
+                    - generic [ref=e352]:
+                      - generic [ref=e353]: Salade roquette
+                      - generic [ref=e354]: 200 g
+                      - generic [ref=e355]:
+                        - generic [ref=e356]: bio recommandé
+                        - generic [ref=e357]: 🌸 saison
+                    - generic [ref=e358]: 1,50 €
+                  - generic [ref=e359]:
+                    - checkbox "Cocher comme acheté" [ref=e360] [cursor=pointer]
+                    - generic [ref=e361]:
+                      - generic [ref=e362]: Courgettes
+                      - generic [ref=e363]: 3 pièces
+                    - generic [ref=e364]: 1,50 €
+                  - generic [ref=e365]:
+                    - checkbox "Cocher comme acheté" [ref=e366] [cursor=pointer]
+                    - generic [ref=e367]:
+                      - generic [ref=e368]: Pommes de terre
+                      - generic [ref=e369]: 2 kg
+                    - generic [ref=e370]: 2,10 €
+                  - generic [ref=e371]:
+                    - checkbox "Cocher comme acheté" [ref=e372] [cursor=pointer]
+                    - generic [ref=e373]:
+                      - generic [ref=e374]: Tomates pelées (boîte)
+                      - generic [ref=e375]: 400 g
+                    - generic [ref=e376]: 0,75 €
+                  - generic [ref=e377]:
+                    - checkbox "Cocher comme acheté" [ref=e378] [cursor=pointer]
+                    - generic [ref=e379]:
+                      - generic [ref=e380]: Bananes
+                      - generic [ref=e381]: 1 kg
+                    - generic [ref=e382]: 1,30 €
+                  - generic [ref=e383]:
+                    - checkbox "Cocher comme acheté" [ref=e384] [cursor=pointer]
+                    - generic [ref=e385]:
+                      - generic [ref=e386]: Pommes (variété française)
+                      - generic [ref=e387]: 1,5 kg
+                      - generic [ref=e389]: 🌸 saison
+                    - generic [ref=e390]: 2,40 €
+                  - generic [ref=e391]:
+                    - checkbox "Cocher comme acheté" [ref=e392] [cursor=pointer]
+                    - generic [ref=e393]:
+                      - generic [ref=e394]: Poires
+                      - generic [ref=e395]: 1 kg
+                      - generic [ref=e397]: 🌸 saison
+                    - generic [ref=e398]: 2,20 €
+                  - generic [ref=e399]:
+                    - checkbox "Cocher comme acheté" [ref=e400] [cursor=pointer]
+                    - generic [ref=e401]:
+                      - generic [ref=e402]: Fraises
+                      - generic [ref=e403]: 500 g
+                      - generic [ref=e404]:
+                        - generic [ref=e405]: bio recommandé
+                        - generic [ref=e406]: 🌸 saison
+                    - generic [ref=e407]: 3,50 €
+                  - generic [ref=e408]:
+                    - checkbox "Cocher comme acheté" [ref=e409] [cursor=pointer]
+                    - generic [ref=e410]:
+                      - generic [ref=e411]: Clémentines
+                      - generic [ref=e412]: 1 kg
+                      - generic [ref=e414]: 🌸 saison
+                    - generic [ref=e415]: 1,90 €
+                  - generic [ref=e416]:
+                    - checkbox "Cocher comme acheté" [ref=e417] [cursor=pointer]
+                    - generic [ref=e418]:
+                      - generic [ref=e419]: Kiwis
+                      - generic [ref=e420]: 6 pièces
+                    - generic [ref=e421]: 2,10 €
+                  - generic [ref=e422]:
+                    - checkbox "Cocher comme acheté" [ref=e423] [cursor=pointer]
+                    - generic [ref=e424]:
+                      - generic [ref=e425]: Raisins frais
+                      - generic [ref=e426]: 500 g
+                      - generic [ref=e428]: bio recommandé
+                    - generic [ref=e429]: 2,80 €
+                  - generic [ref=e430]:
+                    - checkbox "Cocher comme acheté" [ref=e431] [cursor=pointer]
+                    - generic [ref=e432]:
+                      - generic [ref=e433]: Myrtilles
+                      - generic [ref=e434]: 250 g
+                    - generic [ref=e435]: 2,90 €
+              - generic [ref=e436]:
+                - button "🐟 Viandes & poissons 8 articles ▾" [expanded] [ref=e437] [cursor=pointer]:
+                  - generic [ref=e438]: 🐟
+                  - generic [ref=e439]: Viandes & poissons
+                  - generic [ref=e440]: 8 articles
+                  - generic [ref=e441]: ▾
+                - generic [ref=e442]:
+                  - generic [ref=e443]:
+                    - checkbox "Cocher comme acheté" [ref=e444] [cursor=pointer]
+                    - generic [ref=e445]:
+                      - generic [ref=e446]: Poulet entier ou cuisses
+                      - generic [ref=e447]: 1,5 kg
+                      - generic [ref=e449]: Label Rouge ou AB
+                    - generic [ref=e450]: 7,50 €
+                  - generic [ref=e451]:
+                    - checkbox "Cocher comme acheté" [ref=e452] [cursor=pointer]
+                    - generic [ref=e453]:
+                      - generic [ref=e454]: Filet de saumon
+                      - generic [ref=e455]: 600 g
+                      - generic [ref=e457]: max 2×/mois
+                    - generic [ref=e458]: 9,20 €
+                  - generic [ref=e459]:
+                    - checkbox "Cocher comme acheté" [ref=e460] [cursor=pointer]
+                    - generic [ref=e461]:
+                      - generic [ref=e462]: Cabillaud (filet)
+                      - generic [ref=e463]: 500 g
+                    - generic [ref=e464]: 7,80 €
+                  - generic [ref=e465]:
+                    - checkbox "Cocher comme acheté" [ref=e466] [cursor=pointer]
+                    - generic [ref=e467]:
+                      - generic [ref=e468]: Escalopes de dinde
+                      - generic [ref=e469]: 4 pièces
+                      - generic [ref=e471]: plein air France
+                    - generic [ref=e472]: 5,90 €
+                  - generic [ref=e473]:
+                    - checkbox "Cocher comme acheté" [ref=e474] [cursor=pointer]
+                    - generic [ref=e475]:
+                      - generic [ref=e476]: Saucisses de volaille
+                      - generic [ref=e477]: 4 pièces
+                      - generic [ref=e479]: plein air France
+                    - generic [ref=e480]: 3,80 €
+                  - generic [ref=e481]:
+                    - checkbox "Cocher comme acheté" [ref=e482] [cursor=pointer]
+                    - generic [ref=e483]:
+                      - generic [ref=e484]: Lardons nature
+                      - generic [ref=e485]: 200 g
+                      - generic [ref=e487]: jambon supérieur
+                    - generic [ref=e488]: 1,60 €
+                  - generic [ref=e489]:
+                    - checkbox "Cocher comme acheté" [ref=e490] [cursor=pointer]
+                    - generic [ref=e491]:
+                      - generic [ref=e492]: Jambon supérieur français
+                      - generic [ref=e493]: 4 tranches
+                    - generic [ref=e494]: 2,50 €
+                  - generic [ref=e495]:
+                    - checkbox "Cocher comme acheté" [ref=e496] [cursor=pointer]
+                    - generic [ref=e497]:
+                      - generic [ref=e498]: Gigot d'agneau
+                      - generic [ref=e499]: 1,2 kg
+                    - generic [ref=e500]: 14,90 €
+              - generic [ref=e501]:
+                - button "🌾 Légumineuses & féculents 9 articles ▾" [expanded] [ref=e502] [cursor=pointer]:
+                  - generic [ref=e503]: 🌾
+                  - generic [ref=e504]: Légumineuses & féculents
+                  - generic [ref=e505]: 9 articles
+                  - generic [ref=e506]: ▾
+                - generic [ref=e507]:
+                  - generic [ref=e508]:
+                    - checkbox "Cocher comme acheté" [ref=e509] [cursor=pointer]
+                    - generic [ref=e510]:
+                      - generic [ref=e511]: Lentilles corail
+                      - generic [ref=e512]: 500 g
+                    - generic [ref=e513]: 1,80 €
+                  - generic [ref=e514]:
+                    - checkbox "Cocher comme acheté" [ref=e515] [cursor=pointer]
+                    - generic [ref=e516]:
+                      - generic [ref=e517]: Pois chiches (boîte)
+                      - generic [ref=e518]: 2 × 400 g
+                    - generic [ref=e519]: 1,60 €
+                  - generic [ref=e520]:
+                    - checkbox "Cocher comme acheté" [ref=e521] [cursor=pointer]
+                    - generic [ref=e522]:
+                      - generic [ref=e523]: Haricots blancs (boîte)
+                      - generic [ref=e524]: 400 g
+                    - generic [ref=e525]: 0,90 €
+                  - generic [ref=e526]:
+                    - checkbox "Cocher comme acheté" [ref=e527] [cursor=pointer]
+                    - generic [ref=e528]:
+                      - generic [ref=e529]: Lentilles vertes
+                      - generic [ref=e530]: 500 g
+                    - generic [ref=e531]: 1,70 €
+                  - generic [ref=e532]:
+                    - checkbox "Cocher comme acheté" [ref=e533] [cursor=pointer]
+                    - generic [ref=e534]:
+                      - generic [ref=e535]: Flageolets (boîte)
+                      - generic [ref=e536]: 400 g
+                    - generic [ref=e537]: 1,10 €
+                  - generic [ref=e538]:
+                    - checkbox "Cocher comme acheté" [ref=e539] [cursor=pointer]
+                    - generic [ref=e540]:
+                      - generic [ref=e541]: Riz basmati
+                      - generic [ref=e542]: 1 kg
+                    - generic [ref=e543]: 2,20 €
+                  - generic [ref=e544]:
+                    - checkbox "Cocher comme acheté" [ref=e545] [cursor=pointer]
+                    - generic [ref=e546]:
+                      - generic [ref=e547]: Quinoa
+                      - generic [ref=e548]: 500 g
+                    - generic [ref=e549]: 2,90 €
+                  - generic [ref=e550]:
+                    - checkbox "Cocher comme acheté" [ref=e551] [cursor=pointer]
+                    - generic [ref=e552]:
+                      - generic [ref=e553]: Boulgour
+                      - generic [ref=e554]: 500 g
+                    - generic [ref=e555]: 1,90 €
+                  - generic [ref=e556]:
+                    - checkbox "Cocher comme acheté" [ref=e557] [cursor=pointer]
+                    - generic [ref=e558]:
+                      - generic [ref=e559]: Flocons d'avoine
+                      - generic [ref=e560]: 500 g
+                    - generic [ref=e561]: 1,20 €
+              - generic [ref=e562]:
+                - button "🥚 Produits laitiers & œufs 8 articles ▾" [expanded] [ref=e563] [cursor=pointer]:
+                  - generic [ref=e564]: 🥚
+                  - generic [ref=e565]: Produits laitiers & œufs
+                  - generic [ref=e566]: 8 articles
+                  - generic [ref=e567]: ▾
+                - generic [ref=e568]:
+                  - generic [ref=e569]:
+                    - checkbox "Cocher comme acheté" [ref=e570] [cursor=pointer]
+                    - generic [ref=e571]:
+                      - generic [ref=e572]: Œufs (code 0 ou 1)
+                      - generic [ref=e573]: 12 pièces
+                      - generic [ref=e575]: bio ou plein air
+                    - generic [ref=e576]: 2,80 €
+                  - generic [ref=e577]:
+                    - checkbox "Cocher comme acheté" [ref=e578] [cursor=pointer]
+                    - generic [ref=e579]:
+                      - generic [ref=e580]: Yaourts nature (pot verre)
+                      - generic [ref=e581]: 8 pots
+                    - generic [ref=e582]: 2,90 €
+                  - generic [ref=e583]:
+                    - checkbox "Cocher comme acheté" [ref=e584] [cursor=pointer]
+                    - generic [ref=e585]:
+                      - generic [ref=e586]: Fromage blanc 0%
+                      - generic [ref=e587]: 500 g
+                    - generic [ref=e588]: 1,50 €
+                  - generic [ref=e589]:
+                    - checkbox "Cocher comme acheté" [ref=e590] [cursor=pointer]
+                    - generic [ref=e591]:
+                      - generic [ref=e592]: Beurre demi-sel
+                      - generic [ref=e593]: 250 g
+                    - generic [ref=e594]: 2,50 €
+                  - generic [ref=e595]:
+                    - checkbox "Cocher comme acheté" [ref=e596] [cursor=pointer]
+                    - generic [ref=e597]:
+                      - generic [ref=e598]: Lait demi-écrémé
+                      - generic [ref=e599]: 1 L
+                    - generic [ref=e600]: 1,10 €
+                  - generic [ref=e601]:
+                    - checkbox "Cocher comme acheté" [ref=e602] [cursor=pointer]
+                    - generic [ref=e603]:
+                      - generic [ref=e604]: Mozzarella
+                      - generic [ref=e605]: 125 g
+                    - generic [ref=e606]: 1,20 €
+                  - generic [ref=e607]:
+                    - checkbox "Cocher comme acheté" [ref=e608] [cursor=pointer]
+                    - generic [ref=e609]:
+                      - generic [ref=e610]: Chèvre frais
+                      - generic [ref=e611]: 150 g
+                    - generic [ref=e612]: 1,90 €
+                  - generic [ref=e613]:
+                    - checkbox "Cocher comme acheté" [ref=e614] [cursor=pointer]
+                    - generic [ref=e615]:
+                      - generic [ref=e616]: Crème fraîche épaisse
+                      - generic [ref=e617]: 200 g
+                    - generic [ref=e618]: 1,40 €
+              - generic [ref=e619]:
+                - button "🫙 Épicerie 10 articles ▾" [expanded] [ref=e620] [cursor=pointer]:
+                  - generic [ref=e621]: 🫙
+                  - generic [ref=e622]: Épicerie
+                  - generic [ref=e623]: 10 articles
+                  - generic [ref=e624]: ▾
+                - generic [ref=e625]:
+                  - generic [ref=e626]:
+                    - checkbox "Cocher comme acheté" [ref=e627] [cursor=pointer]
+                    - generic [ref=e628]:
+                      - generic [ref=e629]: Pain levain (boulangerie)
+                      - generic [ref=e630]: 1 miche
+                    - generic [ref=e631]: 3,50 €
+                  - generic [ref=e632]:
+                    - checkbox "Cocher comme acheté" [ref=e633] [cursor=pointer]
+                    - generic [ref=e634]:
+                      - generic [ref=e635]: Huile d'olive extra-vierge
+                      - generic [ref=e636]: 75 cl
+                    - generic [ref=e637]: 4,90 €
+                  - generic [ref=e638]:
+                    - checkbox "Cocher comme acheté" [ref=e639] [cursor=pointer]
+                    - generic [ref=e640]:
+                      - generic [ref=e641]: Miel toutes fleurs
+                      - generic [ref=e642]: 250 g
+                    - generic [ref=e643]: 3,20 €
+                  - generic [ref=e644]:
+                    - checkbox "Cocher comme acheté" [ref=e645] [cursor=pointer]
+                    - generic [ref=e646]:
+                      - generic [ref=e647]: Graines de chia
+                      - generic [ref=e648]: 200 g
+                    - generic [ref=e649]: 2,80 €
+                  - generic [ref=e650]:
+                    - checkbox "Cocher comme acheté" [ref=e651] [cursor=pointer]
+                    - generic [ref=e652]:
+                      - generic [ref=e653]: Amandes nature
+                      - generic [ref=e654]: 200 g
+                    - generic [ref=e655]: 3,50 €
+                  - generic [ref=e656]:
+                    - checkbox "Cocher comme acheté" [ref=e657] [cursor=pointer]
+                    - generic [ref=e658]:
+                      - generic [ref=e659]: Cacahuètes non salées
+                      - generic [ref=e660]: 200 g
+                    - generic [ref=e661]: 1,90 €
+                  - generic [ref=e662]:
+                    - checkbox "Cocher comme acheté" [ref=e663] [cursor=pointer]
+                    - generic [ref=e664]:
+                      - generic [ref=e665]: Chocolat noir 70%
+                      - generic [ref=e666]: 100 g
+                      - generic [ref=e668]: consommation occasionnelle
+                    - generic [ref=e669]: 1,50 €
+                  - generic [ref=e670]:
+                    - checkbox "Cocher comme acheté" [ref=e671] [cursor=pointer]
+                    - generic [ref=e672]:
+                      - generic [ref=e673]: Confiture artisanale
+                      - generic [ref=e674]: 250 g
+                    - generic [ref=e675]: 2,20 €
+                  - generic [ref=e676]:
+                    - checkbox "Cocher comme acheté" [ref=e677] [cursor=pointer]
+                    - generic [ref=e678]:
+                      - generic [ref=e679]: Sirop d'érable
+                      - generic [ref=e680]: 250 ml
+                    - generic [ref=e681]: 4,20 €
+                  - generic [ref=e682]:
+                    - checkbox "Cocher comme acheté" [ref=e683] [cursor=pointer]
+                    - generic [ref=e684]:
+                      - generic [ref=e685]: Bouillon de légumes (cubes)
+                      - generic [ref=e686]: 8 cubes
+                    - generic [ref=e687]: 1,20 €
+          - complementary "Budget estimé" [ref=e688]:
+            - generic [ref=e689]:
+              - generic [ref=e690]: $
+              - text: Budget estimé
+            - generic [ref=e691]:
+              - generic [ref=e692]: 144,25 €
+              - generic [ref=e693]: Total semaine (enseigne sélectionnée)
+            - generic [ref=e694]:
+              - generic [ref=e695]:
+                - generic [ref=e696]: 20,61 €
+                - generic [ref=e697]: Par jour
+              - generic [ref=e698]:
+                - generic [ref=e699]: 36,06 €
+                - generic [ref=e700]: Par personne
+              - generic [ref=e701]:
+                - generic [ref=e702]: 5,15 €
+                - generic [ref=e703]: Pers. / jour
+              - generic [ref=e704]:
+                - generic [ref=e705]: "4"
+                - generic [ref=e706]: Personnes
+            - generic "Comparaison par enseigne" [ref=e707]:
+              - generic [ref=e708]: Comparaison enseignes
+              - generic [ref=e709]:
+                - generic [ref=e710]:
+                  - generic [ref=e711]: Discount
+                  - generic [ref=e714]: 144,25 €
+                - generic [ref=e715]:
+                  - generic [ref=e716]: Standard
+                  - generic [ref=e719]: 191,15 €
+                - generic [ref=e720]:
+                  - generic [ref=e721]: Bio
+                  - generic [ref=e724]: 319,10 €
+            - generic [ref=e725]:
+              - generic [ref=e727]: Prix mis à jour ce mois-ci ✓
+              - generic [ref=e728]: "* Prix indicatifs basés sur une veille de marché"
+            - group "Choisir une enseigne" [ref=e729]:
+              - generic [ref=e730] [cursor=pointer]:
+                - generic [ref=e731]: Discount
+                - generic [ref=e732]: 144,25 €
+              - generic [ref=e733] [cursor=pointer]:
+                - generic [ref=e734]: Standard
+                - generic [ref=e735]: 191,15 €
+              - generic [ref=e736] [cursor=pointer]:
+                - generic [ref=e737]: Bio
+                - generic [ref=e738]: 319,10 €
+      - region "📚 Semaines précédentes" [ref=e739]:
+        - heading "📚 Semaines précédentes" [level=2] [ref=e740]:
+          - generic [ref=e741]: 📚
+          - text: Semaines précédentes
+        - list [ref=e742]:
+          - generic [ref=e743] [cursor=pointer]:
+            - generic [ref=e744]:
+              - text: 30 mars – 5 avr.
+              - generic [ref=e745]: En cours
+            - generic [ref=e746]: Score A
+            - generic [ref=e747]: Semaine du 30 mars 2026
+            - list [ref=e748]:
+              - listitem [ref=e749]: → Saumon vapeur & quinoa
+              - listitem [ref=e750]: → Cabillaud en papillote
+              - listitem [ref=e751]: → 5 légumineuses cette semaine
+              - listitem [ref=e752]: → Gigot d'agneau dominical
+            - link "Voir ce menu →" [ref=e753]:
+              - /url: "#menu"
+      - region "🔬 Veille santé alimentaire" [ref=e754]:
+        - heading "🔬 Veille santé alimentaire" [level=2] [ref=e755]:
+          - generic [ref=e756]: 🔬
+          - text: Veille santé alimentaire
+        - generic [ref=e757]:
+          - generic [ref=e758]: "ANSES 2026 : le pain et les produits céréaliers (pain de campagne, brioche, pâtes) représentent 20 à 30 % de l'exposition au cadmium chez les adultes français. Privilégier le pain au levain — la fermentation réduit la biodisponibilité du cadmium."
+          - generic [ref=e759]: "ANSES 2026 : les pommes de terre sont la 1ère source de cadmium chez l'adulte en France. Limiter à 3–4 fois par semaine et ne pas les manger tous les jours."
+          - generic [ref=e760]: "ANSES 2026 : les céréales complètes industrielles (corn flakes, muesli sucré) restent la 1ère source d'exposition au cadmium chez les enfants de 3 à 10 ans. Préférer les flocons d'avoine nature."
+          - generic [ref=e761]: "ANSES fév. 2026 : 1 enfant sur 15 dépasse les seuils tolérables en mercure — le thon en conserve reste la principale source. Max 1 fois/2 semaines pour les enfants."
+          - generic [ref=e762]: "Générations Futures 2025 : 73 % des fruits non-bio analysés présentent des résidus de pesticides. Fraises, raisins et pêches en tête — acheter bio en priorité."
+          - generic [ref=e763]: "Étude INRAE 2025 : consommer des légumineuses régulièrement (lentilles, pois chiches, haricots) réduit l'absorption intestinale du cadmium grâce aux phytates et au zinc."
+        - paragraph [ref=e764]:
+          - text: "Sources :"
+          - link "ANSES" [ref=e765] [cursor=pointer]:
+            - /url: https://www.anses.fr
+          - text: ·
+          - link "EFSA" [ref=e766] [cursor=pointer]:
+            - /url: https://www.efsa.europa.eu
+          - text: ·
+          - link "Générations Futures" [ref=e767] [cursor=pointer]:
+            - /url: https://www.generations-futures.fr
+          - text: ·
+          - link "INRAE" [ref=e768] [cursor=pointer]:
+            - /url: https://inrae.fr
+      - region "ℹ️ À propos" [ref=e769]:
+        - heading "ℹ️ À propos" [level=2] [ref=e770]:
+          - generic [ref=e771]: ℹ️
+          - text: À propos
+        - generic [ref=e772]:
+          - generic [ref=e773]:
+            - heading "🎯 L'objectif" [level=3] [ref=e774]
+            - paragraph [ref=e775]: Des menus hebdomadaires familiaux validés selon les recommandations ANSES et EFSA — anti-cadmium, anti-mercure, faibles pesticides.
+          - generic [ref=e776]:
+            - heading "💡 Le score santé" [level=3] [ref=e777]
+            - paragraph [ref=e778]:
+              - strong [ref=e779]: A
+              - text: ": 0 repas à risque élevé, max 2 modérés, bonne diversité protéinée et au moins 1 légumineuse."
+              - strong [ref=e780]: B
+              - text: ": 1 à 3 repas modérés."
+              - strong [ref=e781]: C
+              - text: ": risque élevé présent."
+          - generic [ref=e782]:
+            - heading "🧊 Frigo vide" [level=3] [ref=e783]
+            - paragraph [ref=e784]: Activez "Frigo vide", cochez les articles déjà dans votre frigo — ils seront soustraits du total en temps réel.
+          - generic [ref=e785]:
+            - heading "🍂 Saison" [level=3] [ref=e786]
+            - paragraph [ref=e787]: Les badges 🌸☀️🍂❄️ indiquent les repas et ingrédients de saison, détectés automatiquement selon la date du jour.
+          - generic [ref=e788]:
+            - heading "⏱ Temps de prépa" [level=3] [ref=e789]
+            - paragraph [ref=e790]: Badge vert (≤ 10 min) · jaune (≤ 25 min) · rouge (> 25 min) sur chaque repas.
+          - generic [ref=e791]:
+            - heading "📄 Fiche mémo" [level=3] [ref=e792]
+            - paragraph [ref=e793]:
+              - text: La
+              - link "fiche mémo partageable" [ref=e794] [cursor=pointer]:
+                - /url: fiche.html
+              - text: résume les aliments à limiter et à privilégier pour les 4 contaminants.
+    - contentinfo [ref=e795]:
+      - paragraph [ref=e796]:
+        - img [ref=e797]
+        - strong [ref=e800]: On mange quoi ?
+        - text: · Menus familiaux sains · Données ANSES / EFSA / Générations Futures
+      - paragraph [ref=e801]:
+        - text: Aucune donnée personnelle collectée ·
+        - link "Fiche mémo" [ref=e802] [cursor=pointer]:
+          - /url: fiche.html
+  - status

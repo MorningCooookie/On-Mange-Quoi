@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TableSaine - Full Design System Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Primary Colors */
+            --primary: #1B4332;
+            --secondary: #E07A5F;
+            --bg: #F9F6F3;
+            --bg-accent: #F5F0E8;
+            --text-dark: #1F1F1F;
+            --text-muted: #6B6B6B;
+            --border-light: #E5E5E5;
+            --warning: #D97706;
+            --success: #10B981;
+
+            /* Typography */
+            --serif: 'Fraunces', serif;
+            --sans: 'Work Sans', sans-serif;
+            --mono: 'IBM Plex Mono', monospace;
+
+            /* Spacing (8px grid) */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+
+            /* Transitions */
+            --ease: 200ms ease-in-out;
+        }
+
+        :root[data-theme="dark"] {
+            --bg: #1F1F1F;
+            --text-dark: #FAFAF9;
+            --text-muted: #A0A0A0;
+            --border-light: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-dark);
+            font-family: var(--sans);
+            line-height: 1.6;
+            transition: background-color var(--ease), color var(--ease);
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--bg);
+            border-bottom: 1px solid var(--border-light);
+            padding: var(--spacing-lg) var(--spacing-lg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all var(--ease);
+        }
+
+        header nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        .logo {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-lg);
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color var(--ease);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+
+        /* BUTTONS */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 12px;
+            font-family: var(--sans);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--ease);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(27, 67, 50, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+        }
+
+        /* THEME TOGGLE */
+        .theme-toggle {
+            position: fixed;
+            bottom: var(--spacing-lg);
+            right: var(--spacing-lg);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all var(--ease);
+            z-index: 200;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(27, 67, 50, 0.2);
+        }
+
+        /* MAIN CONTAINER */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-2xl) var(--spacing-lg);
+        }
+
+        section {
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        h1 {
+            font-family: var(--serif);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-lg);
+            color: var(--primary);
+        }
+
+        h2 {
+            font-family: var(--serif);
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-dark);
+        }
+
+        h3 {
+            font-family: var(--serif);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* MEAL PLANNING GRID */
+        .meal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+            overflow-x: auto;
+        }
+
+        .meal-day {
+            background-color: white;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: var(--spacing-md);
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        :root[data-theme="dark"] .meal-day {
+            background-color: #2A2A2A;
+        }
+
+        .day-name {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: var(--spacing-md);
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .meal-slot {
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .meal-slot:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .meal-type {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .meal-name {
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .meal-score {
+            font-family: var(--mono);
+            font-size: 0.9rem;
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        /* SHOPPING LIST */
+        .shopping-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .shopping-list {
+            background-color: white;
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        :root[data-theme="dark"] .shopping-list {
+            background-color: #2A2A2A;
+        }
+
+        .shopping-category {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .category-title {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: var(--spacing-md);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .shopping-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-sm);
+            border-radius: 8px;
+            margin-bottom: var(--spacing-sm);
+            transition: all var(--ease);
+        }
+
+        .shopping-item:hover {
+            background-color: var(--bg);
+        }
+
+        .shopping-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--primary);
+        }
+
+        .shopping-item.checked label {
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+
+        .shopping-item label {
+            flex: 1;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+
+        .item-price {
+            font-family: var(--mono);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .budget-panel {
+            background-color: white;
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            height: fit-content;
+        }
+
+        :root[data-theme="dark"] .budget-panel {
+            background-color: #2A2A2A;
+        }
+
+        .budget-store {
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .budget-store:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .store-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .store-price {
+            font-family: var(--mono);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* CARDS */
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all var(--ease);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        :root[data-theme="dark"] .card {
+            background-color: #2A2A2A;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .card-title {
+            font-family: var(--serif);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-dark);
+        }
+
+        .card-text {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* GRID LAYOUTS */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        /* PILLS & BADGES */
+        .pill {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background-color: var(--primary);
+            color: white;
+            margin-bottom: var(--spacing-sm);
+            margin-right: var(--spacing-sm);
+        }
+
+        .pill.secondary {
+            background-color: var(--secondary);
+        }
+
+        /* TOAST NOTIFICATIONS */
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            right: var(--spacing-lg);
+            background-color: var(--success);
+            color: white;
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            animation: slideIn 300ms ease-out;
+            z-index: 150;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .shopping-container {
+                grid-template-columns: 1fr;
+            }
+
+            .meal-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header nav {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+
+            .nav-links {
+                gap: var(--spacing-md);
+                width: 100%;
+            }
+
+            main {
+                padding: var(--spacing-lg) var(--spacing-md);
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            .meal-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .theme-toggle {
+                width: 45px;
+                height: 45px;
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">On mange quoi?</div>
+            <ul class="nav-links">
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#historique">Historique</a></li>
+                <li><a href="#sante">Santé</a></li>
+                <li><a href="#about">À propos</a></li>
+            </ul>
+            <div class="header-actions">
+                <button class="btn btn-secondary btn-small" onclick="showToast('Profil ouvert')">Profil</button>
+                <button class="btn btn-primary btn-small" onclick="showToast('Paramètres ouverts')">Paramètres</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- PROFILE & SETTINGS SECTION -->
+        <section id="settings" style="padding: var(--spacing-xl) var(--spacing-lg); background-color: var(--bg-accent); border-radius: 12px; margin-bottom: var(--spacing-xl);">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <h2 style="margin-bottom: var(--spacing-lg);">Configuration de votre espace</h2>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-lg); margin-bottom: var(--spacing-xl);">
+                    <!-- Profile Selection -->
+                    <div>
+                        <label style="display: block; font-weight: 600; margin-bottom: var(--spacing-md); color: var(--text-dark); font-family: var(--serif);">Type de foyer</label>
+                        <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap;">
+                            <label style="display: flex; align-items: center; gap: var(--spacing-sm); cursor: pointer; padding: var(--spacing-sm); border-radius: 8px; border: 2px solid var(--border-light); background: white; transition: all var(--ease);" onclick="this.style.borderColor='var(--primary)'; this.style.background='rgba(27,67,50,0.05)';">
+                                <input type="radio" name="profile" value="family" style="width: 18px; height: 18px; cursor: pointer;">
+                                <span style="font-weight: 500;">Famille</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: var(--spacing-sm); cursor: pointer; padding: var(--spacing-sm); border-radius: 8px; border: 2px solid var(--border-light); background: white; transition: all var(--ease);" onclick="this.style.borderColor='var(--primary)'; this.style.background='rgba(27,67,50,0.05)';">
+                                <input type="radio" name="profile" value="couple" style="width: 18px; height: 18px; cursor: pointer;">
+                                <span style="font-weight: 500;">Couple</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: var(--spacing-sm); cursor: pointer; padding: var(--spacing-sm); border-radius: 8px; border: 2px solid var(--border-light); background: white; transition: all var(--ease);" onclick="this.style.borderColor='var(--primary)'; this.style.background='rgba(27,67,50,0.05)';">
+                                <input type="radio" name="profile" value="solo" style="width: 18px; height: 18px; cursor: pointer;">
+                                <span style="font-weight: 500;">Solo</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Store Type Selection -->
+                    <div>
+                        <label style="display: block; font-weight: 600; margin-bottom: var(--spacing-md); color: var(--text-dark); font-family: var(--serif);">Type de magasin</label>
+                        <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap;">
+                            <label style="display: flex; align-items: center; gap: var(--spacing-sm); cursor: pointer; padding: var(--spacing-sm); border-radius: 8px; border: 2px solid var(--border-light); background: white; transition: all var(--ease);" onclick="this.style.borderColor='var(--primary)'; this.style.background='rgba(27,67,50,0.05)';">
+                                <input type="radio" name="store" value="bio" style="width: 18px; height: 18px; cursor: pointer;">
+                                <span style="font-weight: 500;">Bio</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: var(--spacing-sm); cursor: pointer; padding: var(--spacing-sm); border-radius: 8px; border: 2px solid var(--border-light); background: white; transition: all var(--ease);" onclick="this.style.borderColor='var(--primary)'; this.style.background='rgba(27,67,50,0.05)';">
+                                <input type="radio" name="store" value="standard" checked style="width: 18px; height: 18px; cursor: pointer;">
+                                <span style="font-weight: 500;">Standard</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: var(--spacing-sm); cursor: pointer; padding: var(--spacing-sm); border-radius: 8px; border: 2px solid var(--border-light); background: white; transition: all var(--ease);" onclick="this.style.borderColor='var(--primary)'; this.style.background='rgba(27,67,50,0.05)';">
+                                <input type="radio" name="store" value="discount" style="width: 18px; height: 18px; cursor: pointer;">
+                                <span style="font-weight: 500;">Discount</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MENU SECTION -->
+        <section id="menu">
+            <h1>Menu de cette semaine</h1>
+            <p style="color: var(--text-muted); margin-bottom: var(--spacing-lg); font-size: 1.05rem;">Votre plan repas personnalisé pour la semaine du 5-11 avril</p>
+
+            <div class="meal-grid">
+                <div class="meal-day">
+                    <div class="day-name">Lundi</div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Petit-déj</div>
+                        <div class="meal-name">Oeufs brouillés</div>
+                        <div class="meal-score">82/100</div>
+                    </div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Déjeuner</div>
+                        <div class="meal-name">Salade niçoise</div>
+                        <div class="meal-score">78/100</div>
+                    </div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Dîner</div>
+                        <div class="meal-name">Poulet rôti</div>
+                        <div class="meal-score">85/100</div>
+                    </div>
+                </div>
+
+                <div class="meal-day">
+                    <div class="day-name">Mardi</div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Petit-déj</div>
+                        <div class="meal-name">Yaourt granola</div>
+                        <div class="meal-score">80/100</div>
+                    </div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Déjeuner</div>
+                        <div class="meal-name">Pâtes complet</div>
+                        <div class="meal-score">88/100</div>
+                    </div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Dîner</div>
+                        <div class="meal-name">Poisson blanc</div>
+                        <div class="meal-score">90/100</div>
+                    </div>
+                </div>
+
+                <div class="meal-day">
+                    <div class="day-name">Mercredi</div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Petit-déj</div>
+                        <div class="meal-name">Porridge</div>
+                        <div class="meal-score">84/100</div>
+                    </div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Déjeuner</div>
+                        <div class="meal-name">Soupe minestrone</div>
+                        <div class="meal-score">75/100</div>
+                    </div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Dîner</div>
+                        <div class="meal-name">Tofu sauté</div>
+                        <div class="meal-score">79/100</div>
+                    </div>
+                </div>
+
+                <div class="meal-day">
+                    <div class="day-name">Jeudi</div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Petit-déj</div>
+                        <div class="meal-name">Pain complet</div>
+                        <div class="meal-score">77/100</div>
+                    </div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Déjeuner</div>
+                        <div class="meal-name">Pizza maison</div>
+                        <div class="meal-score">81/100</div>
+                    </div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Dîner</div>
+                        <div class="meal-name">Steak frites</div>
+                        <div class="meal-score">76/100</div>
+                    </div>
+                </div>
+
+                <div class="meal-day">
+                    <div class="day-name">Vendredi</div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Petit-déj</div>
+                        <div class="meal-name">Smoothie fruits</div>
+                        <div class="meal-score">86/100</div>
+                    </div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Déjeuner</div>
+                        <div class="meal-name">Risotto légumes</div>
+                        <div class="meal-score">89/100</div>
+                    </div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Dîner</div>
+                        <div class="meal-name">Curry poulet</div>
+                        <div class="meal-score">87/100</div>
+                    </div>
+                </div>
+
+                <div class="meal-day">
+                    <div class="day-name">Samedi</div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Petit-déj</div>
+                        <div class="meal-name">Crêpes</div>
+                        <div class="meal-score">72/100</div>
+                    </div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Déjeuner</div>
+                        <div class="meal-name">Burger maison</div>
+                        <div class="meal-score">74/100</div>
+                    </div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Dîner</div>
+                        <div class="meal-name">Barbecue</div>
+                        <div class="meal-score">73/100</div>
+                    </div>
+                </div>
+
+                <div class="meal-day">
+                    <div class="day-name">Dimanche</div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Petit-déj</div>
+                        <div class="meal-name">Oeufs Benedict</div>
+                        <div class="meal-score">83/100</div>
+                    </div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Déjeuner</div>
+                        <div class="meal-name">Pot-au-feu</div>
+                        <div class="meal-score">91/100</div>
+                    </div>
+                    <div class="meal-slot">
+                        <div class="meal-type">Dîner</div>
+                        <div class="meal-name">Gratin dauphinois</div>
+                        <div class="meal-score">80/100</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COURSES SECTION -->
+        <section id="courses">
+            <h2>Liste de courses</h2>
+            <div class="shopping-container">
+                <div class="shopping-list">
+                    <div class="shopping-category">
+                        <div class="category-title">Fruits & Légumes</div>
+                        <div class="shopping-item">
+                            <input type="checkbox" id="item1" onchange="handleCheckbox(this, 'item1-label')">
+                            <label id="item1-label" for="item1">Carottes (2 kg)</label>
+                            <span class="item-price">€3.20</span>
+                        </div>
+                        <div class="shopping-item">
+                            <input type="checkbox" id="item2" onchange="handleCheckbox(this, 'item2-label')">
+                            <label id="item2-label" for="item2">Tomates bio (6)</label>
+                            <span class="item-price">€4.50</span>
+                        </div>
+                        <div class="shopping-item">
+                            <input type="checkbox" id="item3" onchange="handleCheckbox(this, 'item3-label')">
+                            <label id="item3-label" for="item3">Oignons (1 kg)</label>
+                            <span class="item-price">€1.80</span>
+                        </div>
+                        <div class="shopping-item">
+                            <input type="checkbox" id="item4" onchange="handleCheckbox(this, 'item4-label')">
+                            <label id="item4-label" for="item4">Pommes de terre (2 kg)</label>
+                            <span class="item-price">€2.40</span>
+                        </div>
+                        <div class="shopping-item">
+                            <input type="checkbox" id="item5" onchange="handleCheckbox(this, 'item5-label')">
+                            <label id="item5-label" for="item5">Salade feuille de chêne</label>
+                            <span class="item-price">€2.30</span>
+                        </div>
+                    </div>
+
+                    <div class="shopping-category">
+                        <div class="category-title">Viandes & Poisson</div>
+                        <div class="shopping-item">
+                            <input type="checkbox" id="item6" onchange="handleCheckbox(this, 'item6-label')">
+                            <label id="item6-label" for="item6">Poulet fermier (1.5 kg)</label>
+                            <span class="item-price">€9.50</span>
+                        </div>
+                        <div class="shopping-item">
+                            <input type="checkbox" id="item7" onchange="handleCheckbox(this, 'item7-label')">
+                            <label id="item7-label" for="item7">Filet de cabillaud (500g)</label>
+                            <span class="item-price">€8.20</span>
+                        </div>
+                        <div class="shopping-item">
+                            <input type="checkbox" id="item8" onchange="handleCheckbox(this, 'item8-label')">
+                            <label id="item8-label" for="item8">Steak haché (500g)</label>
+                            <span class="item-price">€6.80</span>
+                        </div>
+                    </div>
+
+                    <div class="shopping-category">
+                        <div class="category-title">Produits laitiers & Oeufs</div>
+                        <div class="shopping-item">
+                            <input type="checkbox" id="item9" onchange="handleCheckbox(this, 'item9-label')">
+                            <label id="item9-label" for="item9">Oeufs fermiers (12)</label>
+                            <span class="item-price">€3.50</span>
+                        </div>
+                        <div class="shopping-item">
+                            <input type="checkbox" id="item10" onchange="handleCheckbox(this, 'item10-label')">
+                            <label id="item10-label" for="item10">Yaourt nature (4 pots)</label>
+                            <span class="item-price">€2.40</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: var(--spacing-lg); padding-top: var(--spacing-lg); border-top: 2px solid var(--border-light);">
+                        <button class="btn btn-primary" onclick="showToast('Liste sauvegardée')">Sauvegarder la liste</button>
+                        <button class="btn btn-secondary" onclick="showToast('Liste imprimée')">Imprimer</button>
+                    </div>
+                </div>
+
+                <div class="budget-panel">
+                    <h3 style="margin-bottom: var(--spacing-lg);">Comparateur de prix</h3>
+                    <div class="budget-store">
+                        <div class="store-name">🏪 Carrefour</div>
+                        <div class="store-price">52.99€</div>
+                    </div>
+                    <div class="budget-store">
+                        <div class="store-name">🌿 Marché bio</div>
+                        <div class="store-price">48.50€</div>
+                    </div>
+                    <div class="budget-store">
+                        <div class="store-name">🛒 Monoprix</div>
+                        <div class="store-price">61.20€</div>
+                    </div>
+                    <div style="margin-top: var(--spacing-lg); padding-top: var(--spacing-lg); border-top: 1px solid var(--border-light);">
+                        <div style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: var(--spacing-sm);">Budget recommandé</div>
+                        <div style="font-family: var(--mono); font-size: 1.3rem; font-weight: 700; color: var(--success);">45€ - 55€</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HISTORIQUE SECTION -->
+        <section id="historique">
+            <h2>Historique des menus</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-title">Semaine du 29 mars - 4 avril</div>
+                    <div class="card-text">
+                        <p>Score moyen: <strong>82/100</strong></p>
+                        <p style="margin-top: var(--spacing-sm);">Équilibre très bon avec 4 repas végétariens et une belle variété de protéines.</p>
+                    </div>
+                    <button class="btn btn-secondary btn-small" style="margin-top: var(--spacing-md);" onclick="showToast('Semaine consultée')">Voir détails</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Semaine du 22 - 28 mars</div>
+                    <div class="card-text">
+                        <p>Score moyen: <strong>79/100</strong></p>
+                        <p style="margin-top: var(--spacing-sm);">Bonne semaine avec quelques repas plus légers en protéines.</p>
+                    </div>
+                    <button class="btn btn-secondary btn-small" style="margin-top: var(--spacing-md);" onclick="showToast('Semaine consultée')">Voir détails</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Semaine du 15 - 21 mars</div>
+                    <div class="card-text">
+                        <p>Score moyen: <strong>85/100</strong></p>
+                        <p style="margin-top: var(--spacing-sm);">Excellente semaine! Tous les repas équilibrés et nutritifs.</p>
+                    </div>
+                    <button class="btn btn-secondary btn-small" style="margin-top: var(--spacing-md);" onclick="showToast('Semaine consultée')">Voir détails</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Semaine du 8 - 14 mars</div>
+                    <div class="card-text">
+                        <p>Score moyen: <strong>77/100</strong></p>
+                        <p style="margin-top: var(--spacing-sm);">Semaine correcte avec des variations de qualité nutritionnelle.</p>
+                    </div>
+                    <button class="btn btn-secondary btn-small" style="margin-top: var(--spacing-md);" onclick="showToast('Semaine consultée')">Voir détails</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SANTÉ SECTION -->
+        <section id="sante">
+            <h2>Actualités Santé</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--spacing-lg);">Les dernières recommandations nutritionnelles et alertes alimentaires</p>
+            <div class="grid-3">
+                <div class="card">
+                    <div style="color: var(--warning); font-size: 0.9rem; font-weight: 600; margin-bottom: var(--spacing-sm);">⚠️ ALERTE ANSES</div>
+                    <div class="card-title">Résidus de pesticides</div>
+                    <div class="card-text">
+                        Nouvelle directive sur les seuils de résidus de pesticides dans les produits biologiques.
+                    </div>
+                    <div style="margin-top: var(--spacing-md); font-size: 0.85rem; color: var(--text-muted);">5 avril 2026</div>
+                </div>
+
+                <div class="card">
+                    <div style="color: var(--success); font-size: 0.9rem; font-weight: 600; margin-bottom: var(--spacing-sm);">✓ EFSA</div>
+                    <div class="card-title">Bénéfices des fruits rouges</div>
+                    <div class="card-text">
+                        Nouvelle étude confirmant les propriétés antioxydantes des fruits rouges pour la santé cardiovasculaire.
+                    </div>
+                    <div style="margin-top: var(--spacing-md); font-size: 0.85rem; color: var(--text-muted);">3 avril 2026</div>
+                </div>
+
+                <div class="card">
+                    <div style="color: var(--primary); font-size: 0.9rem; font-weight: 600; margin-bottom: var(--spacing-sm);">📋 RECOMMANDATION</div>
+                    <div class="card-title">Portions de poisson recommandées</div>
+                    <div class="card-text">
+                        Générations Futures renouvelle les recommandations sur les portions optimales de poisson par semaine.
+                    </div>
+                    <div style="margin-top: var(--spacing-md); font-size: 0.85rem; color: var(--text-muted);">1 avril 2026</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about">
+            <h2>À propos de On mange quoi?</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Objectifs</h3>
+                    <div class="card-text">
+                        <p>On mange quoi? aide les familles à planifier des repas équilibrés en tenant compte des préférences et restrictions alimentaires de chaque membre.</p>
+                        <div style="margin-top: var(--spacing-md);">
+                            <span class="pill">Santé</span>
+                            <span class="pill secondary">Famille</span>
+                            <span class="pill">Économies</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Système de score santé</h3>
+                    <div class="card-text">
+                        <p>Chaque repas reçoit un score entre 0 et 100 basé sur :</p>
+                        <ul style="margin-top: var(--spacing-sm); margin-left: var(--spacing-lg);">
+                            <li>Équilibre protéines/glucides/lipides</li>
+                            <li>Présence de fruits et légumes</li>
+                            <li>Apport en fibres et minéraux</li>
+                            <li>Respect des préférences familiales</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Mode Frigo</h3>
+                    <div class="card-text">
+                        <p>Photographiez le contenu de votre frigo et nous vous suggerons des repas basés sur vos ingrédients disponibles. Réduisez le gaspillage tout en mangeant équilibré.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Saisonnalité & Durabilité</h3>
+                    <div class="card-text">
+                        <p>Nos menus privilégient les produits de saison et locaux pour réduire l'empreinte carbone tout en optimisant les coûts et la fraîcheur.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Temps de préparation</h3>
+                    <div class="card-text">
+                        <p>Chaque recette indique le temps estimé de préparation et de cuisson pour mieux planifier votre semaine.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Fiche mémo</h3>
+                    <div class="card-text">
+                        <p>Créez une fiche récapulative imprimable de votre semaine de menus pour la partager avec la famille ou votre assistante.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECIPE GENERATOR SECTION -->
+        <section id="recipes">
+            <h2>🍳 Générateur de recettes</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--spacing-lg);">Une recette saine à partir de ce que tu as dans le frigo — anti-cadmium, anti-mercure, faibles pesticides.</p>
+
+            <div class="card" style="max-width: 600px; margin: 0 auto;">
+                <!-- Ingredients -->
+                <div style="margin-bottom: var(--spacing-lg);">
+                    <label style="display: block; font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--text-dark);">Ce que j'ai dans mon frigo</label>
+                    <textarea placeholder="Ex : poulet, carottes, lentilles corail, oignon…" style="width: 100%; padding: var(--spacing-md); border: 1px solid var(--border-light); border-radius: 6px; font-family: var(--sans); font-size: 1rem; background: var(--bg-accent); color: var(--text-dark); resize: vertical; min-height: 100px; transition: border-color var(--ease);" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border-light)'"></textarea>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: var(--spacing-xs);">Liste tes ingrédients séparés par des virgules</p>
+                </div>
+
+                <!-- Mode toggles -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
+                    <div>
+                        <label style="display: block; font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--text-dark);">Mode de cuisson</label>
+                        <div style="display: flex; gap: var(--spacing-sm);">
+                            <button class="pill pill--active" data-group="mode" data-value="classique" style="flex: 1;">🍳 Classique</button>
+                            <button class="pill" data-group="mode" data-value="thermomix" style="flex: 1;">⚙️ Thermomix</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label style="display: block; font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--text-dark);">Profil</label>
+                        <div style="display: flex; gap: var(--spacing-sm);">
+                            <button class="pill pill--active" data-group="profil" data-value="famille" style="flex: 1;">👨‍👩‍👧 Famille</button>
+                            <button class="pill" data-group="profil" data-value="couple" style="flex: 1; font-size: 0.9rem;">👫 Couple</button>
+                            <button class="pill" data-group="profil" data-value="solo" style="flex: 1;">🧑 Solo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Generate button -->
+                <button class="btn btn-primary" style="width: 100%;" onclick="showToast('Génération en cours...')">Générer une recette</button>
+            </div>
+        </section>
+
+        <!-- MEMO CARD SECTION -->
+        <section id="memo">
+            <h2>📋 Fiche Memo — À limiter / À privilégier</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--spacing-lg);">Votre guide rapide des aliments à limiter et à privilégier</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg); max-width: 1000px; margin: 0 auto;">
+                <!-- À LIMITER -->
+                <div style="background: var(--bg-accent); padding: var(--spacing-lg); border-radius: 12px; border-left: 4px solid var(--warning);">
+                    <h3 style="color: var(--warning); margin-bottom: var(--spacing-md); display: flex; align-items: center; gap: var(--spacing-sm);"><span>⚠️</span> À limiter</h3>
+
+                    <div style="margin-bottom: var(--spacing-lg);">
+                        <div style="font-weight: 600; color: var(--text-dark); margin-bottom: var(--spacing-sm); display: flex; align-items: center; gap: 0.5rem;"><span style="color: #0369A1;">●</span> Cadmium</div>
+                        <ul style="list-style: none; padding-left: var(--spacing-sm); color: var(--text-muted); font-size: 0.95rem;">
+                            <li>• Crustacés d'eau douce</li>
+                            <li>• Certaines algues</li>
+                            <li>• Cacao brut à hauts résidus</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: var(--spacing-lg);">
+                        <div style="font-weight: 600; color: var(--text-dark); margin-bottom: var(--spacing-sm); display: flex; align-items: center; gap: 0.5rem;"><span style="color: #DC2626;">●</span> Mercure</div>
+                        <ul style="list-style: none; padding-left: var(--spacing-sm); color: var(--text-muted); font-size: 0.95rem;">
+                            <li>• Requin, espadon</li>
+                            <li>• Certains gros poissons</li>
+                            <li>• Prédateurs en limite supérieure</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div style="font-weight: 600; color: var(--text-dark); margin-bottom: var(--spacing-sm); display: flex; align-items: center; gap: 0.5rem;"><span style="color: #FBBF24;">●</span> Pesticides</div>
+                        <ul style="list-style: none; padding-left: var(--spacing-sm); color: var(--text-muted); font-size: 0.95rem;">
+                            <li>• Fraises non-bio (résidus élevés)</li>
+                            <li>• Épinards conventionnels</li>
+                            <li>• Pommes non-bio</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- À PRIVILÉGIER -->
+                <div style="background: var(--bg-accent); padding: var(--spacing-lg); border-radius: 12px; border-left: 4px solid var(--success);">
+                    <h3 style="color: var(--success); margin-bottom: var(--spacing-md); display: flex; align-items: center; gap: var(--spacing-sm);"><span>✓</span> À privilégier</h3>
+
+                    <div style="margin-bottom: var(--spacing-lg);">
+                        <div style="font-weight: 600; color: var(--text-dark); margin-bottom: var(--spacing-sm); display: flex; align-items: center; gap: 0.5rem;"><span style="color: #10B981;">●</span> Bio certifiés</div>
+                        <ul style="list-style: none; padding-left: var(--spacing-sm); color: var(--text-muted); font-size: 0.95rem;">
+                            <li>• Fruits et légumes bio</li>
+                            <li>• Céréales bio</li>
+                            <li>• Produits laitiers bio</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: var(--spacing-lg);">
+                        <div style="font-weight: 600; color: var(--text-dark); margin-bottom: var(--spacing-sm); display: flex; align-items: center; gap: 0.5rem;"><span style="color: #059669;">●</span> Poissons maigres</div>
+                        <ul style="list-style: none; padding-left: var(--spacing-sm); color: var(--text-muted); font-size: 0.95rem;">
+                            <li>• Cabillaud, lieu, sole</li>
+                            <li>• Daurade, turbot</li>
+                            <li>• Poissons d'eau froide</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div style="font-weight: 600; color: var(--text-dark); margin-bottom: var(--spacing-sm); display: flex; align-items: center; gap: 0.5rem;"><span style="color: #047857;">●</span> Saisonniers & locaux</div>
+                        <ul style="list-style: none; padding-left: var(--spacing-sm); color: var(--text-muted); font-size: 0.95rem;">
+                            <li>• Marché local</li>
+                            <li>• Circuits courts</li>
+                            <li>• Fruits et légumes de saison</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" style="display: block; margin: var(--spacing-xl) auto 0; padding: var(--spacing-md) var(--spacing-lg);" onclick="showToast('Fiche téléchargée')">⬇️ Télécharger la fiche</button>
+        </section>
+    </main>
+
+    <!-- THEME TOGGLE BUTTON -->
+    <button class="theme-toggle" onclick="toggleTheme()" title="Basculer le thème">🌙</button>
+
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            const html = document.documentElement;
+            const isDark = html.getAttribute('data-theme') === 'dark';
+
+            if (isDark) {
+                html.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                document.querySelector('.theme-toggle').textContent = '🌙';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                document.querySelector('.theme-toggle').textContent = '☀️';
+            }
+        }
+
+        // Load theme preference
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.querySelector('.theme-toggle').textContent = '☀️';
+            }
+        }
+
+        // Handle checkbox interaction
+        function handleCheckbox(checkbox, labelId) {
+            const parent = checkbox.parentElement;
+            if (checkbox.checked) {
+                parent.classList.add('checked');
+            } else {
+                parent.classList.remove('checked');
+            }
+        }
+
+        // Toast notification
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        // Initialize
+        loadTheme();
+    </script>
+</body>
+</html>

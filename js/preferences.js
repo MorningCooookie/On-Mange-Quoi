@@ -4,9 +4,9 @@
  */
 
 async function loadUserPreferences(supabaseClient, userId, profileId) {
-  // Valider les paramètres
+  // Valider les paramètres obligatoires
   if (!supabaseClient || !userId || !profileId) {
-    return { hard_constraints: [], soft_preferences: [] };
+    throw new Error('Invalid input: userId, profileId, and supabaseClient required');
   }
 
   try {
@@ -18,8 +18,7 @@ async function loadUserPreferences(supabaseClient, userId, profileId) {
       .single();
 
     if (error) {
-      console.warn('Préférences non trouvées pour l\'utilisateur:', error);
-      return { hard_constraints: [], soft_preferences: [] };
+      throw new Error(`Failed to load user preferences: ${error.message}`);
     }
 
     return {
@@ -27,8 +26,7 @@ async function loadUserPreferences(supabaseClient, userId, profileId) {
       soft_preferences: data.soft_preferences || []
     };
   } catch (err) {
-    console.error('Erreur lors du chargement des préférences:', err);
-    return { hard_constraints: [], soft_preferences: [] };
+    throw err;
   }
 }
 
@@ -52,6 +50,11 @@ async function saveUserPreferences(supabaseClient, userId, profileId, preference
     throw new Error('Invalid input: userId, profileId, and supabaseClient required');
   }
 
+  // Valider que preferences est un objet
+  if (!preferences || typeof preferences !== 'object') {
+    throw new Error('Invalid input: preferences must be an object');
+  }
+
   try {
     const { data, error } = await supabaseClient
       .from('user_preferences')
@@ -64,12 +67,11 @@ async function saveUserPreferences(supabaseClient, userId, profileId, preference
       }, { onConflict: 'user_id,profile_id' });
 
     if (error) {
-      throw new Error(`Erreur lors de la sauvegarde des préférences: ${error.message}`);
+      throw new Error(`Failed to save user preferences: ${error.message}`);
     }
 
     return data;
   } catch (err) {
-    console.error('Erreur lors de la sauvegarde des préférences:', err);
     throw err;
   }
 }
