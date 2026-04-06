@@ -1,3 +1,14 @@
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
+
+# JS et JSON : pas de cache long pour voir les mises à jour immédiatement
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

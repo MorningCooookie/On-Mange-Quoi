@@ -809,10 +809,14 @@ function renderHistory() {
         renderBudget();
         renderHealthAlerts();
         renderHistoryBanner();
+        // Feedback visuel + navigation vers la section menu
+        const label = isCurrent ? 'Menu en cours chargé' : `Menu du ${formatDateShort(menu.weekStart)} chargé`;
+        showToast(`📅 ${label}`);
+        document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' });
       } catch (err) {
         console.error('Impossible de charger le menu historique :', err);
+        showToast('Impossible de charger ce menu', 'error');
       }
-      document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' });
     });
 
     grid.appendChild(card);
