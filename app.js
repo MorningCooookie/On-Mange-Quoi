@@ -279,6 +279,8 @@ python3 -m http.server 8000</div>
 function renderAll() {
   renderProfileSelectorShopping();
   renderStoreSelectorShopping();
+  renderMobileProfileSelector();
+  renderMobileStoreSelector();
   renderHealthScore();
   renderMenu();
   renderShoppingList();

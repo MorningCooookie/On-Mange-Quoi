@@ -30,7 +30,7 @@
   --r-card: 14px; --r-inner: 8px;
   --shadow: 0 2px 12px rgba(0,0,0,.07);
   --shadow-hover: 0 8px 24px rgba(0,0,0,.14);
-  --bottom-bar-h: 58px;
+  --bottom-bar-h: 96px;
   --font-display: 'Fraunces', Georgia, serif;
   --font-body: 'Work Sans', system-ui, sans-serif;
 
@@ -319,7 +319,29 @@ a { color: inherit; }
     padding: 0;
     box-shadow: 0 -2px 16px rgba(0,0,0,.2);
   }
-  /* Nav row */
+  /* Row 1 : selectors */
+  .bottom-bar-row--selectors {
+    display: flex; align-items: center; gap: .2rem;
+    overflow-x: auto; scrollbar-width: none;
+    justify-content: center;
+    padding: .4rem .4rem;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+    flex-wrap: nowrap;
+  }
+  .bottom-bar-row--selectors::-webkit-scrollbar { display: none; }
+  .bottom-bar .selector-group { display: flex; gap: .2rem; align-items: center; flex-wrap: nowrap; flex-shrink: 0; }
+  .bottom-bar .selector-group label { display: none; }
+  .bottom-bar-sep {
+    width: 1px; height: 18px; background: rgba(255,255,255,.35);
+    flex-shrink: 0; margin: 0 .2rem;
+  }
+  /* Override WCAG 44px — les pills de la barre du bas sont petites par design */
+  .bottom-bar .profile-pill,
+  .bottom-bar .selector-btn {
+    font-size: .72rem; padding: .3rem .6rem; font-weight: 500;
+    min-height: unset; height: auto;
+  }
+  /* Row 2 : nav */
   .bottom-nav-row {
     display: flex; justify-content: space-around;
     padding: .1rem .25rem calc(.1rem + env(safe-area-inset-bottom, 0px));
@@ -729,45 +751,18 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
 }
 
 @media (max-width: 768px) {
-  /* Profil (gauche) | Enseigne (droite) sur une ligne, Actions en dessous */
+  /* Sur mobile : cacher profil/enseigne du toolbar — ils sont dans la barre du bas */
+  .toolbar-left, .toolbar-right { display: none; }
   .shopping-toolbar {
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem 1.5rem;
-    padding: 1rem;
+    grid-template-columns: 1fr;
+    padding: 0.75rem 1rem;
   }
-
-  .toolbar-left  { order: 1; }
-  .toolbar-right { order: 2; }
   .toolbar-center {
-    order: 3;
     grid-column: 1 / -1;
-    gap: 0.8rem;
-  }
-
-  .toolbar-column {
-    gap: 0.5rem;
   }
 
   .shopping-toolbar-title {
     font-size: 0.95rem;
-  }
-
-  .shopping-selector-column {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.3rem;
-  }
-
-  .shopping-selector-column label {
-    flex-basis: 100%;
-  }
-
-  .shopping-selector-column button {
-    flex: 1;
-    min-width: 80px;
-    font-size: 0.75rem;
-    padding: 0.5rem 0.5rem;
-    height: 36px;
   }
 
   .shopping-actions-row {
