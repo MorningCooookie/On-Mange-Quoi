@@ -1,5 +1,23 @@
 # TableSaine — Project Memory
 
+_Last updated: 2026-04-07_
+
+---
+
+## Session du 2026-04-07 — SEO & contenu blog
+
+- FAQ créée : `blog/faq.html` — 10 questions, 3 catégories, schema FAQPage JSON-LD, accordéon JS accessible, lien dans le footer de index.html. (added 2026-04-07)
+- Article cadmium créé : `blog/cadmium-alimentation.html` — données ANSES/EFSA, tableau comparatif par aliment, maillage interne vers mercure + FAQ. (added 2026-04-07)
+- Article mercure créé : `blog/mercure-poissons.html` — tableau par espèce avec niveaux avoid/limit/ok, recommandations par profil (enceintes, enfants, adultes), callout bio/mercure. (added 2026-04-07)
+- Prochain article prévu : pesticides dans les fruits et légumes (classement EWG + données EFSA). (added 2026-04-07)
+- `sitemap.xml` créé avec toutes les pages publiques. (added 2026-04-07)
+- `robots.txt` créé, pointe vers le sitemap. (added 2026-04-07)
+- Décision : "validés ANSES/EFSA" remplacé par "selon les recommandations ANSES/EFSA" partout dans index.html et blog/ — risque légal évité. (added 2026-04-07)
+- Règle contenu : aucun tiret séparateur (—), pas de tournures IA, humanizer appliqué à tous les textes visibles. (added 2026-04-07)
+- Audience FAQ élargie : textes reformulés pour ne pas cibler uniquement les familles ("que vous cuisiniez pour un, deux ou toute une tablée"). (added 2026-04-07)
+- À faire côté technique (Claude Code) : fix auth Supabase, Stripe, features premium à 4,99€/mois. (added 2026-04-07)
+- Prochaine étape SEO : déclarer sitemap dans Google Search Console. (added 2026-04-07)
+
 ---
 
 ## CEO Review: Monetization Opportunities (2026-04-03)
