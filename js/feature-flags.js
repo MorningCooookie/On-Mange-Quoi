@@ -8,13 +8,16 @@ const FEATURE_FLAGS = {
 };
 
 function initializeFeatureFlags() {
-  // Check URL parameter for dev mode (e.g., ?dev=true)
+  // Active subscription = premium features enabled
+  if (window.isPremium === true) {
+    FEATURE_FLAGS.PREFERENCES_FEATURE_ENABLED = true;
+  }
+
+  // Dev mode override (URL param ou localStorage)
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get('dev') === 'true') {
     FEATURE_FLAGS.PREFERENCES_FEATURE_ENABLED = true;
   }
-
-  // Check localStorage for persistent dev flag
   if (localStorage.getItem('dev-mode') === 'true') {
     FEATURE_FLAGS.PREFERENCES_FEATURE_ENABLED = true;
   }

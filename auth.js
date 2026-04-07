@@ -4,7 +4,21 @@
 // Simplified auth module that works with window.supabaseClient
 // initialized in index.html
 
-function updateAuthUI(session) {
+async function checkSubscription(userId) {
+  if (!window.supabaseClient || !userId) return false;
+  try {
+    const { data } = await window.supabaseClient
+      .from('subscriptions')
+      .select('status')
+      .eq('user_id', userId)
+      .single();
+    return data?.status === 'active';
+  } catch {
+    return false;
+  }
+}
+
+async function updateAuthUI(session) {
   const authButtons = document.getElementById('auth-button-group');
   const userMenu = document.getElementById('user-menu-header');
   const userEmail = document.getElementById('user-email-header');
@@ -26,10 +40,13 @@ function updateAuthUI(session) {
       userEmail.textContent = 'Mon compte';
       userEmail.style.cursor = 'pointer';
     }
-    // Populate email in dropdown
     if (emailDropdown) {
       emailDropdown.textContent = session.user.email;
     }
+
+    // Check premium subscription status
+    window.isPremium = await checkSubscription(session.user.id);
+    window.currentUserId = session.user.id;
 
     // Initialize profile management
     if (typeof ProfileManager !== 'undefined') {

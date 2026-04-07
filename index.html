@@ -1068,6 +1068,46 @@
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeUpgradeModal();
     });
+
+    async function startCheckout() {
+      const userId = window.currentUserId;
+      if (!userId) {
+        document.getElementById('signup-modal').style.display = 'flex';
+        document.getElementById('signup-email').focus();
+        return;
+      }
+      if (window.isPremium) {
+        showToast('Déjà Premium', 'Vous bénéficiez déjà de l\'offre Premium.', 'success');
+        return;
+      }
+      const btn = document.querySelector('.btn-pricing-cta');
+      if (btn) { btn.disabled = true; btn.textContent = 'Redirection…'; }
+      try {
+        const res = await fetch('/.netlify/functions/create-checkout-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ userId })
+        });
+        const { sessionId, error } = await res.json();
+        if (error) throw new Error(error);
+        const stripe = Stripe('pk_live_51TEo6ARSlTwKkI4xVuOB4z3b6IC3QnwsVYypBLSP2gxxW5t2EZBN4FZmD5rB6N08lRyP3njybKyphjwD6yLInXre00FUl5vZrY');
+        await stripe.redirectToCheckout({ sessionId });
+      } catch (err) {
+        showToast('Erreur', 'Impossible de lancer le paiement. Réessayez.', 'error');
+        if (btn) { btn.disabled = false; btn.textContent = 'Passer Premium — 4,99 €/mois'; }
+      }
+    }
+
+    (function handlePaymentReturn() {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('payment') === 'success') {
+        window.history.replaceState({}, '', window.location.pathname + window.location.hash);
+        setTimeout(() => showToast('Bienvenue en Premium !', 'Votre abonnement est actif. Rechargez la page pour accéder aux fonctionnalités.', 'success'), 800);
+      }
+      if (params.get('payment') === 'canceled') {
+        window.history.replaceState({}, '', window.location.pathname + window.location.hash);
+      }
+    })();
   </script>
 
   <!-- Supabase client library -->

@@ -40,7 +40,7 @@ exports.handler = async (event, context) => {
     if (stripeEvent.type === 'customer.subscription.created') {
       const subscription = stripeEvent.data.object;
 
-      const { data: customer } = await stripe.customers.retrieve(subscription.customer);
+      const customer = await stripe.customers.retrieve(subscription.customer);
       const userId = customer.metadata?.supabase_user_id;
 
       if (userId) {
@@ -68,7 +68,7 @@ exports.handler = async (event, context) => {
     if (stripeEvent.type === 'customer.subscription.updated') {
       const subscription = stripeEvent.data.object;
 
-      const { data: customer } = await stripe.customers.retrieve(subscription.customer);
+      const customer = await stripe.customers.retrieve(subscription.customer);
       const userId = customer.metadata?.supabase_user_id;
 
       if (userId) {
@@ -102,7 +102,7 @@ exports.handler = async (event, context) => {
     if (stripeEvent.type === 'customer.subscription.deleted') {
       const subscription = stripeEvent.data.object;
 
-      const { data: customer } = await stripe.customers.retrieve(subscription.customer);
+      const customer = await stripe.customers.retrieve(subscription.customer);
       const userId = customer.metadata?.supabase_user_id;
 
       if (userId) {
