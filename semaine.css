@@ -206,6 +206,20 @@ body {
 
 .semaine-btn--share:hover { background: var(--green-light); }
 
+/* Bouton retour — bordure verte, texte vert, hover inversé */
+.semaine-btn--back {
+  background: var(--card-bg);
+  border-color: var(--green);
+  color: var(--green);
+  font-weight: 700;
+}
+
+.semaine-btn--back:hover {
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+}
+
 /* ── Error state ────────────────────────────────────────── */
 .semaine-error {
   text-align: center;
