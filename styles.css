@@ -1064,6 +1064,10 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
   border-radius: var(--r-inner); padding: 1rem 1.1rem;
   font-size: 0.88rem; line-height: 1.6; color: #E0E7FF;
 }
+.health-news-item.conflict-alert {
+  background: rgba(230, 124, 115, 0.15); border-color: rgba(230, 124, 115, 0.35);
+  color: #FFB4A1;
+}
 .health-sources { margin-top: .65rem; font-size: .7rem; color: rgba(255,255,255,.38); }
 .health-sources a { color: rgba(255,255,255,.55); }
 

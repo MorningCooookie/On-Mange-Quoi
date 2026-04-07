@@ -8,19 +8,20 @@ const FEATURE_FLAGS = {
 };
 
 function initializeFeatureFlags() {
-  // Active subscription = premium features enabled
-  if (window.isPremium === true) {
-    FEATURE_FLAGS.PREFERENCES_FEATURE_ENABLED = true;
-  }
+  // TEMPORARILY DISABLED: Feature not production-ready yet
+  // Re-enable by uncommenting the lines below when ready to launch as premium feature
 
-  // Dev mode override (URL param ou localStorage)
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get('dev') === 'true') {
-    FEATURE_FLAGS.PREFERENCES_FEATURE_ENABLED = true;
-  }
-  if (localStorage.getItem('dev-mode') === 'true') {
-    FEATURE_FLAGS.PREFERENCES_FEATURE_ENABLED = true;
-  }
+  // if (window.isPremium === true) {
+  //   FEATURE_FLAGS.PREFERENCES_FEATURE_ENABLED = true;
+  // }
+  //
+  // const urlParams = new URLSearchParams(window.location.search);
+  // if (urlParams.get('dev') === 'true') {
+  //   FEATURE_FLAGS.PREFERENCES_FEATURE_ENABLED = true;
+  // }
+  // if (localStorage.getItem('dev-mode') === 'true') {
+  //   FEATURE_FLAGS.PREFERENCES_FEATURE_ENABLED = true;
+  // }
 }
 
 function toggleDevMode() {

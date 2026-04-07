@@ -415,23 +415,36 @@ function renderMenu() {
     currentPreferences = PreferenceManager.getPreferences(state.supabaseProfileId);
   }
 
-  // Apply preference substitution if premium feature is enabled
-  if (currentPreferences && typeof ProfileManager !== 'undefined' && ProfileManager.isSubscribed && typeof PreferenceSubstitution !== 'undefined') {
-    // Check if user has any preferences set
-    if (currentPreferences.allergies?.length || currentPreferences.restrictions?.length || currentPreferences.dislikes?.length) {
-      // Apply substitution (applySubstitutions handles deep copy internally)
-      PreferenceSubstitution.applySubstitutions(state.menuData, state.supabaseProfileId).then(result => {
-        state.menuData = result.menu; // Update menu with substitutions
-        if (result.alerts?.length) {
-          PreferenceSubstitution.displayAlerts(result.alerts);
-        }
-        console.log(`✨ Applied ${result.substitutionCount} preference substitutions`);
-        renderMenu(); // Re-render with substituted menu
-      }).catch(err => {
-        console.error('Preference substitution error:', err);
-        renderMenu(); // Fallback: render original menu
+  // Check if user has preferences set
+  const hasPreferences = currentPreferences && (currentPreferences.allergies?.length || currentPreferences.restrictions?.length || currentPreferences.dislikes?.length);
+
+  // Apply preference substitution if feature is enabled
+  if (hasPreferences && window.FEATURE_FLAGS?.PREFERENCES_FEATURE_ENABLED && typeof ProfileManager !== 'undefined' && ProfileManager.isSubscribed && typeof PreferenceSubstitution !== 'undefined') {
+    // Apply substitution (applySubstitutions handles deep copy internally)
+    PreferenceSubstitution.applySubstitutions(state.menuData, state.supabaseProfileId).then(result => {
+      state.menuData = result.menu; // Update menu with substitutions
+      if (result.alerts?.length) {
+        PreferenceSubstitution.displayAlerts(result.alerts);
+      }
+      console.log(`✨ Applied ${result.substitutionCount} preference substitutions`);
+      renderMenu(); // Re-render with substituted menu
+    }).catch(err => {
+      console.error('Preference substitution error:', err);
+      renderMenu(); // Fallback: render original menu
+    });
+    return; // Exit early, renderMenu will be called again after substitution
+  }
+
+  // If preferences are set but feature is disabled, show a simple message instead
+  if (hasPreferences && !window.FEATURE_FLAGS?.PREFERENCES_FEATURE_ENABLED) {
+    if (!state.menuData.healthAlerts) state.menuData.healthAlerts = [];
+    // Check if we already added the conflict message
+    const hasConflictMessage = state.menuData.healthAlerts.some(a => a.type === 'conflict');
+    if (!hasConflictMessage) {
+      state.menuData.healthAlerts.unshift({
+        type: 'conflict',
+        message: '⚠️ Ce menu ne correspond pas entièrement à vos préférences personnelles. Cette fonctionnalité est en cours de développement.'
       });
-      return; // Exit early, renderMenu will be called again after substitution
     }
   }
 
@@ -847,10 +860,21 @@ function renderHealthAlerts() {
   if (!container || !state.menuData) return;
   container.innerHTML = '';
 
-  (state.menuData.healthAlerts?.news || []).forEach(item => {
+  const alerts = state.menuData.healthAlerts || [];
+  alerts.forEach(alert => {
     const el = document.createElement('div');
     el.className = 'health-news-item';
-    el.textContent = item;
+
+    // Handle both formats: { type, message } objects and plain strings
+    if (typeof alert === 'string') {
+      el.textContent = alert;
+    } else if (alert.type === 'conflict') {
+      el.className += ' conflict-alert';
+      el.innerHTML = `<strong>⚠️ Attention</strong><br>${alert.message}`;
+    } else {
+      el.textContent = alert.message || String(alert);
+    }
+
     container.appendChild(el);
   });
 }
