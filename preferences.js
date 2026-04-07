@@ -23,8 +23,8 @@ const PreferenceManager = {
   RESTRICTIONS: [
     'Végétalien',
     'Végétarien',
-    'Cachère',
-    'Halal',
+    // 'Cachère',  // temporairement masqué
+    // 'Halal',   // temporairement masqué
     'Faible en sel',
     'Faible en sucre'
   ],
