@@ -191,8 +191,6 @@ class SubstitutionHandler {
         });
       }
     });
-
-    console.log(`📋 Rendered modal with ${conflicts.length} conflicts`);
   }
 
   /**
@@ -256,8 +254,6 @@ class SubstitutionHandler {
     let appliedCount = 0;
     const saveErrors = [];
 
-    console.log('💾 Saving substitution selections...');
-
     // Save each selection to database (sequentially to track errors)
     for (const [originalName, selectedName] of Object.entries(this.selections)) {
       if (!selectedName || selectedName === originalName) continue; // Skip if no change
@@ -281,8 +277,6 @@ class SubstitutionHandler {
         saveErrors.push(originalName);
       }
     }
-
-    console.log(`✅ Saved ${appliedCount} substitutions`);
 
     // Update local menu data with the selections
     this.updateMenuDisplay();
@@ -350,8 +344,6 @@ class SubstitutionHandler {
         }
       });
     });
-
-    console.log(`🔄 Updated ${updateCount} meals in menu display`);
   }
 
   /**
@@ -361,7 +353,6 @@ class SubstitutionHandler {
     const modal = document.getElementById('substitution-modal');
     if (modal) {
       modal.remove();
-      console.log('✅ Modal closed');
     }
   }
 }
@@ -370,9 +361,7 @@ class SubstitutionHandler {
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     window.substitutionHandler = new SubstitutionHandler();
-    console.log('✅ SubstitutionHandler initialized');
   });
 } else {
   window.substitutionHandler = new SubstitutionHandler();
-  console.log('✅ SubstitutionHandler initialized');
 }
