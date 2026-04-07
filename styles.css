@@ -1753,31 +1753,8 @@ textarea:focus {
 
 .btn-upgrade-later:hover { color: var(--text); }
 
-/* ── Premium header button ─────────────────────────────────── */
-.btn-premium-header {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  padding: 0.3rem 0.75rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  color: rgba(255, 255, 255, 0.9);
-  background: transparent;
-  font-family: var(--font-body);
-  font-size: var(--header-nav-text-size);
-  font-weight: 600;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
-  flex-shrink: 0;
-}
-
-.btn-premium-header:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.75);
+/* ── Premium nav link ─────────────────────────────────── */
+.nav-link--premium {
   color: #fff;
-}
-
-@media (max-width: 767px) {
-  .btn-premium-header { display: none; }
+  font-weight: 600;
 }

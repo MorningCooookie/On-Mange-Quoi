@@ -46,15 +46,13 @@
         <a class="nav-link" href="#cadmium">Veille santé</a>
         <a class="nav-link" href="fiche.html">Fiche mémo</a>
         <a class="nav-link" href="recettes.html">Recettes</a>
+        <a class="nav-link nav-link--premium" href="#premium">Premium</a>
       </nav>
 
       <!-- Fix preferences button — PREMIUM FEATURE -->
       <button id="fix-preferences-btn" class="fix-preferences-btn" aria-label="Fix your dietary preferences" style="display:none;">
         ⚠️ Fix preferences
       </button>
-
-      <!-- Premium CTA — toujours visible -->
-      <a href="#premium" class="btn-premium-header">✨ Premium</a>
 
       <!-- User account button (top right) -->
       <div class="header-account">
@@ -671,7 +669,6 @@
 
     // Global signup/login functions (moved from auth.js to ensure they're available)
     async function handleSignup() {
-      console.log('handleSignup called');
       const email = document.getElementById('signup-email').value.trim();
       const password = document.getElementById('signup-password').value;
       const signupBtn = document.getElementById('btn-signup');
@@ -719,7 +716,6 @@
     }
 
     async function handleLogin() {
-      console.log('handleLogin called');
       const email = document.getElementById('login-email').value.trim();
       const password = document.getElementById('login-password').value;
       const loginBtn = document.getElementById('btn-login');
@@ -954,7 +950,7 @@
       <!-- Premium -->
       <section class="section" id="premium" aria-labelledby="premium-heading">
         <h2 class="section-title" id="premium-heading">
-          <span>✨</span> Aller plus loin
+          Nos formules
         </h2>
         <div class="pricing-grid">
 
