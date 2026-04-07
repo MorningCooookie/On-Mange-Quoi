@@ -632,15 +632,18 @@ function normalizeItem(raw) {
 
 // ── Shopping list category sort order ──────────────────────
 const CATEGORY_SORT_ORDER = {
-  // Group 1: Fruits & Vegetables (priority)
+  // Group 1: Fruits & Vegetables (priority - FIRST)
   'Fruits': 0,
   'Légumes': 1,
+  'Légumes de saison': 1,
   'Fruits et légumes': 2,
   'Fresh produce': 3,
+  'Produits frais': 1,
 
   // Group 2: Proteins
   'Viandes': 10,
   'Poissons': 11,
+  'Poissons & fruits de mer': 11,
   'Œufs': 12,
   'Proteins': 13,
 
@@ -652,6 +655,8 @@ const CATEGORY_SORT_ORDER = {
   // Group 4: Pantry & Dry Goods
   'Féculents': 30,
   'Pâtes et riz': 31,
+  'Légumineuses & céréales': 31,
+  'Épicerie': 32,
   'Pantry': 32,
   'Épices': 33,
   'Condiments': 34,
@@ -1149,8 +1154,253 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = `semaine.html?week=${week}`;
   });
 
+  // Initialize feedback system
+  initWeeklyCheckin();
+  restoreMealRatings();
+
   loadData();
 });
+
+// ============================================
+// FEEDBACK SYSTEM — localStorage Utilities
+// ============================================
+
+const FEEDBACK_STORAGE = {
+  // Get current week start date (Monday) in YYYY-MM-DD format
+  getWeekStart: () => {
+    const today = new Date();
+    const day = today.getDay();
+    const diff = today.getDate() - day + (day === 0 ? -6 : 1); // Adjust when day is Sunday
+    const monday = new Date(today.setDate(diff));
+    return monday.toISOString().split('T')[0];
+  },
+
+  // Save meal rating to localStorage
+  saveMealRating: (mealId, rating) => {
+    const key = `meal_feedback_${FEEDBACK_STORAGE.getWeekStart()}_${mealId}`;
+    const value = {
+      rating: parseInt(rating),
+      timestamp: Date.now(),
+      context: null // Will be updated if user provides context
+    };
+    localStorage.setItem(key, JSON.stringify(value));
+  },
+
+  // Get meal rating from localStorage
+  getMealRating: (mealId) => {
+    const key = `meal_feedback_${FEEDBACK_STORAGE.getWeekStart()}_${mealId}`;
+    const stored = localStorage.getItem(key);
+    return stored ? JSON.parse(stored) : null;
+  },
+
+  // Save meal context (reasons why meal didn't work)
+  saveMealContext: (mealId, reasons, comment) => {
+    const key = `meal_feedback_${FEEDBACK_STORAGE.getWeekStart()}_${mealId}`;
+    const existing = FEEDBACK_STORAGE.getMealRating(mealId) || {};
+    const updated = {
+      ...existing,
+      context: {
+        reasons, // Array: ["too-long", "not-good", etc.]
+        comment, // Optional user comment
+        timestamp: Date.now()
+      }
+    };
+    localStorage.setItem(key, JSON.stringify(updated));
+  },
+
+  // Save weekly feedback
+  saveWeeklyFeedback: (mealsCooked) => {
+    const weekStart = FEEDBACK_STORAGE.getWeekStart();
+    const key = `weekly_feedback_${weekStart}`;
+    const value = {
+      mealsCooked, // "1-3", "4-6", "7+"
+      timestamp: Date.now()
+    };
+    localStorage.setItem(key, JSON.stringify(value));
+    localStorage.setItem(`lastWeeklyPrompt_${weekStart}`, Date.now().toString());
+  },
+
+  // Get weekly feedback if it exists
+  getWeeklyFeedback: () => {
+    const key = `weekly_feedback_${FEEDBACK_STORAGE.getWeekStart()}`;
+    const stored = localStorage.getItem(key);
+    return stored ? JSON.parse(stored) : null;
+  },
+
+  // Check if weekly prompt was already shown this week
+  isWeeklyPromptShown: () => {
+    const weekStart = FEEDBACK_STORAGE.getWeekStart();
+    const key = `lastWeeklyPrompt_${weekStart}`;
+    return localStorage.getItem(key) !== null;
+  }
+};
+
+// ============================================
+// FEEDBACK SYSTEM — Event Handlers
+// ============================================
+
+document.addEventListener('click', (e) => {
+  // Handle emoji rating button clicks
+  if (e.target.classList.contains('emoji-btn')) {
+    const btn = e.target;
+    const rating = btn.dataset.rating;
+    const mealCard = btn.closest('[data-meal-id]');
+    const mealId = mealCard.dataset.mealId;
+
+    // Save rating to localStorage
+    FEEDBACK_STORAGE.saveMealRating(mealId, rating);
+
+    // Update UI: highlight selected emoji
+    const allEmojis = mealCard.querySelectorAll('.emoji-btn');
+    allEmojis.forEach((emoji) => emoji.classList.remove('selected'));
+    btn.classList.add('selected');
+
+    // Show context prompt if rating is negative (1 or 2)
+    if (parseInt(rating) <= 2) {
+      const contextPrompt = mealCard.querySelector('.meal-feedback-context');
+      contextPrompt.style.display = 'block';
+      
+      // Auto-hide after 30 seconds if no interaction
+      setTimeout(() => {
+        if (contextPrompt.style.display !== 'none') {
+          contextPrompt.style.display = 'none';
+        }
+      }, 30000);
+    }
+  }
+
+  // Handle context reason selection
+  if (e.target.classList.contains('feedback-option')) {
+    const option = e.target;
+    option.classList.toggle('selected');
+
+    // If "Autre" is selected, show textarea
+    const mealCard = option.closest('[data-meal-id]');
+    const textarea = mealCard.querySelector('.feedback-comment');
+    
+    if (option.dataset.reason === 'other') {
+      textarea.style.display = 'block';
+    } else {
+      // Hide textarea if a different option is selected
+      if (!mealCard.querySelector('.feedback-option[data-reason="other"].selected')) {
+        textarea.style.display = 'none';
+      }
+    }
+  }
+
+  // Handle feedback submission
+  if (e.target.classList.contains('feedback-submit')) {
+    const mealCard = e.target.closest('[data-meal-id]');
+    const mealId = mealCard.dataset.mealId;
+    const selectedReasons = Array.from(mealCard.querySelectorAll('.feedback-option.selected'))
+      .map(opt => opt.dataset.reason);
+    const comment = mealCard.querySelector('.feedback-comment').value || '';
+
+    // Save context
+    FEEDBACK_STORAGE.saveMealContext(mealId, selectedReasons, comment);
+
+    // Hide context prompt
+    const contextPrompt = mealCard.querySelector('.meal-feedback-context');
+    contextPrompt.style.display = 'none';
+
+    // Reset options
+    mealCard.querySelectorAll('.feedback-option').forEach(opt => opt.classList.remove('selected'));
+    mealCard.querySelector('.feedback-comment').value = '';
+    mealCard.querySelector('.feedback-comment').style.display = 'none';
+  }
+
+  // Handle "Non, merci" button
+  if (e.target.classList.contains('feedback-close')) {
+    const mealCard = e.target.closest('[data-meal-id]');
+    const contextPrompt = mealCard.querySelector('.meal-feedback-context');
+    contextPrompt.style.display = 'none';
+  }
+
+  // Handle weekly checkin option clicks
+  if (e.target.classList.contains('checkin-option')) {
+    const btn = e.target;
+    const mealsCooked = btn.dataset.meals;
+
+    // Save weekly feedback
+    FEEDBACK_STORAGE.saveWeeklyFeedback(mealsCooked);
+
+    // Update UI: highlight selected option
+    const allOptions = document.querySelectorAll('.checkin-option');
+    allOptions.forEach(opt => opt.classList.remove('selected'));
+    btn.classList.add('selected');
+
+    // Show thank you message
+    const checkinCard = btn.closest('.checkin-card');
+    const prompt = checkinCard.querySelector('.checkin-prompt');
+    prompt.textContent = 'Merci pour vos retours!';
+    prompt.classList.add('checkin-thanks');
+
+    // Collapse checkin after 2 seconds
+    setTimeout(() => {
+      const section = checkinCard.closest('.weekly-checkin');
+      section.style.display = 'none';
+    }, 2000);
+  }
+});
+
+// ============================================
+// FEEDBACK SYSTEM — Restore State & Init
+// ============================================
+
+// Restore previous meal ratings from localStorage
+function restoreMealRatings() {
+  const weekStart = FEEDBACK_STORAGE.getWeekStart();
+  
+  // Find all meal cards and check if they have stored ratings
+  document.querySelectorAll('[data-meal-id]').forEach(mealCard => {
+    const mealId = mealCard.dataset.mealId;
+    const feedback = FEEDBACK_STORAGE.getMealRating(mealId);
+    
+    if (feedback && feedback.rating) {
+      // Highlight the previously selected emoji
+      const rating = feedback.rating;
+      const emojiBtns = mealCard.querySelectorAll('.emoji-btn');
+      emojiBtns.forEach((btn, idx) => {
+        if (parseInt(btn.dataset.rating) === rating) {
+          btn.classList.add('selected');
+        }
+      });
+
+      // If context was saved, show it
+      if (feedback.context && feedback.context.reasons.length > 0) {
+        const contextPrompt = mealCard.querySelector('.meal-feedback-context');
+        contextPrompt.style.display = 'block';
+        
+        // Re-select the reasons that were previously chosen
+        feedback.context.reasons.forEach(reason => {
+          const optionBtn = contextPrompt.querySelector(`[data-reason="${reason}"]`);
+          if (optionBtn) {
+            optionBtn.classList.add('selected');
+          }
+        });
+
+        // Restore comment if it exists
+        if (feedback.context.comment) {
+          const textarea = contextPrompt.querySelector('.feedback-comment');
+          textarea.value = feedback.context.comment;
+          if (feedback.context.reasons.includes('other')) {
+            textarea.style.display = 'block';
+          }
+        }
+      }
+    }
+  });
+}
+
+// Hide weekly checkin if already submitted this week
+function initWeeklyCheckin() {
+  if (FEEDBACK_STORAGE.isWeeklyPromptShown()) {
+    const checkinSection = document.querySelector('.weekly-checkin');
+    if (checkinSection) {
+      checkinSection.style.display = 'none';
+    }
+  }
+}
 
 // ============================================
 // MENU FILTERING — Dietary Personalization
