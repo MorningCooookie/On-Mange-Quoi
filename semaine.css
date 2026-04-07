@@ -18,6 +18,9 @@
   --score-a: #1B4332;
   --score-b: #1E3A5F;
   --score-c: #92400E;
+  --risk-low: #16A34A;
+  --risk-medium: #CA8A04;
+  --risk-high: #DC2626;
 }
 
 html { font-size: 16px; }
@@ -264,4 +267,54 @@ body {
   color: var(--text-muted);
   font-size: .9rem;
   padding: 2.5rem 1rem;
+}
+
+/* ── Health Legend ──────────────────────────────────────── */
+.health-legend {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  opacity: 0.8;
+}
+
+.health-legend__title {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.health-legend__items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-label {
+  color: var(--text);
+}
+
+/* Mobile: Horizontal layout above 640px */
+@media (min-width: 640px) {
+  .health-legend__items {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
 }
