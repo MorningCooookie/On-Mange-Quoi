@@ -812,32 +812,7 @@ function renderHistory() {
       ${scoreHtml}
       <div class="history-card-title">${menu.label}</div>
       <ul class="history-highlights">${hlHtml}</ul>
-      <a class="history-view-btn" href="#menu">Voir ce menu →</a>`;
-
-    card.querySelector('.history-view-btn').addEventListener('click', async e => {
-      e.preventDefault();
-      // Charger le JSON du menu sélectionné dans state.menuData
-      try {
-        const res = await fetch(menu.file);
-        if (!res.ok) throw new Error('Fichier introuvable');
-        state.menuData = await res.json();
-        state.isViewingCurrentMenu = isCurrent;
-        // Re-rendre tout ce qui dépend de menuData
-        renderMenu();
-        renderShoppingList();
-        updateFridgeBar();
-        renderBudget();
-        renderHealthAlerts();
-        renderHistoryBanner();
-        // Feedback visuel + navigation vers la section menu
-        const label = isCurrent ? 'Menu en cours chargé' : `Menu du ${formatDateShort(menu.weekStart)} chargé`;
-        showToast(`📅 ${label}`);
-        document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' });
-      } catch (err) {
-        console.error('Impossible de charger le menu historique :', err);
-        showToast('Impossible de charger ce menu', 'error');
-      }
-    });
+      <a class="history-view-btn" href="semaine.html?week=${menu.weekStart}">Voir ce menu →</a>`;
 
     grid.appendChild(card);
   });
