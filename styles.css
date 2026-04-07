@@ -1290,7 +1290,7 @@ textarea:focus {
 }
 
 .modal-content {
-  background-color: #fafaf9;
+  background-color: var(--white);
   border-radius: 12px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
   max-width: 600px;
@@ -1307,7 +1307,7 @@ textarea:focus {
 
 .modal-header {
   padding: 1.5rem;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid var(--border);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1316,7 +1316,7 @@ textarea:focus {
 .modal-header h2 {
   margin: 0;
   font-size: 1.5rem;
-  color: #1f1f1f;
+  color: var(--text);
 }
 
 .modal-close {
@@ -1324,7 +1324,7 @@ textarea:focus {
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #999;
+  color: var(--text-secondary);
   padding: 0;
   width: 2rem;
   height: 2rem;
@@ -1335,7 +1335,8 @@ textarea:focus {
 }
 
 .modal-close:hover {
-  color: #666;
+  color: var(--text);
+  opacity: 0.7;
 }
 
 .modal-body {
@@ -1345,7 +1346,7 @@ textarea:focus {
 
 .modal-intro {
   margin: 0 0 1.5rem 0;
-  color: #666;
+  color: var(--text-secondary);
   font-size: 0.95rem;
   line-height: 1.5;
 }
@@ -1357,10 +1358,10 @@ textarea:focus {
 }
 
 .conflict-item {
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 1rem;
-  background-color: #fff;
+  background-color: var(--white);
 }
 
 .conflict-original {
@@ -1372,7 +1373,7 @@ textarea:focus {
 
 .conflict-original strong {
   font-size: 0.95rem;
-  color: #1f1f1f;
+  color: var(--text);
 }
 
 .conflict-badge {
@@ -1387,35 +1388,35 @@ textarea:focus {
 
 .conflict-select label {
   font-size: 0.85rem;
-  color: #666;
+  color: var(--text-secondary);
   font-weight: 500;
 }
 
 .substitution-select {
   padding: 0.75rem;
-  border: 1px solid #d0d0d0;
+  border: 1px solid var(--border);
   border-radius: 6px;
   font-size: 0.9rem;
   font-family: 'Work Sans', system-ui, sans-serif;
-  color: #1f1f1f;
-  background-color: #fff;
+  color: var(--text);
+  background-color: var(--white);
   cursor: pointer;
   transition: border-color 0.2s;
 }
 
 .substitution-select:hover {
-  border-color: #2d7a3c;
+  border-color: var(--header-from);
 }
 
 .substitution-select:focus {
   outline: none;
-  border-color: #2d7a3c;
-  box-shadow: 0 0 0 3px rgba(45, 122, 60, 0.1);
+  border-color: var(--header-from);
+  box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.1);
 }
 
 .modal-footer {
   padding: 1.5rem;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid var(--border);
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
@@ -1433,23 +1434,24 @@ textarea:focus {
 }
 
 .btn-primary {
-  background-color: #2d7a3c;
+  background-color: var(--header-from);
   color: white;
 }
 
 .btn-primary:hover {
-  background-color: #1f5627;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(45, 122, 60, 0.3);
+  background-color: #0d3219;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(27, 67, 50, 0.3);
 }
 
 .btn-secondary {
-  background-color: #e5e5e5;
-  color: #1f1f1f;
+  background-color: var(--border);
+  color: var(--text);
 }
 
 .btn-secondary:hover {
-  background-color: #d0d0d0;
+  background-color: #d0cfc8;
+  opacity: 0.8;
 }
 
 /* Mobile responsive */

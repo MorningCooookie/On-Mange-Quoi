@@ -34,7 +34,9 @@ class SubstitutionHandler {
         typeof PreferenceSubstitution !== 'undefined' &&
         PreferenceSubstitution.allMeals &&
         PreferenceSubstitution.allMeals.length > 0 &&
-        typeof PreferenceManager !== 'undefined'
+        typeof PreferenceManager !== 'undefined' &&
+        typeof showToast === 'function' &&
+        window.app
       ) {
         this.isInitialized = true;
         console.log('✅ SubstitutionHandler dependencies ready');
@@ -44,7 +46,15 @@ class SubstitutionHandler {
       attempts++;
     }
 
-    console.warn('⚠️ SubstitutionHandler timed out waiting for dependencies');
+    // Log specific missing dependencies for debugging
+    const missingDeps = [];
+    if (typeof PreferenceSubstitution === 'undefined') missingDeps.push('PreferenceSubstitution');
+    if (!PreferenceSubstitution?.allMeals?.length > 0) missingDeps.push('PreferenceSubstitution.allMeals');
+    if (typeof PreferenceManager === 'undefined') missingDeps.push('PreferenceManager');
+    if (typeof showToast !== 'function') missingDeps.push('showToast');
+    if (!window.app) missingDeps.push('window.app');
+
+    console.warn('⚠️ SubstitutionHandler timed out. Missing:', missingDeps.join(', '));
   }
 
   setupEventListeners() {
@@ -230,6 +240,14 @@ class SubstitutionHandler {
    * Apply user selections: save to DB and update menu
    */
   async applySelections() {
+    // Check if required functions are available
+    if (typeof showToast !== 'function') {
+      console.error('showToast function not available');
+      alert('Erreur: Système de notification non disponible');
+      this.closeModal();
+      return;
+    }
+
     if (!window.app || !window.app.state || !window.app.renderMenu) {
       console.warn('App context not available');
       showToast('Erreur', 'Impossible d\'appliquer les changements', 'error');
