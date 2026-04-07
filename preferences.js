@@ -10,13 +10,13 @@ const PreferenceManager = {
 
   // Fixed preference options (UI dropdowns)
   ALLERGIES: [
-    'Dairy',
+    'Produits laitiers',
     'Gluten',
-    'Eggs',
-    'Peanuts',
-    'Tree nuts',
-    'Shellfish',
-    'Sesame',
+    'Œufs',
+    'Arachides',
+    'Fruits à coque',
+    'Fruits de mer',
+    'Sésame',
     'Sulfites'
   ],
 
