@@ -123,6 +123,31 @@ function prepLabel(prepTime) {
   return m ? `${h}h${String(m).padStart(2, '0')}` : `${h} h`;
 }
 
+// Render prep-time badge with dot and label
+function renderPrepTimeBadge(prepTime) {
+  if (!prepTime || parseInt(prepTime, 10) === 0) return '';
+
+  const t = parseInt(prepTime, 10);
+  let speed = 'slow';
+  let tooltip = 'Plus de 45 minutes';
+
+  if (t <= 15) {
+    speed = 'fast';
+    tooltip = 'Moins de 15 minutes';
+  } else if (t <= 30) {
+    speed = 'medium';
+    tooltip = 'Moins de 30 minutes';
+  } else if (t <= 45) {
+    speed = 'slow';
+    tooltip = 'Moins de 45 minutes';
+  }
+
+  return `<span class="prep-time-badge" data-tooltip="${tooltip}">
+    <span class="prep-time-dot ${speed}"></span>
+    <span>${prepLabel(prepTime)}</span>
+  </span>`;
+}
+
 // ── Risk dot ───────────────────────────────────────────────
 function riskDotColor(level) {
   return { low: 'var(--risk-low)', medium: 'var(--risk-medium)', high: 'var(--risk-high)' }[level] || 'transparent';
@@ -513,6 +538,7 @@ function renderMenu() {
       }
       row.className = rowClass;
 
+      const prepBadge = renderPrepTimeBadge(meal.prepTime);
       row.innerHTML = `
         <div class="meal-header">
           <span class="meal-icon">${meal.icon || '🍽'}</span>
@@ -520,10 +546,31 @@ function renderMenu() {
         </div>
         <div class="meal-badges">
           <span class="risk-dot" style="background:${dotColor}" data-tooltip="${tooltip}" role="img" aria-label="${tooltip}"></span>
-          <span class="badge-prep ${pc}" title="Temps de préparation">⏱ ${pl}</span>
+          ${prepBadge}
           ${seasonBadge}
         </div>
-        ${mealWarning}`;
+        ${mealWarning}
+        <div class="meal-rating" data-meal-id="${meal.id || meal.name}" style="opacity: 0.3; transition: opacity 0.2s;">
+          <button class="emoji-btn" data-rating="1" aria-label="Pas satisfait">😕</button>
+          <button class="emoji-btn" data-rating="2" aria-label="Neutre">😐</button>
+          <button class="emoji-btn" data-rating="3" aria-label="Satisfait">😊</button>
+          <button class="emoji-btn" data-rating="4" aria-label="Très satisfait">😍</button>
+        </div>
+
+        <div class="meal-feedback-context" data-meal-id="${meal.id || meal.name}" style="display: none;">
+          <p class="feedback-prompt">Pourquoi ça n'a pas marché?</p>
+          <div class="feedback-options">
+            <button class="feedback-option" data-reason="too-long">⏱️ Trop long à préparer</button>
+            <button class="feedback-option" data-reason="not-good">😕 Pas bon</button>
+            <button class="feedback-option" data-reason="ingredients">🛒 Ingrédients introuvables</button>
+            <button class="feedback-option" data-reason="other">✍️ Autre (expliquez brièvement)</button>
+          </div>
+          <textarea class="feedback-comment" placeholder="(optionnel)" style="display: none;"></textarea>
+          <div class="feedback-actions">
+            <button class="feedback-submit">Envoyer</button>
+            <button class="feedback-close">Non, merci</button>
+          </div>
+        </div>`;
 
       mealsContainer.appendChild(row);
     });
