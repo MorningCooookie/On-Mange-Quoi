@@ -16,8 +16,35 @@ class SubstitutionHandler {
     this.userProfile = null;
     this.selections = {}; // { "original-meal-name": "substitute-meal-name" }
     this.alternatives = {}; // { "original-meal-name": [alternatives...] }
+    this.isInitialized = false;
 
     this.setupEventListeners();
+    this.waitForDependencies();
+  }
+
+  /**
+   * Wait for all required dependencies to be available
+   */
+  async waitForDependencies() {
+    let attempts = 0;
+    const maxAttempts = 50; // 5 seconds max wait
+
+    while (attempts < maxAttempts) {
+      if (
+        typeof PreferenceSubstitution !== 'undefined' &&
+        PreferenceSubstitution.allMeals &&
+        PreferenceSubstitution.allMeals.length > 0 &&
+        typeof PreferenceManager !== 'undefined'
+      ) {
+        this.isInitialized = true;
+        console.log('✅ SubstitutionHandler dependencies ready');
+        return;
+      }
+      await new Promise(resolve => setTimeout(resolve, 100));
+      attempts++;
+    }
+
+    console.warn('⚠️ SubstitutionHandler timed out waiting for dependencies');
   }
 
   setupEventListeners() {
@@ -31,6 +58,13 @@ class SubstitutionHandler {
    * Handle modal open event
    */
   async handleModalOpen(detail) {
+    // Verify dependencies are ready
+    if (!this.isInitialized) {
+      console.warn('SubstitutionHandler not initialized yet');
+      showToast('Erreur', 'Système de substitution non prêt', 'error');
+      return;
+    }
+
     this.currentMeals = detail.meals || [];
     this.userPreferences = detail.preferences;
 
@@ -155,16 +189,26 @@ class SubstitutionHandler {
   }
 
   /**
+   * Escape HTML special characters to prevent XSS
+   */
+  escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  /**
    * Render a single conflict item in the modal
    */
   renderConflictItem(conflict, index) {
     const suggested = conflict.suggested;
     const alternatives = conflict.allAlternatives || [];
+    const originalEscaped = this.escapeHtml(conflict.original);
 
     return `
       <div class="conflict-item">
         <div class="conflict-original">
-          <strong>${conflict.original}</strong>
+          <strong>${originalEscaped}</strong>
           <span class="conflict-badge">❌</span>
         </div>
 
@@ -172,9 +216,9 @@ class SubstitutionHandler {
           <label for="select-${index}">Choisir un substitut:</label>
           <select id="select-${index}" class="substitution-select">
             <option value="">-- Garder l'original --</option>
-            ${suggested ? `<option value="${suggested.name}" selected>✨ ${suggested.name} (suggéré)</option>` : ''}
+            ${suggested ? `<option value="${this.escapeHtml(suggested.name)}" selected>✨ ${this.escapeHtml(suggested.name)} (suggéré)</option>` : ''}
             ${alternatives.filter(m => !suggested || m.id !== suggested.id).map(alt =>
-              `<option value="${alt.name}">${alt.name}</option>`
+              `<option value="${this.escapeHtml(alt.name)}">${this.escapeHtml(alt.name)}</option>`
             ).join('')}
           </select>
         </div>
@@ -186,12 +230,20 @@ class SubstitutionHandler {
    * Apply user selections: save to DB and update menu
    */
   async applySelections() {
+    if (!window.app || !window.app.state || !window.app.renderMenu) {
+      console.warn('App context not available');
+      showToast('Erreur', 'Impossible d\'appliquer les changements', 'error');
+      this.closeModal();
+      return;
+    }
+
     const userId = this.userProfile.id;
     let appliedCount = 0;
+    const saveErrors = [];
 
     console.log('💾 Saving substitution selections...');
 
-    // Save each selection to database
+    // Save each selection to database (sequentially to track errors)
     for (const [originalName, selectedName] of Object.entries(this.selections)) {
       if (!selectedName || selectedName === originalName) continue; // Skip if no change
 
@@ -199,30 +251,44 @@ class SubstitutionHandler {
       const selectedDb = PreferenceSubstitution.allMeals.find(m => m.name === selectedName);
 
       if (!originalDb || !selectedDb) {
-        console.warn(`Could not find meal in database: ${originalName} → ${selectedName}`);
+        saveErrors.push(`${originalName} → ${selectedName}`);
         continue;
       }
 
       // Save to substitution_history table
-      const saved = await PreferenceSubstitution.saveSubstitutionHistory(userId, originalDb.id, selectedDb.id);
-      if (saved) {
-        appliedCount++;
+      try {
+        const saved = await PreferenceSubstitution.saveSubstitutionHistory(userId, originalDb.id, selectedDb.id);
+        if (saved) {
+          appliedCount++;
+        }
+      } catch (err) {
+        console.warn(`Error saving substitution: ${err.message}`);
+        saveErrors.push(originalName);
       }
     }
 
     console.log(`✅ Saved ${appliedCount} substitutions`);
 
-    // Now update the menu display with the selections
+    // Update local menu data with the selections
     this.updateMenuDisplay();
+
+    // Close modal before re-rendering
+    this.closeModal();
+
+    // Re-render menu with updated data
+    try {
+      await window.app.renderMenu();
+    } catch (err) {
+      console.error('Error re-rendering menu:', err);
+      showToast('Avertissement', 'Menu partiellement mis à jour', 'warning');
+      return;
+    }
 
     // Show confirmation toast
     showToast('✅', `${appliedCount} repas substitué${appliedCount > 1 ? 's' : ''}`, 'success');
 
-    this.closeModal();
-
-    // Refresh menu to show substitutions
-    if (window.app && window.app.state) {
-      await window.app.renderMenu();
+    if (saveErrors.length > 0) {
+      console.warn(`Could not save ${saveErrors.length} substitutions:`, saveErrors);
     }
   }
 
@@ -248,17 +314,23 @@ class SubstitutionHandler {
         const selectedSubstitute = this.selections[meal.name];
         if (selectedSubstitute && selectedSubstitute !== meal.name) {
           const substituteDb = PreferenceSubstitution.allMeals.find(m => m.name === selectedSubstitute);
-          if (substituteDb) {
+
+          // Validate that the substitute has required fields
+          if (substituteDb && substituteDb.name && substituteDb.icon) {
+            // Copy all fields from original meal, then override with substitute data
             day.meals[mealType] = {
+              ...meal, // Preserve all original fields (category, id, ingredients, allergens, etc.)
               name: substituteDb.name,
               icon: substituteDb.icon,
-              riskLevel: substituteDb.riskLevel,
-              riskType: substituteDb.riskType,
+              riskLevel: substituteDb.riskLevel || meal.riskLevel,
+              riskType: substituteDb.riskType || meal.riskType,
               prepTime: String(substituteDb.prepTime),
               isSeasonal: substituteDb.isSeasonal,
               note: `✨ Substitut pour vos préférences. Originalement: "${meal.name}"`
             };
             updateCount++;
+          } else {
+            console.warn(`Invalid substitute meal data for "${selectedSubstitute}"`);
           }
         }
       });
