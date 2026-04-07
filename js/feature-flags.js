@@ -12,7 +12,6 @@ function initializeFeatureFlags() {
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get('dev') === 'true') {
     FEATURE_FLAGS.PREFERENCES_FEATURE_ENABLED = true;
-    console.log('🔧 Dev mode enabled — Preferences feature is visible');
   }
 
   // Check localStorage for persistent dev flag
@@ -24,7 +23,6 @@ function initializeFeatureFlags() {
 function toggleDevMode() {
   FEATURE_FLAGS.PREFERENCES_FEATURE_ENABLED = !FEATURE_FLAGS.PREFERENCES_FEATURE_ENABLED;
   localStorage.setItem('dev-mode', FEATURE_FLAGS.PREFERENCES_FEATURE_ENABLED);
-  console.log('Dev mode:', FEATURE_FLAGS.PREFERENCES_FEATURE_ENABLED);
   location.reload();
 }
 

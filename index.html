@@ -477,7 +477,7 @@
     /* User menu dropdown styles */
     #user-menu {
       position: fixed;
-      z-index: 20000;
+      z-index: 1000;
       min-width: 200px;
       max-width: 240px;
       background: white;
@@ -597,12 +597,36 @@
           // Calculer la position avant d'afficher pour éviter le flash
           const r = accountBtn.getBoundingClientRect();
           menu.style.top  = (r.bottom + 6) + 'px';
-          menu.style.right = Math.max(8, window.innerWidth - r.right) + 'px';
-          menu.style.left = 'auto';
+
+          // Fixed mobile positioning: account for menu width (240px)
+          const menuWidth = 240; // Match CSS min-width
+          const rightPos = Math.max(8, window.innerWidth - r.right);
+          const leftPos = r.right + 8; // Position if anchored to button's right edge
+
+          if (leftPos + menuWidth > window.innerWidth - 8) {
+            // Would overflow right; position from right edge
+            menu.style.right = rightPos + 'px';
+            menu.style.left = 'auto';
+          } else {
+            // Safe to position from left (button-relative)
+            menu.style.left = leftPos + 'px';
+            menu.style.right = 'auto';
+          }
+
           menu.style.display = 'flex';
         }
       } else if (menu && !menu.contains(e.target)) {
         menu.style.display = 'none';
+      }
+    });
+
+    // Fermer le menu avec la touche Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' || e.keyCode === 27) {
+        const menu = document.getElementById('user-menu');
+        if (menu && menu.style.display === 'flex') {
+          menu.style.display = 'none';
+        }
       }
     });
 

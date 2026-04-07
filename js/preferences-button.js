@@ -39,7 +39,6 @@ class PreferencesButton {
       const res = await fetch('/data/meals.json');
       if (!res.ok) throw new Error(`Failed to load meals: ${res.status}`);
       this.allMeals = await res.json();
-      console.log(`✅ Loaded ${this.allMeals.length} meals for substitution`);
     } catch (err) {
       console.warn('Could not load meals database:', err);
     }
@@ -90,8 +89,6 @@ class PreferencesButton {
     this.btn.classList.add('has-conflicts');
     this.btn.setAttribute('data-conflict-count', conflictCount);
     this.btn.textContent = `⚠️ Fix preferences (${conflictCount})`;
-
-    console.log(`🔔 Found ${conflictCount} meal(s) with preference conflicts`);
   }
 
   /**
@@ -108,8 +105,6 @@ class PreferencesButton {
 
     // Open modal via PreferenceSubstitution (already exists)
     if (window.PreferenceSubstitution && window.PreferenceSubstitution.allMeals.length > 0) {
-      console.log('Opening preference substitution modal...');
-      // The modal will be triggered by app.js after applying substitutions
       window.dispatchEvent(new CustomEvent('open-substitution-modal', {
         detail: { meals: this.currentMeals, preferences: this.userPreferences }
       }));

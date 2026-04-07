@@ -39,7 +39,6 @@ class SubstitutionHandler {
         window.app
       ) {
         this.isInitialized = true;
-        console.log('✅ SubstitutionHandler dependencies ready');
         return;
       }
       await new Promise(resolve => setTimeout(resolve, 100));
@@ -86,7 +85,6 @@ class SubstitutionHandler {
     }
 
     this.userProfile = { id: window.app.state.supabaseProfileId };
-    console.log(`🔄 Opening substitution modal for ${this.currentMeals.length} meals`);
     await this.renderModal();
   }
 
@@ -106,7 +104,6 @@ class SubstitutionHandler {
       }
 
       // This meal conflicts with preferences
-      console.log(`⚠️ Conflict found: ${meal.name}`);
       const mealDb = PreferenceSubstitution.allMeals.find(m => m.name === meal.name);
 
       if (!mealDb) {

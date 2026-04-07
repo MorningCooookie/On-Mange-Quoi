@@ -54,10 +54,12 @@ const LS = {
 function setSupabaseProfile(profileId, profileName) {
   state.supabaseProfileId = profileId;
   state.supabaseProfileName = profileName;
-  // Update user menu to show current profile name
+  // Update user menu to show current profile name (strip emoji)
   const menuProfileName = document.getElementById('current-profile-name');
   if (menuProfileName) {
-    menuProfileName.textContent = profileName || 'Mon profil';
+    // Remove emoji from display (regex matches common emoji ranges)
+    const cleanName = (profileName || 'Mon profil').replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{27BF}]|[\u{2300}-\u{23FF}]|[\u{2000}-\u{206F}]/gu, '').trim();
+    menuProfileName.textContent = cleanName || 'Mon profil';
   }
   renderAll();
 }

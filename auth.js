@@ -23,15 +23,8 @@ function updateAuthUI(session) {
     userMenu.style.visibility = 'visible';
 
     if (userEmail) {
-      userEmail.textContent = 'Mon compte ▾';
+      userEmail.textContent = 'Mon compte +';
       userEmail.style.cursor = 'pointer';
-      userEmail.onclick = function(e) {
-        e.stopPropagation();
-        const menu = document.getElementById('user-menu');
-        if (menu) {
-          menu.style.display = menu.style.display === 'none' || !menu.style.display ? 'flex' : 'none';
-        }
-      };
     }
     // Populate email in dropdown
     if (emailDropdown) {
