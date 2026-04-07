@@ -413,6 +413,26 @@ function renderMenu() {
     currentPreferences = PreferenceManager.getPreferences(state.supabaseProfileId);
   }
 
+  // Apply preference substitution if premium feature is enabled
+  if (currentPreferences && typeof ProfileManager !== 'undefined' && ProfileManager.isSubscribed && typeof PreferenceSubstitution !== 'undefined') {
+    // Check if user has any preferences set
+    if (currentPreferences.allergies?.length || currentPreferences.restrictions?.length || currentPreferences.dislikes?.length) {
+      // Apply substitution (applySubstitutions handles deep copy internally)
+      PreferenceSubstitution.applySubstitutions(state.menuData, state.supabaseProfileId).then(result => {
+        state.menuData = result.menu; // Update menu with substitutions
+        if (result.alerts?.length) {
+          PreferenceSubstitution.displayAlerts(result.alerts);
+        }
+        console.log(`✨ Applied ${result.substitutionCount} preference substitutions`);
+        renderMenu(); // Re-render with substituted menu
+      }).catch(err => {
+        console.error('Preference substitution error:', err);
+        renderMenu(); // Fallback: render original menu
+      });
+      return; // Exit early, renderMenu will be called again after substitution
+    }
+  }
+
   // History banner
   renderHistoryBanner();
 
