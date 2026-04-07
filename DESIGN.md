@@ -68,6 +68,9 @@ Mono: 0.9rem / 0.85rem          — IBM Plex Mono 400
 | Light Border | `#E5E5E5` | 229, 229, 229 | Dividers, borders, subtle separation | Very light; doesn't dominate. |
 | Alert/Warning | `#D97706` | 217, 119, 6 | Warnings, required fields, errors | Amber; warm and visible. |
 | Success | `#10B981` | 16, 185, 129 | Confirmation, success states, checks | Bright, distinct. Clear signal. |
+| Prep-Time Fast | `#10B981` | 16, 185, 129 | Prep time < 15 min indicator | Green; matches Success color. |
+| Prep-Time Medium | `#F59E0B` | 245, 158, 11 | Prep time < 30 min indicator | Warm amber; alerts without alarm. |
+| Prep-Time Slow | `#EF4444` | 239, 68, 68 | Prep time < 45 min indicator | Red; clear visual alert. |
 
 ### Dark Mode Overrides
 ```
@@ -82,6 +85,7 @@ Mono: 0.9rem / 0.85rem          — IBM Plex Mono 400
 - **Neutral (Creams/Grays)**: Backgrounds, borders, disabled states, metadata
 - **Alert (Amber)**: Required fields, validation errors, warnings
 - **Success (Teal)**: Confirmed actions, meal added, shopping item checked
+- **Prep-Time Indicators (Fast/Medium/Slow)**: Green for quick meals, amber for moderate, red for longer prep time. Used on meal cards and shopping list items.
 
 ---
 
