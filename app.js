@@ -545,32 +545,14 @@ function renderMenu() {
           <span class="meal-name">${meal.name}</span>
         </div>
         <div class="meal-badges">
-          <span class="risk-dot" style="background:${dotColor}" data-tooltip="${tooltip}" role="img" aria-label="${tooltip}"></span>
+          <span class="risk-badge" data-tooltip="${tooltip}">
+            <span class="risk-dot" style="background:${dotColor}" role="img" aria-label="${tooltip}"></span>
+            <span class="risk-dot-label">${tooltip}</span>
+          </span>
           ${prepBadge}
           ${seasonBadge}
         </div>
-        ${mealWarning}
-        <div class="meal-rating" data-meal-id="${meal.id || meal.name}" style="opacity: 0.3; transition: opacity 0.2s;">
-          <button class="emoji-btn" data-rating="1" aria-label="Pas satisfait">😕</button>
-          <button class="emoji-btn" data-rating="2" aria-label="Neutre">😐</button>
-          <button class="emoji-btn" data-rating="3" aria-label="Satisfait">😊</button>
-          <button class="emoji-btn" data-rating="4" aria-label="Très satisfait">😍</button>
-        </div>
-
-        <div class="meal-feedback-context" data-meal-id="${meal.id || meal.name}" style="display: none;">
-          <p class="feedback-prompt">Pourquoi ça n'a pas marché?</p>
-          <div class="feedback-options">
-            <button class="feedback-option" data-reason="too-long">⏱️ Trop long à préparer</button>
-            <button class="feedback-option" data-reason="not-good">😕 Pas bon</button>
-            <button class="feedback-option" data-reason="ingredients">🛒 Ingrédients introuvables</button>
-            <button class="feedback-option" data-reason="other">✍️ Autre (expliquez brièvement)</button>
-          </div>
-          <textarea class="feedback-comment" placeholder="(optionnel)" style="display: none;"></textarea>
-          <div class="feedback-actions">
-            <button class="feedback-submit">Envoyer</button>
-            <button class="feedback-close">Non, merci</button>
-          </div>
-        </div>`;
+        ${mealWarning}`;
 
       mealsContainer.appendChild(row);
     });
@@ -1160,7 +1142,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize feedback system
   initWeeklyCheckin();
-  restoreMealRatings();
 
   loadData();
 });
@@ -1177,47 +1158,6 @@ const FEEDBACK_STORAGE = {
     const diff = today.getDate() - day + (day === 0 ? -6 : 1); // Adjust when day is Sunday
     const monday = new Date(today.setDate(diff));
     return monday.toISOString().split('T')[0];
-  },
-
-  // Save meal rating to localStorage
-  saveMealRating: (mealId, rating) => {
-    const key = `meal_feedback_${FEEDBACK_STORAGE.getWeekStart()}_${mealId}`;
-    const value = {
-      rating: parseInt(rating),
-      timestamp: Date.now(),
-      context: null // Will be updated if user provides context
-    };
-    try {
-      localStorage.setItem(key, JSON.stringify(value));
-    } catch (e) {
-      console.warn('localStorage unavailable', e);
-    }
-  },
-
-  // Get meal rating from localStorage
-  getMealRating: (mealId) => {
-    const key = `meal_feedback_${FEEDBACK_STORAGE.getWeekStart()}_${mealId}`;
-    const stored = localStorage.getItem(key);
-    return stored ? JSON.parse(stored) : null;
-  },
-
-  // Save meal context (reasons why meal didn't work)
-  saveMealContext: (mealId, reasons, comment) => {
-    const key = `meal_feedback_${FEEDBACK_STORAGE.getWeekStart()}_${mealId}`;
-    const existing = FEEDBACK_STORAGE.getMealRating(mealId) || {};
-    const updated = {
-      ...existing,
-      context: {
-        reasons, // Array: ["too-long", "not-good", etc.]
-        comment, // Optional user comment
-        timestamp: Date.now()
-      }
-    };
-    try {
-      localStorage.setItem(key, JSON.stringify(updated));
-    } catch (e) {
-      console.warn('localStorage unavailable', e);
-    }
   },
 
   // Save weekly feedback
@@ -1256,82 +1196,6 @@ const FEEDBACK_STORAGE = {
 // ============================================
 
 document.addEventListener('click', (e) => {
-  // Handle emoji rating button clicks
-  if (e.target.classList.contains('emoji-btn')) {
-    const btn = e.target;
-    const rating = btn.dataset.rating;
-    const mealCard = btn.closest('[data-meal-id]');
-    const mealId = mealCard.dataset.mealId;
-
-    // Save rating to localStorage
-    FEEDBACK_STORAGE.saveMealRating(mealId, rating);
-
-    // Update UI: highlight selected emoji
-    const allEmojis = mealCard.querySelectorAll('.emoji-btn');
-    allEmojis.forEach((emoji) => emoji.classList.remove('selected'));
-    btn.classList.add('selected');
-
-    // Show context prompt if rating is negative (1 or 2)
-    if (parseInt(rating) <= 2) {
-      const contextPrompt = mealCard.querySelector('.meal-feedback-context');
-      contextPrompt.style.display = 'block';
-      
-      // Auto-hide after 30 seconds if no interaction
-      setTimeout(() => {
-        if (contextPrompt.style.display !== 'none') {
-          contextPrompt.style.display = 'none';
-        }
-      }, 30000);
-    }
-  }
-
-  // Handle context reason selection
-  if (e.target.classList.contains('feedback-option')) {
-    const option = e.target;
-    option.classList.toggle('selected');
-
-    // If "Autre" is selected, show textarea
-    const mealCard = option.closest('[data-meal-id]');
-    const textarea = mealCard.querySelector('.feedback-comment');
-    
-    if (option.dataset.reason === 'other') {
-      textarea.style.display = 'block';
-    } else {
-      // Hide textarea if a different option is selected
-      if (!mealCard.querySelector('.feedback-option[data-reason="other"].selected')) {
-        textarea.style.display = 'none';
-      }
-    }
-  }
-
-  // Handle feedback submission
-  if (e.target.classList.contains('feedback-submit')) {
-    const mealCard = e.target.closest('[data-meal-id]');
-    const mealId = mealCard.dataset.mealId;
-    const selectedReasons = Array.from(mealCard.querySelectorAll('.feedback-option.selected'))
-      .map(opt => opt.dataset.reason);
-    const comment = mealCard.querySelector('.feedback-comment').value || '';
-
-    // Save context
-    FEEDBACK_STORAGE.saveMealContext(mealId, selectedReasons, comment);
-
-    // Hide context prompt
-    const contextPrompt = mealCard.querySelector('.meal-feedback-context');
-    contextPrompt.style.display = 'none';
-
-    // Reset options
-    mealCard.querySelectorAll('.feedback-option').forEach(opt => opt.classList.remove('selected'));
-    mealCard.querySelector('.feedback-comment').value = '';
-    mealCard.querySelector('.feedback-comment').style.display = 'none';
-  }
-
-  // Handle "Non, merci" button
-  if (e.target.classList.contains('feedback-close')) {
-    const mealCard = e.target.closest('[data-meal-id]');
-    const contextPrompt = mealCard.querySelector('.meal-feedback-context');
-    contextPrompt.style.display = 'none';
-  }
-
   // Handle weekly checkin option clicks
   if (e.target.classList.contains('checkin-option')) {
     const btn = e.target;
@@ -1364,49 +1228,6 @@ document.addEventListener('click', (e) => {
 // ============================================
 
 // Restore previous meal ratings from localStorage
-function restoreMealRatings() {
-  const weekStart = FEEDBACK_STORAGE.getWeekStart();
-  
-  // Find all meal cards and check if they have stored ratings
-  document.querySelectorAll('[data-meal-id]').forEach(mealCard => {
-    const mealId = mealCard.dataset.mealId;
-    const feedback = FEEDBACK_STORAGE.getMealRating(mealId);
-    
-    if (feedback && feedback.rating) {
-      // Highlight the previously selected emoji
-      const rating = feedback.rating;
-      const emojiBtns = mealCard.querySelectorAll('.emoji-btn');
-      emojiBtns.forEach((btn, idx) => {
-        if (parseInt(btn.dataset.rating) === rating) {
-          btn.classList.add('selected');
-        }
-      });
-
-      // If context was saved, show it
-      if (feedback.context && feedback.context.reasons.length > 0) {
-        const contextPrompt = mealCard.querySelector('.meal-feedback-context');
-        contextPrompt.style.display = 'block';
-        
-        // Re-select the reasons that were previously chosen
-        feedback.context.reasons.forEach(reason => {
-          const optionBtn = contextPrompt.querySelector(`[data-reason="${reason}"]`);
-          if (optionBtn) {
-            optionBtn.classList.add('selected');
-          }
-        });
-
-        // Restore comment if it exists
-        if (feedback.context.comment) {
-          const textarea = contextPrompt.querySelector('.feedback-comment');
-          textarea.value = feedback.context.comment;
-          if (feedback.context.reasons.includes('other')) {
-            textarea.style.display = 'block';
-          }
-        }
-      }
-    }
-  });
-}
 
 // Hide weekly checkin if already submitted this week
 function initWeeklyCheckin() {
