@@ -636,12 +636,14 @@ const CATEGORY_SORT_ORDER = {
   'Fruits': 0,
   'Légumes': 1,
   'Légumes de saison': 1,
+  'Légumes & fruits': 1,
   'Fruits et légumes': 2,
   'Fresh produce': 3,
   'Produits frais': 1,
 
   // Group 2: Proteins
   'Viandes': 10,
+  'Viandes & poissons': 10,
   'Poissons': 11,
   'Poissons & fruits de mer': 11,
   'Œufs': 12,
@@ -649,10 +651,12 @@ const CATEGORY_SORT_ORDER = {
 
   // Group 3: Dairy
   'Produits laitiers': 20,
+  'Produits laitiers & œufs': 20,
   'Dairy': 21,
   'Fromage': 22,
 
   // Group 4: Pantry & Dry Goods
+  'Légumineuses & féculents': 30,
   'Féculents': 30,
   'Pâtes et riz': 31,
   'Légumineuses & céréales': 31,
@@ -1183,7 +1187,11 @@ const FEEDBACK_STORAGE = {
       timestamp: Date.now(),
       context: null // Will be updated if user provides context
     };
-    localStorage.setItem(key, JSON.stringify(value));
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+    } catch (e) {
+      console.warn('localStorage unavailable', e);
+    }
   },
 
   // Get meal rating from localStorage
@@ -1205,7 +1213,11 @@ const FEEDBACK_STORAGE = {
         timestamp: Date.now()
       }
     };
-    localStorage.setItem(key, JSON.stringify(updated));
+    try {
+      localStorage.setItem(key, JSON.stringify(updated));
+    } catch (e) {
+      console.warn('localStorage unavailable', e);
+    }
   },
 
   // Save weekly feedback
@@ -1216,8 +1228,12 @@ const FEEDBACK_STORAGE = {
       mealsCooked, // "1-3", "4-6", "7+"
       timestamp: Date.now()
     };
-    localStorage.setItem(key, JSON.stringify(value));
-    localStorage.setItem(`lastWeeklyPrompt_${weekStart}`, Date.now().toString());
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+      localStorage.setItem(`lastWeeklyPrompt_${weekStart}`, Date.now().toString());
+    } catch (e) {
+      console.warn('localStorage unavailable', e);
+    }
   },
 
   // Get weekly feedback if it exists
