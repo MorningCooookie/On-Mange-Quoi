@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À Propos — On mange quoi ?</title>
+  <meta name="description" content="Comprendre le score santé et les risques alimentaires">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231B4332'/><circle cx='16' cy='16' r='11' fill='none' stroke='white' stroke-width='2'/><circle cx='16' cy='16' r='6.5' fill='none' stroke='white' stroke-width='1.8'/></svg>">
+  <link rel="stylesheet" href="about.css">
+</head>
+<body>
+
+  <header class="about-header">
+    <button class="about-header-back" onclick="window.history.back()" title="Retour">←</button>
+    <span class="about-logo">🥗 On mange quoi ?</span>
+    <span class="about-spacer"></span>
+  </header>
+
+  <main class="about-main">
+
+    <!-- Introduction Section -->
+    <section class="about-section about-intro">
+      <h1 class="about-title">Comprendre le score santé</h1>
+      <p class="about-text">
+        Chaque semaine, votre menu reçoit un score santé (<span class="score-letter">A</span>, <span class="score-letter">B</span>, ou <span class="score-letter">C</span>) basé sur les risques alimentaires présents dans vos plats et la variété de votre alimentation.
+      </p>
+      <p class="about-text">
+        Cette page explique comment ce système fonctionne et pourquoi il aide à manger plus sainement.
+      </p>
+    </section>
+
+    <!-- Risk Types Section -->
+    <section class="about-section about-risks">
+      <h2 class="about-heading">🔴 Les risques alimentaires</h2>
+      <p class="about-text">
+        Certains aliments contiennent naturellement des substances potentiellement nocives pour notre santé. Les trois principaux risques suivis sont :
+      </p>
+
+      <div class="about-cards">
+        <article class="risk-card">
+          <h3 class="risk-card__title">Cadmium</h3>
+          <p class="risk-card__description">
+            Métal lourd présent dans les sols, absorbé par les plantes (cacao, riz, légumes). L'exposition chronique au cadmium peut affecter les reins.
+          </p>
+          <span class="risk-card__badge" style="background: var(--risk-low)">Faible</span>
+        </article>
+
+        <article class="risk-card">
+          <h3 class="risk-card__title">Mercure</h3>
+          <p class="risk-card__description">
+            Présent notamment dans les poissons et fruits de mer (surtout les gros poissons prédateurs). Affecte le système nerveux à fortes doses répétées.
+          </p>
+          <span class="risk-card__badge" style="background: var(--risk-medium)">Modéré</span>
+        </article>
+
+        <article class="risk-card">
+          <h3 class="risk-card__title">Pesticides</h3>
+          <p class="risk-card__description">
+            Résidus de produits phytosanitaires utilisés en agriculture. Certains fruits et légumes contiennent plus de résidus que d'autres.
+          </p>
+          <span class="risk-card__badge" style="background: var(--risk-high)">Élevé</span>
+        </article>
+      </div>
+
+      <p class="about-text about-text--emphasis">
+        <strong>Important :</strong> Ces risques existent à très faibles concentrations dans la plupart des aliments. On ne peut pas les éliminer complètement — l'objectif est de les <em>réduire</em> par la variation alimentaire.
+      </p>
+    </section>
+
+    <!-- Health Score Section -->
+    <section class="about-section about-score">
+      <h2 class="about-heading">🎯 Le score santé (A, B, C)</h2>
+      <p class="about-text">
+        Chaque semaine, vous recevez un score qui mesure deux choses :
+      </p>
+
+      <div class="score-cards">
+        <div class="score-card score-card--a">
+          <span class="score-card__letter">A</span>
+          <h3 class="score-card__title">Excellent</h3>
+          <p class="score-card__description">
+            Très peu de risques détectés ET grande variété alimentaire. C'est l'objectif à atteindre.
+          </p>
+        </div>
+
+        <div class="score-card score-card--b">
+          <span class="score-card__letter">B</span>
+          <h3 class="score-card__title">Bon</h3>
+          <p class="score-card__description">
+            Quelques risques présents OU variété alimentaire modérée. C'est acceptable, travaillez à l'améliorer.
+          </p>
+        </div>
+
+        <div class="score-card score-card--c">
+          <span class="score-card__letter">C</span>
+          <h3 class="score-card__title">À améliorer</h3>
+          <p class="score-card__description">
+            Plusieurs risques détectés ET/OU faible variété. Diversifiez votre alimentation pour réduire l'exposition.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strategy Section -->
+    <section class="about-section about-strategy">
+      <h2 class="about-heading">💡 Réduire les risques : la stratégie</h2>
+      <p class="about-text">
+        Puisqu'on ne peut pas éliminer les risques complètement, la meilleure stratégie est de <strong>varier au maximum votre alimentation</strong> :
+      </p>
+
+      <ul class="strategy-list">
+        <li><strong>Alternez les sources de protéines :</strong> Poisson, viande, œufs, légumineuses, alternez.</li>
+        <li><strong>Changez de légumes chaque jour :</strong> Ne mangez pas les mêmes légumes toute la semaine.</li>
+        <li><strong>Variez les fruits :</strong> Pommes un jour, bananes le lendemain, oranges ensuite.</li>
+        <li><strong>Mélangez les grains :</strong> Riz, pâtes, pain complet, quinoa — diversifiez.</li>
+        <li><strong>Incluez des produits bio :</strong> Réduit les résidus pesticides pour certains aliments.</li>
+      </ul>
+
+      <p class="about-text about-text--emphasis">
+        En variant, même si vous mangez un aliment avec un risque modéré un jour, vous compensez le lendemain avec autre chose. C'est comme diluer le risque au fil de la semaine.
+      </p>
+    </section>
+
+    <!-- Menu Link Section -->
+    <section class="about-section about-action">
+      <h2 class="about-heading">📋 Commencer</h2>
+      <p class="about-text">
+        Retournez à la <a href="semaine.html" class="about-link">liste complète des menus</a> pour voir votre score santé et commencer à planifier votre semaine.
+      </p>
+    </section>
+
+    <footer class="about-footer">
+      onmangequoi.eu · Comprendre le score santé
+    </footer>
+
+  </main>
+
+</body>
+</html>
