@@ -10,14 +10,14 @@ const PreferenceManager = {
 
   // Fixed preference options (UI dropdowns)
   ALLERGIES: [
-    'Arachides',
-    'Fruits à coque',
-    'Crustacés',
-    'Poisson',
-    'Produits laitiers',
+    'Dairy',
     'Gluten',
-    'Œufs',
-    'Soja'
+    'Eggs',
+    'Peanuts',
+    'Tree nuts',
+    'Shellfish',
+    'Sesame',
+    'Sulfites'
   ],
 
   RESTRICTIONS: [
