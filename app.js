@@ -435,18 +435,8 @@ function renderMenu() {
     return; // Exit early, renderMenu will be called again after substitution
   }
 
-  // If preferences are set but feature is disabled, show a simple message instead
-  if (hasPreferences && !window.FEATURE_FLAGS?.PREFERENCES_FEATURE_ENABLED) {
-    if (!state.menuData.healthAlerts) state.menuData.healthAlerts = [];
-    // Check if we already added the conflict message
-    const hasConflictMessage = state.menuData.healthAlerts.some(a => a.type === 'conflict');
-    if (!hasConflictMessage) {
-      state.menuData.healthAlerts.unshift({
-        type: 'conflict',
-        message: '⚠️ Ce menu ne correspond pas entièrement à vos préférences personnelles. Cette fonctionnalité est en cours de développement.'
-      });
-    }
-  }
+  // Preferences feature is disabled — no message needed
+  // Users with preferences simply see the menu as-is
 
   // History banner
   renderHistoryBanner();
@@ -864,17 +854,7 @@ function renderHealthAlerts() {
   alerts.forEach(alert => {
     const el = document.createElement('div');
     el.className = 'health-news-item';
-
-    // Handle both formats: { type, message } objects and plain strings
-    if (typeof alert === 'string') {
-      el.textContent = alert;
-    } else if (alert.type === 'conflict') {
-      el.className += ' conflict-alert';
-      el.innerHTML = `<strong>⚠️ Attention</strong><br>${alert.message}`;
-    } else {
-      el.textContent = alert.message || String(alert);
-    }
-
+    el.textContent = typeof alert === 'string' ? alert : (alert.message || String(alert));
     container.appendChild(el);
   });
 }
