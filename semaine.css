@@ -206,6 +206,15 @@ body {
   line-height: 1.35;
 }
 
+.semaine-risk-dot {
+  flex-shrink: 0;
+  width: .55rem;
+  height: .55rem;
+  border-radius: 50%;
+  margin-top: .4rem;
+  align-self: flex-start;
+}
+
 /* ── Footer ─────────────────────────────────────────────── */
 .semaine-footer {
   text-align: center;

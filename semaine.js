@@ -12,6 +12,15 @@ const MEAL_LABELS = {
   dinner:    'Dîner'
 };
 
+function riskDotColor(level) {
+  return { low: 'var(--risk-low)', medium: 'var(--risk-medium)', high: 'var(--risk-high)' }[level] || 'var(--risk-low)';
+}
+
+function riskLabel(level) {
+  if (!level || level === 'low') return 'Risque faible';
+  return level === 'medium' ? 'Risque modéré' : 'Risque élevé';
+}
+
 function formatDate(s) {
   if (!s) return '';
   return new Date(s + 'T12:00:00').toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
@@ -91,12 +100,15 @@ function renderMenu(data) {
 
       const row = document.createElement('div');
       row.className = 'semaine-meal-row';
+      const dotColor = riskDotColor(meal.riskLevel);
+      const label    = riskLabel(meal.riskLevel);
       row.innerHTML = `
         <span class="semaine-meal-icon">${meal.icon || '🍽'}</span>
         <div class="semaine-meal-info">
           <div class="semaine-meal-type">${MEAL_LABELS[type]}</div>
           <div class="semaine-meal-name">${meal.name}</div>
-        </div>`;
+        </div>
+        <span class="semaine-risk-dot" style="background:${dotColor}" title="${label}" aria-label="${label}"></span>`;
       mealsEl.appendChild(row);
     });
   });
