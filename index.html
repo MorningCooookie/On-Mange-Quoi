@@ -1069,11 +1069,24 @@
       if (e.key === 'Escape') closeUpgradeModal();
     });
 
+    function openAuthForPremium() {
+      const modal = document.getElementById('upgrade-modal');
+      const title = document.getElementById('upgrade-modal-title');
+      const desc = document.getElementById('upgrade-modal-desc');
+      const actions = modal.querySelector('.upgrade-modal-actions');
+      if (title) title.textContent = 'Accéder à Premium';
+      if (desc) desc.textContent = 'Créez un compte ou connectez-vous pour souscrire à l\'offre Premium.';
+      actions.innerHTML = `
+        <button class="btn-upgrade-primary" onclick="closeUpgradeModal(); document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();">Créer un compte</button>
+        <button class="btn-upgrade-later" onclick="closeUpgradeModal(); document.getElementById('login-modal').style.display='flex'; document.getElementById('login-email').focus();">J'ai déjà un compte</button>
+      `;
+      modal.classList.add('is-open');
+    }
+
     async function startCheckout() {
       const userId = window.currentUserId;
       if (!userId) {
-        document.getElementById('signup-modal').style.display = 'flex';
-        document.getElementById('signup-email').focus();
+        openAuthForPremium();
         return;
       }
       if (window.isPremium) {
