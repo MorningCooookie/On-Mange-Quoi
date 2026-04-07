@@ -630,6 +630,55 @@ function normalizeItem(raw) {
   return raw;
 }
 
+// ── Shopping list category sort order ──────────────────────
+const CATEGORY_SORT_ORDER = {
+  // Group 1: Fruits & Vegetables (priority)
+  'Fruits': 0,
+  'Légumes': 1,
+  'Fruits et légumes': 2,
+  'Fresh produce': 3,
+
+  // Group 2: Proteins
+  'Viandes': 10,
+  'Poissons': 11,
+  'Œufs': 12,
+  'Proteins': 13,
+
+  // Group 3: Dairy
+  'Produits laitiers': 20,
+  'Dairy': 21,
+  'Fromage': 22,
+
+  // Group 4: Pantry & Dry Goods
+  'Féculents': 30,
+  'Pâtes et riz': 31,
+  'Pantry': 32,
+  'Épices': 33,
+  'Condiments': 34,
+
+  // Group 5: Snacks & Other
+  'Autres': 50,
+  'Other': 51
+};
+
+// Trier les catégories selon l'ordre défini
+function sortShoppingCategories(categories) {
+  return categories.slice().sort((a, b) => {
+    const orderA = CATEGORY_SORT_ORDER[a.category] !== undefined
+      ? CATEGORY_SORT_ORDER[a.category]
+      : 100; // Unknown categories go to the end
+
+    const orderB = CATEGORY_SORT_ORDER[b.category] !== undefined
+      ? CATEGORY_SORT_ORDER[b.category]
+      : 100;
+
+    if (orderA !== orderB) return orderA - orderB;
+
+    // If same order, sort alphabetically by category name
+    return a.category.localeCompare(b.category, 'fr');
+  });
+}
+
 // ── Shopping list ───────────────────────────────────────────
 function renderShoppingList() {
   const container = document.getElementById('shopping-list');
@@ -638,7 +687,8 @@ function renderShoppingList() {
 
   const season = getSeasonEmoji();
 
-  state.menuData.shoppingList.forEach(cat => {
+  const sortedCategories = sortShoppingCategories(state.menuData.shoppingList);
+  sortedCategories.forEach(cat => {
     const section = document.createElement('div');
     section.className = 'shopping-category';
 
