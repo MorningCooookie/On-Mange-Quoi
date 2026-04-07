@@ -67,6 +67,21 @@ body {
   line-height: 1;
 }
 
+.semaine-header-back {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  font-weight: 700;
+  transition: opacity 150ms;
+}
+
+.semaine-header-back:hover {
+  opacity: 0.8;
+}
+
 /* ── Main container ─────────────────────────────────────── */
 .semaine-main {
   max-width: 480px;
