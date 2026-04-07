@@ -26,10 +26,9 @@ exports.handler = async (event, context) => {
     }
 
     // Get user email from Supabase
-    const { data: { users } } = await supabase.auth.admin.listUsers();
-    const user = users.find(u => u.id === userId);
+    const { data: { user }, error: userError } = await supabase.auth.admin.getUserById(userId);
 
-    if (!user || !user.email) {
+    if (userError || !user || !user.email) {
       return { statusCode: 400, body: JSON.stringify({ error: 'User not found' }) };
     }
 

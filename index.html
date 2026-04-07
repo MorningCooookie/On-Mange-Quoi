@@ -986,7 +986,7 @@
               <li class="pricing-feature--plus">Bibliothèque de recettes favorites</li>
               <li class="pricing-feature--plus">Coordination famille : un plat, plusieurs régimes</li>
             </ul>
-            <button class="btn-pricing-cta" onclick="showUpgradeModal({ title: 'Premium', desc: 'Soyez parmi les premiers à accéder aux fonctionnalités avancées dès le lancement.', icon: '✨' })">
+            <button class="btn-pricing-cta" onclick="startCheckout()">
               Passer Premium — 4,99 €/mois
             </button>
             <p class="pricing-tagline">Sans engagement · Résiliable à tout moment</p>
@@ -1039,8 +1039,8 @@
       <p class="upgrade-modal-desc" id="upgrade-modal-desc"></p>
       <div class="upgrade-modal-price">4,99 €<span>/mois</span></div>
       <div class="upgrade-modal-actions">
-        <button class="btn-upgrade-primary" onclick="closeUpgradeModal(); document.getElementById('premium').scrollIntoView({behavior:'smooth'})">
-          Découvrir Premium
+        <button class="btn-upgrade-primary" onclick="closeUpgradeModal(); startCheckout()">
+          Passer Premium — 4,99 €/mois
         </button>
         <button class="btn-upgrade-later" onclick="closeUpgradeModal()">Peut-être plus tard</button>
       </div>
