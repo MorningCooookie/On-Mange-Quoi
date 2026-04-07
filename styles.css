@@ -62,6 +62,11 @@
   --btn-focus-offset: 2px;
   --btn-primary-hover: #0d3219;
   --btn-secondary-hover: #d0cfc8;
+
+  /* Prep Time Indicators */
+  --prep-fast: #10B981;   /* Green */
+  --prep-medium: #F59E0B; /* Amber */
+  --prep-slow: #EF4444;   /* Red */
 }
 
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -1757,4 +1762,65 @@ textarea:focus {
 .nav-link--premium {
   color: #fff;
   font-weight: 600;
+}
+
+/* ── Prep-time badge dot ──────────────────────────────────── */
+.prep-time-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: var(--font-display, 'Fraunces', Georgia, serif);
+  position: relative;
+  cursor: help;
+}
+
+.prep-time-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.prep-time-dot.fast {
+  background-color: var(--prep-fast);
+}
+
+.prep-time-dot.medium {
+  background-color: var(--prep-medium);
+}
+
+.prep-time-dot.slow {
+  background-color: var(--prep-slow);
+}
+
+/* Tooltip on hover */
+.prep-time-badge::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background: var(--text);
+  color: var(--white);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--r-inner);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+  margin-bottom: 0.5rem;
+}
+
+.prep-time-badge:hover::after {
+  opacity: 1;
+}
+
+/* Mobile: slightly larger to touch-friendly sizes */
+@media (max-width: 768px) {
+  .prep-time-dot {
+    width: 12px;
+    height: 12px;
+  }
 }
