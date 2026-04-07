@@ -43,6 +43,15 @@ function updateAuthUI(session) {
       ProfileManager.init(session.user.id);
       console.log('✅ ProfileManager initialized with userId:', session.user.id);
     }
+
+    // Initialize preferences button (premium feature)
+    if (!window.preferencesButton && window.supabaseClient) {
+      window.preferencesButton = new PreferencesButton(window.supabaseClient);
+      window.preferencesButton.setCurrentUser(session.user);
+      console.log('✅ PreferencesButton initialized');
+    } else if (window.preferencesButton) {
+      window.preferencesButton.setCurrentUser(session.user);
+    }
   } else {
     console.log('❌ No session - showing auth buttons');
     authButtons.style.display = 'flex';

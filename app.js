@@ -519,6 +519,27 @@ function renderMenu() {
       mealsContainer.appendChild(row);
     });
   });
+
+  // Update preferences button (show/hide based on conflicts)
+  if (window.preferencesButton && state.supabaseProfileId) {
+    const allMeals = [];
+    state.menuData.days.forEach(day => {
+      ['breakfast', 'lunch', 'snack', 'dinner', 'dejeuner', 'diner', 'gouter'].forEach(type => {
+        const meal = day.meals[type];
+        if (meal) allMeals.push(meal);
+      });
+    });
+
+    const preferences = typeof PreferenceManager !== 'undefined'
+      ? PreferenceManager.getPreferences(state.supabaseProfileId)
+      : null;
+
+    if (preferences) {
+      window.preferencesButton.updateButton(allMeals, preferences).catch(err => {
+        console.warn('Could not update preferences button:', err);
+      });
+    }
+  }
 }
 
 // ── History banner ──────────────────────────────────────────
