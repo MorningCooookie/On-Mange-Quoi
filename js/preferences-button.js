@@ -53,6 +53,12 @@ class PreferencesButton {
     this.currentMeals = meals || [];
     this.userPreferences = userPreferences;
 
+    // Hide button if feature flag is disabled
+    if (!window.FEATURE_FLAGS || !window.FEATURE_FLAGS.PREFERENCES_FEATURE_ENABLED) {
+      this.btn.style.display = 'none';
+      return;
+    }
+
     // Hide button if user not logged in, has no preferences, or no meals
     if (!this.currentUser || !userPreferences || !meals || meals.length === 0) {
       this.btn.style.display = 'none';

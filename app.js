@@ -999,6 +999,11 @@ function showToast(msg) {
 document.addEventListener('DOMContentLoaded', () => {
   LS.load();
 
+  // Initialize feature flags first (checks URL params and localStorage)
+  if (typeof initializeFeatureFlags === 'function') {
+    initializeFeatureFlags();
+  }
+
   // Fridge toggle
   document.getElementById('btn-fridge')?.addEventListener('click', toggleFridgeMode);
 

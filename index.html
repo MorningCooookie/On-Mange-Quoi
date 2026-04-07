@@ -997,6 +997,13 @@
   <script src="preference-substitution.js"></script>
   <script src="profiles.js"></script>
   <script src="auth.js"></script>
+  <script src="js/feature-flags.js"></script>
+  <script>
+    // Initialize feature flags before loading feature-dependent modules
+    if (typeof initializeFeatureFlags === 'function') {
+      initializeFeatureFlags();
+    }
+  </script>
   <script src="js/preferences-button.js"></script>
   <script src="js/substitution-handler.js"></script>
   <script src="app.js"></script>
