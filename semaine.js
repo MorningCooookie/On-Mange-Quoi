@@ -29,7 +29,7 @@ async function getWeekParam() {
 
   // Fall back to most recent in history
   try {
-    const hist = await fetch('data/history.json').then(r => r.json());
+    const hist = await fetch('/data/history.json').then(r => r.json());
     return hist.menus?.[0]?.weekStart || null;
   } catch (_) {
     return null;
@@ -106,7 +106,7 @@ async function init() {
   }
 
   try {
-    const data = await fetch(`data/menus/${week}.json`).then(r => {
+    const data = await fetch(`/data/menus/${week}.json`).then(r => {
       if (!r.ok) throw new Error(`Menu ${week} introuvable`);
       return r.json();
     });
