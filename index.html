@@ -53,6 +53,9 @@
         ⚠️ Fix preferences
       </button>
 
+      <!-- Premium CTA — toujours visible -->
+      <a href="#premium" class="btn-premium-header">✨ Premium</a>
+
       <!-- User account button (top right) -->
       <div class="header-account">
         <div id="auth-button-group" style="display:flex;gap:0.75rem;">
@@ -478,28 +481,28 @@
     #user-menu {
       position: fixed;
       z-index: 1000;
-      min-width: 200px;
-      max-width: 240px;
+      min-width: 160px;
+      max-width: 180px;
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 6px 24px rgba(0,0,0,.15), 0 0 0 1px rgba(0,0,0,.06);
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0,0,0,.12), 0 0 0 1px rgba(0,0,0,.06);
       overflow: hidden;
       animation: slideDown 0.15s ease-out;
       display: none;
       flex-direction: column;
     }
     @media (max-width: 767px) {
-      #user-menu { min-width: 200px; max-width: 260px; }
+      #user-menu { min-width: 160px; max-width: 180px; }
     }
 
     .user-menu-header {
-      padding: 0.7rem 1rem 0.6rem;
+      padding: 0.5rem 0.75rem 0.45rem;
       background: #1B4332;
       border-bottom: none;
     }
 
     .user-menu-profile-name {
-      font-size: 0.82rem;
+      font-size: 0.75rem;
       color: rgba(255,255,255,.85);
       font-weight: 500;
       display: block;
@@ -508,12 +511,12 @@
     }
 
     .user-menu-body {
-      padding: 0.4rem;
+      padding: 0.3rem;
     }
 
     .user-menu-btn {
       width: 100%;
-      padding: 0.6rem 0.85rem;
+      padding: 0.45rem 0.65rem;
       background: transparent;
       color: #1B4332;
       border: none;
@@ -522,13 +525,13 @@
       cursor: pointer;
       font-family: 'Work Sans', system-ui, sans-serif;
       font-weight: 500;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       transition: background 0.12s;
       display: block;
     }
 
     .user-menu-btn:hover {
-      background: rgba(27, 67, 50, 0.07);
+      background: rgba(27, 67, 50, 0.08);
     }
 
     .user-menu-btn.danger {
@@ -536,13 +539,13 @@
     }
 
     .user-menu-btn.danger:hover {
-      background: rgba(220, 38, 38, 0.07);
+      background: rgba(220, 38, 38, 0.08);
     }
 
     .user-menu-divider {
       height: 1px;
       background: rgba(0,0,0,.07);
-      margin: 0.25rem 0;
+      margin: 0.2rem 0;
     }
   </style>
 
@@ -598,8 +601,8 @@
           const r = accountBtn.getBoundingClientRect();
           menu.style.top  = (r.bottom + 6) + 'px';
 
-          // Fixed mobile positioning: account for menu width (240px)
-          const menuWidth = 240; // Match CSS min-width
+          // Fixed mobile positioning: account for menu width (180px)
+          const menuWidth = 180; // Match CSS max-width
           const rightPos = Math.max(8, window.innerWidth - r.right);
           const leftPos = r.right + 8; // Position if anchored to button's right edge
 

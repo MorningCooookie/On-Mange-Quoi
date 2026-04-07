@@ -23,7 +23,7 @@ function updateAuthUI(session) {
     userMenu.style.visibility = 'visible';
 
     if (userEmail) {
-      userEmail.textContent = 'Mon compte +';
+      userEmail.textContent = 'Mon compte';
       userEmail.style.cursor = 'pointer';
     }
     // Populate email in dropdown
