@@ -16,6 +16,7 @@ const state = {
   config: null,
   menuData: null,
   historyData: null,
+  veilleData: null,     // External health news (independent of menu)
   currentProfile: 'famille_jeunes_enfants',
   currentStore: 'discount',
   checkedItems: {},   // { "Cat__idx": true }  — progress mode
@@ -224,19 +225,22 @@ async function loadData() {
   }
 
   try {
-    [cfg, menu, hist] = await Promise.all([
+    let cfg, menu, hist, veille;
+    [cfg, menu, hist, veille] = await Promise.all([
       fetch('/data/config.json').then(r => { if (!r.ok) throw new Error(`HTTP ${r.status} — config.json`); return r.json(); }),
       fetchMenu(),
-      fetch('/data/history.json').then(r => { if (!r.ok) throw new Error(`HTTP ${r.status} — history.json`); return r.json(); })
+      fetch('/data/history.json').then(r => { if (!r.ok) throw new Error(`HTTP ${r.status} — history.json`); return r.json(); }),
+      fetch('/data/veille.json').then(r => { if (!r.ok) throw new Error(`HTTP ${r.status} — veille.json`); return r.json(); })
     ]);
+
+    state.config      = cfg;
+    state.menuData    = menu;
+    state.historyData = hist;
+    state.veilleData  = veille;
   } catch (err) {
     showError('fetch', err);
     return;
   }
-
-  state.config      = cfg;
-  state.menuData    = menu;
-  state.historyData = hist;
 
   // Render séparé du fetch pour isoler les erreurs
   try {
@@ -844,17 +848,30 @@ function renderHistory() {
   });
 }
 
-// ── Health alerts ───────────────────────────────────────────
+// ── Health alerts (Veille santé) ──────────────────────────
 function renderHealthAlerts() {
   const container = document.getElementById('health-news');
-  if (!container || !state.menuData) return;
+  if (!container) return;
   container.innerHTML = '';
 
-  const alerts = state.menuData.healthAlerts || [];
-  alerts.forEach(alert => {
+  // Load external health news from veille.json (independent of menu)
+  if (!state.veilleData || !state.veilleData.news) {
+    console.warn('Veille data not loaded');
+    return;
+  }
+
+  state.veilleData.news.forEach(item => {
     const el = document.createElement('div');
     el.className = 'health-news-item';
-    el.textContent = typeof alert === 'string' ? alert : (alert.message || String(alert));
+
+    // Build news item with title, description, and sources
+    let html = `<strong>${item.title}</strong>`;
+    if (item.description) html += `<br><span style="font-size: 0.9em; opacity: 0.8;">${item.description}</span>`;
+    if (item.sources?.length) {
+      html += `<br><span style="font-size: 0.8em; opacity: 0.6; margin-top: 0.5em; display: block;">Sources : ${item.sources.join(' · ')}</span>`;
+    }
+
+    el.innerHTML = html;
     container.appendChild(el);
   });
 }

@@ -1,0 +1,26 @@
+{
+  "lastUpdated": "2026-04-07",
+  "nextUpdate": "2026-05-07",
+  "news": [
+    {
+      "title": "Semaine riche en oméga-3 grâce au maquereau, cabillaud et sardines",
+      "description": "3 repas poisson sur 7 jours",
+      "sources": ["ANSES"]
+    },
+    {
+      "title": "Les asperges et petits pois sont en plein pic de saison",
+      "description": "Profites-en avant fin avril",
+      "sources": ["EFSA"]
+    },
+    {
+      "title": "Cadmium dans le riz — conseils de consommation",
+      "description": "Préférer le riz basmati et limiter à 2 portions par semaine",
+      "sources": ["ANSES", "Générations Futures"]
+    },
+    {
+      "title": "Pesticides dans les fruits et légumes conventionnels",
+      "description": "Liste des produits à privilégier en bio cette saison",
+      "sources": ["Générations Futures", "INRAE"]
+    }
+  ]
+}
