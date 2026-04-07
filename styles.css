@@ -497,7 +497,7 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
 
 .day-card {
   background: var(--white); border-radius: var(--r-card);
-  box-shadow: var(--shadow); overflow: hidden;
+  box-shadow: var(--shadow); overflow: visible;
   transition: transform .2s, box-shadow .2s;
   scroll-snap-align: start; flex-shrink: 0;
   border: 1px solid var(--border);
@@ -524,6 +524,7 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
   padding: 0.75rem 1rem;
   background: var(--header-from); color: #fff;
   display: flex; align-items: center; justify-content: space-between;
+  border-radius: var(--r-card) var(--r-card) 0 0;
 }
 .day-label { font-family: var(--font-display); font-size: 1rem; font-weight: 700; }
 
@@ -548,7 +549,7 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
 /* Risk dot */
 .risk-dot {
   width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0;
-  cursor: help; position: relative;
+  cursor: default; position: relative;
 }
 .risk-dot::after {
   content: attr(data-tooltip);
@@ -557,7 +558,7 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
   background: rgba(26,26,26,.93); color: #fff;
   font-size: .7rem; white-space: nowrap;
   padding: .22rem .5rem; border-radius: 5px;
-  pointer-events: none; opacity: 0; transition: opacity .15s; z-index: 50;
+  pointer-events: none; opacity: 0; transition: opacity .15s; z-index: 200;
 }
 .risk-dot:hover::after { opacity: 1; }
 
@@ -1775,7 +1776,7 @@ textarea:focus {
   font-weight: 500;
   font-family: var(--font-display, 'Fraunces', Georgia, serif);
   position: relative;
-  cursor: help;
+  cursor: default;
 }
 
 .prep-time-dot {
@@ -1797,22 +1798,16 @@ textarea:focus {
   background-color: var(--prep-slow);
 }
 
-/* Tooltip on hover */
+/* Tooltip on hover — matches .risk-dot::after style */
 .prep-time-badge::after {
   content: attr(data-tooltip);
   position: absolute;
-  bottom: 100%;
-  left: 0;
-  background: var(--text);
-  color: var(--white);
-  padding: 0.5rem 0.75rem;
-  border-radius: var(--r-inner);
-  font-size: 0.8rem;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 200ms ease;
-  margin-bottom: 0.5rem;
+  bottom: calc(100% + 6px); left: 50%;
+  transform: translateX(-50%);
+  background: rgba(26,26,26,.93); color: #fff;
+  font-size: .7rem; white-space: nowrap;
+  padding: .22rem .5rem; border-radius: 5px;
+  pointer-events: none; opacity: 0; transition: opacity .15s; z-index: 200;
 }
 
 .prep-time-badge:hover::after {
@@ -1837,27 +1832,6 @@ textarea:focus {
   gap: 0.5rem;
   margin: 0.5rem 0 0.5rem 0;
   align-items: center;
-}
-
-.emoji-btn {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  opacity: 0.3;
-  transition: all 0.2s ease-in-out;
-  font-family: inherit;
-}
-
-.emoji-btn:hover {
-  opacity: 0.7;
-  transform: scale(1.1);
-}
-
-.emoji-btn.selected {
-  opacity: 1;
-  font-size: 1.75rem;
 }
 
 /* Context Prompt */
