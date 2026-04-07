@@ -924,6 +924,54 @@
         </div>
       </section>
 
+      <!-- Premium -->
+      <section class="section" id="premium" aria-labelledby="premium-heading">
+        <h2 class="section-title" id="premium-heading">
+          <span>✨</span> Aller plus loin
+        </h2>
+        <div class="pricing-grid">
+
+          <!-- Gratuit -->
+          <div class="pricing-card pricing-card--free">
+            <div class="pricing-card__header">
+              <h3>Gratuit</h3>
+              <div class="pricing-price">0 €<span>/mois</span></div>
+            </div>
+            <ul class="pricing-features">
+              <li>Menu 7 jours, renouvelé chaque semaine</li>
+              <li>Liste de courses organisée par rayon</li>
+              <li>Score santé ANSES / EFSA (A, B, C)</li>
+              <li>Comparatif prix : discount, standard, bio</li>
+              <li>Profils familiaux avec préférences de base</li>
+              <li>Fiche mémo imprimable</li>
+              <li>Historique des semaines passées</li>
+              <li>Aucune pub. Aucune donnée collectée.</li>
+            </ul>
+          </div>
+
+          <!-- Premium -->
+          <div class="pricing-card pricing-card--premium">
+            <div class="pricing-badge">Bientôt disponible</div>
+            <div class="pricing-card__header">
+              <h3>Premium</h3>
+              <div class="pricing-price">4,99 €<span>/mois</span></div>
+            </div>
+            <ul class="pricing-features">
+              <li>Tout ce qui est gratuit, sans limite</li>
+              <li class="pricing-feature--plus">Préférences avancées : budget, temps de prépa, type de cuisine</li>
+              <li class="pricing-feature--plus">Alertes allergènes sur chaque plat du menu</li>
+              <li class="pricing-feature--plus">Bibliothèque de recettes favorites</li>
+              <li class="pricing-feature--plus">Coordination famille : un plat, plusieurs régimes</li>
+            </ul>
+            <button class="btn-pricing-cta" onclick="showUpgradeModal({ title: 'Premium', desc: 'Soyez parmi les premiers à accéder aux fonctionnalités avancées dès le lancement.', icon: '✨' })">
+              Passer Premium — 4,99 €/mois
+            </button>
+            <p class="pricing-tagline">Sans engagement · Résiliable à tout moment</p>
+          </div>
+
+        </div>
+      </section>
+
     </main>
 
     <!-- Footer -->
@@ -957,6 +1005,47 @@
 
   <!-- Toast notifications -->
   <div id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Upgrade modal (fonctionnalité premium verrouillée) -->
+  <div id="upgrade-modal" role="dialog" aria-modal="true" aria-labelledby="upgrade-modal-title"
+       onclick="if(event.target.id==='upgrade-modal') closeUpgradeModal()">
+    <div class="upgrade-modal-card">
+      <button class="upgrade-modal-close" onclick="closeUpgradeModal()" aria-label="Fermer">✕</button>
+      <div class="upgrade-modal-icon" id="upgrade-modal-icon">✨</div>
+      <h3 class="upgrade-modal-title" id="upgrade-modal-title">Fonctionnalité Premium</h3>
+      <p class="upgrade-modal-desc" id="upgrade-modal-desc"></p>
+      <div class="upgrade-modal-price">4,99 €<span>/mois</span></div>
+      <div class="upgrade-modal-actions">
+        <button class="btn-upgrade-primary" onclick="closeUpgradeModal(); document.getElementById('premium').scrollIntoView({behavior:'smooth'})">
+          Découvrir Premium
+        </button>
+        <button class="btn-upgrade-later" onclick="closeUpgradeModal()">Peut-être plus tard</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showUpgradeModal({ title, desc, icon } = {}) {
+      const modal = document.getElementById('upgrade-modal');
+      if (!modal) return;
+      document.getElementById('upgrade-modal-title').textContent = title || 'Fonctionnalité Premium';
+      document.getElementById('upgrade-modal-desc').textContent = desc || 'Cette fonctionnalité est disponible avec l\'abonnement Premium.';
+      document.getElementById('upgrade-modal-icon').textContent = icon || '✨';
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeUpgradeModal() {
+      const modal = document.getElementById('upgrade-modal');
+      if (!modal) return;
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeUpgradeModal();
+    });
+  </script>
 
   <!-- Supabase client library -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
