@@ -11,6 +11,8 @@
   --text: #1A1A1A;
   --text-secondary: #6B7280;
   --border: #E5E0D8;
+  --color-background: #FAFAF9;
+  --color-secondary: #E07A5F;
   --header-from: #1B4332;
   --header-to: #40916C;
   --breakfast-accent: #4F46E5;
@@ -1823,4 +1825,217 @@ textarea:focus {
     width: 12px;
     height: 12px;
   }
+}
+
+/* ============================================
+   FEEDBACK SYSTEM STYLES
+   ============================================ */
+
+/* Meal Ratings */
+.meal-rating {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0.5rem 0;
+  align-items: center;
+}
+
+.emoji-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  opacity: 0.3;
+  transition: all 0.2s ease-in-out;
+  font-family: inherit;
+}
+
+.emoji-btn:hover {
+  opacity: 0.7;
+  transform: scale(1.1);
+}
+
+.emoji-btn.selected {
+  opacity: 1;
+  font-size: 1.75rem;
+}
+
+/* Context Prompt */
+.meal-feedback-context {
+  background: var(--color-background);
+  border-left: 3px solid var(--color-secondary);
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.feedback-prompt {
+  margin: 0 0 0.75rem 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.feedback-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.feedback-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.feedback-option:hover {
+  border-color: var(--header-from);
+  background: #fafaf9;
+}
+
+.feedback-option.selected {
+  background: var(--header-from);
+  color: white;
+  border-color: var(--header-from);
+}
+
+.feedback-comment {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin: 0.5rem 0;
+  font-family: inherit;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  resize: vertical;
+  max-height: 80px;
+  line-height: 1.4;
+}
+
+.feedback-comment:focus {
+  outline: none;
+  border-color: var(--header-from);
+  box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.1);
+}
+
+.feedback-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.feedback-submit,
+.feedback-close {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.feedback-submit {
+  background: var(--header-from);
+  color: white;
+  flex: 1;
+}
+
+.feedback-submit:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.feedback-close {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  flex: 1;
+}
+
+.feedback-close:hover {
+  border-color: var(--text-secondary);
+  background: #fafaf9;
+}
+
+/* Weekly Checkin */
+.weekly-checkin {
+  margin-top: 3rem;
+  padding: 2rem 0 0 0;
+  border-top: 1px solid var(--border);
+}
+
+.checkin-card {
+  max-width: 500px;
+  padding: 1.5rem;
+  background: var(--color-background);
+  border-radius: 6px;
+}
+
+.checkin-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.checkin-prompt {
+  margin: 0.5rem 0 1rem 0;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.checkin-options {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.checkin-option {
+  flex: 1;
+  min-width: 80px;
+  padding: 0.75rem 1rem;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  text-align: center;
+  font-family: inherit;
+}
+
+.checkin-option:hover {
+  border-color: var(--header-from);
+  background: #fafaf9;
+}
+
+.checkin-option.selected {
+  background: var(--header-from);
+  color: white;
+  border-color: var(--header-from);
+}
+
+.checkin-note {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.checkin-thanks {
+  color: var(--header-from);
+  font-weight: 500;
+  font-size: 0.95rem;
 }
