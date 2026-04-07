@@ -49,7 +49,11 @@ function renderMenu(data) {
   // Score badge
   const scoreEl = document.getElementById('semaine-score');
   if (scoreEl) {
-    scoreEl.innerHTML = `<span class="semaine-score__letter">${score}</span> Score santé`;
+    scoreEl.innerHTML = `
+      <span class="semaine-score__letter">${score}</span>
+      <span>Score santé</span>
+      <a href="about.html" class="semaine-score__info-icon" title="Comprendre le score santé">ⓘ</a>
+    `;
     scoreEl.setAttribute('aria-label', `Score santé ${score}`);
   }
 
