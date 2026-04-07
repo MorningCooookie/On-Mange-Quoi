@@ -3,16 +3,6 @@
   "nextUpdate": "2026-05-07",
   "news": [
     {
-      "title": "Semaine riche en oméga-3 grâce au maquereau, cabillaud et sardines",
-      "description": "3 repas poisson sur 7 jours",
-      "sources": ["ANSES"]
-    },
-    {
-      "title": "Les asperges et petits pois sont en plein pic de saison",
-      "description": "Profites-en avant fin avril",
-      "sources": ["EFSA"]
-    },
-    {
       "title": "Cadmium dans le riz — conseils de consommation",
       "description": "Préférer le riz basmati et limiter à 2 portions par semaine",
       "sources": ["ANSES", "Générations Futures"]
@@ -21,6 +11,16 @@
       "title": "Pesticides dans les fruits et légumes conventionnels",
       "description": "Liste des produits à privilégier en bio cette saison",
       "sources": ["Générations Futures", "INRAE"]
+    },
+    {
+      "title": "Oméga-3 et santé cardiaque",
+      "description": "Les poissons gras (maquereau, sardines, saumon) sont d'excellentes sources. 2-3 portions par semaine recommandées.",
+      "sources": ["ANSES", "EFSA"]
+    },
+    {
+      "title": "Fruits et légumes de saison — printemps 2026",
+      "description": "Asperges, pois, carottes : maximiser les nutriments en les consommant à leur pic de saison",
+      "sources": ["INRAE"]
     }
   ]
 }
