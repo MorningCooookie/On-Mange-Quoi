@@ -39,15 +39,13 @@
 - Grille 8px — utiliser `1rem`, `1.5rem`, `2rem`, `3rem`, `4rem` uniquement
 - Border radius boutons : 12px systématiquement
 - Hover sur desktop : `translateY(-2px)` + shadow
-- Dark mode obligatoire — utiliser les CSS variables de `:root`
 
 ### Checklist UI avant livraison
 1. Consulter `DESIGN.md` pour le composant concerné
 2. CSS variables partout — jamais de hex hardcodé
-3. Tester en light ET dark mode
-4. Valider contraste WCAG AA minimum
-5. Vérifier le responsive sur mobile (375px) et desktop (1280px)
-6. Ajouter tout nouveau composant dans `DESIGN.md`
+3. Valider contraste WCAG AA minimum
+4. Vérifier le responsive sur mobile (375px) et desktop (1280px)
+5. Ajouter tout nouveau composant dans `DESIGN.md`
 
 ## Architecture
 
@@ -112,7 +110,7 @@ Rationale et trade-offs documentés là-bas.
 1. Lire le fichier concerné avant de toucher quoi que ce soit
 2. Identifier la cause racine — ne pas patcher le symptôme
 3. Faire le changement minimal qui résout le problème
-4. Vérifier visuellement dans le navigateur (light + dark si UI)
+4. Vérifier visuellement dans le navigateur
 5. S'assurer qu'aucun autre comportement n'est cassé
 
 ## Swarm (si tâches complexes multi-fichiers)
