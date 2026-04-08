@@ -2,6 +2,12 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
+# Redirect lien externe cassé — Google crawlait https://onmangequoi.eu/5) (404 depuis 06/2023)
+[[redirects]]
+  from = "/5)"
+  to = "/"
+  status = 301
+
 # JS et JSON : pas de cache long pour voir les mises à jour immédiatement
 [[headers]]
   for = "/*.js"
