@@ -129,9 +129,21 @@ const PreferenceManager = {
     };
   },
 
+  // Synonyms for generic food category terms — maps user input to specific ingredient names
+  DISLIKE_SYNONYMS: {
+    'poisson':   ['saumon', 'cabillaud', 'maquereau', 'sardine', 'thon', 'dorade', 'truite', 'lieu', 'merlan', 'bar', 'sole', 'hareng', 'anchois', 'tilapia', 'daurade', 'rouget'],
+    'fish':      ['saumon', 'cabillaud', 'maquereau', 'sardine', 'thon', 'dorade', 'truite', 'lieu', 'merlan', 'bar', 'sole', 'hareng', 'anchois', 'poisson'],
+    'viande':    ['boeuf', 'veau', 'porc', 'agneau', 'poulet', 'dinde', 'canard', 'lapin', 'gigot'],
+    'meat':      ['boeuf', 'veau', 'porc', 'agneau', 'poulet', 'dinde', 'canard', 'lapin', 'gigot', 'viande'],
+    'volaille':  ['poulet', 'dinde', 'canard', 'pintade'],
+    'chicken':   ['poulet'],
+    'porc':      ['jambon', 'lardons', 'bacon', 'saucisse', 'chorizo', 'pork'],
+    'pork':      ['jambon', 'lardons', 'bacon', 'saucisse', 'chorizo', 'porc'],
+  },
+
   // Check if a dish is safe for preferences
   isDishSafe(dishName, dishIngredients, preferences) {
-    if (!preferences || (!preferences.allergies?.length && !preferences.restrictions?.length)) {
+    if (!preferences || (!preferences.allergies?.length && !preferences.restrictions?.length && !preferences.dislikes?.length)) {
       return true; // No restrictions = all dishes safe
     }
 
@@ -155,11 +167,18 @@ const PreferenceManager = {
       }
     }
 
-    // Check dislikes
+    // Check dislikes (with synonym expansion for generic terms like "poisson" → "saumon", "cabillaud"...)
     if (preferences.dislikes?.length > 0) {
       for (const dislike of preferences.dislikes) {
-        if (dishText.includes(dislike.toLowerCase())) {
+        const dislikeLower = dislike.toLowerCase();
+        if (dishText.includes(dislikeLower)) {
           return false;
+        }
+        const synonyms = this.DISLIKE_SYNONYMS[dislikeLower] || [];
+        for (const synonym of synonyms) {
+          if (dishText.includes(synonym)) {
+            return false;
+          }
         }
       }
     }
@@ -172,19 +191,36 @@ const PreferenceManager = {
     const restrictionLower = restriction.toLowerCase();
 
     if (restrictionLower === 'végétalien') {
-      // Vegan = no animal products
-      return dishText.includes('meat') ||
-             dishText.includes('fish') ||
-             dishText.includes('dairy') ||
-             dishText.includes('egg') ||
-             dishText.includes('butter') ||
-             dishText.includes('cheese') ||
-             dishText.includes('honey');
+      // Vegan = no animal products (French and English terms)
+      return dishText.includes('meat') || dishText.includes('fish') ||
+             dishText.includes('dairy') || dishText.includes('egg') ||
+             dishText.includes('butter') || dishText.includes('cheese') ||
+             dishText.includes('honey') ||
+             // French terms
+             dishText.includes('viande') || dishText.includes('poulet') ||
+             dishText.includes('boeuf') || dishText.includes('veau') ||
+             dishText.includes('porc') || dishText.includes('agneau') ||
+             dishText.includes('dinde') || dishText.includes('canard') ||
+             dishText.includes('saumon') || dishText.includes('cabillaud') ||
+             dishText.includes('maquereau') || dishText.includes('sardine') ||
+             dishText.includes('thon') || dishText.includes('poisson') ||
+             dishText.includes('beurre') || dishText.includes('fromage') ||
+             dishText.includes('lait') || dishText.includes('crème') ||
+             dishText.includes('yaourt') || dishText.includes('miel') ||
+             dishText.includes('oeuf') || dishText.includes('œuf');
     }
 
     if (restrictionLower === 'végétarien') {
-      // Vegetarian = no meat/fish
-      return dishText.includes('meat') || dishText.includes('fish');
+      // Vegetarian = no meat/fish (French and English terms)
+      return dishText.includes('meat') || dishText.includes('fish') ||
+             dishText.includes('viande') || dishText.includes('poulet') ||
+             dishText.includes('boeuf') || dishText.includes('veau') ||
+             dishText.includes('porc') || dishText.includes('agneau') ||
+             dishText.includes('dinde') || dishText.includes('canard') ||
+             dishText.includes('lapin') || dishText.includes('gigot') ||
+             dishText.includes('saumon') || dishText.includes('cabillaud') ||
+             dishText.includes('maquereau') || dishText.includes('sardine') ||
+             dishText.includes('thon') || dishText.includes('poisson');
     }
 
     if (restrictionLower === 'gluten') {
