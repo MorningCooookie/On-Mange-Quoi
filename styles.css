@@ -1975,3 +1975,87 @@ textarea:focus {
     color: var(--text);
   }
 }
+
+/* ── Modale Bientôt disponible ────────────────────────── */
+body.modal-open { overflow: hidden; }
+
+.premium-soon-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.premium-soon-overlay.is-open {
+  display: flex;
+}
+
+.premium-soon-dialog {
+  background: var(--color-background, #FAFAF9);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  box-shadow: var(--shadow-hover);
+}
+
+.premium-soon-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--text-secondary, #6B7280);
+  line-height: 1;
+  padding: 0.25rem;
+}
+
+.premium-soon-close:hover { color: var(--text, #1A1A1A); }
+
+.premium-soon-icon {
+  font-size: 2rem;
+  color: var(--header-from, #1B4332);
+  margin-bottom: 1rem;
+}
+
+.premium-soon-title {
+  font-family: var(--font-display, 'Fraunces', Georgia, serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text, #1A1A1A);
+  margin-bottom: 0.75rem;
+}
+
+.premium-soon-text {
+  font-family: var(--font-body, 'Work Sans', system-ui, sans-serif);
+  font-size: 0.95rem;
+  color: var(--text-secondary, #6B7280);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.premium-soon-btn {
+  background: var(--header-from, #1B4332);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 2rem;
+  font-family: var(--font-body, 'Work Sans', system-ui, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.premium-soon-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}

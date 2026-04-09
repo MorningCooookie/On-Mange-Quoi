@@ -48,7 +48,7 @@
         <a class="nav-link" href="#cadmium">Veille santé</a>
         <a class="nav-link" href="fiche.html">Fiche mémo</a>
         <a class="nav-link" href="recettes.html">Recettes</a>
-        <a class="nav-link nav-link--premium" href="#premium">Premium</a>
+        <a class="nav-link nav-link--premium" href="#" onclick="startCheckout(); return false;">Premium</a>
       </nav>
 
       <!-- Fix preferences button — PREMIUM FEATURE -->
@@ -1099,31 +1099,19 @@
       modal.classList.add('is-open');
     }
 
-    async function startCheckout() {
-      const userId = window.currentUserId;
-      if (!userId) {
-        openAuthForPremium();
-        return;
+    function startCheckout() {
+      const modal = document.getElementById('premium-soon-modal');
+      if (modal) {
+        modal.classList.add('is-open');
+        document.body.classList.add('modal-open');
       }
-      if (window.isPremium) {
-        showToast('Déjà Premium', 'Vous bénéficiez déjà de l\'offre Premium.', 'success');
-        return;
-      }
-      const btn = document.querySelector('.btn-pricing-cta');
-      if (btn) { btn.disabled = true; btn.textContent = 'Redirection…'; }
-      try {
-        const res = await fetch('/.netlify/functions/create-checkout-session', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ userId })
-        });
-        const { sessionId, error } = await res.json();
-        if (error) throw new Error(error);
-        const stripe = Stripe('pk_live_51TEo6ARSlTwKkI4xVuOB4z3b6IC3QnwsVYypBLSP2gxxW5t2EZBN4FZmD5rB6N08lRyP3njybKyphjwD6yLInXre00FUl5vZrY');
-        await stripe.redirectToCheckout({ sessionId });
-      } catch (err) {
-        showToast('Erreur', 'Impossible de lancer le paiement. Réessayez.', 'error');
-        if (btn) { btn.disabled = false; btn.textContent = 'Passer Premium — 4,99 €/mois'; }
+    }
+
+    function closePremiumSoon() {
+      const modal = document.getElementById('premium-soon-modal');
+      if (modal) {
+        modal.classList.remove('is-open');
+        document.body.classList.remove('modal-open');
       }
     }
 
@@ -1188,5 +1176,16 @@
   <script src="js/preferences-button.js"></script>
   <script src="js/substitution-handler.js"></script>
   <script src="app.js"></script>
+
+  <!-- Modale Bientôt disponible -->
+  <div id="premium-soon-modal" class="premium-soon-overlay" role="dialog" aria-modal="true" aria-labelledby="premium-soon-title" onclick="if(event.target===this) closePremiumSoon();">
+    <div class="premium-soon-dialog">
+      <button class="premium-soon-close" onclick="closePremiumSoon();" aria-label="Fermer">✕</button>
+      <div class="premium-soon-icon">✦</div>
+      <h2 class="premium-soon-title" id="premium-soon-title">Bientôt disponible</h2>
+      <p class="premium-soon-text">Le mode Premium arrive très bientôt !<br>Revenez dans quelques semaines.</p>
+      <button class="premium-soon-btn" onclick="closePremiumSoon();">Compris</button>
+    </div>
+  </div>
 </body>
 </html>
