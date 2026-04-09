@@ -1,7 +1,6 @@
 // Netlify Function : proxy sécurisé vers l'API Claude
 // Clé API dans les variables d'env Netlify — jamais dans le code
-
-const Anthropic = require("@anthropic-ai/sdk");
+// Utilise fetch natif (Node 18+) pour éviter les problèmes de bundling esbuild avec le SDK
 
 // Contraintes santé communes aux deux modes
 const HEALTH_CONSTRAINTS = `
@@ -108,15 +107,32 @@ exports.handler = async (event) => {
     ? buildThermomixPrompt(profile)
     : buildClassicPrompt(profile);
 
-  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-
   try {
-    const message = await client.messages.create({
-      model: "claude-haiku-4-5-20251001",
-      max_tokens: 1024,
-      system: systemPrompt,
-      messages: [{ role: "user", content: `J'ai : ${ingredients}` }]
+    const response = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {
+        "x-api-key": process.env.ANTHROPIC_API_KEY,
+        "anthropic-version": "2023-06-01",
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        model: "claude-haiku-4-5-20251001",
+        max_tokens: 1024,
+        system: systemPrompt,
+        messages: [{ role: "user", content: `J'ai : ${ingredients}` }]
+      })
     });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.error("Erreur API Claude :", data);
+      return {
+        statusCode: 500,
+        headers: { "Access-Control-Allow-Origin": "*" },
+        body: JSON.stringify({ error: "Erreur lors de la génération de la recette" })
+      };
+    }
 
     return {
       statusCode: 200,
@@ -124,12 +140,13 @@ exports.handler = async (event) => {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*"
       },
-      body: JSON.stringify({ recipe: message.content[0].text })
+      body: JSON.stringify({ recipe: data.content[0].text })
     };
   } catch (error) {
-    console.error("Erreur API Claude :", error);
+    console.error("Erreur réseau :", error);
     return {
       statusCode: 500,
+      headers: { "Access-Control-Allow-Origin": "*" },
       body: JSON.stringify({ error: "Erreur lors de la génération de la recette" })
     };
   }
