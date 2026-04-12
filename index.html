@@ -96,6 +96,11 @@
           }
         }
       </script>
+      <!-- Lien vers création de compte — important sur mobile où le bouton header est masqué -->
+      <p style="margin-top:1.25rem;text-align:center;font-size:0.875rem;color:#6B7280;font-family:'Work Sans',system-ui,sans-serif;">
+        Pas encore de compte ?
+        <button onclick="document.getElementById('login-modal').style.display='none'; document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();" style="background:none;border:none;padding:0;cursor:pointer;color:#1B4332;font-weight:600;font-size:0.875rem;font-family:'Work Sans',system-ui,sans-serif;text-decoration:underline;">Créer un compte</button>
+      </p>
     </div>
   </div>
 
@@ -130,6 +135,11 @@
           }
         }
       </script>
+      <!-- Lien retour vers connexion -->
+      <p style="margin-top:1.25rem;text-align:center;font-size:0.875rem;color:#6B7280;font-family:'Work Sans',system-ui,sans-serif;">
+        Déjà un compte ?
+        <button onclick="document.getElementById('signup-modal').style.display='none'; document.getElementById('login-modal').style.display='flex'; document.getElementById('login-email').focus();" style="background:none;border:none;padding:0;cursor:pointer;color:#1B4332;font-weight:600;font-size:0.875rem;font-family:'Work Sans',system-ui,sans-serif;text-decoration:underline;">Se connecter</button>
+      </p>
     </div>
   </div>
 
