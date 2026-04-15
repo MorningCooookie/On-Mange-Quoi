@@ -1,0 +1,1431 @@
+{
+  "weekStart": "2026-04-13",
+  "weekEnd": "2026-04-19",
+  "healthScore": "A",
+  "healthScoreHighlights": [
+    "3 poissons sûrs · Cabillaud, sardines, truite de France",
+    "Asperges et petits pois au pic de saison 🌱",
+    "Saison des fraises françaises — choisir bio",
+    "Rôti de veau festif le dimanche"
+  ],
+  "days": [
+    {
+      "date": "2026-04-13",
+      "label": "Lundi",
+      "meals": {
+        "breakfast": {
+          "name": "Yaourt nature, muesli maison, fraises fraîches",
+          "icon": "🌅",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "5",
+          "isSeasonal": true,
+          "note": "Muesli sans sucre ajouté — premières fraises françaises, choisir bio",
+          "ingredients": [
+            {
+              "name": "Yaourt nature",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Muesli sans sucre ajouté",
+              "qty": 160,
+              "unit": "g"
+            },
+            {
+              "name": "Fraises fraîches",
+              "qty": 250,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Répartir le yaourt dans 4 bols.",
+            "Rincer et équeuter les fraises, les couper en tranches.",
+            "Ajouter le muesli et les fraises sur le yaourt. Servir."
+          ]
+        },
+        "lunch": {
+          "name": "Cabillaud en papillote, asperges blanches et citron, riz basmati",
+          "icon": "🐟",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "25",
+          "isSeasonal": true,
+          "note": "Cabillaud MSC — asperges blanches en pleine saison, cuisson douce en papillote",
+          "ingredients": [
+            {
+              "name": "Filets de cabillaud",
+              "qty": 600,
+              "unit": "g"
+            },
+            {
+              "name": "Asperges blanches",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Riz basmati",
+              "qty": 240,
+              "unit": "g"
+            },
+            {
+              "name": "Citron",
+              "qty": 1,
+              "unit": "pièce"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 3,
+              "unit": "cs"
+            }
+          ],
+          "prepSteps": [
+            "Préchauffer le four à 200 °C.",
+            "Éplucher le bas des asperges. Couper 4 feuilles de papier sulfurisé.",
+            "Poser chaque filet sur une feuille avec des asperges et des rondelles de citron. Arroser d'huile, saler, poivrer.",
+            "Refermer les papillotes et enfourner 18 à 20 min.",
+            "Cuire le riz dans 480 ml d'eau salée, 12 min à feu doux."
+          ]
+        },
+        "snack": {
+          "name": "Fraises fraîches, amandes",
+          "icon": "🍓",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "2",
+          "isSeasonal": true,
+          "note": "Fraises françaises bio — collation légère et de saison"
+        },
+        "dinner": {
+          "name": "Soupe de lentilles vertes, carottes, pain de campagne",
+          "icon": "🌙",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "25",
+          "isSeasonal": false,
+          "note": "Lentilles vertes du Puy — riches en fer et en fibres",
+          "ingredients": [
+            {
+              "name": "Lentilles vertes du Puy",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Carottes",
+              "qty": 3,
+              "unit": "pièce"
+            },
+            {
+              "name": "Oignon",
+              "qty": 1,
+              "unit": "pièce"
+            },
+            {
+              "name": "Bouillon de légumes",
+              "qty": 1000,
+              "unit": "ml"
+            },
+            {
+              "name": "Pain de campagne",
+              "qty": 4,
+              "unit": "tranche"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 2,
+              "unit": "cs"
+            }
+          ],
+          "prepSteps": [
+            "Rincer les lentilles à l'eau froide.",
+            "Émincer l'oignon, couper les carottes en rondelles.",
+            "Faire revenir l'oignon 3 min dans l'huile d'olive à feu moyen.",
+            "Ajouter les carottes, les lentilles et le bouillon. Cuire 25 à 30 min à feu doux.",
+            "Assaisonner. Servir chaud avec le pain de campagne."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-04-14",
+      "label": "Mardi",
+      "meals": {
+        "breakfast": {
+          "name": "Pain au levain, beurre, œuf à la coque",
+          "icon": "🌅",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "10",
+          "isSeasonal": false,
+          "note": "Pain de boulanger — œuf label rouge code 0 ou 1",
+          "ingredients": [
+            {
+              "name": "Œufs",
+              "qty": 4,
+              "unit": "pièce"
+            },
+            {
+              "name": "Pain au levain",
+              "qty": 4,
+              "unit": "tranche"
+            },
+            {
+              "name": "Beurre demi-sel",
+              "qty": 20,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Porter une casserole d'eau à ébullition.",
+            "Plonger délicatement les œufs. Cuire exactement 6 min pour un jaune coulant.",
+            "Faire griller le pain et le beurrer.",
+            "Rincer les œufs à l'eau froide. Servir dans un coquetier avec les tartines."
+          ]
+        },
+        "lunch": {
+          "name": "Escalope de veau aux petits pois et menthe, pommes de terre vapeur",
+          "icon": "🥗",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "25",
+          "isSeasonal": true,
+          "note": "Veau rosé de saison — petits pois frais au pic, menthe fraîche",
+          "ingredients": [
+            {
+              "name": "Escalopes de veau",
+              "qty": 500,
+              "unit": "g"
+            },
+            {
+              "name": "Petits pois frais écossés",
+              "qty": 350,
+              "unit": "g"
+            },
+            {
+              "name": "Menthe fraîche",
+              "qty": 1,
+              "unit": "bouquet"
+            },
+            {
+              "name": "Pommes de terre",
+              "qty": 600,
+              "unit": "g"
+            },
+            {
+              "name": "Beurre",
+              "qty": 30,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Éplucher les pommes de terre et les cuire à la vapeur ou à l'eau salée, 18 à 20 min.",
+            "Faire fondre la moitié du beurre. Cuire les escalopes 3 à 4 min par face. Réserver.",
+            "Dans la même poêle, faire revenir les petits pois 5 min avec le reste du beurre et la menthe ciselée.",
+            "Servir les escalopes avec les petits pois et les pommes de terre."
+          ]
+        },
+        "snack": {
+          "name": "Fromage blanc, miel, noix",
+          "icon": "🍯",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "2",
+          "isSeasonal": false,
+          "note": "Fromage blanc 0% ou entier selon appétit"
+        },
+        "dinner": {
+          "name": "Poêlée de gnocchis aux épinards, ail et parmesan",
+          "icon": "🌙",
+          "riskLevel": "medium",
+          "riskType": "cadmium",
+          "prepTime": "15",
+          "isSeasonal": true,
+          "note": "Épinards frais de saison — légume-feuille accumulateur de cadmium (niveau modéré) · choisir bio et ne pas en manger tous les jours",
+          "ingredients": [
+            {
+              "name": "Gnocchis de pomme de terre",
+              "qty": 600,
+              "unit": "g"
+            },
+            {
+              "name": "Épinards frais",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Ail",
+              "qty": 3,
+              "unit": "gousse"
+            },
+            {
+              "name": "Parmesan râpé",
+              "qty": 60,
+              "unit": "g"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 3,
+              "unit": "cs"
+            }
+          ],
+          "prepSteps": [
+            "Cuire les gnocchis dans une grande casserole d'eau bouillante salée — ils sont prêts quand ils remontent à la surface (2 à 3 min). Égoutter.",
+            "Faire revenir l'ail émincé 1 min dans l'huile d'olive.",
+            "Ajouter les épinards et laisser tomber 2 min à feu moyen.",
+            "Incorporer les gnocchis, mélanger 2 min à feu vif. Hors du feu, parsemer de parmesan."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-04-15",
+      "label": "Mercredi",
+      "meals": {
+        "breakfast": {
+          "name": "Porridge d'avoine, banane, miel",
+          "icon": "🌅",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "10",
+          "isSeasonal": false,
+          "note": "Flocons d'avoine nature — pas de céréales industrielles",
+          "ingredients": [
+            {
+              "name": "Flocons d'avoine",
+              "qty": 240,
+              "unit": "g"
+            },
+            {
+              "name": "Lait demi-écrémé",
+              "qty": 600,
+              "unit": "ml"
+            },
+            {
+              "name": "Bananes",
+              "qty": 2,
+              "unit": "pièce"
+            },
+            {
+              "name": "Miel",
+              "qty": 4,
+              "unit": "cs"
+            }
+          ],
+          "prepSteps": [
+            "Verser les flocons et le lait dans une casserole.",
+            "Chauffer à feu moyen en remuant, 5 à 7 min, jusqu'à la consistance souhaitée.",
+            "Répartir dans les bols. Couper les bananes en rondelles et disposer par-dessus.",
+            "Ajouter un filet de miel et servir."
+          ]
+        },
+        "lunch": {
+          "name": "Poulet fermier rôti aux herbes, purée de carottes au gingembre",
+          "icon": "🥗",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "40",
+          "isSeasonal": false,
+          "note": "Hauts de cuisse Label Rouge — gingembre frais pour relever la purée de carottes",
+          "ingredients": [
+            {
+              "name": "Hauts de cuisse de poulet fermier",
+              "qty": 800,
+              "unit": "g"
+            },
+            {
+              "name": "Carottes",
+              "qty": 600,
+              "unit": "g"
+            },
+            {
+              "name": "Gingembre frais",
+              "qty": 20,
+              "unit": "g"
+            },
+            {
+              "name": "Herbes de Provence",
+              "qty": 2,
+              "unit": "cs"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 3,
+              "unit": "cs"
+            },
+            {
+              "name": "Beurre",
+              "qty": 20,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Préchauffer le four à 190 °C.",
+            "Badigeonner les hauts de cuisse d'huile et d'herbes. Saler et poivrer.",
+            "Enfourner 35 à 40 min jusqu'à ce que la peau soit bien dorée.",
+            "Cuire les carottes 20 min dans l'eau bouillante salée. Égoutter et écraser avec beurre et gingembre râpé. Assaisonner."
+          ]
+        },
+        "snack": {
+          "name": "Yaourt grec, fraises de saison",
+          "icon": "🍓",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "2",
+          "isSeasonal": true,
+          "note": "Fraises françaises — choisir bio"
+        },
+        "dinner": {
+          "name": "Omelette aux pointes d'asperges et gruyère, salade de radis",
+          "icon": "🌙",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "15",
+          "isSeasonal": true,
+          "note": "Œufs label rouge — asperges et radis de saison, dîner léger",
+          "ingredients": [
+            {
+              "name": "Œufs",
+              "qty": 8,
+              "unit": "pièce"
+            },
+            {
+              "name": "Asperges (pointes)",
+              "qty": 250,
+              "unit": "g"
+            },
+            {
+              "name": "Gruyère râpé",
+              "qty": 80,
+              "unit": "g"
+            },
+            {
+              "name": "Radis",
+              "qty": 1,
+              "unit": "botte"
+            },
+            {
+              "name": "Salade verte",
+              "qty": 1,
+              "unit": "pièce"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 2,
+              "unit": "cs"
+            }
+          ],
+          "prepSteps": [
+            "Blanchir les pointes d'asperges 4 à 5 min dans l'eau bouillante salée. Égoutter.",
+            "Battre les œufs avec le gruyère râpé. Saler et poivrer.",
+            "Chauffer l'huile dans une grande poêle. Verser la préparation, cuire à feu moyen 3 à 4 min.",
+            "Disposer les asperges sur la moitié de l'omelette et replier. Servir avec la salade de radis."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-04-16",
+      "label": "Jeudi",
+      "meals": {
+        "breakfast": {
+          "name": "Smoothie épinards, banane, lait d'amande, tartine levain",
+          "icon": "🌅",
+          "riskLevel": "medium",
+          "riskType": "cadmium",
+          "prepTime": "8",
+          "isSeasonal": true,
+          "note": "Épinards frais de saison — cadmium modéré, quantité faible dans un smoothie · choisir bio",
+          "ingredients": [
+            {
+              "name": "Épinards frais",
+              "qty": 80,
+              "unit": "g"
+            },
+            {
+              "name": "Bananes",
+              "qty": 2,
+              "unit": "pièce"
+            },
+            {
+              "name": "Lait d'amande",
+              "qty": 400,
+              "unit": "ml"
+            },
+            {
+              "name": "Pain au levain",
+              "qty": 4,
+              "unit": "tranche"
+            }
+          ],
+          "prepSteps": [
+            "Rincer les épinards frais.",
+            "Mettre épinards, bananes en morceaux et lait d'amande dans le blender.",
+            "Mixer 1 min jusqu'à texture lisse.",
+            "Faire griller le pain. Servir le smoothie avec les tartines."
+          ]
+        },
+        "lunch": {
+          "name": "Sardines marinées, salade de petits pois et radis, quinoa",
+          "icon": "🐟",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "15",
+          "isSeasonal": true,
+          "note": "Sardines MSC, riches en oméga-3 — petits pois et radis de saison",
+          "ingredients": [
+            {
+              "name": "Sardines marinées (bocal)",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Petits pois frais écossés",
+              "qty": 250,
+              "unit": "g"
+            },
+            {
+              "name": "Radis",
+              "qty": 1,
+              "unit": "botte"
+            },
+            {
+              "name": "Quinoa",
+              "qty": 200,
+              "unit": "g"
+            },
+            {
+              "name": "Citron",
+              "qty": 1,
+              "unit": "pièce"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 3,
+              "unit": "cs"
+            }
+          ],
+          "prepSteps": [
+            "Rincer le quinoa. Le cuire dans 400 ml d'eau salée, 12 min. Laisser reposer 5 min, égrener.",
+            "Blanchir les petits pois 3 min dans l'eau bouillante. Rafraîchir à l'eau froide.",
+            "Couper les radis en rondelles. Dresser la salade avec petits pois, radis, huile et jus de citron.",
+            "Égoutter les sardines et les disposer sur le quinoa. Servir avec la salade."
+          ]
+        },
+        "snack": {
+          "name": "Fraises fraîches, biscuit",
+          "icon": "🍓",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "2",
+          "isSeasonal": true,
+          "note": "Fraises françaises bio"
+        },
+        "dinner": {
+          "name": "Velouté d'asperges vertes, croûtons au parmesan",
+          "icon": "🌙",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "20",
+          "isSeasonal": true,
+          "note": "Asperges vertes au pic de saison — velouté onctueux, croûtons de pain complet",
+          "ingredients": [
+            {
+              "name": "Asperges vertes",
+              "qty": 700,
+              "unit": "g"
+            },
+            {
+              "name": "Bouillon de légumes",
+              "qty": 700,
+              "unit": "ml"
+            },
+            {
+              "name": "Crème fraîche",
+              "qty": 80,
+              "unit": "ml"
+            },
+            {
+              "name": "Pain (pour croûtons)",
+              "qty": 4,
+              "unit": "tranche"
+            },
+            {
+              "name": "Parmesan râpé",
+              "qty": 50,
+              "unit": "g"
+            },
+            {
+              "name": "Beurre",
+              "qty": 10,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Couper les asperges en tronçons. Réserver les pointes.",
+            "Cuire les tronçons dans le bouillon chaud 12 à 15 min.",
+            "Mixer avec la crème fraîche jusqu'à obtenir un velouté lisse. Assaisonner.",
+            "Blanchir les pointes 3 min et les poser sur le velouté.",
+            "Couper le pain en cubes, dorer à la poêle avec le beurre, parsemer de parmesan et faire gratiner 2 min."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-04-17",
+      "label": "Vendredi",
+      "meals": {
+        "breakfast": {
+          "name": "Pancakes à la farine d'épeautre, miel, fraises fraîches",
+          "icon": "🌅",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "20",
+          "isSeasonal": true,
+          "note": "Farine d'épeautre T65 — sans céréales industrielles, fraises de saison",
+          "ingredients": [
+            {
+              "name": "Farine d'épeautre T65",
+              "qty": 240,
+              "unit": "g"
+            },
+            {
+              "name": "Œufs",
+              "qty": 2,
+              "unit": "pièce"
+            },
+            {
+              "name": "Lait",
+              "qty": 300,
+              "unit": "ml"
+            },
+            {
+              "name": "Levure chimique",
+              "qty": 1,
+              "unit": "sachet"
+            },
+            {
+              "name": "Fraises fraîches",
+              "qty": 250,
+              "unit": "g"
+            },
+            {
+              "name": "Miel",
+              "qty": 4,
+              "unit": "cs"
+            },
+            {
+              "name": "Beurre",
+              "qty": 20,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Mélanger farine, levure, œufs et lait jusqu'à pâte lisse. Laisser reposer 5 min.",
+            "Faire fondre une noisette de beurre dans une poêle antiadhésive à feu moyen.",
+            "Verser des petites louches de pâte. Cuire 2 à 3 min jusqu'à l'apparition de bulles, retourner, 1 min de plus.",
+            "Rincer et équeuter les fraises. Servir les pancakes avec les fraises et le miel."
+          ]
+        },
+        "lunch": {
+          "name": "Truite meunière, pommes de terre nouvelles persillées, salade verte",
+          "icon": "🐟",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "25",
+          "isSeasonal": true,
+          "note": "Truite de France — moins exposée que le saumon atlantique, pommes de terre nouvelles de saison",
+          "ingredients": [
+            {
+              "name": "Filets de truite de France",
+              "qty": 600,
+              "unit": "g"
+            },
+            {
+              "name": "Pommes de terre nouvelles",
+              "qty": 600,
+              "unit": "g"
+            },
+            {
+              "name": "Persil frais",
+              "qty": 1,
+              "unit": "bouquet"
+            },
+            {
+              "name": "Citron",
+              "qty": 1,
+              "unit": "pièce"
+            },
+            {
+              "name": "Beurre",
+              "qty": 50,
+              "unit": "g"
+            },
+            {
+              "name": "Farine",
+              "qty": 3,
+              "unit": "cs"
+            },
+            {
+              "name": "Salade verte",
+              "qty": 1,
+              "unit": "pièce"
+            }
+          ],
+          "prepSteps": [
+            "Cuire les pommes de terre nouvelles 15 à 18 min dans l'eau bouillante salée. Égoutter.",
+            "Fariner légèrement les filets de truite. Les cuire au beurre 3 à 4 min par face dans une poêle chaude.",
+            "Arroser du jus de citron en fin de cuisson.",
+            "Faire revenir les pommes de terre dans le beurre restant avec le persil haché.",
+            "Assaisonner la salade verte. Servir l'ensemble."
+          ]
+        },
+        "snack": {
+          "name": "Pomme fraîche, noix de cajou",
+          "icon": "🍎",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "2",
+          "isSeasonal": false,
+          "note": "Collation légère et rassasiante"
+        },
+        "dinner": {
+          "name": "Risotto aux petits pois et menthe fraîche, parmesan",
+          "icon": "🌙",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "35",
+          "isSeasonal": true,
+          "note": "Riz arborio — petits pois de saison, menthe fraîche, parmesan en petite quantité",
+          "ingredients": [
+            {
+              "name": "Riz arborio",
+              "qty": 320,
+              "unit": "g"
+            },
+            {
+              "name": "Petits pois frais écossés",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Bouillon de légumes chaud",
+              "qty": 1200,
+              "unit": "ml"
+            },
+            {
+              "name": "Oignon",
+              "qty": 1,
+              "unit": "pièce"
+            },
+            {
+              "name": "Vin blanc sec",
+              "qty": 100,
+              "unit": "ml"
+            },
+            {
+              "name": "Parmesan râpé",
+              "qty": 80,
+              "unit": "g"
+            },
+            {
+              "name": "Menthe fraîche",
+              "qty": 1,
+              "unit": "bouquet"
+            },
+            {
+              "name": "Beurre",
+              "qty": 30,
+              "unit": "g"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 2,
+              "unit": "cs"
+            }
+          ],
+          "prepSteps": [
+            "Faire chauffer le bouillon, le maintenir frémissant.",
+            "Faire suer l'oignon émincé dans l'huile d'olive 3 min. Ajouter le riz et nacrer 2 min.",
+            "Déglacer au vin blanc. Ajouter le bouillon louche par louche en remuant pendant 18 min.",
+            "À 5 min de la fin, incorporer les petits pois.",
+            "Hors du feu, ajouter beurre et parmesan (mantecatura). Parsemer de menthe ciselée."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-04-18",
+      "label": "Samedi",
+      "meals": {
+        "breakfast": {
+          "name": "Brunch : œufs brouillés, avocat, radis, pain au levain",
+          "icon": "🌅",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "15",
+          "isSeasonal": true,
+          "note": "Brunch du samedi — œufs label rouge, radis de saison, pain artisanal",
+          "ingredients": [
+            {
+              "name": "Œufs",
+              "qty": 8,
+              "unit": "pièce"
+            },
+            {
+              "name": "Avocats mûrs",
+              "qty": 2,
+              "unit": "pièce"
+            },
+            {
+              "name": "Radis",
+              "qty": 1,
+              "unit": "botte"
+            },
+            {
+              "name": "Pain au levain",
+              "qty": 8,
+              "unit": "tranche"
+            },
+            {
+              "name": "Beurre",
+              "qty": 20,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Battre les œufs avec sel et poivre.",
+            "Faire fondre le beurre à feu très doux. Verser les œufs et remuer lentement à la spatule pendant 5 à 7 min — ils doivent rester bien crémeux.",
+            "Trancher les avocats, couper les radis en rondelles.",
+            "Faire griller le pain. Dresser œufs brouillés, avocat et radis sur les toasts."
+          ]
+        },
+        "lunch": {
+          "name": "Épaule d'agneau confite, légumes printaniers rôtis, semoule",
+          "icon": "🥗",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "90",
+          "isSeasonal": true,
+          "note": "Agneau de saison — légumes de printemps (asperges, petits pois, carottes) rôtis au four",
+          "ingredients": [
+            {
+              "name": "Épaule d'agneau",
+              "qty": 1200,
+              "unit": "g"
+            },
+            {
+              "name": "Carottes",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Courgettes",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Ail",
+              "qty": 6,
+              "unit": "gousse"
+            },
+            {
+              "name": "Herbes de Provence",
+              "qty": 3,
+              "unit": "cs"
+            },
+            {
+              "name": "Semoule fine",
+              "qty": 280,
+              "unit": "g"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 4,
+              "unit": "cs"
+            }
+          ],
+          "prepSteps": [
+            "Préchauffer le four à 150 °C.",
+            "Badigeonner l'épaule d'huile et d'herbes de Provence. Saler généreusement.",
+            "Disposer dans un plat avec gousses d'ail, carottes en tronçons et courgettes en dés. Arroser d'huile.",
+            "Couvrir d'aluminium et enfourner 2h30. Ôter le papier les 20 dernières minutes.",
+            "La viande se défait facilement à la fourchette. Préparer la semoule 5 min avant de servir."
+          ]
+        },
+        "snack": {
+          "name": "Fraises fraîches, yaourt grec",
+          "icon": "🍓",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "2",
+          "isSeasonal": true,
+          "note": "Simple et de saison — fraises françaises bio"
+        },
+        "dinner": {
+          "name": "Pizza maison aux asperges, épinards et mozzarella",
+          "icon": "🌙",
+          "riskLevel": "medium",
+          "riskType": "cadmium",
+          "prepTime": "30",
+          "isSeasonal": true,
+          "note": "Pâte maison farine T65 — épinards en garniture légère (cadmium modéré) · choisir bio",
+          "ingredients": [
+            {
+              "name": "Pâte à pizza (pâton)",
+              "qty": 2,
+              "unit": "pièce"
+            },
+            {
+              "name": "Asperges vertes",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Épinards frais",
+              "qty": 200,
+              "unit": "g"
+            },
+            {
+              "name": "Mozzarella",
+              "qty": 250,
+              "unit": "g"
+            },
+            {
+              "name": "Sauce tomate",
+              "qty": 200,
+              "unit": "ml"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 2,
+              "unit": "cs"
+            }
+          ],
+          "prepSteps": [
+            "Préchauffer le four à 230 °C, chaleur tournante.",
+            "Blanchir les asperges 3 min dans l'eau bouillante. Égoutter.",
+            "Étaler les pâtons finement. Napper de sauce tomate.",
+            "Disposer les épinards frais, les asperges en morceaux et la mozzarella déchirée. Arroser d'huile.",
+            "Enfourner 12 à 14 min jusqu'à ce que la croûte soit bien dorée."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-04-19",
+      "label": "Dimanche",
+      "meals": {
+        "breakfast": {
+          "name": "Viennoiseries de boulangerie, jus d'orange pressé, fraises fraîches",
+          "icon": "🌅",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "5",
+          "isSeasonal": true,
+          "note": "Petit-déjeuner du dimanche — oranges pressées à la maison, fraises de saison",
+          "ingredients": [
+            {
+              "name": "Viennoiseries (croissants, pains au chocolat)",
+              "qty": 4,
+              "unit": "pièce"
+            },
+            {
+              "name": "Oranges à jus",
+              "qty": 6,
+              "unit": "pièce"
+            },
+            {
+              "name": "Fraises fraîches",
+              "qty": 250,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Presser les oranges et verser dans des verres.",
+            "Rincer et équeuter les fraises, les couper en deux si elles sont grandes.",
+            "Réchauffer les viennoiseries 3 min à 150 °C si achetées la veille."
+          ]
+        },
+        "lunch": {
+          "name": "Rôti de veau aux morilles, flageolets et asperges blanches",
+          "icon": "🍖",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "90",
+          "isSeasonal": true,
+          "note": "Veau de saison — morilles fraîches en épicerie fine ou déshydratées, asperges de saison",
+          "ingredients": [
+            {
+              "name": "Rôti de veau",
+              "qty": 1200,
+              "unit": "g"
+            },
+            {
+              "name": "Morilles séchées",
+              "qty": 30,
+              "unit": "g"
+            },
+            {
+              "name": "Flageolets en boîte",
+              "qty": 2,
+              "unit": "boîte"
+            },
+            {
+              "name": "Asperges blanches",
+              "qty": 500,
+              "unit": "g"
+            },
+            {
+              "name": "Crème fraîche épaisse",
+              "qty": 150,
+              "unit": "ml"
+            },
+            {
+              "name": "Vin blanc sec",
+              "qty": 100,
+              "unit": "ml"
+            },
+            {
+              "name": "Beurre",
+              "qty": 30,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Réhydrater les morilles 30 min dans 250 ml d'eau tiède. Filtrer et conserver l'eau.",
+            "Préchauffer le four à 180 °C. Saisir le rôti de tous côtés dans le beurre fondu, 5 à 7 min.",
+            "Déglacer au vin blanc. Ajouter les morilles et leur eau filtrée. Enfourner 50 à 60 min.",
+            "Retirer le rôti. Lier la sauce avec la crème fraîche. Assaisonner.",
+            "Cuire les asperges 12 min dans l'eau salée. Réchauffer les flageolets. Servir ensemble."
+          ]
+        },
+        "snack": {
+          "name": "Tarte aux fraises maison",
+          "icon": "🍓",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "40",
+          "isSeasonal": true,
+          "note": "Fraises françaises bio — pâte sablée maison, crème pâtissière légère"
+        },
+        "dinner": {
+          "name": "Restes du rôti, salade mesclun et vinaigrette à la moutarde",
+          "icon": "🌙",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "10",
+          "isSeasonal": true,
+          "note": "Anti-gaspi — le rôti froid est excellent en tranches fines avec une salade croquante",
+          "ingredients": [
+            {
+              "name": "Restes du rôti de veau (froid)",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Mesclun",
+              "qty": 200,
+              "unit": "g"
+            },
+            {
+              "name": "Moutarde à l'ancienne",
+              "qty": 1,
+              "unit": "cs"
+            },
+            {
+              "name": "Vinaigre de vin",
+              "qty": 2,
+              "unit": "cs"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 4,
+              "unit": "cs"
+            }
+          ],
+          "prepSteps": [
+            "Trancher finement le rôti froid.",
+            "Préparer la vinaigrette : mélanger moutarde et vinaigre, puis incorporer l'huile. Saler et poivrer.",
+            "Assaisonner le mesclun avec la vinaigrette.",
+            "Disposer le mesclun dans les assiettes et poser les tranches de rôti par-dessus."
+          ]
+        }
+      }
+    }
+  ],
+  "shoppingList": [
+    {
+      "category": "Légumes de saison",
+      "emoji": "🥦",
+      "items": [
+        {
+          "name": "Asperges blanches",
+          "qty": "400 g",
+          "price_discount": 4.5,
+          "price_standard": 6.0,
+          "price_bio": 9.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Asperges vertes",
+          "qty": "400 g",
+          "price_discount": 4.0,
+          "price_standard": 5.5,
+          "price_bio": 8.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Petits pois frais",
+          "qty": "600 g",
+          "price_discount": 3.6,
+          "price_standard": 4.9,
+          "price_bio": 7.8,
+          "isSeasonal": true
+        },
+        {
+          "name": "Radis",
+          "qty": "2 bottes",
+          "price_discount": 1.6,
+          "price_standard": 2.4,
+          "price_bio": 4.0,
+          "isSeasonal": true
+        },
+        {
+          "name": "Épinards frais",
+          "qty": "300 g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5.5,
+          "isSeasonal": true,
+          "label": "bio recommandé"
+        },
+        {
+          "name": "Carottes",
+          "qty": "500 g",
+          "price_discount": 0.9,
+          "price_standard": 1.3,
+          "price_bio": 2.4,
+          "isSeasonal": false
+        },
+        {
+          "name": "Fraises",
+          "qty": "800 g",
+          "price_discount": 5.5,
+          "price_standard": 7.5,
+          "price_bio": 12.0,
+          "isSeasonal": true,
+          "label": "bio recommandé"
+        },
+        {
+          "name": "Pommes de terre nouvelles",
+          "qty": "500 g",
+          "price_discount": 2.2,
+          "price_standard": 3.0,
+          "price_bio": 5.0,
+          "isSeasonal": true
+        },
+        {
+          "name": "Avocat",
+          "qty": "1 pièce",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2.0,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Viandes",
+      "emoji": "🥩",
+      "items": [
+        {
+          "name": "Poulet fermier (hauts de cuisse)",
+          "qty": "600 g",
+          "price_discount": 5.0,
+          "price_standard": 7.0,
+          "price_bio": 11.5,
+          "isSeasonal": false,
+          "label": "Label Rouge"
+        },
+        {
+          "name": "Escalopes de veau",
+          "qty": "400 g",
+          "price_discount": 7.0,
+          "price_standard": 9.5,
+          "price_bio": 15.0,
+          "isSeasonal": true
+        },
+        {
+          "name": "Épaule d'agneau",
+          "qty": "800 g",
+          "price_discount": 10.0,
+          "price_standard": 14.0,
+          "price_bio": 22.0,
+          "isSeasonal": true
+        },
+        {
+          "name": "Rôti de veau",
+          "qty": "1,2 kg",
+          "price_discount": 14.0,
+          "price_standard": 19.0,
+          "price_bio": 30.0,
+          "isSeasonal": true
+        }
+      ]
+    },
+    {
+      "category": "Poissons",
+      "emoji": "🐟",
+      "items": [
+        {
+          "name": "Cabillaud",
+          "qty": "4 filets (600 g)",
+          "price_discount": 7.2,
+          "price_standard": 9.5,
+          "price_bio": 14.5,
+          "isSeasonal": false,
+          "label": "MSC"
+        },
+        {
+          "name": "Sardines marinées",
+          "qty": "1 bocal",
+          "price_discount": 2.8,
+          "price_standard": 3.9,
+          "price_bio": 5.8,
+          "isSeasonal": false,
+          "label": "MSC"
+        },
+        {
+          "name": "Truite de France",
+          "qty": "4 filets (500 g)",
+          "price_discount": 6.0,
+          "price_standard": 8.0,
+          "price_bio": 12.5,
+          "isSeasonal": false,
+          "label": "France"
+        }
+      ]
+    },
+    {
+      "category": "Produits frais",
+      "emoji": "🥛",
+      "items": [
+        {
+          "name": "Œufs",
+          "qty": "12 pièces",
+          "price_discount": 2.8,
+          "price_standard": 3.8,
+          "price_bio": 5.5,
+          "isSeasonal": false,
+          "label": "Label Rouge"
+        },
+        {
+          "name": "Yaourt nature",
+          "qty": "4 pots",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Yaourt grec",
+          "qty": "3 pots",
+          "price_discount": 2.2,
+          "price_standard": 3.1,
+          "price_bio": 5.2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Fromage blanc",
+          "qty": "500 g",
+          "price_discount": 1.8,
+          "price_standard": 2.5,
+          "price_bio": 4.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Parmesan",
+          "qty": "100 g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Mozzarella di bufala",
+          "qty": "2 boules",
+          "price_discount": 3.5,
+          "price_standard": 5.0,
+          "price_bio": 7.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Gruyère râpé",
+          "qty": "100 g",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Herbes fraîches (persil, menthe, basilic)",
+          "qty": "2 bottes",
+          "price_discount": 1.2,
+          "price_standard": 1.8,
+          "price_bio": 3.0,
+          "isSeasonal": true
+        },
+        {
+          "name": "Beurre demi-sel",
+          "qty": "250 g",
+          "price_discount": 2.2,
+          "price_standard": 3.0,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Légumineuses & céréales",
+      "emoji": "🫘",
+      "items": [
+        {
+          "name": "Riz basmati",
+          "qty": "500 g",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Riz arborio",
+          "qty": "300 g",
+          "price_discount": 2.0,
+          "price_standard": 2.8,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Quinoa",
+          "qty": "250 g",
+          "price_discount": 2.0,
+          "price_standard": 2.8,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Lentilles vertes",
+          "qty": "250 g",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Flageolets en boîte",
+          "qty": "2 boîtes",
+          "price_discount": 1.8,
+          "price_standard": 2.5,
+          "price_bio": 4.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Semoule fine",
+          "qty": "300 g",
+          "price_discount": 1.2,
+          "price_standard": 1.8,
+          "price_bio": 3.2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Gnocchis",
+          "qty": "500 g",
+          "price_discount": 2.0,
+          "price_standard": 2.8,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Épicerie",
+      "emoji": "🛒",
+      "items": [
+        {
+          "name": "Pain au levain",
+          "qty": "1 miche",
+          "price_discount": 2.8,
+          "price_standard": 3.8,
+          "price_bio": 5.8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Farine T65",
+          "qty": "500 g",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2.2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Farine d'épeautre",
+          "qty": "500 g",
+          "price_discount": 2.0,
+          "price_standard": 2.8,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Huile d'olive",
+          "qty": "50 cl",
+          "price_discount": 4.5,
+          "price_standard": 6.5,
+          "price_bio": 10.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Citrons",
+          "qty": "4 pièces",
+          "price_discount": 1.0,
+          "price_standard": 1.5,
+          "price_bio": 2.6,
+          "isSeasonal": false
+        },
+        {
+          "name": "Miel",
+          "qty": "1 pot",
+          "price_discount": 4.5,
+          "price_standard": 6.5,
+          "price_bio": 10.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Moutarde à l'ancienne",
+          "qty": "1 pot",
+          "price_discount": 1.8,
+          "price_standard": 2.5,
+          "price_bio": 3.9,
+          "isSeasonal": false
+        },
+        {
+          "name": "Morilles séchées",
+          "qty": "20 g",
+          "price_discount": 6.0,
+          "price_standard": 8.5,
+          "price_bio": 13.0,
+          "isSeasonal": true
+        }
+      ]
+    }
+  ],
+  "healthAlerts": [
+    {
+      "type": "info",
+      "message": "Asperges blanches et vertes disponibles — profitez-en, la saison se termine à la mi-mai."
+    },
+    {
+      "type": "tip",
+      "message": "Morilles fraîches disponibles chez les primeurs en ce moment — sinon, les morilles séchées en épicerie fine font très bien l'affaire pour le rôti du dimanche."
+    }
+  ]
+}

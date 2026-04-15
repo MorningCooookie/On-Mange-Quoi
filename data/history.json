@@ -1,13 +1,26 @@
 {
   "menus": [
     {
+      "weekStart": "2026-04-13",
+      "weekEnd": "2026-04-19",
+      "file": "data/menus/2026-04-13.json",
+      "label": "Semaine du 13 avril 2026",
+      "healthScore": "A",
+      "highlights": [
+        "3 poissons sûrs · Cabillaud, sardines, truite de France",
+        "Asperges et petits pois au pic de saison 🌱",
+        "Saison des fraises françaises — choisir bio",
+        "Rôti de veau festif le dimanche"
+      ]
+    },
+    {
       "weekStart": "2026-04-06",
       "weekEnd": "2026-04-12",
       "file": "data/menus/2026-04-06.json",
       "label": "Semaine du 6 avril 2026",
       "healthScore": "A",
       "highlights": [
-        "3 poissons sûrs · Zéro maquereau cette semaine",
+        "3 poissons sûrs · Cabillaud, sardines, truite de France",
         "Pâtes bolognaises mercredi — le plat préféré des enfants",
         "20 plats de saison sur 28 🌸",
         "Gigot d'agneau de lait dominical"

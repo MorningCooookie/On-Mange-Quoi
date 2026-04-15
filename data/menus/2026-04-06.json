@@ -209,7 +209,7 @@
           "note": "Compote sans sucre ajouté"
         },
         "dinner": {
-          "name": "Riz cantonnais aux petits pois, carottes et œuf",
+          "name": "Riz cantonais aux petits pois, carottes et œuf",
           "icon": "🌙",
           "riskLevel": "low",
           "riskType": null,
@@ -381,7 +381,7 @@
   "healthAlerts": [
     {
       "type": "tip",
-      "message": "Seulement 3 repas poisson cette semaine (cabillaud, sardines, saumon) — budget allégé, diversité protéinée assurée par le poulet, la dinde et le bœuf."
+      "message": "Seulement 3 repas poisson cette semaine (cabillaud, sardines, truite fumée) — budget allégé, diversité protéinée assurée par le poulet, la dinde et le bœuf."
     },
     {
       "type": "info",
