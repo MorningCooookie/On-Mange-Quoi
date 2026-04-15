@@ -576,7 +576,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  background: #2D7A3C;
+  background: linear-gradient(135deg, #1B4332, #40916C);
   border-radius: 14px;
   padding: 1.25rem 1.5rem;
   margin: 1.25rem 1rem;
