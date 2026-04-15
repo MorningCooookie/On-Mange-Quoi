@@ -2059,3 +2059,265 @@ body.modal-open { overflow: hidden; }
   transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
 }
+
+/* ── Fiche technique — bottom sheet ─────────────────────── */
+
+/* Chevron sur les repas cliquables */
+.meal-row--clickable { cursor: pointer; }
+.fiche-chevron {
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding-left: 0.25rem;
+  opacity: 0.5;
+  transition: transform 150ms, opacity 150ms;
+}
+.meal-row--clickable:hover .fiche-chevron,
+.meal-row--clickable:active .fiche-chevron {
+  transform: translateX(2px);
+  opacity: 1;
+}
+
+/* Overlay */
+.fiche-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 300;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 250ms;
+}
+.fiche-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Modal */
+.fiche-modal {
+  background: var(--white);
+  width: 100%;
+  max-width: 480px;
+  max-height: 90dvh;
+  border-radius: 18px 18px 0 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 1rem 2.5rem;
+  position: relative;
+  transform: translateY(100%);
+  transition: transform 280ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+.fiche-overlay.is-open .fiche-modal { transform: translateY(0); }
+
+/* Handle bar */
+.fiche-modal::before {
+  content: '';
+  display: block;
+  width: 2.5rem;
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  margin: .75rem auto .9rem;
+}
+
+/* Bouton fermer — 44px touch target (WCAG AA) */
+.fiche-close {
+  position: absolute;
+  top: .6rem;
+  right: .85rem;
+  background: var(--bg);
+  border: none;
+  border-radius: 50%;
+  width: 2.75rem;
+  height: 2.75rem;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 150ms;
+}
+.fiche-close:hover { background: var(--border); }
+
+/* Header */
+.fiche-header {
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  margin-bottom: 1rem;
+}
+.fiche-icon { font-size: 2rem; line-height: 1; flex-shrink: 0; margin-top: .1rem; }
+.fiche-header-text { flex: 1; min-width: 0; }
+.fiche-meal-type {
+  font-size: .65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--text-secondary);
+  margin-bottom: .2rem;
+}
+.fiche-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0 0 .25rem;
+  color: var(--text);
+}
+.fiche-meta { font-size: .75rem; color: var(--header-to); font-weight: 600; }
+
+/* Sélecteur de profil */
+.fiche-profiles { display: flex; gap: .4rem; margin-bottom: 1.25rem; }
+.fiche-profile-btn {
+  flex: 1;
+  padding: .4rem .5rem;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: .78rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 150ms;
+}
+.fiche-profile-btn.is-active {
+  background: var(--header-from);
+  border-color: var(--header-from);
+  color: #fff;
+}
+.fiche-profile-btn:hover:not(.is-active) {
+  border-color: var(--header-from);
+  color: var(--header-from);
+}
+
+/* Sections */
+.fiche-section { margin-bottom: 1.1rem; }
+.fiche-section-label {
+  font-size: .65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--text-secondary);
+  margin-bottom: .5rem;
+}
+
+/* Ingrédients */
+.fiche-ingredients { list-style: none; padding: 0; }
+.fiche-ingredient {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: .35rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: .85rem;
+  gap: .5rem;
+}
+.fiche-ingredient:last-child { border-bottom: none; }
+.fiche-ingredient-name { color: var(--text); }
+.fiche-ingredient-qty {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .8rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Étapes */
+.fiche-steps { padding-left: 1.25rem; display: flex; flex-direction: column; gap: .5rem; }
+.fiche-step { font-size: .85rem; line-height: 1.55; color: var(--text); padding-left: .15rem; }
+.fiche-step::marker { font-weight: 700; color: var(--header-from); font-size: .8rem; }
+
+/* Note */
+.fiche-note {
+  font-size: .78rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  border-top: 1px solid var(--border);
+  padding-top: .85rem;
+  margin-top: .5rem;
+}
+.fiche-note:empty { display: none; }
+
+/* ── Newsletter section ────────────────────────────────────── */
+.newsletter-section {
+  text-align: center;
+}
+
+.newsletter-intro {
+  font-size: .95rem;
+  color: var(--text-secondary, #666);
+  margin: -.5rem 0 1.25rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.newsletter-input {
+  flex: 1;
+  min-width: 200px;
+  max-width: 280px;
+  padding: .6rem 1rem;
+  border: 1.5px solid #d0d0d0;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .9rem;
+  color: var(--text, #1F1F1F);
+  background: #fff;
+  outline: none;
+  transition: border-color 150ms;
+}
+
+.newsletter-input:focus {
+  border-color: var(--color-primary, #2D7A3C);
+}
+
+.newsletter-btn {
+  padding: .6rem 1.25rem;
+  background: var(--color-primary, #2D7A3C);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 150ms, transform 150ms;
+}
+
+.newsletter-btn:hover:not(:disabled) {
+  opacity: .9;
+  transform: translateY(-2px);
+}
+
+.newsletter-btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+.newsletter-gdpr {
+  font-size: .72rem;
+  color: #888;
+  margin: .75rem 0 0;
+}
+
+.newsletter-success {
+  font-size: .9rem;
+  color: var(--color-primary, #2D7A3C);
+  font-weight: 600;
+  margin: .5rem 0 0;
+}

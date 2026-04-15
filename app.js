@@ -536,6 +536,9 @@ function renderMenu() {
           mealWarning = '<div style="color:#dc2626;font-size:0.8rem;margin-top:0.25rem;font-weight:600;">⚠️ Incompatible avec vos préférences</div>';
         }
       }
+      // Fiche technique — repas cliquable si ingrédients disponibles (pas de snack)
+      const isClickable = type !== 'snack' && (meal.ingredients?.length > 0);
+      if (isClickable) rowClass += ' meal-row--clickable';
       row.className = rowClass;
 
       const prepBadge = renderPrepTimeBadge(meal.prepTime);
@@ -543,6 +546,7 @@ function renderMenu() {
         <div class="meal-header">
           <span class="meal-icon">${meal.icon || '🍽'}</span>
           <span class="meal-name">${meal.name}</span>
+          ${isClickable ? '<span class="fiche-chevron" aria-hidden="true">›</span>' : ''}
         </div>
         <div class="meal-badges">
           <span class="risk-badge" data-tooltip="${tooltip}">
@@ -553,6 +557,8 @@ function renderMenu() {
           ${seasonBadge}
         </div>
         ${mealWarning}`;
+
+      if (isClickable) row.addEventListener('click', () => openFiche(meal, type, row));
 
       mealsContainer.appendChild(row);
     });
@@ -914,9 +920,9 @@ function renderHistory() {
   grid.innerHTML = '';
 
   state.historyData.menus.forEach((menu, i) => {
-    const isCurrent = i === 0;
+    if (i === 0) return; // semaine en cours — affichée sur la page principale, pas dans l'historique
     const card = document.createElement('div');
-    card.className = `history-card${isCurrent ? ' current' : ''}`;
+    card.className = 'history-card';
 
     const score = menu.healthScore || '';
     const scoreHtml = score ? `<span class="history-card-score grade-${score}">Score ${score}</span>` : '';
@@ -925,7 +931,6 @@ function renderHistory() {
     card.innerHTML = `
       <div class="history-card-label">
         ${formatDateShort(menu.weekStart)} – ${formatDateShort(menu.weekEnd)}
-        ${isCurrent ? '<span class="badge-current">En cours</span>' : ''}
       </div>
       ${scoreHtml}
       <div class="history-card-title">${menu.label}</div>
@@ -1106,6 +1111,109 @@ function showToast(msg) {
   toastTimer = setTimeout(() => el.classList.remove('visible'), 3000);
 }
 
+// ── Fiche technique — bottom sheet ─────────────────────────
+const FICHE_MEAL_LABELS = {
+  breakfast: 'Petit-déj', lunch: 'Déjeuner', snack: 'Goûter', dinner: 'Dîner',
+  dejeuner: 'Déjeuner',   diner: 'Dîner',    gouter: 'Goûter'
+};
+
+const FICHE_PROFILES = {
+  famille_jeunes_enfants: { mult: 1.0 },
+  couple:                 { mult: 0.55 },
+  solo:                   { mult: 0.3 }
+};
+
+const ficheState = { meal: null, type: null, triggerEl: null, closing: false };
+
+function ficheGetProfile() {
+  const saved = localStorage.getItem('omq_profile');
+  return (saved && FICHE_PROFILES[saved]) ? saved : 'famille_jeunes_enfants';
+}
+
+function ficheFormatQty(qty, unit, mult) {
+  const v = qty * mult;
+  if (unit === 'g') {
+    return (v < 100 ? Math.max(5, Math.round(v / 5) * 5) : Math.round(v / 10) * 10) + '\u00a0g';
+  }
+  if (unit === 'ml') {
+    return (v < 100 ? Math.max(10, Math.round(v / 10) * 10) : Math.round(v / 25) * 25) + '\u00a0ml';
+  }
+  if (unit === 'cs' || unit === 'cc') {
+    return (Math.round(Math.max(0.5, v) * 2) / 2) + '\u00a0' + unit;
+  }
+  return Math.max(1, Math.round(v)) + '\u00a0' + unit;
+}
+
+function ficheRenderIngredients(meal, profileKey) {
+  const mult = FICHE_PROFILES[profileKey].mult;
+  const el   = document.getElementById('fiche-ingredients');
+  if (!el) return;
+  el.innerHTML = (meal.ingredients || []).map(ing => `
+    <li class="fiche-ingredient">
+      <span class="fiche-ingredient-name">${ing.name}</span>
+      <span class="fiche-ingredient-qty">${ficheFormatQty(ing.qty, ing.unit, mult)}</span>
+    </li>`).join('');
+}
+
+function openFiche(meal, type, triggerEl) {
+  if (ficheState.closing) return;
+
+  // Si une fiche est déjà ouverte, fermer d'abord puis rouvrir
+  if (ficheState.meal) {
+    closeFiche(() => openFiche(meal, type, triggerEl));
+    return;
+  }
+
+  ficheState.meal      = meal;
+  ficheState.type      = type;
+  ficheState.triggerEl = triggerEl || null;
+
+  const profileKey = ficheGetProfile();
+
+  document.getElementById('fiche-icon').textContent      = meal.icon || '🍽';
+  document.getElementById('fiche-meal-type').textContent = FICHE_MEAL_LABELS[type] || type;
+  document.getElementById('fiche-title').textContent     = meal.name;
+  document.getElementById('fiche-meta').textContent      = meal.prepTime ? `⏱ ${meal.prepTime} min` : '';
+
+  document.querySelectorAll('#fiche-overlay .fiche-profile-btn').forEach(btn =>
+    btn.classList.toggle('is-active', btn.dataset.profile === profileKey)
+  );
+
+  ficheRenderIngredients(meal, profileKey);
+
+  document.getElementById('fiche-steps').innerHTML =
+    (meal.prepSteps || []).map(s => `<li class="fiche-step">${s}</li>`).join('');
+
+  const noteEl = document.getElementById('fiche-note');
+  if (noteEl) noteEl.textContent = meal.note || '';
+
+  document.getElementById('fiche-overlay').classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+
+  // Focus trap — aller sur le bouton × à l'ouverture
+  requestAnimationFrame(() => document.getElementById('fiche-close')?.focus());
+}
+
+function closeFiche(callback) {
+  const overlay = document.getElementById('fiche-overlay');
+  if (!overlay || ficheState.closing) return;
+  ficheState.closing = true;
+  overlay.classList.remove('is-open');
+  document.body.style.overflow = '';
+
+  // Retour du focus sur l'élément déclencheur
+  if (ficheState.triggerEl) ficheState.triggerEl.focus({ preventScroll: true });
+
+  // Attendre la fin de la transition CSS (280ms) avant de remettre l'état à zéro
+  setTimeout(() => {
+    ficheState.closing = false;
+    ficheState.meal    = null;
+    ficheState.type    = null;
+    ficheState.triggerEl = null;
+    if (typeof callback === 'function') callback();
+  }, 300);
+}
+
 // ── Init ─────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   LS.load();
@@ -1138,6 +1246,26 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('btn-vue-semaine')?.addEventListener('click', () => {
     const week = state.menuData?.weekStart || '';
     window.location.href = `semaine.html?week=${week}`;
+  });
+
+  // Fiche technique — fermeture
+  document.getElementById('fiche-close')?.addEventListener('click', () => closeFiche());
+  document.getElementById('fiche-overlay')?.addEventListener('click', e => {
+    if (e.target.id === 'fiche-overlay') closeFiche();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && ficheState.meal) closeFiche();
+  });
+
+  // Fiche technique — sélecteur de profil
+  document.querySelectorAll('#fiche-overlay .fiche-profile-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#fiche-overlay .fiche-profile-btn').forEach(b =>
+        b.classList.toggle('is-active', b === btn)
+      );
+      localStorage.setItem('omq_profile', btn.dataset.profile);
+      if (ficheState.meal) ficheRenderIngredients(ficheState.meal, btn.dataset.profile);
+    });
   });
 
   // Initialize feedback system
@@ -1343,4 +1471,42 @@ function renderMealWithSafetyCheck(meal, mealType, dayDate) {
     return null; // Return null to render using original logic
   }
 }
+
+// ── Inscription newsletter ────────────────────────────────────
+(function initNewsletter() {
+  const form = document.getElementById('newsletter-form');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('newsletter-email').value.trim();
+    const btn = document.getElementById('newsletter-submit');
+
+    btn.disabled = true;
+    btn.textContent = 'Envoi…';
+
+    try {
+      const res = await fetch('/.netlify/functions/newsletter-subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        form.hidden = true;
+        document.getElementById('newsletter-success').hidden = false;
+      } else {
+        btn.disabled = false;
+        btn.textContent = "S'abonner";
+        alert('Une erreur est survenue. Réessayez dans un instant.');
+      }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = "S'abonner";
+      alert('Problème de connexion. Réessayez dans un instant.');
+    }
+  });
+})();
 

@@ -48,6 +48,28 @@
       </div>
     </div>
 
+    <!-- ── Bloc inscription newsletter ───────────────────────── -->
+    <div class="newsletter-banner" id="newsletter-banner">
+      <p class="newsletter-title">📬 Recevoir le menu chaque lundi</p>
+      <form class="newsletter-form" id="newsletter-form" novalidate>
+        <input
+          type="email"
+          id="newsletter-email"
+          class="newsletter-input"
+          placeholder="votre@email.com"
+          autocomplete="email"
+          required
+        />
+        <button type="submit" class="newsletter-btn" id="newsletter-submit">
+          S'abonner
+        </button>
+      </form>
+      <p class="newsletter-gdpr">Pas de spam · Désinscription en 1 clic · RGPD</p>
+      <p class="newsletter-success" id="newsletter-success" hidden>
+        ✅ C'est noté ! Vous recevrez le menu dès lundi prochain.
+      </p>
+    </div>
+
     <footer class="semaine-footer">
       onmangequoi.eu · Menu complet, liste de courses et budget sur le site
     </footer>
@@ -58,5 +80,39 @@
   </main>
 
   <script src="semaine.js"></script>
+
+  <!-- ── Fiche technique modale ───────────────────────────── -->
+  <div class="fiche-overlay" id="fiche-overlay" role="dialog" aria-modal="true" aria-labelledby="fiche-title">
+    <div class="fiche-modal" id="fiche-modal">
+      <button class="fiche-close" id="fiche-close" aria-label="Fermer">×</button>
+
+      <div class="fiche-header">
+        <span class="fiche-icon" id="fiche-icon"></span>
+        <div class="fiche-header-text">
+          <div class="fiche-meal-type" id="fiche-meal-type"></div>
+          <h2 class="fiche-title" id="fiche-title"></h2>
+          <div class="fiche-meta" id="fiche-meta"></div>
+        </div>
+      </div>
+
+      <div class="fiche-profiles">
+        <button class="fiche-profile-btn" data-profile="famille_jeunes_enfants">Famille</button>
+        <button class="fiche-profile-btn" data-profile="couple">Couple</button>
+        <button class="fiche-profile-btn" data-profile="solo">Solo</button>
+      </div>
+
+      <div class="fiche-section">
+        <h3 class="fiche-section-label">Ingrédients</h3>
+        <ul class="fiche-ingredients" id="fiche-ingredients"></ul>
+      </div>
+
+      <div class="fiche-section">
+        <h3 class="fiche-section-label">Préparation</h3>
+        <ol class="fiche-steps" id="fiche-steps"></ol>
+      </div>
+
+      <p class="fiche-note" id="fiche-note"></p>
+    </div>
+  </div>
 </body>
 </html>
