@@ -1479,7 +1479,8 @@ function renderMealWithSafetyCheck(meal, mealType, dayDate) {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const email = document.getElementById('newsletter-email').value.trim();
+    const emailInput = document.getElementById('newsletter-email');
+    const email = emailInput.value.trim();
     const btn = document.getElementById('newsletter-submit');
 
     btn.disabled = true;
@@ -1495,17 +1496,19 @@ function renderMealWithSafetyCheck(meal, mealType, dayDate) {
       const data = await res.json();
 
       if (res.ok && data.success) {
-        form.hidden = true;
-        document.getElementById('newsletter-success').hidden = false;
+        emailInput.value = '';
+        btn.textContent = "S'abonner →";
+        btn.disabled = false;
+        showToast('✅ Inscription confirmée — à lundi !');
       } else {
         btn.disabled = false;
-        btn.textContent = "S'abonner";
-        alert('Une erreur est survenue. Réessayez dans un instant.');
+        btn.textContent = "S'abonner →";
+        showToast('Une erreur est survenue, réessayez.');
       }
     } catch {
       btn.disabled = false;
-      btn.textContent = "S'abonner";
-      alert('Problème de connexion. Réessayez dans un instant.');
+      btn.textContent = "S'abonner →";
+      showToast('Problème de connexion, réessayez.');
     }
   });
 })();

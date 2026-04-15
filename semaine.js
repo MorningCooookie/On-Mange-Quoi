@@ -247,7 +247,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (newsletterForm) {
     newsletterForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const email = document.getElementById('newsletter-email').value.trim();
+      const emailInput = document.getElementById('newsletter-email');
+      const email = emailInput.value.trim();
       const btn = document.getElementById('newsletter-submit');
 
       btn.disabled = true;
@@ -263,17 +264,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = await res.json();
 
         if (res.ok && data.success) {
-          newsletterForm.hidden = true;
-          document.getElementById('newsletter-success').hidden = false;
+          emailInput.value = '';
+          btn.textContent = "S'abonner →";
+          btn.disabled = false;
+          // Message de confirmation qui disparaît après 2 secondes
+          const msg = document.createElement('p');
+          msg.textContent = "✅ C'est noté — à lundi !";
+          msg.style.cssText = 'color:#fff;font-size:.82rem;font-weight:600;margin:.5rem 0 0;opacity:1;transition:opacity 1s;';
+          newsletterForm.after(msg);
+          setTimeout(() => { msg.style.opacity = '0'; }, 1500);
+          setTimeout(() => { msg.remove(); }, 2500);
         } else {
           btn.disabled = false;
-          btn.textContent = "S'abonner";
-          alert('Une erreur est survenue. Réessayez dans un instant.');
+          btn.textContent = "S'abonner →";
         }
       } catch {
         btn.disabled = false;
-        btn.textContent = "S'abonner";
-        alert('Problème de connexion. Réessayez dans un instant.');
+        btn.textContent = "S'abonner →";
       }
     });
   }
