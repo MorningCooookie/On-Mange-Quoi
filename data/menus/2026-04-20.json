@@ -1,0 +1,763 @@
+{
+  "weekStart": "2026-04-20",
+  "weekEnd": "2026-04-26",
+  "healthScore": "A",
+  "healthScoreHighlights": [
+    "3 poissons sûrs · Truite de France, maquereau atlantique, cabillaud MSC",
+    "Asperges vertes et blanches au pic de saison 🌿",
+    "Fraises Gariguette françaises — privilégier bio ou circuit court",
+    "Agneau de printemps français pour le dimanche festif"
+  ],
+  "days": [
+    {
+      "date": "2026-04-20",
+      "label": "Lundi",
+      "meals": {
+        "breakfast": {
+          "name": "Porridge d'avoine, banane, miel et noix",
+          "icon": "🌅",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "10",
+          "isSeasonal": false,
+          "note": "Avoine complète rassasiante — noix pour les oméga-3 du matin",
+          "ingredients": [
+            { "name": "Flocons d'avoine", "qty": 240, "unit": "g" },
+            { "name": "Lait demi-écrémé", "qty": 800, "unit": "ml" },
+            { "name": "Banane", "qty": 2, "unit": "pièces" },
+            { "name": "Miel", "qty": 40, "unit": "g" },
+            { "name": "Cerneaux de noix", "qty": 60, "unit": "g" }
+          ],
+          "prepSteps": [
+            "Verser les flocons et le lait dans une casserole. Chauffer à feu moyen en remuant 5 min.",
+            "Couper les bananes en rondelles.",
+            "Répartir le porridge dans 4 bols, garnir de banane, noix et un filet de miel."
+          ]
+        },
+        "lunch": {
+          "name": "Truite de France poêlée, asperges vertes, quinoa citronné",
+          "icon": "🐟",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "25",
+          "isSeasonal": true,
+          "note": "Truite d'élevage français — teneur en mercure très faible. Asperges vertes en pleine saison.",
+          "ingredients": [
+            { "name": "Filets de truite de France", "qty": 600, "unit": "g" },
+            { "name": "Asperges vertes", "qty": 500, "unit": "g" },
+            { "name": "Quinoa", "qty": 240, "unit": "g" },
+            { "name": "Huile d'olive", "qty": 30, "unit": "ml" },
+            { "name": "Citron", "qty": 1, "unit": "pièce" },
+            { "name": "Ciboulette fraîche", "qty": 20, "unit": "g" }
+          ],
+          "prepSteps": [
+            "Rincer le quinoa. Cuire dans 480 ml d'eau salée 15 min à couvert.",
+            "Casser les pieds des asperges. Cuire à la vapeur 8 min.",
+            "Poêler les filets de truite 3 min par face dans l'huile d'olive. Presser le citron en fin de cuisson.",
+            "Dresser le quinoa, les asperges et la truite. Parsemer de ciboulette ciselée."
+          ]
+        },
+        "snack": {
+          "name": "Fraises Gariguette, amandes",
+          "icon": "🍓",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "2",
+          "isSeasonal": true,
+          "note": "Fraises françaises de saison — amandes pour les bons lipides"
+        },
+        "dinner": {
+          "name": "Gratin de pâtes aux épinards et ricotta",
+          "icon": "🍝",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "35",
+          "isSeasonal": true,
+          "note": "Épinards frais de saison — ricotta légère en lieu de béchamel. Plat complet sans viande.",
+          "ingredients": [
+            { "name": "Pâtes rigatoni", "qty": 400, "unit": "g" },
+            { "name": "Épinards frais", "qty": 400, "unit": "g" },
+            { "name": "Ricotta", "qty": 250, "unit": "g" },
+            { "name": "Parmesan râpé", "qty": 80, "unit": "g" },
+            { "name": "Ail", "qty": 2, "unit": "gousses" },
+            { "name": "Huile d'olive", "qty": 20, "unit": "ml" },
+            { "name": "Muscade", "qty": 1, "unit": "pincée" }
+          ],
+          "prepSteps": [
+            "Préchauffer le four à 200°C. Cuire les pâtes al dente, égoutter.",
+            "Faire revenir l'ail émincé dans l'huile. Ajouter les épinards, faire tomber 3 min. Saler.",
+            "Mélanger pâtes, épinards, ricotta, muscade. Verser dans un plat à gratin.",
+            "Couvrir de parmesan râpé. Enfourner 15 min jusqu'à gratinage doré."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-04-21",
+      "label": "Mardi",
+      "meals": {
+        "breakfast": {
+          "name": "Toasts complets, avocat écrasé, œuf poché",
+          "icon": "🥑",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "15",
+          "isSeasonal": false,
+          "note": "Pain complet pour les fibres — avocat source de bons lipides. Œuf poché pour les protéines.",
+          "ingredients": [
+            { "name": "Pain complet", "qty": 8, "unit": "tranches" },
+            { "name": "Avocat mûr", "qty": 2, "unit": "pièces" },
+            { "name": "Œufs", "qty": 4, "unit": "pièces" },
+            { "name": "Citron vert", "qty": 1, "unit": "pièce" },
+            { "name": "Flocons de piment", "qty": 2, "unit": "g" },
+            { "name": "Vinaigre blanc", "qty": 20, "unit": "ml" }
+          ],
+          "prepSteps": [
+            "Toaster les tranches de pain complet.",
+            "Écraser l'avocat à la fourchette avec jus de citron vert, sel et flocons de piment.",
+            "Pocher les œufs 3 min dans eau frémissante avec vinaigre. Égoutter sur papier absorbant.",
+            "Tartiner l'avocat sur les toasts, déposer un œuf poché sur chacun."
+          ]
+        },
+        "lunch": {
+          "name": "Salade niçoise aux sardines, haricots verts, tomates cerises",
+          "icon": "🥗",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "20",
+          "isSeasonal": false,
+          "note": "Sardines à l'huile d'olive — parmi les poissons les plus sains (oméga-3 élevés, mercure quasi nul).",
+          "ingredients": [
+            { "name": "Sardines à l'huile d'olive", "qty": 300, "unit": "g" },
+            { "name": "Haricots verts fins", "qty": 300, "unit": "g" },
+            { "name": "Tomates cerises", "qty": 250, "unit": "g" },
+            { "name": "Œufs", "qty": 4, "unit": "pièces" },
+            { "name": "Olives noires", "qty": 80, "unit": "g" },
+            { "name": "Laitue", "qty": 1, "unit": "pièce" },
+            { "name": "Vinaigrette moutarde", "qty": 60, "unit": "ml" }
+          ],
+          "prepSteps": [
+            "Cuire les haricots verts à l'eau bouillante salée 6 min. Passer immédiatement sous eau froide.",
+            "Faire durcir les œufs 9 min, écaler et couper en quartiers.",
+            "Composer la salade : laitue, haricots, tomates cerises coupées en deux, olives.",
+            "Ajouter sardines égouttées et œufs durs. Arroser de vinaigrette. Servir aussitôt."
+          ]
+        },
+        "snack": {
+          "name": "Fromage blanc, miel, noix",
+          "icon": "🍯",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "2",
+          "isSeasonal": false,
+          "note": "Collation protéinée — fromage blanc 0% ou entier selon les besoins"
+        },
+        "dinner": {
+          "name": "Poulet fermier rôti, carottes nouvelles glacées, semoule",
+          "icon": "🍗",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "55",
+          "isSeasonal": true,
+          "note": "Poulet Label Rouge ou fermier. Carottes nouvelles de saison — tendres et sucrées.",
+          "ingredients": [
+            { "name": "Poulet fermier entier", "qty": 1800, "unit": "g" },
+            { "name": "Carottes nouvelles", "qty": 600, "unit": "g" },
+            { "name": "Semoule de blé", "qty": 320, "unit": "g" },
+            { "name": "Beurre", "qty": 40, "unit": "g" },
+            { "name": "Herbes de Provence", "qty": 10, "unit": "g" },
+            { "name": "Huile d'olive", "qty": 30, "unit": "ml" },
+            { "name": "Sucre", "qty": 10, "unit": "g" }
+          ],
+          "prepSteps": [
+            "Préchauffer le four à 200°C. Badigeonner le poulet d'huile, sel, herbes de Provence. Enfourner 45-50 min.",
+            "Gratter les carottes nouvelles (garder un bout de fanes). Cuire 10 min à l'eau puis glacer au beurre et sucre 5 min à la poêle.",
+            "Verser la semoule dans un plat creux, ajouter beurre et 320 ml d'eau bouillante salée. Couvrir 5 min, égrainer à la fourchette.",
+            "Servir le poulet découpé avec carottes glacées et semoule."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-04-22",
+      "label": "Mercredi",
+      "meals": {
+        "breakfast": {
+          "name": "Yaourt nature, granola, fraises Gariguette",
+          "icon": "🍓",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "5",
+          "isSeasonal": true,
+          "note": "Fraises Gariguette françaises à leur pic — choisir issues d'agriculture raisonnée ou bio.",
+          "ingredients": [
+            { "name": "Yaourt nature entier", "qty": 400, "unit": "g" },
+            { "name": "Granola", "qty": 160, "unit": "g" },
+            { "name": "Fraises Gariguette", "qty": 300, "unit": "g" },
+            { "name": "Miel", "qty": 20, "unit": "g" }
+          ],
+          "prepSteps": [
+            "Rincer et équeuter les fraises, couper en deux.",
+            "Répartir le yaourt dans 4 bols.",
+            "Garnir de granola, de fraises et d'un filet de miel."
+          ]
+        },
+        "lunch": {
+          "name": "Velouté d'asperges blanches, tartines de pain au levain",
+          "icon": "🥣",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "30",
+          "isSeasonal": true,
+          "note": "Asperges blanches en pleine saison avril-mai. Velouté léger sans crème lourde.",
+          "ingredients": [
+            { "name": "Asperges blanches", "qty": 800, "unit": "g" },
+            { "name": "Échalotes", "qty": 2, "unit": "pièces" },
+            { "name": "Crème légère", "qty": 100, "unit": "ml" },
+            { "name": "Bouillon de légumes", "qty": 800, "unit": "ml" },
+            { "name": "Beurre", "qty": 20, "unit": "g" },
+            { "name": "Pain au levain", "qty": 8, "unit": "tranches" }
+          ],
+          "prepSteps": [
+            "Éplucher les asperges, couper en tronçons. Faire suer les échalotes émincées au beurre 3 min.",
+            "Ajouter les asperges et le bouillon. Cuire 20 min à frémissement.",
+            "Mixer finement, ajouter la crème. Rectifier l'assaisonnement.",
+            "Toaster le pain au levain. Servir le velouté chaud avec les tartines."
+          ]
+        },
+        "snack": {
+          "name": "Yaourt grec, fraises de saison",
+          "icon": "🍓",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "3",
+          "isSeasonal": true,
+          "note": "Yaourt grec riche en protéines — fraises fraîches pour la vitamine C"
+        },
+        "dinner": {
+          "name": "Sauté de veau aux petits pois frais et carottes, riz basmati",
+          "icon": "🍲",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "40",
+          "isSeasonal": true,
+          "note": "Petits pois frais en début de saison — écosser soi-même pour la meilleure saveur. Veau de lait français.",
+          "ingredients": [
+            { "name": "Épaule de veau", "qty": 700, "unit": "g" },
+            { "name": "Petits pois frais (avec cosse)", "qty": 1000, "unit": "g" },
+            { "name": "Carottes nouvelles", "qty": 300, "unit": "g" },
+            { "name": "Oignon", "qty": 1, "unit": "pièce" },
+            { "name": "Bouquet garni", "qty": 1, "unit": "pièce" },
+            { "name": "Riz basmati", "qty": 280, "unit": "g" },
+            { "name": "Farine", "qty": 30, "unit": "g" },
+            { "name": "Huile d'olive", "qty": 20, "unit": "ml" }
+          ],
+          "prepSteps": [
+            "Détailler le veau en cubes. Fariner légèrement. Faire dorer à l'huile d'olive sur toutes les faces.",
+            "Ajouter oignon émincé, carottes en rondelles, bouquet garni. Couvrir d'eau à hauteur. Mijoter 25 min.",
+            "Écosser les petits pois. Les ajouter 10 min avant la fin de la cuisson.",
+            "Cuire le riz basmati 12 min dans l'eau salée. Servir le sauté sur le riz."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-04-23",
+      "label": "Jeudi",
+      "meals": {
+        "breakfast": {
+          "name": "Crêpes de blé complet, fromage blanc, compote de rhubarbe",
+          "icon": "🥞",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "25",
+          "isSeasonal": true,
+          "note": "Rhubarbe en début de saison — acidulée et légère. Fromage blanc protéiné en garniture.",
+          "ingredients": [
+            { "name": "Farine de blé complète", "qty": 200, "unit": "g" },
+            { "name": "Œufs", "qty": 2, "unit": "pièces" },
+            { "name": "Lait demi-écrémé", "qty": 500, "unit": "ml" },
+            { "name": "Beurre", "qty": 30, "unit": "g" },
+            { "name": "Rhubarbe", "qty": 400, "unit": "g" },
+            { "name": "Fromage blanc 0%", "qty": 400, "unit": "g" },
+            { "name": "Sucre de canne", "qty": 60, "unit": "g" }
+          ],
+          "prepSteps": [
+            "Cuire la rhubarbe en dés avec le sucre à feu doux 15 min. Laisser refroidir.",
+            "Préparer la pâte à crêpes : mélanger farine, œufs, lait, beurre fondu. Reposer 10 min.",
+            "Cuire les crêpes à la poêle anti-adhésive, 1 min par face.",
+            "Garnir chaque crêpe de fromage blanc et compote de rhubarbe."
+          ]
+        },
+        "lunch": {
+          "name": "Maquereau en papillote, fenouil rôti, boulgour",
+          "icon": "🐟",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "30",
+          "isSeasonal": false,
+          "note": "Maquereau atlantique — poisson gras riche en oméga-3, mercure très faible. Préférer MSC.",
+          "ingredients": [
+            { "name": "Filets de maquereau", "qty": 600, "unit": "g" },
+            { "name": "Fenouil", "qty": 2, "unit": "bulbes" },
+            { "name": "Boulgour", "qty": 280, "unit": "g" },
+            { "name": "Citron", "qty": 2, "unit": "pièces" },
+            { "name": "Huile d'olive", "qty": 30, "unit": "ml" },
+            { "name": "Thym frais", "qty": 4, "unit": "brins" }
+          ],
+          "prepSteps": [
+            "Préchauffer le four à 190°C. Couper le fenouil en quartiers, arroser d'huile, saler. Rôtir 25 min.",
+            "Déposer chaque filet sur une feuille d'aluminium, ajouter rondelles de citron et thym. Refermer les papillotes.",
+            "Enfourner les papillotes 15 min.",
+            "Cuire le boulgour dans 560 ml de bouillon chaud 10 min. Servir avec maquereau et fenouil rôti."
+          ]
+        },
+        "snack": {
+          "name": "Pomme, beurre d'amande",
+          "icon": "🍎",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "2",
+          "isSeasonal": false,
+          "note": "Collation équilibrée — sucres lents de la pomme, protéines du beurre d'amande"
+        },
+        "dinner": {
+          "name": "Omelette aux épinards, chèvre frais et pignons, salade verte",
+          "icon": "🍳",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "20",
+          "isSeasonal": true,
+          "note": "Dîner végétarien léger. Épinards de saison riches en fer. Chèvre frais pour le calcium.",
+          "ingredients": [
+            { "name": "Œufs", "qty": 8, "unit": "pièces" },
+            { "name": "Épinards frais", "qty": 200, "unit": "g" },
+            { "name": "Chèvre frais (bûche)", "qty": 150, "unit": "g" },
+            { "name": "Pignons de pin", "qty": 40, "unit": "g" },
+            { "name": "Salade verte mélangée", "qty": 120, "unit": "g" },
+            { "name": "Vinaigrette", "qty": 40, "unit": "ml" },
+            { "name": "Beurre", "qty": 20, "unit": "g" }
+          ],
+          "prepSteps": [
+            "Faire tomber les épinards au beurre 3 min à feu vif. Saler, réserver.",
+            "Battre les 8 œufs avec sel et poivre. Verser dans une grande poêle chaude huilée.",
+            "Cuire en omelette moelleuse. Garnir d'épinards, miettes de chèvre, pignons. Plier et servir.",
+            "Assaisonner la salade verte avec la vinaigrette et servir en accompagnement."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-04-24",
+      "label": "Vendredi",
+      "meals": {
+        "breakfast": {
+          "name": "Smoothie bowl fraises-banane, graines de chia, granola",
+          "icon": "🍓",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "10",
+          "isSeasonal": true,
+          "note": "Fraises Gariguette en vedette — smoothie bowl épais et rassasiant grâce aux graines de chia.",
+          "ingredients": [
+            { "name": "Fraises Gariguette", "qty": 400, "unit": "g" },
+            { "name": "Banane congelée", "qty": 2, "unit": "pièces" },
+            { "name": "Yaourt grec", "qty": 200, "unit": "g" },
+            { "name": "Graines de chia", "qty": 40, "unit": "g" },
+            { "name": "Granola", "qty": 120, "unit": "g" },
+            { "name": "Miel", "qty": 20, "unit": "g" }
+          ],
+          "prepSteps": [
+            "Mixer fraises, banane congelée et yaourt grec jusqu'à consistance épaisse.",
+            "Verser dans 4 bols.",
+            "Garnir de granola, graines de chia et quelques fraises entières. Filet de miel."
+          ]
+        },
+        "lunch": {
+          "name": "Cabillaud rôti croûte de persil, légumes vapeur printaniers",
+          "icon": "🐟",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "30",
+          "isSeasonal": true,
+          "note": "Cabillaud MSC — faible teneur en mercure. Radis et asperges vertes de saison en accompagnement.",
+          "ingredients": [
+            { "name": "Dos de cabillaud", "qty": 700, "unit": "g" },
+            { "name": "Persil plat", "qty": 40, "unit": "g" },
+            { "name": "Chapelure", "qty": 60, "unit": "g" },
+            { "name": "Asperges vertes", "qty": 300, "unit": "g" },
+            { "name": "Radis", "qty": 200, "unit": "g" },
+            { "name": "Citron", "qty": 1, "unit": "pièce" },
+            { "name": "Beurre", "qty": 40, "unit": "g" }
+          ],
+          "prepSteps": [
+            "Préchauffer le four à 200°C. Mixer persil et chapelure avec beurre fondu. Réserver.",
+            "Poser le cabillaud dans un plat huilé. Couvrir uniformément de la croûte persil-chapelure.",
+            "Cuire 18-20 min. Cuire les asperges vertes à la vapeur 8 min en parallèle.",
+            "Servir avec radis frais en rondelles et un jus de citron sur le poisson."
+          ]
+        },
+        "snack": {
+          "name": "Fraises fraîches, yaourt grec",
+          "icon": "🍓",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "3",
+          "isSeasonal": true,
+          "note": "Collation légère de saison — protéines du yaourt, vitamine C des fraises"
+        },
+        "dinner": {
+          "name": "Pizza maison, mozzarella, poivrons rôtis, roquette fraîche",
+          "icon": "🍕",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "40",
+          "isSeasonal": false,
+          "note": "Rituel du vendredi en famille — pâte fine maison, garniture légère, roquette ajoutée après cuisson.",
+          "ingredients": [
+            { "name": "Farine T65", "qty": 500, "unit": "g" },
+            { "name": "Levure boulangère sèche", "qty": 7, "unit": "g" },
+            { "name": "Sauce tomate", "qty": 200, "unit": "g" },
+            { "name": "Mozzarella di buffala", "qty": 300, "unit": "g" },
+            { "name": "Poivrons", "qty": 2, "unit": "pièces" },
+            { "name": "Roquette", "qty": 60, "unit": "g" },
+            { "name": "Huile d'olive", "qty": 30, "unit": "ml" }
+          ],
+          "prepSteps": [
+            "Préparer la pâte : mélanger farine, levure, 300 ml d'eau tiède, huile, sel. Pétrir 10 min, laisser lever 1h.",
+            "Préchauffer le four à 250°C avec la plaque à l'intérieur. Étaler la pâte finement.",
+            "Garnir de sauce tomate, mozzarella en morceaux, poivrons en lanières.",
+            "Cuire 12-14 min. Ajouter la roquette fraîche et un filet d'huile d'olive à la sortie du four."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-04-25",
+      "label": "Samedi",
+      "meals": {
+        "breakfast": {
+          "name": "Pancakes moelleux, sirop d'érable, myrtilles fraîches",
+          "icon": "🥞",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "25",
+          "isSeasonal": false,
+          "note": "Brunch du samedi — pancakes riches en protéines (œufs, lait). À déguster sans se presser.",
+          "ingredients": [
+            { "name": "Farine T45", "qty": 200, "unit": "g" },
+            { "name": "Lait demi-écrémé", "qty": 250, "unit": "ml" },
+            { "name": "Œufs", "qty": 2, "unit": "pièces" },
+            { "name": "Levure chimique", "qty": 10, "unit": "g" },
+            { "name": "Sucre", "qty": 30, "unit": "g" },
+            { "name": "Beurre", "qty": 30, "unit": "g" },
+            { "name": "Sirop d'érable", "qty": 80, "unit": "ml" },
+            { "name": "Myrtilles", "qty": 200, "unit": "g" }
+          ],
+          "prepSteps": [
+            "Mélanger farine, levure, sucre. Ajouter œufs, lait, beurre fondu. Ne pas trop travailler la pâte.",
+            "Cuire les pancakes à la poêle anti-adhésive à feu moyen, 2-3 min par face.",
+            "Empiler dans les assiettes. Garnir de myrtilles fraîches et sirop d'érable."
+          ]
+        },
+        "lunch": {
+          "name": "Soupe printanière petits pois-menthe, tartines chèvre-radis",
+          "icon": "🥣",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "25",
+          "isSeasonal": true,
+          "note": "Petits pois frais en pleine saison avec menthe fraîche — classique du printemps. Servir chaud ou tiède.",
+          "ingredients": [
+            { "name": "Petits pois frais (avec cosse)", "qty": 1200, "unit": "g" },
+            { "name": "Menthe fraîche", "qty": 20, "unit": "g" },
+            { "name": "Bouillon de légumes", "qty": 600, "unit": "ml" },
+            { "name": "Crème légère", "qty": 80, "unit": "ml" },
+            { "name": "Pain de campagne", "qty": 8, "unit": "tranches" },
+            { "name": "Chèvre frais", "qty": 200, "unit": "g" },
+            { "name": "Radis", "qty": 200, "unit": "g" }
+          ],
+          "prepSteps": [
+            "Écosser les petits pois. Cuire dans le bouillon à frémissement 10 min.",
+            "Mixer avec la menthe fraîche et la crème légère. Saler, poivrer.",
+            "Toaster le pain de campagne. Tartiner de chèvre frais, garnir de radis en fines rondelles.",
+            "Servir la soupe chaude ou tiède avec les tartines."
+          ]
+        },
+        "snack": {
+          "name": "Fraises fraîches, biscuit complet",
+          "icon": "🍓",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "2",
+          "isSeasonal": true,
+          "note": "Collation légère du samedi après-midi — fraises de saison"
+        },
+        "dinner": {
+          "name": "Risotto aux asperges vertes, dos de cabillaud poêlé",
+          "icon": "🍚",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "40",
+          "isSeasonal": true,
+          "note": "Repas du samedi soir — risotto crémeux fait maison. Cabillaud MSC pour finir la semaine sainement.",
+          "ingredients": [
+            { "name": "Dos de cabillaud", "qty": 600, "unit": "g" },
+            { "name": "Riz arborio", "qty": 320, "unit": "g" },
+            { "name": "Asperges vertes", "qty": 400, "unit": "g" },
+            { "name": "Parmesan râpé", "qty": 80, "unit": "g" },
+            { "name": "Échalotes", "qty": 3, "unit": "pièces" },
+            { "name": "Vin blanc sec", "qty": 120, "unit": "ml" },
+            { "name": "Bouillon de légumes", "qty": 1200, "unit": "ml" },
+            { "name": "Beurre", "qty": 40, "unit": "g" },
+            { "name": "Huile d'olive", "qty": 20, "unit": "ml" }
+          ],
+          "prepSteps": [
+            "Couper les asperges en tronçons (garder les pointes séparées). Faire revenir les échalotes au beurre 3 min.",
+            "Ajouter le riz, nacrer 2 min. Déglacer au vin blanc. Ajouter le bouillon chaud louche par louche en remuant — 18 min de cuisson.",
+            "Ajouter les tronçons d'asperge à mi-cuisson, les pointes 5 min avant la fin. Mantecatura : incorporer beurre froid et parmesan.",
+            "Poêler le cabillaud dans l'huile d'olive 3 min par face. Saler. Servir sur le risotto."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-04-26",
+      "label": "Dimanche",
+      "meals": {
+        "breakfast": {
+          "name": "Brunch dominical — œufs brouillés, saumon fumé, blinis",
+          "icon": "🥂",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "20",
+          "isSeasonal": false,
+          "note": "Saumon fumé : 1 fois/semaine max pour les jeunes enfants (recommandation ANSES). Blinis du commerce ou maison.",
+          "ingredients": [
+            { "name": "Œufs", "qty": 8, "unit": "pièces" },
+            { "name": "Saumon fumé", "qty": 200, "unit": "g" },
+            { "name": "Blinis", "qty": 16, "unit": "pièces" },
+            { "name": "Crème fraîche épaisse", "qty": 100, "unit": "g" },
+            { "name": "Câpres", "qty": 30, "unit": "g" },
+            { "name": "Ciboulette fraîche", "qty": 20, "unit": "g" },
+            { "name": "Beurre", "qty": 30, "unit": "g" }
+          ],
+          "prepSteps": [
+            "Réchauffer les blinis à la poêle 1 min par face ou au four à 150°C pendant 5 min.",
+            "Battre les œufs avec sel. Cuire à feu très doux avec beurre en remuant constamment — œufs crémeux et moelleux.",
+            "Dresser les blinis avec crème fraîche, saumon fumé et câpres.",
+            "Servir les œufs brouillés à côté, parsemer de ciboulette ciselée."
+          ]
+        },
+        "lunch": {
+          "name": "Gigot d'agneau de printemps, flageolets mijotés, gratin dauphinois",
+          "icon": "🍖",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "120",
+          "isSeasonal": true,
+          "note": "Agneau de printemps français au pic en avril — repas dominical festif et convivial.",
+          "ingredients": [
+            { "name": "Gigot d'agneau de printemps", "qty": 2000, "unit": "g" },
+            { "name": "Flageolets en boîte", "qty": 800, "unit": "g" },
+            { "name": "Ail", "qty": 8, "unit": "gousses" },
+            { "name": "Pommes de terre à gratin", "qty": 1000, "unit": "g" },
+            { "name": "Crème entière liquide", "qty": 400, "unit": "ml" },
+            { "name": "Lait entier", "qty": 200, "unit": "ml" },
+            { "name": "Thym frais", "qty": 4, "unit": "brins" },
+            { "name": "Romarin", "qty": 2, "unit": "brins" },
+            { "name": "Huile d'olive", "qty": 20, "unit": "ml" }
+          ],
+          "prepSteps": [
+            "Piquer le gigot avec 4 gousses d'ail. Frotter d'huile, sel, romarin. Four à 200°C : compter 20 min/500g (saignant) ou 25 min/500g (à point). Laisser reposer 15 min sous papier alu.",
+            "Gratin dauphinois : trancher les pommes de terre à la mandoline. Alterner couches de pommes de terre, mélange crème+lait, ail émincé, sel, poivre. Four à 180°C pendant 60-70 min.",
+            "Réchauffer les flageolets avec thym, 2 gousses d'ail écrasées, sel et poivre. Mijoter 15 min.",
+            "Découper le gigot à table. Servir avec flageolets et gratin dauphinois."
+          ]
+        },
+        "snack": {
+          "name": "Tarte aux fraises maison",
+          "icon": "🍰",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "45",
+          "isSeasonal": true,
+          "note": "Dessert de saison dominical — fraises Gariguette sur crème pâtissière légère"
+        },
+        "dinner": {
+          "name": "Plateau de fromages, salade mâche-radis, fruits de saison",
+          "icon": "🧀",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "10",
+          "isSeasonal": true,
+          "note": "Dîner léger après le festin du midi — fromages à température ambiante, fraises de saison.",
+          "ingredients": [
+            { "name": "Assortiment de fromages", "qty": 400, "unit": "g" },
+            { "name": "Mâche", "qty": 150, "unit": "g" },
+            { "name": "Radis", "qty": 150, "unit": "g" },
+            { "name": "Fraises Gariguette", "qty": 300, "unit": "g" },
+            { "name": "Cerneaux de noix", "qty": 60, "unit": "g" },
+            { "name": "Pain de campagne", "qty": 4, "unit": "tranches" },
+            { "name": "Vinaigrette", "qty": 40, "unit": "ml" }
+          ],
+          "prepSteps": [
+            "Sortir les fromages 30 min avant de servir (saveurs à température ambiante).",
+            "Préparer la salade mâche avec radis en rondelles et vinaigrette.",
+            "Rincer et équeuter les fraises.",
+            "Dresser le plateau de fromages avec cerneaux de noix et pain de campagne."
+          ]
+        }
+      }
+    }
+  ],
+  "shoppingList": [
+    {
+      "category": "Poissons & Fruits de mer",
+      "items": [
+        "Filets de truite de France (600g)",
+        "Sardines à l'huile d'olive (300g — boîte)",
+        "Filets de maquereau atlantique (600g — frais ou sous vide, MSC)",
+        "Dos de cabillaud MSC (700g + 600g = 1,3 kg au total)",
+        "Saumon fumé (200g)"
+      ]
+    },
+    {
+      "category": "Viandes",
+      "items": [
+        "Poulet fermier Label Rouge entier (1,8 kg)",
+        "Épaule de veau (700g)",
+        "Gigot d'agneau de printemps (2 kg)"
+      ]
+    },
+    {
+      "category": "Légumes de saison",
+      "items": [
+        "Asperges vertes (500g + 300g + 400g = 1,2 kg)",
+        "Asperges blanches (800g)",
+        "Petits pois frais en cosse (1 kg + 1,2 kg = 2,2 kg)",
+        "Carottes nouvelles (600g + 300g = 900g)",
+        "Épinards frais (400g + 200g = 600g)",
+        "Fenouil (2 bulbes)",
+        "Radis (200g + 200g + 150g = 550g)",
+        "Rhubarbe (400g)",
+        "Haricots verts fins (300g)",
+        "Laitue (1 pièce)",
+        "Salade mâche (150g)",
+        "Salade verte mélangée (120g)",
+        "Roquette (60g)",
+        "Tomates cerises (250g)",
+        "Poivrons (2 pièces)"
+      ]
+    },
+    {
+      "category": "Fruits",
+      "items": [
+        "Fraises Gariguette (300g + 400g + 300g + 300g = 1,3 kg — bio ou circuit court)",
+        "Bananes (2 fraîches + 2 congelées à l'avance)",
+        "Citrons jaunes (3 pièces)",
+        "Citron vert (1 pièce)",
+        "Avocats mûrs (2 pièces)",
+        "Myrtilles (200g)"
+      ]
+    },
+    {
+      "category": "Produits laitiers & Œufs",
+      "items": [
+        "Yaourt nature entier (400g)",
+        "Yaourt grec (200g + 200g = 400g)",
+        "Fromage blanc 0% (400g)",
+        "Ricotta (250g)",
+        "Chèvre frais en bûche (150g + 200g = 350g)",
+        "Crème fraîche épaisse (100g)",
+        "Crème légère (100ml + 80ml = 200ml)",
+        "Crème entière liquide (400ml — pour le gratin)",
+        "Parmesan râpé (80g + 80g = 160g)",
+        "Mozzarella di buffala (300g)",
+        "Assortiment de fromages plateau (400g)",
+        "Beurre (250g au total)",
+        "Œufs (4+4+2+8+2+8 = 28 œufs — 3 boîtes de 12)"
+      ]
+    },
+    {
+      "category": "Féculents & Céréales",
+      "items": [
+        "Quinoa (240g)",
+        "Riz basmati (280g)",
+        "Semoule de blé (320g)",
+        "Boulgour (280g)",
+        "Pâtes rigatoni (400g)",
+        "Riz arborio (320g)",
+        "Flocons d'avoine (240g)",
+        "Farine T65 (500g)",
+        "Farine T45 (200g)",
+        "Farine de blé complète (200g)",
+        "Farine tout usage (30g pour fariner le veau)"
+      ]
+    },
+    {
+      "category": "Pain & Boulangerie",
+      "items": [
+        "Pain au levain (8 tranches)",
+        "Pain de campagne (8 + 4 tranches = 12 tranches)",
+        "Pain complet (8 tranches)",
+        "Blinis (16 pièces — rayon traiteur)"
+      ]
+    },
+    {
+      "category": "Épicerie & Condiments",
+      "items": [
+        "Huile d'olive (bouteille)",
+        "Sauce tomate (200g)",
+        "Flageolets en boîte (800g)",
+        "Olives noires (80g)",
+        "Câpres (30g)",
+        "Miel (80g total)",
+        "Sirop d'érable (80ml)",
+        "Vinaigrette moutarde (120ml total)",
+        "Granola (280g total)",
+        "Graines de chia (40g)",
+        "Pignons de pin (40g)",
+        "Cerneaux de noix (60g + 60g = 120g)",
+        "Beurre d'amande (1 petit pot)",
+        "Amandes entières (30g)",
+        "Chapelure (60g)",
+        "Levure boulangère sèche (7g)",
+        "Levure chimique (10g)",
+        "Sucre de canne (90g total)",
+        "Muscade (1 pincée — en poudre)"
+      ]
+    },
+    {
+      "category": "Herbes fraîches & Épices",
+      "items": [
+        "Ciboulette fraîche",
+        "Persil plat (40g)",
+        "Thym frais",
+        "Romarin frais",
+        "Menthe fraîche (20g)",
+        "Herbes de Provence (séchées)",
+        "Flocons de piment"
+      ]
+    },
+    {
+      "category": "Boissons & Bouillon",
+      "items": [
+        "Vin blanc sec (120ml — pour le risotto, peut être remplacé par bouillon)",
+        "Bouillon de légumes (environ 2,6 L au total — cubes ou fait maison)",
+        "Lait demi-écrémé (800ml + 500ml + 250ml = 1,55 L)",
+        "Lait entier (200ml — pour le gratin)"
+      ]
+    }
+  ],
+  "healthAlerts": [
+    {
+      "type": "info",
+      "message": "Saumon fumé (dimanche matin) : limiter à 1 portion/semaine pour les enfants de moins de 3 ans — recommandation ANSES sur les contaminants."
+    },
+    {
+      "type": "seasonal",
+      "message": "Fraises Gariguette : privilégier les origines françaises (Périgord, Val de Loire, Sologne) et la filière bio ou HVE pour réduire les résidus de pesticides."
+    }
+  ]
+}

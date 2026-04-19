@@ -1,6 +1,19 @@
 {
   "menus": [
     {
+      "weekStart": "2026-04-20",
+      "weekEnd": "2026-04-26",
+      "file": "data/menus/2026-04-20.json",
+      "label": "Semaine du 20 avril 2026",
+      "healthScore": "A",
+      "highlights": [
+        "3 poissons sûrs · Truite de France, maquereau atlantique, cabillaud MSC",
+        "Asperges vertes et blanches au pic de saison 🌿",
+        "Fraises Gariguette françaises — bio ou circuit court",
+        "Gigot d'agneau de printemps pour le dimanche festif"
+      ]
+    },
+    {
       "weekStart": "2026-04-13",
       "weekEnd": "2026-04-19",
       "file": "data/menus/2026-04-13.json",
