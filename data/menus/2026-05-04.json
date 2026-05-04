@@ -1,0 +1,827 @@
+{
+  "weekStart": "2026-05-04",
+  "weekEnd": "2026-05-10",
+  "healthScore": "A",
+  "healthScoreHighlights": [
+    "3 poissons sûrs · Maquereau atlantique, sardines de Bretagne, truite de France",
+    "Légumes de saison : petits pois, fèves, artichauts, épinards, rhubarbe 🌿",
+    "Fraises Gariguette françaises — bio impératif",
+    "Gigot d'agneau de printemps pour le dimanche festif"
+  ],
+  "days": [
+    {
+      "date": "2026-05-04",
+      "label": "Lundi",
+      "meals": {
+        "breakfast": {
+          "name": "Porridge d'avoine, fraises bio, miel",
+          "icon": "🌅",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "10",
+          "isSeasonal": true,
+          "note": "Avoine complète rassasiante — fraises Gariguette bio de pleine saison.",
+          "ingredients": [
+            { "name": "Flocons d'avoine", "qty": 240, "unit": "g" },
+            { "name": "Lait demi-écrémé", "qty": 800, "unit": "ml" },
+            { "name": "Fraises Gariguette bio", "qty": 300, "unit": "g" },
+            { "name": "Miel", "qty": 40, "unit": "g" }
+          ],
+          "prepSteps": [
+            "Chauffer les flocons d'avoine avec le lait à feu moyen en remuant 5 min.",
+            "Rincer et équeuter les fraises, couper en deux.",
+            "Répartir dans les bols, garnir de fraises et d'un filet de miel."
+          ]
+        },
+        "lunch": {
+          "name": "Maquereau atlantique grillé, petits pois à la française, riz complet",
+          "icon": "🐟",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "30",
+          "isSeasonal": true,
+          "note": "Maquereau atlantique — mercure quasi nul, oméga-3 très élevés. Petits pois à la française : laitue, oignon, beurre.",
+          "ingredients": [
+            { "name": "Filets de maquereau atlantique", "qty": 600, "unit": "g" },
+            { "name": "Petits pois frais en cosse", "qty": 1000, "unit": "g" },
+            { "name": "Riz complet", "qty": 280, "unit": "g" },
+            { "name": "Laitue", "qty": 1, "unit": "pièce" },
+            { "name": "Oignon nouveau", "qty": 4, "unit": "tiges" },
+            { "name": "Beurre", "qty": 40, "unit": "g" },
+            { "name": "Sucre", "qty": 5, "unit": "g" },
+            { "name": "Huile d'olive", "qty": 20, "unit": "ml" },
+            { "name": "Citron", "qty": 1, "unit": "pièce" }
+          ],
+          "prepSteps": [
+            "Rincer le riz complet. Cuire dans 560 ml d'eau salée 25-30 min à couvert.",
+            "Écosser les petits pois. Dans une casserole : beurre, oignons nouveaux émincés, laitue ciselée, petits pois, sucre, sel. Couvrir et cuire à feu doux 15 min.",
+            "Saisir les filets de maquereau côté peau dans une poêle huilée 3 min, retourner 2 min. Presser le citron.",
+            "Servir maquereau avec petits pois à la française et riz."
+          ]
+        },
+        "snack": {
+          "name": "Fraises Gariguette bio, amandes",
+          "icon": "🍓",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "2",
+          "isSeasonal": true,
+          "note": "Fraises françaises de pleine saison — amandes pour les bons lipides."
+        },
+        "dinner": {
+          "name": "Soupe de fèves fraîches, toasts complets, fromage",
+          "icon": "🥣",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "30",
+          "isSeasonal": true,
+          "note": "Soupe légère de saison — fèves fraîches mixées pour une texture veloutée.",
+          "ingredients": [
+            { "name": "Fèves fraîches en cosse", "qty": 1500, "unit": "g" },
+            { "name": "Oignon", "qty": 1, "unit": "pièce" },
+            { "name": "Ail", "qty": 2, "unit": "gousses" },
+            { "name": "Bouillon de légumes", "qty": 800, "unit": "ml" },
+            { "name": "Huile d'olive", "qty": 20, "unit": "ml" },
+            { "name": "Menthe fraîche", "qty": 10, "unit": "g" },
+            { "name": "Pain complet", "qty": 8, "unit": "tranches" },
+            { "name": "Fromage à pâte dure (comté, tomme)", "qty": 150, "unit": "g" }
+          ],
+          "prepSteps": [
+            "Écosser les fèves, blanchir 2 min, retirer la peau grise.",
+            "Faire revenir l'oignon et l'ail émincés dans l'huile. Ajouter les fèves et le bouillon. Cuire 10 min.",
+            "Mixer finement. Ajuster la consistance avec du bouillon. Assaisonner.",
+            "Toaster le pain complet. Servir la soupe avec quelques feuilles de menthe, le pain et le fromage."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-05-05",
+      "label": "Mardi",
+      "meals": {
+        "breakfast": {
+          "name": "Toasts complets, œuf à la coque, radis beurre",
+          "icon": "🥚",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "10",
+          "isSeasonal": true,
+          "note": "Petit-déjeuner complet — radis croquants de saison pour démarrer la journée.",
+          "ingredients": [
+            { "name": "Pain complet", "qty": 8, "unit": "tranches" },
+            { "name": "Œufs", "qty": 4, "unit": "pièces" },
+            { "name": "Radis", "qty": 200, "unit": "g" },
+            { "name": "Beurre doux", "qty": 60, "unit": "g" },
+            { "name": "Fleur de sel", "qty": 1, "unit": "pincée" }
+          ],
+          "prepSteps": [
+            "Plonger les œufs dans l'eau bouillante 6 min pour un œuf coulant.",
+            "Toaster le pain complet.",
+            "Servir avec radis lavés, beurre et fleur de sel."
+          ]
+        },
+        "lunch": {
+          "name": "Salade de lentilles vertes du Puy, sardines à l'huile, carottes râpées",
+          "icon": "🥗",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "25",
+          "isSeasonal": false,
+          "note": "Sardines à l'huile d'olive — mercure quasi nul, oméga-3 élevés. Lentilles du Puy IGP pour les protéines végétales.",
+          "ingredients": [
+            { "name": "Lentilles vertes du Puy", "qty": 300, "unit": "g" },
+            { "name": "Sardines à l'huile d'olive", "qty": 300, "unit": "g" },
+            { "name": "Carottes", "qty": 3, "unit": "pièces" },
+            { "name": "Oignon rouge", "qty": 1, "unit": "pièce" },
+            { "name": "Persil plat", "qty": 30, "unit": "g" },
+            { "name": "Moutarde de Dijon", "qty": 10, "unit": "g" },
+            { "name": "Vinaigre de cidre", "qty": 30, "unit": "ml" },
+            { "name": "Huile d'olive", "qty": 40, "unit": "ml" }
+          ],
+          "prepSteps": [
+            "Rincer les lentilles. Cuire dans 3 fois leur volume d'eau froide sans sel 20-25 min. Saler en fin de cuisson. Égoutter.",
+            "Râper les carottes. Émincer finement l'oignon rouge et le persil.",
+            "Préparer la vinaigrette : moutarde, vinaigre, huile, sel, poivre.",
+            "Mélanger lentilles tièdes, carottes, oignon, persil et vinaigrette.",
+            "Dresser avec les sardines égouttées par-dessus."
+          ]
+        },
+        "snack": {
+          "name": "Yaourt nature, granola",
+          "icon": "🥣",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "2",
+          "isSeasonal": false,
+          "note": "Collation légère et équilibrée."
+        },
+        "dinner": {
+          "name": "Poulet fermier rôti, asperges blanches, quinoa citronné",
+          "icon": "🍗",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "55",
+          "isSeasonal": true,
+          "note": "Poulet Label Rouge ou fermier. Asperges blanches en toute fin de saison — à saisir.",
+          "ingredients": [
+            { "name": "Poulet fermier entier", "qty": 1800, "unit": "g" },
+            { "name": "Asperges blanches", "qty": 800, "unit": "g" },
+            { "name": "Quinoa", "qty": 280, "unit": "g" },
+            { "name": "Herbes de Provence", "qty": 10, "unit": "g" },
+            { "name": "Huile d'olive", "qty": 30, "unit": "ml" },
+            { "name": "Citron", "qty": 1, "unit": "pièce" },
+            { "name": "Ciboulette fraîche", "qty": 20, "unit": "g" }
+          ],
+          "prepSteps": [
+            "Préchauffer le four à 200°C. Badigeonner le poulet d'huile, sel, herbes de Provence. Enfourner 45-50 min.",
+            "Éplucher les asperges blanches en partant de la tête. Cuire à l'eau bouillante salée 12-15 min selon l'épaisseur.",
+            "Rincer et cuire le quinoa dans 560 ml d'eau salée 15 min. Ajouter jus de citron et ciboulette ciselée.",
+            "Servir le poulet découpé avec asperges et quinoa."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-05-06",
+      "label": "Mercredi",
+      "meals": {
+        "breakfast": {
+          "name": "Yaourt nature, granola, fraises Gariguette",
+          "icon": "🍓",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "5",
+          "isSeasonal": true,
+          "note": "Fraises Gariguette bio de pleine saison — granola artisanal sans sucres ajoutés.",
+          "ingredients": [
+            { "name": "Yaourt nature entier", "qty": 400, "unit": "g" },
+            { "name": "Granola", "qty": 160, "unit": "g" },
+            { "name": "Fraises Gariguette bio", "qty": 300, "unit": "g" },
+            { "name": "Miel", "qty": 20, "unit": "g" }
+          ],
+          "prepSteps": [
+            "Rincer et équeuter les fraises, couper en deux.",
+            "Répartir le yaourt dans 4 bols. Garnir de granola, fraises et miel."
+          ]
+        },
+        "lunch": {
+          "name": "Quiche aux épinards et chèvre",
+          "icon": "🥧",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "50",
+          "isSeasonal": true,
+          "note": "Épinards frais de saison — chèvre pour le calcium. Pâte brisée maison ou du commerce.",
+          "ingredients": [
+            { "name": "Pâte brisée", "qty": 1, "unit": "rouleau" },
+            { "name": "Épinards frais", "qty": 500, "unit": "g" },
+            { "name": "Chèvre frais en bûche", "qty": 200, "unit": "g" },
+            { "name": "Œufs", "qty": 4, "unit": "pièces" },
+            { "name": "Crème entière liquide", "qty": 200, "unit": "ml" },
+            { "name": "Ail", "qty": 2, "unit": "gousses" },
+            { "name": "Huile d'olive", "qty": 20, "unit": "ml" },
+            { "name": "Muscade", "qty": 1, "unit": "pincée" }
+          ],
+          "prepSteps": [
+            "Préchauffer le four à 180°C. Foncer le moule avec la pâte brisée, piquer, pré-cuire 10 min.",
+            "Faire revenir l'ail dans l'huile, ajouter les épinards, laisser tomber 5 min. Égoutter si nécessaire.",
+            "Battre les œufs avec la crème, muscade, sel et poivre.",
+            "Étaler les épinards sur le fond, émietter le chèvre. Verser l'appareil.",
+            "Enfourner 30-35 min jusqu'à coloration dorée."
+          ]
+        },
+        "snack": {
+          "name": "Pain complet, miel",
+          "icon": "🍯",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "2",
+          "isSeasonal": false,
+          "note": "Goûter simple pour les enfants."
+        },
+        "dinner": {
+          "name": "Pâtes bolognaises, bœuf haché Label Rouge",
+          "icon": "🍝",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "40",
+          "isSeasonal": false,
+          "note": "Classique mercredi soir — bœuf haché 5% MG Label Rouge, sauce tomate longue.",
+          "ingredients": [
+            { "name": "Pâtes tagliatelles ou spaghetti", "qty": 400, "unit": "g" },
+            { "name": "Bœuf haché Label Rouge 5% MG", "qty": 500, "unit": "g" },
+            { "name": "Tomates concassées en boîte", "qty": 400, "unit": "g" },
+            { "name": "Carotte", "qty": 1, "unit": "pièce" },
+            { "name": "Oignon", "qty": 1, "unit": "pièce" },
+            { "name": "Céleri", "qty": 1, "unit": "branche" },
+            { "name": "Ail", "qty": 2, "unit": "gousses" },
+            { "name": "Concentré de tomates", "qty": 30, "unit": "g" },
+            { "name": "Huile d'olive", "qty": 20, "unit": "ml" },
+            { "name": "Parmesan râpé", "qty": 60, "unit": "g" },
+            { "name": "Thym", "qty": 2, "unit": "brins" },
+            { "name": "Laurier", "qty": 1, "unit": "feuille" }
+          ],
+          "prepSteps": [
+            "Émincer finement oignon, carotte, céleri et ail.",
+            "Faire revenir les légumes dans l'huile 5 min. Ajouter le bœuf, faire dorer en l'émiettant.",
+            "Ajouter concentré de tomates, tomates concassées, thym, laurier. Mijoter à feu doux 25-30 min.",
+            "Cuire les pâtes al dente. Égoutter.",
+            "Servir la bolognaise sur les pâtes avec parmesan râpé."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-05-07",
+      "label": "Jeudi",
+      "meals": {
+        "breakfast": {
+          "name": "Müsli, lait, banane",
+          "icon": "🥣",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "5",
+          "isSeasonal": false,
+          "note": "Müsli sans sucres ajoutés — banane pour la satiété et les glucides naturels.",
+          "ingredients": [
+            { "name": "Müsli nature", "qty": 200, "unit": "g" },
+            { "name": "Lait demi-écrémé", "qty": 600, "unit": "ml" },
+            { "name": "Banane", "qty": 2, "unit": "pièces" }
+          ],
+          "prepSteps": [
+            "Verser le müsli dans les bols. Ajouter le lait.",
+            "Couper les bananes en rondelles et ajouter par-dessus."
+          ]
+        },
+        "lunch": {
+          "name": "Truite de France poêlée, artichauts vapeur, pommes de terre nouvelles",
+          "icon": "🐟",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "40",
+          "isSeasonal": true,
+          "note": "Truite d'élevage français — mercure nul. Artichauts de pleine saison. Pommes de terre nouvelles françaises.",
+          "ingredients": [
+            { "name": "Filets de truite de France", "qty": 600, "unit": "g" },
+            { "name": "Artichauts frais", "qty": 4, "unit": "pièces" },
+            { "name": "Pommes de terre nouvelles", "qty": 600, "unit": "g" },
+            { "name": "Beurre", "qty": 40, "unit": "g" },
+            { "name": "Huile d'olive", "qty": 20, "unit": "ml" },
+            { "name": "Citron", "qty": 2, "unit": "pièces" },
+            { "name": "Persil plat", "qty": 20, "unit": "g" },
+            { "name": "Ail", "qty": 2, "unit": "gousses" }
+          ],
+          "prepSteps": [
+            "Cuire les artichauts entiers à la vapeur 30-35 min jusqu'à ce qu'une feuille se détache facilement.",
+            "Gratter les pommes de terre nouvelles, cuire à l'eau salée 15-20 min.",
+            "Poêler les filets de truite côté peau dans beurre + huile 3 min, retourner 2 min. Finir avec jus de citron et persil.",
+            "Servir truite avec artichauts (vinaigrette ou beurre fondu à part) et pommes de terre."
+          ]
+        },
+        "snack": {
+          "name": "Compote de rhubarbe maison",
+          "icon": "🍵",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "15",
+          "isSeasonal": true,
+          "note": "Rhubarbe de saison — peu sucrée, acidulée. Faire en grande quantité pour plusieurs jours.",
+          "ingredients": [
+            { "name": "Rhubarbe fraîche", "qty": 400, "unit": "g" },
+            { "name": "Sucre de canne", "qty": 60, "unit": "g" },
+            { "name": "Eau", "qty": 50, "unit": "ml" }
+          ],
+          "prepSteps": [
+            "Éplucher et couper la rhubarbe en tronçons.",
+            "Cuire avec sucre et eau à feu doux 15 min en remuant jusqu'à compoter.",
+            "Se conserve 5 jours au réfrigérateur."
+          ]
+        },
+        "dinner": {
+          "name": "Curry de lentilles corail, légumes de printemps, riz basmati",
+          "icon": "🍛",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "30",
+          "isSeasonal": true,
+          "note": "Plat végétarien complet — lentilles corail pour les protéines, épinards et carottes pour les vitamines.",
+          "ingredients": [
+            { "name": "Lentilles corail", "qty": 300, "unit": "g" },
+            { "name": "Épinards frais", "qty": 200, "unit": "g" },
+            { "name": "Carottes nouvelles", "qty": 3, "unit": "pièces" },
+            { "name": "Lait de coco", "qty": 400, "unit": "ml" },
+            { "name": "Tomates concassées en boîte", "qty": 200, "unit": "g" },
+            { "name": "Oignon", "qty": 1, "unit": "pièce" },
+            { "name": "Ail", "qty": 2, "unit": "gousses" },
+            { "name": "Gingembre frais", "qty": 20, "unit": "g" },
+            { "name": "Curry en poudre", "qty": 15, "unit": "g" },
+            { "name": "Curcuma", "qty": 5, "unit": "g" },
+            { "name": "Huile de coco ou d'olive", "qty": 20, "unit": "ml" },
+            { "name": "Riz basmati", "qty": 280, "unit": "g" },
+            { "name": "Citron vert", "qty": 1, "unit": "pièce" }
+          ],
+          "prepSteps": [
+            "Faire revenir oignon, ail et gingembre râpé dans l'huile 3 min. Ajouter les épices, mélanger 1 min.",
+            "Ajouter carottes en rondelles, lentilles rincées, tomates, lait de coco et 300ml d'eau. Mijoter 20 min.",
+            "Incorporer les épinards en fin de cuisson. Presser le citron vert. Assaisonner.",
+            "Cuire le riz basmati dans 560 ml d'eau salée 12 min. Servir avec le curry."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-05-08",
+      "label": "Vendredi (Victoire 1945)",
+      "meals": {
+        "breakfast": {
+          "name": "Crêpes légères, fraises, sirop d'érable",
+          "icon": "🥞",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "20",
+          "isSeasonal": true,
+          "note": "Jour férié — petit-déjeuner festif avec les fraises de saison.",
+          "ingredients": [
+            { "name": "Farine T65", "qty": 250, "unit": "g" },
+            { "name": "Œufs", "qty": 3, "unit": "pièces" },
+            { "name": "Lait demi-écrémé", "qty": 500, "unit": "ml" },
+            { "name": "Beurre fondu", "qty": 30, "unit": "g" },
+            { "name": "Fraises Gariguette bio", "qty": 300, "unit": "g" },
+            { "name": "Sirop d'érable", "qty": 60, "unit": "ml" }
+          ],
+          "prepSteps": [
+            "Mélanger farine, œufs, lait et beurre fondu. Reposer la pâte 15 min.",
+            "Cuire les crêpes dans une poêle légèrement huilée.",
+            "Rincer et couper les fraises. Servir avec sirop d'érable."
+          ]
+        },
+        "lunch": {
+          "name": "Sardines rôties, tabboulé printanier (boulghour, menthe, tomates)",
+          "icon": "🐟",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "20",
+          "isSeasonal": false,
+          "note": "Sardines — mercure quasi nul, oméga-3 très élevés. Tabboulé frais et herbacé.",
+          "ingredients": [
+            { "name": "Sardines fraîches ou en boîte à l'huile d'olive", "qty": 600, "unit": "g" },
+            { "name": "Boulgour", "qty": 280, "unit": "g" },
+            { "name": "Tomates cerises", "qty": 200, "unit": "g" },
+            { "name": "Concombre", "qty": 1, "unit": "pièce" },
+            { "name": "Persil plat", "qty": 40, "unit": "g" },
+            { "name": "Menthe fraîche", "qty": 20, "unit": "g" },
+            { "name": "Citron", "qty": 2, "unit": "pièces" },
+            { "name": "Huile d'olive", "qty": 40, "unit": "ml" }
+          ],
+          "prepSteps": [
+            "Couvrir le boulgour d'eau bouillante salée, couvrir 10 min, égrener à la fourchette.",
+            "Hacher persil et menthe. Couper tomates en deux, concombre en dés.",
+            "Mélanger boulgour, légumes, herbes, jus de citron et huile. Assaisonner.",
+            "Sardines fraîches : enfourner 10 min à 200°C avec huile et citron. En boîte : égoutter directement.",
+            "Servir tabboulé et sardines avec quartiers de citron."
+          ]
+        },
+        "snack": {
+          "name": "Fromage blanc, miel, cerneaux de noix",
+          "icon": "🍯",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "2",
+          "isSeasonal": false,
+          "note": "Collation protéinée — noix pour les oméga-3 végétaux."
+        },
+        "dinner": {
+          "name": "Gratin de pommes de terre, épinards, gruyère",
+          "icon": "🥘",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "50",
+          "isSeasonal": true,
+          "note": "Plat végétarien réconfortant — épinards frais de saison pour alléger le gratin.",
+          "ingredients": [
+            { "name": "Pommes de terre nouvelles", "qty": 800, "unit": "g" },
+            { "name": "Épinards frais", "qty": 400, "unit": "g" },
+            { "name": "Gruyère râpé", "qty": 120, "unit": "g" },
+            { "name": "Crème entière liquide", "qty": 200, "unit": "ml" },
+            { "name": "Lait demi-écrémé", "qty": 150, "unit": "ml" },
+            { "name": "Ail", "qty": 2, "unit": "gousses" },
+            { "name": "Beurre", "qty": 20, "unit": "g" },
+            { "name": "Muscade", "qty": 1, "unit": "pincée" }
+          ],
+          "prepSteps": [
+            "Préchauffer le four à 180°C. Frotter un plat à gratin avec l'ail et beurrer.",
+            "Peler et trancher les pommes de terre finement. Faire tomber les épinards à la poêle 3 min. Égoutter.",
+            "Alterner couches de pommes de terre et épinards dans le plat.",
+            "Mélanger crème, lait, muscade, sel, poivre. Verser sur les légumes. Couvrir de gruyère râpé.",
+            "Enfourner 40-45 min jusqu'à pommes de terre cuites et gratin doré."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-05-09",
+      "label": "Samedi",
+      "meals": {
+        "breakfast": {
+          "name": "Pain complet, avocat écrasé, œuf poché",
+          "icon": "🥑",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "15",
+          "isSeasonal": false,
+          "note": "Petit-déjeuner protéiné du week-end — avocat pour les bons lipides, œuf pour les protéines.",
+          "ingredients": [
+            { "name": "Pain complet", "qty": 8, "unit": "tranches" },
+            { "name": "Avocat mûr", "qty": 2, "unit": "pièces" },
+            { "name": "Œufs", "qty": 4, "unit": "pièces" },
+            { "name": "Citron vert", "qty": 1, "unit": "pièce" },
+            { "name": "Flocons de piment", "qty": 1, "unit": "g" },
+            { "name": "Vinaigre blanc", "qty": 20, "unit": "ml" }
+          ],
+          "prepSteps": [
+            "Toaster les tranches de pain.",
+            "Écraser l'avocat avec jus de citron vert, sel et flocons de piment.",
+            "Pocher les œufs 3 min dans l'eau frémissante avec vinaigre. Égoutter sur papier absorbant.",
+            "Tartiner l'avocat sur les toasts, déposer un œuf poché."
+          ]
+        },
+        "lunch": {
+          "name": "Salade printanière (roquette, fèves, petits pois, parmesan, citron)",
+          "icon": "🥗",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "25",
+          "isSeasonal": true,
+          "note": "Salade 100% de saison — fèves et petits pois frais pour un maximum de saveurs.",
+          "ingredients": [
+            { "name": "Fèves fraîches en cosse", "qty": 1000, "unit": "g" },
+            { "name": "Petits pois frais en cosse", "qty": 600, "unit": "g" },
+            { "name": "Roquette", "qty": 100, "unit": "g" },
+            { "name": "Parmesan en copeaux", "qty": 60, "unit": "g" },
+            { "name": "Citron", "qty": 1, "unit": "pièce" },
+            { "name": "Huile d'olive", "qty": 40, "unit": "ml" },
+            { "name": "Menthe fraîche", "qty": 10, "unit": "g" },
+            { "name": "Fleur de sel", "qty": 1, "unit": "pincée" },
+            { "name": "Pain de campagne", "qty": 4, "unit": "tranches" }
+          ],
+          "prepSteps": [
+            "Écosser les fèves. Blanchir 2 min, refroidir à l'eau froide, retirer la peau grise.",
+            "Écosser les petits pois. Blanchir 3 min, refroidir à l'eau froide.",
+            "Composer la salade : roquette, fèves, petits pois, menthe ciselée.",
+            "Assaisonner avec jus de citron, huile d'olive, fleur de sel.",
+            "Disposer les copeaux de parmesan. Servir avec le pain grillé."
+          ]
+        },
+        "snack": {
+          "name": "Cake à la rhubarbe (fait maison)",
+          "icon": "🍰",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "45",
+          "isSeasonal": true,
+          "note": "Cake de saison — la rhubarbe apporte une acidité qui équilibre la douceur du cake.",
+          "ingredients": [
+            { "name": "Farine T65", "qty": 200, "unit": "g" },
+            { "name": "Sucre de canne", "qty": 120, "unit": "g" },
+            { "name": "Œufs", "qty": 3, "unit": "pièces" },
+            { "name": "Beurre fondu", "qty": 100, "unit": "g" },
+            { "name": "Lait entier", "qty": 80, "unit": "ml" },
+            { "name": "Levure chimique", "qty": 10, "unit": "g" },
+            { "name": "Rhubarbe fraîche", "qty": 300, "unit": "g" }
+          ],
+          "prepSteps": [
+            "Préchauffer le four à 180°C. Beurrer un moule à cake.",
+            "Éplucher et couper la rhubarbe en tronçons. Mélanger avec 30g de sucre.",
+            "Battre les œufs avec le reste du sucre jusqu'à blanchiment. Ajouter beurre fondu, lait.",
+            "Incorporer farine et levure. Ajouter les 2/3 de la rhubarbe.",
+            "Verser dans le moule, disposer le reste de rhubarbe sur le dessus. Enfourner 40-45 min."
+          ]
+        },
+        "dinner": {
+          "name": "Filet de veau fermier poêlé, purée de petits pois à la menthe",
+          "icon": "🥩",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "30",
+          "isSeasonal": true,
+          "note": "Veau fermier français — viande tendre et légère, parfaite au printemps. Purée de petits pois fraîche et herbacée.",
+          "ingredients": [
+            { "name": "Filet de veau fermier", "qty": 600, "unit": "g" },
+            { "name": "Petits pois frais en cosse", "qty": 1000, "unit": "g" },
+            { "name": "Menthe fraîche", "qty": 20, "unit": "g" },
+            { "name": "Beurre", "qty": 50, "unit": "g" },
+            { "name": "Crème légère", "qty": 80, "unit": "ml" },
+            { "name": "Huile d'olive", "qty": 20, "unit": "ml" },
+            { "name": "Thym frais", "qty": 2, "unit": "brins" },
+            { "name": "Ail", "qty": 1, "unit": "gousse" }
+          ],
+          "prepSteps": [
+            "Écosser les petits pois. Cuire 5 min à l'eau bouillante salée. Égoutter.",
+            "Mixer petits pois chauds avec beurre (30g), crème et menthe. Texture lisse et onctueuse. Assaisonner.",
+            "Saisir le veau dans beurre (20g) + huile à feu vif 2-3 min par face. Ajouter thym et ail en fin de cuisson. Arroser. Laisser reposer 5 min avant de trancher.",
+            "Servir le veau tranché avec la purée de petits pois à la menthe."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-05-10",
+      "label": "Dimanche",
+      "meals": {
+        "breakfast": {
+          "name": "Pancakes moelleux, fraises, sirop d'érable",
+          "icon": "🥞",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "20",
+          "isSeasonal": true,
+          "note": "Petit-déjeuner festif du dimanche — fraises Gariguette bio pour garnir.",
+          "ingredients": [
+            { "name": "Farine T65", "qty": 200, "unit": "g" },
+            { "name": "Œufs", "qty": 2, "unit": "pièces" },
+            { "name": "Lait demi-écrémé", "qty": 250, "unit": "ml" },
+            { "name": "Levure chimique", "qty": 10, "unit": "g" },
+            { "name": "Sucre", "qty": 20, "unit": "g" },
+            { "name": "Beurre fondu", "qty": 30, "unit": "g" },
+            { "name": "Fraises Gariguette bio", "qty": 300, "unit": "g" },
+            { "name": "Sirop d'érable", "qty": 60, "unit": "ml" }
+          ],
+          "prepSteps": [
+            "Mélanger farine, sucre, levure. Ajouter œufs battus, lait et beurre fondu. Ne pas trop travailler la pâte.",
+            "Cuire des petits tas dans une poêle antiadhésive beurrée 2 min par face.",
+            "Rincer et équeuter les fraises. Servir avec sirop d'érable."
+          ]
+        },
+        "lunch": {
+          "name": "Gigot d'agneau rôti aux herbes, flageolets, haricots verts",
+          "icon": "🍖",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "120",
+          "isSeasonal": true,
+          "note": "Grand repas du dimanche — gigot d'agneau de printemps français, rosé à cœur. Haricots verts en début de saison.",
+          "ingredients": [
+            { "name": "Gigot d'agneau de printemps", "qty": 2000, "unit": "g" },
+            { "name": "Flageolets en boîte", "qty": 800, "unit": "g" },
+            { "name": "Haricots verts fins", "qty": 400, "unit": "g" },
+            { "name": "Ail", "qty": 6, "unit": "gousses" },
+            { "name": "Romarin frais", "qty": 4, "unit": "brins" },
+            { "name": "Thym frais", "qty": 4, "unit": "brins" },
+            { "name": "Huile d'olive", "qty": 40, "unit": "ml" },
+            { "name": "Beurre", "qty": 30, "unit": "g" },
+            { "name": "Oignon", "qty": 1, "unit": "pièce" },
+            { "name": "Bouillon de légumes", "qty": 200, "unit": "ml" }
+          ],
+          "prepSteps": [
+            "Sortir le gigot 1h avant. Préchauffer le four à 200°C.",
+            "Piquer le gigot d'ail en chemise, badigeonner d'huile, romarin, thym, sel. Enfourner 20 min à 200°C puis baisser à 180°C pour 15 min/kg.",
+            "Faire revenir l'oignon dans le beurre, ajouter les flageolets égouttés et le bouillon. Mijoter 15 min.",
+            "Cuire les haricots verts à l'eau bouillante salée 6-7 min. Passer sous eau froide.",
+            "Laisser reposer le gigot 15 min couvert d'alu avant de trancher. Servir avec flageolets et haricots verts."
+          ]
+        },
+        "snack": {
+          "name": "Tarte aux fraises maison (pâte sablée, crème pâtissière)",
+          "icon": "🎂",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "60",
+          "isSeasonal": true,
+          "note": "Dessert de saison par excellence — fraises Gariguette bio sur crème pâtissière vanillée.",
+          "ingredients": [
+            { "name": "Pâte sablée maison ou du commerce", "qty": 1, "unit": "rouleau" },
+            { "name": "Fraises Gariguette bio", "qty": 500, "unit": "g" },
+            { "name": "Lait entier", "qty": 500, "unit": "ml" },
+            { "name": "Jaunes d'œufs", "qty": 4, "unit": "pièces" },
+            { "name": "Sucre", "qty": 80, "unit": "g" },
+            { "name": "Farine T45", "qty": 40, "unit": "g" },
+            { "name": "Extrait de vanille", "qty": 1, "unit": "cc" }
+          ],
+          "prepSteps": [
+            "Foncer le moule avec la pâte sablée. Pré-cuire à blanc 15 min à 180°C. Laisser refroidir.",
+            "Chauffer le lait avec la vanille. Fouetter les jaunes avec le sucre, incorporer la farine.",
+            "Verser le lait chaud en filet sur les jaunes tout en fouettant. Remettre sur feu doux jusqu'à épaississement. Filmer au contact. Refroidir complètement.",
+            "Étaler la crème pâtissière froide sur le fond de tarte.",
+            "Disposer les fraises équeutées et coupées en deux harmonieusement."
+          ]
+        },
+        "dinner": {
+          "name": "Bouillon de légumes printanier, restes d'agneau en salade tiède à la roquette",
+          "icon": "🥣",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "15",
+          "isSeasonal": true,
+          "note": "Dîner léger après le festif du midi — valoriser les restes de gigot.",
+          "ingredients": [
+            { "name": "Bouillon de légumes", "qty": 1200, "unit": "ml" },
+            { "name": "Restes d'agneau (tranches)", "qty": 300, "unit": "g" },
+            { "name": "Roquette", "qty": 60, "unit": "g" },
+            { "name": "Radis", "qty": 100, "unit": "g" },
+            { "name": "Vinaigrette", "qty": 30, "unit": "ml" },
+            { "name": "Pain de campagne", "qty": 4, "unit": "tranches" }
+          ],
+          "prepSteps": [
+            "Chauffer le bouillon de légumes, verser dans les bols.",
+            "Trancher finement l'agneau restant. Composer une salade tiède : roquette, radis en rondelles, agneau.",
+            "Arroser de vinaigrette. Servir avec le bouillon et le pain de campagne."
+          ]
+        }
+      }
+    }
+  ],
+  "shoppingList": [
+    {
+      "category": "Poissons & Fruits de mer",
+      "items": [
+        "Filets de maquereau atlantique (600g — frais ou sous vide)",
+        "Sardines fraîches de Bretagne ou en boîte à l'huile d'olive (600g)",
+        "Filets de truite de France (600g)"
+      ]
+    },
+    {
+      "category": "Viandes",
+      "items": [
+        "Poulet fermier entier Label Rouge (1,8 kg)",
+        "Bœuf haché Label Rouge 5% MG (500g)",
+        "Filet de veau fermier (600g)",
+        "Gigot d'agneau de printemps (2 kg)"
+      ]
+    },
+    {
+      "category": "Légumes de saison",
+      "items": [
+        "Petits pois frais en cosse (1 kg + 600g + 1 kg + 600g ≈ 3,5 kg)",
+        "Fèves fraîches en cosse (1,5 kg + 1 kg = 2,5 kg)",
+        "Épinards frais (500g + 200g + 400g = 1,1 kg)",
+        "Asperges blanches (800g — fin de saison)",
+        "Haricots verts fins (400g)",
+        "Artichauts frais (4 pièces)",
+        "Pommes de terre nouvelles (600g + 800g = 1,4 kg)",
+        "Carottes nouvelles (3 pièces — curry)",
+        "Carottes (3 pièces — lentilles)",
+        "Radis (200g + 100g + 100g = 400g)",
+        "Roquette (100g + 60g = 160g)",
+        "Rhubarbe fraîche (400g + 300g = 700g)",
+        "Laitue (1 pièce — petits pois à la française)",
+        "Oignon rouge (1 pièce)",
+        "Oignons jaunes (4 pièces)",
+        "Oignons nouveaux (4 tiges)",
+        "Céleri (1 branche)",
+        "Concombre (1 pièce)",
+        "Tomates cerises (200g)",
+        "Tomates concassées en boîte (400g + 200g = 600g)"
+      ]
+    },
+    {
+      "category": "Fruits",
+      "items": [
+        "Fraises Gariguette bio (300g + 300g + 300g + 300g + 500g ≈ 1,7 kg)",
+        "Bananes (2 pièces)",
+        "Avocats mûrs (2 pièces)",
+        "Citrons jaunes (5 pièces)",
+        "Citron vert (2 pièces)"
+      ]
+    },
+    {
+      "category": "Produits laitiers & Œufs",
+      "items": [
+        "Yaourt nature entier (400g + 200g = 600g)",
+        "Fromage blanc 0% (200g)",
+        "Chèvre frais en bûche (200g)",
+        "Crème entière liquide (200ml quiche + 200ml gratin = 400ml)",
+        "Crème légère (80ml veau + 80ml lentilles = 160ml)",
+        "Gruyère râpé (120g)",
+        "Parmesan râpé (60g bolognaise + 60g salade = 120g)",
+        "Fromage à pâte dure comté ou tomme (150g — soupe fèves)",
+        "Lait de coco (400ml)",
+        "Beurre (300g environ)",
+        "Lait demi-écrémé (800ml + 500ml + 600ml + 250ml = 2,15 L)",
+        "Lait entier (80ml cake + 500ml tarte = 580ml)",
+        "Œufs (4+4+3+2+3+2+4 = environ 4 boîtes de 6)"
+      ]
+    },
+    {
+      "category": "Féculents & Céréales",
+      "items": [
+        "Riz complet (280g)",
+        "Riz basmati (280g)",
+        "Quinoa (280g)",
+        "Boulgour (280g)",
+        "Pâtes tagliatelles ou spaghetti (400g)",
+        "Lentilles corail (300g)",
+        "Lentilles vertes du Puy (300g)",
+        "Farine T65 (250g + 200g = 450g)",
+        "Farine T45 (40g — crème pâtissière)",
+        "Flocons d'avoine (240g)",
+        "Müsli nature (200g)"
+      ]
+    },
+    {
+      "category": "Pain & Boulangerie",
+      "items": [
+        "Pain complet (8 + 8 = 16 tranches)",
+        "Pain de campagne (4 + 4 = 8 tranches)",
+        "Pâte brisée (1 rouleau — quiche)",
+        "Pâte sablée (1 rouleau — tarte aux fraises)"
+      ]
+    },
+    {
+      "category": "Épicerie & Condiments",
+      "items": [
+        "Bouillon de légumes (environ 2,5 L — cubes ou fait maison)",
+        "Flageolets en boîte (800g)",
+        "Concentré de tomates (30g)",
+        "Huile d'olive (bouteille)",
+        "Vinaigre de cidre (30ml)",
+        "Vinaigre blanc (20ml — œufs pochés)",
+        "Moutarde de Dijon (10g)",
+        "Miel (40g + 20g = 60g)",
+        "Sirop d'érable (60g + 60ml = 120ml)",
+        "Granola (160g + 160g = 320g)",
+        "Curry en poudre (15g)",
+        "Curcuma (5g)",
+        "Sucre de canne (60g + 20g + 120g + 80g = 280g)",
+        "Levure chimique (10g + 10g = 20g)",
+        "Extrait de vanille",
+        "Cerneaux de noix (40g)",
+        "Flocons de piment",
+        "Muscade en poudre",
+        "Laurier (1 feuille)"
+      ]
+    },
+    {
+      "category": "Herbes fraîches & Épices",
+      "items": [
+        "Thym frais",
+        "Romarin frais",
+        "Menthe fraîche (10g + 20g + 20g + 10g = 60g)",
+        "Ciboulette fraîche (20g)",
+        "Persil plat (20g + 30g + 40g = 90g)",
+        "Gingembre frais (20g)",
+        "Herbes de Provence (séchées)"
+      ]
+    },
+    {
+      "category": "Boissons & Bouillon",
+      "items": [
+        "Lait de coco (400ml — curry)",
+        "Vin blanc sec (optionnel — pour déglacer le veau)"
+      ]
+    }
+  ],
+  "healthAlerts": [
+    {
+      "type": "seasonal",
+      "message": "Fraises Gariguette : choisir impérativement bio ou HVE — figurent régulièrement parmi les fruits les plus chargés en résidus de pesticides."
+    },
+    {
+      "type": "info",
+      "message": "Asperges blanches : fin de saison en mai, à consommer rapidement après l'achat — elles perdent rapidement leur tendreté."
+    },
+    {
+      "type": "info",
+      "message": "Fèves fraîches : double épluchage recommandé (cosse + peau grise) pour les jeunes enfants — meilleure digestibilité."
+    }
+  ]
+}

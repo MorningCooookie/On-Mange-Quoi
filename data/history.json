@@ -1,6 +1,32 @@
 {
   "menus": [
     {
+      "weekStart": "2026-05-04",
+      "weekEnd": "2026-05-10",
+      "file": "data/menus/2026-05-04.json",
+      "label": "Semaine du 4 mai 2026",
+      "healthScore": "A",
+      "highlights": [
+        "3 poissons sûrs · Maquereau atlantique, sardines de Bretagne, truite de France",
+        "Fèves fraîches, petits pois, artichauts — pleine saison 🌿",
+        "Fraises Gariguette bio impératif — pic de saison",
+        "Gigot d'agneau de printemps pour le dimanche festif"
+      ]
+    },
+    {
+      "weekStart": "2026-04-27",
+      "weekEnd": "2026-05-03",
+      "file": "data/menus/2026-04-27.json",
+      "label": "Semaine du 27 avril 2026",
+      "healthScore": "A",
+      "highlights": [
+        "3 poissons sûrs · Cabillaud MSC, sardines de Bretagne, maquereau atlantique",
+        "Risotto primavera aux petits pois et asperges 🌿",
+        "1er mai férié — quiche et pizza maison en famille",
+        "Gigot d'agneau et tarte aux fraises pour le dimanche"
+      ]
+    },
+    {
       "weekStart": "2026-04-20",
       "weekEnd": "2026-04-26",
       "file": "data/menus/2026-04-20.json",
