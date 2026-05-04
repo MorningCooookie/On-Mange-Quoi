@@ -22,10 +22,26 @@
           "isSeasonal": true,
           "note": "Avoine complète rassasiante — fraises Gariguette bio de pleine saison.",
           "ingredients": [
-            { "name": "Flocons d'avoine", "qty": 240, "unit": "g" },
-            { "name": "Lait demi-écrémé", "qty": 800, "unit": "ml" },
-            { "name": "Fraises Gariguette bio", "qty": 300, "unit": "g" },
-            { "name": "Miel", "qty": 40, "unit": "g" }
+            {
+              "name": "Flocons d'avoine",
+              "qty": 240,
+              "unit": "g"
+            },
+            {
+              "name": "Lait demi-écrémé",
+              "qty": 800,
+              "unit": "ml"
+            },
+            {
+              "name": "Fraises Gariguette bio",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Miel",
+              "qty": 40,
+              "unit": "g"
+            }
           ],
           "prepSteps": [
             "Chauffer les flocons d'avoine avec le lait à feu moyen en remuant 5 min.",
@@ -42,15 +58,51 @@
           "isSeasonal": true,
           "note": "Maquereau atlantique — mercure quasi nul, oméga-3 très élevés. Petits pois à la française : laitue, oignon, beurre.",
           "ingredients": [
-            { "name": "Filets de maquereau atlantique", "qty": 600, "unit": "g" },
-            { "name": "Petits pois frais en cosse", "qty": 1000, "unit": "g" },
-            { "name": "Riz complet", "qty": 280, "unit": "g" },
-            { "name": "Laitue", "qty": 1, "unit": "pièce" },
-            { "name": "Oignon nouveau", "qty": 4, "unit": "tiges" },
-            { "name": "Beurre", "qty": 40, "unit": "g" },
-            { "name": "Sucre", "qty": 5, "unit": "g" },
-            { "name": "Huile d'olive", "qty": 20, "unit": "ml" },
-            { "name": "Citron", "qty": 1, "unit": "pièce" }
+            {
+              "name": "Filets de maquereau atlantique",
+              "qty": 600,
+              "unit": "g"
+            },
+            {
+              "name": "Petits pois frais en cosse",
+              "qty": 1000,
+              "unit": "g"
+            },
+            {
+              "name": "Riz complet",
+              "qty": 280,
+              "unit": "g"
+            },
+            {
+              "name": "Laitue",
+              "qty": 1,
+              "unit": "pièce"
+            },
+            {
+              "name": "Oignon nouveau",
+              "qty": 4,
+              "unit": "tiges"
+            },
+            {
+              "name": "Beurre",
+              "qty": 40,
+              "unit": "g"
+            },
+            {
+              "name": "Sucre",
+              "qty": 5,
+              "unit": "g"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 20,
+              "unit": "ml"
+            },
+            {
+              "name": "Citron",
+              "qty": 1,
+              "unit": "pièce"
+            }
           ],
           "prepSteps": [
             "Rincer le riz complet. Cuire dans 560 ml d'eau salée 25-30 min à couvert.",
@@ -77,14 +129,46 @@
           "isSeasonal": true,
           "note": "Soupe légère de saison — fèves fraîches mixées pour une texture veloutée.",
           "ingredients": [
-            { "name": "Fèves fraîches en cosse", "qty": 1500, "unit": "g" },
-            { "name": "Oignon", "qty": 1, "unit": "pièce" },
-            { "name": "Ail", "qty": 2, "unit": "gousses" },
-            { "name": "Bouillon de légumes", "qty": 800, "unit": "ml" },
-            { "name": "Huile d'olive", "qty": 20, "unit": "ml" },
-            { "name": "Menthe fraîche", "qty": 10, "unit": "g" },
-            { "name": "Pain complet", "qty": 8, "unit": "tranches" },
-            { "name": "Fromage à pâte dure (comté, tomme)", "qty": 150, "unit": "g" }
+            {
+              "name": "Fèves fraîches en cosse",
+              "qty": 1500,
+              "unit": "g"
+            },
+            {
+              "name": "Oignon",
+              "qty": 1,
+              "unit": "pièce"
+            },
+            {
+              "name": "Ail",
+              "qty": 2,
+              "unit": "gousses"
+            },
+            {
+              "name": "Bouillon de légumes",
+              "qty": 800,
+              "unit": "ml"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 20,
+              "unit": "ml"
+            },
+            {
+              "name": "Menthe fraîche",
+              "qty": 10,
+              "unit": "g"
+            },
+            {
+              "name": "Pain complet",
+              "qty": 8,
+              "unit": "tranches"
+            },
+            {
+              "name": "Fromage à pâte dure (comté, tomme)",
+              "qty": 150,
+              "unit": "g"
+            }
           ],
           "prepSteps": [
             "Écosser les fèves, blanchir 2 min, retirer la peau grise.",
@@ -108,11 +192,31 @@
           "isSeasonal": true,
           "note": "Petit-déjeuner complet — radis croquants de saison pour démarrer la journée.",
           "ingredients": [
-            { "name": "Pain complet", "qty": 8, "unit": "tranches" },
-            { "name": "Œufs", "qty": 4, "unit": "pièces" },
-            { "name": "Radis", "qty": 200, "unit": "g" },
-            { "name": "Beurre doux", "qty": 60, "unit": "g" },
-            { "name": "Fleur de sel", "qty": 1, "unit": "pincée" }
+            {
+              "name": "Pain complet",
+              "qty": 8,
+              "unit": "tranches"
+            },
+            {
+              "name": "Œufs",
+              "qty": 4,
+              "unit": "pièces"
+            },
+            {
+              "name": "Radis",
+              "qty": 200,
+              "unit": "g"
+            },
+            {
+              "name": "Beurre doux",
+              "qty": 60,
+              "unit": "g"
+            },
+            {
+              "name": "Fleur de sel",
+              "qty": 1,
+              "unit": "pincée"
+            }
           ],
           "prepSteps": [
             "Plonger les œufs dans l'eau bouillante 6 min pour un œuf coulant.",
@@ -129,14 +233,46 @@
           "isSeasonal": false,
           "note": "Sardines à l'huile d'olive — mercure quasi nul, oméga-3 élevés. Lentilles du Puy IGP pour les protéines végétales.",
           "ingredients": [
-            { "name": "Lentilles vertes du Puy", "qty": 300, "unit": "g" },
-            { "name": "Sardines à l'huile d'olive", "qty": 300, "unit": "g" },
-            { "name": "Carottes", "qty": 3, "unit": "pièces" },
-            { "name": "Oignon rouge", "qty": 1, "unit": "pièce" },
-            { "name": "Persil plat", "qty": 30, "unit": "g" },
-            { "name": "Moutarde de Dijon", "qty": 10, "unit": "g" },
-            { "name": "Vinaigre de cidre", "qty": 30, "unit": "ml" },
-            { "name": "Huile d'olive", "qty": 40, "unit": "ml" }
+            {
+              "name": "Lentilles vertes du Puy",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Sardines à l'huile d'olive",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Carottes",
+              "qty": 3,
+              "unit": "pièces"
+            },
+            {
+              "name": "Oignon rouge",
+              "qty": 1,
+              "unit": "pièce"
+            },
+            {
+              "name": "Persil plat",
+              "qty": 30,
+              "unit": "g"
+            },
+            {
+              "name": "Moutarde de Dijon",
+              "qty": 10,
+              "unit": "g"
+            },
+            {
+              "name": "Vinaigre de cidre",
+              "qty": 30,
+              "unit": "ml"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 40,
+              "unit": "ml"
+            }
           ],
           "prepSteps": [
             "Rincer les lentilles. Cuire dans 3 fois leur volume d'eau froide sans sel 20-25 min. Saler en fin de cuisson. Égoutter.",
@@ -164,13 +300,41 @@
           "isSeasonal": true,
           "note": "Poulet Label Rouge ou fermier. Asperges blanches en toute fin de saison — à saisir.",
           "ingredients": [
-            { "name": "Poulet fermier entier", "qty": 1800, "unit": "g" },
-            { "name": "Asperges blanches", "qty": 800, "unit": "g" },
-            { "name": "Quinoa", "qty": 280, "unit": "g" },
-            { "name": "Herbes de Provence", "qty": 10, "unit": "g" },
-            { "name": "Huile d'olive", "qty": 30, "unit": "ml" },
-            { "name": "Citron", "qty": 1, "unit": "pièce" },
-            { "name": "Ciboulette fraîche", "qty": 20, "unit": "g" }
+            {
+              "name": "Poulet fermier entier",
+              "qty": 1800,
+              "unit": "g"
+            },
+            {
+              "name": "Asperges blanches",
+              "qty": 800,
+              "unit": "g"
+            },
+            {
+              "name": "Quinoa",
+              "qty": 280,
+              "unit": "g"
+            },
+            {
+              "name": "Herbes de Provence",
+              "qty": 10,
+              "unit": "g"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 30,
+              "unit": "ml"
+            },
+            {
+              "name": "Citron",
+              "qty": 1,
+              "unit": "pièce"
+            },
+            {
+              "name": "Ciboulette fraîche",
+              "qty": 20,
+              "unit": "g"
+            }
           ],
           "prepSteps": [
             "Préchauffer le four à 200°C. Badigeonner le poulet d'huile, sel, herbes de Provence. Enfourner 45-50 min.",
@@ -194,10 +358,26 @@
           "isSeasonal": true,
           "note": "Fraises Gariguette bio de pleine saison — granola artisanal sans sucres ajoutés.",
           "ingredients": [
-            { "name": "Yaourt nature entier", "qty": 400, "unit": "g" },
-            { "name": "Granola", "qty": 160, "unit": "g" },
-            { "name": "Fraises Gariguette bio", "qty": 300, "unit": "g" },
-            { "name": "Miel", "qty": 20, "unit": "g" }
+            {
+              "name": "Yaourt nature entier",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Granola",
+              "qty": 160,
+              "unit": "g"
+            },
+            {
+              "name": "Fraises Gariguette bio",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Miel",
+              "qty": 20,
+              "unit": "g"
+            }
           ],
           "prepSteps": [
             "Rincer et équeuter les fraises, couper en deux.",
@@ -213,14 +393,46 @@
           "isSeasonal": true,
           "note": "Épinards frais de saison — chèvre pour le calcium. Pâte brisée maison ou du commerce.",
           "ingredients": [
-            { "name": "Pâte brisée", "qty": 1, "unit": "rouleau" },
-            { "name": "Épinards frais", "qty": 500, "unit": "g" },
-            { "name": "Chèvre frais en bûche", "qty": 200, "unit": "g" },
-            { "name": "Œufs", "qty": 4, "unit": "pièces" },
-            { "name": "Crème entière liquide", "qty": 200, "unit": "ml" },
-            { "name": "Ail", "qty": 2, "unit": "gousses" },
-            { "name": "Huile d'olive", "qty": 20, "unit": "ml" },
-            { "name": "Muscade", "qty": 1, "unit": "pincée" }
+            {
+              "name": "Pâte brisée",
+              "qty": 1,
+              "unit": "rouleau"
+            },
+            {
+              "name": "Épinards frais",
+              "qty": 500,
+              "unit": "g"
+            },
+            {
+              "name": "Chèvre frais en bûche",
+              "qty": 200,
+              "unit": "g"
+            },
+            {
+              "name": "Œufs",
+              "qty": 4,
+              "unit": "pièces"
+            },
+            {
+              "name": "Crème entière liquide",
+              "qty": 200,
+              "unit": "ml"
+            },
+            {
+              "name": "Ail",
+              "qty": 2,
+              "unit": "gousses"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 20,
+              "unit": "ml"
+            },
+            {
+              "name": "Muscade",
+              "qty": 1,
+              "unit": "pincée"
+            }
           ],
           "prepSteps": [
             "Préchauffer le four à 180°C. Foncer le moule avec la pâte brisée, piquer, pré-cuire 10 min.",
@@ -248,18 +460,66 @@
           "isSeasonal": false,
           "note": "Classique mercredi soir — bœuf haché 5% MG Label Rouge, sauce tomate longue.",
           "ingredients": [
-            { "name": "Pâtes tagliatelles ou spaghetti", "qty": 400, "unit": "g" },
-            { "name": "Bœuf haché Label Rouge 5% MG", "qty": 500, "unit": "g" },
-            { "name": "Tomates concassées en boîte", "qty": 400, "unit": "g" },
-            { "name": "Carotte", "qty": 1, "unit": "pièce" },
-            { "name": "Oignon", "qty": 1, "unit": "pièce" },
-            { "name": "Céleri", "qty": 1, "unit": "branche" },
-            { "name": "Ail", "qty": 2, "unit": "gousses" },
-            { "name": "Concentré de tomates", "qty": 30, "unit": "g" },
-            { "name": "Huile d'olive", "qty": 20, "unit": "ml" },
-            { "name": "Parmesan râpé", "qty": 60, "unit": "g" },
-            { "name": "Thym", "qty": 2, "unit": "brins" },
-            { "name": "Laurier", "qty": 1, "unit": "feuille" }
+            {
+              "name": "Pâtes tagliatelles ou spaghetti",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Bœuf haché Label Rouge 5% MG",
+              "qty": 500,
+              "unit": "g"
+            },
+            {
+              "name": "Tomates concassées en boîte",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Carotte",
+              "qty": 1,
+              "unit": "pièce"
+            },
+            {
+              "name": "Oignon",
+              "qty": 1,
+              "unit": "pièce"
+            },
+            {
+              "name": "Céleri",
+              "qty": 1,
+              "unit": "branche"
+            },
+            {
+              "name": "Ail",
+              "qty": 2,
+              "unit": "gousses"
+            },
+            {
+              "name": "Concentré de tomates",
+              "qty": 30,
+              "unit": "g"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 20,
+              "unit": "ml"
+            },
+            {
+              "name": "Parmesan râpé",
+              "qty": 60,
+              "unit": "g"
+            },
+            {
+              "name": "Thym",
+              "qty": 2,
+              "unit": "brins"
+            },
+            {
+              "name": "Laurier",
+              "qty": 1,
+              "unit": "feuille"
+            }
           ],
           "prepSteps": [
             "Émincer finement oignon, carotte, céleri et ail.",
@@ -284,9 +544,21 @@
           "isSeasonal": false,
           "note": "Müsli sans sucres ajoutés — banane pour la satiété et les glucides naturels.",
           "ingredients": [
-            { "name": "Müsli nature", "qty": 200, "unit": "g" },
-            { "name": "Lait demi-écrémé", "qty": 600, "unit": "ml" },
-            { "name": "Banane", "qty": 2, "unit": "pièces" }
+            {
+              "name": "Müsli nature",
+              "qty": 200,
+              "unit": "g"
+            },
+            {
+              "name": "Lait demi-écrémé",
+              "qty": 600,
+              "unit": "ml"
+            },
+            {
+              "name": "Banane",
+              "qty": 2,
+              "unit": "pièces"
+            }
           ],
           "prepSteps": [
             "Verser le müsli dans les bols. Ajouter le lait.",
@@ -302,14 +574,46 @@
           "isSeasonal": true,
           "note": "Truite d'élevage français — mercure nul. Artichauts de pleine saison. Pommes de terre nouvelles françaises.",
           "ingredients": [
-            { "name": "Filets de truite de France", "qty": 600, "unit": "g" },
-            { "name": "Artichauts frais", "qty": 4, "unit": "pièces" },
-            { "name": "Pommes de terre nouvelles", "qty": 600, "unit": "g" },
-            { "name": "Beurre", "qty": 40, "unit": "g" },
-            { "name": "Huile d'olive", "qty": 20, "unit": "ml" },
-            { "name": "Citron", "qty": 2, "unit": "pièces" },
-            { "name": "Persil plat", "qty": 20, "unit": "g" },
-            { "name": "Ail", "qty": 2, "unit": "gousses" }
+            {
+              "name": "Filets de truite de France",
+              "qty": 600,
+              "unit": "g"
+            },
+            {
+              "name": "Artichauts frais",
+              "qty": 4,
+              "unit": "pièces"
+            },
+            {
+              "name": "Pommes de terre nouvelles",
+              "qty": 600,
+              "unit": "g"
+            },
+            {
+              "name": "Beurre",
+              "qty": 40,
+              "unit": "g"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 20,
+              "unit": "ml"
+            },
+            {
+              "name": "Citron",
+              "qty": 2,
+              "unit": "pièces"
+            },
+            {
+              "name": "Persil plat",
+              "qty": 20,
+              "unit": "g"
+            },
+            {
+              "name": "Ail",
+              "qty": 2,
+              "unit": "gousses"
+            }
           ],
           "prepSteps": [
             "Cuire les artichauts entiers à la vapeur 30-35 min jusqu'à ce qu'une feuille se détache facilement.",
@@ -327,9 +631,21 @@
           "isSeasonal": true,
           "note": "Rhubarbe de saison — peu sucrée, acidulée. Faire en grande quantité pour plusieurs jours.",
           "ingredients": [
-            { "name": "Rhubarbe fraîche", "qty": 400, "unit": "g" },
-            { "name": "Sucre de canne", "qty": 60, "unit": "g" },
-            { "name": "Eau", "qty": 50, "unit": "ml" }
+            {
+              "name": "Rhubarbe fraîche",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Sucre de canne",
+              "qty": 60,
+              "unit": "g"
+            },
+            {
+              "name": "Eau",
+              "qty": 50,
+              "unit": "ml"
+            }
           ],
           "prepSteps": [
             "Éplucher et couper la rhubarbe en tronçons.",
@@ -346,19 +662,71 @@
           "isSeasonal": true,
           "note": "Plat végétarien complet — lentilles corail pour les protéines, épinards et carottes pour les vitamines.",
           "ingredients": [
-            { "name": "Lentilles corail", "qty": 300, "unit": "g" },
-            { "name": "Épinards frais", "qty": 200, "unit": "g" },
-            { "name": "Carottes nouvelles", "qty": 3, "unit": "pièces" },
-            { "name": "Lait de coco", "qty": 400, "unit": "ml" },
-            { "name": "Tomates concassées en boîte", "qty": 200, "unit": "g" },
-            { "name": "Oignon", "qty": 1, "unit": "pièce" },
-            { "name": "Ail", "qty": 2, "unit": "gousses" },
-            { "name": "Gingembre frais", "qty": 20, "unit": "g" },
-            { "name": "Curry en poudre", "qty": 15, "unit": "g" },
-            { "name": "Curcuma", "qty": 5, "unit": "g" },
-            { "name": "Huile de coco ou d'olive", "qty": 20, "unit": "ml" },
-            { "name": "Riz basmati", "qty": 280, "unit": "g" },
-            { "name": "Citron vert", "qty": 1, "unit": "pièce" }
+            {
+              "name": "Lentilles corail",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Épinards frais",
+              "qty": 200,
+              "unit": "g"
+            },
+            {
+              "name": "Carottes nouvelles",
+              "qty": 3,
+              "unit": "pièces"
+            },
+            {
+              "name": "Lait de coco",
+              "qty": 400,
+              "unit": "ml"
+            },
+            {
+              "name": "Tomates concassées en boîte",
+              "qty": 200,
+              "unit": "g"
+            },
+            {
+              "name": "Oignon",
+              "qty": 1,
+              "unit": "pièce"
+            },
+            {
+              "name": "Ail",
+              "qty": 2,
+              "unit": "gousses"
+            },
+            {
+              "name": "Gingembre frais",
+              "qty": 20,
+              "unit": "g"
+            },
+            {
+              "name": "Curry en poudre",
+              "qty": 15,
+              "unit": "g"
+            },
+            {
+              "name": "Curcuma",
+              "qty": 5,
+              "unit": "g"
+            },
+            {
+              "name": "Huile de coco ou d'olive",
+              "qty": 20,
+              "unit": "ml"
+            },
+            {
+              "name": "Riz basmati",
+              "qty": 280,
+              "unit": "g"
+            },
+            {
+              "name": "Citron vert",
+              "qty": 1,
+              "unit": "pièce"
+            }
           ],
           "prepSteps": [
             "Faire revenir oignon, ail et gingembre râpé dans l'huile 3 min. Ajouter les épices, mélanger 1 min.",
@@ -382,12 +750,36 @@
           "isSeasonal": true,
           "note": "Jour férié — petit-déjeuner festif avec les fraises de saison.",
           "ingredients": [
-            { "name": "Farine T65", "qty": 250, "unit": "g" },
-            { "name": "Œufs", "qty": 3, "unit": "pièces" },
-            { "name": "Lait demi-écrémé", "qty": 500, "unit": "ml" },
-            { "name": "Beurre fondu", "qty": 30, "unit": "g" },
-            { "name": "Fraises Gariguette bio", "qty": 300, "unit": "g" },
-            { "name": "Sirop d'érable", "qty": 60, "unit": "ml" }
+            {
+              "name": "Farine T65",
+              "qty": 250,
+              "unit": "g"
+            },
+            {
+              "name": "Œufs",
+              "qty": 3,
+              "unit": "pièces"
+            },
+            {
+              "name": "Lait demi-écrémé",
+              "qty": 500,
+              "unit": "ml"
+            },
+            {
+              "name": "Beurre fondu",
+              "qty": 30,
+              "unit": "g"
+            },
+            {
+              "name": "Fraises Gariguette bio",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Sirop d'érable",
+              "qty": 60,
+              "unit": "ml"
+            }
           ],
           "prepSteps": [
             "Mélanger farine, œufs, lait et beurre fondu. Reposer la pâte 15 min.",
@@ -404,14 +796,46 @@
           "isSeasonal": false,
           "note": "Sardines — mercure quasi nul, oméga-3 très élevés. Tabboulé frais et herbacé.",
           "ingredients": [
-            { "name": "Sardines fraîches ou en boîte à l'huile d'olive", "qty": 600, "unit": "g" },
-            { "name": "Boulgour", "qty": 280, "unit": "g" },
-            { "name": "Tomates cerises", "qty": 200, "unit": "g" },
-            { "name": "Concombre", "qty": 1, "unit": "pièce" },
-            { "name": "Persil plat", "qty": 40, "unit": "g" },
-            { "name": "Menthe fraîche", "qty": 20, "unit": "g" },
-            { "name": "Citron", "qty": 2, "unit": "pièces" },
-            { "name": "Huile d'olive", "qty": 40, "unit": "ml" }
+            {
+              "name": "Sardines fraîches ou en boîte à l'huile d'olive",
+              "qty": 600,
+              "unit": "g"
+            },
+            {
+              "name": "Boulgour",
+              "qty": 280,
+              "unit": "g"
+            },
+            {
+              "name": "Tomates cerises",
+              "qty": 200,
+              "unit": "g"
+            },
+            {
+              "name": "Concombre",
+              "qty": 1,
+              "unit": "pièce"
+            },
+            {
+              "name": "Persil plat",
+              "qty": 40,
+              "unit": "g"
+            },
+            {
+              "name": "Menthe fraîche",
+              "qty": 20,
+              "unit": "g"
+            },
+            {
+              "name": "Citron",
+              "qty": 2,
+              "unit": "pièces"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 40,
+              "unit": "ml"
+            }
           ],
           "prepSteps": [
             "Couvrir le boulgour d'eau bouillante salée, couvrir 10 min, égrener à la fourchette.",
@@ -439,14 +863,46 @@
           "isSeasonal": true,
           "note": "Plat végétarien réconfortant — épinards frais de saison pour alléger le gratin.",
           "ingredients": [
-            { "name": "Pommes de terre nouvelles", "qty": 800, "unit": "g" },
-            { "name": "Épinards frais", "qty": 400, "unit": "g" },
-            { "name": "Gruyère râpé", "qty": 120, "unit": "g" },
-            { "name": "Crème entière liquide", "qty": 200, "unit": "ml" },
-            { "name": "Lait demi-écrémé", "qty": 150, "unit": "ml" },
-            { "name": "Ail", "qty": 2, "unit": "gousses" },
-            { "name": "Beurre", "qty": 20, "unit": "g" },
-            { "name": "Muscade", "qty": 1, "unit": "pincée" }
+            {
+              "name": "Pommes de terre nouvelles",
+              "qty": 800,
+              "unit": "g"
+            },
+            {
+              "name": "Épinards frais",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Gruyère râpé",
+              "qty": 120,
+              "unit": "g"
+            },
+            {
+              "name": "Crème entière liquide",
+              "qty": 200,
+              "unit": "ml"
+            },
+            {
+              "name": "Lait demi-écrémé",
+              "qty": 150,
+              "unit": "ml"
+            },
+            {
+              "name": "Ail",
+              "qty": 2,
+              "unit": "gousses"
+            },
+            {
+              "name": "Beurre",
+              "qty": 20,
+              "unit": "g"
+            },
+            {
+              "name": "Muscade",
+              "qty": 1,
+              "unit": "pincée"
+            }
           ],
           "prepSteps": [
             "Préchauffer le four à 180°C. Frotter un plat à gratin avec l'ail et beurrer.",
@@ -471,12 +927,36 @@
           "isSeasonal": false,
           "note": "Petit-déjeuner protéiné du week-end — avocat pour les bons lipides, œuf pour les protéines.",
           "ingredients": [
-            { "name": "Pain complet", "qty": 8, "unit": "tranches" },
-            { "name": "Avocat mûr", "qty": 2, "unit": "pièces" },
-            { "name": "Œufs", "qty": 4, "unit": "pièces" },
-            { "name": "Citron vert", "qty": 1, "unit": "pièce" },
-            { "name": "Flocons de piment", "qty": 1, "unit": "g" },
-            { "name": "Vinaigre blanc", "qty": 20, "unit": "ml" }
+            {
+              "name": "Pain complet",
+              "qty": 8,
+              "unit": "tranches"
+            },
+            {
+              "name": "Avocat mûr",
+              "qty": 2,
+              "unit": "pièces"
+            },
+            {
+              "name": "Œufs",
+              "qty": 4,
+              "unit": "pièces"
+            },
+            {
+              "name": "Citron vert",
+              "qty": 1,
+              "unit": "pièce"
+            },
+            {
+              "name": "Flocons de piment",
+              "qty": 1,
+              "unit": "g"
+            },
+            {
+              "name": "Vinaigre blanc",
+              "qty": 20,
+              "unit": "ml"
+            }
           ],
           "prepSteps": [
             "Toaster les tranches de pain.",
@@ -494,15 +974,51 @@
           "isSeasonal": true,
           "note": "Salade 100% de saison — fèves et petits pois frais pour un maximum de saveurs.",
           "ingredients": [
-            { "name": "Fèves fraîches en cosse", "qty": 1000, "unit": "g" },
-            { "name": "Petits pois frais en cosse", "qty": 600, "unit": "g" },
-            { "name": "Roquette", "qty": 100, "unit": "g" },
-            { "name": "Parmesan en copeaux", "qty": 60, "unit": "g" },
-            { "name": "Citron", "qty": 1, "unit": "pièce" },
-            { "name": "Huile d'olive", "qty": 40, "unit": "ml" },
-            { "name": "Menthe fraîche", "qty": 10, "unit": "g" },
-            { "name": "Fleur de sel", "qty": 1, "unit": "pincée" },
-            { "name": "Pain de campagne", "qty": 4, "unit": "tranches" }
+            {
+              "name": "Fèves fraîches en cosse",
+              "qty": 1000,
+              "unit": "g"
+            },
+            {
+              "name": "Petits pois frais en cosse",
+              "qty": 600,
+              "unit": "g"
+            },
+            {
+              "name": "Roquette",
+              "qty": 100,
+              "unit": "g"
+            },
+            {
+              "name": "Parmesan en copeaux",
+              "qty": 60,
+              "unit": "g"
+            },
+            {
+              "name": "Citron",
+              "qty": 1,
+              "unit": "pièce"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 40,
+              "unit": "ml"
+            },
+            {
+              "name": "Menthe fraîche",
+              "qty": 10,
+              "unit": "g"
+            },
+            {
+              "name": "Fleur de sel",
+              "qty": 1,
+              "unit": "pincée"
+            },
+            {
+              "name": "Pain de campagne",
+              "qty": 4,
+              "unit": "tranches"
+            }
           ],
           "prepSteps": [
             "Écosser les fèves. Blanchir 2 min, refroidir à l'eau froide, retirer la peau grise.",
@@ -521,13 +1037,41 @@
           "isSeasonal": true,
           "note": "Cake de saison — la rhubarbe apporte une acidité qui équilibre la douceur du cake.",
           "ingredients": [
-            { "name": "Farine T65", "qty": 200, "unit": "g" },
-            { "name": "Sucre de canne", "qty": 120, "unit": "g" },
-            { "name": "Œufs", "qty": 3, "unit": "pièces" },
-            { "name": "Beurre fondu", "qty": 100, "unit": "g" },
-            { "name": "Lait entier", "qty": 80, "unit": "ml" },
-            { "name": "Levure chimique", "qty": 10, "unit": "g" },
-            { "name": "Rhubarbe fraîche", "qty": 300, "unit": "g" }
+            {
+              "name": "Farine T65",
+              "qty": 200,
+              "unit": "g"
+            },
+            {
+              "name": "Sucre de canne",
+              "qty": 120,
+              "unit": "g"
+            },
+            {
+              "name": "Œufs",
+              "qty": 3,
+              "unit": "pièces"
+            },
+            {
+              "name": "Beurre fondu",
+              "qty": 100,
+              "unit": "g"
+            },
+            {
+              "name": "Lait entier",
+              "qty": 80,
+              "unit": "ml"
+            },
+            {
+              "name": "Levure chimique",
+              "qty": 10,
+              "unit": "g"
+            },
+            {
+              "name": "Rhubarbe fraîche",
+              "qty": 300,
+              "unit": "g"
+            }
           ],
           "prepSteps": [
             "Préchauffer le four à 180°C. Beurrer un moule à cake.",
@@ -546,14 +1090,46 @@
           "isSeasonal": true,
           "note": "Veau fermier français — viande tendre et légère, parfaite au printemps. Purée de petits pois fraîche et herbacée.",
           "ingredients": [
-            { "name": "Filet de veau fermier", "qty": 600, "unit": "g" },
-            { "name": "Petits pois frais en cosse", "qty": 1000, "unit": "g" },
-            { "name": "Menthe fraîche", "qty": 20, "unit": "g" },
-            { "name": "Beurre", "qty": 50, "unit": "g" },
-            { "name": "Crème légère", "qty": 80, "unit": "ml" },
-            { "name": "Huile d'olive", "qty": 20, "unit": "ml" },
-            { "name": "Thym frais", "qty": 2, "unit": "brins" },
-            { "name": "Ail", "qty": 1, "unit": "gousse" }
+            {
+              "name": "Filet de veau fermier",
+              "qty": 600,
+              "unit": "g"
+            },
+            {
+              "name": "Petits pois frais en cosse",
+              "qty": 1000,
+              "unit": "g"
+            },
+            {
+              "name": "Menthe fraîche",
+              "qty": 20,
+              "unit": "g"
+            },
+            {
+              "name": "Beurre",
+              "qty": 50,
+              "unit": "g"
+            },
+            {
+              "name": "Crème légère",
+              "qty": 80,
+              "unit": "ml"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 20,
+              "unit": "ml"
+            },
+            {
+              "name": "Thym frais",
+              "qty": 2,
+              "unit": "brins"
+            },
+            {
+              "name": "Ail",
+              "qty": 1,
+              "unit": "gousse"
+            }
           ],
           "prepSteps": [
             "Écosser les petits pois. Cuire 5 min à l'eau bouillante salée. Égoutter.",
@@ -577,14 +1153,46 @@
           "isSeasonal": true,
           "note": "Petit-déjeuner festif du dimanche — fraises Gariguette bio pour garnir.",
           "ingredients": [
-            { "name": "Farine T65", "qty": 200, "unit": "g" },
-            { "name": "Œufs", "qty": 2, "unit": "pièces" },
-            { "name": "Lait demi-écrémé", "qty": 250, "unit": "ml" },
-            { "name": "Levure chimique", "qty": 10, "unit": "g" },
-            { "name": "Sucre", "qty": 20, "unit": "g" },
-            { "name": "Beurre fondu", "qty": 30, "unit": "g" },
-            { "name": "Fraises Gariguette bio", "qty": 300, "unit": "g" },
-            { "name": "Sirop d'érable", "qty": 60, "unit": "ml" }
+            {
+              "name": "Farine T65",
+              "qty": 200,
+              "unit": "g"
+            },
+            {
+              "name": "Œufs",
+              "qty": 2,
+              "unit": "pièces"
+            },
+            {
+              "name": "Lait demi-écrémé",
+              "qty": 250,
+              "unit": "ml"
+            },
+            {
+              "name": "Levure chimique",
+              "qty": 10,
+              "unit": "g"
+            },
+            {
+              "name": "Sucre",
+              "qty": 20,
+              "unit": "g"
+            },
+            {
+              "name": "Beurre fondu",
+              "qty": 30,
+              "unit": "g"
+            },
+            {
+              "name": "Fraises Gariguette bio",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Sirop d'érable",
+              "qty": 60,
+              "unit": "ml"
+            }
           ],
           "prepSteps": [
             "Mélanger farine, sucre, levure. Ajouter œufs battus, lait et beurre fondu. Ne pas trop travailler la pâte.",
@@ -601,16 +1209,56 @@
           "isSeasonal": true,
           "note": "Grand repas du dimanche — gigot d'agneau de printemps français, rosé à cœur. Haricots verts en début de saison.",
           "ingredients": [
-            { "name": "Gigot d'agneau de printemps", "qty": 2000, "unit": "g" },
-            { "name": "Flageolets en boîte", "qty": 800, "unit": "g" },
-            { "name": "Haricots verts fins", "qty": 400, "unit": "g" },
-            { "name": "Ail", "qty": 6, "unit": "gousses" },
-            { "name": "Romarin frais", "qty": 4, "unit": "brins" },
-            { "name": "Thym frais", "qty": 4, "unit": "brins" },
-            { "name": "Huile d'olive", "qty": 40, "unit": "ml" },
-            { "name": "Beurre", "qty": 30, "unit": "g" },
-            { "name": "Oignon", "qty": 1, "unit": "pièce" },
-            { "name": "Bouillon de légumes", "qty": 200, "unit": "ml" }
+            {
+              "name": "Gigot d'agneau de printemps",
+              "qty": 2000,
+              "unit": "g"
+            },
+            {
+              "name": "Flageolets en boîte",
+              "qty": 800,
+              "unit": "g"
+            },
+            {
+              "name": "Haricots verts fins",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Ail",
+              "qty": 6,
+              "unit": "gousses"
+            },
+            {
+              "name": "Romarin frais",
+              "qty": 4,
+              "unit": "brins"
+            },
+            {
+              "name": "Thym frais",
+              "qty": 4,
+              "unit": "brins"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 40,
+              "unit": "ml"
+            },
+            {
+              "name": "Beurre",
+              "qty": 30,
+              "unit": "g"
+            },
+            {
+              "name": "Oignon",
+              "qty": 1,
+              "unit": "pièce"
+            },
+            {
+              "name": "Bouillon de légumes",
+              "qty": 200,
+              "unit": "ml"
+            }
           ],
           "prepSteps": [
             "Sortir le gigot 1h avant. Préchauffer le four à 200°C.",
@@ -629,13 +1277,41 @@
           "isSeasonal": true,
           "note": "Dessert de saison par excellence — fraises Gariguette bio sur crème pâtissière vanillée.",
           "ingredients": [
-            { "name": "Pâte sablée maison ou du commerce", "qty": 1, "unit": "rouleau" },
-            { "name": "Fraises Gariguette bio", "qty": 500, "unit": "g" },
-            { "name": "Lait entier", "qty": 500, "unit": "ml" },
-            { "name": "Jaunes d'œufs", "qty": 4, "unit": "pièces" },
-            { "name": "Sucre", "qty": 80, "unit": "g" },
-            { "name": "Farine T45", "qty": 40, "unit": "g" },
-            { "name": "Extrait de vanille", "qty": 1, "unit": "cc" }
+            {
+              "name": "Pâte sablée maison ou du commerce",
+              "qty": 1,
+              "unit": "rouleau"
+            },
+            {
+              "name": "Fraises Gariguette bio",
+              "qty": 500,
+              "unit": "g"
+            },
+            {
+              "name": "Lait entier",
+              "qty": 500,
+              "unit": "ml"
+            },
+            {
+              "name": "Jaunes d'œufs",
+              "qty": 4,
+              "unit": "pièces"
+            },
+            {
+              "name": "Sucre",
+              "qty": 80,
+              "unit": "g"
+            },
+            {
+              "name": "Farine T45",
+              "qty": 40,
+              "unit": "g"
+            },
+            {
+              "name": "Extrait de vanille",
+              "qty": 1,
+              "unit": "cc"
+            }
           ],
           "prepSteps": [
             "Foncer le moule avec la pâte sablée. Pré-cuire à blanc 15 min à 180°C. Laisser refroidir.",
@@ -654,12 +1330,36 @@
           "isSeasonal": true,
           "note": "Dîner léger après le festif du midi — valoriser les restes de gigot.",
           "ingredients": [
-            { "name": "Bouillon de légumes", "qty": 1200, "unit": "ml" },
-            { "name": "Restes d'agneau (tranches)", "qty": 300, "unit": "g" },
-            { "name": "Roquette", "qty": 60, "unit": "g" },
-            { "name": "Radis", "qty": 100, "unit": "g" },
-            { "name": "Vinaigrette", "qty": 30, "unit": "ml" },
-            { "name": "Pain de campagne", "qty": 4, "unit": "tranches" }
+            {
+              "name": "Bouillon de légumes",
+              "qty": 1200,
+              "unit": "ml"
+            },
+            {
+              "name": "Restes d'agneau (tranches)",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Roquette",
+              "qty": 60,
+              "unit": "g"
+            },
+            {
+              "name": "Radis",
+              "qty": 100,
+              "unit": "g"
+            },
+            {
+              "name": "Vinaigrette",
+              "qty": 30,
+              "unit": "ml"
+            },
+            {
+              "name": "Pain de campagne",
+              "qty": 4,
+              "unit": "tranches"
+            }
           ],
           "prepSteps": [
             "Chauffer le bouillon de légumes, verser dans les bols.",
@@ -674,139 +1374,755 @@
     {
       "category": "Poissons & Fruits de mer",
       "items": [
-        "Filets de maquereau atlantique (600g — frais ou sous vide)",
-        "Sardines fraîches de Bretagne ou en boîte à l'huile d'olive (600g)",
-        "Filets de truite de France (600g)"
+        {
+          "name": "Filets de maquereau atlantique",
+          "qty": "600g",
+          "price_discount": 5.5,
+          "price_standard": 7.5,
+          "price_bio": 11.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Sardines fraîches de Bretagne ou en boîte à l'huile d'olive",
+          "qty": "600g",
+          "price_discount": 4.5,
+          "price_standard": 6.5,
+          "price_bio": 10.0,
+          "isSeasonal": true
+        },
+        {
+          "name": "Filets de truite de France",
+          "qty": "600g",
+          "price_discount": 6.5,
+          "price_standard": 8.5,
+          "price_bio": 13.0,
+          "isSeasonal": false
+        }
       ]
     },
     {
       "category": "Viandes",
       "items": [
-        "Poulet fermier entier Label Rouge (1,8 kg)",
-        "Bœuf haché Label Rouge 5% MG (500g)",
-        "Filet de veau fermier (600g)",
-        "Gigot d'agneau de printemps (2 kg)"
+        {
+          "name": "Poulet fermier entier Label Rouge",
+          "qty": "1,8 kg",
+          "price_discount": 9.0,
+          "price_standard": 12.5,
+          "price_bio": 19.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Bœuf haché Label Rouge 5% MG",
+          "qty": "500g",
+          "price_discount": 5.5,
+          "price_standard": 7.5,
+          "price_bio": 11.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Filet de veau fermier",
+          "qty": "600g",
+          "price_discount": 9.0,
+          "price_standard": 12.5,
+          "price_bio": 19.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Gigot d'agneau de printemps",
+          "qty": "2 kg",
+          "price_discount": 14.0,
+          "price_standard": 19.0,
+          "price_bio": 28.0,
+          "isSeasonal": false
+        }
       ]
     },
     {
       "category": "Légumes de saison",
       "items": [
-        "Petits pois frais en cosse (1 kg + 600g + 1 kg + 600g ≈ 3,5 kg)",
-        "Fèves fraîches en cosse (1,5 kg + 1 kg = 2,5 kg)",
-        "Épinards frais (500g + 200g + 400g = 1,1 kg)",
-        "Asperges blanches (800g — fin de saison)",
-        "Haricots verts fins (400g)",
-        "Artichauts frais (4 pièces)",
-        "Pommes de terre nouvelles (600g + 800g = 1,4 kg)",
-        "Carottes nouvelles (3 pièces — curry)",
-        "Carottes (3 pièces — lentilles)",
-        "Radis (200g + 100g + 100g = 400g)",
-        "Roquette (100g + 60g = 160g)",
-        "Rhubarbe fraîche (400g + 300g = 700g)",
-        "Laitue (1 pièce — petits pois à la française)",
-        "Oignon rouge (1 pièce)",
-        "Oignons jaunes (4 pièces)",
-        "Oignons nouveaux (4 tiges)",
-        "Céleri (1 branche)",
-        "Concombre (1 pièce)",
-        "Tomates cerises (200g)",
-        "Tomates concassées en boîte (400g + 200g = 600g)"
+        {
+          "name": "Petits pois frais en cosse",
+          "qty": "1 kg",
+          "price_discount": 4.5,
+          "price_standard": 6.0,
+          "price_bio": 9.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Fèves fraîches en cosse",
+          "qty": "1,5 kg",
+          "price_discount": 4.0,
+          "price_standard": 5.5,
+          "price_bio": 8.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Épinards frais",
+          "qty": "500g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Asperges blanches",
+          "qty": "800g",
+          "price_discount": 5.0,
+          "price_standard": 6.8,
+          "price_bio": 10.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Haricots verts fins",
+          "qty": "400g",
+          "price_discount": 2.8,
+          "price_standard": 4.0,
+          "price_bio": 6.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Artichauts frais",
+          "qty": "4 pièces",
+          "price_discount": 3.5,
+          "price_standard": 5.0,
+          "price_bio": 7.8,
+          "isSeasonal": true
+        },
+        {
+          "name": "Pommes de terre nouvelles",
+          "qty": "600g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Carottes nouvelles",
+          "qty": "3 pièces",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Carottes",
+          "qty": "3 pièces",
+          "price_discount": 0.9,
+          "price_standard": 1.3,
+          "price_bio": 2.2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Radis",
+          "qty": "200g",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Roquette",
+          "qty": "100g",
+          "price_discount": 1.2,
+          "price_standard": 1.8,
+          "price_bio": 3.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Rhubarbe fraîche",
+          "qty": "400g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Laitue",
+          "qty": "1 pièce",
+          "price_discount": 1.0,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Oignon rouge",
+          "qty": "1 pièce",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Oignons jaunes",
+          "qty": "4 pièces",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Oignons nouveaux",
+          "qty": "4 tiges",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2.0,
+          "isSeasonal": true
+        },
+        {
+          "name": "Céleri",
+          "qty": "1 branche",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Concombre",
+          "qty": "1 pièce",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Tomates cerises",
+          "qty": "200g",
+          "price_discount": 2.0,
+          "price_standard": 2.8,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Tomates concassées en boîte",
+          "qty": "400g",
+          "price_discount": 1.0,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        }
       ]
     },
     {
       "category": "Fruits",
       "items": [
-        "Fraises Gariguette bio (300g + 300g + 300g + 300g + 500g ≈ 1,7 kg)",
-        "Bananes (2 pièces)",
-        "Avocats mûrs (2 pièces)",
-        "Citrons jaunes (5 pièces)",
-        "Citron vert (2 pièces)"
+        {
+          "name": "Fraises Gariguette bio",
+          "qty": "300g",
+          "price_discount": 5.5,
+          "price_standard": 7.5,
+          "price_bio": 11.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Bananes",
+          "qty": "2 pièces",
+          "price_discount": 1.2,
+          "price_standard": 1.8,
+          "price_bio": 3.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Avocats mûrs",
+          "qty": "2 pièces",
+          "price_discount": 1.8,
+          "price_standard": 2.5,
+          "price_bio": 4.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Citrons jaunes",
+          "qty": "5 pièces",
+          "price_discount": 1.0,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Citron vert",
+          "qty": "2 pièces",
+          "price_discount": 0.5,
+          "price_standard": 0.8,
+          "price_bio": 1.3,
+          "isSeasonal": false
+        }
       ]
     },
     {
       "category": "Produits laitiers & Œufs",
       "items": [
-        "Yaourt nature entier (400g + 200g = 600g)",
-        "Fromage blanc 0% (200g)",
-        "Chèvre frais en bûche (200g)",
-        "Crème entière liquide (200ml quiche + 200ml gratin = 400ml)",
-        "Crème légère (80ml veau + 80ml lentilles = 160ml)",
-        "Gruyère râpé (120g)",
-        "Parmesan râpé (60g bolognaise + 60g salade = 120g)",
-        "Fromage à pâte dure comté ou tomme (150g — soupe fèves)",
-        "Lait de coco (400ml)",
-        "Beurre (300g environ)",
-        "Lait demi-écrémé (800ml + 500ml + 600ml + 250ml = 2,15 L)",
-        "Lait entier (80ml cake + 500ml tarte = 580ml)",
-        "Œufs (4+4+3+2+3+2+4 = environ 4 boîtes de 6)"
+        {
+          "name": "Yaourt nature entier",
+          "qty": "400g",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Fromage blanc 0%",
+          "qty": "200g",
+          "price_discount": 1.8,
+          "price_standard": 2.5,
+          "price_bio": 4.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Chèvre frais en bûche",
+          "qty": "200g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Crème entière liquide",
+          "qty": "200ml quiche",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Crème légère",
+          "qty": "80ml veau",
+          "price_discount": 1.0,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Gruyère râpé",
+          "qty": "120g",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Parmesan râpé",
+          "qty": "60g bolognaise",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Fromage à pâte dure comté ou tomme",
+          "qty": "150g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Lait de coco",
+          "qty": "400ml",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Beurre",
+          "qty": "300g environ",
+          "price_discount": 2.2,
+          "price_standard": 3.0,
+          "price_bio": 4.8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Lait demi-écrémé",
+          "qty": "800ml",
+          "price_discount": 1.0,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Lait entier",
+          "qty": "80ml cake",
+          "price_discount": 1.0,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Œufs",
+          "qty": "4",
+          "price_discount": 3.2,
+          "price_standard": 4.5,
+          "price_bio": 7.0,
+          "isSeasonal": false
+        }
       ]
     },
     {
       "category": "Féculents & Céréales",
       "items": [
-        "Riz complet (280g)",
-        "Riz basmati (280g)",
-        "Quinoa (280g)",
-        "Boulgour (280g)",
-        "Pâtes tagliatelles ou spaghetti (400g)",
-        "Lentilles corail (300g)",
-        "Lentilles vertes du Puy (300g)",
-        "Farine T65 (250g + 200g = 450g)",
-        "Farine T45 (40g — crème pâtissière)",
-        "Flocons d'avoine (240g)",
-        "Müsli nature (200g)"
+        {
+          "name": "Riz complet",
+          "qty": "280g",
+          "price_discount": 1.8,
+          "price_standard": 2.5,
+          "price_bio": 4.2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Riz basmati",
+          "qty": "280g",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Quinoa",
+          "qty": "280g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Boulgour",
+          "qty": "280g",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pâtes tagliatelles ou spaghetti",
+          "qty": "400g",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Lentilles corail",
+          "qty": "300g",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Lentilles vertes du Puy",
+          "qty": "300g",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Farine T65",
+          "qty": "250g",
+          "price_discount": 0.9,
+          "price_standard": 1.3,
+          "price_bio": 2.2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Farine T45",
+          "qty": "40g",
+          "price_discount": 0.9,
+          "price_standard": 1.3,
+          "price_bio": 2.2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Flocons d'avoine",
+          "qty": "240g",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Müsli nature",
+          "qty": "200g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5.5,
+          "isSeasonal": false
+        }
       ]
     },
     {
       "category": "Pain & Boulangerie",
       "items": [
-        "Pain complet (8 + 8 = 16 tranches)",
-        "Pain de campagne (4 + 4 = 8 tranches)",
-        "Pâte brisée (1 rouleau — quiche)",
-        "Pâte sablée (1 rouleau — tarte aux fraises)"
+        {
+          "name": "Pain complet",
+          "qty": "8",
+          "price_discount": 2.0,
+          "price_standard": 2.8,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pain de campagne",
+          "qty": "4",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pâte brisée",
+          "qty": "1 rouleau",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pâte sablée",
+          "qty": "1 rouleau",
+          "price_discount": 1.8,
+          "price_standard": 2.5,
+          "price_bio": 4.0,
+          "isSeasonal": false
+        }
       ]
     },
     {
       "category": "Épicerie & Condiments",
       "items": [
-        "Bouillon de légumes (environ 2,5 L — cubes ou fait maison)",
-        "Flageolets en boîte (800g)",
-        "Concentré de tomates (30g)",
-        "Huile d'olive (bouteille)",
-        "Vinaigre de cidre (30ml)",
-        "Vinaigre blanc (20ml — œufs pochés)",
-        "Moutarde de Dijon (10g)",
-        "Miel (40g + 20g = 60g)",
-        "Sirop d'érable (60g + 60ml = 120ml)",
-        "Granola (160g + 160g = 320g)",
-        "Curry en poudre (15g)",
-        "Curcuma (5g)",
-        "Sucre de canne (60g + 20g + 120g + 80g = 280g)",
-        "Levure chimique (10g + 10g = 20g)",
-        "Extrait de vanille",
-        "Cerneaux de noix (40g)",
-        "Flocons de piment",
-        "Muscade en poudre",
-        "Laurier (1 feuille)"
+        {
+          "name": "Bouillon de légumes",
+          "qty": "environ 2,5 L",
+          "price_discount": 1.2,
+          "price_standard": 1.8,
+          "price_bio": 3.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Flageolets en boîte",
+          "qty": "800g",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Concentré de tomates",
+          "qty": "30g",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Huile d'olive",
+          "qty": "bouteille",
+          "price_discount": 4.5,
+          "price_standard": 6.5,
+          "price_bio": 10.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Vinaigre de cidre",
+          "qty": "30ml",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Vinaigre blanc",
+          "qty": "20ml",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Moutarde de Dijon",
+          "qty": "10g",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Miel",
+          "qty": "40g",
+          "price_discount": 4.5,
+          "price_standard": 6.5,
+          "price_bio": 10.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Sirop d'érable",
+          "qty": "60g",
+          "price_discount": 4.0,
+          "price_standard": 5.5,
+          "price_bio": 8.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Granola",
+          "qty": "160g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Curry en poudre",
+          "qty": "15g",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Curcuma",
+          "qty": "5g",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Sucre de canne",
+          "qty": "60g",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Levure chimique",
+          "qty": "10g",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Extrait de vanille",
+          "qty": "1 unité",
+          "price_discount": 2.0,
+          "price_standard": 2.8,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Cerneaux de noix",
+          "qty": "40g",
+          "price_discount": 3.5,
+          "price_standard": 5.0,
+          "price_bio": 7.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Flocons de piment",
+          "qty": "1 unité",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Muscade en poudre",
+          "qty": "1 unité",
+          "price_discount": 1.0,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Laurier",
+          "qty": "1 feuille",
+          "price_discount": 0.5,
+          "price_standard": 0.8,
+          "price_bio": 1.3,
+          "isSeasonal": false
+        }
       ]
     },
     {
       "category": "Herbes fraîches & Épices",
       "items": [
-        "Thym frais",
-        "Romarin frais",
-        "Menthe fraîche (10g + 20g + 20g + 10g = 60g)",
-        "Ciboulette fraîche (20g)",
-        "Persil plat (20g + 30g + 40g = 90g)",
-        "Gingembre frais (20g)",
-        "Herbes de Provence (séchées)"
+        {
+          "name": "Thym frais",
+          "qty": "1 unité",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2.0,
+          "isSeasonal": true
+        },
+        {
+          "name": "Romarin frais",
+          "qty": "1 unité",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2.0,
+          "isSeasonal": true
+        },
+        {
+          "name": "Menthe fraîche",
+          "qty": "10g",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2.0,
+          "isSeasonal": true
+        },
+        {
+          "name": "Ciboulette fraîche",
+          "qty": "20g",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2.0,
+          "isSeasonal": true
+        },
+        {
+          "name": "Persil plat",
+          "qty": "20g",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2.0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Gingembre frais",
+          "qty": "20g",
+          "price_discount": 1.0,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Herbes de Provence",
+          "qty": "séchées",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2.0,
+          "isSeasonal": false
+        }
       ]
     },
     {
       "category": "Boissons & Bouillon",
       "items": [
-        "Lait de coco (400ml — curry)",
-        "Vin blanc sec (optionnel — pour déglacer le veau)"
+        {
+          "name": "Lait de coco",
+          "qty": "400ml",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Vin blanc sec",
+          "qty": "optionnel",
+          "price_discount": 1.5,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        }
       ]
     }
   ],
