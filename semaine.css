@@ -37,10 +37,9 @@ body {
   background: linear-gradient(135deg, var(--green), var(--green-light));
   color: #fff;
   padding: .75rem 1.25rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
-  gap: .75rem;
 }
 
 .semaine-logo {
@@ -60,6 +59,7 @@ body {
   gap: 0.5rem;
   font-size: 0.875rem;
   color: #fff;
+  justify-self: end;
 }
 
 .semaine-score__letter {
@@ -545,7 +545,7 @@ body {
   padding: .6rem .85rem;
   background: var(--card-bg);
   border-radius: 8px;
-  border-left: 3px solid var(--green-light);
+  border: 1px solid var(--ink-200);
   font-size: .78rem;
   color: var(--text-muted);
   line-height: 1.5;
@@ -644,4 +644,198 @@ body {
   .newsletter-strip { flex-direction: column; align-items: flex-start; }
   .newsletter-strip__form { width: 100%; }
   .newsletter-strip__input { flex: 1; width: auto; }
+}
+
+/* ── Score hero band (Phase 2 redesign) ─────────────────── */
+
+/* Widen main for desktop — keep narrow on mobile */
+@media (min-width: 768px) {
+  .semaine-main {
+    max-width: 900px;
+  }
+}
+
+.score-band {
+  background: var(--ink-900, #14110D);
+  color: var(--cream-50, #FAF7F2);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .score-band {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 40px;
+    align-items: center;
+  }
+}
+
+/* Left column — circle + text */
+.score-band__left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.score-band__circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: var(--green-300, #B8D4C5);
+  color: var(--ink-900, #14110D);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display, 'Fraunces', Georgia, serif);
+  font-size: 96px;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.score-band__circle--b {
+  background: var(--score-b-new, #4A6B85);
+  color: var(--cream-50, #FAF7F2);
+}
+
+.score-band__circle--c {
+  background: var(--score-c-new, #B5573A);
+  color: var(--cream-50, #FAF7F2);
+}
+
+.score-band__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.score-band__eyebrow {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-300, #A8A095);
+}
+
+.score-band__headline {
+  font-family: var(--font-display, 'Fraunces', Georgia, serif);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--cream-50, #FAF7F2);
+  margin: 0;
+  margin-top: 2px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.score-band__desc {
+  font-size: 14px;
+  color: var(--ink-300, #A8A095);
+  max-width: 360px;
+  margin: 0;
+  margin-top: 2px;
+  line-height: 1.5;
+}
+
+/* Middle column — 4 metrics */
+.score-band__metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  align-items: center;
+  border-left: 1px solid var(--ink-700, #2B2620);
+  padding-left: 32px;
+}
+
+@media (max-width: 767px) {
+  .score-band__metrics {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--ink-700, #2B2620);
+    padding-top: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+.score-band__metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.score-band__metric-label {
+  font-size: 12px;
+  color: var(--ink-300, #A8A095);
+}
+
+.score-band__metric-value {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.score-band__metric-num {
+  font-family: var(--font-display, 'Fraunces', Georgia, serif);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--cream-50, #FAF7F2);
+  font-feature-settings: 'tnum', 'lnum';
+  font-variant-numeric: tabular-nums;
+}
+
+.score-band__metric-unit {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 11px;
+  color: var(--ink-300, #A8A095);
+}
+
+.score-band__metric-delta {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 11px;
+  color: var(--green-300, #B8D4C5);
+}
+
+/* Right column */
+.score-band__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+@media (max-width: 767px) {
+  .score-band__right {
+    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.score-band__chip {
+  background: var(--ink-700, #2B2620);
+  color: var(--cream-50, #FAF7F2);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.score-band__link {
+  font-size: 12px;
+  color: var(--ink-300, #A8A095);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.score-band__link:hover {
+  color: var(--cream-50, #FAF7F2);
 }

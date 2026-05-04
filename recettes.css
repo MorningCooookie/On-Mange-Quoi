@@ -238,8 +238,8 @@
 
 .recipe-content .astuce {
   background: #D1FAE5;
-  border-left: 3px solid var(--header-to);
-  border-radius: 0 var(--r-inner) var(--r-inner) 0;
+  border: 1px solid var(--ink-200);
+  border-radius: var(--r-inner);
   padding: .6rem .9rem;
   font-size: .88rem;
   color: var(--header-from);

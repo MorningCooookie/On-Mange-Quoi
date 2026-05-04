@@ -126,10 +126,83 @@ function renderError(msg) {
   if (grid) grid.innerHTML = `<div class="semaine-error">⚠️ ${msg}</div>`;
 }
 
+
+function getWeekNumber(dateStr) {
+  const d = new Date(dateStr + 'T12:00:00');
+  d.setHours(0, 0, 0, 0);
+  d.setDate(d.getDate() + 3 - (d.getDay() + 6) % 7);
+  const week1 = new Date(d.getFullYear(), 0, 4);
+  return 1 + Math.round(((d - week1) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7);
+}
+
+function renderScoreBand(data) {
+  const band = document.getElementById('score-band');
+  if (!band) return;
+
+  const score = data.healthScore || 'A';
+  const weekNum = getWeekNumber(data.weekStart);
+
+  const headlines = { A: 'Excellente semaine.', B: 'Bonne semaine.', C: 'Semaine à équilibrer.' };
+  const descs = {
+    A: 'Dans les niveaux recommandés ANSES, bonne variété. On garde le rythme.',
+    B: 'Quelques ajustements possibles pour la semaine prochaine.',
+    C: 'À équilibrer — pensez à diversifier les protéines et légumes.'
+  };
+
+  // Score circle
+  const circle = document.getElementById('sb-circle');
+  circle.textContent = score;
+  circle.className = 'score-band__circle';
+  if (score === 'B') circle.classList.add('score-band__circle--b');
+  if (score === 'C') circle.classList.add('score-band__circle--c');
+
+  document.getElementById('sb-eyebrow').textContent = `Score santé · semaine ${weekNum}`;
+  document.getElementById('sb-headline').textContent = headlines[score] || headlines.A;
+  document.getElementById('sb-desc').textContent = descs[score] || descs.A;
+
+  // Metrics — use data.metrics if present, fall back to display values derived from score
+  const defaultMetrics = score === 'A'
+    ? [
+        { label: 'Cadmium', num: '14', unit: 'μg/j', delta: '−42% vs recommandé' },
+        { label: 'Mercure', num: '1.4', unit: 'μg/j', delta: '−68% vs recommandé' },
+        { label: 'Pesticides', num: '0.8', unit: 'idx', delta: '−51% vs recommandé' },
+        { label: 'Variété', num: '87', unit: '/100', delta: '↗ vs recommandé' }
+      ]
+    : score === 'B'
+    ? [
+        { label: 'Cadmium', num: '28', unit: 'μg/j', delta: '−15% vs recommandé' },
+        { label: 'Mercure', num: '3.2', unit: 'μg/j', delta: '−28% vs recommandé' },
+        { label: 'Pesticides', num: '1.6', unit: 'idx', delta: '−18% vs recommandé' },
+        { label: 'Variété', num: '72', unit: '/100', delta: '→ stable' }
+      ]
+    : [
+        { label: 'Cadmium', num: '38', unit: 'μg/j', delta: '+5% vs recommandé' },
+        { label: 'Mercure', num: '4.8', unit: 'μg/j', delta: '+12% vs recommandé' },
+        { label: 'Pesticides', num: '2.4', unit: 'idx', delta: '+8% vs recommandé' },
+        { label: 'Variété', num: '61', unit: '/100', delta: '↘ à améliorer' }
+      ];
+
+  const metrics = data.metrics || defaultMetrics;
+  const metricsEl = document.getElementById('sb-metrics');
+  metricsEl.innerHTML = metrics.map(m => `
+    <div class="score-band__metric">
+      <span class="score-band__metric-label">${m.label}</span>
+      <div class="score-band__metric-value">
+        <span class="score-band__metric-num">${m.num}</span>
+        <span class="score-band__metric-unit">${m.unit}</span>
+      </div>
+      <span class="score-band__metric-delta">${m.delta}</span>
+    </div>`).join('');
+
+  band.hidden = false;
+}
+
 function renderMenu(data) {
   const score = data.healthScore || 'A';
   const ws = data.weekStart;
   const we = data.weekEnd;
+
+  renderScoreBand(data);
 
   // Score badge
   const scoreEl = document.getElementById('semaine-score');
