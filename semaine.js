@@ -445,8 +445,14 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       navigator.clipboard
         .writeText(location.href)
-        .then(() => alert('Lien copié dans le presse-papier !'))
-        .catch(() => alert('Lien : ' + location.href));
+        .then(() => {
+          const btn = document.getElementById('btn-partager');
+          if (btn) { const orig = btn.textContent; btn.textContent = '✓ Lien copié !'; setTimeout(() => btn.textContent = orig, 2000); }
+        })
+        .catch(() => {
+          const btn = document.getElementById('btn-partager');
+          if (btn) { const orig = btn.textContent; btn.textContent = location.href; setTimeout(() => btn.textContent = orig, 4000); }
+        });
     }
   });
 

@@ -627,7 +627,7 @@ body {
 .newsletter-strip__btn {
   padding: .5rem 1rem;
   background: #fff;
-  color: #2D7A3C;
+  color: var(--green-800);
   border: none;
   border-radius: 10px;
   font-size: .85rem;

@@ -1323,7 +1323,7 @@ textarea:focus {
 .fix-preferences-btn {
   position: relative;
   padding: 0.5rem 1rem;
-  background-color: var(--color-secondary, #E07A5F);
+  background-color: var(--color-secondary);
   color: white;
   border: none;
   border-radius: 12px;
