@@ -2830,7 +2830,7 @@ body.modal-open { overflow: hidden; }
   background: var(--green-800);
   color: white;
   border: none;
-  border-radius: var(--r-8);
+  border-radius: var(--r-12);
   cursor: pointer;
   font-family: var(--font-body);
   font-weight: 700;
