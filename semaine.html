@@ -17,6 +17,12 @@
 </head>
 <body>
 
+  <!-- Bandeau maintenance -->
+  <div class="maintenance-banner">
+    <span>🔧</span>
+    <span>Site en maintenance — nous revenons très vite.</span>
+  </div>
+
   <!-- Mobile header — masqué sur desktop -->
   <header class="semaine-header">
     <button class="semaine-header-back" onclick="window.history.back()" title="Retour">←</button>
@@ -74,6 +80,16 @@
       <div class="side-rail__upsell">
         <span class="side-rail__upsell-label">Bientôt</span>
         <p class="side-rail__upsell-text">Optimisations budget + temps. <a href="#" class="side-rail__upsell-link">Me prévenir</a></p>
+      </div>
+
+      <div class="side-rail__auth">
+        <div id="side-logged-out">
+          <a href="/" class="side-rail__auth-login">Se connecter →</a>
+        </div>
+        <div id="side-logged-in" style="display:none;">
+          <span class="side-rail__auth-email" id="side-user-email"></span>
+          <button class="side-rail__auth-logout" id="side-logout-btn">Se déconnecter</button>
+        </div>
       </div>
     </aside>
 
@@ -220,5 +236,38 @@
       <p class="fiche-note" id="fiche-note"></p>
     </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    (function() {
+      const SUPABASE_URL = 'https://pozhsrnsezklfyqjoues.supabase.co';
+      const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBvemhzcm5zZXprbGZ5cWpvdWVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM3NjU4OTYsImV4cCI6MjA1OTM0MTg5Nn0.Tgn-gJHLhCcqWalAjL7l6pSc_VBmNvMQJ3ZGaQCMizA';
+      if (!window.supabase) return;
+      const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+      window.supabaseClient = client;
+
+      function updateSemaineAuth(session) {
+        const outEl = document.getElementById('side-logged-out');
+        const inEl  = document.getElementById('side-logged-in');
+        const emailEl = document.getElementById('side-user-email');
+        if (session && session.user) {
+          if (outEl) outEl.style.display = 'none';
+          if (inEl)  inEl.style.display  = 'flex';
+          if (emailEl) emailEl.textContent = session.user.email;
+        } else {
+          if (outEl) outEl.style.display = 'block';
+          if (inEl)  inEl.style.display  = 'none';
+        }
+      }
+
+      client.auth.getSession().then(({ data: { session } }) => updateSemaineAuth(session));
+      client.auth.onAuthStateChange((_, session) => updateSemaineAuth(session));
+
+      document.getElementById('side-logout-btn')?.addEventListener('click', async () => {
+        await client.auth.signOut();
+        window.location.href = '/';
+      });
+    })();
+  </script>
 </body>
 </html>

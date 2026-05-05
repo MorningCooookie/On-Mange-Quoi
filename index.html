@@ -45,96 +45,45 @@
         <a href="semaine.html">Mon menu</a>
       </nav>
     </div>
-    <div class="landing-header__actions">
+    <div id="auth-button-group" class="landing-header__actions">
       <button class="landing-header__login" onclick="document.getElementById('login-modal').style.display='flex'; document.getElementById('login-email').focus();">Se connecter</button>
       <button class="btn--landing btn--landing-sm" onclick="document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();">Commencer — c'est gratuit</button>
+    </div>
+    <div id="user-menu-header" class="landing-header__user" style="display:none;">
+      <button class="landing-header__user-btn" id="user-email-header" onclick="const m=document.getElementById('user-menu');m.style.display=m.style.display==='block'?'none':'block';">Mon compte ▾</button>
     </div>
   </header>
 
   <!-- ============ LOGIN MODAL ============ -->
-  <div id="login-modal" onclick="if(event.target.id==='login-modal') document.getElementById('login-modal').style.display='none'" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:10000;display:none;align-items:center;justify-content:center;">
-    <div style="background:white;padding:2rem;border-radius:12px;max-width:400px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);position:relative;">
-      <button onclick="document.getElementById('login-modal').style.display='none'" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#999;padding:0;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;">✕</button>
-
-      <h2 style="margin-top:0;text-align:center;color:#1B4332;">Connexion</h2>
-
-      <input type="email" id="login-email" placeholder="Votre email" style="width:100%;padding:0.75rem;margin:1rem 0 0.5rem 0;border:1px solid #ddd;border-radius:6px;box-sizing:border-box;font-size:1rem;">
-
-      <input type="password" id="login-password" placeholder="Mot de passe" style="width:100%;padding:0.75rem;margin:0.5rem 0 1rem 0;border:1px solid #ddd;border-radius:6px;box-sizing:border-box;font-size:1rem;">
-
-      <button id="btn-login" onclick="loginHandler();" style="width:100%;padding:1rem;background:#1B4332;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:bold;font-size:1.05rem;font-family:'Work Sans',system-ui,sans-serif;">Se connecter</button>
-      <script>
-        function loginHandler() {
-          const email = document.getElementById('login-email').value;
-          const password = document.getElementById('login-password').value;
-          if (!email || !password) {
-            showToast('Champ manquant', 'Veuillez entrer votre email et mot de passe.', 'error');
-            return;
-          }
-          if (typeof handleLogin === 'function') {
-            handleLogin();
-          } else {
-            showToast('Erreur', 'Service d\'authentification indisponible.', 'error');
-          }
-        }
-      </script>
-      <!-- Lien vers création de compte — important sur mobile où le bouton header est masqué -->
-      <p style="margin-top:1.25rem;text-align:center;font-size:0.875rem;color:#6B7280;font-family:'Work Sans',system-ui,sans-serif;">
+  <div id="login-modal" class="auth-modal" onclick="if(event.target.id==='login-modal') this.style.display='none'">
+    <div class="auth-modal__box">
+      <button class="auth-modal__close" onclick="document.getElementById('login-modal').style.display='none'" aria-label="Fermer">✕</button>
+      <div class="auth-modal__logo" aria-hidden="true"></div>
+      <h2 class="auth-modal__title">Connexion</h2>
+      <input type="email" id="login-email" class="auth-modal__input" placeholder="Votre email" autocomplete="email">
+      <input type="password" id="login-password" class="auth-modal__input" placeholder="Mot de passe" autocomplete="current-password">
+      <button id="btn-login" class="auth-modal__btn" onclick="handleLogin()">Se connecter</button>
+      <p class="auth-modal__footer">
         Pas encore de compte ?
-        <button onclick="document.getElementById('login-modal').style.display='none'; document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();" style="background:none;border:none;padding:0;cursor:pointer;color:#1B4332;font-weight:600;font-size:0.875rem;font-family:'Work Sans',system-ui,sans-serif;text-decoration:underline;">Créer un compte</button>
+        <button class="auth-modal__link" onclick="document.getElementById('login-modal').style.display='none'; document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();">Créer un compte</button>
       </p>
     </div>
   </div>
 
   <!-- ============ SIGNUP MODAL ============ -->
-  <div id="signup-modal" onclick="if(event.target.id==='signup-modal') document.getElementById('signup-modal').style.display='none'" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:10000;display:none;align-items:center;justify-content:center;">
-    <div style="background:white;padding:2rem;border-radius:12px;max-width:400px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);position:relative;">
-      <button onclick="document.getElementById('signup-modal').style.display='none'" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#999;padding:0;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;">✕</button>
-
-      <h2 style="margin-top:0;text-align:center;color:#1B4332;">Créer un compte</h2>
-
-      <input type="email" id="signup-email" placeholder="Votre email" style="width:100%;padding:0.75rem;margin:1rem 0 0.5rem 0;border:1px solid #ddd;border-radius:6px;box-sizing:border-box;font-size:1rem;">
-
-      <input type="password" id="signup-password" placeholder="Mot de passe" style="width:100%;padding:0.75rem;margin:0.5rem 0 1rem 0;border:1px solid #ddd;border-radius:6px;box-sizing:border-box;font-size:1rem;">
-
-      <button id="btn-signup" onclick="signupHandler();" style="width:100%;padding:1rem;background:#1B4332;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:bold;font-size:1.05rem;font-family:'Work Sans',system-ui,sans-serif;">Créer un compte</button>
-      <script>
-        function signupHandler() {
-          const email = document.getElementById('signup-email').value;
-          const password = document.getElementById('signup-password').value;
-          if (!email || !password) {
-            showToast('Champ manquant', 'Veuillez entrer votre email et mot de passe.', 'error');
-            return;
-          }
-          if (password.length < 6) {
-            showToast('Mot de passe trop court', 'Le mot de passe doit faire au moins 6 caractères.', 'error');
-            return;
-          }
-          if (typeof handleSignup === 'function') {
-            handleSignup();
-          } else {
-            showToast('Erreur', 'Service d\'authentification indisponible.', 'error');
-          }
-        }
-      </script>
-      <!-- Lien retour vers connexion -->
-      <p style="margin-top:1.25rem;text-align:center;font-size:0.875rem;color:#6B7280;font-family:'Work Sans',system-ui,sans-serif;">
+  <div id="signup-modal" class="auth-modal" onclick="if(event.target.id==='signup-modal') this.style.display='none'">
+    <div class="auth-modal__box">
+      <button class="auth-modal__close" onclick="document.getElementById('signup-modal').style.display='none'" aria-label="Fermer">✕</button>
+      <div class="auth-modal__logo" aria-hidden="true"></div>
+      <h2 class="auth-modal__title">Créer un compte</h2>
+      <p class="auth-modal__subtitle">Gratuit · Menus familiaux sains chaque semaine</p>
+      <input type="email" id="signup-email" class="auth-modal__input" placeholder="Votre email" autocomplete="email">
+      <input type="password" id="signup-password" class="auth-modal__input" placeholder="Mot de passe (min. 6 caractères)" autocomplete="new-password">
+      <button id="btn-signup" class="auth-modal__btn" onclick="handleSignup()">Créer mon compte</button>
+      <p class="auth-modal__footer">
         Déjà un compte ?
-        <button onclick="document.getElementById('signup-modal').style.display='none'; document.getElementById('login-modal').style.display='flex'; document.getElementById('login-email').focus();" style="background:none;border:none;padding:0;cursor:pointer;color:#1B4332;font-weight:600;font-size:0.875rem;font-family:'Work Sans',system-ui,sans-serif;text-decoration:underline;">Se connecter</button>
+        <button class="auth-modal__link" onclick="document.getElementById('signup-modal').style.display='none'; document.getElementById('login-modal').style.display='flex'; document.getElementById('login-email').focus();">Se connecter</button>
       </p>
-    </div>
-  </div>
-
-
-  <!-- ============ USER MENU ============ -->
-  <div id="user-menu" style="display:none;">
-    <div class="user-menu-header">
-      <div id="current-profile-name" class="user-menu-profile-name">Mon profil</div>
-    </div>
-    <div class="user-menu-body">
-      <button id="btn-family-sharing" class="user-menu-btn">👥 Mes profils</button>
-      <div class="user-menu-divider"></div>
-      <button id="btn-logout" class="user-menu-btn danger">Se déconnecter</button>
     </div>
   </div>
 
@@ -748,7 +697,8 @@
         document.getElementById('login-modal').style.display = 'none';
         document.getElementById('login-email').value = '';
         document.getElementById('login-password').value = '';
-        showToast('Bienvenue!', 'Vous êtes connecté(e). Consultez votre menu de la semaine.', 'success');
+        showToast('Bienvenue!', 'Connexion réussie. Redirection vers votre menu…', 'success');
+        setTimeout(() => { window.location.href = 'semaine.html'; }, 1200);
       } catch (err) {
         const errorMsg = err.message || JSON.stringify(err) || 'Erreur inconnue';
         console.error('Login exception:', err);
@@ -1061,5 +1011,15 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="auth.js"></script>
+  <script>
+    // Close user dropdown on click outside
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('user-menu');
+      const btn = document.getElementById('user-email-header');
+      if (menu && menu.style.display === 'block' && !menu.contains(e.target) && e.target !== btn) {
+        menu.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
