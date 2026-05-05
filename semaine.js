@@ -107,18 +107,19 @@ function formatDateShort(s) {
   return new Date(s + 'T12:00:00').toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
 }
 
-async function getWeekParam() {
-  const params = new URLSearchParams(window.location.search);
-  const week = params.get('week');
-  if (week) return week;
-
-  // Fall back to most recent in history
+async function loadHistory() {
   try {
-    const hist = await fetch('/data/history.json').then(r => r.json());
-    return hist.menus?.[0]?.weekStart || null;
+    return await fetch('/data/history.json').then(r => r.json());
   } catch (_) {
     return null;
   }
+}
+
+async function getWeekParam(history) {
+  const params = new URLSearchParams(window.location.search);
+  const week = params.get('week');
+  if (week) return week;
+  return history?.menus?.[0]?.weekStart || null;
 }
 
 function renderError(msg) {
@@ -197,11 +198,122 @@ function renderScoreBand(data) {
   band.hidden = false;
 }
 
-function renderMenu(data) {
+const PROFILE_INFO = {
+  famille_jeunes_enfants: { label: 'Famille', avatar: 'F', sub: '2 adultes · 1 enfant' },
+  couple:                 { label: 'Couple',  avatar: 'C', sub: '2 personnes' },
+  solo:                   { label: 'Solo',    avatar: 'S', sub: '1 personne' }
+};
+
+function renderSideProfile() {
+  const key  = getActiveProfile();
+  const info = PROFILE_INFO[key] || PROFILE_INFO.famille_jeunes_enfants;
+  const nameEl   = document.getElementById('side-profile-name');
+  const subEl    = document.getElementById('side-profile-sub');
+  const avatarEl = document.getElementById('side-profile-avatar');
+  if (nameEl)   nameEl.textContent   = info.label;
+  if (subEl)    subEl.textContent    = info.sub;
+  if (avatarEl) avatarEl.textContent = info.avatar;
+}
+
+function renderDesktopHeader(data, history) {
+  const weekNum = getWeekNumber(data.weekStart);
+  const eyebrow = document.getElementById('semaine-page-eyebrow');
+  if (eyebrow) {
+    const wsFmt = new Date(data.weekStart + 'T12:00:00')
+      .toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
+    const weFmt = new Date(data.weekEnd   + 'T12:00:00')
+      .toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
+    eyebrow.textContent = `Semaine ${weekNum} · ${wsFmt} — ${weFmt}`;
+  }
+
+  if (history?.menus) {
+    const weeks = history.menus.map(m => m.weekStart);
+    const idx   = weeks.indexOf(data.weekStart);
+    const prev  = weeks[idx + 1]; // history triée du plus récent au plus ancien
+    const next  = weeks[idx - 1];
+    const btnPrev = document.getElementById('btn-prev-week');
+    const btnNext = document.getElementById('btn-next-week');
+    if (btnPrev) {
+      if (prev) btnPrev.href = `semaine.html?week=${prev}`;
+      else { btnPrev.style.opacity = '0.35'; btnPrev.style.pointerEvents = 'none'; }
+    }
+    if (btnNext) {
+      if (next) btnNext.href = `semaine.html?week=${next}`;
+      else { btnNext.style.opacity = '0.35'; btnNext.style.pointerEvents = 'none'; }
+    }
+  }
+}
+
+function renderFilterSummary(data) {
+  const el = document.getElementById('filter-summary');
+  if (!el || !data.shoppingList) return;
+  const total = data.shoppingList.reduce((s, cat) => s + (cat.items?.length || 0), 0);
+  if (total > 0) el.innerHTML = `<span>${total}&nbsp;ingrédients</span>`;
+}
+
+function renderRiskSuggestions(data) {
+  const grid = document.getElementById('risk-suggestions-grid');
+  const title = document.getElementById('risk-suggestions-title');
+  if (!grid) return;
+  const score = data.healthScore || 'A';
+
+  const byScore = {
+    A: {
+      titleText: 'Trois petits ajustements pour passer A → A+',
+      cards: [
+        { tag: 'Cadmium',    title: 'Alterner les céréales complètes', body: 'La semoule et le blé complet concentrent le cadmium. Un repas sur trois avec du riz blanc ou des pommes de terre réduit l\'exposition.' },
+        { tag: 'Variété',    title: 'Tester un légume nouveau', body: 'Bonne variété cette semaine — essayer un légume hors habitude (topinambour, chou romanesco) consolide le score.' },
+        { tag: 'Mercure',    title: 'Vérifier le cumul poisson', body: 'Si vous avez mangé du thon ou maquereau en dehors du menu, comptez-le — la règle ANSES porte sur la semaine entière.' }
+      ]
+    },
+    B: {
+      titleText: 'Trois ajustements pour revenir en A',
+      cards: [
+        { tag: 'Cadmium',    title: 'Réduire les céréales complètes', body: 'Alterner avec du riz blanc ou des pommes de terre sur 2 repas diminuerait sensiblement l’exposition au cadmium.' },
+        { tag: 'Pesticides', title: 'Passer en bio sur 2 légumes', body: 'Priorité aux légumes-feuilles et fraises — ils figurent en tête des résidus dans les données ANSES.' },
+        { tag: 'Variété',    title: 'Ajouter une légumineuse', body: 'Lentilles ou pois chiches en milieu de semaine diversifient les protéines et améliorent le score variété.' }
+      ]
+    },
+    C: {
+      titleText: 'Trois changements prioritaires cette semaine',
+      cards: [
+        { tag: 'Mercure',    title: 'Limiter le poisson gras', body: 'Réduire à un seul poisson gras par semaine (thon, maquereau, espadon). Remplacer par du cabillaud ou des légumineuses.' },
+        { tag: 'Pesticides', title: 'Choisir du bio sur les légumes-clés', body: 'Fraises, poivrons, céleri : résidus élevés en conventionnel. La version bio est disponible dans la plupart des rayons.' },
+        { tag: 'Variété',    title: 'Diversifier les protéines', body: 'Trois repas de viande rouge ou charcuterie consécutifs pèsent sur le score. Intercaler œuf, tofu ou légumineuse.' }
+      ]
+    }
+  };
+
+  const config = byScore[score] || byScore.A;
+  if (title) title.textContent = config.titleText;
+
+  grid.innerHTML = config.cards.map(c => `
+    <div class="suggestion-card">
+      <span class="suggestion-card__tag">${c.tag}</span>
+      <h4 class="suggestion-card__title">${c.title}</h4>
+      <p class="suggestion-card__body">${c.body}</p>
+    </div>`).join('');
+}
+
+function getDinnerTags(dinner) {
+  if (!dinner) return [];
+  const tags = [];
+  if (dinner.riskLevel === 'low')    tags.push('faible risque');
+  else if (dinner.riskLevel === 'medium') tags.push('risque modéré');
+  if (dinner.prepTime && dinner.prepTime <= 20) tags.push('rapide');
+  else if (dinner.prepTime) tags.push(`${dinner.prepTime} min`);
+  return tags.slice(0, 2);
+}
+
+function renderMenu(data, history) {
   const score = data.healthScore || 'A';
   const ws = data.weekStart;
   const we = data.weekEnd;
 
+  renderSideProfile();
+  renderDesktopHeader(data, history);
+  renderFilterSummary(data);
+  renderRiskSuggestions(data);
   renderScoreBand(data);
 
   // Score badge
@@ -227,18 +339,40 @@ function renderMenu(data) {
   grid.innerHTML = '';
 
   (data.days || []).forEach(day => {
-    const card = document.createElement('div');
-    card.className = 'semaine-day-card';
+    const card = document.createElement('article');
+    const todayStr  = new Date().toISOString().slice(0, 10);
+    const isToday   = day.date === todayStr;
+    const dinner    = day.meals?.dinner;
+    const dinnerTags = getDinnerTags(dinner);
+    const abbrev    = (day.label || '').slice(0, 3).toLowerCase();
+    const dayNum    = String(new Date(day.date + 'T12:00:00').getDate()).padStart(2, '0');
+    const dotColor  = riskDotColor(dinner?.riskLevel || 'low');
+    const dotLabel  = riskLabel(dinner?.riskLevel || 'low');
+
+    card.className = 'semaine-day-card' + (isToday ? ' is-today' : '');
 
     const dateShort = new Date(day.date + 'T12:00:00')
       .toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
 
     card.innerHTML = `
+      ${isToday ? '<span class="today-pill">aujourd\'hui</span>' : ''}
+      <div class="day-card__top">
+        <span class="day-card__abbrev">${abbrev}</span>
+        <span class="day-card__num">${dayNum}</span>
+      </div>
+      <div class="day-card__placeholder"></div>
+      <h4 class="day-card__dinner-title">${dinner?.name || '—'}</h4>
+      <div class="day-card__tags">
+        ${dinnerTags.map(t => `<span class="chip-xs">${t}</span>`).join('')}
+      </div>
       <div class="semaine-day-header">
         <span class="semaine-day-name">${day.label}</span>
         <span class="semaine-day-date">${dateShort}</span>
       </div>
-      <div class="semaine-day-meals" id="semaine-meals-${day.date}"></div>`;
+      <div class="semaine-day-meals" id="semaine-meals-${day.date}"></div>
+      <div class="day-card__footer">
+        <span class="day-card__risk-dot" style="background:${dotColor}" title="${dotLabel}"></span>
+      </div>`;
 
     grid.appendChild(card);
 
@@ -267,7 +401,8 @@ function renderMenu(data) {
 }
 
 async function init() {
-  const week = await getWeekParam();
+  const history = await loadHistory();
+  const week    = await getWeekParam(history);
   if (!week) {
     renderError('Aucun menu trouvé. Vérifiez l\'URL ou ouvrez le site principal.');
     return;
@@ -278,7 +413,7 @@ async function init() {
       if (!r.ok) throw new Error(`Menu ${week} introuvable`);
       return r.json();
     });
-    renderMenu(data);
+    renderMenu(data, history);
   } catch (err) {
     renderError(`Impossible de charger le menu (${err.message}).`);
   }

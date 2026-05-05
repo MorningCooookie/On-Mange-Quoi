@@ -17,6 +17,7 @@
 </head>
 <body>
 
+  <!-- Mobile header — masqué sur desktop -->
   <header class="semaine-header">
     <button class="semaine-header-back" onclick="window.history.back()" title="Retour">←</button>
     <a class="semaine-logo" href="/" aria-label="On mange quoi ? — accueil">
@@ -27,7 +28,69 @@
     <span class="semaine-score" id="semaine-score"></span>
   </header>
 
+  <div class="semaine-layout">
+
+    <!-- Side rail — desktop uniquement -->
+    <aside class="side-rail">
+      <a class="side-rail__brand" href="/" aria-label="On mange quoi ? — accueil">
+        <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true" style="width:1.1em;height:1.1em;flex-shrink:0;">
+          <circle cx="10" cy="10" r="8.5" stroke-width="1.6"/>
+          <circle cx="10" cy="10" r="5" stroke-width="1.4"/>
+        </svg>
+        on mange quoi<span class="side-rail__brand-mark">?</span>
+      </a>
+
+      <nav class="side-rail__nav">
+        <a class="side-rail__item side-rail__item--active" href="semaine.html">
+          <span class="side-rail__icon">⌂</span>Cette semaine
+        </a>
+        <a class="side-rail__item" href="/">
+          <span class="side-rail__icon">☰</span>Liste de courses
+        </a>
+        <a class="side-rail__item" href="recettes.html">
+          <span class="side-rail__icon">♡</span>Mes recettes
+        </a>
+        <a class="side-rail__item" href="/">
+          <span class="side-rail__icon">⊕</span>Préférences
+        </a>
+        <a class="side-rail__item" href="about.html">
+          <span class="side-rail__icon">ⓘ</span>Score santé
+        </a>
+      </nav>
+
+      <hr class="side-rail__divider">
+
+      <div class="side-rail__profile-section">
+        <span class="side-rail__eyebrow">Profil actif</span>
+        <div class="side-rail__profile-card">
+          <div class="side-rail__avatar" id="side-profile-avatar">F</div>
+          <div>
+            <div class="side-rail__profile-name" id="side-profile-name">Famille</div>
+            <div class="side-rail__profile-sub" id="side-profile-sub">2 adultes · 1 enfant</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-rail__upsell">
+        <span class="side-rail__upsell-label">Bientôt</span>
+        <p class="side-rail__upsell-text">Optimisations budget + temps. <a href="#" class="side-rail__upsell-link">Me prévenir</a></p>
+      </div>
+    </aside>
+
   <main class="semaine-main">
+    <!-- En-tête desktop — masqué sur mobile -->
+    <div class="semaine-page-header" id="semaine-page-header">
+      <div>
+        <span class="semaine-page-eyebrow" id="semaine-page-eyebrow">Semaine —</span>
+        <h1 class="semaine-page-title">Bonjour. <span class="semaine-page-title__sub">Voici votre semaine.</span></h1>
+      </div>
+      <div class="semaine-page-nav">
+        <a class="semaine-week-btn" id="btn-prev-week" href="#">← sem. préc.</a>
+        <a class="semaine-week-btn" id="btn-next-week" href="#">sem. suiv. →</a>
+        <button class="semaine-week-btn semaine-week-btn--primary" id="btn-regenerer" disabled>↻ Régénérer</button>
+      </div>
+    </div>
+
     <div class="semaine-date" id="semaine-date"></div>
 
     <!-- ── Score hero band ──────────────────────────────────── -->
@@ -48,9 +111,31 @@
     </section>
 
 
+    <!-- Barre de filtres — desktop uniquement -->
+    <div class="filter-bar">
+      <div class="filter-bar__chips">
+        <span class="filter-chip filter-chip--active">Tous les dîners</span>
+        <span class="filter-chip">Végé</span>
+        <span class="filter-chip">Rapide &lt; 30 min</span>
+        <span class="filter-chip">Saison</span>
+      </div>
+      <div class="filter-bar__summary" id="filter-summary"></div>
+    </div>
+
     <div class="semaine-grid" id="semaine-grid">
       <div class="semaine-loading">Chargement du menu…</div>
     </div>
+
+    <!-- Suggestions santé — desktop uniquement -->
+    <section class="risk-suggestions" id="risk-suggestions">
+      <div class="risk-suggestions__header">
+        <div>
+          <span class="risk-suggestions__eyebrow">Suggestions de la semaine</span>
+          <h3 class="risk-suggestions__title" id="risk-suggestions-title">Trois petits ajustements pour progresser</h3>
+        </div>
+      </div>
+      <div class="risk-suggestions__grid" id="risk-suggestions-grid"></div>
+    </section>
 
     <div class="health-legend">
       <p class="health-legend__title">🥗 Légende des risques</p>
@@ -98,6 +183,7 @@
       <button class="semaine-btn semaine-btn--share" id="btn-partager">Partager ce lien</button>
     </div>
   </main>
+  </div><!-- /.semaine-layout -->
 
   <script src="semaine.js"></script>
 
