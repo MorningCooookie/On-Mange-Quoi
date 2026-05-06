@@ -15,32 +15,6 @@
     /* ── Fiche-specific styles — Phase 2D redesign ── */
     body { background: var(--bg); }
 
-    /* Header solid green band (no gradient) */
-    #fiche-site-header {
-      background: var(--green-800);
-      color: var(--cream-50);
-      padding: var(--s-12) var(--s-24);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    #fiche-site-header strong {
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: var(--fs-15);
-      display: flex;
-      align-items: center;
-      gap: var(--s-8);
-      letter-spacing: -0.01em;
-    }
-    #fiche-site-header a {
-      color: rgba(250, 247, 242, 0.75);
-      font-size: var(--fs-13);
-      text-decoration: none;
-      transition: color 180ms ease;
-    }
-    #fiche-site-header a:hover { color: var(--cream-50); text-decoration: underline; }
-
     /* Page shell */
     .fiche-page {
       max-width: 980px;
@@ -237,7 +211,7 @@
 
     /* Print A5 landscape — preserve */
     @media print {
-      #fiche-site-header, .fiche-actions { display: none !important; }
+      .landing-header, .landing-footer, .fiche-actions { display: none !important; }
       body { background: white; }
       .fiche-page { padding: 0.5cm; max-width: 100%; }
       .fmm-header { margin-bottom: var(--s-16); padding-bottom: var(--s-12); }
@@ -251,13 +225,23 @@
 </head>
 <body>
 
-  <!-- Mini header — solid green, no gradient -->
-  <header id="fiche-site-header">
-    <strong>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" style="width:1.1em;height:1.1em;" aria-hidden="true"><circle cx="10" cy="10" r="8.5" stroke-width="1.6"/><circle cx="10" cy="10" r="5" stroke-width="1.4"/></svg>
-      On mange quoi ?
-    </strong>
-    <a href="index.html">← Retour au menu</a>
+  <header class="landing-header">
+    <div style="display:flex;align-items:center;gap:32px;">
+      <a class="brand--landing" href="/" aria-label="On mange quoi ? — accueil">
+        <span class="brand-mark--landing" aria-hidden="true"></span>
+        on mange quoi<span style="color:var(--green-800)">?</span>
+      </a>
+      <nav class="landing-header__nav" aria-label="Navigation principale">
+        <a href="/">Accueil</a>
+        <a href="semaine.html">Mon menu</a>
+        <a href="courses.html">Liste de courses</a>
+        <a href="recettes.html">Recettes</a>
+        <a href="fiche.html" aria-current="page" style="color:var(--green-800);font-weight:600;">Fiche mémo</a>
+      </nav>
+    </div>
+    <div class="landing-header__actions">
+      <a class="landing-header__login" href="semaine.html">← Mon menu</a>
+    </div>
   </header>
 
   <div class="fiche-page">
