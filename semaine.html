@@ -78,7 +78,7 @@
 
       <div class="side-rail__auth">
         <div id="side-logged-out">
-          <a href="/" class="side-rail__auth-login">Se connecter →</a>
+          <a href="/?login=1" class="side-rail__auth-login">Se connecter →</a>
         </div>
         <div id="side-logged-in" style="display:none;">
           <span class="side-rail__auth-email" id="side-user-email"></span>
@@ -124,10 +124,10 @@
     <!-- Barre de filtres — desktop uniquement -->
     <div class="filter-bar">
       <div class="filter-bar__chips">
-        <span class="filter-chip filter-chip--active">Tous les dîners</span>
-        <span class="filter-chip">Végé</span>
-        <span class="filter-chip">Rapide &lt; 30 min</span>
-        <span class="filter-chip">Saison</span>
+        <span class="filter-chip filter-chip--active" data-filter="all">Tous les dîners</span>
+        <span class="filter-chip" data-filter="vege">Végé</span>
+        <span class="filter-chip" data-filter="rapide">Rapide &lt; 30 min</span>
+        <span class="filter-chip" data-filter="saison">Saison</span>
       </div>
       <div class="filter-bar__summary" id="filter-summary"></div>
     </div>

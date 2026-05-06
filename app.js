@@ -544,7 +544,7 @@ function renderMenu() {
       const prepBadge = renderPrepTimeBadge(meal.prepTime);
       row.innerHTML = `
         <div class="meal-header">
-          <span class="meal-icon">${meal.icon || '🍽'}</span>
+          <span class="meal-icon" aria-hidden="true"></span>
           <span class="meal-name">${meal.name}</span>
           ${isClickable ? '<span class="fiche-chevron" aria-hidden="true">›</span>' : ''}
         </div>
@@ -1173,7 +1173,7 @@ function openFiche(meal, type, triggerEl) {
   document.getElementById('fiche-icon').textContent      = meal.icon || '🍽';
   document.getElementById('fiche-meal-type').textContent = FICHE_MEAL_LABELS[type] || type;
   document.getElementById('fiche-title').textContent     = meal.name;
-  document.getElementById('fiche-meta').textContent      = meal.prepTime ? `⏱ ${meal.prepTime} min` : '';
+  document.getElementById('fiche-meta').textContent      = meal.prepTime ? `${meal.prepTime} min` : '';
 
   document.querySelectorAll('#fiche-overlay .fiche-profile-btn').forEach(btn =>
     btn.classList.toggle('is-active', btn.dataset.profile === profileKey)

@@ -62,10 +62,10 @@ function openFiche(meal, type) {
 
   const profileKey = getActiveProfile();
 
-  document.getElementById('fiche-icon').textContent      = meal.icon || '🍽';
+  document.getElementById('fiche-icon').textContent      = '';
   document.getElementById('fiche-meal-type').textContent = MEAL_LABELS[type] || type;
   document.getElementById('fiche-title').textContent     = meal.name;
-  document.getElementById('fiche-meta').textContent      = `⏱ ${meal.prepTime} min`;
+  document.getElementById('fiche-meta').textContent      = meal.prepTime ? `${meal.prepTime} min` : '';
 
   document.querySelectorAll('.fiche-profile-btn').forEach(btn =>
     btn.classList.toggle('is-active', btn.dataset.profile === profileKey)
@@ -350,6 +350,8 @@ function renderMenu(data, history) {
     const dotLabel  = riskLabel(dinner?.riskLevel || 'low');
 
     card.className = 'semaine-day-card' + (isToday ? ' is-today' : '');
+    card.dataset.dinnerTags = (dinner?.tags || []).join(',').toLowerCase();
+    card.dataset.dinnerPrep = dinner?.prepTime ?? 999;
 
     const dateShort = new Date(day.date + 'T12:00:00')
       .toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
@@ -387,7 +389,7 @@ function renderMenu(data, history) {
       const dotColor = riskDotColor(meal.riskLevel);
       const label    = riskLabel(meal.riskLevel);
       row.innerHTML = `
-        <span class="semaine-meal-icon">${meal.icon || '🍽'}</span>
+        <span class="semaine-meal-icon" aria-hidden="true"></span>
         <div class="semaine-meal-info">
           <div class="semaine-meal-type">${MEAL_LABELS[type]}</div>
           <div class="semaine-meal-name">${meal.name}</div>
@@ -423,6 +425,25 @@ document.addEventListener('DOMContentLoaded', () => {
   init();
 
   // Fiche technique — fermeture
+  // Filter chips
+  document.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('filter-chip--active'));
+      chip.classList.add('filter-chip--active');
+      const filter = chip.dataset.filter;
+      document.querySelectorAll('.semaine-day-card').forEach(card => {
+        if (filter === 'all') { card.hidden = false; return; }
+        const tags = (card.dataset.dinnerTags || '').split(',');
+        const prep = parseInt(card.dataset.dinnerPrep || '999', 10);
+        let match = false;
+        if (filter === 'vege')   match = tags.includes('vege') || tags.includes('végé');
+        if (filter === 'rapide') match = prep <= 30;
+        if (filter === 'saison') match = tags.includes('saison');
+        card.hidden = !match;
+      });
+    });
+  });
+
   document.getElementById('fiche-close')?.addEventListener('click', closeFiche);
   document.getElementById('fiche-overlay')?.addEventListener('click', e => {
     if (e.target.id === 'fiche-overlay') closeFiche();

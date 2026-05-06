@@ -2622,14 +2622,16 @@ body.modal-open { overflow: hidden; }
 }
 .landing-header__login {
   background: none;
-  border: none;
+  border: 1px solid var(--ink-300);
+  border-radius: 8px;
   font-family: var(--font-body);
   font-size: 14px;
   color: var(--ink-700);
   cursor: pointer;
-  padding: 6px 0;
+  padding: 6px 14px;
+  transition: border-color 0.15s, color 0.15s;
 }
-.landing-header__login:hover { color: var(--ink-900); }
+.landing-header__login:hover { border-color: var(--ink-500); color: var(--ink-900); }
 
 /* ── Logged-in user button in landing header ── */
 .landing-header__user {
