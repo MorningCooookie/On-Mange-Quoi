@@ -1283,9 +1283,72 @@ body {
     flex-shrink: 0;
   }
 
-  /* Masquer les éléments mobile dans les cards desktop */
-  .semaine-day-card .semaine-day-header { display: none; }
-  .semaine-day-card .semaine-day-meals  { display: none; }
+  /* Day card desktop : 4 repas visibles, plus le surlignage dîner-seul */
+  .semaine-day-card .semaine-day-header   { display: none; }
+  .semaine-day-card .day-card__placeholder,
+  .semaine-day-card .day-card__dinner-title,
+  .semaine-day-card .day-card__tags       { display: none; }
+
+  .semaine-day-card { min-height: 280px; gap: 8px; }
+
+  .semaine-day-card .semaine-day-meals {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 0 -14px;            /* full-bleed dans la card */
+    padding: 0;
+  }
+  .semaine-day-card .semaine-meal-row {
+    display: block;
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--ink-100, #ECE7DD);
+    cursor: default;
+    transition: background 180ms ease;
+    position: relative;
+  }
+  .semaine-day-card .semaine-meal-row .semaine-meal-icon { display: none; }
+  .semaine-day-card .semaine-meal-row:last-child { border-bottom: none; }
+  .semaine-day-card .semaine-meal-row--clickable { cursor: pointer; }
+  .semaine-day-card .semaine-meal-row--clickable:hover {
+    background: var(--bg-soft, #FBF9F4);
+  }
+  .semaine-day-card .semaine-meal-icon {
+    font-size: 13px;
+    width: auto;
+    margin: 0;
+    line-height: 1;
+  }
+  .semaine-day-card .semaine-meal-info { min-width: 0; }
+  .semaine-day-card .semaine-meal-type {
+    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-500, #6B6359);
+    margin: 0 0 2px;
+    font-weight: 500;
+  }
+  .semaine-day-card .semaine-meal-name {
+    font-size: 11.5px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--ink-900, #14110D);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  .semaine-day-card .semaine-prep-badge {
+    display: inline-block;
+    margin-top: 4px;
+    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+    font-size: 9px;
+    color: var(--ink-300, #A8A095);
+    white-space: nowrap;
+  }
+  .semaine-day-card .semaine-risk-dot {
+    display: none; /* dot global en footer suffit */
+  }
 
   /* Masquer la légende (info dans le score band) */
   .health-legend { display: none; }
