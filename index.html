@@ -1004,6 +1004,18 @@
   <div id="toast" role="status" aria-live="polite"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    // Initialise le client Supabase global — utilisé par auth.js et les handlers de modale
+    (function() {
+      const SUPABASE_URL  = 'https://pozhsrnsezklfyqjoues.supabase.co';
+      const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBvemhzcm5zZXprbGZ5cWpvdWVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM3NjU4OTYsImV4cCI6MjA1OTM0MTg5Nn0.Tgn-gJHLhCcqWalAjL7l6pSc_VBmNvMQJ3ZGaQCMizA';
+      if (window.supabase && window.supabase.createClient) {
+        window.supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+      } else {
+        console.error('Supabase SDK not loaded');
+      }
+    })();
+  </script>
   <script src="auth.js"></script>
   <script>
     // Close user dropdown on click outside
