@@ -7,101 +7,242 @@
   <meta name="description" content="Fiche mémo partageable : aliments à limiter et à privilégier pour le cadmium, mercure, pesticides et élevage intensif.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
   <link rel="canonical" href="https://onmangequoi.eu/fiche.html">
   <style>
-    /* ── Fiche-specific overrides ── */
-    body { background: #fff; }
-    .fiche-page { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+    /* ── Fiche-specific styles — Phase 2D redesign ── */
+    body { background: var(--bg); }
+
+    /* Header solid green band (no gradient) */
     #fiche-site-header {
-      background: linear-gradient(135deg, #1B4332, #40916C);
-      color: #fff; padding: .6rem 1.25rem;
-      display: flex; align-items: center; justify-content: space-between;
+      background: var(--green-800);
+      color: var(--cream-50);
+      padding: var(--s-12) var(--s-24);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    #fiche-site-header a { color: rgba(255,255,255,.8); font-size: .85rem; text-decoration: none; }
-    #fiche-site-header a:hover { color: #fff; text-decoration: underline; }
-    #fiche-site-header strong { font-weight: 700; font-size: .95rem; display: flex; align-items: center; gap: .35rem; }
+    #fiche-site-header strong {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: var(--fs-15);
+      display: flex;
+      align-items: center;
+      gap: var(--s-8);
+      letter-spacing: -0.01em;
+    }
+    #fiche-site-header a {
+      color: rgba(250, 247, 242, 0.75);
+      font-size: var(--fs-13);
+      text-decoration: none;
+      transition: color 180ms ease;
+    }
+    #fiche-site-header a:hover { color: var(--cream-50); text-decoration: underline; }
+
+    /* Page shell */
+    .fiche-page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: var(--s-40) var(--s-24) var(--s-64);
+    }
+
+    /* Hero */
+    .fmm-header {
+      margin-bottom: var(--s-32);
+      padding-bottom: var(--s-24);
+      border-bottom: 1px solid var(--ink-100);
+    }
+    .fiche-eyebrow {
+      font-family: var(--font-mono);
+      font-size: var(--fs-12);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-500);
+      margin-bottom: var(--s-8);
+      display: block;
+    }
+    .fmm-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, var(--fs-40));
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      color: var(--ink-900);
+      margin: 0 0 var(--s-8);
+    }
+    .fmm-header h1 em {
+      font-style: italic;
+      color: var(--green-800);
+      font-weight: 600;
+    }
+    .fmm-header p {
+      font-size: var(--fs-14);
+      color: var(--ink-700);
+      max-width: 640px;
+      margin: 0;
+      line-height: 1.55;
+    }
 
     /* Two-col grid */
-    .fiche-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.25rem; }
-    @media (max-width: 600px) { .fiche-grid { grid-template-columns: 1fr; } }
+    .fiche-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s-48);
+      margin-top: var(--s-24);
+    }
+    @media (max-width: 760px) {
+      .fiche-grid { grid-template-columns: 1fr; gap: var(--s-32); }
+    }
 
+    /* Column header */
     .fiche-col-title {
-      font-size: 1rem; font-weight: 800; padding: .5rem .85rem;
-      border-radius: 8px; text-align: center; margin-bottom: 1rem;
+      font-family: var(--font-mono);
+      font-size: var(--fs-12);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-500);
+      padding-bottom: var(--s-12);
+      border-bottom: 1px solid var(--ink-200);
+      margin-bottom: var(--s-20);
     }
-    .fiche-col-title.limit  { background: #FEE2E2; color: #7F1D1D; }
-    .fiche-col-title.prefer { background: #DCFCE7; color: #14532D; }
 
-    /* Contaminant section */
-    .fiche-section { margin-bottom: 1.1rem; }
-    .fiche-section-title {
-      font-size: .72rem; font-weight: 800; text-transform: uppercase;
-      letter-spacing: .08em; padding: .2rem .45rem;
-      border-radius: 4px; display: inline-block; margin-bottom: .45rem;
+    /* Section per signal — mono numeral + accent dot + name */
+    .fmm-section { margin-bottom: var(--s-32); }
+
+    .fmm-section-title {
+      display: flex;
+      align-items: baseline;
+      gap: var(--s-12);
+      margin-bottom: var(--s-12);
+      padding-bottom: var(--s-8);
+      border-bottom: 1px solid var(--ink-100);
     }
-    .fiche-section-title.cadmium     { background: #DBEAFE; color: #1E3A5F; }
-    .fiche-section-title.mercury     { background: #FEE2E2; color: #7F1D1D; }
-    .fiche-section-title.pesticides  { background: #FEF9C3; color: #713F12; }
-    .fiche-section-title.elevage     { background: #FFEDD5; color: #7C2D12; }
+    .fmm-section-title .num {
+      font-family: var(--font-mono);
+      font-size: var(--fs-13);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--ink-500);
+    }
+    .fmm-section-title .name {
+      font-family: var(--font-display);
+      font-size: var(--fs-20);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      color: var(--ink-900);
+    }
+    .fmm-section-title .dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      transform: translateY(-2px);
+    }
 
-    /* Rows */
+    /* Single accent color per signal — calm */
+    .signal-cadmium .dot   { background: var(--score-b); }
+    .signal-mercure .dot   { background: var(--ink-700); }
+    .signal-pesticides .dot{ background: #7C8A2A; }
+    .signal-elevage .dot   { background: var(--accent-terra); }
+
+    .signal-cadmium .num   { color: var(--score-b); }
+    .signal-mercure .num   { color: var(--ink-700); }
+    .signal-pesticides .num{ color: #7C8A2A; }
+    .signal-elevage .num   { color: var(--accent-terra); }
+
+    /* Item rows */
     .fiche-row {
-      display: flex; align-items: flex-start; gap: .55rem;
-      padding: .3rem 0; border-bottom: 1px dashed #E5E0D8; font-size: .81rem;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--s-16);
+      padding: var(--s-12) 0;
+      border-bottom: 1px solid var(--ink-100);
+      font-size: var(--fs-13);
     }
     .fiche-row:last-child { border-bottom: none; }
-    .fiche-row-item { font-weight: 600; min-width: 130px; flex-shrink: 0; }
-    .fiche-row-detail { color: #6B7280; font-size: .76rem; line-height: 1.4; }
-    .fiche-row-limit {
-      display: block; margin-top: .15rem;
-      color: #EF4444; font-weight: 500; font-size: .73rem;
+    .fiche-row-item {
+      font-family: var(--font-body);
+      font-weight: 600;
+      color: var(--ink-900);
+      min-width: 140px;
+      flex-shrink: 0;
+      line-height: 1.45;
     }
-    /* Green rows for "à privilégier" */
+    .fiche-row-detail {
+      color: var(--ink-700);
+      font-size: var(--fs-13);
+      line-height: 1.5;
+    }
+    .fiche-row-limit {
+      display: block;
+      margin-top: var(--s-4);
+      color: var(--ink-500);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.02em;
+    }
+
+    /* Prefer rows — calm green check */
     .prefer-row {
-      display: flex; align-items: flex-start; gap: .5rem;
-      padding: .3rem 0; border-bottom: 1px dashed #D1FAE5; font-size: .81rem;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--s-12);
+      padding: var(--s-10) 0;
+      border-bottom: 1px solid var(--ink-100);
+      font-size: var(--fs-13);
+      line-height: 1.55;
     }
     .prefer-row:last-child { border-bottom: none; }
-    .prefer-row::before { content: '✓'; color: #16A34A; font-weight: 900; flex-shrink: 0; margin-top: .05rem; }
-    .prefer-row-text { line-height: 1.4; }
-    .prefer-row-text strong { color: #14532D; }
+    .prefer-row::before {
+      content: '✓';
+      color: var(--green-800);
+      font-weight: 700;
+      flex-shrink: 0;
+      font-size: var(--fs-13);
+      margin-top: 2px;
+    }
+    .prefer-row-text { color: var(--ink-700); }
+    .prefer-row-text strong { color: var(--ink-900); font-weight: 600; }
 
-    /* Share / print buttons */
+    /* Actions */
     .fiche-actions {
-      display: flex; gap: .75rem; justify-content: center;
-      margin-top: 1.5rem; flex-wrap: wrap;
+      display: flex;
+      gap: var(--s-12);
+      justify-content: center;
+      margin-top: var(--s-48);
+      flex-wrap: wrap;
     }
-    .fiche-btn {
-      display: flex; align-items: center; gap: .4rem;
-      padding: .5rem 1rem; border-radius: 8px;
-      font-size: .85rem; font-weight: 600; cursor: pointer;
-      transition: all .15s; border: 1.5px solid #E5E7EB; text-decoration: none;
-      background: #f9fafb; color: #1B4332;
+
+    /* Sources */
+    .fiche-sources {
+      margin-top: var(--s-32);
+      padding-top: var(--s-20);
+      border-top: 1px solid var(--ink-100);
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-500);
     }
-    .fiche-btn:hover { background: #E5E7EB; }
-    .fiche-btn.primary { background: #1B4332; color: #fff; border-color: #1B4332; }
-    .fiche-btn.primary:hover { background: #2d6a4f; border-color: #2d6a4f; }
-    .fiche-btn.secondary { background: #f9fafb; border-color: #E5E7EB; color: #1B4332; }
-    .fiche-btn.secondary:hover { background: #E5E7EB; }
-
-    .fiche-header { text-align: center; margin-bottom: 1rem; }
-    .fiche-header h1 { font-size: 1.55rem; font-weight: 900; color: #1B4332; }
-    .fiche-header p { font-size: .82rem; color: #6B7280; margin-top: .3rem; }
-
-    .fiche-legend {
-      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-      margin-top: .6rem; font-size: .75rem; color: #6B7280;
+    .fiche-sources a {
+      color: var(--green-800);
+      text-decoration: none;
+      margin: 0 var(--s-6);
     }
-    .legend-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: .25rem; vertical-align: middle; }
+    .fiche-sources a:hover { text-decoration: underline; }
 
+    /* Print A5 landscape — preserve */
     @media print {
       #fiche-site-header, .fiche-actions { display: none !important; }
       body { background: white; }
-      .fiche-page { padding: .5cm; max-width: 100%; }
-      @page { size: A5 landscape; margin: .5cm; }
+      .fiche-page { padding: 0.5cm; max-width: 100%; }
+      .fmm-header { margin-bottom: var(--s-16); padding-bottom: var(--s-12); }
+      .fiche-grid { gap: var(--s-24); margin-top: var(--s-12); }
+      @page { size: A5 landscape; margin: 0.5cm; }
     }
   </style>
   <!-- Statistiques de fréquentation — Plausible Analytics (sans cookies, RGPD-compatible) -->
@@ -110,34 +251,36 @@
 </head>
 <body>
 
-  <!-- Mini header -->
+  <!-- Mini header — solid green, no gradient -->
   <header id="fiche-site-header">
-    <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" style="display:inline;width:1.2em;height:1.2em;vertical-align:middle;margin-right:0.3em;" aria-hidden="true"><circle cx="10" cy="10" r="8.5" stroke-width="1.6"/><circle cx="10" cy="10" r="5" stroke-width="1.4"/></svg><strong>On mange quoi ?</strong>
+    <strong>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" style="width:1.1em;height:1.1em;" aria-hidden="true"><circle cx="10" cy="10" r="8.5" stroke-width="1.6"/><circle cx="10" cy="10" r="5" stroke-width="1.4"/></svg>
+      On mange quoi ?
+    </strong>
     <a href="index.html">← Retour au menu</a>
   </header>
 
   <div class="fiche-page">
 
-    <div class="fiche-header">
-      <h1>📄 Fiche mémo — Alimentation saine</h1>
-      <p>Synthèse des recommandations ANSES · EFSA · Générations Futures</p>
-      <div class="fiche-legend">
-        <span><span class="legend-dot" style="background:#1E3A5F"></span>🔵 Cadmium</span>
-        <span><span class="legend-dot" style="background:#7F1D1D"></span>🔴 Mercure</span>
-        <span><span class="legend-dot" style="background:#713F12"></span>🟡 Pesticides</span>
-        <span><span class="legend-dot" style="background:#7C2D12"></span>🟠 Élevage intensif</span>
-      </div>
-    </div>
+    <header class="fmm-header">
+      <span class="fiche-eyebrow">Fiche mémo</span>
+      <h1>Quatre signaux,<br><em>pour une semaine plus saine.</em></h1>
+      <p>Synthèse des recommandations ANSES · EFSA · Générations Futures. À garder sous la main, à imprimer ou à partager.</p>
+    </header>
 
     <div class="fiche-grid">
 
       <!-- ── Colonne gauche : À limiter ── -->
       <div class="fiche-col-left">
-        <div class="fiche-col-title limit">⚠️ À limiter ou éviter</div>
+        <div class="fiche-col-title">À limiter ou éviter</div>
 
-        <!-- CADMIUM -->
-        <div class="fiche-section">
-          <span class="fiche-section-title cadmium">🔵 Cadmium</span>
+        <!-- 01 CADMIUM -->
+        <section class="fmm-section signal-cadmium">
+          <header class="fmm-section-title">
+            <span class="num">01</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="name">Cadmium</span>
+          </header>
           <div class="fiche-row">
             <span class="fiche-row-item">Céréales industrielles</span>
             <span class="fiche-row-detail">Corn flakes, muesli sucré, céréales petit-déj.
@@ -180,11 +323,15 @@
               <span class="fiche-row-limit">Adultes uniquement, max 1×/mois</span>
             </span>
           </div>
-        </div>
+        </section>
 
-        <!-- MERCURE -->
-        <div class="fiche-section">
-          <span class="fiche-section-title mercury">🔴 Mercure</span>
+        <!-- 02 MERCURE -->
+        <section class="fmm-section signal-mercure">
+          <header class="fmm-section-title">
+            <span class="num">02</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="name">Mercure</span>
+          </header>
           <div class="fiche-row">
             <span class="fiche-row-item">Thon (conserve ou frais)</span>
             <span class="fiche-row-detail">1ère source de mercure chez les enfants.
@@ -209,11 +356,15 @@
               <span class="fiche-row-limit">Limiter adultes · Éviter enfants</span>
             </span>
           </div>
-        </div>
+        </section>
 
-        <!-- PESTICIDES -->
-        <div class="fiche-section">
-          <span class="fiche-section-title pesticides">🟡 Pesticides</span>
+        <!-- 03 PESTICIDES -->
+        <section class="fmm-section signal-pesticides">
+          <header class="fmm-section-title">
+            <span class="num">03</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="name">Pesticides</span>
+          </header>
           <div class="fiche-row">
             <span class="fiche-row-item">Fraises · Cerises</span>
             <span class="fiche-row-detail">Fruits les plus contaminés.
@@ -232,11 +383,15 @@
               <span class="fiche-row-limit">Bio, surtout pour les enfants</span>
             </span>
           </div>
-        </div>
+        </section>
 
-        <!-- ÉLEVAGE -->
-        <div class="fiche-section">
-          <span class="fiche-section-title elevage">🟠 Élevage intensif</span>
+        <!-- 04 ÉLEVAGE -->
+        <section class="fmm-section signal-elevage">
+          <header class="fmm-section-title">
+            <span class="num">04</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="name">Élevage intensif</span>
+          </header>
           <div class="fiche-row">
             <span class="fiche-row-item">Poulet / dinde intensif</span>
             <span class="fiche-row-detail">Antibiotiques, conditions d'élevage.
@@ -255,16 +410,20 @@
               <span class="fiche-row-limit">Jambon supérieur français — limiter la quantité</span>
             </span>
           </div>
-        </div>
+        </section>
       </div>
 
       <!-- ── Colonne droite : À privilégier ── -->
       <div class="fiche-col-right">
-        <div class="fiche-col-title prefer">✅ À privilégier</div>
+        <div class="fiche-col-title">À privilégier</div>
 
-        <!-- CADMIUM -->
-        <div class="fiche-section">
-          <span class="fiche-section-title cadmium">🔵 Alternatives cadmium</span>
+        <!-- 01 CADMIUM -->
+        <section class="fmm-section signal-cadmium">
+          <header class="fmm-section-title">
+            <span class="num">01</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="name">Alternatives cadmium</span>
+          </header>
           <div class="prefer-row">
             <span class="prefer-row-text"><strong>Riz basmati</strong> — bien plus faible en cadmium que le riz long grain</span>
           </div>
@@ -280,11 +439,15 @@
           <div class="prefer-row">
             <span class="prefer-row-text"><strong>Boulgour · quinoa</strong> — faible indice glycémique et faible teneur</span>
           </div>
-        </div>
+        </section>
 
-        <!-- MERCURE -->
-        <div class="fiche-section">
-          <span class="fiche-section-title mercury">🔴 Poissons sûrs</span>
+        <!-- 02 MERCURE -->
+        <section class="fmm-section signal-mercure">
+          <header class="fmm-section-title">
+            <span class="num">02</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="name">Poissons sûrs</span>
+          </header>
           <div class="prefer-row">
             <span class="prefer-row-text"><strong>Sardines · Anchois · Maquereaux · Harengs</strong> — petits poissons gras, très faible mercure et riches en oméga-3</span>
           </div>
@@ -297,11 +460,15 @@
           <div class="prefer-row">
             <span class="prefer-row-text"><strong>Dorade · Bar d'élevage</strong> — bien plus sûrs que les espèces sauvages prédatrices</span>
           </div>
-        </div>
+        </section>
 
-        <!-- PESTICIDES -->
-        <div class="fiche-section">
-          <span class="fiche-section-title pesticides">🟡 Sans pesticides</span>
+        <!-- 03 PESTICIDES -->
+        <section class="fmm-section signal-pesticides">
+          <header class="fmm-section-title">
+            <span class="num">03</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="name">Sans pesticides</span>
+          </header>
           <div class="prefer-row">
             <span class="prefer-row-text"><strong>Bananes · Avocats · Oignons</strong> — peau épaisse = protection naturelle, pas besoin de bio</span>
           </div>
@@ -314,11 +481,15 @@
           <div class="prefer-row">
             <span class="prefer-row-text"><strong>Fruits et légumes de saison locaux</strong> — moins de traitements post-récolte</span>
           </div>
-        </div>
+        </section>
 
-        <!-- ÉLEVAGE -->
-        <div class="fiche-section">
-          <span class="fiche-section-title elevage">🟠 Élevage responsable</span>
+        <!-- 04 ÉLEVAGE -->
+        <section class="fmm-section signal-elevage">
+          <header class="fmm-section-title">
+            <span class="num">04</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="name">Élevage responsable</span>
+          </header>
           <div class="prefer-row">
             <span class="prefer-row-text"><strong>Label Rouge · Agriculture Biologique</strong> — garanties sur les conditions d'élevage</span>
           </div>
@@ -334,41 +505,40 @@
           <div class="prefer-row">
             <span class="prefer-row-text"><strong>Jambon supérieur français</strong> — sans additifs superflus, limité à 2–3 tranches/sem</span>
           </div>
-        </div>
+        </section>
 
         <!-- Rotation féculents -->
-        <div class="fiche-section">
-          <span class="fiche-section-title cadmium">✅ Rotation féculents</span>
+        <section class="fmm-section signal-cadmium">
+          <header class="fmm-section-title">
+            <span class="num">+</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="name">Rotation féculents</span>
+          </header>
           <div class="prefer-row">
             <span class="prefer-row-text">Aucun féculent ne doit revenir plus de <strong>2 fois dans la même semaine</strong> pour limiter l'exposition globale</span>
           </div>
           <div class="prefer-row">
             <span class="prefer-row-text">Alterner : riz basmati · quinoa · boulgour · lentilles · pain levain · pomme de terre (max 3×)</span>
           </div>
-        </div>
+        </section>
       </div>
 
     </div><!-- /fiche-grid -->
 
     <!-- Actions -->
     <div class="fiche-actions" id="fiche-actions">
-      <button class="fiche-btn primary" onclick="window.print()">
-        <span style="opacity: 0.7; margin-right: 0.3rem; font-size: 0.85rem;">↓</span>Imprimer / PDF
-      </button>
-      <button class="fiche-btn secondary" id="btn-share">
-        <span style="opacity: 0.7; margin-right: 0.3rem; font-size: 0.85rem;">◻</span>Partager
-      </button>
-      <a class="fiche-btn secondary" href="index.html">
-        <span style="opacity: 0.7; margin-right: 0.3rem; font-size: 0.85rem;">←</span>Retour au menu
-      </a>
+      <button class="btn" onclick="window.print()">↓ Imprimer / PDF</button>
+      <button class="btn btn--ghost" id="btn-share">↗ Partager</button>
+      <a class="btn btn--ghost" href="index.html">← Retour au menu</a>
     </div>
 
-    <p style="text-align:center; font-size:.72rem; color:#9CA3AF; margin-top:1rem;">
-      Sources : <a href="https://www.anses.fr" target="_blank" rel="noopener" style="color:#40916C">ANSES</a> ·
-      <a href="https://www.efsa.europa.eu" target="_blank" rel="noopener" style="color:#40916C">EFSA</a> ·
-      <a href="https://www.generations-futures.fr" target="_blank" rel="noopener" style="color:#40916C">Générations Futures</a> ·
-      <a href="https://bloomassociation.org" target="_blank" rel="noopener" style="color:#40916C">BLOOM</a> ·
-      <a href="https://inrae.fr" target="_blank" rel="noopener" style="color:#40916C">INRAE</a>
+    <p class="fiche-sources">
+      Sources :
+      <a href="https://www.anses.fr" target="_blank" rel="noopener">ANSES</a> ·
+      <a href="https://www.efsa.europa.eu" target="_blank" rel="noopener">EFSA</a> ·
+      <a href="https://www.generations-futures.fr" target="_blank" rel="noopener">Générations Futures</a> ·
+      <a href="https://bloomassociation.org" target="_blank" rel="noopener">BLOOM</a> ·
+      <a href="https://inrae.fr" target="_blank" rel="noopener">INRAE</a>
     </p>
 
   </div><!-- /fiche-page -->
