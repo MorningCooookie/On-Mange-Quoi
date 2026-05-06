@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liste de courses — On mange quoi ?</title>
+  <meta name="description" content="Liste de courses de la semaine, groupée par rayon. Total budget calculé selon votre enseigne (marché, classique, bio).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>">
+  <link rel="canonical" href="https://onmangequoi.eu/courses.html">
+  <script async src="https://plausible.io/js/pa-ZaRseIh-nGhXVtbtWwn2-.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+  <style>
+    body { background: var(--bg-soft); }
+
+    .courses-page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--s-32) var(--s-32) var(--s-96);
+    }
+
+    /* Header row */
+    .courses-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--s-24);
+      margin-bottom: var(--s-32);
+      flex-wrap: wrap;
+    }
+    .courses-eyebrow {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: var(--fs-12);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-500);
+      margin-bottom: var(--s-8);
+    }
+    .courses-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, var(--fs-40));
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      color: var(--ink-900);
+      margin: 0;
+    }
+    .courses-h1 .count { color: var(--ink-500); }
+    .courses-h1 .price {
+      font-family: var(--font-display);
+      font-feature-settings: 'tnum';
+      font-variant-numeric: tabular-nums;
+      color: var(--green-800);
+      font-style: italic;
+    }
+    .courses-actions {
+      display: flex;
+      gap: var(--s-8);
+      flex-wrap: wrap;
+    }
+    .courses-actions .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s-6);
+      padding: var(--s-8) var(--s-16);
+      border-radius: var(--r-pill);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: var(--fs-13);
+      cursor: pointer;
+      border: 1px solid var(--ink-200);
+      background: var(--bg);
+      color: var(--ink-700);
+      transition: background 180ms ease, border-color 180ms ease;
+    }
+    .courses-actions .btn:hover { background: var(--cream-50); border-color: var(--ink-700); }
+    .courses-actions .btn--primary {
+      background: var(--green-800);
+      color: var(--bg);
+      border-color: var(--green-800);
+      font-weight: 600;
+    }
+    .courses-actions .btn--primary:hover {
+      background: var(--green-700);
+      border-color: var(--green-700);
+    }
+
+    /* Toolbar — enseigne + tier */
+    .courses-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--s-16);
+      padding: var(--s-16) var(--s-20);
+      background: var(--cream-50);
+      border-radius: var(--r-12);
+      margin-bottom: var(--s-24);
+      flex-wrap: wrap;
+    }
+    .toolbar-group {
+      display: flex;
+      align-items: center;
+      gap: var(--s-12);
+    }
+    .toolbar-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-500);
+    }
+    .courses-chip-group {
+      display: inline-flex;
+      gap: var(--s-6);
+    }
+    .courses-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--s-6) var(--s-12);
+      border-radius: var(--r-pill);
+      border: 1px solid var(--ink-200);
+      background: var(--bg);
+      color: var(--ink-700);
+      font-family: var(--font-body);
+      font-size: var(--fs-13);
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+    .courses-chip:hover { border-color: var(--ink-700); }
+    .courses-chip.is-active {
+      background: var(--ink-900);
+      color: var(--cream-50);
+      border-color: var(--ink-900);
+    }
+    .toolbar-progress {
+      font-family: var(--font-mono);
+      font-size: var(--fs-12);
+      color: var(--ink-500);
+    }
+
+    /* Aisles grid */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--s-16);
+    }
+    .aisle {
+      background: var(--bg);
+      border: 1px solid var(--ink-200);
+      border-radius: var(--r-12);
+      padding: var(--s-20);
+    }
+    .aisle-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: var(--s-12);
+    }
+    .aisle-header h3 {
+      font-family: var(--font-display);
+      font-size: var(--fs-18);
+      font-weight: 600;
+      color: var(--ink-900);
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    .aisle-count {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-500);
+    }
+    .aisle-item {
+      display: grid;
+      grid-template-columns: 22px 1fr auto;
+      gap: var(--s-12);
+      align-items: center;
+      padding: var(--s-10) 0;
+      border-top: 1px solid var(--ink-100);
+      cursor: pointer;
+    }
+    .aisle-item:first-of-type { border-top: none; }
+
+    .item-check {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 1.5px solid var(--ink-300);
+      background: transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--cream-50);
+      transition: background 180ms ease, border-color 180ms ease;
+    }
+    .aisle-item.is-checked .item-check {
+      background: var(--green-800);
+      border-color: var(--green-800);
+    }
+    .item-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+    .item-name {
+      font-family: var(--font-body);
+      font-size: var(--fs-14);
+      font-weight: 500;
+      color: var(--ink-900);
+      line-height: 1.4;
+    }
+    .item-meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-500);
+      letter-spacing: 0.02em;
+    }
+    .aisle-item.is-checked .item-name {
+      text-decoration: line-through;
+      color: var(--ink-300);
+    }
+    .aisle-item.is-checked .item-meta { color: var(--ink-300); }
+
+    .item-price {
+      font-family: var(--font-mono);
+      font-feature-settings: 'tnum';
+      font-variant-numeric: tabular-nums;
+      font-size: var(--fs-13);
+      color: var(--ink-700);
+      white-space: nowrap;
+    }
+
+    /* Risk dot + chip subtil */
+    .item-risk {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-terra);
+      margin-right: var(--s-6);
+      vertical-align: middle;
+    }
+    .item-tag {
+      display: inline-block;
+      padding: 1px 6px;
+      margin-left: var(--s-6);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.05em;
+      color: var(--ink-500);
+      background: var(--cream-50);
+      border-radius: 4px;
+    }
+
+    /* Bio note */
+    .courses-bio-note {
+      margin-top: var(--s-24);
+      padding: var(--s-20);
+      background: var(--cream-50);
+      border-radius: var(--r-12);
+      display: flex;
+      gap: var(--s-16);
+      align-items: flex-start;
+    }
+    .courses-bio-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 4px 8px;
+      background: var(--green-100);
+      color: var(--green-800);
+      border-radius: 4px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .courses-bio-note p {
+      font-size: var(--fs-13);
+      color: var(--ink-700);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* Empty / loading */
+    .courses-empty {
+      padding: var(--s-64) var(--s-32);
+      text-align: center;
+      color: var(--ink-500);
+    }
+    .courses-empty p {
+      font-family: var(--font-display);
+      font-size: var(--fs-18);
+      font-style: italic;
+    }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      left: 50%;
+      bottom: var(--s-32);
+      transform: translateX(-50%) translateY(120%);
+      background: var(--ink-900);
+      color: var(--cream-50);
+      padding: var(--s-12) var(--s-20);
+      border-radius: var(--r-pill);
+      font-size: var(--fs-13);
+      z-index: 1000;
+      opacity: 0;
+      transition: transform 180ms ease, opacity 180ms ease;
+      pointer-events: none;
+    }
+    #toast.visible {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Mobile */
+    @media (max-width: 900px) {
+      .courses-grid { grid-template-columns: 1fr; }
+      .courses-page { padding: var(--s-20) var(--s-16) var(--s-64); }
+    }
+
+    /* Print */
+    @media print {
+      body { background: white; }
+      .landing-header, .landing-footer, .courses-actions, .courses-toolbar { display: none !important; }
+      .courses-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .aisle { box-shadow: none; border: 1px solid #ccc; padding: 14px; break-inside: avoid; }
+      .aisle-item { padding: 4px 0; }
+      .courses-bio-note { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="landing-header">
+    <div style="display:flex;align-items:center;gap:32px;">
+      <a class="brand--landing" href="/" aria-label="On mange quoi ? — accueil">
+        <span class="brand-mark--landing" aria-hidden="true"></span>
+        on mange quoi<span style="color:var(--green-800)">?</span>
+      </a>
+      <nav class="landing-header__nav" aria-label="Navigation principale">
+        <a href="semaine.html">Mon menu</a>
+        <a href="courses.html" aria-current="page" style="color:var(--green-800);font-weight:600;">Liste de courses</a>
+        <a href="recettes.html">Recettes</a>
+        <a href="fiche.html">Fiche mémo</a>
+      </nav>
+    </div>
+    <div class="landing-header__actions">
+      <a class="landing-header__login" href="semaine.html">← Mon menu</a>
+    </div>
+  </header>
+
+  <main class="courses-page" id="main">
+
+    <header class="courses-header">
+      <div>
+        <span class="courses-eyebrow" id="courses-eyebrow">Liste de courses · semaine —</span>
+        <h1 class="courses-h1">
+          <span class="count" id="courses-count">— ingrédients</span>
+          <span class="price" id="courses-total"> · ≈ —,— €</span>
+        </h1>
+      </div>
+      <div class="courses-actions">
+        <button class="btn" id="btn-print">↓ Imprimer</button>
+        <button class="btn" id="btn-export">→ Exporter (.txt)</button>
+        <button class="btn btn--primary" id="btn-share">↗ Partager</button>
+      </div>
+    </header>
+
+    <div class="courses-toolbar">
+      <div class="toolbar-group">
+        <span class="toolbar-eyebrow">Enseigne</span>
+        <div class="courses-chip-group" role="group" aria-label="Type d'enseigne">
+          <button class="courses-chip" data-tier="discount">Marché / discount</button>
+          <button class="courses-chip is-active" data-tier="standard">Classique</button>
+          <button class="courses-chip" data-tier="bio">Bio</button>
+        </div>
+      </div>
+      <span class="toolbar-progress" id="progress-label">— / — cochés</span>
+    </div>
+
+    <div class="courses-grid" id="courses-grid">
+      <div class="courses-empty">
+        <p>Chargement de votre liste…</p>
+      </div>
+    </div>
+
+    <section class="courses-bio-note" id="bio-note" hidden>
+      <span class="courses-bio-label">Info</span>
+      <p id="bio-note-text"></p>
+    </section>
+
+  </main>
+
+  <footer class="landing-footer">
+    <a class="brand--landing" href="/" style="font-size:14px;" aria-label="On mange quoi ?">
+      <span class="brand-mark--landing" aria-hidden="true"></span>
+      onmangequoi.eu
+    </a>
+    <span>© 2026 · Paris · Basé sur les recommandations ANSES + EFSA · Sans pub, sans tracking</span>
+  </footer>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    'use strict';
+
+    /* ── État ──────────────────────────────────────────────── */
+    const state = {
+      tier: localStorage.getItem('omq_courses_tier') || 'standard',
+      weekStart: null,
+      data: null
+    };
+
+    /* Items dans le top 12 résidus pesticides (heuristique simple par mot-clé) */
+    const PESTICIDE_HOTSPOTS = [
+      'fraise', 'cerise', 'pêche', 'nectarine', 'pomme', 'raisin',
+      'épinard', 'salade', 'poivron', 'fenouil', 'tomate', 'céleri'
+    ];
+    /* Items à risque mercure / cadmium pour dot subtil */
+    const HIGH_RISK_KEYWORDS = {
+      cadmium: ['blé complet', 'pâtes complètes', 'pomme de terre'],
+      mercure: ['thon', 'espadon', 'requin']
+    };
+
+    /* ── Loading ───────────────────────────────────────────── */
+    async function loadData() {
+      const params = new URLSearchParams(window.location.search);
+      const weekParam = params.get('week');
+
+      let history = null;
+      try { history = await fetch('/data/history.json').then(r => r.json()); } catch(_) {}
+
+      const week = weekParam || history?.menus?.[0]?.weekStart;
+      if (!week) throw new Error('Aucun menu disponible');
+
+      state.weekStart = week;
+      state.data = await fetch(`/data/menus/${week}.json`).then(r => r.json());
+      return state.data;
+    }
+
+    /* ── Rendu ─────────────────────────────────────────────── */
+    function getPrice(item, tier) {
+      if (tier === 'discount') return item.price_discount;
+      if (tier === 'bio')      return item.price_bio;
+      return item.price_standard;
+    }
+
+    function isPesticideHotspot(name) {
+      const n = name.toLowerCase();
+      return PESTICIDE_HOTSPOTS.some(k => n.includes(k));
+    }
+
+    function getCheckedKey() {
+      return `omq_courses_checked_${state.weekStart}`;
+    }
+
+    function getCheckedSet() {
+      try {
+        return new Set(JSON.parse(localStorage.getItem(getCheckedKey()) || '[]'));
+      } catch (_) { return new Set(); }
+    }
+
+    function persistChecked(set) {
+      localStorage.setItem(getCheckedKey(), JSON.stringify([...set]));
+    }
+
+    function itemId(catName, itemName) {
+      return `${catName}::${itemName}`;
+    }
+
+    function render() {
+      const data = state.data;
+      const grid = document.getElementById('courses-grid');
+      const list = data.shoppingList || [];
+
+      if (!list.length) {
+        grid.innerHTML = '<div class="courses-empty"><p>Aucune liste de courses pour cette semaine.</p></div>';
+        return;
+      }
+
+      // Eyebrow + total
+      const weekNum = (function(s){
+        const d = new Date(s + 'T12:00:00');
+        d.setHours(0,0,0,0);
+        d.setDate(d.getDate() + 3 - (d.getDay() + 6) % 7);
+        const w1 = new Date(d.getFullYear(), 0, 4);
+        return 1 + Math.round(((d - w1)/86400000 - 3 + (w1.getDay()+6)%7)/7);
+      })(state.weekStart);
+
+      document.getElementById('courses-eyebrow').textContent = `Liste de courses · semaine ${weekNum}`;
+
+      let totalCount = 0;
+      let totalPrice = 0;
+      list.forEach(cat => cat.items.forEach(it => {
+        totalCount++;
+        const p = getPrice(it, state.tier);
+        if (typeof p === 'number') totalPrice += p;
+      }));
+
+      document.getElementById('courses-count').textContent = `${totalCount} ingrédient${totalCount > 1 ? 's' : ''} · `;
+      document.getElementById('courses-total').textContent = `≈ ${totalPrice.toFixed(2).replace('.', ',')} €`;
+
+      // Aisles
+      const checked = getCheckedSet();
+      grid.innerHTML = '';
+      list.forEach(cat => {
+        const section = document.createElement('section');
+        section.className = 'aisle';
+        const header = document.createElement('div');
+        header.className = 'aisle-header';
+        header.innerHTML = `
+          <h3>${cat.category}</h3>
+          <span class="aisle-count">${cat.items.length} article${cat.items.length > 1 ? 's' : ''}</span>
+        `;
+        section.appendChild(header);
+
+        cat.items.forEach(item => {
+          const id = itemId(cat.category, item.name);
+          const isChecked = checked.has(id);
+          const isHotspot = isPesticideHotspot(item.name);
+          const price = getPrice(item, state.tier);
+
+          const row = document.createElement('div');
+          row.className = 'aisle-item' + (isChecked ? ' is-checked' : '');
+          row.dataset.id = id;
+          row.innerHTML = `
+            <span class="item-check" aria-hidden="true">${isChecked ? '✓' : ''}</span>
+            <div class="item-info">
+              <span class="item-name">${isHotspot ? '<span class="item-risk" aria-hidden="true"></span>' : ''}${item.name}${isHotspot ? '<span class="item-tag">+ pesticides</span>' : ''}</span>
+              <span class="item-meta">${item.qty || ''}${item.isSeasonal ? ' · saison' : ''}</span>
+            </div>
+            <span class="item-price">${typeof price === 'number' ? '≈ ' + price.toFixed(2).replace('.', ',') + ' €' : '—'}</span>
+          `;
+          row.addEventListener('click', () => toggleItem(id, row));
+          section.appendChild(row);
+        });
+
+        grid.appendChild(section);
+      });
+
+      updateProgress();
+      renderBioNote();
+    }
+
+    function toggleItem(id, row) {
+      const set = getCheckedSet();
+      if (set.has(id)) { set.delete(id); row.classList.remove('is-checked'); row.querySelector('.item-check').textContent = ''; }
+      else             { set.add(id);    row.classList.add('is-checked');    row.querySelector('.item-check').textContent = '✓'; }
+      persistChecked(set);
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const list = state.data?.shoppingList || [];
+      const total = list.reduce((s, c) => s + c.items.length, 0);
+      const done  = getCheckedSet().size;
+      document.getElementById('progress-label').textContent = `${done} / ${total} cochés`;
+    }
+
+    function renderBioNote() {
+      const list = state.data?.shoppingList || [];
+      const hotspots = [];
+      let extraBio = 0;
+      list.forEach(cat => cat.items.forEach(it => {
+        if (isPesticideHotspot(it.name)) {
+          hotspots.push(it.name.split(' ')[0].toLowerCase());
+          if (typeof it.price_bio === 'number' && typeof it.price_standard === 'number') {
+            extraBio += (it.price_bio - it.price_standard);
+          }
+        }
+      }));
+      const note = document.getElementById('bio-note');
+      const txt = document.getElementById('bio-note-text');
+      if (!hotspots.length) { note.hidden = true; return; }
+      note.hidden = false;
+      const unique = [...new Set(hotspots)].slice(0, 4).join(', ');
+      txt.innerHTML = `${hotspots.length} ingrédient${hotspots.length > 1 ? 's' : ''} de votre liste figure${hotspots.length > 1 ? 'nt' : ''} dans le <strong>top 12 résidus pesticides</strong> (${unique}). La version bio coûte environ <strong>+${extraBio.toFixed(2).replace('.', ',')} €</strong> au total.`;
+    }
+
+    /* ── Tier toggle ───────────────────────────────────────── */
+    document.querySelectorAll('.courses-chip').forEach(chip => {
+      chip.classList.toggle('is-active', chip.dataset.tier === state.tier);
+      chip.addEventListener('click', () => {
+        state.tier = chip.dataset.tier;
+        localStorage.setItem('omq_courses_tier', state.tier);
+        document.querySelectorAll('.courses-chip').forEach(c => c.classList.toggle('is-active', c.dataset.tier === state.tier));
+        if (state.data) render();
+      });
+    });
+
+    /* ── Actions ───────────────────────────────────────────── */
+    document.getElementById('btn-print').addEventListener('click', () => window.print());
+
+    document.getElementById('btn-export').addEventListener('click', () => {
+      if (!state.data) return;
+      const lines = [];
+      lines.push(`Liste de courses — On mange quoi ? — semaine du ${state.weekStart}`);
+      lines.push('');
+      state.data.shoppingList.forEach(cat => {
+        lines.push(`-- ${cat.category} --`);
+        cat.items.forEach(it => {
+          const p = getPrice(it, state.tier);
+          lines.push(` - ${it.name} — ${it.qty || ''}${typeof p === 'number' ? ' — ' + p.toFixed(2).replace('.', ',') + ' €' : ''}`);
+        });
+        lines.push('');
+      });
+      const blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `liste-courses-${state.weekStart}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      showToast('Liste exportée');
+    });
+
+    document.getElementById('btn-share').addEventListener('click', async () => {
+      const shareData = {
+        title: 'Liste de courses — On mange quoi ?',
+        text: `Liste de courses pour la semaine du ${state.weekStart}.`,
+        url: window.location.href
+      };
+      if (navigator.share && navigator.canShare?.(shareData)) {
+        try { await navigator.share(shareData); }
+        catch (e) { if (e.name !== 'AbortError') copyLink(); }
+      } else {
+        copyLink();
+      }
+    });
+
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href)
+        .then(() => showToast('Lien copié'))
+        .catch(() => showToast('Impossible de copier'));
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('visible');
+      setTimeout(() => toast.classList.remove('visible'), 2400);
+    }
+
+    /* ── Init ──────────────────────────────────────────────── */
+    loadData()
+      .then(() => render())
+      .catch(err => {
+        document.getElementById('courses-grid').innerHTML =
+          `<div class="courses-empty"><p>Impossible de charger la liste : ${err.message}.</p></div>`;
+      });
+  </script>
+
+</body>
+</html>
