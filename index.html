@@ -1005,6 +1005,18 @@
   <!-- Toast notifications -->
   <div id="toast" role="status" aria-live="polite"></div>
 
+  <script>
+    // Ouvre la modale profiles si l'URL contient #profiles (depuis le side-rail de /semaine)
+    (function() {
+      function openIfHash() {
+        if (window.location.hash !== '#profiles') return;
+        const m = document.getElementById('profiles-modal');
+        if (m) m.style.display = 'flex';
+      }
+      window.addEventListener('DOMContentLoaded', openIfHash);
+      window.addEventListener('hashchange', openIfHash);
+    })();
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     // Initialise le client Supabase global — utilisé par auth.js et les handlers de modale
