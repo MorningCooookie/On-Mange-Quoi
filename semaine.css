@@ -222,11 +222,11 @@ body {
 /* ── Footer ─────────────────────────────────────────────── */
 .semaine-footer {
   text-align: center;
-  font-size: .72rem;
-  color: var(--text-muted);
-  padding: .75rem 0 0;
-  border-top: 1px solid var(--border);
-  margin-bottom: 1.25rem;
+  font-size: .8rem;
+  color: var(--ink-500);
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--ink-200);
+  margin-bottom: 1.5rem;
 }
 
 /* ── Actions ────────────────────────────────────────────── */
@@ -239,26 +239,26 @@ body {
 
 .semaine-btn {
   font-family: var(--font-body);
-  font-size: .83rem;
+  font-size: .875rem;
   font-weight: 600;
-  padding: .5rem 1.1rem;
-  border-radius: 8px;
-  border: 1.5px solid var(--border);
+  padding: .55rem 1.2rem;
+  border-radius: var(--r-8);
+  border: 1.5px solid var(--ink-200);
   background: transparent;
-  color: var(--text);
+  color: var(--ink-700);
   cursor: pointer;
   transition: all 150ms;
 }
 
-.semaine-btn:hover { background: var(--card-bg); }
+.semaine-btn:hover { background: var(--ink-100); border-color: var(--ink-300); }
 
 .semaine-btn--share {
-  background: var(--green);
+  background: var(--green-800);
   color: #fff;
   border-color: transparent;
 }
 
-.semaine-btn--share:hover { background: var(--green-light); }
+.semaine-btn--share:hover { background: var(--green-700); }
 
 /* Bouton retour — bordure verte, texte vert, hover inversé */
 .semaine-btn--back {
@@ -580,28 +580,31 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  background: linear-gradient(135deg, #1B4332, #40916C);
-  border-radius: 14px;
-  padding: 1.25rem 1.5rem;
-  margin: 1.25rem 1rem;
+  background: var(--green-100);
+  border: 1px solid var(--green-300);
+  border-radius: var(--r-16);
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0;
   flex-wrap: wrap;
 }
 
 .newsletter-strip__left {
   display: flex;
   flex-direction: column;
-  gap: .2rem;
+  gap: .3rem;
 }
 
 .newsletter-strip__title {
-  font-size: .95rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--green-800);
+  letter-spacing: -.01em;
 }
 
 .newsletter-strip__sub {
-  font-size: .72rem;
-  color: rgba(255,255,255,.7);
+  font-size: .8rem;
+  color: var(--ink-500);
 }
 
 .newsletter-strip__form {
@@ -612,32 +615,36 @@ body {
 }
 
 .newsletter-strip__input {
-  padding: .5rem .9rem;
-  border: none;
-  border-radius: 10px;
-  font-size: .85rem;
-  color: #1F1F1F;
-  background: rgba(255,255,255,.95);
-  width: 190px;
+  padding: .55rem 1rem;
+  border: 1px solid var(--green-300);
+  border-radius: var(--r-8);
+  font-family: var(--font-body);
+  font-size: .875rem;
+  color: var(--ink-700);
+  background: white;
+  width: 200px;
   outline: none;
+  transition: border-color 150ms;
 }
 
-.newsletter-strip__input::placeholder { color: #999; }
+.newsletter-strip__input:focus { border-color: var(--green-700); }
+.newsletter-strip__input::placeholder { color: var(--ink-300); }
 
 .newsletter-strip__btn {
-  padding: .5rem 1rem;
-  background: #fff;
-  color: var(--green-800);
+  padding: .55rem 1.1rem;
+  background: var(--green-800);
+  color: white;
   border: none;
-  border-radius: 10px;
-  font-size: .85rem;
-  font-weight: 700;
+  border-radius: var(--r-8);
+  font-family: var(--font-body);
+  font-size: .875rem;
+  font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
-  transition: opacity 150ms;
+  transition: background 150ms;
 }
 
-.newsletter-strip__btn:hover:not(:disabled) { opacity: .88; }
+.newsletter-strip__btn:hover:not(:disabled) { background: var(--green-700); }
 .newsletter-strip__btn:disabled { opacity: .5; cursor: not-allowed; }
 
 @media (max-width: 500px) {
