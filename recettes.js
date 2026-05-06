@@ -23,50 +23,65 @@ function isLoggedIn() {
   }
 }
 
-// Affiche un message si l'utilisateur n'est pas connecté
+// Affiche un message si l'utilisateur n'est pas connecté — calme, pas alarmant
 function checkAuthAndShowBanner() {
-  if (!isLoggedIn()) {
-    const card = document.querySelector('.recettes-form-card');
-    if (!card) return;
-    const banner = document.createElement('div');
-    banner.id = 'auth-banner';
-    banner.style.cssText = 'background:var(--cream,#fafaf9);border:1.5px solid var(--forest,#2D7A3C);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.25rem;text-align:center;color:var(--dark,#1F1F1F);';
-    banner.innerHTML = '🔒 <strong>Connecte-toi pour générer une recette</strong><br><span style="font-size:.9rem;opacity:.75">La génération de recettes est réservée aux membres connectés.</span><br><a href="index.html" style="display:inline-block;margin-top:.75rem;color:var(--forest,#2D7A3C);font-weight:600;text-decoration:underline;">→ Se connecter</a>';
-    card.insertBefore(banner, card.firstChild);
-  }
+  if (isLoggedIn()) return;
+  const form = document.querySelector('.recettes-form');
+  if (!form) return;
+  const banner = document.createElement('div');
+  banner.id = 'auth-banner';
+  banner.className = 'auth-banner';
+  banner.innerHTML = `
+    <strong>Connecte-toi pour générer une recette</strong>
+    <span>La génération est gratuite et illimitée.</span>
+    <a href="index.html">→ Se connecter</a>
+  `;
+  form.insertBefore(banner, form.firstChild);
 }
 
-// Lancer la vérification au chargement
 checkAuthAndShowBanner();
 
-// ── Pill toggles ────────────────────────────────────────────
-document.querySelectorAll('.pill').forEach(pill => {
-  pill.addEventListener('click', () => {
-    const group = pill.dataset.group;
-    const value = pill.dataset.value;
+// ── Compteur de caractères ──────────────────────────────────
+const textarea = document.getElementById('ingredients');
+const counter = document.getElementById('textarea-count');
+if (textarea && counter) {
+  const updateCount = () => {
+    counter.textContent = `${textarea.value.length} / 500`;
+  };
+  textarea.addEventListener('input', updateCount);
+  updateCount();
+}
 
-    // Désactiver tous les pills du groupe
-    document.querySelectorAll(`.pill[data-group="${group}"]`).forEach(p => {
-      p.classList.remove('pill--active');
-      p.setAttribute('aria-pressed', 'false');
+// ── Chip toggles ────────────────────────────────────────────
+document.querySelectorAll('.chip--toggle').forEach(chip => {
+  chip.addEventListener('click', () => {
+    const group = chip.dataset.group;
+    const value = chip.dataset.value;
+
+    document.querySelectorAll(`.chip--toggle[data-group="${group}"]`).forEach(c => {
+      c.classList.remove('is-active');
+      c.setAttribute('aria-pressed', 'false');
     });
 
-    // Activer celui cliqué
-    pill.classList.add('pill--active');
-    pill.setAttribute('aria-pressed', 'true');
+    chip.classList.add('is-active');
+    chip.setAttribute('aria-pressed', 'true');
 
-    // Mettre à jour l'état
     state[group] = value;
   });
 });
 
 // ── Génération ──────────────────────────────────────────────
-document.getElementById('btn-generate').addEventListener('click', generateRecipe);
-document.getElementById('btn-retry').addEventListener('click', generateRecipe);
+const btnGenerate = document.getElementById('btn-generate');
+const btnRetry = document.getElementById('btn-retry');
+const btnErrorRetry = document.getElementById('btn-error-retry');
+
+if (btnGenerate) btnGenerate.addEventListener('click', generateRecipe);
+if (btnRetry) btnRetry.addEventListener('click', generateRecipe);
+if (btnErrorRetry) btnErrorRetry.addEventListener('click', generateRecipe);
 
 async function generateRecipe() {
   if (!isLoggedIn()) {
-    showToast('Connecte-toi pour générer une recette 🔒');
+    showToast('Connecte-toi pour générer une recette');
     return;
   }
 
@@ -74,7 +89,7 @@ async function generateRecipe() {
 
   if (!ingredients) {
     document.getElementById('ingredients').focus();
-    showToast('Dis-moi ce que t\'as dans le frigo 🥕');
+    showToast('Décrivez ce que vous avez envie de cuisiner');
     return;
   }
 
@@ -87,7 +102,7 @@ async function generateRecipe() {
       body: JSON.stringify({
         ingredients,
         mode: state.mode,
-        profile: state.profil   // clé "profile" = ce que lit la Netlify Function
+        profile: state.profil
       })
     });
 
@@ -96,13 +111,12 @@ async function generateRecipe() {
     }
 
     const data = await response.json();
-
     if (data.error) throw new Error(data.error);
 
     displayRecipe(data.recipe);
 
   } catch (error) {
-    displayError('Oups : ' + error.message);
+    displayError(error.message);
   } finally {
     setLoading(false);
   }
@@ -111,59 +125,59 @@ async function generateRecipe() {
 // ── Affichage ────────────────────────────────────────────────
 function setLoading(isLoading) {
   const btn = document.getElementById('btn-generate');
-  const zone = document.getElementById('result-zone');
-  const loading = document.getElementById('result-loading');
-  const error = document.getElementById('result-error');
-  const recipe = document.getElementById('result-recipe');
-
   btn.disabled = isLoading;
-  zone.hidden = false;
 
-  if (isLoading) {
-    loading.hidden = false;
-    error.hidden = true;
-    recipe.hidden = true;
-  } else {
-    loading.hidden = true;
+  showState(isLoading ? 'loading' : null);
+}
+
+function showState(name) {
+  const states = {
+    empty: document.getElementById('result-empty'),
+    loading: document.getElementById('result-loading'),
+    error: document.getElementById('result-error'),
+    recipe: document.getElementById('result-recipe')
+  };
+
+  Object.entries(states).forEach(([key, el]) => {
+    if (!el) return;
+    el.hidden = (name !== null && key !== name);
+  });
+
+  // Si name === null, on rend l'empty visible par défaut sauf si une recette est déjà là
+  if (name === null) {
+    const recipeShown = states.recipe && !states.recipe.hidden;
+    if (states.empty) states.empty.hidden = recipeShown;
   }
 }
 
 function displayRecipe(markdown) {
-  const el = document.getElementById('result-recipe');
+  const recipeEl = document.getElementById('result-recipe');
   document.getElementById('recipe-content').innerHTML = markdownToHtml(markdown);
-  el.hidden = false;
-  document.getElementById('result-error').hidden = true;
-  // Scroll doux vers la recette
-  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  showState('recipe');
+  recipeEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function displayError(msg) {
-  const el = document.getElementById('result-error');
-  document.getElementById('result-error-text').textContent = msg;
-  el.hidden = false;
-  document.getElementById('result-recipe').hidden = true;
+  const errEl = document.getElementById('result-error');
+  const errText = document.getElementById('result-error-text');
+  if (errText && msg) {
+    errText.textContent = `Réessayez avec une description un peu différente. (${msg})`;
+  }
+  showState('error');
 }
 
 // ── Markdown → HTML ──────────────────────────────────────────
-// Convertit le format Claude (markdown simplifié) en HTML lisible
 function markdownToHtml(text) {
   return text
-    // Titres ### 🍽️ ...
     .replace(/^### (.+)$/gm, '<h3>$1</h3>')
-    // Gras **...** (doit être traité AVANT l'italique)
     .replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>')
-    // Italique *...*
     .replace(/\*([^*\n]+)\*/g, '<em>$1</em>')
-    // Astuce 💡 → bloc coloré
     .replace(/<strong>💡 Astuce[^<]*<\/strong>\s*:?\s*(.+)/g,
-      '<div class="astuce">💡 <strong>Astuce</strong> : $1</div>')
-    // Listes à puces
+      '<div class="astuce"><strong>Astuce</strong> — $1</div>')
     .replace(/^- (.+)$/gm, '<li>$1</li>')
     .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
-    // Listes numérotées
     .replace(/^\d+\. (.+)$/gm, '<li>$1</li>')
     .replace(/(<li>[^<][\s\S]*?<\/li>\n?)+(?![\s\S]*<ul>)/g, '<ol>$&</ol>')
-    // Nettoyage sauts de ligne
     .replace(/\n{2,}/g, '<br>')
     .trim();
 }

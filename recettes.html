@@ -40,86 +40,98 @@
   <!-- ── Contenu principal ────────────────────────────────── -->
   <main class="recettes-page" id="main">
 
-    <div class="recettes-hero">
-      <h1 class="recettes-title">🍳 Générateur de recettes</h1>
-      <p class="recettes-subtitle">Une recette saine à partir de ce que t'as dans le frigo — anti-cadmium, anti-mercure, faibles pesticides.</p>
-    </div>
+    <!-- Header row -->
+    <header class="recettes-header">
+      <span class="eyebrow">Générateur de recettes</span>
+      <h1 class="recettes-title">
+        Une recette,<br>
+        <em>à votre façon.</em>
+      </h1>
+    </header>
 
-    <div class="recettes-form-card">
+    <div class="recettes-grid">
 
-      <!-- Ingrédients -->
-      <div class="form-group">
-        <label class="form-label" for="ingredients">Ce que j'ai dans mon frigo</label>
-        <textarea
-          id="ingredients"
-          class="form-textarea"
-          placeholder="Ex : poulet, carottes, lentilles corail, oignon…"
-          rows="3"
-          aria-describedby="ingredients-hint"
-        ></textarea>
-        <p class="form-hint" id="ingredients-hint">Liste tes ingrédients séparés par des virgules</p>
-      </div>
+      <!-- ───── Colonne gauche : prompt form ─────────────────── -->
+      <section class="recettes-form" aria-label="Paramètres de génération">
 
-      <!-- Toggles -->
-      <div class="form-row">
+        <!-- Banner logged-out (injecté par JS si besoin) -->
 
-        <!-- Mode cuisson -->
-        <div class="form-group form-group--half">
-          <span class="form-label" id="mode-label">Mode de cuisson</span>
-          <div class="pill-group" role="group" aria-labelledby="mode-label">
-            <button class="pill pill--active" data-group="mode" data-value="classique" aria-pressed="true">
-              🍳 Cuisine classique
-            </button>
-            <button class="pill" data-group="mode" data-value="thermomix" aria-pressed="false">
-              ⚙️ Thermomix
-            </button>
+        <!-- Textarea ingrédients -->
+        <div class="form-block">
+          <label class="form-eyebrow" for="ingredients">Ce que j'ai dans le frigo</label>
+          <div class="textarea-wrap">
+            <textarea
+              id="ingredients"
+              class="form-textarea"
+              placeholder="Pâtes rapides aux courgettes pour ce soir, sans lactose…"
+              rows="3"
+              aria-describedby="ingredients-hint"
+              maxlength="500"
+            ></textarea>
+            <span class="textarea-count" id="textarea-count">0 / 500</span>
+          </div>
+          <p class="form-hint" id="ingredients-hint">Ingrédients ou idée de plat — phrase libre</p>
+        </div>
+
+        <!-- Mode de cuisson -->
+        <div class="form-block">
+          <span class="form-eyebrow" id="mode-label">Mode de cuisson</span>
+          <div class="chip-group" role="group" aria-labelledby="mode-label">
+            <button class="chip chip--toggle is-active" data-group="mode" data-value="classique" aria-pressed="true">Cuisine classique</button>
+            <button class="chip chip--toggle" data-group="mode" data-value="thermomix" aria-pressed="false">Thermomix</button>
           </div>
         </div>
 
         <!-- Profil -->
-        <div class="form-group form-group--half">
-          <span class="form-label" id="profil-label">Profil</span>
-          <div class="pill-group" role="group" aria-labelledby="profil-label">
-            <button class="pill pill--active" data-group="profil" data-value="famille" aria-pressed="true">
-              👨‍👩‍👧‍👦 Famille
-            </button>
-            <button class="pill" data-group="profil" data-value="couple" aria-pressed="false">
-              👫 Couple
-            </button>
-            <button class="pill" data-group="profil" data-value="solo" aria-pressed="false">
-              🧑 Solo
-            </button>
+        <div class="form-block">
+          <span class="form-eyebrow" id="profil-label">Profil</span>
+          <div class="chip-group" role="group" aria-labelledby="profil-label">
+            <button class="chip chip--toggle is-active" data-group="profil" data-value="famille" aria-pressed="true">Famille</button>
+            <button class="chip chip--toggle" data-group="profil" data-value="couple" aria-pressed="false">Couple</button>
+            <button class="chip chip--toggle" data-group="profil" data-value="solo" aria-pressed="false">Solo</button>
           </div>
         </div>
 
-      </div>
+        <!-- Bouton -->
+        <button class="btn btn--primary btn--block" id="btn-generate">
+          Générer une recette →
+        </button>
 
-      <!-- Bouton -->
-      <button class="btn-generate" id="btn-generate">
-        Générer une recette
-      </button>
+        <p class="form-foot">La génération est gratuite et illimitée pendant la phase d'ouverture.</p>
 
-    </div>
+      </section>
 
-    <!-- Zone résultat -->
-    <div id="result-zone" hidden>
+      <!-- ───── Colonne droite : output ─────────────────────── -->
+      <aside class="recettes-output" aria-label="Recette générée">
 
-      <!-- Loading -->
-      <div id="result-loading" class="result-loading" hidden aria-live="polite">
-        <div class="loading-spinner" aria-hidden="true"></div>
-        <p>Génération en cours…</p>
-      </div>
+        <!-- Empty state -->
+        <div id="result-empty" class="output-state output-empty">
+          <div class="placeholder" aria-hidden="true"></div>
+          <p>Décrivez ce que vous avez envie de cuisiner. La génération est gratuite et illimitée pendant la phase d'ouverture.</p>
+        </div>
 
-      <!-- Erreur -->
-      <div id="result-error" class="result-error" hidden role="alert">
-        <p id="result-error-text"></p>
-      </div>
+        <!-- Loading -->
+        <div id="result-loading" class="output-state output-loading" hidden aria-live="polite">
+          <span class="spinner" aria-hidden="true"></span>
+          <p>On cuisine ça pour vous…</p>
+        </div>
 
-      <!-- Recette -->
-      <div id="result-recipe" class="recipe-card" hidden aria-live="polite">
-        <div id="recipe-content" class="recipe-content"></div>
-        <button class="btn-retry" id="btn-retry">↻ Générer une autre recette</button>
-      </div>
+        <!-- Erreur -->
+        <div id="result-error" class="output-state output-error" hidden role="alert">
+          <h2>On n'a pas réussi cette fois.</h2>
+          <p id="result-error-text">Réessayez avec une description un peu différente. La génération est gratuite, vous pouvez tenter autant que vous voulez.</p>
+          <button class="btn btn--ghost" id="btn-error-retry">↻ Régénérer</button>
+        </div>
+
+        <!-- Recette -->
+        <article id="result-recipe" class="output-state recipe-card" hidden aria-live="polite">
+          <div id="recipe-content" class="recipe-content"></div>
+          <div class="recipe-actions">
+            <button class="btn btn--ghost" id="btn-retry">↻ Régénérer</button>
+          </div>
+        </article>
+
+      </aside>
 
     </div>
 
