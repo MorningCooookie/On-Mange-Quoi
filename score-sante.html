@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le score santé — On mange quoi ?</title>
+  <meta name="description" content="Comment fonctionne le score santé A/B/C : quatre signaux, basés sur les recommandations ANSES + EFSA. Pas un avis médical.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231B4332'/><circle cx='16' cy='16' r='11' fill='none' stroke='white' stroke-width='2'/><circle cx='16' cy='16' r='6.5' fill='none' stroke='white' stroke-width='1.8'/></svg>">
+  <link rel="canonical" href="https://onmangequoi.eu/score-sante">
+  <script async src="https://plausible.io/js/pa-ZaRseIh-nGhXVtbtWwn2-.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+  <style>
+    /* Page-specific: score explainer */
+    body { background: var(--bg-soft); }
+
+    .ss-page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--s-48) var(--s-32) var(--s-96);
+    }
+
+    /* Hero */
+    .ss-hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: var(--s-48);
+      align-items: center;
+      padding-bottom: var(--s-48);
+    }
+
+    .ss-eyebrow {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: var(--fs-12);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-500);
+      margin-bottom: var(--s-12);
+    }
+
+    .ss-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, var(--fs-64));
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 0.96;
+      color: var(--ink-900);
+      margin: 0 0 var(--s-20);
+    }
+    .ss-h1 em {
+      font-style: italic;
+      color: var(--green-800);
+      font-weight: 600;
+    }
+
+    .ss-lede {
+      font-family: var(--font-display);
+      font-size: var(--fs-18);
+      line-height: 1.55;
+      color: var(--ink-700);
+      max-width: 540px;
+      margin: 0;
+    }
+    .ss-lede strong {
+      color: var(--ink-900);
+      font-weight: 600;
+    }
+
+    /* Score letter cards */
+    .ss-letters {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s-12);
+    }
+    .ss-letter {
+      background: var(--bg);
+      border: 1px solid var(--ink-200);
+      border-radius: var(--r-12);
+      padding: var(--s-20);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--s-12);
+      text-align: center;
+    }
+    .ss-letter-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      color: var(--cream-50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: var(--fs-40);
+      font-weight: 600;
+      font-style: italic;
+    }
+    .ss-letter-circle.is-a { background: var(--score-a); }
+    .ss-letter-circle.is-b { background: var(--score-b); }
+    .ss-letter-circle.is-c { background: var(--score-c); }
+
+    .ss-letter h4 {
+      font-family: var(--font-display);
+      font-size: var(--fs-15);
+      font-weight: 600;
+      color: var(--ink-900);
+      margin: 0;
+    }
+    .ss-letter p {
+      font-size: var(--fs-12);
+      color: var(--ink-500);
+      line-height: 1.4;
+      margin: var(--s-4) 0 0;
+    }
+
+    /* Section header */
+    .ss-section {
+      padding: var(--s-48) 0;
+    }
+    .ss-section-eyebrow { margin-bottom: var(--s-12); }
+    .ss-h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3vw, var(--fs-40));
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--ink-900);
+      max-width: 720px;
+      margin: 0 0 var(--s-32);
+    }
+
+    /* Four signals card */
+    .ss-signals {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--ink-200);
+      border-radius: var(--r-16);
+      overflow: hidden;
+      background: var(--bg);
+    }
+    .ss-signal {
+      padding: var(--s-24);
+      border-right: 1px solid var(--ink-200);
+      display: flex;
+      flex-direction: column;
+      gap: var(--s-12);
+      min-height: 280px;
+    }
+    .ss-signal:last-child { border-right: none; }
+
+    .ss-signal-num {
+      font-family: var(--font-mono);
+      font-size: var(--fs-40);
+      font-weight: 600;
+      color: var(--green-800);
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+    .ss-signal h3 {
+      font-family: var(--font-display);
+      font-size: var(--fs-20);
+      font-weight: 600;
+      color: var(--ink-900);
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    .ss-signal-desc {
+      font-size: var(--fs-13);
+      color: var(--ink-500);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .ss-signal-approach {
+      margin-top: auto;
+      padding-top: var(--s-12);
+      border-top: 1px solid var(--ink-100);
+    }
+    .ss-signal-approach .label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green-800);
+      margin-bottom: var(--s-4);
+    }
+    .ss-signal-approach p {
+      font-size: var(--fs-13);
+      color: var(--ink-700);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Strategy card — dark editorial */
+    .ss-strategy {
+      background: var(--ink-900);
+      color: var(--cream-50);
+      border-radius: var(--r-16);
+      padding: var(--s-40);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s-48);
+      align-items: center;
+    }
+    .ss-strategy .ss-eyebrow { color: var(--green-300); }
+    .ss-strategy h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3vw, var(--fs-40));
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      color: var(--cream-50);
+      margin: var(--s-12) 0 0;
+    }
+    .ss-strategy h2 em {
+      font-style: italic;
+      color: var(--green-300);
+      font-weight: 600;
+    }
+    .ss-strategy ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .ss-strategy li {
+      display: flex;
+      gap: var(--s-16);
+      align-items: flex-start;
+      padding: var(--s-12) 0;
+      border-bottom: 1px solid var(--ink-700);
+      font-size: var(--fs-15);
+      line-height: 1.45;
+    }
+    .ss-strategy li:last-child { border-bottom: none; }
+    .ss-strategy li .num {
+      font-family: var(--font-mono);
+      font-size: var(--fs-12);
+      color: var(--green-300);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Sources */
+    .ss-sources {
+      background: var(--bg);
+      border: 1px solid var(--ink-200);
+      border-radius: var(--r-12);
+      padding: var(--s-24);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s-24);
+    }
+    .ss-source-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-500);
+    }
+    .ss-source p {
+      margin-top: var(--s-6);
+      font-size: var(--fs-13);
+      color: var(--ink-700);
+      line-height: 1.5;
+    }
+    .ss-disclaimer {
+      margin-top: var(--s-20);
+      font-size: var(--fs-12);
+      color: var(--ink-500);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* CTA */
+    .ss-cta {
+      text-align: center;
+      padding: var(--s-48) 0;
+    }
+    .ss-cta .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s-8);
+      padding: var(--s-16) var(--s-32);
+      background: var(--green-800);
+      color: var(--bg);
+      border-radius: var(--r-pill);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: var(--fs-15);
+      text-decoration: none;
+      transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+    .ss-cta .btn:hover {
+      background: var(--green-700);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-2);
+    }
+
+    /* Mobile */
+    @media (max-width: 900px) {
+      .ss-hero,
+      .ss-strategy {
+        grid-template-columns: 1fr;
+        gap: var(--s-32);
+      }
+      .ss-signals {
+        grid-template-columns: 1fr 1fr;
+      }
+      .ss-signal {
+        border-right: 1px solid var(--ink-200);
+        border-bottom: 1px solid var(--ink-200);
+        min-height: 220px;
+      }
+      .ss-signal:nth-child(2n) { border-right: none; }
+      .ss-signal:nth-last-child(-n+2) { border-bottom: none; }
+      .ss-sources { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .ss-page { padding: var(--s-32) var(--s-20) var(--s-64); }
+      .ss-letters { grid-template-columns: 1fr; }
+      .ss-signals { grid-template-columns: 1fr; }
+      .ss-signal {
+        border-right: none;
+        border-bottom: 1px solid var(--ink-200);
+        min-height: auto;
+      }
+      .ss-signal:last-child { border-bottom: none; }
+      .ss-strategy { padding: var(--s-24); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="landing-header">
+    <div style="display:flex;align-items:center;gap:32px;">
+      <a class="brand--landing" href="/" aria-label="On mange quoi ? — accueil">
+        <span class="brand-mark--landing" aria-hidden="true"></span>
+        on mange quoi<span style="color:var(--green-800)">?</span>
+      </a>
+      <nav class="landing-header__nav" aria-label="Navigation principale">
+        <a href="semaine.html">Mon menu</a>
+        <a href="recettes.html">Recettes</a>
+        <a href="fiche.html">Fiche mémo</a>
+        <a href="score-sante.html" aria-current="page" style="color:var(--green-800);font-weight:600;">Score santé</a>
+      </nav>
+    </div>
+    <div class="landing-header__actions">
+      <a class="landing-header__login" href="semaine.html">← Retour à mon menu</a>
+    </div>
+  </header>
+
+  <main class="ss-page">
+
+    <!-- Hero -->
+    <section class="ss-hero">
+      <div>
+        <span class="ss-eyebrow">Le score santé · comment ça marche</span>
+        <h1 class="ss-h1">Une lettre.<br><em>Une décision en moins.</em></h1>
+        <p class="ss-lede">
+          Chaque semaine, votre menu reçoit un <strong>A</strong>, <strong>B</strong> ou <strong>C</strong>.
+          Pas pour vous noter — pour vous montrer où il y a un petit ajustement à faire.
+        </p>
+      </div>
+      <div class="ss-letters">
+        <div class="ss-letter">
+          <span class="ss-letter-circle is-a">A</span>
+          <div>
+            <h4>Excellent</h4>
+            <p>Dans les niveaux recommandés, bonne variété.</p>
+          </div>
+        </div>
+        <div class="ss-letter">
+          <span class="ss-letter-circle is-b">B</span>
+          <div>
+            <h4>Bon</h4>
+            <p>Quelques ajustements possibles.</p>
+          </div>
+        </div>
+        <div class="ss-letter">
+          <span class="ss-letter-circle is-c">C</span>
+          <div>
+            <h4>À améliorer</h4>
+            <p>Diversifiez la semaine prochaine.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Four signals -->
+    <section class="ss-section">
+      <span class="ss-eyebrow ss-section-eyebrow">Ce qu'on mesure</span>
+      <h2 class="ss-h2">Quatre signaux. Tous calmes, tous vérifiables.</h2>
+
+      <div class="ss-signals">
+        <div class="ss-signal">
+          <span class="ss-signal-num">01</span>
+          <h3>Cadmium</h3>
+          <p class="ss-signal-desc">Métal lourd absorbé par certaines cultures (cacao, riz, légumes-racines).</p>
+          <div class="ss-signal-approach">
+            <span class="label">Notre approche</span>
+            <p>On varie les sources. Pas de panique sur un repas isolé.</p>
+          </div>
+        </div>
+        <div class="ss-signal">
+          <span class="ss-signal-num">02</span>
+          <h3>Mercure</h3>
+          <p class="ss-signal-desc">Présent surtout dans les gros poissons prédateurs (thon, espadon).</p>
+          <div class="ss-signal-approach">
+            <span class="label">Notre approche</span>
+            <p>Un poisson par semaine, on alterne les espèces.</p>
+          </div>
+        </div>
+        <div class="ss-signal">
+          <span class="ss-signal-num">03</span>
+          <h3>Pesticides</h3>
+          <p class="ss-signal-desc">Résidus phytosanitaires. Le top 12 (fraises, fenouil, raisin…) en concentre la majorité.</p>
+          <div class="ss-signal-approach">
+            <span class="label">Notre approche</span>
+            <p>Bio quand ça compte vraiment, classique pour le reste.</p>
+          </div>
+        </div>
+        <div class="ss-signal">
+          <span class="ss-signal-num">04</span>
+          <h3>Variété</h3>
+          <p class="ss-signal-desc">Manger toujours pareil concentre l'exposition. Diversifier la dilue.</p>
+          <div class="ss-signal-approach">
+            <span class="label">Notre approche</span>
+            <p>On vise 25+ ingrédients différents par semaine.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strategy -->
+    <section class="ss-section">
+      <div class="ss-strategy">
+        <div>
+          <span class="ss-eyebrow">La stratégie</span>
+          <h2>On ne <em>supprime</em> pas les risques.<br>On les <em>dilue</em>.</h2>
+        </div>
+        <ul>
+          <li>
+            <span class="num">01</span>
+            <span>Alterner les sources de protéines (poisson, volaille, légumineuses).</span>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <span>Changer de légumes d'un jour à l'autre, pas la même chose toute la semaine.</span>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <span>Bio sur le top 12 résidus, classique pour le reste.</span>
+          </li>
+          <li>
+            <span class="num">04</span>
+            <span>Saison d'abord — moins de transport, moins de traitements.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Sources -->
+    <section class="ss-section">
+      <span class="ss-eyebrow ss-section-eyebrow">Sources & méthode</span>
+      <div class="ss-sources">
+        <div class="ss-source">
+          <span class="ss-source-label">ANSES</span>
+          <p>Agence française · seuils contaminants par catégorie d'aliment.</p>
+        </div>
+        <div class="ss-source">
+          <span class="ss-source-label">EFSA</span>
+          <p>Autorité européenne · DJT (dose journalière tolérable) par contaminant.</p>
+        </div>
+        <div class="ss-source">
+          <span class="ss-source-label">EWG Dirty Dozen</span>
+          <p>Liste annuelle des fruits/légumes les plus chargés en résidus.</p>
+        </div>
+      </div>
+      <p class="ss-disclaimer">
+        Le score n'est pas un avis médical. En cas de doute (grossesse, pathologie), demandez à votre médecin.
+      </p>
+    </section>
+
+    <!-- CTA -->
+    <div class="ss-cta">
+      <a href="semaine.html" class="btn">Voir mon menu →</a>
+    </div>
+
+  </main>
+
+  <footer class="landing-footer">
+    <a class="brand--landing" href="/" style="font-size:14px;" aria-label="On mange quoi ?">
+      <span class="brand-mark--landing" aria-hidden="true"></span>
+      onmangequoi.eu
+    </a>
+    <span>© 2026 · Paris · Basé sur les recommandations ANSES + EFSA · Sans pub, sans tracking</span>
+  </footer>
+
+</body>
+</html>

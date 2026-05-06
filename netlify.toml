@@ -8,6 +8,16 @@
   to = "/"
   status = 301
 
+# Phase 2E : about.html → score-sante.html
+[[redirects]]
+  from = "/about"
+  to = "/score-sante.html"
+  status = 301
+[[redirects]]
+  from = "/about.html"
+  to = "/score-sante.html"
+  status = 301
+
 # JS et JSON : pas de cache long pour voir les mises à jour immédiatement
 [[headers]]
   for = "/*.js"

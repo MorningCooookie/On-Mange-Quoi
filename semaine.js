@@ -322,7 +322,7 @@ function renderMenu(data, history) {
     scoreEl.innerHTML = `
       <span class="semaine-score__letter">${score}</span>
       <span>Score santé</span>
-      <a href="about.html" class="semaine-score__info-icon" title="Comprendre le score santé">ⓘ</a>
+      <a href="score-sante.html" class="semaine-score__info-icon" title="Comprendre le score santé">ⓘ</a>
     `;
     scoreEl.setAttribute('aria-label', `Score santé ${score}`);
   }
