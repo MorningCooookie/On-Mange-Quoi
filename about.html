@@ -10,14 +10,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231B4332'/><circle cx='16' cy='16' r='11' fill='none' stroke='white' stroke-width='2'/><circle cx='16' cy='16' r='6.5' fill='none' stroke='white' stroke-width='1.8'/></svg>">
   <link rel="canonical" href="https://onmangequoi.eu/about.html">
+  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="about.css">
 </head>
 <body>
 
-  <header class="about-header">
-    <button class="about-header-back" onclick="window.history.back()" title="Retour">←</button>
-    <span class="about-logo">🥗 On mange quoi ?</span>
-    <span class="about-spacer"></span>
+  <header class="landing-header">
+    <div style="display:flex;align-items:center;gap:32px;">
+      <a class="brand--landing" href="/" aria-label="On mange quoi ? — accueil">
+        <span class="brand-mark--landing" aria-hidden="true"></span>
+        on mange quoi<span style="color:var(--green-800)">?</span>
+      </a>
+      <nav class="landing-header__nav" aria-label="Navigation principale">
+        <a href="/">Accueil</a>
+        <a href="semaine.html">Mon menu</a>
+        <a href="courses.html">Liste de courses</a>
+        <a href="recettes.html">Recettes</a>
+        <a href="fiche.html">Fiche mémo</a>
+      </nav>
+    </div>
+    <div class="landing-header__actions">
+      <a class="landing-header__login" href="semaine.html">← Mon menu</a>
+    </div>
   </header>
 
   <main class="about-main">
@@ -35,7 +49,7 @@
 
     <!-- Risk Types Section -->
     <section class="about-section about-risks">
-      <h2 class="about-heading">🔴 Les risques alimentaires</h2>
+      <h2 class="about-heading">Les risques alimentaires</h2>
       <p class="about-text">
         Certains aliments contiennent naturellement des substances potentiellement nocives pour notre santé. Les trois principaux risques suivis sont :
       </p>
@@ -73,7 +87,7 @@
 
     <!-- Health Score Section -->
     <section class="about-section about-score">
-      <h2 class="about-heading">🎯 Le score santé (A, B, C)</h2>
+      <h2 class="about-heading">Le score santé (A, B, C)</h2>
       <p class="about-text">
         Chaque semaine, vous recevez un score qui mesure deux choses :
       </p>
@@ -107,7 +121,7 @@
 
     <!-- Strategy Section -->
     <section class="about-section about-strategy">
-      <h2 class="about-heading">💡 Réduire les risques : la stratégie</h2>
+      <h2 class="about-heading">Réduire les risques : la stratégie</h2>
       <p class="about-text">
         Puisqu'on ne peut pas éliminer les risques complètement, la meilleure stratégie est de <strong>varier au maximum votre alimentation</strong> :
       </p>
@@ -127,14 +141,18 @@
 
     <!-- Menu Link Section -->
     <section class="about-section about-action">
-      <h2 class="about-heading">📋 Commencer</h2>
+      <h2 class="about-heading">Commencer</h2>
       <p class="about-text">
         Retournez à la <a href="semaine.html" class="about-link">liste complète des menus</a> pour voir votre score santé et commencer à planifier votre semaine.
       </p>
     </section>
 
-    <footer class="about-footer">
-      onmangequoi.eu · Comprendre le score santé
+    <footer class="landing-footer">
+      <a class="brand--landing" href="/" style="font-size:14px;" aria-label="On mange quoi ?">
+        <span class="brand-mark--landing" aria-hidden="true"></span>
+        onmangequoi.eu
+      </a>
+      <span>© 2026 · Paris · Basé sur les recommandations ANSES + EFSA · Sans pub, sans tracking</span>
     </footer>
 
   </main>
