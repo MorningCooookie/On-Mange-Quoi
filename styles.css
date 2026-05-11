@@ -5,22 +5,6 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-.maintenance-banner {
-  position: sticky;
-  top: 0;
-  z-index: 200;
-  background: linear-gradient(135deg, #1B4332, #40916C);
-  color: #FFFFFF;
-  text-align: center;
-  padding: 0.625rem 1rem;
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  letter-spacing: 0.02em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
 
 :root {
   --bg: #F7F3EE;
@@ -51,7 +35,7 @@
   --shadow-hover: 0 8px 24px rgba(0,0,0,.14);
   --bottom-bar-h: 96px;
   --font-display: 'Fraunces', Georgia, serif;
-  --font-body: 'Work Sans', system-ui, sans-serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
 
   /* Header design tokens — compact & professional */
   --header-padding-vertical: 0.75rem;
@@ -87,37 +71,39 @@
   --prep-medium: #F59E0B; /* Amber */
   --prep-slow: #EF4444;   /* Red */
 
-  /* ── Refined design tokens (redesign 2026) ── */
-  --green-900: #0F2E22;
-  --green-800: #1B4332;
-  --green-700: #265D45;
-  --green-600: #2F7755;
-  --green-300: #B8D4C5;
-  --green-100: #E8F0EB;
+  /* ── Design tokens v2 (handoff mai 2026) ── */
+  --green-900: #1A3D2B;
+  --green-800: #2D6A4F;
+  --green-700: #3D8866;
+  --green-600: #52A882;
+  --green-300: #A8D5BC;
+  --green-100: #E4F2EB;
 
-  --cream-50:  #FAF7F2;
-  --cream-100: #F4EFE6;
-  --cream-200: #E8E1D3;
+  --cream-50:  #FBF7F0;
+  --cream-100: #F5EEE3;
+  --cream-200: #EDE3D4;
 
-  --bg-soft:   #FBF9F4;
+  --bg:        #FEFAF4;
+  --bg-soft:   #F7F1E6;
 
-  --ink-900:   #14110D;
-  --ink-700:   #2B2620;
-  --ink-500:   #6B6359;
-  --ink-300:   #A8A095;
-  --ink-200:   #D9D2C5;
-  --ink-100:   #ECE7DD;
+  --ink-900:   #1E150A;
+  --ink-700:   #3D2E1F;
+  --ink-500:   #7A6A58;
+  --ink-300:   #B0A392;
+  --ink-200:   #DDD2C0;
+  --ink-100:   #EEE8DC;
 
-  --accent-amber:  #C8893A;
-  --accent-terra:  #B5573A;
+  --accent-amber:  #D4853C;
+  --accent-terra:  #C46848;
+  --accent-peach:  #E89B72;
   --accent-clay:   #8E6B4A;
-  --accent-sage:   #6B8B6E;
+  --accent-sage:   #6B9E7E;
 
-  --score-a-new: var(--green-800);
-  --score-b-new: #4A6B85;
-  --score-c-new: var(--accent-terra);
+  --score-a: var(--green-800);
+  --score-b: #4A7A9B;
+  --score-c: var(--accent-terra);
 
-  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
+  --font-mono: 'DM Sans', system-ui, sans-serif;
 
   --fs-12: 0.75rem;
   --fs-13: 0.8125rem;
@@ -168,7 +154,6 @@
   /* ── Alias v1 → v2 (compatibilité composants anciens) ── */
   --green:         var(--green-800);
   --green-light:   var(--green-600);
-  --bg:            var(--bg-soft);
   --white:         var(--cream-50);
   --card-bg:       var(--cream-50);
   --text:          var(--ink-900);
@@ -230,9 +215,9 @@ a { color: inherit; }
    ═══════════════════════════════════════════════════════════ */
 #site-header {
   position: sticky; top: 0; z-index: 100;
-  background: linear-gradient(135deg, var(--header-from), var(--header-to));
+  background: var(--green-800);
   color: #fff;
-  box-shadow: 0 2px 16px rgba(0,0,0,.2);
+  box-shadow: 0 2px 16px rgba(0,0,0,.15);
 }
 .header-inner {
   max-width: 1400px; margin: 0 auto;
@@ -1277,7 +1262,7 @@ textarea:focus {
   border: 1px solid var(--border);
   border-radius: 6px;
   font-size: 0.9rem;
-  font-family: 'Work Sans', system-ui, sans-serif;
+  font-family: 'DM Sans', system-ui, sans-serif;
   color: var(--text);
   background-color: var(--white);
   cursor: pointer;
@@ -1308,7 +1293,7 @@ textarea:focus {
   border-radius: 6px;
   font-size: 0.95rem;
   font-weight: 600;
-  font-family: 'Work Sans', system-ui, sans-serif;
+  font-family: 'DM Sans', system-ui, sans-serif;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -1889,7 +1874,7 @@ body.modal-open { overflow: hidden; }
 }
 
 .premium-soon-text {
-  font-family: var(--font-body, 'Work Sans', system-ui, sans-serif);
+  font-family: var(--font-body, 'DM Sans', system-ui, sans-serif);
   font-size: 0.95rem;
   color: var(--text-secondary, #6B7280);
   line-height: 1.5;
@@ -1902,7 +1887,7 @@ body.modal-open { overflow: hidden; }
   border: none;
   border-radius: 12px;
   padding: 0.75rem 2rem;
-  font-family: var(--font-body, 'Work Sans', system-ui, sans-serif);
+  font-family: var(--font-body, 'DM Sans', system-ui, sans-serif);
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
@@ -2106,7 +2091,7 @@ body.modal-open { overflow: hidden; }
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  background: linear-gradient(135deg, var(--header-from, #1B4332), var(--header-to, #40916C));
+  background: var(--green-800);
   border-radius: 14px;
   padding: 1.25rem 1.75rem;
   margin: 1.25rem 0;

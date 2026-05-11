@@ -10,21 +10,21 @@
 }
 
 :root {
-  --green: #1B4332;
-  --green-light: #40916C;
+  --green: #2D6A4F;
+  --green-light: #52A882;
   --bg: #FFFFFF;
   --card-bg: #FAF7F2;
   --border: #E5E0D8;
   --text: #1A1A1A;
   --text-muted: #6B7280;
   --font-display: 'Fraunces', Georgia, serif;
-  --font-body: 'Work Sans', system-ui, sans-serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
   /* Risk indicators */
   --risk-low: #10B981;
   --risk-medium: #F59E0B;
   --risk-high: #EF4444;
   /* Score colors */
-  --score-a: #1B4332;
+  --score-a: #2D6A4F;
   --score-b: #1E3A5F;
   --score-c: #92400E;
 }

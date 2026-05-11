@@ -692,12 +692,12 @@ body {
 }
 
 .score-band__circle--b {
-  background: var(--score-b-new, #4A6B85);
+  background: var(--score-b, #4A7A9B);
   color: var(--cream-50, #FAF7F2);
 }
 
 .score-band__circle--c {
-  background: var(--score-c-new, #B5573A);
+  background: var(--score-c, #C46848);
   color: var(--cream-50, #FAF7F2);
 }
 
@@ -839,7 +839,7 @@ body {
 
 /* ── Utilitaires boutons ─────────────────────────────────── */
 .semaine-week-btn {
-  font-family: var(--font-body, 'Work Sans', sans-serif);
+  font-family: var(--font-body, 'DM Sans', sans-serif);
   font-size: 13px;
   font-weight: 600;
   padding: 6px 14px;
