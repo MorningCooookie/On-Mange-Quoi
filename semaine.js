@@ -164,21 +164,21 @@ function renderScoreBand(data) {
   // Metrics — use data.metrics if present, fall back to display values derived from score
   const defaultMetrics = score === 'A'
     ? [
-        { label: 'Cadmium', num: '14', unit: 'μg/j', delta: '−42% vs recommandé' },
-        { label: 'Mercure', num: '1.4', unit: 'μg/j', delta: '−68% vs recommandé' },
+        { label: 'Cadmium', num: '14', unit: 'μg/jour', delta: '−42% vs recommandé' },
+        { label: 'Mercure', num: '1.4', unit: 'μg/jour', delta: '−68% vs recommandé' },
         { label: 'Pesticides', num: '0.8', unit: 'idx', delta: '−51% vs recommandé' },
         { label: 'Variété', num: '87', unit: '/100', delta: '↗ vs recommandé' }
       ]
     : score === 'B'
     ? [
-        { label: 'Cadmium', num: '28', unit: 'μg/j', delta: '−15% vs recommandé' },
-        { label: 'Mercure', num: '3.2', unit: 'μg/j', delta: '−28% vs recommandé' },
+        { label: 'Cadmium', num: '28', unit: 'μg/jour', delta: '−15% vs recommandé' },
+        { label: 'Mercure', num: '3.2', unit: 'μg/jour', delta: '−28% vs recommandé' },
         { label: 'Pesticides', num: '1.6', unit: 'idx', delta: '−18% vs recommandé' },
         { label: 'Variété', num: '72', unit: '/100', delta: '→ stable' }
       ]
     : [
-        { label: 'Cadmium', num: '38', unit: 'μg/j', delta: '+5% vs recommandé' },
-        { label: 'Mercure', num: '4.8', unit: 'μg/j', delta: '+12% vs recommandé' },
+        { label: 'Cadmium', num: '38', unit: 'μg/jour', delta: '+5% vs recommandé' },
+        { label: 'Mercure', num: '4.8', unit: 'μg/jour', delta: '+12% vs recommandé' },
         { label: 'Pesticides', num: '2.4', unit: 'idx', delta: '+8% vs recommandé' },
         { label: 'Variété', num: '61', unit: '/100', delta: '↘ à améliorer' }
       ];
@@ -306,6 +306,7 @@ function getDinnerTags(dinner) {
 }
 
 function renderMenu(data, history) {
+  window._omqMenuData = data;
   const score = data.healthScore || 'A';
   const ws = data.weekStart;
   const we = data.weekEnd;
@@ -367,6 +368,7 @@ function renderMenu(data, history) {
       <div class="day-card__tags">
         ${dinnerTags.map(t => `<span class="chip-xs">${t}</span>`).join('')}
       </div>
+      ${dinner?.swaps?.length ? `<button class="swap-chip" data-date="${day.date}">+ ${dinner.swaps.length} swap${dinner.swaps.length > 1 ? 's' : ''} pour ${dinner.swaps.length === 1 ? dinner.swaps[0].name : 'la famille'}</button>` : ''}
       <div class="semaine-day-header">
         <span class="semaine-day-name">${day.label}</span>
         <span class="semaine-day-date">${dateShort}</span>
@@ -520,3 +522,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// ── Swap drawer ──────────────────────────────────────────────
+(function () {
+  document.addEventListener('click', e => {
+    const chip = e.target.closest('.swap-chip');
+    if (!chip) return;
+    const date = chip.dataset.date;
+    const menuData = window._omqMenuData;
+    if (!menuData) return;
+    const day = menuData.days.find(d => d.date === date);
+    const dinner = day?.meals?.dinner;
+    if (!dinner?.swaps?.length) return;
+    openSwapDrawer(dinner);
+  });
+
+  window.closeSwapDrawer = function () {
+    document.getElementById('swap-overlay').classList.remove('is-open');
+  };
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeSwapDrawer();
+  });
+
+  function openSwapDrawer(dinner) {
+    document.getElementById('swap-drawer-title').textContent = dinner.name;
+    const body = document.getElementById('swap-drawer-body');
+    body.innerHTML = dinner.swaps.map(eater => `
+      <div class="swap-eater-card">
+        <div class="swap-eater-avatar" style="background:${eater.color}">${eater.initial}</div>
+        <div>
+          <span class="swap-eater-name">${eater.name}</span>
+          <span class="swap-eater-note">${eater.note}</span>
+          ${eater.adjustments.map(adj => `
+            <div class="swap-adjustment">
+              <span class="swap-adjustment-from">${adj.from}</span>
+              <span class="swap-adjustment-to">→ ${adj.to}</span>
+            </div>
+          `).join('')}
+        </div>
+        <span class="swap-eater-ok">✓ ok</span>
+      </div>
+    `).join('');
+    document.getElementById('swap-overlay').classList.add('is-open');
+  }
+})();

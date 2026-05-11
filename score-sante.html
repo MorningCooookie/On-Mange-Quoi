@@ -34,11 +34,12 @@
 
     .ss-eyebrow {
       display: inline-block;
-      font-family: var(--font-mono);
+      font-family: var(--font-body);
       font-size: var(--fs-12);
-      letter-spacing: 0.12em;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--ink-500);
+      color: var(--accent-amber);
       margin-bottom: var(--s-12);
     }
 
@@ -78,15 +79,17 @@
     }
     .ss-letter {
       background: var(--bg);
-      border: 1px solid var(--ink-200);
-      border-radius: var(--r-12);
-      padding: var(--s-20);
+      border-radius: 20px;
+      padding: var(--s-24) var(--s-20);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: var(--s-12);
+      gap: var(--s-14);
       text-align: center;
     }
+    .ss-letter.is-a-card { background: var(--green-100); }
+    .ss-letter.is-b-card { background: var(--cream-100); }
+    .ss-letter.is-c-card { background: #FDF0E8; }
     .ss-letter-circle {
       width: 64px;
       height: 64px;
@@ -138,20 +141,20 @@
     .ss-signals {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      border: 1px solid var(--ink-200);
-      border-radius: var(--r-16);
-      overflow: hidden;
-      background: var(--bg);
+      gap: var(--s-16);
     }
     .ss-signal {
       padding: var(--s-24);
-      border-right: 1px solid var(--ink-200);
+      border-radius: 20px;
       display: flex;
       flex-direction: column;
       gap: var(--s-12);
       min-height: 280px;
     }
-    .ss-signal:last-child { border-right: none; }
+    .ss-signal.sig-01 { background: var(--green-100); }
+    .ss-signal.sig-02 { background: #E8F2F8; }
+    .ss-signal.sig-03 { background: var(--cream-100); }
+    .ss-signal.sig-04 { background: #F0EDE4; }
 
     .ss-signal-num {
       font-family: var(--font-mono);
@@ -196,9 +199,9 @@
       margin: 0;
     }
 
-    /* Strategy card — dark editorial */
+    /* Strategy card — warm dark */
     .ss-strategy {
-      background: var(--ink-900);
+      background: var(--green-800);
       color: var(--cream-50);
       border-radius: var(--r-16);
       padding: var(--s-40);
@@ -250,20 +253,21 @@
 
     /* Sources */
     .ss-sources {
-      background: var(--bg);
-      border: 1px solid var(--ink-200);
-      border-radius: var(--r-12);
-      padding: var(--s-24);
+      background: var(--cream-50);
+      border-radius: var(--r-16);
+      box-shadow: 0 2px 16px rgba(30,21,10,0.06);
+      padding: var(--s-28);
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: var(--s-24);
+      gap: var(--s-28);
     }
     .ss-source-label {
-      font-family: var(--font-mono);
+      font-family: var(--font-body);
       font-size: 11px;
-      letter-spacing: 0.12em;
+      font-weight: 700;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--ink-500);
+      color: var(--accent-amber);
     }
     .ss-source p {
       margin-top: var(--s-6);
@@ -314,25 +318,14 @@
       .ss-signals {
         grid-template-columns: 1fr 1fr;
       }
-      .ss-signal {
-        border-right: 1px solid var(--ink-200);
-        border-bottom: 1px solid var(--ink-200);
-        min-height: 220px;
-      }
-      .ss-signal:nth-child(2n) { border-right: none; }
-      .ss-signal:nth-last-child(-n+2) { border-bottom: none; }
+      .ss-signal { min-height: 220px; }
       .ss-sources { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       .ss-page { padding: var(--s-32) var(--s-20) var(--s-64); }
       .ss-letters { grid-template-columns: 1fr; }
       .ss-signals { grid-template-columns: 1fr; }
-      .ss-signal {
-        border-right: none;
-        border-bottom: 1px solid var(--ink-200);
-        min-height: auto;
-      }
-      .ss-signal:last-child { border-bottom: none; }
+      .ss-signal { min-height: auto; }
       .ss-strategy { padding: var(--s-24); }
     }
   </style>
@@ -372,21 +365,21 @@
         </p>
       </div>
       <div class="ss-letters">
-        <div class="ss-letter">
+        <div class="ss-letter is-a-card">
           <span class="ss-letter-circle is-a">A</span>
           <div>
             <h4>Excellent</h4>
             <p>Dans les niveaux recommandés, bonne variété.</p>
           </div>
         </div>
-        <div class="ss-letter">
+        <div class="ss-letter is-b-card">
           <span class="ss-letter-circle is-b">B</span>
           <div>
             <h4>Bon</h4>
             <p>Quelques ajustements possibles.</p>
           </div>
         </div>
-        <div class="ss-letter">
+        <div class="ss-letter is-c-card">
           <span class="ss-letter-circle is-c">C</span>
           <div>
             <h4>À améliorer</h4>
@@ -402,7 +395,7 @@
       <h2 class="ss-h2">Quatre signaux. Tous calmes, tous vérifiables.</h2>
 
       <div class="ss-signals">
-        <div class="ss-signal">
+        <div class="ss-signal sig-01">
           <span class="ss-signal-num">01</span>
           <h3>Cadmium</h3>
           <p class="ss-signal-desc">Métal lourd absorbé par certaines cultures (cacao, riz, légumes-racines).</p>
@@ -411,7 +404,7 @@
             <p>On varie les sources. Pas de panique sur un repas isolé.</p>
           </div>
         </div>
-        <div class="ss-signal">
+        <div class="ss-signal sig-02">
           <span class="ss-signal-num">02</span>
           <h3>Mercure</h3>
           <p class="ss-signal-desc">Présent surtout dans les gros poissons prédateurs (thon, espadon).</p>
@@ -420,7 +413,7 @@
             <p>Un poisson par semaine, on alterne les espèces.</p>
           </div>
         </div>
-        <div class="ss-signal">
+        <div class="ss-signal sig-03">
           <span class="ss-signal-num">03</span>
           <h3>Pesticides</h3>
           <p class="ss-signal-desc">Résidus phytosanitaires. Le top 12 (fraises, fenouil, raisin…) en concentre la majorité.</p>
@@ -429,7 +422,7 @@
             <p>Bio quand ça compte vraiment, classique pour le reste.</p>
           </div>
         </div>
-        <div class="ss-signal">
+        <div class="ss-signal sig-04">
           <span class="ss-signal-num">04</span>
           <h3>Variété</h3>
           <p class="ss-signal-desc">Manger toujours pareil concentre l'exposition. Diversifier la dilue.</p>

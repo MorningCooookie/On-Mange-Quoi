@@ -116,7 +116,7 @@
       </div>
       <div class="score-band__metrics" id="sb-metrics"></div>
       <div class="score-band__right">
-        <span class="score-band__chip">↗ semaine précédente</span>
+        <span class="score-band__chip" id="sb-chip">↗ sem. préc.</span>
         <a href="score-sante.html" class="score-band__link">Comment c'est calculé</a>
       </div>
     </section>
@@ -229,6 +229,20 @@
       </div>
 
       <p class="fiche-note" id="fiche-note"></p>
+    </div>
+  </div>
+
+  <!-- ── Swap coordination drawer ────────────────────────── -->
+  <div class="swap-overlay" id="swap-overlay" onclick="if(event.target===this) closeSwapDrawer()">
+    <div class="swap-drawer" id="swap-drawer" role="dialog" aria-modal="true" aria-labelledby="swap-drawer-title">
+      <div class="swap-drawer__header">
+        <div>
+          <span class="swap-drawer__eyebrow">Coordination familiale</span>
+          <h2 class="swap-drawer__title" id="swap-drawer-title"></h2>
+        </div>
+        <button class="swap-drawer__close" onclick="closeSwapDrawer()" aria-label="Fermer">×</button>
+      </div>
+      <div class="swap-drawer__body" id="swap-drawer-body"></div>
     </div>
   </div>
 

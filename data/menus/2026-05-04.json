@@ -527,6 +527,32 @@
             "Ajouter concentré de tomates, tomates concassées, thym, laurier. Mijoter à feu doux 25-30 min.",
             "Cuire les pâtes al dente. Égoutter.",
             "Servir la bolognaise sur les pâtes avec parmesan râpé."
+          ],
+          "swaps": [
+            {
+              "name": "Emma",
+              "initial": "E",
+              "color": "#D4853C",
+              "adjustments": [
+                {
+                  "from": "Sauce bolognaise",
+                  "to": "Sauce tomate seule (sans viande)"
+                }
+              ],
+              "note": "n'aime pas les morceaux de viande"
+            },
+            {
+              "name": "Sophie",
+              "initial": "S",
+              "color": "#2D6A4F",
+              "adjustments": [
+                {
+                  "from": "Pâtes blé",
+                  "to": "Pâtes sans gluten (sarrasin)"
+                }
+              ],
+              "note": "intolérance au gluten"
+            }
           ]
         }
       }
