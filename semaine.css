@@ -1229,18 +1229,19 @@ body {
     line-height: 1;
   }
 
-  /* Striped placeholder */
   .day-card__placeholder {
     height: 64px;
     border-radius: 10px;
-    background: repeating-linear-gradient(
-      135deg,
-      var(--cream-100) 0px,
-      var(--cream-100) 8px,
-      var(--cream-200) 8px,
-      var(--cream-200) 16px
-    );
+    background: var(--cream-100);
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-200, #DDD8D0);
+  }
+  .day-card__placeholder svg {
+    width: 36px;
+    height: 36px;
   }
 
   .day-card__dinner-title {

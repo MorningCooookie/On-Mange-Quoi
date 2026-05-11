@@ -363,7 +363,7 @@ function renderMenu(data, history) {
         <span class="day-card__abbrev">${abbrev}</span>
         <span class="day-card__num">${dayNum}</span>
       </div>
-      <div class="day-card__placeholder"></div>
+      <div class="day-card__placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="16" cy="16" r="11"/><circle cx="16" cy="16" r="6.5"/></svg></div>
       <h4 class="day-card__dinner-title">${dinner?.name || '—'}</h4>
       <div class="day-card__tags">
         ${dinnerTags.map(t => `<span class="chip-xs">${t}</span>`).join('')}

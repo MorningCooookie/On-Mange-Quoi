@@ -280,16 +280,11 @@ body {
   color: var(--ink-500);
 }
 
-.output-empty .placeholder {
-  width: 120px;
-  height: 120px;
-  border-radius: var(--r-12);
-  background:
-    repeating-linear-gradient(
-      135deg,
-      var(--cream-100) 0 8px,
-      var(--cream-200) 8px 16px
-    );
+.output-empty .empty-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--ink-300, #C8BFB0);
+  margin-bottom: 0.5rem;
 }
 
 .output-empty p {

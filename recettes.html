@@ -27,10 +27,10 @@
       </a>
       <nav class="landing-header__nav" aria-label="Navigation principale">
         <a href="/">Accueil</a>
-        <a href="semaine.html">Mon menu</a>
+        <a href="semaine.html">Cette semaine</a>
         <a href="courses.html">Liste de courses</a>
         <a href="recettes.html" aria-current="page" style="color:var(--green-800);font-weight:600;">Recettes</a>
-        <a href="fiche.html">Fiche mémo</a>
+        <a href="fiche.html">Guide santé</a>
       </nav>
     </div>
     <div class="landing-header__actions">
@@ -107,7 +107,14 @@
 
         <!-- Empty state -->
         <div id="result-empty" class="output-state output-empty">
-          <div class="placeholder" aria-hidden="true"></div>
+          <svg class="empty-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <ellipse cx="24" cy="34" rx="16" ry="5" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M8 34 C8 22 40 22 40 34" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M17 22 C17 16 31 16 31 22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M24 10 L24 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M18 12 L19.5 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M30 12 L28.5 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
           <p>Décrivez ce que vous avez envie de cuisiner. La génération est gratuite et illimitée pendant la phase d'ouverture.</p>
         </div>
 
