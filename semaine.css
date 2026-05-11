@@ -839,14 +839,14 @@ body {
 
 /* ── Utilitaires boutons ─────────────────────────────────── */
 .semaine-week-btn {
-  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
   padding: 6px 14px;
-  border-radius: 8px;
-  border: 1.5px solid var(--border, #E5E5E5);
+  border-radius: 999px;
+  border: 1px solid var(--ink-200);
   background: transparent;
-  color: var(--text, #1F1F1F);
+  color: var(--ink-900);
   cursor: pointer;
   text-decoration: none;
   display: inline-flex;
@@ -854,14 +854,14 @@ body {
   transition: background 150ms;
   white-space: nowrap;
 }
-.semaine-week-btn:hover:not(:disabled) { background: var(--card-bg, #FAF7F2); }
+.semaine-week-btn:hover:not(:disabled) { background: var(--cream-50); }
 .semaine-week-btn:disabled { opacity: 0.4; cursor: default; }
 .semaine-week-btn--primary {
-  background: var(--green, #1B4332);
-  color: #fff;
+  background: var(--green-800);
+  color: var(--bg-soft);
   border-color: transparent;
 }
-.semaine-week-btn--primary:hover:not(:disabled) { background: var(--green-light, #40916C); }
+.semaine-week-btn--primary:hover:not(:disabled) { background: var(--green-700); }
 
 /* ── Masquer les éléments desktop sur mobile ─────────────── */
 .side-rail           { display: none; }
@@ -888,9 +888,9 @@ body {
     gap: 24px;
     width: 240px;
     flex-shrink: 0;
-    border-right: 1px solid var(--border, #E5E5E5);
+    border-right: 1px solid var(--ink-100);
     padding: 24px 20px;
-    background: var(--bg, #fff);
+    background: var(--bg);
     position: sticky;
     top: 0;
     height: 100vh;
@@ -902,13 +902,13 @@ body {
     font-size: 15px;
     font-weight: 700;
     letter-spacing: -0.02em;
-    color: var(--text, #1F1F1F);
+    color: var(--ink-900);
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 8px;
   }
-  .side-rail__brand-mark { color: var(--green, #1B4332); }
+  .side-rail__brand-mark { color: var(--green-800); }
 
   .side-rail__nav {
     display: flex;
@@ -924,18 +924,19 @@ body {
     border-radius: 8px;
     font-size: 14px;
     font-weight: 500;
-    color: var(--text-muted, #6B7280);
+    color: var(--ink-700);
     text-decoration: none;
     transition: background 150ms;
+    min-height: 44px;
   }
   .side-rail__item:hover {
-    background: var(--card-bg, #FAF7F2);
-    color: var(--text, #1F1F1F);
+    background: var(--cream-50);
+    color: var(--ink-900);
   }
   .side-rail__item--active {
-    background: #D1FAE5;
-    color: var(--green, #1B4332);
-    font-weight: 600;
+    background: var(--green-100);
+    color: var(--green-800);
+    font-weight: 700;
   }
 
   .side-rail__icon {
@@ -948,16 +949,17 @@ body {
 
   .side-rail__divider {
     border: none;
-    border-top: 1px solid var(--border, #E5E5E5);
+    border-top: 1px solid var(--ink-100);
     margin: 0;
   }
 
   .side-rail__eyebrow {
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: 10px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--text-muted, #6B7280);
+    color: var(--accent-amber);
     display: block;
     margin-bottom: 8px;
   }
@@ -970,15 +972,15 @@ body {
     gap: 10px;
     padding: 8px;
     border-radius: 8px;
-    background: var(--card-bg, #FAF7F2);
+    background: var(--cream-50);
   }
 
   .side-rail__avatar {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: var(--green, #1B4332);
-    color: #fff;
+    background: var(--green-800);
+    color: var(--cream-50);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -991,27 +993,28 @@ body {
   .side-rail__profile-name {
     font-size: 13px;
     font-weight: 600;
-    color: var(--text, #1F1F1F);
+    color: var(--ink-900);
     line-height: 1.2;
   }
 
   .side-rail__profile-sub {
     font-size: 11px;
-    color: var(--text-muted, #6B7280);
+    color: var(--ink-500);
   }
 
   .side-rail__upsell {
     margin-top: auto;
     padding: 12px;
     border-radius: 10px;
-    border: 1px dashed var(--border, #E5E5E5);
+    border: 1px dashed var(--ink-200);
   }
 
   .side-rail__upsell-label {
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+    font-family: var(--font-body);
     font-size: 10px;
+    font-weight: 600;
     letter-spacing: 0.12em;
-    color: var(--text-muted, #6B7280);
+    color: var(--ink-500);
     text-transform: uppercase;
     display: block;
     margin-bottom: 6px;
@@ -1020,12 +1023,12 @@ body {
   .side-rail__upsell-text {
     font-size: 12px;
     line-height: 1.4;
-    color: var(--text-muted, #6B7280);
+    color: var(--ink-700);
     margin: 0;
   }
 
   .side-rail__upsell-link {
-    color: var(--green, #1B4332);
+    color: var(--green-800);
     text-decoration: underline;
     text-underline-offset: 2px;
   }
@@ -1039,7 +1042,7 @@ body {
   .side-rail__auth-login {
     font-size: 12px;
     font-weight: 600;
-    color: var(--green, #1B4332);
+    color: var(--green-800);
     text-decoration: none;
   }
   .side-rail__auth-login:hover { text-decoration: underline; }
@@ -1086,26 +1089,27 @@ body {
   }
 
   .semaine-page-eyebrow {
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: 11px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--text-muted, #6B7280);
+    color: var(--accent-amber);
     display: block;
     margin-bottom: 6px;
   }
 
   .semaine-page-title {
     font-family: var(--font-display, 'Fraunces', serif);
-    font-size: 36px;
-    font-weight: 700;
+    font-size: 44px;
+    font-weight: 600;
     letter-spacing: -0.025em;
     line-height: 1.1;
     margin: 0;
-    color: var(--text, #1F1F1F);
+    color: var(--ink-900);
   }
 
-  .semaine-page-title__sub { color: var(--text-muted, #6B7280); }
+  .semaine-page-title__sub { color: var(--ink-500); }
 
   .semaine-page-nav {
     display: flex;
@@ -1131,19 +1135,19 @@ body {
   .filter-chip {
     padding: 6px 14px;
     border-radius: 999px;
-    border: 1px solid var(--border, #E5E5E5);
+    border: 1px solid var(--ink-200);
     font-size: 13px;
     font-weight: 500;
-    color: var(--text-muted, #6B7280);
+    color: var(--ink-700);
     cursor: pointer;
     white-space: nowrap;
     transition: all 150ms;
   }
-  .filter-chip:hover { border-color: var(--green, #1B4332); color: var(--green, #1B4332); }
+  .filter-chip:hover { border-color: var(--green-800); color: var(--green-800); }
   .filter-chip--active {
-    background: var(--green, #1B4332);
-    border-color: var(--green, #1B4332);
-    color: #fff;
+    background: var(--ink-900);
+    border-color: var(--ink-900);
+    color: var(--bg-soft);
     font-weight: 600;
   }
 
@@ -1171,32 +1175,34 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 14px;
-    border-radius: 12px;
-    min-height: 220px;
-    border: 1px solid var(--border, #E5E5E5);
-    background: var(--bg, #fff);
+    padding: 16px;
+    border-radius: 18px;
+    min-height: 240px;
+    border: none;
+    box-shadow: 0 2px 14px rgba(30,21,10,0.07);
+    background: var(--bg);
     position: relative;
     overflow: visible;
     cursor: default;
   }
 
   .semaine-day-card.is-today {
-    border: 1.5px solid var(--green, #1B4332);
+    background: var(--green-100);
+    box-shadow: none;
   }
 
   /* Pill "aujourd'hui" */
   .today-pill {
     position: absolute;
-    top: -10px;
+    top: -9px;
     left: 12px;
-    background: var(--green, #1B4332);
-    color: #fff;
-    font-size: 9px;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    letter-spacing: 0.08em;
+    background: var(--green-800);
+    color: var(--cream-50);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     white-space: nowrap;
   }
@@ -1209,38 +1215,39 @@ body {
   }
 
   .day-card__abbrev {
-    font-size: 10px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--text-muted, #6B7280);
+    color: var(--ink-500);
   }
 
   .day-card__num {
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: 18px;
-    color: var(--text-muted, #6B7280);
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink-700);
     line-height: 1;
   }
 
   /* Striped placeholder */
   .day-card__placeholder {
-    height: 52px;
-    border-radius: 6px;
+    height: 64px;
+    border-radius: 10px;
     background: repeating-linear-gradient(
-      -45deg,
-      var(--card-bg, #FAF7F2) 0px,
-      var(--card-bg, #FAF7F2) 4px,
-      var(--border, #E5E5E5) 4px,
-      var(--border, #E5E5E5) 6px
+      135deg,
+      var(--cream-100) 0px,
+      var(--cream-100) 8px,
+      var(--cream-200) 8px,
+      var(--cream-200) 16px
     );
     flex-shrink: 0;
   }
 
   .day-card__dinner-title {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
-    line-height: 1.35;
-    color: var(--text, #1F1F1F);
+    line-height: 1.3;
+    color: var(--ink-900);
     margin: 0;
     flex: 1;
   }
@@ -1252,12 +1259,13 @@ body {
   }
 
   .chip-xs {
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: 9px;
-    padding: 2px 6px;
-    background: var(--card-bg, #FAF7F2);
-    border-radius: 4px;
-    color: var(--text-muted, #6B7280);
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    background: var(--cream-100);
+    border-radius: 999px;
+    color: var(--ink-700);
   }
 
   .day-card__footer {
@@ -1265,7 +1273,6 @@ body {
     display: flex;
     align-items: center;
     padding-top: 8px;
-    border-top: 1px solid var(--border, #E5E5E5);
   }
 
   .day-card__risk-dot {
@@ -1275,20 +1282,14 @@ body {
     flex-shrink: 0;
   }
 
-  /* Day card desktop : 4 repas visibles, plus le surlignage dîner-seul */
+  /* Day card desktop : vue dîner-seul (placeholder + titre + tags) */
   .semaine-day-card .semaine-day-header   { display: none; }
-  .semaine-day-card .day-card__placeholder,
-  .semaine-day-card .day-card__dinner-title,
-  .semaine-day-card .day-card__tags       { display: none; }
+  .semaine-day-card .semaine-day-meals    { display: none; }
 
   .semaine-day-card { min-height: 280px; gap: 8px; }
 
   .semaine-day-card .semaine-day-meals {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    margin: 0 -14px;            /* full-bleed dans la card */
-    padding: 0;
+    display: none;
   }
   .semaine-day-card .semaine-meal-row {
     display: block;
@@ -1349,33 +1350,37 @@ body {
   .risk-suggestions {
     display: block;
     padding: 24px;
-    background: var(--bg, #fff);
-    border: 1px solid var(--border, #E5E5E5);
-    border-radius: 12px;
+    background: var(--bg);
+    box-shadow: 0 2px 14px rgba(30,21,10,0.06);
+    border-radius: 18px;
     margin-top: 8px;
     margin-bottom: 32px;
   }
 
   .risk-suggestions__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 16px;
   }
 
   .risk-suggestions__eyebrow {
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: 10px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--text-muted, #6B7280);
+    color: var(--accent-amber);
     display: block;
     margin-bottom: 4px;
   }
 
   .risk-suggestions__title {
     font-family: var(--font-display, 'Fraunces', serif);
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 600;
     margin: 0;
-    color: var(--text, #1F1F1F);
+    color: var(--ink-900);
   }
 
   .risk-suggestions__grid {
@@ -1387,38 +1392,39 @@ body {
   .suggestion-card {
     padding: 16px;
     border-radius: 10px;
-    background: var(--card-bg, #FAF7F2);
+    background: var(--cream-50);
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
 
   .suggestion-card__tag {
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+    font-family: var(--font-body);
     font-size: 10px;
+    font-weight: 600;
     letter-spacing: 0.12em;
-    color: var(--green, #1B4332);
+    color: var(--green-800);
     text-transform: uppercase;
   }
 
   .suggestion-card__title {
     font-size: 14px;
     font-weight: 600;
-    color: var(--text, #1F1F1F);
+    color: var(--ink-900);
     margin: 0;
   }
 
   .suggestion-card__body {
-    font-size: 12px;
-    color: var(--text-muted, #6B7280);
+    font-size: 13px;
+    color: var(--ink-700);
     line-height: 1.5;
     margin: 0;
     flex: 1;
   }
 
   .suggestion-card__action {
-    font-size: 12px;
-    color: var(--green, #1B4332);
+    font-size: 13px;
+    color: var(--green-800);
     font-weight: 600;
     text-decoration: none;
     margin-top: 4px;
