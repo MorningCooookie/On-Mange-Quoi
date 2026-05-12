@@ -205,45 +205,33 @@ body {
 }
 
 /* ── Footer ─────────────────────────────────────────────── */
-.semaine-footer {
-  text-align: center;
-  font-size: .8rem;
-  color: var(--ink-500);
-  padding: 1rem 0 0;
-  border-top: 1px solid var(--ink-200);
-  margin-bottom: 1.5rem;
-}
-
-/* ── Actions ────────────────────────────────────────────── */
+/* ── Actions (share button) ─────────────────────────────── */
 .semaine-actions {
   display: flex;
-  gap: .65rem;
   justify-content: center;
-  flex-wrap: wrap;
+  padding: var(--s-8) 0 var(--s-24);
 }
-
-.semaine-btn {
-  font-family: var(--font-body);
-  font-size: .875rem;
-  font-weight: 600;
-  padding: .55rem 1.2rem;
-  border-radius: var(--r-8);
-  border: 1.5px solid var(--ink-200);
-  background: transparent;
-  color: var(--ink-700);
-  cursor: pointer;
-  transition: all 150ms;
-}
-
-.semaine-btn:hover { background: var(--ink-100); border-color: var(--ink-300); }
 
 .semaine-btn--share {
-  background: var(--green-800);
-  color: #fff;
-  border-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-8);
+  padding: var(--s-12) var(--s-24);
+  border-radius: var(--r-pill);
+  border: 1px solid var(--ink-200);
+  background: var(--bg);
+  color: var(--ink-700);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--fs-14);
+  cursor: pointer;
+  transition: border-color 150ms ease, background 150ms ease;
 }
 
-.semaine-btn--share:hover { background: var(--green-700); }
+.semaine-btn--share:hover {
+  border-color: var(--ink-400);
+  background: var(--cream-50);
+}
 
 /* Bouton retour — bordure verte, texte vert, hover inversé */
 .semaine-btn--back {
@@ -561,53 +549,43 @@ body {
 
 /* ── Newsletter strip ──────────────────────────────────────── */
 .newsletter-strip {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  background: var(--green-100);
-  border: 1px solid var(--green-300);
-  border-radius: var(--r-16);
-  padding: 1.5rem 2rem;
-  margin: 1.5rem 0;
-  flex-wrap: wrap;
-}
-
-.newsletter-strip__left {
+  background: transparent;
+  border-radius: 0;
+  border-top: 1px solid var(--ink-100);
+  border-bottom: none;
+  padding: var(--s-32) 0 var(--s-24);
+  margin: var(--s-8) 0 0;
   display: flex;
   flex-direction: column;
-  gap: .3rem;
+  gap: var(--s-16);
 }
+
+.newsletter-strip__left { display: none; }
 
 .newsletter-strip__title {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--green-800);
-  letter-spacing: -.01em;
-}
-
-.newsletter-strip__sub {
-  font-size: .8rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-11);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--ink-500);
+  white-space: normal;
+  margin: 0 0 var(--s-12);
 }
 
 .newsletter-strip__form {
   display: flex;
-  gap: .5rem;
-  flex-shrink: 0;
-  flex-wrap: wrap;
+  gap: var(--s-8);
 }
 
 .newsletter-strip__input {
-  padding: .55rem 1rem;
-  border: 1px solid var(--green-300);
-  border-radius: var(--r-8);
+  flex: 1;
+  padding: var(--s-12) var(--s-16);
+  border: 1px solid var(--ink-200);
+  border-radius: var(--r-pill);
   font-family: var(--font-body);
-  font-size: .875rem;
-  color: var(--ink-700);
-  background: white;
-  width: 200px;
+  font-size: var(--fs-14);
+  color: var(--ink-900);
+  background: var(--bg);
   outline: none;
   transition: border-color 150ms;
 }
@@ -616,13 +594,13 @@ body {
 .newsletter-strip__input::placeholder { color: var(--ink-300); }
 
 .newsletter-strip__btn {
-  padding: .55rem 1.1rem;
+  padding: var(--s-12) var(--s-20);
   background: var(--green-800);
-  color: white;
+  color: var(--cream-50);
   border: none;
-  border-radius: var(--r-8);
+  border-radius: var(--r-pill);
   font-family: var(--font-body);
-  font-size: .875rem;
+  font-size: var(--fs-14);
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
@@ -631,12 +609,6 @@ body {
 
 .newsletter-strip__btn:hover:not(:disabled) { background: var(--green-700); }
 .newsletter-strip__btn:disabled { opacity: .5; cursor: not-allowed; }
-
-@media (max-width: 500px) {
-  .newsletter-strip { flex-direction: column; align-items: flex-start; }
-  .newsletter-strip__form { width: 100%; }
-  .newsletter-strip__input { flex: 1; width: auto; }
-}
 
 /* ── Score hero band (Phase 2 redesign) ─────────────────── */
 
