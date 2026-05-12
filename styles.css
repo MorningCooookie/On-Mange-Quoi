@@ -2469,6 +2469,10 @@ body.modal-open { overflow: hidden; }
     padding: 16px 20px;
   }
   .landing-header__nav { display: none; }
+  /* Masquer le CTA "Commencer" dans le header sur mobile — il est sur la page */
+  .landing-header .btn--landing-sm { display: none; }
+  /* Empêcher la marque de wrapper */
+  .brand--landing { white-space: nowrap; }
   .user-menu-dropdown { right: 16px; top: 56px; }
 }
 
