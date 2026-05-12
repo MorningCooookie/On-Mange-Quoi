@@ -1615,3 +1615,95 @@ body {
     transform: translateY(0);
   }
 }
+
+/* ============================================================
+   GLOBAL OVERRIDES — chip-xs mobile fix + grade badge + tab bar
+   ============================================================ */
+
+/* chip-xs must work on all viewports, not just ≥1024px */
+.day-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.chip-xs {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  background: var(--cream-100);
+  border-radius: 999px;
+  color: var(--ink-700);
+}
+
+/* ── Day card grade badge (replaces dot) ────────────────── */
+.day-card__grade {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--cream-50);
+  flex-shrink: 0;
+}
+.day-card__grade--a { background: var(--score-a); }
+.day-card__grade--b { background: var(--score-b); }
+.day-card__grade--c { background: var(--score-c); }
+
+/* ── Bottom tab bar ─────────────────────────────────────── */
+.bottom-tab-bar {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .bottom-tab-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--bg);
+    padding: 10px 8px env(safe-area-inset-bottom, 16px);
+    justify-content: space-around;
+    box-shadow: 0 -4px 20px rgba(30,21,10,0.07);
+  }
+
+  .tab-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: var(--ink-500);
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 600;
+    font-family: var(--font-body);
+    padding: 4px 12px;
+  }
+
+  .tab-item--active { color: var(--green-800); }
+
+  .tab-item__icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tab-item--active .tab-item__icon {
+    background: var(--green-100);
+  }
+
+  .semaine-layout {
+    padding-bottom: 72px;
+  }
+}

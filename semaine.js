@@ -92,6 +92,12 @@ function riskDotColor(level) {
   return { low: 'var(--risk-low)', medium: 'var(--risk-medium)', high: 'var(--risk-high)' }[level] || 'var(--risk-low)';
 }
 
+function gradeFromRisk(level) {
+  if (level === 'high') return 'c';
+  if (level === 'medium') return 'b';
+  return 'a';
+}
+
 function riskLabel(level) {
   if (!level || level === 'low') return 'Risque faible';
   return level === 'medium' ? 'Risque modéré' : 'Risque élevé';
@@ -349,6 +355,7 @@ function renderMenu(data, history) {
     const dayNum    = String(new Date(day.date + 'T12:00:00').getDate()).padStart(2, '0');
     const dotColor  = riskDotColor(dinner?.riskLevel || 'low');
     const dotLabel  = riskLabel(dinner?.riskLevel || 'low');
+    const grade     = gradeFromRisk(dinner?.riskLevel);
 
     card.className = 'semaine-day-card' + (isToday ? ' is-today' : '');
     card.dataset.dinnerTags = (dinner?.tags || []).join(',').toLowerCase();
@@ -375,7 +382,7 @@ function renderMenu(data, history) {
       </div>
       <div class="semaine-day-meals" id="semaine-meals-${day.date}"></div>
       <div class="day-card__footer">
-        <span class="day-card__risk-dot" style="background:${dotColor}" title="${dotLabel}"></span>
+        <span class="day-card__grade day-card__grade--${grade}" title="${dotLabel}">${grade.toUpperCase()}</span>
       </div>`;
 
     grid.appendChild(card);
