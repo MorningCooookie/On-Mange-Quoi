@@ -1598,6 +1598,7 @@ body {
 }
 
 @media (max-width: 767px) {
+  .day-card__placeholder { display: none; }
   .swap-drawer {
     top: auto;
     right: 0;
