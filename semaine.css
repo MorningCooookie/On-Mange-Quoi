@@ -1834,3 +1834,97 @@ body {
 
   .score-band__right { display: none; }
 }
+
+/* ── Mobile active card — supprimer l'ancien design ─────── */
+@media (max-width: 1023px) {
+  /* Masquer le header vert foncé (ancien design) */
+  .semaine-day-card.mobile-active .semaine-day-header { display: none; }
+
+  /* Masquer les éléments de la carte desktop (icône placeholder, abbrev/num) */
+  .semaine-day-card.mobile-active .day-card__top       { display: none; }
+  .semaine-day-card.mobile-active .day-card__placeholder { display: none; }
+  .semaine-day-card.mobile-active .day-card__footer    { display: none; }
+
+  /* Afficher la liste complète des repas */
+  .semaine-day-card.mobile-active .semaine-day-meals   { display: block; }
+
+  /* Style de la carte active sur mobile */
+  .semaine-day-card.mobile-active {
+    background: var(--bg);
+    border: 1px solid var(--ink-100);
+    border-radius: 20px;
+    padding: 0;
+    overflow: hidden;
+    margin: 0 20px;
+  }
+
+  /* En-tête de la carte : titre dîner + grade */
+  .semaine-day-card.mobile-active .day-card__dinner-title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink-900);
+    line-height: 1.25;
+    padding: 20px 20px 4px;
+    margin: 0;
+  }
+
+  .semaine-day-card.mobile-active .day-card__tags {
+    padding: 0 20px 16px;
+    border-bottom: 1px solid var(--ink-100);
+    gap: 6px;
+  }
+
+  .semaine-day-card.mobile-active .swap-chip {
+    display: none;
+  }
+
+  /* Rangées de repas propres */
+  .semaine-day-card.mobile-active .semaine-meal-row {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    gap: 12px;
+    border-bottom: 1px solid var(--ink-100);
+    cursor: default;
+  }
+
+  .semaine-day-card.mobile-active .semaine-meal-row:last-child {
+    border-bottom: none;
+  }
+
+  .semaine-day-card.mobile-active .semaine-meal-row--clickable {
+    cursor: pointer;
+  }
+
+  .semaine-day-card.mobile-active .semaine-meal-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .semaine-day-card.mobile-active .semaine-meal-type {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-400, #8C8075);
+    margin-bottom: 2px;
+  }
+
+  .semaine-day-card.mobile-active .semaine-meal-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-900);
+    line-height: 1.35;
+  }
+
+  .semaine-day-card.mobile-active .semaine-prep-badge {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-400);
+    white-space: nowrap;
+  }
+
+  .semaine-day-card.mobile-active .semaine-meal-icon { display: none; }
+  .semaine-day-card.mobile-active .semaine-risk-dot  { display: none; }
+}
