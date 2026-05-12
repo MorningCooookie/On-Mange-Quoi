@@ -1707,3 +1707,130 @@ body {
     padding-bottom: 72px;
   }
 }
+
+/* ── Day chips nav — mobile only ────────────────────────── */
+.day-chips-nav {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .day-chips-nav {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 0 20px 16px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .day-chips-nav::-webkit-scrollbar { display: none; }
+
+  .day-chip {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: var(--bg);
+    color: var(--ink-700);
+    border: none;
+    box-shadow: 0 1px 8px rgba(30,21,10,0.07);
+    cursor: pointer;
+    font-family: var(--font-body);
+    line-height: 1.1;
+  }
+
+  .day-chip__abbrev {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 9px;
+    font-weight: 600;
+    opacity: 0.7;
+  }
+
+  .day-chip__num {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .day-chip.is-active {
+    background: var(--green-800);
+    color: var(--cream-50);
+    box-shadow: none;
+  }
+
+  /* One day at a time on mobile */
+  .semaine-grid .semaine-day-card {
+    display: none;
+  }
+
+  .semaine-grid .semaine-day-card.mobile-active {
+    display: block;
+  }
+}
+
+/* ── Score band mobile — compact comme le handoff MenuMobile ── */
+@media (max-width: 767px) {
+  .score-band {
+    padding: 20px;
+    gap: 16px;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 16px;
+  }
+
+  .score-band__circle {
+    width: 76px;
+    height: 76px;
+    font-size: 52px;
+    flex-shrink: 0;
+  }
+
+  .score-band__left {
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .score-band__headline {
+    font-size: 20px;
+    margin-top: 4px;
+  }
+
+  .score-band__desc {
+    font-size: 12px;
+    color: var(--green-300);
+  }
+
+  /* Metrics: 4 colonnes compactes en mobile (pas 2×2) */
+  .score-band__metrics {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 8px !important;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    border-left: none !important;
+    padding-left: 0 !important;
+  }
+
+  .score-band__metric-label {
+    font-size: 10px;
+    color: var(--green-300);
+  }
+
+  .score-band__metric-num {
+    font-size: 18px;
+  }
+
+  .score-band__metric-unit {
+    font-size: 9px;
+  }
+
+  .score-band__metric-delta {
+    font-size: 9px;
+    color: var(--accent-peach, #F4A57A);
+  }
+
+  .score-band__right { display: none; }
+}

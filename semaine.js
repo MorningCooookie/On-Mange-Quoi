@@ -358,6 +358,7 @@ function renderMenu(data, history) {
     const grade     = gradeFromRisk(dinner?.riskLevel);
 
     card.className = 'semaine-day-card' + (isToday ? ' is-today' : '');
+    card.dataset.date      = day.date;
     card.dataset.dinnerTags = (dinner?.tags || []).join(',').toLowerCase();
     card.dataset.dinnerPrep = dinner?.prepTime ?? 999;
 
@@ -408,6 +409,48 @@ function renderMenu(data, history) {
       if (isClickable) row.addEventListener('click', () => openFiche(meal, type));
       mealsEl.appendChild(row);
     });
+  });
+
+  renderDayChips(data);
+}
+
+function renderDayChips(data) {
+  const nav = document.getElementById('day-chips-nav');
+  if (!nav) return;
+
+  const days = data.days || [];
+  const todayStr = new Date().toISOString().slice(0, 10);
+  const activeDate = days.find(d => d.date === todayStr)?.date || days[0]?.date;
+
+  nav.innerHTML = days.map(day => {
+    const abbrev = (day.label || '').slice(0, 3).toLowerCase();
+    const dayNum = String(new Date(day.date + 'T12:00:00').getDate()).padStart(2, '0');
+    const isActive = day.date === activeDate;
+    return `<button class="day-chip${isActive ? ' is-active' : ''}" data-date="${day.date}" role="tab" aria-selected="${isActive}" type="button">
+      <span class="day-chip__abbrev">${abbrev}</span>
+      <span class="day-chip__num">${dayNum}</span>
+    </button>`;
+  }).join('');
+
+  updateActiveCard(activeDate);
+
+  nav.querySelectorAll('.day-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const date = chip.dataset.date;
+      nav.querySelectorAll('.day-chip').forEach(c => {
+        c.classList.remove('is-active');
+        c.setAttribute('aria-selected', 'false');
+      });
+      chip.classList.add('is-active');
+      chip.setAttribute('aria-selected', 'true');
+      updateActiveCard(date);
+    });
+  });
+}
+
+function updateActiveCard(date) {
+  document.querySelectorAll('.semaine-grid .semaine-day-card').forEach(card => {
+    card.classList.toggle('mobile-active', card.dataset.date === date);
   });
 }
 
