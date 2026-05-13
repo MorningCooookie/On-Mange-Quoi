@@ -538,15 +538,82 @@ body {
 
 .fiche-note:empty { display: none; }
 
-/* Lignes de repas cliquables */
+/* Lignes de repas cliquables — affordance "carte / bouton" premium */
 .semaine-meal-row--clickable {
   cursor: pointer;
-  transition: background 150ms;
-  border-radius: 6px;
+  position: relative;
+  z-index: 1;
+  border-radius: 10px;
+  /* Lift fluide + ombre + bg, garde l'active rapide */
+  transition: transform 0.2s ease-out,
+              box-shadow 0.2s ease-out,
+              background-color 0.2s ease-out;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.semaine-meal-row--clickable:hover {
-  background: rgba(27, 67, 50, 0.05);
+/* Hover desktop uniquement (évite le sticky-hover sur tactile) */
+@media (hover: hover) {
+  .semaine-meal-row--clickable:hover {
+    transform: translateY(-4px);
+    background: var(--card-bg, #FBF9F4);
+    box-shadow: 0 8px 24px rgba(20, 17, 13, 0.08),
+                0 2px 6px rgba(20, 17, 13, 0.04);
+    z-index: 2;
+  }
+}
+
+/* Feedback tactile mobile — sensation bouton */
+.semaine-meal-row--clickable:active {
+  transform: scale(0.97);
+  transition-duration: 0.1s;
+}
+
+/* Accessibilité clavier */
+.semaine-meal-row--clickable:focus-visible {
+  outline: 2px solid var(--green, #1B4332);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+/* Indicateur "Voir la recette →" */
+.semaine-meal-cta {
+  font-family: var(--font-body, 'Work Sans', sans-serif);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--green, #1B4332);
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: center;
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+
+.semaine-meal-cta__text {
+  display: inline-block;
+}
+
+.semaine-meal-cta__arrow {
+  display: inline-block;
+  transition: transform 0.2s ease-out;
+}
+
+/* Desktop (grille 7 jours) : caché par défaut, apparaît au survol.
+   Mobile (liste d'un jour) : CTA toujours visible. */
+@media (min-width: 1024px) and (hover: hover) {
+  .semaine-meal-cta {
+    opacity: 0;
+    transform: translateX(-4px);
+  }
+  .semaine-meal-row--clickable:hover .semaine-meal-cta {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .semaine-meal-row--clickable:hover .semaine-meal-cta__arrow {
+    transform: translateX(3px);
+  }
 }
 
 .semaine-prep-badge {
@@ -1295,15 +1362,42 @@ body {
     padding: 8px 14px;
     border-bottom: 1px solid var(--ink-100, #ECE7DD);
     cursor: default;
-    transition: background 180ms ease;
+    transition: transform 0.2s ease-out,
+                box-shadow 0.2s ease-out,
+                background-color 0.2s ease-out;
     position: relative;
   }
   .semaine-day-card .semaine-meal-row .semaine-meal-icon { display: none; }
   .semaine-day-card .semaine-meal-row:last-child { border-bottom: none; }
-  .semaine-day-card .semaine-meal-row--clickable { cursor: pointer; }
-  .semaine-day-card .semaine-meal-row--clickable:hover {
-    background: var(--bg-soft, #FBF9F4);
+  .semaine-day-card .semaine-meal-row--clickable {
+    cursor: pointer;
+    border-radius: 8px;
   }
+  /* Le day-card overflow:visible permet à la lift de dépasser proprement */
+  .semaine-day-card { overflow: visible; }
+
+  .semaine-day-card .semaine-meal-row--clickable:hover {
+    transform: translateY(-4px);
+    background: var(--bg-soft, #FBF9F4);
+    box-shadow: 0 8px 24px rgba(20, 17, 13, 0.08),
+                0 2px 6px rgba(20, 17, 13, 0.04);
+    z-index: 3;
+    border-bottom-color: transparent;
+  }
+  .semaine-day-card .semaine-meal-row--clickable:active {
+    transform: scale(0.97);
+    transition-duration: 0.1s;
+  }
+
+  /* CTA dans le contexte day-card : flotte en bas-droite, juste la flèche */
+  .semaine-day-card .semaine-meal-cta {
+    position: absolute;
+    bottom: 4px;
+    right: 8px;
+    font-size: 11px;
+    line-height: 1;
+  }
+  .semaine-day-card .semaine-meal-cta__text { display: none; }
   .semaine-day-card .semaine-meal-icon {
     font-size: 13px;
     width: auto;

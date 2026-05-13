@@ -388,6 +388,11 @@ function renderMenu(data, history) {
       row.className = 'semaine-meal-row' + (isClickable ? ' semaine-meal-row--clickable' : '');
       const dotColor = riskDotColor(meal.riskLevel);
       const label    = riskLabel(meal.riskLevel);
+      if (isClickable) {
+        row.setAttribute('role', 'button');
+        row.setAttribute('tabindex', '0');
+        row.setAttribute('aria-label', `Voir la recette : ${meal.name} (${MEAL_LABELS[type]})`);
+      }
       row.innerHTML = `
         <span class="semaine-meal-icon" aria-hidden="true"></span>
         <div class="semaine-meal-info">
@@ -395,8 +400,17 @@ function renderMenu(data, history) {
           <div class="semaine-meal-name">${meal.name}</div>
         </div>
         ${isClickable ? `<span class="semaine-prep-badge">⏱${meal.prepTime}'</span>` : ''}
-        <span class="semaine-risk-dot" style="background:${dotColor}" title="${label}" aria-label="${label}"></span>`;
-      if (isClickable) row.addEventListener('click', () => openFiche(meal, type));
+        <span class="semaine-risk-dot" style="background:${dotColor}" title="${label}" aria-label="${label}"></span>
+        ${isClickable ? `<span class="semaine-meal-cta" aria-hidden="true"><span class="semaine-meal-cta__text">Voir la recette</span><span class="semaine-meal-cta__arrow">→</span></span>` : ''}`;
+      if (isClickable) {
+        row.addEventListener('click', () => openFiche(meal, type));
+        row.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openFiche(meal, type);
+          }
+        });
+      }
       mealsEl.appendChild(row);
     });
   });
