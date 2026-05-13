@@ -47,6 +47,48 @@ body {
   justify-self: end;
 }
 
+.semaine-score__label {
+  font-weight: 600;
+  font-size: .82rem;
+  color: var(--ink-700);
+}
+
+.semaine-score__shield {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.5rem;
+  color: #fff;
+  filter: drop-shadow(0 2px 6px rgba(15, 46, 34, .18));
+}
+
+.semaine-score__shield svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.semaine-score__shield-letter {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1;
+  padding-top: 2px;
+}
+
+/* Couleur dynamique selon score */
+.semaine-score__shield[data-score="A"] { color: var(--risk-low); }
+.semaine-score__shield[data-score="B"] { color: var(--risk-medium); }
+.semaine-score__shield[data-score="C"],
+.semaine-score__shield[data-score="D"] { color: var(--risk-high); }
+
+/* Legacy fallback — masqué si remplacé par .semaine-score__shield */
 .semaine-score__letter {
   display: inline-flex;
   align-items: center;
@@ -131,39 +173,50 @@ body {
 /* ── Day card ───────────────────────────────────────────── */
 .semaine-day-card {
   background: var(--card-bg);
-  border-radius: 10px;
+  border-radius: var(--r-24);
   overflow: hidden;
+  box-shadow: var(--shadow-2);
+  border: 1px solid rgba(20, 17, 13, .04);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.semaine-day-card:hover {
+  box-shadow: var(--shadow-3);
 }
 
 .semaine-day-header {
   background: var(--green);
   color: #fff;
-  padding: .45rem .85rem;
+  padding: .85rem 1.25rem;
+  border-top-left-radius: var(--r-24);
+  border-top-right-radius: var(--r-24);
 }
 
 .semaine-day-name {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .semaine-day-date {
-  font-size: .72rem;
-  color: rgba(255,255,255,.7);
+  font-size: .8rem;
+  color: rgba(255,255,255,.78);
   margin-left: .5rem;
+  font-weight: 500;
 }
 
 .semaine-day-meals {
-  padding: .25rem 0;
+  padding: .5rem 0;
 }
 
 /* ── Meal row ───────────────────────────────────────────── */
 .semaine-meal-row {
   display: flex;
   align-items: flex-start;
-  gap: .5rem;
-  padding: .35rem .85rem;
-  border-bottom: 1px solid var(--border);
+  gap: .75rem;
+  padding: .7rem 1.25rem;
+  border-bottom: 1px solid var(--ink-100);
 }
 
 .semaine-meal-row:last-child {
@@ -181,18 +234,19 @@ body {
 .semaine-meal-info { flex: 1; min-width: 0; }
 
 .semaine-meal-type {
-  font-size: .65rem;
+  font-size: .7rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: .06em;
+  letter-spacing: .08em;
   color: var(--text-muted);
-  margin-bottom: .06rem;
+  margin-bottom: .2rem;
 }
 
 .semaine-meal-name {
-  font-size: .85rem;
+  font-size: .95rem;
   font-weight: 500;
-  line-height: 1.35;
+  line-height: 1.4;
+  color: var(--ink-900);
 }
 
 .semaine-risk-dot {
@@ -452,7 +506,109 @@ body {
 }
 
 /* Sections */
-.fiche-section { margin-bottom: 1.1rem; }
+.fiche-section { margin-bottom: 1.1rem; position: relative; }
+
+/* ── Freemium gating ─────────────────────────────────────
+   Le statut est déterminé par html[data-subscription].
+   Par défaut « free » → blur + overlay visible.
+   « premium » → contenu accessible. */
+.fiche-modal[data-locked="true"] .fiche-section[data-premium] {
+  filter: blur(8px);
+  pointer-events: none;
+  user-select: none;
+  transition: filter 220ms var(--ease, ease-out);
+}
+
+.fiche-freemium-overlay {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: linear-gradient(180deg,
+    rgba(250, 247, 242, .55) 0%,
+    rgba(250, 247, 242, .92) 35%,
+    rgba(250, 247, 242, .98) 100%);
+  backdrop-filter: saturate(110%);
+  border-radius: var(--r-16);
+  padding: 1.5rem 1.25rem 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: .75rem;
+  pointer-events: auto;
+}
+
+.fiche-modal[data-locked="true"] .fiche-freemium-overlay {
+  display: flex;
+}
+
+.fiche-freemium-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--r-pill);
+  background: var(--green-100);
+  color: var(--green-800);
+  margin-bottom: .25rem;
+}
+.fiche-freemium-icon svg { width: 1.5rem; height: 1.5rem; }
+
+.fiche-freemium-eyebrow {
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--green-700);
+  margin: 0;
+}
+
+.fiche-freemium-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink-900);
+  margin: 0;
+  max-width: 22ch;
+}
+
+.fiche-freemium-text {
+  font-size: .85rem;
+  color: var(--ink-500);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 32ch;
+}
+
+.fiche-freemium-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: .5rem;
+  padding: .75rem 1.5rem;
+  background: var(--green-800);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: .9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--r-12);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease);
+  box-shadow: var(--shadow-2);
+}
+
+.fiche-freemium-cta:hover {
+  background: var(--green-700);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-3);
+}
+
+.fiche-freemium-cta:active { transform: translateY(0); }
 
 .fiche-section-label {
   font-size: .68rem;
@@ -1170,19 +1326,27 @@ body {
   .semaine-day-card {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 14px;
-    border-radius: 12px;
-    min-height: 220px;
-    border: 1px solid var(--border, #E5E5E5);
-    background: var(--bg, #fff);
+    gap: 12px;
+    padding: 18px;
+    border-radius: var(--r-24);
+    min-height: 240px;
+    border: 1px solid rgba(20, 17, 13, .05);
+    background: var(--card-bg, #fff);
+    box-shadow: var(--shadow-2);
     position: relative;
     overflow: visible;
     cursor: default;
+    transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+
+  .semaine-day-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-3);
   }
 
   .semaine-day-card.is-today {
     border: 1.5px solid var(--green, #1B4332);
+    box-shadow: 0 0 0 4px var(--green-100), var(--shadow-2);
   }
 
   /* Pill "aujourd'hui" */
@@ -1321,9 +1485,9 @@ body {
     font-weight: 500;
   }
   .semaine-day-card .semaine-meal-name {
-    font-size: 11.5px;
+    font-size: 13px;
     font-weight: 500;
-    line-height: 1.35;
+    line-height: 1.4;
     color: var(--ink-900, #14110D);
     overflow: hidden;
     display: -webkit-box;

@@ -56,6 +56,10 @@ function renderIngredients(meal, profileKey) {
     </li>`).join('');
 }
 
+function isPremiumUser() {
+  return document.documentElement.getAttribute('data-subscription') === 'premium';
+}
+
 function openFiche(meal, type) {
   ficheState.meal = meal;
   ficheState.type = type;
@@ -78,6 +82,10 @@ function openFiche(meal, type) {
 
   const noteEl = document.getElementById('fiche-note');
   noteEl.textContent = meal.note || '';
+
+  // Verrouillage freemium — bloque ingrédients + instructions si non premium
+  const modal = document.getElementById('fiche-modal');
+  if (modal) modal.setAttribute('data-locked', isPremiumUser() ? 'false' : 'true');
 
   document.getElementById('fiche-overlay').classList.add('is-open');
   document.body.style.overflow = 'hidden';
@@ -316,13 +324,18 @@ function renderMenu(data, history) {
   renderRiskSuggestions(data);
   renderScoreBand(data);
 
-  // Score badge
+  // Score badge — pastille bouclier colorée selon niveau (vert/orange/rouge)
   const scoreEl = document.getElementById('semaine-score');
   if (scoreEl) {
     scoreEl.innerHTML = `
-      <span class="semaine-score__letter">${score}</span>
-      <span>Score santé</span>
-      <a href="score-sante.html" class="semaine-score__info-icon" title="Comprendre le score santé">ⓘ</a>
+      <span class="semaine-score__shield" data-score="${score}" aria-hidden="true">
+        <svg viewBox="0 0 32 36" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 1.5 3 5.2v12.6c0 7.4 5.2 14 13 16.7 7.8-2.7 13-9.3 13-16.7V5.2L16 1.5Z"/>
+        </svg>
+        <span class="semaine-score__shield-letter">${score}</span>
+      </span>
+      <span class="semaine-score__label">Score santé</span>
+      <a href="score-sante.html" class="semaine-score__info-icon" title="Comprendre le score santé" aria-label="Comprendre le score santé">ⓘ</a>
     `;
     scoreEl.setAttribute('aria-label', `Score santé ${score}`);
   }

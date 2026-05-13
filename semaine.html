@@ -1,9 +1,20 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-subscription="free">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menu de la semaine — On mange quoi ?</title>
+  <!-- FOUC guard — applique le statut connu (cache localStorage) avant tout rendu -->
+  <script>
+    (function () {
+      try {
+        var cached = localStorage.getItem('omq_subscription');
+        if (cached === 'premium' || cached === 'free') {
+          document.documentElement.setAttribute('data-subscription', cached);
+        }
+      } catch (_) { /* localStorage indisponible — on reste sur "free" */ }
+    })();
+  </script>
   <meta name="description" content="Menu hebdomadaire familial sain — On mange quoi ?">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -218,17 +229,31 @@
         <button class="fiche-profile-btn" data-profile="solo">Solo</button>
       </div>
 
-      <div class="fiche-section">
+      <div class="fiche-section" data-premium>
         <h3 class="fiche-section-label">Ingrédients</h3>
         <ul class="fiche-ingredients" id="fiche-ingredients"></ul>
       </div>
 
-      <div class="fiche-section">
+      <div class="fiche-section" data-premium>
         <h3 class="fiche-section-label">Préparation</h3>
         <ol class="fiche-steps" id="fiche-steps"></ol>
       </div>
 
       <p class="fiche-note" id="fiche-note"></p>
+
+      <!-- Overlay freemium — affiché si data-locked="true" sur .fiche-modal -->
+      <div class="fiche-freemium-overlay" aria-live="polite">
+        <span class="fiche-freemium-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </span>
+        <p class="fiche-freemium-eyebrow">Plan famille</p>
+        <h3 class="fiche-freemium-title">Contenu réservé aux abonnés Famille</h3>
+        <p class="fiche-freemium-text">Accédez aux ingrédients dosés par profil et aux instructions détaillées de toutes les recettes.</p>
+        <a href="/?upgrade=1" class="fiche-freemium-cta">Débloquer le Plan Famille</a>
+      </div>
     </div>
   </div>
 
@@ -241,6 +266,26 @@
       const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
       window.supabaseClient = client;
 
+      function setSubscriptionState(state) {
+        // state: 'premium' | 'free'
+        document.documentElement.setAttribute('data-subscription', state);
+        try { localStorage.setItem('omq_subscription', state); } catch (_) {}
+      }
+
+      async function refreshSubscription(userId) {
+        if (!userId) { setSubscriptionState('free'); return; }
+        try {
+          const { data } = await client
+            .from('subscriptions')
+            .select('status')
+            .eq('user_id', userId)
+            .single();
+          setSubscriptionState(data?.status === 'active' ? 'premium' : 'free');
+        } catch {
+          setSubscriptionState('free');
+        }
+      }
+
       function updateSemaineAuth(session) {
         const outEl = document.getElementById('side-logged-out');
         const inEl  = document.getElementById('side-logged-in');
@@ -249,9 +294,11 @@
           if (outEl) outEl.style.display = 'none';
           if (inEl)  inEl.style.display  = 'flex';
           if (emailEl) emailEl.textContent = session.user.email;
+          refreshSubscription(session.user.id);
         } else {
           if (outEl) outEl.style.display = 'block';
           if (inEl)  inEl.style.display  = 'none';
+          setSubscriptionState('free');
         }
       }
 
@@ -260,6 +307,7 @@
 
       document.getElementById('side-logout-btn')?.addEventListener('click', async () => {
         await client.auth.signOut();
+        try { localStorage.removeItem('omq_subscription'); } catch (_) {}
         window.location.href = '/';
       });
     })();

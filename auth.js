@@ -4,16 +4,44 @@
 // Simplified auth module that works with window.supabaseClient
 // initialized in index.html
 
+// ── FOUC guard : applique le dernier statut connu (cache localStorage)
+//    avant tout rendu, pour éviter le flash de contenu non verrouillé.
+(function applyCachedSubscription() {
+  try {
+    const cached = localStorage.getItem('omq_subscription');
+    if (cached === 'premium' || cached === 'free') {
+      document.documentElement.setAttribute('data-subscription', cached);
+    } else if (!document.documentElement.hasAttribute('data-subscription')) {
+      document.documentElement.setAttribute('data-subscription', 'free');
+    }
+  } catch (_) {
+    document.documentElement.setAttribute('data-subscription', 'free');
+  }
+})();
+
+function setSubscriptionState(state) {
+  const value = state === 'premium' ? 'premium' : 'free';
+  document.documentElement.setAttribute('data-subscription', value);
+  window.isPremium = (value === 'premium');
+  try { localStorage.setItem('omq_subscription', value); } catch (_) {}
+}
+
 async function checkSubscription(userId) {
-  if (!window.supabaseClient || !userId) return false;
+  if (!window.supabaseClient || !userId) {
+    setSubscriptionState('free');
+    return false;
+  }
   try {
     const { data } = await window.supabaseClient
       .from('subscriptions')
       .select('status')
       .eq('user_id', userId)
       .single();
-    return data?.status === 'active';
+    const isPremium = data?.status === 'active';
+    setSubscriptionState(isPremium ? 'premium' : 'free');
+    return isPremium;
   } catch {
+    setSubscriptionState('free');
     return false;
   }
 }
@@ -112,6 +140,7 @@ function setupLogoutHandlers() {
 
       try {
         await window.supabaseClient.auth.signOut();
+        setSubscriptionState('free');
         showToast('Déconnecté', 'À bientôt!', 'success');
         // Close menu if open
         const menu = document.getElementById('user-menu');
