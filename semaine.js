@@ -362,11 +362,6 @@ function renderMenu(data, history) {
         <span class="day-card__abbrev">${abbrev}</span>
         <span class="day-card__num">${dayNum}</span>
       </div>
-      <div class="day-card__placeholder"></div>
-      <h4 class="day-card__dinner-title">${dinner?.name || '—'}</h4>
-      <div class="day-card__tags">
-        ${dinnerTags.map(t => `<span class="chip-xs">${t}</span>`).join('')}
-      </div>
       <div class="semaine-day-header">
         <span class="semaine-day-name">${day.label}</span>
         <span class="semaine-day-date">${dateShort}</span>
