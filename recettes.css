@@ -112,6 +112,12 @@ body {
   font-style: italic;
 }
 
+/* Le focus state est géré par .textarea-wrap:focus-within ;
+   on neutralise le box-shadow global qui doublait le rectangle */
+.form-textarea:focus {
+  box-shadow: none;
+}
+
 .textarea-count {
   position: absolute;
   bottom: var(--s-12);
