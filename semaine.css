@@ -224,46 +224,61 @@ body {
   align-self: flex-start;
 }
 
-/* ── Footer ─────────────────────────────────────────────── */
+/* ── Footer minimaliste — bloc cohérent ──────────────────── */
 .semaine-footer {
   text-align: center;
-  font-size: .8rem;
+  font-size: .75rem;
+  font-weight: 400;
+  letter-spacing: .01em;
+  line-height: 1.7;
   color: var(--ink-500);
-  padding: 1rem 0 0;
-  border-top: 1px solid var(--ink-200);
-  margin-bottom: 1.5rem;
+  padding: 2.5rem 0 1rem;
+  border-top: 1px solid var(--ink-100);
+  margin: 1.5rem 0 0;
 }
 
-/* ── Actions ────────────────────────────────────────────── */
+/* ── Actions footer (Partager) ──────────────────────────── */
 .semaine-actions {
   display: flex;
   gap: .65rem;
   justify-content: center;
   flex-wrap: wrap;
+  padding: 0 0 3rem;
 }
 
 .semaine-btn {
   font-family: var(--font-body);
-  font-size: .875rem;
-  font-weight: 600;
-  padding: .55rem 1.2rem;
-  border-radius: var(--r-8);
-  border: 1.5px solid var(--ink-200);
+  font-size: .8rem;
+  font-weight: 500;
+  padding: .55rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid var(--ink-200);
   background: transparent;
   color: var(--ink-700);
   cursor: pointer;
-  transition: all 150ms;
+  transition: all 200ms ease-out;
+  letter-spacing: .01em;
 }
 
-.semaine-btn:hover { background: var(--ink-100); border-color: var(--ink-300); }
+.semaine-btn:hover {
+  background: var(--bg-soft);
+  border-color: var(--ink-300);
+  color: var(--ink-900);
+}
+.semaine-btn:active { transform: scale(0.97); }
 
+/* "Partager ce lien" : version subtile, pas un CTA agressif */
 .semaine-btn--share {
-  background: var(--green-800);
-  color: #fff;
-  border-color: transparent;
+  background: transparent;
+  color: var(--ink-700);
+  border-color: var(--ink-200);
 }
 
-.semaine-btn--share:hover { background: var(--green-700); }
+.semaine-btn--share:hover {
+  background: var(--bg-soft);
+  border-color: var(--green-700);
+  color: var(--green-800);
+}
 
 /* Bouton retour — bordure verte, texte vert, hover inversé */
 .semaine-btn--back {
@@ -646,83 +661,96 @@ body {
   margin-right: .25rem;
 }
 
-/* ── Newsletter strip ──────────────────────────────────────── */
+/* ── Newsletter strip — minimalist (Yuka-style) ──────────── */
 .newsletter-strip {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  background: var(--green-100);
-  border: 1px solid var(--green-300);
-  border-radius: var(--r-16);
-  padding: 1.5rem 2rem;
-  margin: 1.5rem 0;
+  background: transparent;
+  border: none;
+  padding: 3rem 0 2.5rem;
+  margin: 2rem 0 0;
   flex-wrap: wrap;
+  text-align: center;
 }
 
 .newsletter-strip__left {
   display: flex;
   flex-direction: column;
-  gap: .3rem;
+  gap: .35rem;
+  width: 100%;
 }
 
 .newsletter-strip__title {
   font-family: var(--font-display);
   font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--green-800);
+  font-weight: 500;
+  color: var(--ink-900);
   letter-spacing: -.01em;
+  line-height: 1.35;
 }
 
 .newsletter-strip__sub {
   font-size: .8rem;
   color: var(--ink-500);
+  line-height: 1.5;
 }
 
 .newsletter-strip__form {
   display: flex;
   gap: .5rem;
-  flex-shrink: 0;
-  flex-wrap: wrap;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  flex-wrap: nowrap;
 }
 
 .newsletter-strip__input {
-  padding: .55rem 1rem;
-  border: 1px solid var(--green-300);
-  border-radius: var(--r-8);
+  padding: .7rem 1rem;
+  border: 1px solid var(--ink-200);
+  border-radius: 999px;
   font-family: var(--font-body);
-  font-size: .875rem;
-  color: var(--ink-700);
-  background: white;
-  width: 200px;
+  font-size: .9rem;
+  color: var(--ink-900);
+  background: var(--white, #fff);
+  flex: 1;
+  min-width: 0;
   outline: none;
-  transition: border-color 150ms;
+  transition: border-color 150ms, box-shadow 150ms;
 }
 
-.newsletter-strip__input:focus { border-color: var(--green-700); }
+.newsletter-strip__input:focus {
+  border-color: var(--green-700);
+  box-shadow: 0 0 0 3px rgba(38, 93, 69, 0.08);
+}
 .newsletter-strip__input::placeholder { color: var(--ink-300); }
 
 .newsletter-strip__btn {
-  padding: .55rem 1.1rem;
+  padding: .7rem 1.25rem;
   background: var(--green-800);
   color: white;
   border: none;
-  border-radius: var(--r-8);
+  border-radius: 999px;
   font-family: var(--font-body);
   font-size: .875rem;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   white-space: nowrap;
-  transition: background 150ms;
+  transition: background 150ms, transform 150ms;
+  flex-shrink: 0;
 }
 
-.newsletter-strip__btn:hover:not(:disabled) { background: var(--green-700); }
+.newsletter-strip__btn:hover:not(:disabled) {
+  background: var(--green-700);
+}
+.newsletter-strip__btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
 .newsletter-strip__btn:disabled { opacity: .5; cursor: not-allowed; }
 
-@media (max-width: 500px) {
-  .newsletter-strip { flex-direction: column; align-items: flex-start; }
-  .newsletter-strip__form { width: 100%; }
-  .newsletter-strip__input { flex: 1; width: auto; }
+@media (min-width: 640px) {
+  .newsletter-strip__form { max-width: 420px; }
 }
 
 /* ── Score hero band (Phase 2 redesign) ─────────────────── */
