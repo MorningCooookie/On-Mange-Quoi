@@ -179,6 +179,54 @@
   --header-to:     var(--green-600);
   --r-card:        var(--r-12);
   --r-inner:       var(--r-8);
+
+  /* ═══════════════════════════════════════════════════════════
+     DIRECTION SOLAIRE — Override tokens
+     Phase 1 · Mai 2026
+     Override en fin de :root : prend le pas sur tous les tokens
+     déclarés au-dessus (cascade CSS) sans casser la compat v1/v2.
+     ═══════════════════════════════════════════════════════════ */
+
+  /* Typographie : Work Sans → Plus Jakarta Sans */
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  /* Fond : cream terne → blanc lumineux */
+  --bg:               #FFFFFF;
+  --bg-soft:          #FEFCF9;
+  --white:            #FFFFFF;
+  --cream-50:         #FDFAF6;
+  --cream-100:        #F8F3EB;
+  --card-bg:          #FFFFFF;
+  --color-background: #FEFCF9;
+
+  /* Couleur primaire : forest green → grove sage */
+  --green-900:    #1F4A36;
+  --green-800:    #3A7D5C;
+  --green-700:    #4A9470;
+  --green-600:    #5AAD84;
+  --green-300:    #A8D4BE;
+  --green-100:    #EBF5F0;
+  --green:        #3A7D5C;
+  --green-light:  #5AAD84;
+
+  /* Accent solaire — nouveau token */
+  --sun-500:      #D4902A;
+  --sun-200:      #FCE8C0;
+  --sun-50:       #FEF8EC;
+
+  /* Header : gradient vert → blanc lumineux */
+  --header-from:  #FFFFFF;
+  --header-to:    #F5F2EE;
+
+  /* Scores A/B/C — pastels vivides */
+  --score-a-bg:   #D4F5E5;  --score-a-text: #0C5430;
+  --score-b-bg:   #D0EEFF;  --score-b-text: #0B4A72;
+  --score-c-bg:   #FDE8CC;  --score-c-text: #7A3B0E;
+
+  /* Cercles de score — composant iconique */
+  --score-a-fill: #2AB97A;
+  --score-b-fill: #2597CC;
+  --score-c-fill: #E8852F;
 }
 
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -3142,4 +3190,181 @@ body.modal-open { overflow: hidden; }
     font-size: 11px;
     line-height: 1.8;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DIRECTION SOLAIRE — Override composants
+   Phase 2 + 3 · Mai 2026
+   Append en fin de fichier : la cascade CSS garantit que ces
+   règles écrasent les définitions antérieures sans toucher au
+   markup ni au JS. Tout est réversible (git revert de ce bloc).
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Phase 2 · Score circles ─────────────────────────────────── */
+.score-grade {
+  width: 88px;
+  height: 88px;
+  font-style: italic;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+.score-grade.grade-A {
+  background: linear-gradient(145deg, #3DD88E, #2AB97A);
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(42, 185, 122, .38);
+}
+.score-grade.grade-B {
+  background: linear-gradient(145deg, #3AABE0, #2597CC);
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(37, 151, 204, .38);
+}
+.score-grade.grade-C {
+  background: linear-gradient(145deg, #F0962A, #E8852F);
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(232, 133, 47, .38);
+}
+
+/* Score badges inline (band + history cards) */
+.score-band__circle.grade-A,
+.history-card-score.grade-A {
+  background: linear-gradient(145deg, #3DD88E, #2AB97A);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(42, 185, 122, .32);
+}
+.score-band__circle.grade-B,
+.history-card-score.grade-B {
+  background: linear-gradient(145deg, #3AABE0, #2597CC);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(37, 151, 204, .32);
+}
+.score-band__circle.grade-C,
+.history-card-score.grade-C {
+  background: linear-gradient(145deg, #F0962A, #E8852F);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(232, 133, 47, .32);
+}
+
+/* Score-sante page circles */
+.ss-letter-circle.is-a { background: linear-gradient(145deg, #3DD88E, #2AB97A); box-shadow: 0 6px 20px rgba(42, 185, 122, .35); }
+.ss-letter-circle.is-b { background: linear-gradient(145deg, #3AABE0, #2597CC); box-shadow: 0 6px 20px rgba(37, 151, 204, .35); }
+.ss-letter-circle.is-c { background: linear-gradient(145deg, #F0962A, #E8852F); box-shadow: 0 6px 20px rgba(232, 133, 47, .35); }
+
+
+/* ── Phase 3 · Header desktop (app) ──────────────────────────── */
+#site-header {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 6px rgba(26, 22, 18, .05);
+  color: var(--ink-900);
+}
+.logo                                       { color: var(--ink-900); }
+#site-header :focus-visible                 { outline-color: var(--green-800); }
+.nav-link                                   { color: var(--ink-500); }
+.nav-link:hover                             { color: var(--ink-900); background: var(--green-100); }
+.nav-link.active                            { color: var(--green-800); background: var(--green-100); }
+
+.selector-btn                               { border-color: var(--border); color: var(--ink-500); }
+.selector-btn:hover                         { border-color: var(--green-300); color: var(--ink-900); }
+.selector-btn.active                        { background: var(--green-800); color: #fff; border-color: var(--green-800); }
+
+.profile-pill                               { border-color: var(--border); color: var(--ink-500); }
+.profile-pill:hover                         { border-color: var(--green-300); color: var(--ink-900); }
+.profile-pill.active                        { background: var(--green-800); color: #fff; border-color: var(--green-800); }
+
+#btn-login-header,
+#btn-signup-header {
+  border-color: var(--border);
+  color: var(--ink-700);
+  background: transparent;
+}
+#btn-login-header:hover,
+#btn-signup-header:hover {
+  border-color: var(--green-300);
+  color: var(--ink-900);
+}
+
+/* ── Phase 3 · Bottom bar mobile ─────────────────────────────── */
+@media (max-width: 767px) {
+  .bottom-bar {
+    background: #fff;
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -2px 8px rgba(26, 22, 18, .06);
+  }
+  .bottom-nav-link                          { color: var(--ink-500); }
+  .bottom-nav-link .nav-icon                { opacity: 0.55; }
+  .bottom-nav-link.active                   { color: var(--green-800); background: var(--green-100); }
+  .bottom-nav-link.active .nav-icon         { opacity: 1; }
+
+  .bottom-bar .selector-btn                 { border-color: var(--border); color: var(--ink-500); }
+  .bottom-bar .selector-btn.active          { background: var(--green-800); color: #fff; border-color: var(--green-800); }
+  .bottom-bar .profile-pill                 { border-color: var(--border); color: var(--ink-500); }
+  .bottom-bar .profile-pill.active          { background: var(--green-800); color: #fff; border-color: var(--green-800); }
+}
+
+/* ── Phase 3 · Day card headers ──────────────────────────────── */
+.day-header {
+  background: #fff;
+  color: var(--ink-900);
+  border-bottom: 1px solid var(--border);
+  padding: 0.85rem 1rem 0.6rem;
+}
+.day-header::after {
+  content: '';
+  display: block;
+  height: 2.5px;
+  margin-top: 0.55rem;
+  background: linear-gradient(to right, var(--score-a-fill, #2AB97A), transparent);
+  border-radius: 2px;
+  margin-inline: -1rem;
+  margin-bottom: -0.6rem;
+}
+.day-label {
+  color: var(--ink-900);
+  font-size: 1.1rem;
+}
+
+/* ── Phase 3 · Landing header ────────────────────────────────── */
+.landing-header {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 4px rgba(26, 22, 18, .04);
+}
+.brand--landing                             { color: var(--ink-900); }
+.brand-mark--landing                        { border-color: var(--green-800); }
+.landing-header__nav a                      { color: var(--ink-500); }
+.landing-header__nav a:hover                { color: var(--green-800); }
+.landing-header__nav a[aria-current="page"] { color: var(--green-800); font-weight: 600; }
+
+/* ── Phase 3 · Budget panel ──────────────────────────────────── */
+.budget-header        { background: var(--green-800); color: #fff; }
+.budget-total-amount  { color: var(--green-800); }
+
+/* ── Phase 3 · Maintenance banner ────────────────────────────── */
+.maintenance-banner {
+  background: linear-gradient(135deg, var(--green-800), var(--green-600));
+}
+
+/* ── Phase 2 · Score circles — classes additionnelles ────────── */
+/* Landing demo (.score-circle) — toujours grade A dans le hero */
+.score-circle {
+  background: linear-gradient(145deg, #3DD88E, #2AB97A);
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(42, 185, 122, .38);
+}
+
+/* Score band circle BEM (semaine + landing) */
+.score-band__circle {
+  background: linear-gradient(145deg, #3DD88E, #2AB97A);
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(42, 185, 122, .38);
+}
+.score-band__circle--b {
+  background: linear-gradient(145deg, #3AABE0, #2597CC);
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(37, 151, 204, .38);
+}
+.score-band__circle--c {
+  background: linear-gradient(145deg, #F0962A, #E8852F);
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(232, 133, 47, .38);
 }

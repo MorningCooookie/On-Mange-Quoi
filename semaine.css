@@ -1575,3 +1575,82 @@ body {
   .newsletter-strip { margin: 2rem 0; }
 
 } /* fin @media min-width: 1024px */
+
+/* ═══════════════════════════════════════════════════════════════
+   DIRECTION SOLAIRE — Override semaine
+   Phase 2 + 3 · Mai 2026
+   Append en fin de fichier — la cascade CSS garantit que ces
+   règles écrasent les définitions antérieures de semaine.css.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Header mobile semaine */
+.semaine-header {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  color: var(--ink-900);
+}
+
+/* Score letter dans le header mobile */
+.semaine-score__letter { font-style: italic; }
+.semaine-score__letter.is-a {
+  background: linear-gradient(145deg, #3DD88E, #2AB97A);
+  color: #fff;
+  box-shadow: 0 3px 12px rgba(42, 185, 122, .35);
+}
+.semaine-score__letter.is-b {
+  background: linear-gradient(145deg, #3AABE0, #2597CC);
+  color: #fff;
+  box-shadow: 0 3px 12px rgba(37, 151, 204, .35);
+}
+.semaine-score__letter.is-c {
+  background: linear-gradient(145deg, #F0962A, #E8852F);
+  color: #fff;
+  box-shadow: 0 3px 12px rgba(232, 133, 47, .35);
+}
+
+/* Day card header */
+.semaine-day-header {
+  background: #fff;
+  color: var(--ink-900);
+  padding: 0.6rem 0.85rem 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+.semaine-day-header::after {
+  content: '';
+  display: block;
+  height: 2px;
+  margin-top: 0.4rem;
+  background: linear-gradient(to right, var(--score-a-fill, #2AB97A), transparent);
+  border-radius: 2px;
+  margin-inline: -0.85rem;
+  margin-bottom: -0.4rem;
+}
+.semaine-day-name { color: var(--ink-900); }
+.semaine-day-date { color: var(--ink-500); }
+
+/* Bouton partage */
+.semaine-btn--share {
+  background: var(--green-800);
+  color: #fff;
+  border-color: transparent;
+}
+.semaine-btn--share:hover { background: var(--green-700); }
+
+/* ── Phase 2 · Score band circle BEM (override semaine.css) ──── */
+/* Le rule .score-band__circle (l.792) doit céder la place au
+   gradient solaire. Override en fin de fichier = cascade gagne. */
+.score-band__circle {
+  background: linear-gradient(145deg, #3DD88E, #2AB97A);
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(42, 185, 122, .38);
+}
+.score-band__circle--b {
+  background: linear-gradient(145deg, #3AABE0, #2597CC);
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(37, 151, 204, .38);
+}
+.score-band__circle--c {
+  background: linear-gradient(145deg, #F0962A, #E8852F);
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(232, 133, 47, .38);
+}
