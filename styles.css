@@ -2258,10 +2258,12 @@ body.modal-open { overflow: hidden; }
   gap: 8px;
   font-family: var(--font-display);
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--ink-900);
   text-decoration: none;
   letter-spacing: -.01em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .brand-mark--landing {
   width: 18px;
@@ -2319,12 +2321,13 @@ body.modal-open { overflow: hidden; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 48px;
-  border-bottom: 1px solid var(--ink-200);
+  padding: 18px 40px;
+  border-bottom: 1px solid var(--ink-100);
   background: var(--bg-soft);
   position: sticky;
   top: 0;
   z-index: 100;
+  gap: 16px;
 }
 .landing-header__nav {
   display: flex;
@@ -2336,27 +2339,37 @@ body.modal-open { overflow: hidden; }
   color: var(--ink-700);
   text-decoration: none;
   font-family: var(--font-body);
-  transition: color .15s;
+  font-weight: 400;
+  transition: color .2s ease-out;
+  white-space: nowrap;
 }
 .landing-header__nav a:hover { color: var(--ink-900); }
 
 .landing-header__actions {
   display: flex;
-  gap: 12px;
+  gap: 8px;
   align-items: center;
+  flex-shrink: 0;
 }
 .landing-header__login {
   background: none;
-  border: 1px solid var(--ink-300);
-  border-radius: 8px;
+  border: 1px solid var(--ink-200);
+  border-radius: 999px;
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 500;
   color: var(--ink-700);
   cursor: pointer;
-  padding: 6px 14px;
-  transition: border-color 0.15s, color 0.15s;
+  padding: 7px 14px;
+  transition: border-color 0.2s ease-out, color 0.2s ease-out, background 0.2s ease-out;
+  white-space: nowrap;
+  text-decoration: none;
 }
-.landing-header__login:hover { border-color: var(--ink-500); color: var(--ink-900); }
+.landing-header__login:hover {
+  border-color: var(--ink-300);
+  color: var(--ink-900);
+  background: var(--white, #fff);
+}
 
 /* ── Logged-in user button in landing header ── */
 .landing-header__user {
@@ -2441,11 +2454,52 @@ body.modal-open { overflow: hidden; }
 
 @media (max-width: 767px) {
   .landing-header {
-    padding: 16px 20px;
+    padding: 14px 16px;
+    gap: 10px;
   }
   .landing-header__nav { display: none; }
   .user-menu-dropdown { right: 16px; top: 56px; }
+
+  /* Brand plus compact sur mobile pour éviter le wrap */
+  .brand--landing {
+    font-size: 15px;
+    gap: 6px;
+  }
+  .brand-mark--landing {
+    width: 16px;
+    height: 16px;
+  }
+  .brand-mark--landing::after {
+    width: 6px;
+    height: 6px;
+  }
+
+  /* Actions header — compactes sur mobile */
+  .landing-header__actions {
+    gap: 6px;
+  }
+  .landing-header__login {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  /* CTA "Commencer — c'est gratuit" : compact (pill) */
+  .landing-header__actions .btn--landing-sm {
+    padding: 7px 14px;
+    font-size: 12px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
 }
+
+/* Très petit mobile : on garde uniquement le CTA principal "Commencer",
+   on masque le bouton "Se connecter" pour éviter le wrap. La connexion
+   reste accessible via le menu utilisateur et le pricing. */
+@media (max-width: 480px) {
+  #auth-button-group .landing-header__login {
+    display: none;
+  }
+}
+
 
 /* ============================================================
    AUTH MODALS (login / signup)
