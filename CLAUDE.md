@@ -19,33 +19,33 @@
 - `docs/` — documentation et markdown uniquement
 - NEVER save anything else to the root folder
 
-## Design System — Règles strictes
+## Design System — Sources de vérité
 
-**Référence :** `DESIGN.md` — toujours consulter avant toute modification UI.
+Les valeurs concrètes (couleurs hex, noms de fonts, radius, scale d'espacement)
+**ne sont pas dans ce fichier**. Elles évoluent et y être listées créerait de
+la dérive entre ce qui est documenté et ce qui est en production.
 
-### Palette de couleurs (ne jamais hardcoder les hex)
-- `--color-primary` : Forest Green `#2D7A3C`
-- `--color-secondary` : Warm Coral `#E07A5F`
-- `--color-background` : Cream `#FAFAF9`
-- `--color-text` : Dark Gray `#1F1F1F`
+| Source | Pour | Statut |
+|---|---|---|
+| `styles.css` `:root` (lignes ~26-180, ~200-260) | Tokens CSS en vigueur (couleurs, fonts, espacement, radius) | **Source de vérité technique** |
+| `DESIGN.md` | Philosophie, rationale, décisions de design, scale typo | Référence éditoriale (peut décaler de la prod — vérifier la dernière mise à jour) |
+| `<head>` des HTML | Fonts réellement chargées via Google Fonts | À cross-check avec `styles.css` |
 
-### Typographie
-- Lexend : titres et display
-- DM Sans : corps de texte
-- IBM Plex Mono : données chiffrées (prix, scores)
-- Pas de substitution sans revue design
+### Règles invariantes (ne dépendent pas des valeurs)
 
-### Espacement et composants
-- Grille 8px — utiliser `1rem`, `1.5rem`, `2rem`, `3rem`, `4rem` uniquement
-- Border radius boutons : 12px systématiquement
-- Hover sur desktop : `translateY(-2px)` + shadow
+1. **Jamais de hex hardcodé** dans `styles.css` ou inline HTML — toujours utiliser les variables CSS définies dans `:root`.
+2. **Grille d'espacement 8px** — utiliser uniquement les tokens `--s-*` ou les multiples de 0.5rem.
+3. **Contraste WCAG AA minimum** sur tout texte (4.5:1 normal, 3:1 large).
+4. **Responsive obligatoire** : tester à 375px (mobile) et 1280px (desktop).
+5. **Pas d'ajout de font ni de couleur principale** sans mettre à jour `DESIGN.md` et `styles.css` `:root` dans la même PR.
 
-### Checklist UI avant livraison
-1. Consulter `DESIGN.md` pour le composant concerné
-2. CSS variables partout — jamais de hex hardcodé
-3. Valider contraste WCAG AA minimum
-4. Vérifier le responsive sur mobile (375px) et desktop (1280px)
-5. Ajouter tout nouveau composant dans `DESIGN.md`
+### Checklist avant livraison UI
+
+1. Lire le `:root` de `styles.css` pour récupérer le token exact à utiliser
+2. Si le composant existe déjà dans `DESIGN.md`, suivre la spec ; sinon, l'ajouter
+3. Tester en mobile (375px) et en desktop (1280px)
+4. Vérifier le contraste WCAG AA
+5. Aucun hex hardcodé, aucun rem hors grille 8px
 
 ## Architecture
 

@@ -34,7 +34,7 @@ A design system grounded in the natural world. The palette is warm and forest-in
 | Role | Font | Fallback | Usage |
 |------|------|----------|-------|
 | Display (Headlines) | Fraunces | serif | H1, H2, H3, section titles |
-| Body (Default) | Work Sans | sans-serif | Paragraphs, labels, body text |
+| Body (Default) | Plus Jakarta Sans | sans-serif | Paragraphs, labels, body text |
 | Monospace (Data) | IBM Plex Mono | monospace | Quantities, dates, codes, data tables |
 
 ### Scale
@@ -43,15 +43,15 @@ H1:  2rem / 1.75rem (mobile)    — Fraunces 700
 H2:  1.5rem / 1.25rem (mobile)  — Fraunces 600
 H3:  1.25rem / 1.1rem (mobile)  — Fraunces 600
 H4:  1.1rem / 1rem (mobile)     — Fraunces 600
-Body: 1rem / 0.95rem (mobile)   — Work Sans 400, line-height 1.6
-Small: 0.875rem                 — Work Sans 400, line-height 1.5
-Label: 0.85rem / 0.8rem         — Work Sans 600, letter-spacing 0.3px
+Body: 1rem / 0.95rem (mobile)   — Plus Jakarta Sans 400, line-height 1.6
+Small: 0.875rem                 — Plus Jakarta Sans 400, line-height 1.5
+Label: 0.85rem / 0.8rem         — Plus Jakarta Sans 600, letter-spacing 0.3px
 Mono: 0.9rem / 0.85rem          — IBM Plex Mono 400
 ```
 
 ### Design Rationale
 - **Fraunces** for display: Organic serif with distinctive character. Warm and inviting, not corporate.
-- **Work Sans** for body: Highly legible at small sizes. Modern sans with natural proportions.
+- **Plus Jakarta Sans** for body: Highly legible at small sizes. Modern sans with natural proportions.
 - **IBM Plex Mono** for data: Neutral, professional. Differentiates quantitative content.
 
 ---
@@ -61,7 +61,8 @@ Mono: 0.9rem / 0.85rem          — IBM Plex Mono 400
 ### Primary Colors
 | Name | Hex | RGB | Usage | Notes |
 |------|-----|-----|-------|-------|
-| Forest Green (Primary) | `#1B4332` | 27, 67, 50 | Buttons, links, accent elements, active states | Deep, nature-inspired green. Not clinical. |
+| Grove Sage (Primary) | `#3A7D5C` | 58, 125, 92 | Buttons, links, accent elements, active states | Direction solaire — vert sauge lumineux. Plus aéré que le Forest Green initial. |
+| Sun Accent | `#D4902A` | 212, 144, 42 | Accents secondaires, highlights chaleureux | Direction solaire — touche dorée. Usage sélectif, jamais sur du texte courant (contraste). |
 | Warm Cream (Background) | `#FAFAF9` | 250, 250, 249 | Page background, card backgrounds | Almost-white. Reduces eye strain. |
 | Dark Gray (Text) | `#1F1F1F` | 31, 31, 31 | Primary text, headings | Not pure black; warmer and more readable. |
 | Muted Gray (Secondary Text) | `#6B6B6B` | 107, 107, 107 | Helper text, labels, metadata | Distinct from primary text but not distracting. |
@@ -259,7 +260,7 @@ color: white;
 
 ### Typography on Memo
 - **Day Names**: Fraunces 600, 1.1rem, primary color
-- **Meals**: Work Sans 500, 0.95rem, dark gray
+- **Meals**: Plus Jakarta Sans 500, 0.95rem, dark gray
 - **Icons**: Emoji or simple SVG (2rem size)
 
 ### Print Considerations
@@ -274,8 +275,9 @@ color: white;
 
 | Decision | Choice | Rationale | Trade-offs |
 |----------|--------|-----------|-----------|
-| **Primary Color** | Forest Green (#1B4332) | Nature-inspired, warm, food-adjacent. Family-friendly. Matches production site. | Slightly darker than initial system; requires careful text contrast. |
-| **Font Stack** | Fraunces + Work Sans + IBM Plex Mono | Organic serif + modern sans + neutral mono. Covers all roles without clash. | Three fonts; adds slight download weight. Serif display is unusual in apps but fits warm aesthetic. |
+| **Direction solaire (v2.1, 2026-05)** | Grove Sage #3A7D5C + Sun Accent #D4902A | Passage du Forest Green sombre vers une palette lumineuse et solaire. Décision produit pour aérer l'identité visuelle. | Les tokens v2 (Forest Green) coexistent encore dans `styles.css` `:root` ; nettoyage à prévoir. |
+| **Primary Color (v2)** | Forest Green (#1B4332) — **déprécié** | Nature-inspired, warm, food-adjacent. Family-friendly. | Remplacé par Grove Sage en v2.1 (voir ligne au-dessus). |
+| **Font Stack** | Fraunces + Plus Jakarta Sans + IBM Plex Mono | Organic serif + modern sans + neutral mono. Covers all roles without clash. | Three fonts; adds slight download weight. Serif display is unusual in apps but fits warm aesthetic. |
 | **Button Radius** | 6px | Clean, modern, subtle rounding. Balances warmth and restraint. Matches production. | Less rounded than initial system (was 12px); requires consistency. |
 | **Spacing Base** | 8px | Industry standard; scales cleanly to 16, 24, 32. | Occasionally rigid; some designs benefit from 6px adjustments. |
 | **Shadow Depth** | 0 4px 12px / 0.08 opacity | Subtle elevation. Functional without drama. | Very soft; dark backgrounds may need adjustment. |
@@ -287,7 +289,7 @@ color: white;
 ## Implementation Checklist
 
 - [ ] Export color palette as CSS variables (use #1B4332 as primary)
-- [ ] Load web fonts from Google Fonts (Fraunces, Work Sans, IBM Plex Mono)
+- [ ] Load web fonts from Google Fonts (Fraunces, Plus Jakarta Sans, IBM Plex Mono)
 - [ ] Create reusable component library (buttons, inputs, cards)
 - [ ] Test dark mode across all components
 - [ ] Validate color contrast (WCAG AA minimum)
@@ -302,7 +304,7 @@ color: white;
 ## Files & Assets
 
 - **This Document**: `DESIGN.md` — Governance and reference guide (production-aligned)
-- **Web Fonts**: Google Fonts (Fraunces, Work Sans, IBM Plex Mono) — CDN linked, no local files needed
+- **Web Fonts**: Google Fonts (Fraunces, Plus Jakarta Sans, IBM Plex Mono) — CDN linked, no local files needed
 - **Colors**: Defined as CSS variables in `:root` scope
 - **Production Site**: https://onmangequoi.eu — source of truth for design validation
 
@@ -318,7 +320,7 @@ color: white;
 
 ---
 
-**Last Updated**: April 5, 2026  
-**Design System Version**: 2.0 (Production-Aligned)  
-**Status**: Ready for implementation
-**Source of Truth**: https://onmangequoi.eu
+**Last Updated**: 2026-05-17 (sync direction solaire)
+**Design System Version**: 2.1 (Direction solaire — Grove Sage + Sun Accent)
+**Status**: En vigueur en production
+**Source of Truth**: https://onmangequoi.eu + `styles.css` `:root` (second bloc, lignes ~195-260)

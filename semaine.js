@@ -430,8 +430,31 @@ async function init() {
   }
 }
 
+// Salutation temporelle — l'accueil change selon l'heure et le jour
+function updateTemporalGreeting() {
+  const titleEl = document.querySelector('.semaine-page-title');
+  if (!titleEl) return;
+  const now = new Date();
+  const h = now.getHours();
+  const dow = now.getDay(); // 0 = dimanche
+  let greeting, sub = 'Voici votre semaine.', italic = false;
+  if (h >= 6 && h < 11) greeting = 'Bonjour.';
+  else if (h >= 11 && h < 14) greeting = 'Bon appétit.';
+  else if (h >= 14 && h < 18) greeting = 'Bel après-midi.';
+  else if (h >= 18 && h < 22) {
+    greeting = 'Bonsoir.';
+    if (dow === 0) sub = 'Demain, on attaque la semaine.';
+  } else {
+    greeting = 'Vous êtes encore là ?';
+    italic = true;
+  }
+  const greetingHTML = italic ? `<em>${greeting}</em>` : greeting;
+  titleEl.innerHTML = `${greetingHTML} <span class="semaine-page-title__sub">${sub}</span>`;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   init();
+  updateTemporalGreeting();
 
   // Fiche technique — fermeture
   // Filter chips
