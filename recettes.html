@@ -25,7 +25,7 @@
         <span class="brand-mark--landing" aria-hidden="true"></span>
         on mange quoi<span style="color:var(--green-800)">?</span>
       </a>
-      <nav class="landing-header__nav" aria-label="Navigation principale">
+      <nav class="landing-header__nav" aria-label="Navigation principale" id="primary-nav">
         <a href="/">Accueil</a>
         <a href="semaine.html">Mon menu</a>
         <a href="courses.html">Liste de courses</a>
@@ -36,6 +36,11 @@
     <div class="landing-header__actions">
       <a class="landing-header__login" href="/">← Accueil</a>
     </div>
+    <button class="hamburger-menu" id="hamburger-menu" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="primary-nav">
+      <span class="hamburger-menu__bar"></span>
+      <span class="hamburger-menu__bar"></span>
+      <span class="hamburger-menu__bar"></span>
+    </button>
   </header>
 
   <!-- ── Contenu principal ────────────────────────────────── -->
@@ -150,5 +155,6 @@
   <div id="toast" role="status" aria-live="polite"></div>
 
   <script src="recettes.js"></script>
+  <script src="js/nav.js"></script>
 </body>
 </html>

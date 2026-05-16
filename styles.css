@@ -2492,12 +2492,66 @@ body.modal-open { overflow: hidden; }
 }
 
 
+/* ── Hamburger menu mobile ────────────────────────────────
+   Bouton caché sur desktop. CSS gère le breakpoint, JS gère l'état.
+   Voir js/nav.js. */
+.hamburger-menu {
+  display: none;
+  background: none;
+  border: 0;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+.hamburger-menu__bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--ink-900);
+  border-radius: 2px;
+  transition: transform .2s ease, opacity .2s ease;
+}
+.hamburger-menu[aria-expanded="true"] .hamburger-menu__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger-menu[aria-expanded="true"] .hamburger-menu__bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-menu[aria-expanded="true"] .hamburger-menu__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 @media (max-width: 767px) {
   .landing-header {
     padding: 14px 16px;
     gap: 10px;
   }
   .landing-header__nav { display: none; }
+  .landing-header__nav[data-mobile-open="true"] {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--bg-soft);
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--ink-100);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    gap: 1rem;
+    z-index: 99;
+  }
+  .landing-header__nav[data-mobile-open="true"] a {
+    padding: .5rem 0;
+    font-size: 1rem;
+  }
+  .hamburger-menu { display: flex; }
   .user-menu-dropdown { right: 16px; top: 56px; }
 
   /* Brand plus compact sur mobile pour éviter le wrap */

@@ -33,7 +33,7 @@
         <span class="brand-mark--landing" aria-hidden="true"></span>
         on mange quoi<span style="color:var(--green-800)">?</span>
       </a>
-      <nav class="landing-header__nav" aria-label="Navigation principale">
+      <nav class="landing-header__nav" aria-label="Navigation principale" id="primary-nav">
         <a href="/" aria-current="page" style="color:var(--green-800);font-weight:600;">Accueil</a>
         <a href="semaine.html">Mon menu</a>
         <a href="courses.html">Liste de courses</a>
@@ -48,6 +48,11 @@
     <div id="user-menu-header" class="landing-header__user" style="display:none;">
       <button class="landing-header__user-btn" id="user-email-header" onclick="const m=document.getElementById('user-menu');m.style.display=m.style.display==='block'?'none':'block';">Mon compte ▾</button>
     </div>
+    <button class="hamburger-menu" id="hamburger-menu" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="primary-nav">
+      <span class="hamburger-menu__bar"></span>
+      <span class="hamburger-menu__bar"></span>
+      <span class="hamburger-menu__bar"></span>
+    </button>
   </header>
 
   <!-- ============ LOGIN MODAL ============ -->
@@ -570,41 +575,7 @@
       }
     });
 
-    // Hamburger menu mobile nav toggle
-    document.addEventListener('DOMContentLoaded', () => {
-      const hamburger = document.getElementById('hamburger-menu');
-      const nav = document.querySelector('.header-nav');
-      if (hamburger && nav) {
-        hamburger.addEventListener('click', () => {
-          const isVisible = nav.style.display === 'flex';
-          nav.style.display = isVisible ? 'none' : 'flex';
-          hamburger.setAttribute('aria-expanded', !isVisible);
-
-          // Style the mobile nav popup
-          if (!isVisible) {
-            nav.style.position = 'fixed';
-            nav.style.top = '56px';
-            nav.style.left = '0';
-            nav.style.right = '0';
-            nav.style.flexDirection = 'column';
-            nav.style.gap = '0.5rem';
-            nav.style.background = '#1B4332';
-            nav.style.padding = '1rem';
-            nav.style.zIndex = '999';
-            nav.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
-          }
-        });
-
-        // Close nav when clicking a link (mobile only)
-        nav.addEventListener('click', (e) => {
-          if (e.target.tagName === 'A' && nav.style.position === 'fixed') {
-            // Only close if nav is in mobile mode (fixed positioning = hamburger menu active)
-            nav.style.display = 'none';
-            hamburger.setAttribute('aria-expanded', 'false');
-          }
-        });
-      }
-    });
+    // Le toggle du menu hamburger est dans js/nav.js (chargé en fin de page)
 
     // Global signup/login functions (moved from auth.js to ensure they're available)
     async function handleSignup() {
@@ -722,8 +693,8 @@
         <span style="font-style:italic;color:var(--green-800);">cette semaine</span><span style="color:var(--green-800);">?</span>
       </h1>
       <p class="landing-hero__body">
-        Un menu hebdo personnalisé pour votre famille, basé sur les recommandations cadmium,
-        mercure et pesticides. Recettes, liste de courses, une décision en moins chaque jour.
+        Sept dîners pensés pour votre famille. Une liste de courses prête.
+        Une décision en moins, chaque soir.
       </p>
       <div class="landing-hero__ctas">
         <a class="btn--landing" href="semaine.html">Voir mon menu de la semaine →</a>
@@ -1050,5 +1021,6 @@
       }
     });
   </script>
+  <script src="js/nav.js"></script>
 </body>
 </html>
