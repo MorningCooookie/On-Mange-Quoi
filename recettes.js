@@ -123,31 +123,22 @@ async function generateRecipe() {
 }
 
 // ── Affichage ────────────────────────────────────────────────
+// Les 4 états (empty, loading, error, recipe) sont mutuellement exclusifs.
+// showState() affiche exclusivement l'état nommé et masque tous les autres.
+// setLoading(false) ne touche PAS la visibilité — sinon le finally
+// écrase l'état recipe/error que displayRecipe/displayError vient de poser.
 function setLoading(isLoading) {
   const btn = document.getElementById('btn-generate');
   btn.disabled = isLoading;
 
-  showState(isLoading ? 'loading' : null);
+  if (isLoading) showState('loading');
 }
 
 function showState(name) {
-  const states = {
-    empty: document.getElementById('result-empty'),
-    loading: document.getElementById('result-loading'),
-    error: document.getElementById('result-error'),
-    recipe: document.getElementById('result-recipe')
-  };
-
-  Object.entries(states).forEach(([key, el]) => {
-    if (!el) return;
-    el.hidden = (name !== null && key !== name);
+  ['empty', 'loading', 'error', 'recipe'].forEach(key => {
+    const el = document.getElementById(`result-${key}`);
+    if (el) el.hidden = (key !== name);
   });
-
-  // Si name === null, on rend l'empty visible par défaut sauf si une recette est déjà là
-  if (name === null) {
-    const recipeShown = states.recipe && !states.recipe.hidden;
-    if (states.empty) states.empty.hidden = recipeShown;
-  }
 }
 
 function displayRecipe(markdown) {

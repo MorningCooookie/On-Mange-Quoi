@@ -162,9 +162,9 @@ body {
 }
 
 .chip--toggle.is-active {
-  background: var(--ink-900);
-  color: var(--cream-50);
-  border-color: var(--ink-900);
+  background: var(--green-800);
+  color: #fff;
+  border-color: var(--green-800);
 }
 
 /* ── Buttons ────────────────────────────────────────────────── */
