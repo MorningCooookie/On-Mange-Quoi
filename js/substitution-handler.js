@@ -167,8 +167,8 @@ class SubstitutionHandler {
           </div>
 
           <div class="modal-footer">
-            <button id="cancel-modal" class="btn btn-secondary">Annuler</button>
-            <button id="apply-substitutions" class="btn btn-primary">Appliquer</button>
+            <button id="cancel-modal" class="btn btn--ghost">Annuler</button>
+            <button id="apply-substitutions" class="btn btn--primary">Appliquer</button>
           </div>
         </div>
       </div>

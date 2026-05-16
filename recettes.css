@@ -167,55 +167,7 @@ body {
   border-color: var(--green-800);
 }
 
-/* ── Buttons ────────────────────────────────────────────────── */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--s-8);
-  padding: var(--s-12) var(--s-24);
-  border-radius: var(--r-pill);
-  border: 1px solid transparent;
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: var(--fs-14);
-  cursor: pointer;
-  transition: transform var(--dur, 180ms) ease, box-shadow var(--dur, 180ms) ease, background var(--dur, 180ms) ease;
-}
-
-.btn--primary {
-  background: var(--green-800);
-  color: var(--bg);
-}
-
-.btn--primary:hover {
-  background: var(--green-700);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-2);
-}
-
-.btn--primary:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
-}
-
-.btn--ghost {
-  background: transparent;
-  color: var(--ink-900);
-  border-color: var(--ink-200);
-}
-
-.btn--ghost:hover {
-  background: var(--cream-50);
-}
-
-.btn--block {
-  width: 100%;
-  padding: var(--s-16) var(--s-24);
-  font-size: var(--fs-15);
-}
+/* Boutons : voir le système unifié dans styles.css (.btn / .btn--primary / .btn--ghost / .btn--block) */
 
 .form-foot {
   font-size: var(--fs-12);

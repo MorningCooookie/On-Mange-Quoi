@@ -1384,36 +1384,53 @@ textarea:focus {
   gap: 1rem;
 }
 
+/* ── Boutons — système unifié (BEM, basé sur recettes.css) ───
+   .btn (base) + variantes : .btn--primary, .btn--ghost, .btn--block
+   Variante landing pages dédiée : .btn--landing (plus bas, ~ligne 2238) */
 .btn {
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 6px;
-  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-8);
+  padding: var(--s-12) var(--s-24);
+  border-radius: var(--r-pill);
+  border: 1px solid transparent;
+  font-family: var(--font-body);
   font-weight: 600;
-  font-family: 'Work Sans', system-ui, sans-serif;
+  font-size: var(--fs-14);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: transform var(--dur) ease, box-shadow var(--dur) ease, background var(--dur) ease;
 }
 
-.btn-primary {
-  background-color: var(--header-from);
-  color: white;
+.btn--primary {
+  background: var(--green-800);
+  color: var(--bg);
 }
-
-.btn-primary:hover {
-  background-color: var(--btn-primary-hover);
+.btn--primary:hover {
+  background: var(--green-700);
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(27, 67, 50, 0.3);
+  box-shadow: var(--shadow-2);
+}
+.btn--primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
-.btn-secondary {
-  background-color: var(--border);
-  color: var(--text);
+.btn--ghost {
+  background: transparent;
+  color: var(--ink-900);
+  border-color: var(--ink-200);
+}
+.btn--ghost:hover {
+  background: var(--cream-50);
 }
 
-.btn-secondary:hover {
-  background-color: var(--btn-secondary-hover);
-  opacity: 0.8;
+.btn--block {
+  width: 100%;
+  padding: var(--s-16) var(--s-24);
+  font-size: var(--fs-15);
 }
 
 /* Mobile responsive */
