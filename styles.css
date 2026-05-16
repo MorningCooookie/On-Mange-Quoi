@@ -1033,15 +1033,22 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
    ═══════════════════════════════════════════════════════════ */
 #toast {
   position: fixed; bottom: calc(var(--bottom-bar-h) + 1rem); left: 50%;
-  transform: translateX(-50%) translateY(16px);
+  transform: translateX(-50%) translateY(20px);
   background: rgba(26,26,26,.92); color: #fff;
   padding: .6rem 1.2rem; border-radius: 25px;
   font-size: .83rem; font-weight: 600;
   opacity: 0; pointer-events: none;
-  transition: opacity .22s, transform .22s; z-index: 500; white-space: nowrap;
+  /* Spring easing — léger rebond à l'entrée (overshoot naturel) */
+  transition: opacity .22s ease, transform .35s cubic-bezier(.34, 1.56, .64, 1);
+  z-index: 500; white-space: nowrap;
 }
 #toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
 @media (min-width: 768px) { #toast { bottom: 2rem; } }
+
+/* Respecte la préférence "réduire les animations" */
+@media (prefers-reduced-motion: reduce) {
+  #toast { transition: opacity .22s ease, transform .22s ease; }
+}
 
 /* ── Footer ────────────────────────────────────────────────── */
 footer { text-align: center; padding: 1.5rem 1.5rem; font-size: 0.8rem; color: var(--text-secondary); border-top: 1px solid var(--border); background: #FAFAF9; }

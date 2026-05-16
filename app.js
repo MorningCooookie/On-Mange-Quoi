@@ -1038,7 +1038,7 @@ function resetFridge() {
   renderShoppingList();
   updateFridgeBar();
   renderBudget();
-  showToast('Frigo réinitialisé');
+  showToast('Frigo remis à zéro — bonne semaine');
 }
 
 // ── Print frigo ─────────────────────────────────────────────
