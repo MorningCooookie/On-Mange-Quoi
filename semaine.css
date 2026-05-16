@@ -763,14 +763,15 @@ body {
 }
 
 .score-band {
-  background: var(--ink-900, #14110D);
-  color: var(--cream-50, #FAF7F2);
+  background: var(--green-100, #EBF5F0);
+  color: var(--ink-900, #14110D);
   border-radius: 16px;
   padding: 32px;
   margin-bottom: 24px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  border: 1px solid var(--green-300, #A8D4BE);
 }
 
 @media (min-width: 768px) {
@@ -1654,3 +1655,22 @@ body {
   color: #fff;
   box-shadow: 0 8px 28px rgba(232, 133, 47, .38);
 }
+
+/* ── Phase 4 · Score band en clair (override couleurs enfants) ── */
+/* Le bloc .score-band est passé d'un fond ink-900 sombre à un fond
+   green-100 lumineux. Les couleurs des enfants sont ré-adaptées
+   pour conserver la hiérarchie tout en restant lisibles sur clair. */
+.score-band__eyebrow      { color: var(--ink-500); }
+.score-band__headline     { color: var(--ink-900); }
+.score-band__desc         { color: var(--ink-700); }
+.score-band__metrics      { border-left-color: var(--green-300); }
+@media (max-width: 767px) {
+  .score-band__metrics    { border-top-color: var(--green-300); border-left-color: transparent; }
+}
+.score-band__metric-label { color: var(--ink-500); }
+.score-band__metric-num   { color: var(--ink-900); }
+.score-band__metric-unit  { color: var(--ink-500); }
+.score-band__metric-delta { color: var(--green-800); }
+.score-band__chip         { background: var(--green-800); color: #fff; }
+.score-band__link         { color: var(--green-800); }
+.score-band__link:hover   { color: var(--green-700); }
