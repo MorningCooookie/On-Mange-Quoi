@@ -278,29 +278,28 @@ const PreferenceManager = {
     const prefs = this.getPreferences(profileId);
 
     let html = `
-      <div id="preference-modal-${profileId}" class="modal" style="display: none;">
-        <div class="modal-content" style="max-width: 500px;">
-          <div class="modal-header">
-            <h2>Préférences alimentaires — ${profileName}</h2>
-            <button class="modal-close" onclick="document.getElementById('preference-modal-${profileId}').style.display='none'; return false;">✕</button>
+      <div id="preference-modal-${profileId}" class="preference-modal" style="display: none;">
+        <div class="preference-modal__panel">
+          <div class="preference-modal__header">
+            <h2 class="preference-modal__title">Préférences alimentaires — ${profileName}</h2>
+            <button class="preference-modal__close" onclick="document.getElementById('preference-modal-${profileId}').style.display='none'; return false;" aria-label="Fermer">✕</button>
           </div>
 
-          <div class="modal-body" style="padding: 1.5rem; background: #FAFAFA;">
-            <!-- Allergies Section -->
-            <fieldset style="margin-bottom: 1.75rem; border: none;">
-              <legend style="font-weight: 700; margin-bottom: 1rem; color: #1B4332; font-size: 0.95rem;">Allergies et intolérances</legend>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="preference-modal__body">
+
+            <fieldset class="preference-form__section">
+              <legend class="preference-form__legend">Allergies et intolérances</legend>
+              <div class="preference-form__grid">
     `;
 
     // Allergies checkboxes
     this.ALLERGIES.forEach(allergen => {
       const isChecked = prefs.allergies?.includes(allergen) ? 'checked' : '';
       html += `
-        <label style="display: flex; align-items: center; cursor: pointer; padding: 0.5rem; border-radius: 6px; transition: background 0.15s ease;">
-          <input type="checkbox" name="allergy" value="${allergen}" ${isChecked}
-                 data-profile-id="${profileId}" data-user-id="${userId}"
-                 style="margin-right: 0.75rem; width: 18px; height: 18px; cursor: pointer; accent-color: #1B4332;">
-          <span style="font-size: 0.9rem; color: #333;">${allergen}</span>
+        <label class="preference-form__option">
+          <input type="checkbox" class="preference-form__checkbox" name="allergy" value="${allergen}" ${isChecked}
+                 data-profile-id="${profileId}" data-user-id="${userId}">
+          <span class="preference-form__label">${allergen}</span>
         </label>
       `;
     });
@@ -309,21 +308,19 @@ const PreferenceManager = {
               </div>
             </fieldset>
 
-            <!-- Restrictions Section -->
-            <fieldset style="margin-bottom: 1.75rem; border: none;">
-              <legend style="font-weight: 700; margin-bottom: 1rem; color: #1B4332; font-size: 0.95rem;">Régimes alimentaires</legend>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <fieldset class="preference-form__section">
+              <legend class="preference-form__legend">Régimes alimentaires</legend>
+              <div class="preference-form__grid">
     `;
 
     // Restrictions checkboxes
     this.RESTRICTIONS.forEach(restriction => {
       const isChecked = prefs.restrictions?.includes(restriction) ? 'checked' : '';
       html += `
-        <label style="display: flex; align-items: center; cursor: pointer; padding: 0.5rem; border-radius: 6px; transition: background 0.15s ease;">
-          <input type="checkbox" name="restriction" value="${restriction}" ${isChecked}
-                 data-profile-id="${profileId}" data-user-id="${userId}"
-                 style="margin-right: 0.75rem; width: 18px; height: 18px; cursor: pointer; accent-color: #1B4332;">
-          <span style="font-size: 0.9rem; color: #333;">${restriction}</span>
+        <label class="preference-form__option">
+          <input type="checkbox" class="preference-form__checkbox" name="restriction" value="${restriction}" ${isChecked}
+                 data-profile-id="${profileId}" data-user-id="${userId}">
+          <span class="preference-form__label">${restriction}</span>
         </label>
       `;
     });
@@ -332,18 +329,15 @@ const PreferenceManager = {
               </div>
             </fieldset>
 
-            <!-- Dislikes Section -->
-            <fieldset style="margin-bottom: 1.75rem; border: none;">
-              <legend style="font-weight: 700; margin-bottom: 1rem; color: #1B4332; font-size: 0.95rem;">Ingrédients à éviter (optionnel)</legend>
+            <fieldset class="preference-form__section">
+              <legend class="preference-form__legend">Ingrédients à éviter <span class="preference-form__legend-hint">(optionnel)</span></legend>
               <input type="text" id="dislikes-${profileId}"
-                     placeholder="coriandre, champignons, etc. (séparés par des virgules)"
-                     value="${(prefs.dislikes || []).join(', ')}"
-                     style="width: 100%; padding: 0.75rem; border: 1px solid #E5E7EB; border-radius: 6px; font-family: inherit;">
+                     class="preference-form__input"
+                     placeholder="coriandre, champignons, etc. — séparés par des virgules"
+                     value="${(prefs.dislikes || []).join(', ')}">
             </fieldset>
 
-            <!-- Save Button -->
-            <button onclick="PreferenceManager.saveFromModal('${profileId}')"
-                    style="width: 100%; padding: 0.75rem; background: #1B4332; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">
+            <button class="btn btn--primary btn--block" onclick="PreferenceManager.saveFromModal('${profileId}')">
               Sauvegarder
             </button>
           </div>
