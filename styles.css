@@ -1007,7 +1007,15 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
   padding: .45rem 1.1rem; font-size: .72rem; color: var(--text-secondary);
   border-bottom: 1px solid var(--border);
 }
-.freshness-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.freshness-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  /* La couleur runtime est injectée via --freshness-color (style inline)
+     par app.js getPriceFreshness() — fraîcheur des prix produits. */
+  background: var(--freshness-color, var(--text-secondary));
+}
 .price-indicative-note {
   margin-left: auto; font-style: italic; opacity: .7; white-space: nowrap;
 }
@@ -3161,6 +3169,29 @@ body.modal-open { overflow: hidden; }
   .preference-form__grid { grid-template-columns: 1fr; }
   .preference-modal__header { padding: var(--space-4); }
   .preference-modal__body { padding: var(--space-4); }
+}
+
+/* Preference tags — chip "Votre menu" (rendu par app.js renderPreferenceTags) */
+.preference-tags__heading {
+  font-weight: 600;
+  color: var(--green-800);
+  font-size: var(--fs-small);
+  margin: 0 0 var(--space-2);
+}
+.preference-tags__list { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.preference-tags__empty {
+  font-size: var(--fs-small);
+  color: var(--text-secondary);
+  margin: 0;
+}
+.preference-tag {
+  display: inline-block;
+  background: var(--green-800);
+  color: var(--white);
+  padding: var(--space-1) var(--space-3);
+  border-radius: 20px;
+  font-size: var(--fs-label);
+  font-weight: 600;
 }
 
 /* ============================================================

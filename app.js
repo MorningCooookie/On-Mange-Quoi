@@ -903,7 +903,7 @@ function renderBudget() {
   if (freshEl && state.config.pricesLastUpdated) {
     const f = getPriceFreshness(state.config.pricesLastUpdated);
     if (f) {
-      freshEl.innerHTML = `<span class="freshness-dot" style="background:${f.color}"></span><span>${f.msg}</span><span class="price-indicative-note">* Prix indicatifs basés sur une veille de marché</span>`;
+      freshEl.innerHTML = `<span class="freshness-dot" style="--freshness-color:${f.color}"></span><span>${f.msg}</span><span class="price-indicative-note">* Prix indicatifs basés sur une veille de marché</span>`;
     }
   }
 }
@@ -1429,17 +1429,15 @@ function renderPreferenceHeader() {
   const tags = PreferenceManager.getPreferenceTags(prefs);
   
   if (tags.length === 0) {
-    container.innerHTML = '<div style="font-size: 0.9rem; color: #666;">Aucune préférence alimentaire définie</div>';
+    container.innerHTML = '<p class="preference-tags__empty">Aucune préférence alimentaire définie</p>';
     return;
   }
 
-  const tagsHtml = tags.map(tag => 
-    `<span style="display: inline-block; background: #10b981; color: white; padding: 0.25rem 0.75rem; border-radius: 20px; margin-right: 0.5rem; font-size: 0.85rem; font-weight: 600;">${tag}</span>`
-  ).join('');
+  const tagsHtml = tags.map(tag => `<span class="preference-tag">${tag}</span>`).join('');
 
   container.innerHTML = `
-    <div style="font-weight: 600; margin-bottom: 0.5rem; color: #1B4332;">✅ Votre menu</div>
-    <div>${tagsHtml}</div>
+    <div class="preference-tags__heading">Votre menu</div>
+    <div class="preference-tags__list">${tagsHtml}</div>
   `;
 }
 
