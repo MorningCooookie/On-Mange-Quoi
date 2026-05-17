@@ -98,17 +98,39 @@ Mono: 0.9rem / 0.85rem          — IBM Plex Mono 400
 
 ## Spacing System
 
-### Base Unit: 8px
-All spacing follows an 8px grid. This creates visual harmony and predictability.
+### Base Unit: 8px (avec demi-pas 4px et intercalaires)
+Tous les espacements reposent sur une grille 8px (incréments principaux) avec des
+demi-pas 4px pour les détails. Des **intercalaires** (2/6/10/14/18/28/40/44 px)
+sont tokenisés pour les valeurs hors-grille déjà présentes en production — à
+utiliser uniquement quand on-grid casse le rythme visuel.
 
-| Scale | Value | Usage |
-|-------|-------|-------|
-| xs | 0.5rem (4px) | Tight inline spacing (button icon gaps) |
-| sm | 1rem (8px) | Default spacing between elements |
-| md | 1.5rem (12px) | Cards, sections, component padding |
-| lg | 2rem (16px) | Section margins, larger blocks |
-| xl | 3rem (24px) | Major section breaks, hero spacing |
-| 2xl | 4rem (32px) | Page-level spacing |
+| Token | Valeur | Pixels | Usage |
+|-------|--------|--------|-------|
+| `--space-0` | 0 | 0 | Reset |
+| `--space-px` | 1px | 1 | Bordures, séparateurs |
+| `--space-half` | 0.125rem | 2 | Intercalaire — détails fins |
+| `--space-1` | 0.25rem | 4 | Espacement tight (gaps icônes/boutons) |
+| `--space-1-5` | 0.375rem | 6 | Intercalaire |
+| `--space-2` | 0.5rem | 8 | Tight default |
+| `--space-2-5` | 0.625rem | 10 | Intercalaire |
+| `--space-3` | 0.75rem | 12 | Padding inputs, boutons |
+| `--space-3-5` | 0.875rem | 14 | Intercalaire |
+| `--space-4` | 1rem | 16 | **Base** — espacement par défaut |
+| `--space-4-5` | 1.125rem | 18 | Intercalaire |
+| `--space-5` | 1.5rem | 24 | Padding cards, sections |
+| `--space-5-5` | 1.75rem | 28 | Intercalaire |
+| `--space-6` | 2rem | 32 | Marges de section |
+| `--space-6-5` | 2.5rem | 40 | Intercalaire |
+| `--space-7` | 3rem | 48 | Hero, blocs majeurs |
+| `--space-7-5` | 2.75rem | 44 | Touch target minimum (WCAG) |
+| `--space-8` | 4rem | 64 | Espacement page-level |
+| `--space-9` | 5rem | 80 | Gaps extra-larges |
+
+### Règles d'usage
+
+1. **Pour tout nouveau composant** : utiliser uniquement `var(--space-*)`. Pas de rem ou px hardcodé.
+2. **Pour les composants existants** : migration progressive composant par composant — pas de search/replace en masse (les rem peuvent être en font-size, line-height, width, etc.).
+3. **Privilégier on-grid** : --space-2, -4, -5, -6, -7, -8 sont la colonne vertébrale. Les intercalaires sont une commodité, pas une norme.
 
 ### Application
 - **Component Padding**: 1rem (8px) minimum

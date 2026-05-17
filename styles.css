@@ -49,6 +49,30 @@
   --shadow: 0 2px 12px rgba(0,0,0,.07);
   --shadow-hover: 0 8px 24px rgba(0,0,0,.14);
   --bottom-bar-h: 96px;
+
+  /* ── Scale d'espacement (base 8px) — DESIGN.md §Spacing System ──
+     On-grid : --space-0/1/2/3/4/5/6/7/8 (multiples 8px ou demi-pas 4px)
+     Intercalaires : pour les valeurs hors-grille déjà présentes en prod
+     (à utiliser uniquement quand on-grid casse le rythme visuel) */
+  --space-0:     0;
+  --space-px:    1px;       /* bordures, séparateurs */
+  --space-half:  0.125rem;  /* 2px  - intercalaire */
+  --space-1:     0.25rem;   /* 4px  - tight inline */
+  --space-1-5:   0.375rem;  /* 6px  - intercalaire */
+  --space-2:     0.5rem;    /* 8px  - tight default */
+  --space-2-5:   0.625rem;  /* 10px - intercalaire */
+  --space-3:     0.75rem;   /* 12px - inputs, boutons */
+  --space-3-5:   0.875rem;  /* 14px - intercalaire */
+  --space-4:     1rem;      /* 16px - base */
+  --space-4-5:   1.125rem;  /* 18px - intercalaire */
+  --space-5:     1.5rem;    /* 24px - cards, sections */
+  --space-5-5:   1.75rem;   /* 28px - intercalaire */
+  --space-6:     2rem;      /* 32px - section margins */
+  --space-6-5:   2.5rem;    /* 40px - intercalaire */
+  --space-7:     3rem;      /* 48px - hero, major blocks */
+  --space-7-5:   2.75rem;   /* 44px - touch target / intercalaire */
+  --space-8:     4rem;      /* 64px - page-level spacing */
+  --space-9:     5rem;      /* 80px - extra-large gaps */
   --font-display: 'Fraunces', Georgia, serif;
   --font-body: 'Work Sans', system-ui, sans-serif;
 
