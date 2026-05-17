@@ -1212,12 +1212,16 @@ body {
 
   /* ── Main area ─────────────────────────────────────────── */
   .semaine-main {
-    flex: 1;
-    max-width: none;
+    /* Plus de side-rail : main centré avec max-width raisonnable */
+    max-width: 1100px;
+    margin: 0 auto;
     padding: 32px 40px;
     min-width: 0;
     overflow: hidden;
   }
+
+  /* Layout n'a plus de flex (pas de side-rail à aligner) */
+  .semaine-layout { display: block; }
 
   .semaine-date { display: none; }
 
