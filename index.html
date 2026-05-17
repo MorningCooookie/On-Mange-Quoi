@@ -90,26 +90,27 @@
   </div>
 
   <!-- ============ FAMILY SHARING / PROFILES MODAL ============ -->
-  <div id="profiles-modal" onclick="if(event.target.id==='profiles-modal') document.getElementById('profiles-modal').style.display='none'" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:10000;display:none;align-items:center;justify-content:center;">
-    <div style="background:white;padding:2rem;border-radius:12px;max-width:500px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);position:relative;max-height:80vh;overflow-y:auto;">
-      <button onclick="document.getElementById('profiles-modal').style.display='none'" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#999;padding:0;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;">✕</button>
+  <div id="profiles-modal" class="profiles-modal" onclick="if(event.target.id==='profiles-modal') document.getElementById('profiles-modal').style.display='none'">
+    <div class="profiles-modal__panel">
+      <button class="profiles-modal__close" onclick="document.getElementById('profiles-modal').style.display='none'" aria-label="Fermer">✕</button>
 
-      <h2 style="margin-top:0;text-align:center;color:#1B4332;">👥 Profils familiaux</h2>
-      <p style="text-align:center;color:#666;margin:0.5rem 0 0.5rem 0;font-size:0.95rem;">Créez un profil pour chaque membre et configurez ses préférences alimentaires.</p>
-      <p style="text-align:center;color:#2d6a4f;background:#E8F5E9;padding:0.75rem;border-radius:6px;margin:0 0 1.5rem 0;font-size:0.9rem;">💡 Astuce: Cliquez sur ⚙️ Préférences pour spécifier allergies, régimes, et ingrédients à éviter</p>
+      <h2 class="profiles-modal__title">Profils familiaux</h2>
+      <p class="profiles-modal__intro">Créez un profil pour chaque membre et configurez ses préférences alimentaires.</p>
 
-      <div id="profiles-list" style="margin-bottom:1.5rem;"></div>
-
-      <div style="display:flex;gap:0.5rem;margin-bottom:1.5rem;">
-        <input type="text" id="new-profile-name" placeholder="Nom du profil (ex: Maman, Enfants, Papa...)" style="flex:1;padding:0.75rem;border:1px solid #ddd;border-radius:6px;box-sizing:border-box;font-size:1rem;">
-        <button id="btn-add-profile" style="padding:0.75rem 1rem;background:#1B4332;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:bold;white-space:nowrap;">+ Ajouter</button>
+      <div class="profiles-modal__hint">
+        <strong>Astuce —</strong> Cliquez sur "Préférences" dans la nav pour spécifier allergies, régimes et ingrédients à éviter.
       </div>
 
-      <div style="background:#E8F5E9;padding:1rem;border-radius:8px;text-align:center;">
-        <div style="font-size:0.9rem;color:#1B4332;margin:0;">
-          <strong><span id="profile-count">0</span> profil(s)</strong> créé(s)
-        </div>
-        <p style="margin:0.75rem 0 0 0;font-size:0.85rem;color:#2d6a4f;">✅ Cliquez sur un profil pour sélectionner, puis sur ⚙️ pour définir ses préférences alimentaires</p>
+      <div id="profiles-list" class="profiles-modal__list"></div>
+
+      <div class="profiles-modal__form">
+        <input type="text" id="new-profile-name" class="profiles-modal__input" placeholder="Nom du profil (ex : Maman, Enfants, Papa…)">
+        <button id="btn-add-profile" class="btn btn--primary">+ Ajouter</button>
+      </div>
+
+      <div class="profiles-modal__footer">
+        <div class="profiles-modal__count"><strong><span id="profile-count">0</span> profil(s)</strong> créé(s)</div>
+        <p class="profiles-modal__instruction">Cliquez sur un profil pour le sélectionner, puis sur "Préférences" pour définir ses options alimentaires.</p>
       </div>
     </div>
   </div>

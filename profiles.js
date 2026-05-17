@@ -135,23 +135,19 @@ const ProfileManager = {
     for (const profile of this.profiles) {
       const prefs = PreferenceManager.getPreferences(profile.id);
       const tags = PreferenceManager.getPreferenceTags(prefs);
-      const tagDisplay = tags.length > 0 ? `<div style="font-size:0.75rem;color:#666;margin-top:0.25rem;">${tags.join(' ')}</div>` : '';
+      const tagDisplay = tags.length > 0 ? `<div class="profile-item__tags">${tags.join(' ')}</div>` : '';
+      const createdDate = new Date(profile.created_at).toLocaleDateString('fr-FR');
 
       html += `
-        <div style="background:#F9FAFB;border:1px solid #E5E7EB;padding:0.75rem;border-radius:8px;margin-bottom:0.5rem;">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.5rem;">
-            <div style="flex:1;cursor:pointer;" onclick="ProfileManager.selectProfile('${profile.id}', '${profile.name}'); return false;">
-              <div style="font-weight:600;color:#1B4332;">${profile.name}</div>
-              <div style="font-size:0.8rem;color:#999;">Créé le ${new Date(profile.created_at).toLocaleDateString('fr-FR')}</div>
-              ${tagDisplay}
-            </div>
-            <div style="display:flex;gap:0.5rem;">
-              <button onclick="ProfileManager.openPreferenceModal('${profile.id}', '${profile.name}'); return false;"
-                      style="padding:0.25rem 0.75rem;background:#E8F5E9;color:#1B4332;border:none;border-radius:4px;cursor:pointer;font-size:0.85rem;font-weight:600;">
-                ⚙️ Préférences
-              </button>
-              ${this.profiles.length > 1 ? `<button onclick="ProfileManager.deleteProfile('${profile.id}'); return false;" style="padding:0.25rem 0.5rem;background:#fee2e2;color:#dc2626;border:none;border-radius:4px;cursor:pointer;font-size:0.85rem;font-weight:bold;">Supprimer</button>` : ''}
-            </div>
+        <div class="profile-item">
+          <div class="profile-item__main" onclick="ProfileManager.selectProfile('${profile.id}', '${profile.name}'); return false;">
+            <div class="profile-item__name">${profile.name}</div>
+            <div class="profile-item__meta">Ajouté ${createdDate}</div>
+            ${tagDisplay}
+          </div>
+          <div class="profile-item__actions">
+            <button class="profile-item__btn profile-item__btn--prefs" onclick="ProfileManager.openPreferenceModal('${profile.id}', '${profile.name}'); return false;">Préférences</button>
+            ${this.profiles.length > 1 ? `<button class="profile-item__btn profile-item__btn--delete" onclick="ProfileManager.deleteProfile('${profile.id}'); return false;" aria-label="Supprimer ${profile.name}">Supprimer</button>` : ''}
           </div>
         </div>
       `;
