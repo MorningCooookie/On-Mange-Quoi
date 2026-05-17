@@ -1544,7 +1544,7 @@ textarea:focus {
   margin: 0 auto;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767px) {
   .pricing-grid { grid-template-columns: 1fr; }
 }
 
@@ -1853,7 +1853,7 @@ textarea:focus {
 }
 
 /* Mobile: slightly larger to touch-friendly sizes */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .prep-time-dot {
     width: 12px;
     height: 12px;
@@ -2293,7 +2293,7 @@ body.modal-open { overflow: hidden; }
   cursor: not-allowed;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .newsletter-strip {
     flex-direction: column;
     align-items: flex-start;

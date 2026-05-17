@@ -158,11 +158,26 @@ utiliser uniquement quand on-grid casse le rythme visuel.
 ## Layout Approach
 
 ### Grid System
-- **Mobile First**: Design starts at 320px, scales up
-- **Responsive Breakpoints**:
-  - Mobile: 320px – 767px (1 column, stacked)
-  - Tablet: 768px – 1023px (2-3 columns)
-  - Desktop: 1024px+ (3-4 columns, max-width 1200px)
+- **Mobile First** : design commence à 320px, scale up.
+- **3 breakpoints canoniques** :
+
+| Breakpoint | Range | Convention `@media` | Usage |
+|------------|-------|---------------------|-------|
+| Mobile | 320–767px | `@media (max-width: 767px)` | 22 callsites — hub principal |
+| Tablet | 768–1279px | (mid range — pas de media query nécessaire si bien stylé) | — |
+| Desktop | ≥1280px | `@media (max-width: 1279px)` pour réduire | 1 callsite (`.week-grid`) |
+| Mirror desktop | ≥768px positif | `@media (min-width: 768px)` | 1 callsite (`#toast`) |
+
+### Exceptions volontaires (documentées)
+
+| Breakpoint | Composant | Raison |
+|------------|-----------|--------|
+| `max-width: 1023px` | `.courses-layout` → single col | Tablette landscape (1024-1279) doit basculer en single col pour lisibilité — pas migrable vers 1279 sans changer le visuel. |
+| `max-width: 480px` | `#auth-button-group .landing-header__login` → hidden | Cache uniquement le bouton login sur écrans très-petits (≤480px). Migrer vers 767 casserait l'UX entre 481-767. |
+
+### Règle d'usage
+
+Tout nouveau composant responsive doit utiliser **`max-width: 767px`** comme breakpoint mobile par défaut. N'introduire un breakpoint intermédiaire que si une exception est documentable ci-dessus.
 
 ### Containers
 - **Max Content Width**: 1200px (centered with padding)
@@ -323,6 +338,7 @@ color: white;
 | **Suppression `--color-secondary` (v2.1, 2026-05-17)** | Coral #E07A5F retiré ; `.fix-preferences-btn` repose sur `--sun-500` | Coral était un vestige avant direction solaire. Sun-500 est l'accent secondaire officiel — réutilisé sur l'unique callsite. Hover/dark mode dérivés via `color-mix()`. | Token `--color-secondary` supprimé du `:root`. |
 | **Scale d'espacement tokenisée (v2.1, 2026-05-17)** | --space-0 à --space-9 + 8 intercalaires | Aucune scale unifiée avant ce commit. 8 valeurs hors-grille déjà en prod (0.125, 0.375, 0.625, 0.875, 1.125, 1.75, 2.5, 2.75 rem) tokenisées plutôt que migrées vers on-grid — préserve le visuel actuel. Future migration composant par composant. | 19 tokens dans `:root`. Aucun callsite migré dans cette passe. |
 | **Scale typographique + hiérarchie h1/h2/h3/h4 globale (v2.1, 2026-05-17)** | Tokens `--fs-*` via `clamp()` + règles globales dans styles.css | Aucun style global h1-h4 avant ce commit — chaque section inventait ses tailles (204 déclarations `font-size`). `clamp()` choisi pour fluidité mobile→desktop sans media query supplémentaire. | Suppression du token `--font-body: Work Sans` mort (override Plus Jakarta Sans). Sélecteurs scoped non touchés (spécificité plus élevée). |
+| **Consolidation breakpoints (v2.1, 2026-05-17)** | 7 outliers → 3 cibles (767/1279/min:768) + 2 exceptions documentées | Initial audit montrait 17 breakpoints "distincts" — réalité : la plupart étaient des `min-width` de composants, pas des media queries. 7 vraies @media outliers : 3 migrées (640→767, 768→767 off-by-one, 600→767), 2 gardées comme exceptions intentionnelles (1023 tablette landscape, 480 mobile-petit), 2 standards (1279 desktop, min-768 mirror). | Aucun changement visuel sauf zones intermédiaires (601-767 newsletter passe en column, 641-767 pricing passe en single col) — bénéfice de lisibilité sur mobile large. |
 | **Primary Color (v2)** | Forest Green (#1B4332) — **déprécié** | Nature-inspired, warm, food-adjacent. Family-friendly. | Remplacé par Grove Sage en v2.1 (voir ligne au-dessus). |
 | **Font Stack** | Fraunces + Plus Jakarta Sans + IBM Plex Mono | Organic serif + modern sans + neutral mono. Covers all roles without clash. | Three fonts; adds slight download weight. Serif display is unusual in apps but fits warm aesthetic. |
 | **Button Radius** | 6px | Clean, modern, subtle rounding. Balances warmth and restraint. Matches production. | Less rounded than initial system (was 12px); requires consistency. |
