@@ -37,16 +37,31 @@ A design system grounded in the natural world. The palette is warm and forest-in
 | Body (Default) | Plus Jakarta Sans | sans-serif | Paragraphs, labels, body text |
 | Monospace (Data) | IBM Plex Mono | monospace | Quantities, dates, codes, data tables |
 
-### Scale
-```
-H1:  2rem / 1.75rem (mobile)    — Fraunces 700
-H2:  1.5rem / 1.25rem (mobile)  — Fraunces 600
-H3:  1.25rem / 1.1rem (mobile)  — Fraunces 600
-H4:  1.1rem / 1rem (mobile)     — Fraunces 600
-Body: 1rem / 0.95rem (mobile)   — Plus Jakarta Sans 400, line-height 1.6
-Small: 0.875rem                 — Plus Jakarta Sans 400, line-height 1.5
-Label: 0.85rem / 0.8rem         — Plus Jakarta Sans 600, letter-spacing 0.3px
-Mono: 0.9rem / 0.85rem          — IBM Plex Mono 400
+### Scale (fluide via `clamp()` — mobile → desktop)
+
+| Token | Min (mobile) | Max (desktop) | Font | Weight | Line-height |
+|-------|--------------|---------------|------|--------|-------------|
+| `--fs-h1` | 1.75rem (28px) | 2rem (32px) | Fraunces | 700 | `--lh-tight` (1.2) |
+| `--fs-h2` | 1.25rem (20px) | 1.5rem (24px) | Fraunces | 600 | `--lh-tight` (1.2) |
+| `--fs-h3` | 1.1rem (17.6px) | 1.25rem (20px) | Fraunces | 600 | `--lh-normal` (1.4) |
+| `--fs-h4` | 1rem (16px) | 1.1rem (17.6px) | Fraunces | 600 | `--lh-normal` (1.4) |
+| `--fs-body` | 1rem (16px) | 1rem (16px) | Plus Jakarta Sans | 400 | `--lh-loose` (1.6) |
+| `--fs-small` | 0.875rem (14px) | 0.875rem (14px) | Plus Jakarta Sans | 400 | 1.5 |
+| `--fs-label` | 0.85rem (13.6px) | 0.85rem (13.6px) | Plus Jakarta Sans | 600 | 1.4 |
+| `--fs-mono` | 0.9rem (14.4px) | 0.9rem (14.4px) | IBM Plex Mono | 400 | 1.5 |
+
+### Hiérarchie globale (styles.css)
+
+Les sélecteurs `h1, h2, h3, h4` nus reçoivent désormais leur style depuis
+styles.css (font-family display + scale + line-height + margin-bottom).
+Les sélecteurs scoped (`.parent h2 { … }`) gardent leur priorité grâce à
+une spécificité plus élevée et peuvent override.
+
+```css
+h1 { font-size: var(--fs-h1); font-weight: 700; line-height: var(--lh-tight); margin: 0 0 var(--space-5); }
+h2 { font-size: var(--fs-h2); font-weight: 600; line-height: var(--lh-tight); margin: 0 0 var(--space-4); }
+h3 { font-size: var(--fs-h3); font-weight: 600; line-height: var(--lh-normal); margin: 0 0 var(--space-3); }
+h4 { font-size: var(--fs-h4); font-weight: 600; line-height: var(--lh-normal); margin: 0 0 var(--space-3); }
 ```
 
 ### Design Rationale
@@ -306,6 +321,8 @@ color: white;
 | **Direction solaire (v2.1, 2026-05)** | Grove Sage #3A7D5C + Sun Accent #D4902A | Passage du Forest Green sombre vers une palette lumineuse et solaire. Décision produit pour aérer l'identité visuelle. | Les tokens v2 (Forest Green) coexistent encore dans `styles.css` `:root` ; nettoyage à prévoir. |
 | **Tokens prep-pill + item-price (v2.1, 2026-05-17)** | Pastels prep-time + texte item-price tokenisés | Axe sémantique du prep-time (vitesse de cuisine) gardé distinct du score-band (santé globale). Tokens dédiés `--prep-*-bg/text` + `--discount/standard/bio-text`. | Zéro callsite hex hardcodé restant pour ces composants. |
 | **Suppression `--color-secondary` (v2.1, 2026-05-17)** | Coral #E07A5F retiré ; `.fix-preferences-btn` repose sur `--sun-500` | Coral était un vestige avant direction solaire. Sun-500 est l'accent secondaire officiel — réutilisé sur l'unique callsite. Hover/dark mode dérivés via `color-mix()`. | Token `--color-secondary` supprimé du `:root`. |
+| **Scale d'espacement tokenisée (v2.1, 2026-05-17)** | --space-0 à --space-9 + 8 intercalaires | Aucune scale unifiée avant ce commit. 8 valeurs hors-grille déjà en prod (0.125, 0.375, 0.625, 0.875, 1.125, 1.75, 2.5, 2.75 rem) tokenisées plutôt que migrées vers on-grid — préserve le visuel actuel. Future migration composant par composant. | 19 tokens dans `:root`. Aucun callsite migré dans cette passe. |
+| **Scale typographique + hiérarchie h1/h2/h3/h4 globale (v2.1, 2026-05-17)** | Tokens `--fs-*` via `clamp()` + règles globales dans styles.css | Aucun style global h1-h4 avant ce commit — chaque section inventait ses tailles (204 déclarations `font-size`). `clamp()` choisi pour fluidité mobile→desktop sans media query supplémentaire. | Suppression du token `--font-body: Work Sans` mort (override Plus Jakarta Sans). Sélecteurs scoped non touchés (spécificité plus élevée). |
 | **Primary Color (v2)** | Forest Green (#1B4332) — **déprécié** | Nature-inspired, warm, food-adjacent. Family-friendly. | Remplacé par Grove Sage en v2.1 (voir ligne au-dessus). |
 | **Font Stack** | Fraunces + Plus Jakarta Sans + IBM Plex Mono | Organic serif + modern sans + neutral mono. Covers all roles without clash. | Three fonts; adds slight download weight. Serif display is unusual in apps but fits warm aesthetic. |
 | **Button Radius** | 6px | Clean, modern, subtle rounding. Balances warmth and restraint. Matches production. | Less rounded than initial system (was 12px); requires consistency. |

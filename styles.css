@@ -73,8 +73,25 @@
   --space-7-5:   2.75rem;   /* 44px - touch target / intercalaire */
   --space-8:     4rem;      /* 64px - page-level spacing */
   --space-9:     5rem;      /* 80px - extra-large gaps */
+
+  /* ── Scale typographique (DESIGN.md §Typography System) ──
+     clamp(min, prefer, max) — fluidité mobile→desktop sans media query.
+     Min = valeur mobile (320-375px), Max = valeur desktop (≥1024px). */
+  --fs-h1:    clamp(1.75rem, 1.55rem + 1vw, 2rem);      /* 28→32 - display */
+  --fs-h2:    clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);  /* 20→24 - section */
+  --fs-h3:    clamp(1.1rem, 1rem + 0.5vw, 1.25rem);     /* 17.6→20 - subsection */
+  --fs-h4:    clamp(1rem, 0.95rem + 0.25vw, 1.1rem);    /* 16→17.6 - block title */
+  --fs-body:  1rem;                                      /* 16 - paragraphes */
+  --fs-small: 0.875rem;                                  /* 14 - secondary text */
+  --fs-label: 0.85rem;                                   /* 13.6 - labels, eyebrow */
+  --fs-mono:  0.9rem;                                    /* 14.4 - data, quantités */
+
+  /* Line-heights — DESIGN.md §Typography */
+  --lh-tight:  1.2;   /* h1, h2 */
+  --lh-normal: 1.4;   /* h3, h4 */
+  --lh-loose:  1.6;   /* body */
   --font-display: 'Fraunces', Georgia, serif;
-  --font-body: 'Work Sans', system-ui, sans-serif;
+  /* --font-body redéfini plus bas avec Plus Jakarta Sans (direction solaire) */
 
   /* Header design tokens — compact & professional */
   --header-padding-vertical: 0.75rem;
@@ -268,10 +285,24 @@
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
   font-family: var(--font-body);
+  font-size: var(--fs-body);
   background: var(--bg); color: var(--text);
-  line-height: 1.6; min-height: 100vh;
+  line-height: var(--lh-loose); min-height: 100vh;
 }
 a { color: inherit; }
+
+/* ── Hiérarchie typographique globale ────────────────────────
+   Source de vérité pour h1/h2/h3/h4 nus (non scoped par une classe).
+   Les sélecteurs scoped (.parent h2 { … }) gardent leur priorité grâce
+   à leur spécificité plus élevée. */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--text);
+}
+h1 { font-size: var(--fs-h1); font-weight: 700; line-height: var(--lh-tight); margin: 0 0 var(--space-5); }
+h2 { font-size: var(--fs-h2); font-weight: 600; line-height: var(--lh-tight); margin: 0 0 var(--space-4); }
+h3 { font-size: var(--fs-h3); font-weight: 600; line-height: var(--lh-normal); margin: 0 0 var(--space-3); }
+h4 { font-size: var(--fs-h4); font-weight: 600; line-height: var(--lh-normal); margin: 0 0 var(--space-3); }
 
 /* ── Skip link ─────────────────────────────────────────────── */
 .skip-link {
