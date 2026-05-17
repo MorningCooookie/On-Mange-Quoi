@@ -69,9 +69,15 @@ Mono: 0.9rem / 0.85rem          — IBM Plex Mono 400
 | Light Border | `#E5E5E5` | 229, 229, 229 | Dividers, borders, subtle separation | Very light; doesn't dominate. |
 | Alert/Warning | `#D97706` | 217, 119, 6 | Warnings, required fields, errors | Amber; warm and visible. |
 | Success | `#10B981` | 16, 185, 129 | Confirmation, success states, checks | Bright, distinct. Clear signal. |
-| Prep-Time Fast | `#10B981` | 16, 185, 129 | Prep time < 15 min indicator | Green; matches Success color. |
-| Prep-Time Medium | `#F59E0B` | 245, 158, 11 | Prep time < 30 min indicator | Warm amber; alerts without alarm. |
-| Prep-Time Slow | `#EF4444` | 239, 68, 68 | Prep time < 45 min indicator | Red; clear visual alert. |
+| Prep-Time Fast (dot) | `#10B981` | 16, 185, 129 | `.prep-time-dot.fast` — point 10×10 saturé | Token `--prep-fast`. Vert success. |
+| Prep-Time Medium (dot) | `#F59E0B` | 245, 158, 11 | `.prep-time-dot.medium` — point 10×10 saturé | Token `--prep-medium`. Amber. |
+| Prep-Time Slow (dot) | `#EF4444` | 239, 68, 68 | `.prep-time-dot.slow` — point 10×10 saturé | Token `--prep-slow`. Rouge. |
+| Prep-Time Fast (pill bg/text) | `#DCFCE7` / `#14532D` | — | `.badge-prep.prep-fast` — pill pastel | Tokens `--prep-fast-bg/--prep-fast-text`. Axe sémantique distinct du score-band. |
+| Prep-Time Medium (pill bg/text) | `#FEF3C7` / `#78350F` | — | `.badge-prep.prep-medium` — pill pastel | Tokens `--prep-medium-bg/--prep-medium-text`. |
+| Prep-Time Slow (pill bg/text) | `#FEE2E2` / `#7F1D1D` | — | `.badge-prep.prep-slow` — pill pastel | Tokens `--prep-slow-bg/--prep-slow-text`. |
+| Discount Text | `#B45309` | 180, 83, 9 | Prix tier discount sur shopping list | Token `--discount-text`. Lisible sur fond clair. |
+| Standard Text | `#0369A1` | 3, 105, 161 | Prix tier standard sur shopping list | Token `--standard-text`. |
+| Bio Text | `#15803D` | 21, 128, 61 | Prix tier bio sur shopping list | Token `--bio-text`. |
 
 ### Dark Mode Overrides
 ```
@@ -276,6 +282,8 @@ color: white;
 | Decision | Choice | Rationale | Trade-offs |
 |----------|--------|-----------|-----------|
 | **Direction solaire (v2.1, 2026-05)** | Grove Sage #3A7D5C + Sun Accent #D4902A | Passage du Forest Green sombre vers une palette lumineuse et solaire. Décision produit pour aérer l'identité visuelle. | Les tokens v2 (Forest Green) coexistent encore dans `styles.css` `:root` ; nettoyage à prévoir. |
+| **Tokens prep-pill + item-price (v2.1, 2026-05-17)** | Pastels prep-time + texte item-price tokenisés | Axe sémantique du prep-time (vitesse de cuisine) gardé distinct du score-band (santé globale). Tokens dédiés `--prep-*-bg/text` + `--discount/standard/bio-text`. | Zéro callsite hex hardcodé restant pour ces composants. |
+| **Suppression `--color-secondary` (v2.1, 2026-05-17)** | Coral #E07A5F retiré ; `.fix-preferences-btn` repose sur `--sun-500` | Coral était un vestige avant direction solaire. Sun-500 est l'accent secondaire officiel — réutilisé sur l'unique callsite. Hover/dark mode dérivés via `color-mix()`. | Token `--color-secondary` supprimé du `:root`. |
 | **Primary Color (v2)** | Forest Green (#1B4332) — **déprécié** | Nature-inspired, warm, food-adjacent. Family-friendly. | Remplacé par Grove Sage en v2.1 (voir ligne au-dessus). |
 | **Font Stack** | Fraunces + Plus Jakarta Sans + IBM Plex Mono | Organic serif + modern sans + neutral mono. Covers all roles without clash. | Three fonts; adds slight download weight. Serif display is unusual in apps but fits warm aesthetic. |
 | **Button Radius** | 6px | Clean, modern, subtle rounding. Balances warmth and restraint. Matches production. | Less rounded than initial system (was 12px); requires consistency. |

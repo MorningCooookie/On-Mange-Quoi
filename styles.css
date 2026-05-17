@@ -29,7 +29,6 @@
   --text-secondary: #6B7280;
   --border: #E5E0D8;
   --color-background: #FAFAF9;
-  --color-secondary: #E07A5F;
   --header-from: #1B4332;
   --header-to: #40916C;
   --breakfast-accent: #4F46E5;
@@ -80,10 +79,20 @@
   --btn-focus-outline: 3px solid #1B4332;
   --btn-focus-offset: 2px;
 
-  /* Prep Time Indicators */
+  /* Prep Time Indicators — saturés (utilisés par .prep-time-dot, fill 10x10) */
   --prep-fast: #10B981;   /* Green */
   --prep-medium: #F59E0B; /* Amber */
   --prep-slow: #EF4444;   /* Red */
+
+  /* Prep Time Badges (pills) — pastels distincts du score-band (axe sémantique différent) */
+  --prep-fast-bg:   #DCFCE7; --prep-fast-text:   #14532D;
+  --prep-medium-bg: #FEF3C7; --prep-medium-text: #78350F;
+  --prep-slow-bg:   #FEE2E2; --prep-slow-text:   #7F1D1D;
+
+  /* Item price text — couleurs lisibles par tier (discount/standard/bio) */
+  --discount-text: #B45309;
+  --standard-text: #0369A1;
+  --bio-text:      #15803D;
 
   /* ── Refined design tokens (redesign 2026) ── */
   --green-900: #0F2E22;
@@ -768,9 +777,9 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
   padding: .1rem .38rem; border-radius: 20px;
   display: flex; align-items: center; gap: .18rem;
 }
-.badge-prep.prep-fast   { background: #DCFCE7; color: #14532D; }
-.badge-prep.prep-medium { background: #FEF3C7; color: #78350F; }
-.badge-prep.prep-slow   { background: #FEE2E2; color: #7F1D1D; }
+.badge-prep.prep-fast   { background: var(--prep-fast-bg);   color: var(--prep-fast-text); }
+.badge-prep.prep-medium { background: var(--prep-medium-bg); color: var(--prep-medium-text); }
+.badge-prep.prep-slow   { background: var(--prep-slow-bg);   color: var(--prep-slow-text); }
 
 /* Season badge */
 .badge-season {
@@ -891,9 +900,9 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
 }
 
 .item-price { font-size: .83rem; font-weight: 700; min-width: 50px; text-align: right; flex-shrink: 0; }
-.item-price.discount { color: #B45309; }
-.item-price.standard { color: #0369A1; }
-.item-price.bio      { color: #15803D; }
+.item-price.discount { color: var(--discount-text); }
+.item-price.standard { color: var(--standard-text); }
+.item-price.bio      { color: var(--bio-text); }
 
 .shopping-item.is-checked { opacity: .6; }
 .shopping-item.is-checked .item-name { text-decoration: line-through; color: var(--text-secondary); }
@@ -1173,7 +1182,7 @@ textarea:focus {
 .fix-preferences-btn {
   position: relative;
   padding: 0.5rem 1rem;
-  background-color: var(--color-secondary);
+  background-color: var(--sun-500);
   color: white;
   border: none;
   border-radius: 12px;
@@ -1186,9 +1195,10 @@ textarea:focus {
 }
 
 .fix-preferences-btn:hover {
-  background-color: #d4694a;
+  /* Hover : --sun-500 assombri ~15% pour signal d'interaction */
+  background-color: color-mix(in srgb, var(--sun-500) 85%, black);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(224, 122, 95, 0.3);
+  box-shadow: 0 4px 12px rgba(212, 144, 42, 0.3);
 }
 
 .fix-preferences-btn:active {
@@ -1220,11 +1230,12 @@ textarea:focus {
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   .fix-preferences-btn {
-    background-color: #dc704b;
+    /* Sun-500 éclairci pour contraste sur fond sombre */
+    background-color: color-mix(in srgb, var(--sun-500) 88%, white);
   }
 
   .fix-preferences-btn:hover {
-    background-color: #e88560;
+    background-color: color-mix(in srgb, var(--sun-500) 75%, white);
   }
 }
 
