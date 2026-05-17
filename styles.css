@@ -79,8 +79,6 @@
   --btn-transition: all 0.2s ease;
   --btn-focus-outline: 3px solid #1B4332;
   --btn-focus-offset: 2px;
-  --btn-primary-hover: #0d3219;
-  --btn-secondary-hover: #d0cfc8;
 
   /* Prep Time Indicators */
   --prep-fast: #10B981;   /* Green */
@@ -227,6 +225,11 @@
   --score-a-fill: #2AB97A;
   --score-b-fill: #2597CC;
   --score-c-fill: #E8852F;
+
+  /* Aliases de score (utilisés par about.css, fiche.html, week-strip…) */
+  --score-a: var(--green-800);
+  --score-b: #4A6B85;
+  --score-c: var(--accent-terra);
 }
 
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -2239,17 +2242,6 @@ body.modal-open { overflow: hidden; }
 /* ============================================================
    LANDING PAGE — Phase 4 design system extensions
    ============================================================ */
-
-/* --- Utility tokens manquants -------------------------------- */
-:root {
-  --score-a: var(--green-800);
-  --score-b: #4A6B85;
-  --score-c: var(--accent-terra, #B5553A);
-  --shadow-2: 0 2px 8px rgba(20,17,13,.06), 0 0 0 1px rgba(20,17,13,.05);
-  --shadow-3: 0 8px 24px rgba(20,17,13,.08), 0 0 0 1px rgba(20,17,13,.05);
-  --ink-100: #ECE7DD;
-  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
-}
 
 /* --- Boutons landing ----------------------------------------- */
 .btn--landing {
