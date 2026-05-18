@@ -11,6 +11,19 @@
 // Pré-requis : le SDK Supabase + window.supabaseClient initialisé AVANT
 // que ce script s'exécute. Sur la home, c'est fait inline dans index.html.
 
+// Helper global pour échapper les chaînes injectées en innerHTML.
+// Utilisé pour profile.name, meal.name, dislikes — toute valeur d'origine
+// utilisateur (Supabase) ou potentiellement adverse. CRITIQUE pour la
+// sécurité : sans cet escape, un nom de profil "<img src=x onerror=alert(1)>"
+// exécuterait du JS dans la session de qui le rend.
+if (typeof window.escapeHTML !== 'function') {
+  window.escapeHTML = function(s) {
+    return String(s ?? '').replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[c]));
+  };
+}
+
 // Fallback showToast — auth.js est inclus sur toutes les pages avec une
 // landing-header. Les pages spécifiques (index.html, app.js, recettes.js)
 // peuvent redéfinir showToast avec leur propre signature ; on ne fait

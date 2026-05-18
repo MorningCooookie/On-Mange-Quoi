@@ -775,6 +775,37 @@
       }
     });
 
+    // ?premium=1 — depuis le CTA "Découvrir Premium" des modales premium.
+    // Si user connecté, lance Stripe checkout. Sinon, ouvre signup pour
+    // créer un compte d'abord (le checkout exigeant un user_id).
+    (function handlePremiumQuery() {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('premium') !== '1') return;
+      // On retire le param de l'URL pour ne pas re-déclencher au reload
+      const cleanUrl = window.location.pathname + window.location.hash;
+      window.history.replaceState({}, '', cleanUrl);
+
+      const ready = setInterval(async () => {
+        if (!window.supabaseClient || !window.supabaseClient.auth) return;
+        clearInterval(ready);
+        try {
+          const { data: { session } } = await window.supabaseClient.auth.getSession();
+          if (session?.user && typeof ProfileManager !== 'undefined' && ProfileManager.startCheckout) {
+            ProfileManager.startCheckout();
+          } else {
+            document.getElementById('signup-modal').style.display = 'flex';
+            const subtitle = document.querySelector('#signup-modal .auth-modal__subtitle');
+            if (subtitle) subtitle.textContent = 'Créez votre compte pour activer Premium.';
+            document.getElementById('signup-email')?.focus();
+          }
+        } catch (e) {
+          console.warn('[premium] checkout init failed', e);
+        }
+      }, 100);
+      // Sécurité : arrêter le poll après 5s
+      setTimeout(() => clearInterval(ready), 5000);
+    })();
+
     // Routage clics modales : ouvre/ferme forgot-modal, back-to-login.
     document.addEventListener('click', (e) => {
       const action = e.target.closest('[data-action]')?.dataset.action;

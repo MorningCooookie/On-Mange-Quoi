@@ -537,7 +537,11 @@ function renderMenu() {
           // "Voir une alternative" est gated premium et ouvre une modale
           // d'upgrade. Le markup utilise des classes BEM tokenisées
           // (voir styles.css .meal-warning__*).
-          const safeMealName = meal.name.replace(/"/g, '&quot;');
+          // Escape complet (&, <, >, ", ') au lieu d'un simple replace des
+          // quotes qui laissait passer XSS via &/<. Cf. C2 de l'audit code review.
+          const safeMealName = (typeof window.escapeHTML === 'function')
+            ? window.escapeHTML(meal.name)
+            : String(meal.name ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
           mealWarning = `
             <div class="meal-warning">
               <div class="meal-warning__main">

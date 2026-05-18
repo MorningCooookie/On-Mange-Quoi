@@ -329,7 +329,11 @@ function renderMealWarning(meal, currentPreferences) {
   if (!currentPreferences || !meal || typeof PreferenceManager === 'undefined') return '';
   const ingredients = meal.ingredients || [];
   if (PreferenceManager.isDishSafe(meal.name, ingredients, currentPreferences)) return '';
-  const safeMealName = (meal.name || '').replace(/"/g, '&quot;');
+  // Escape complet (cf. C2 audit code review — replace de quotes seules
+  // laissait passer XSS via & et < dans meal.name).
+  const safeMealName = (typeof window.escapeHTML === 'function')
+    ? window.escapeHTML(meal.name || '')
+    : String(meal.name ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   return `
     <div class="meal-warning">
       <div class="meal-warning__main">

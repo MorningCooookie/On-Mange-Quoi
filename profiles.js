@@ -183,22 +183,36 @@ const ProfileManager = {
 
     let html = '';
 
+    // Helper d'échappement local (fallback si auth.js pas encore chargé).
+    const esc = (typeof window.escapeHTML === 'function')
+      ? window.escapeHTML
+      : (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
     for (const profile of this.profiles) {
       const prefs = PreferenceManager.getPreferences(profile.id);
       const tags = PreferenceManager.getPreferenceTags(prefs);
-      const tagDisplay = tags.length > 0 ? `<div class="profile-item__tags">${tags.join(' ')}</div>` : '';
+      // tags vient de PreferenceManager (allergies/restrictions/dislikes user)
+      // — escape chaque tag individuellement.
+      const tagDisplay = tags.length > 0
+        ? `<div class="profile-item__tags">${tags.map(esc).join(' ')}</div>`
+        : '';
       const createdDate = new Date(profile.created_at).toLocaleDateString('fr-FR');
+      const nameEsc = esc(profile.name);
+      const idEsc   = esc(profile.id);
 
+      // Event delegation via data-action (cf. listener delegation plus bas).
+      // Évite l'injection JS qui était possible avec onclick="...('${name}')"
+      // si le nom contenait une apostrophe ou du markup.
       html += `
         <div class="profile-item">
-          <div class="profile-item__main" onclick="ProfileManager.selectProfile('${profile.id}', '${profile.name}'); return false;">
-            <div class="profile-item__name">${profile.name}</div>
+          <div class="profile-item__main" data-action="select-profile" data-profile-id="${idEsc}" data-profile-name="${nameEsc}">
+            <div class="profile-item__name">${nameEsc}</div>
             <div class="profile-item__meta">Ajouté ${createdDate}</div>
             ${tagDisplay}
           </div>
           <div class="profile-item__actions">
-            <button class="profile-item__btn profile-item__btn--prefs" onclick="ProfileManager.openPreferenceModal('${profile.id}', '${profile.name}'); return false;">Préférences</button>
-            ${this.profiles.length > 1 ? `<button class="profile-item__btn profile-item__btn--delete" onclick="ProfileManager.deleteProfile('${profile.id}'); return false;" aria-label="Supprimer ${profile.name}">Supprimer</button>` : ''}
+            <button class="profile-item__btn profile-item__btn--prefs" data-action="open-pref-modal" data-profile-id="${idEsc}" data-profile-name="${nameEsc}" type="button">Préférences</button>
+            ${this.profiles.length > 1 ? `<button class="profile-item__btn profile-item__btn--delete" data-action="delete-profile" data-profile-id="${idEsc}" type="button" aria-label="Supprimer ${nameEsc}">Supprimer</button>` : ''}
           </div>
         </div>
       `;
@@ -313,3 +327,24 @@ const ProfileManager = {
     }
   }
 };
+
+// Event delegation pour les actions sur la liste de profils.
+// Remplace les onclick="ProfileManager.X('${id}', '${name}')" inline qui
+// étaient (1) une porte d'entrée XSS si le nom contenait une apostrophe
+// ou du markup, (2) fragiles face à d'autres scripts altérant le scope
+// global. Idempotent via window.__profileItemDelegationAttached.
+if (!window.__profileItemDelegationAttached) {
+  window.__profileItemDelegationAttached = true;
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-action]');
+    if (!trigger) return;
+    const { action, profileId, profileName } = trigger.dataset;
+    if (action === 'select-profile' && profileId) {
+      ProfileManager.selectProfile(profileId, profileName || '');
+    } else if (action === 'open-pref-modal' && profileId) {
+      ProfileManager.openPreferenceModal(profileId, profileName || '');
+    } else if (action === 'delete-profile' && profileId) {
+      ProfileManager.deleteProfile(profileId);
+    }
+  });
+}

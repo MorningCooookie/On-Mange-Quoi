@@ -142,17 +142,30 @@ const PreferenceManager = {
   },
 
   // Check if a dish is safe for preferences
+  // Normalisation : enlève accents + lowercase. Critique pour les allergies
+  // — sans ça, "Œufs" en pref ne matche pas "œuf" dans un plat, "Sésame"
+  // ne matche pas "sesame", "Arachides" ne matche pas "arachide" (singulier).
+  // Risque sanitaire majeur identifié dans l'audit code review (H8).
+  _normalize(s) {
+    // ̀-ͯ = Combining Diacritical Marks (accents séparés après NFD)
+    return String(s ?? '')
+      .normalize('NFD')
+      .replace(/[̀-ͯ]/g, '')
+      .toLowerCase();
+  },
+
   isDishSafe(dishName, dishIngredients, preferences) {
     if (!preferences || (!preferences.allergies?.length && !preferences.restrictions?.length && !preferences.dislikes?.length)) {
       return true; // No restrictions = all dishes safe
     }
 
-    const dishText = `${dishName} ${(dishIngredients || []).join(' ')}`.toLowerCase();
+    const dishText = this._normalize(`${dishName} ${(dishIngredients || []).join(' ')}`);
 
-    // Check allergies
+    // Check allergies — normalisation des deux côtés pour éviter les faux
+    // négatifs (les allergies sont une exigence sanitaire, pas une préférence).
     if (preferences.allergies?.length > 0) {
       for (const allergen of preferences.allergies) {
-        if (dishText.includes(allergen.toLowerCase())) {
+        if (dishText.includes(this._normalize(allergen))) {
           return false;
         }
       }
@@ -170,13 +183,13 @@ const PreferenceManager = {
     // Check dislikes (with synonym expansion for generic terms like "poisson" → "saumon", "cabillaud"...)
     if (preferences.dislikes?.length > 0) {
       for (const dislike of preferences.dislikes) {
-        const dislikeLower = dislike.toLowerCase();
-        if (dishText.includes(dislikeLower)) {
+        const dislikeNorm = this._normalize(dislike);
+        if (dishText.includes(dislikeNorm)) {
           return false;
         }
-        const synonyms = this.DISLIKE_SYNONYMS[dislikeLower] || [];
+        const synonyms = this.DISLIKE_SYNONYMS[dislikeNorm] || this.DISLIKE_SYNONYMS[dislike.toLowerCase()] || [];
         for (const synonym of synonyms) {
-          if (dishText.includes(synonym)) {
+          if (dishText.includes(this._normalize(synonym))) {
             return false;
           }
         }
@@ -276,12 +289,19 @@ const PreferenceManager = {
     if (!profileId) return;
 
     const prefs = this.getPreferences(profileId);
+    // Escape — profileName et dislikes viennent d'input utilisateur stocké
+    // en Supabase, doivent être échappés avant injection en innerHTML.
+    const esc = (typeof window.escapeHTML === 'function')
+      ? window.escapeHTML
+      : (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const nameEsc = esc(profileName);
+    const idEsc   = esc(profileId);
 
     let html = `
-      <div id="preference-modal-${profileId}" class="preference-modal" style="display: none;">
+      <div id="preference-modal-${idEsc}" class="preference-modal" style="display: none;">
         <div class="preference-modal__panel">
           <div class="preference-modal__header">
-            <h2 class="preference-modal__title">Préférences alimentaires — ${profileName}</h2>
+            <h2 class="preference-modal__title">Préférences alimentaires — ${nameEsc}</h2>
             <button class="preference-modal__close" data-action="close-pref-modal" data-profile-id="${profileId}" type="button" aria-label="Fermer">✕</button>
           </div>
 
@@ -331,10 +351,10 @@ const PreferenceManager = {
 
             <fieldset class="preference-form__section">
               <legend class="preference-form__legend">Ingrédients à éviter <span class="preference-form__legend-hint">(optionnel)</span></legend>
-              <input type="text" id="dislikes-${profileId}"
+              <input type="text" id="dislikes-${idEsc}"
                      class="preference-form__input"
                      placeholder="coriandre, champignons, etc. — séparés par des virgules"
-                     value="${(prefs.dislikes || []).join(', ')}">
+                     value="${esc((prefs.dislikes || []).join(', '))}">
             </fieldset>
 
             <button class="btn btn--primary btn--block" data-action="save-pref" data-profile-id="${profileId}" type="button">
