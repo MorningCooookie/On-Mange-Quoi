@@ -2709,6 +2709,197 @@ body.modal-open { overflow: hidden; }
 }
 .toast.removing { animation: toastSlideUp 0.3s ease-out forwards; }
 
+/* ============================================================
+   MEAL WARNING — badge "Ne correspond pas à vos préférences"
+   ============================================================ */
+.meal-warning {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--cream-50);
+  border-left: 3px solid #DC2626;
+  border-radius: var(--r-inner);
+  flex-wrap: wrap;
+}
+.meal-warning__main {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1;
+  min-width: 0;
+}
+.meal-warning__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #DC2626;
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.meal-warning__text {
+  font-size: var(--fs-label);
+  color: var(--text);
+  line-height: 1.4;
+}
+.meal-warning__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 150ms, background 150ms;
+  white-space: nowrap;
+}
+.meal-warning__cta:hover { border-color: var(--sun-500); background: var(--sun-50); }
+.meal-warning__premium-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  background: var(--sun-500);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 999px;
+}
+
+@media (max-width: 767px) {
+  .meal-warning { flex-direction: column; align-items: stretch; }
+  .meal-warning__cta { justify-content: center; }
+}
+
+/* ============================================================
+   PREMIUM UPGRADE MODAL — ouverte depuis meal-warning CTA
+   ============================================================ */
+.premium-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 17, 13, 0.55);
+  z-index: 30000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+  padding: var(--space-4);
+}
+.premium-modal[style*="flex"] { display: flex; }
+
+.premium-modal__panel {
+  background: var(--white);
+  border-radius: var(--r-card);
+  padding: var(--space-6) var(--space-6) var(--space-5);
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  text-align: center;
+}
+.premium-modal__close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--r-inner);
+  transition: background 120ms;
+}
+.premium-modal__close:hover { background: var(--cream-100); color: var(--text); }
+
+.premium-modal__badge {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 4px 12px;
+  background: var(--sun-500);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 999px;
+}
+.premium-modal__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  color: var(--text);
+  margin: var(--space-2) 0 0;
+  line-height: var(--lh-tight);
+}
+.premium-modal__intro {
+  font-size: var(--fs-small);
+  color: var(--text-secondary);
+  line-height: var(--lh-loose);
+  margin: 0 0 var(--space-2);
+}
+.premium-modal__perks {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  text-align: left;
+}
+.premium-modal__perks li {
+  position: relative;
+  padding-left: var(--space-5);
+  font-size: var(--fs-small);
+  color: var(--text);
+  line-height: 1.4;
+}
+.premium-modal__perks li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 14px;
+  height: 8px;
+  border-left: 2px solid var(--green-800);
+  border-bottom: 2px solid var(--green-800);
+  transform: rotate(-45deg);
+}
+.premium-modal__link {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: var(--fs-label);
+  cursor: pointer;
+  padding: var(--space-2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.premium-modal__link:hover { color: var(--text); }
+
+/* Visuel meal-unsafe : opacité réduite + bordure rouge subtile.
+   .meal-row.meal-unsafe est appliqué dans renderAll quand le plat
+   ne respecte pas les préférences chargées. */
+.meal-row.meal-unsafe { opacity: 0.85; }
+.meal-row.meal-unsafe .meal-name { color: var(--text-secondary); }
+
 
 /* ── Hamburger menu mobile ────────────────────────────────
    Bouton caché sur desktop. CSS gère le breakpoint, JS gère l'état.

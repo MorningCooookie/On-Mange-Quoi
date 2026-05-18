@@ -533,7 +533,22 @@ function renderMenu() {
         const isSafe = PreferenceManager.isDishSafe(meal.name, mealIngredients, currentPreferences);
         if (!isSafe) {
           rowClass += ' meal-unsafe';
-          mealWarning = '<div style="color:#dc2626;font-size:0.8rem;margin-top:0.25rem;font-weight:600;">⚠️ Incompatible avec vos préférences</div>';
+          // Freemium : signaler que le plat ne correspond pas. Le CTA
+          // "Voir une alternative" est gated premium et ouvre une modale
+          // d'upgrade. Le markup utilise des classes BEM tokenisées
+          // (voir styles.css .meal-warning__*).
+          const safeMealName = meal.name.replace(/"/g, '&quot;');
+          mealWarning = `
+            <div class="meal-warning">
+              <div class="meal-warning__main">
+                <span class="meal-warning__icon" aria-hidden="true">!</span>
+                <span class="meal-warning__text">Ce plat ne correspond pas à vos préférences.</span>
+              </div>
+              <button type="button" class="meal-warning__cta" data-action="suggest-alternative" data-meal-name="${safeMealName}">
+                Voir une alternative
+                <span class="meal-warning__premium-badge">Premium</span>
+              </button>
+            </div>`;
         }
       }
       // Fiche technique — repas cliquable si ingrédients disponibles (pas de snack)
@@ -1510,4 +1525,67 @@ function renderMealWithSafetyCheck(meal, mealType, dayDate) {
     }
   });
 })();
+
+// ── CTA premium "Voir une alternative" sur les plats incompatibles ─
+// Event delegation : marche même si les rows meal sont re-render plusieurs
+// fois. Le clic ouvre une modale d'upgrade ; à terme, l'IA premium
+// suggérera une alternative concrète au plat refusé.
+if (!window.__suggestAlternativeDelegationAttached) {
+  window.__suggestAlternativeDelegationAttached = true;
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-action="suggest-alternative"]');
+    if (!btn) return;
+    e.stopPropagation(); // Empêcher le row click (ouverture fiche) de se déclencher
+    openPremiumUpgradeModal(btn.dataset.mealName || '');
+  });
+}
+
+function openPremiumUpgradeModal(mealName) {
+  // Idempotence : ne pas créer plusieurs instances
+  let modal = document.getElementById('premium-upgrade-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'premium-upgrade-modal';
+    modal.className = 'premium-modal';
+    modal.innerHTML = `
+      <div class="premium-modal__panel" role="dialog" aria-modal="true" aria-labelledby="premium-modal-title">
+        <button type="button" class="premium-modal__close" data-action="close-premium-modal" aria-label="Fermer">✕</button>
+        <span class="premium-modal__badge">Premium</span>
+        <h2 class="premium-modal__title" id="premium-modal-title">Une alternative qui vous ressemble</h2>
+        <p class="premium-modal__intro" id="premium-modal-intro">Avec l'abonnement Premium, on génère un plat de remplacement adapté à vos préférences, sans toucher au reste de votre menu.</p>
+        <ul class="premium-modal__perks">
+          <li>Alternatives illimitées par semaine</li>
+          <li>Profils familiaux multiples</li>
+          <li>Liste de courses ajustée automatiquement</li>
+        </ul>
+        <a class="btn btn--primary btn--block" href="/?premium=1">Découvrir Premium</a>
+        <button type="button" class="premium-modal__link" data-action="close-premium-modal">Plus tard</button>
+      </div>
+    `;
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.style.display = 'none';
+    });
+    document.body.appendChild(modal);
+  }
+  if (mealName) {
+    const intro = modal.querySelector('#premium-modal-intro');
+    if (intro) intro.textContent = `« ${mealName} » ne correspond pas à vos préférences. Avec Premium, on génère un plat de remplacement sans toucher au reste du menu.`;
+  }
+  modal.style.display = 'flex';
+}
+
+// Listener fermeture pour la modale premium (event delegation, idempotent)
+if (!window.__premiumModalCloseAttached) {
+  window.__premiumModalCloseAttached = true;
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('[data-action="close-premium-modal"]')) {
+      const modal = document.getElementById('premium-upgrade-modal');
+      if (modal) modal.style.display = 'none';
+    }
+  });
+}
+
+// Code mort : renderMealWithSafetyCheck était défini mais jamais appelé
+// (le rendu warning se fait inline dans renderAll). À supprimer dans une
+// passe ultérieure si confirmé non-utilisé après quelques semaines.
 
