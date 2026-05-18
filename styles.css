@@ -2489,22 +2489,21 @@ body.modal-open { overflow: hidden; }
 }
 .landing-header__login {
   background: none;
-  border: 1px solid var(--ink-200);
+  border: 1px solid var(--green-800);
   border-radius: 999px;
   font-family: var(--font-body);
   font-size: 13px;
-  font-weight: 500;
-  color: var(--ink-700);
+  font-weight: 600;
+  color: var(--green-800);
   cursor: pointer;
-  padding: 7px 14px;
-  transition: border-color 0.2s ease-out, color 0.2s ease-out, background 0.2s ease-out;
+  padding: 7px 16px;
+  transition: background 0.2s ease-out, color 0.2s ease-out;
   white-space: nowrap;
   text-decoration: none;
 }
 .landing-header__login:hover {
-  border-color: var(--ink-300);
-  color: var(--ink-900);
-  background: var(--white);
+  background: var(--green-800);
+  color: var(--white);
 }
 
 /* ── Logged-in user button in landing header ── */
@@ -2604,12 +2603,17 @@ body.modal-open { overflow: hidden; }
   align-items: center;
   gap: 5px;
   flex-shrink: 0;
+  border-radius: 999px;
+  transition: background 0.15s ease;
 }
+.hamburger-menu:hover { background: var(--cream-100); }
+.hamburger-menu:active { background: var(--cream-50); }
 .hamburger-menu__bar {
   display: block;
   width: 22px;
   height: 2px;
-  background: var(--ink-900);
+  /* Grove au lieu de noir pur : cohérent avec le logo et le bouton Se connecter */
+  background: var(--green-800);
   border-radius: 2px;
   transition: transform .2s ease, opacity .2s ease;
 }
@@ -2664,13 +2668,27 @@ body.modal-open { overflow: hidden; }
     height: 6px;
   }
 
-  /* Actions header — compactes sur mobile */
+  /* Actions header — compactes sur mobile.
+     Sur petit écran le pill bouffe l'espace et entre en compétition
+     visuelle avec le logo (centre visuel parasite). On bascule en
+     text-link discret en Grove — moins lourd, reste accrocheur. */
   .landing-header__actions {
     gap: 6px;
   }
   .landing-header__login {
-    font-size: 12px;
-    padding: 6px 12px;
+    border: none;
+    background: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--green-800);
+    padding: 6px 4px;
+    border-radius: 0;
+  }
+  .landing-header__login:hover {
+    background: none;
+    color: var(--green-900);
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
   /* CTA "Commencer — c'est gratuit" : compact (pill) */
   .landing-header__actions .btn--landing-sm {
