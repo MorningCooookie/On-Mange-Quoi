@@ -55,12 +55,18 @@ async function updateAuthUI(session) {
     }
 
     // Initialize preferences button (premium feature)
-    if (!window.preferencesButton && window.supabaseClient) {
-      window.preferencesButton = new PreferencesButton(window.supabaseClient);
-      window.preferencesButton.setCurrentUser(session.user);
-      console.log('✅ PreferencesButton initialized');
-    } else if (window.preferencesButton) {
-      window.preferencesButton.setCurrentUser(session.user);
+    // Garde défensive : la classe PreferencesButton est définie dans
+    // js/preferences-button.js, qui n'est pas inclus sur toutes les pages.
+    // Sans cette garde, ReferenceError → crash de updateAuthUI → modale
+    // login bloquée ouverte après connexion réussie.
+    if (typeof PreferencesButton !== 'undefined') {
+      if (!window.preferencesButton && window.supabaseClient) {
+        window.preferencesButton = new PreferencesButton(window.supabaseClient);
+        window.preferencesButton.setCurrentUser(session.user);
+        console.log('✅ PreferencesButton initialized');
+      } else if (window.preferencesButton) {
+        window.preferencesButton.setCurrentUser(session.user);
+      }
     }
   } else {
     console.log('❌ No session - showing auth buttons');

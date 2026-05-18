@@ -47,7 +47,19 @@
       <button class="btn--landing btn--landing-sm" onclick="document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();">Commencer — c'est gratuit</button>
     </div>
     <div id="user-menu-header" class="landing-header__user" style="display:none;">
-      <button class="landing-header__user-btn" id="user-email-header" onclick="const m=document.getElementById('user-menu');m.style.display=m.style.display==='block'?'none':'block';">Mon compte ▾</button>
+      <button class="landing-header__user-btn" id="user-email-header" type="button">Mon compte ▾</button>
+      <!-- Dropdown user-menu — affiché au clic sur "Mon compte ▾". Le
+           toggle est géré par le listener global plus bas (ligne ~540). -->
+      <div id="user-menu" class="user-menu-dropdown" style="display:none;">
+        <div class="user-menu-header">
+          <div class="user-menu-email" id="user-email"></div>
+        </div>
+        <div class="user-menu-body">
+          <a href="preferences.html" class="user-menu-btn">Mes préférences</a>
+          <a href="semaine.html" class="user-menu-btn">Mon menu</a>
+          <button type="button" class="user-menu-btn" id="btn-logout">Se déconnecter</button>
+        </div>
+      </div>
     </div>
     <button class="hamburger-menu" id="hamburger-menu" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="primary-nav">
       <span class="hamburger-menu__bar"></span>
@@ -535,6 +547,10 @@
     document.addEventListener('click', (e) => {
       const menu = document.getElementById('user-menu');
       const accountBtn = document.getElementById('user-email-header');
+
+      // Garde défensive : si le dropdown n'est pas dans le DOM (pages
+      // qui n'ont pas le markup), on quitte sans crasher.
+      if (!menu) return;
 
       if (accountBtn && accountBtn.contains(e.target)) {
         if (menu.style.display === 'flex') {
@@ -1036,6 +1052,7 @@
       }
     })();
   </script>
+  <script src="js/preferences-button.js"></script>
   <script src="auth.js"></script>
   <script>
     // Close user dropdown on click outside
