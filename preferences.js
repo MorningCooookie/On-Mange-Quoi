@@ -377,6 +377,15 @@ const PreferenceManager = {
       console.log('✅ Preferences saved successfully');
       const modalEl = document.getElementById(`preference-modal-${profileId}`);
       if (modalEl) modalEl.style.display = 'none';
+      // Feedback utilisateur — sans toast la fermeture silencieuse donne
+      // l'impression que "rien ne se passe" (signalé en QA mobile).
+      if (typeof showToast === 'function') {
+        // showToast a 2 signatures dans la codebase (3 args sur index.html,
+        // 1 arg ailleurs). Try-catch pour éviter un throw en cas de
+        // signature inattendue.
+        try { showToast('Préférences enregistrées', 'Le menu s\'adapte à vos choix.', 'success'); }
+        catch { try { showToast('✓ Préférences enregistrées'); } catch {} }
+      }
       // Refresh menu if currently viewing
       if (typeof renderAll === 'function') {
         renderAll();
@@ -385,6 +394,10 @@ const PreferenceManager = {
       }
     } else {
       console.error('❌ Failed to save preferences');
+      if (typeof showToast === 'function') {
+        try { showToast('Erreur', 'Impossible de sauvegarder. Réessayez.', 'error'); }
+        catch { try { showToast('Erreur de sauvegarde'); } catch {} }
+      }
     }
   }
 };

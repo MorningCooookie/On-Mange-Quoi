@@ -11,6 +11,43 @@
 // Pré-requis : le SDK Supabase + window.supabaseClient initialisé AVANT
 // que ce script s'exécute. Sur la home, c'est fait inline dans index.html.
 
+// Fallback showToast — auth.js est inclus sur toutes les pages avec une
+// landing-header. Les pages spécifiques (index.html, app.js, recettes.js)
+// peuvent redéfinir showToast avec leur propre signature ; on ne fait
+// l'override que si rien n'existe déjà, pour ne pas casser ces définitions.
+if (typeof window.showToast !== 'function') {
+  window.showToast = function(titleOrMsg, message, type) {
+    let container = document.getElementById('toast-container');
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'toast-container';
+      document.body.insertBefore(container, document.body.firstChild);
+    }
+    const toast = document.createElement('div');
+    toast.className = `toast ${type || 'success'}`;
+    const hasMessage = typeof message === 'string' && message.length > 0;
+    const icon = type === 'error' ? '!' : type === 'email' ? '✉' : '✓';
+    toast.innerHTML = `
+      <div class="toast-content">
+        <div class="toast-icon">${icon}</div>
+        <div class="toast-text">
+          <h3 class="toast-title">${titleOrMsg}</h3>
+          ${hasMessage ? `<p class="toast-message">${message}</p>` : ''}
+        </div>
+        <button class="toast-close" aria-label="Fermer">✕</button>
+      </div>
+    `;
+    const closeBtn = toast.querySelector('.toast-close');
+    const removeToast = () => {
+      toast.classList.add('removing');
+      setTimeout(() => toast.remove(), 300);
+    };
+    if (closeBtn) closeBtn.addEventListener('click', removeToast);
+    container.appendChild(toast);
+    setTimeout(removeToast, 3000);
+  };
+}
+
 // Injecte le markup user-menu si absent — utilisé sur les pages internes
 // qui n'ont pas le markup hardcodé. Idempotent.
 function ensureAuthMarkup() {
