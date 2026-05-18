@@ -1,8 +1,74 @@
 // ============================================
 // SUPABASE AUTHENTICATION - On Mange Quoi
 // ============================================
-// Simplified auth module that works with window.supabaseClient
-// initialized in index.html
+// Auth module utilisable sur toutes les pages avec une .landing-header.
+// Responsabilités :
+//   1. S'assurer que le markup user-menu (#user-menu-header + #user-menu)
+//      existe dans la landing-header — l'injecter si absent.
+//   2. Écouter la session Supabase et basculer le UI (login button ↔
+//      Mon compte dropdown).
+//   3. Gérer le logout.
+// Pré-requis : le SDK Supabase + window.supabaseClient initialisé AVANT
+// que ce script s'exécute. Sur la home, c'est fait inline dans index.html.
+
+// Injecte le markup user-menu si absent — utilisé sur les pages internes
+// qui n'ont pas le markup hardcodé. Idempotent.
+function ensureAuthMarkup() {
+  const actions = document.querySelector('.landing-header__actions');
+  if (!actions) return; // Pas de landing-header sur cette page (ex: erreur 404)
+
+  // Wrap les boutons existants dans #auth-button-group si pas déjà fait
+  // (auth.js cherche cet ID pour cacher/montrer le groupe au login).
+  if (!actions.id) actions.id = 'auth-button-group';
+
+  // Si le bouton "Mon compte" n'existe pas, l'injecter juste après actions
+  if (!document.getElementById('user-menu-header')) {
+    const wrapper = document.createElement('div');
+    wrapper.id = 'user-menu-header';
+    wrapper.className = 'landing-header__user';
+    wrapper.style.display = 'none';
+    wrapper.innerHTML = `
+      <button class="landing-header__user-btn" id="user-email-header" type="button">Mon compte ▾</button>
+      <div id="user-menu" class="user-menu-dropdown" style="display:none;">
+        <div class="user-menu-header">
+          <div class="user-menu-email" id="user-email"></div>
+        </div>
+        <div class="user-menu-body">
+          <a href="preferences.html" class="user-menu-btn">Mes préférences</a>
+          <a href="semaine.html" class="user-menu-btn">Mon menu</a>
+          <button type="button" class="user-menu-btn" id="btn-logout">Se déconnecter</button>
+        </div>
+      </div>
+    `;
+    actions.after(wrapper);
+  }
+}
+
+// Toggle du dropdown user-menu (auparavant dans le inline d'index.html).
+// On l'attache une seule fois au document — idempotent.
+function ensureUserMenuToggle() {
+  if (window.__userMenuToggleAttached) return;
+  window.__userMenuToggleAttached = true;
+
+  document.addEventListener('click', (e) => {
+    const menu = document.getElementById('user-menu');
+    const accountBtn = document.getElementById('user-email-header');
+    if (!menu) return;
+
+    if (accountBtn && accountBtn.contains(e.target)) {
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    } else if (!menu.contains(e.target)) {
+      menu.style.display = 'none';
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const menu = document.getElementById('user-menu');
+      if (menu) menu.style.display = 'none';
+    }
+  });
+}
 
 async function checkSubscription(userId) {
   if (!window.supabaseClient || !userId) return false;
@@ -101,7 +167,20 @@ function setupAuthListener() {
 }
 
 // Start listening for auth state changes
-setupAuthListener();
+// Sur les pages internes, on doit d'abord injecter le markup user-menu
+// si absent (la home le hardcode ; les autres pages s'appuient sur
+// l'injection dynamique).
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    ensureAuthMarkup();
+    ensureUserMenuToggle();
+    setupAuthListener();
+  });
+} else {
+  ensureAuthMarkup();
+  ensureUserMenuToggle();
+  setupAuthListener();
+}
 
 // ============================================
 // LOGOUT HANDLERS

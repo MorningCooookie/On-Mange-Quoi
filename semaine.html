@@ -192,38 +192,20 @@
     </div>
   </div>
 
+  <!-- Auth : SDK Supabase + init client + auth.js qui injecte le user-menu
+       dans la landing-header et écoute les changements de session. -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     (function() {
-      const SUPABASE_URL = 'https://pozhsrnsezklfyqjoues.supabase.co';
-      const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBvemhzcm5zZXprbGZ5cWpvdWVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM3NjU4OTYsImV4cCI6MjA1OTM0MTg5Nn0.Tgn-gJHLhCcqWalAjL7l6pSc_VBmNvMQJ3ZGaQCMizA';
-      if (!window.supabase) return;
-      const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
-      window.supabaseClient = client;
-
-      function updateSemaineAuth(session) {
-        const outEl = document.getElementById('side-logged-out');
-        const inEl  = document.getElementById('side-logged-in');
-        const emailEl = document.getElementById('side-user-email');
-        if (session && session.user) {
-          if (outEl) outEl.style.display = 'none';
-          if (inEl)  inEl.style.display  = 'flex';
-          if (emailEl) emailEl.textContent = session.user.email;
-        } else {
-          if (outEl) outEl.style.display = 'block';
-          if (inEl)  inEl.style.display  = 'none';
-        }
+      const SUPABASE_URL  = 'https://pozhsrnsezklfyqjoues.supabase.co';
+      const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBvemhzcm5zZXprbGZ5cWpvdWVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUxMjgxNTQsImV4cCI6MjA5MDcwNDE1NH0.xdP-8jZju7TN3wALuOb8U-lsfZDpxCv3VDhYLX0qfmw';
+      if (window.supabase && window.supabase.createClient && !window.supabaseClient) {
+        window.supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
       }
-
-      client.auth.getSession().then(({ data: { session } }) => updateSemaineAuth(session));
-      client.auth.onAuthStateChange((_, session) => updateSemaineAuth(session));
-
-      document.getElementById('side-logout-btn')?.addEventListener('click', async () => {
-        await client.auth.signOut();
-        window.location.href = '/';
-      });
     })();
   </script>
+  <script src="js/preferences-button.js"></script>
+  <script src="auth.js"></script>
   <script src="js/nav.js"></script>
 </body>
 </html>
