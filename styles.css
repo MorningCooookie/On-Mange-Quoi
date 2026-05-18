@@ -2728,14 +2728,15 @@ body.modal-open { overflow: hidden; }
 .auth-modal__box {
   background: var(--white);
   border-radius: var(--r-16);
-  padding: 2rem 2rem 1.75rem;
-  width: 90%;
-  max-width: 400px;
+  padding: var(--space-7) var(--space-6) var(--space-5);
+  width: 100%;
+  max-width: 440px;
   position: relative;
   box-shadow: var(--shadow-pop);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-3);
+  border: 0;
 }
 
 .auth-modal__close {
@@ -2757,41 +2758,25 @@ body.modal-open { overflow: hidden; }
 }
 .auth-modal__close:hover { background: var(--cream-100); color: var(--ink-700); }
 
-.auth-modal__logo {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: var(--green-800);
-  margin: 0 auto 4px;
-  position: relative;
-}
-.auth-modal__logo::before,
-.auth-modal__logo::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  border: 2px solid white;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.auth-modal__logo::before { width: 22px; height: 22px; }
-.auth-modal__logo::after  { width: 12px; height: 12px; }
+/* Logo cube retiré du markup (commit refresh modale auth). Les règles
+   .auth-modal__logo* ne sont plus utilisées — cleanup possible plus tard. */
 
 .auth-modal__title {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: var(--fs-h2);
   font-weight: 700;
-  color: var(--ink-900);
+  color: var(--text);
   text-align: center;
   margin: 0;
+  line-height: var(--lh-tight);
 }
 
 .auth-modal__subtitle {
-  font-size: .875rem;
-  color: var(--ink-500);
+  font-size: var(--fs-small);
+  color: var(--text-secondary);
   text-align: center;
-  margin: -4px 0 4px;
+  margin: 0 0 var(--space-3);
+  line-height: 1.5;
 }
 
 .auth-modal__input {

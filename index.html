@@ -58,35 +58,34 @@
 
   <!-- ============ LOGIN MODAL ============ -->
   <div id="login-modal" class="auth-modal" onclick="if(event.target.id==='login-modal') this.style.display='none'">
-    <div class="auth-modal__box">
-      <button class="auth-modal__close" onclick="document.getElementById('login-modal').style.display='none'" aria-label="Fermer">✕</button>
-      <div class="auth-modal__logo" aria-hidden="true"></div>
-      <h2 class="auth-modal__title">Connexion</h2>
-      <input type="email" id="login-email" class="auth-modal__input" placeholder="Votre email" autocomplete="email">
-      <input type="password" id="login-password" class="auth-modal__input" placeholder="Mot de passe" autocomplete="current-password">
-      <button id="btn-login" class="auth-modal__btn" onclick="handleLogin()">Se connecter</button>
+    <form class="auth-modal__box" id="login-form" novalidate>
+      <button type="button" class="auth-modal__close" onclick="document.getElementById('login-modal').style.display='none'" aria-label="Fermer">✕</button>
+      <h2 class="auth-modal__title">Bon retour</h2>
+      <p class="auth-modal__subtitle">Retrouvez votre menu de la semaine.</p>
+      <input type="email" id="login-email" class="auth-modal__input" placeholder="Votre email" autocomplete="email" required>
+      <input type="password" id="login-password" class="auth-modal__input" placeholder="Mot de passe" autocomplete="current-password" required>
+      <button type="submit" id="btn-login" class="auth-modal__btn">Se connecter</button>
       <p class="auth-modal__footer">
         Pas encore de compte ?
-        <button class="auth-modal__link" onclick="document.getElementById('login-modal').style.display='none'; document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();">Créer un compte</button>
+        <button type="button" class="auth-modal__link" onclick="document.getElementById('login-modal').style.display='none'; document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();">Créer un compte</button>
       </p>
-    </div>
+    </form>
   </div>
 
   <!-- ============ SIGNUP MODAL ============ -->
   <div id="signup-modal" class="auth-modal" onclick="if(event.target.id==='signup-modal') this.style.display='none'">
-    <div class="auth-modal__box">
-      <button class="auth-modal__close" onclick="document.getElementById('signup-modal').style.display='none'" aria-label="Fermer">✕</button>
-      <div class="auth-modal__logo" aria-hidden="true"></div>
+    <form class="auth-modal__box" id="signup-form" novalidate>
+      <button type="button" class="auth-modal__close" onclick="document.getElementById('signup-modal').style.display='none'" aria-label="Fermer">✕</button>
       <h2 class="auth-modal__title">Créer un compte</h2>
-      <p class="auth-modal__subtitle">Gratuit · Menus familiaux sains chaque semaine</p>
-      <input type="email" id="signup-email" class="auth-modal__input" placeholder="Votre email" autocomplete="email">
-      <input type="password" id="signup-password" class="auth-modal__input" placeholder="Mot de passe (min. 6 caractères)" autocomplete="new-password">
-      <button id="btn-signup" class="auth-modal__btn" onclick="handleSignup()">Créer mon compte</button>
+      <p class="auth-modal__subtitle">Gratuit · Menus familiaux sains chaque semaine.</p>
+      <input type="email" id="signup-email" class="auth-modal__input" placeholder="Votre email" autocomplete="email" required>
+      <input type="password" id="signup-password" class="auth-modal__input" placeholder="Mot de passe (min. 6 caractères)" autocomplete="new-password" required minlength="6">
+      <button type="submit" id="btn-signup" class="auth-modal__btn">Créer mon compte</button>
       <p class="auth-modal__footer">
         Déjà un compte ?
-        <button class="auth-modal__link" onclick="document.getElementById('signup-modal').style.display='none'; document.getElementById('login-modal').style.display='flex'; document.getElementById('login-email').focus();">Se connecter</button>
+        <button type="button" class="auth-modal__link" onclick="document.getElementById('signup-modal').style.display='none'; document.getElementById('login-modal').style.display='flex'; document.getElementById('login-email').focus();">Se connecter</button>
       </p>
-    </div>
+    </form>
   </div>
 
   <!-- ============ FAMILY SHARING / PROFILES MODAL ============ -->
@@ -678,6 +677,24 @@
         loginBtn.textContent = 'Se connecter';
       }
     }
+
+    // Exposer en global pour rétro-compatibilité (au cas où d'autres pages
+    // les appelleraient encore inline). Mais l'attachement officiel est
+    // via addEventListener ci-dessous — plus robuste que onclick="" inline
+    // (qui peut échouer silencieusement si le scope global est altéré).
+    window.handleLogin = handleLogin;
+    window.handleSignup = handleSignup;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginForm  = document.getElementById('login-form');
+      const signupForm = document.getElementById('signup-form');
+      if (loginForm) {
+        loginForm.addEventListener('submit', (e) => { e.preventDefault(); handleLogin(); });
+      }
+      if (signupForm) {
+        signupForm.addEventListener('submit', (e) => { e.preventDefault(); handleSignup(); });
+      }
+    });
   </script>
 
   <!-- ── App content ──────────────────────────────────────────── -->
