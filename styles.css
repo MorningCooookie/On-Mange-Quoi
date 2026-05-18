@@ -2527,63 +2527,84 @@ body.modal-open { overflow: hidden; }
 .landing-header__user-btn:hover { background: var(--green-300); }
 
 /* ── User dropdown menu ── */
+/* Dropdown Mon compte — aligné sur le style des modales Préférences
+   (tokens partout, padding aéré, hover Grove, animation d'apparition). */
 .user-menu-dropdown {
   position: fixed;
-  top: 60px;
+  top: 64px;
   right: 24px;
   z-index: 500;
   background: var(--white);
-  border: 1px solid var(--ink-200);
-  border-radius: var(--r-12);
-  box-shadow: var(--shadow-3);
-  min-width: 220px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  min-width: 240px;
   overflow: hidden;
+  animation: userMenuFade 160ms ease-out;
 }
+@keyframes userMenuFade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .user-menu-header {
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--ink-100);
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--border);
   background: var(--cream-50);
 }
 .user-menu-email {
-  font-size: 11px;
-  color: var(--ink-500);
-  font-family: var(--font-mono);
-  margin-bottom: 2px;
+  font-size: var(--fs-small);
+  color: var(--text);
+  font-weight: 600;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin: 0;
 }
 .user-menu-profile-name {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--ink-900);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--text);
 }
-.user-menu-body {
-  padding: 6px 0;
-}
+
+.user-menu-body { padding: var(--space-2) 0; }
+
 .user-menu-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-2);
   width: 100%;
-  padding: 10px 16px;
+  padding: var(--space-3) var(--space-4);
   background: none;
   border: none;
   font-family: var(--font-body);
-  font-size: 13px;
-  color: var(--ink-700);
+  font-size: var(--fs-small);
+  color: var(--text);
   cursor: pointer;
   text-align: left;
   text-decoration: none;
-  transition: background .12s;
+  transition: background 120ms, color 120ms;
 }
-.user-menu-btn:hover { background: var(--cream-50); color: var(--ink-900); }
-.user-menu-btn.danger { color: var(--accent-terra); }
-.user-menu-btn.danger:hover { background: #FEF2F2; }
+.user-menu-btn:hover { background: var(--cream-50); color: var(--green-800); }
+
+/* Bouton "Se déconnecter" — variante danger subtile sans hex hardcodé.
+   Le bouton dans le markup est repéré par son id #btn-logout. */
+#btn-logout { color: var(--text-secondary); }
+#btn-logout:hover { color: #B91C1C; background: var(--cream-100); }
+
 .user-menu-divider {
   height: 1px;
-  background: var(--ink-100);
-  margin: 4px 0;
+  background: var(--border);
+  margin: var(--space-1) 0;
+}
+
+@media (max-width: 767px) {
+  .user-menu-dropdown {
+    top: 56px;
+    right: 16px;
+    left: 16px;
+    min-width: auto;
+  }
 }
 
 

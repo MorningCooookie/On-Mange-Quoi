@@ -282,7 +282,7 @@ const PreferenceManager = {
         <div class="preference-modal__panel">
           <div class="preference-modal__header">
             <h2 class="preference-modal__title">Préférences alimentaires — ${profileName}</h2>
-            <button class="preference-modal__close" onclick="document.getElementById('preference-modal-${profileId}').style.display='none'; return false;" aria-label="Fermer">✕</button>
+            <button class="preference-modal__close" data-action="close-pref-modal" data-profile-id="${profileId}" type="button" aria-label="Fermer">✕</button>
           </div>
 
           <div class="preference-modal__body">
@@ -337,7 +337,7 @@ const PreferenceManager = {
                      value="${(prefs.dislikes || []).join(', ')}">
             </fieldset>
 
-            <button class="btn btn--primary btn--block" onclick="PreferenceManager.saveFromModal('${profileId}')">
+            <button class="btn btn--primary btn--block" data-action="save-pref" data-profile-id="${profileId}" type="button">
               Sauvegarder
             </button>
           </div>
@@ -394,4 +394,26 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => PreferenceManager.init());
 } else {
   PreferenceManager.init();
+}
+
+// Event delegation pour les actions de la modale Préférences alimentaires.
+// Remplace les onclick="" inline qui foiraient silencieusement quand une
+// extension navigateur (Grammarly, etc.) altère le scope global.
+// Idempotent via window.__prefModalDelegationAttached.
+if (!window.__prefModalDelegationAttached) {
+  window.__prefModalDelegationAttached = true;
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-action]');
+    if (!btn) return;
+    const action = btn.dataset.action;
+    const profileId = btn.dataset.profileId;
+
+    if (action === 'save-pref' && profileId) {
+      console.log('[pref] save clicked', profileId);
+      PreferenceManager.saveFromModal(profileId);
+    } else if (action === 'close-pref-modal' && profileId) {
+      const modal = document.getElementById(`preference-modal-${profileId}`);
+      if (modal) modal.style.display = 'none';
+    }
+  });
 }
