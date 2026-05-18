@@ -3213,6 +3213,59 @@ body.modal-open { overflow: hidden; }
 }
 
 /* ============================================================
+   PREFERENCES PAGE — page dédiée /preferences.html
+   ============================================================ */
+.preferences-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-7) var(--space-5) var(--space-8);
+}
+
+.preferences-hero {
+  text-align: center;
+  margin-bottom: var(--space-7);
+}
+.preferences-hero__eyebrow {
+  display: inline-block;
+  font-size: var(--fs-label);
+  font-weight: 600;
+  color: var(--green-800);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-3);
+}
+.preferences-hero__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  color: var(--text);
+  line-height: var(--lh-tight);
+  margin: 0 0 var(--space-4);
+}
+.preferences-hero__intro {
+  font-size: var(--fs-body);
+  color: var(--text-secondary);
+  line-height: var(--lh-loose);
+  margin: 0 auto;
+  max-width: 560px;
+}
+
+.preferences-content { display: flex; flex-direction: column; gap: var(--space-5); }
+
+.preferences-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  padding: var(--space-6);
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 767px) {
+  .preferences-page { padding: var(--space-5) var(--space-4) var(--space-7); }
+  .preferences-card { padding: var(--space-5) var(--space-4); }
+}
+
+/* ============================================================
    LANDING — HERO
    ============================================================ */
 .landing-hero {

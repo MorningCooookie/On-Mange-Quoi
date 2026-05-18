@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Préférences — On mange quoi ?</title>
+  <meta name="description" content="Gérez les profils familiaux et leurs préférences alimentaires (allergies, régimes, ingrédients à éviter).">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='none' stroke='%231B4332' stroke-width='8'/><circle cx='50' cy='50' r='24' fill='none' stroke='%231B4332' stroke-width='7'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script async src="https://plausible.io/js/pa-ZaRseIh-nGhXVtbtWwn2-.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+</head>
+<body>
+
+  <header class="landing-header">
+    <div style="display:flex;align-items:center;gap:32px;">
+      <a class="brand--landing" href="/" aria-label="On mange quoi ? — accueil">
+        <span class="brand-mark--landing" aria-hidden="true"></span>
+        on mange quoi<span style="color:var(--green-800)">?</span>
+      </a>
+      <nav class="landing-header__nav" aria-label="Navigation principale" id="primary-nav">
+        <a href="semaine.html">Mon menu</a>
+        <a href="courses.html">Liste de courses</a>
+        <a href="recettes.html">Recettes</a>
+        <a href="score-sante.html">Score santé</a>
+        <a href="fiche.html">Mémo santé</a>
+        <a href="preferences.html" aria-current="page" style="color:var(--green-800);font-weight:600;">Préférences</a>
+      </nav>
+    </div>
+    <div class="landing-header__actions">
+      <a class="landing-header__login" href="/?login=1">Se connecter</a>
+    </div>
+    <button class="hamburger-menu" id="hamburger-menu" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="primary-nav">
+      <span class="hamburger-menu__bar"></span>
+      <span class="hamburger-menu__bar"></span>
+      <span class="hamburger-menu__bar"></span>
+    </button>
+  </header>
+
+  <main class="preferences-page" id="main">
+    <section class="preferences-hero">
+      <span class="preferences-hero__eyebrow">Profils &amp; préférences</span>
+      <h1 class="preferences-hero__title">Personnalisez votre menu</h1>
+      <p class="preferences-hero__intro">Créez un profil pour chaque membre de la famille et configurez ses préférences alimentaires. Le menu de la semaine s'adapte automatiquement aux allergies, régimes et ingrédients à éviter.</p>
+    </section>
+
+    <section class="preferences-content">
+      <div class="preferences-card">
+
+        <div class="profiles-modal__hint">
+          <strong>Astuce —</strong> Cliquez sur "Préférences" à côté d'un profil pour spécifier allergies, régimes et ingrédients à éviter.
+        </div>
+
+        <div id="profiles-list" class="profiles-modal__list"></div>
+
+        <div class="profiles-modal__form">
+          <input type="text" id="new-profile-name" class="profiles-modal__input" placeholder="Nom du profil (ex : Maman, Enfants, Papa…)">
+          <button id="btn-add-profile" class="btn btn--primary">+ Ajouter</button>
+        </div>
+
+        <div class="profiles-modal__footer">
+          <div class="profiles-modal__count"><strong><span id="profile-count">0</span> profil(s)</strong> créé(s)</div>
+          <p class="profiles-modal__instruction">Sélectionnez un profil pour activer ses préférences sur l'ensemble du site.</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts : même chaîne que index.html pour cohérence d'initialisation -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    (function() {
+      const SUPABASE_URL  = 'https://pozhsrnsezklfyqjoues.supabase.co';
+      const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBvemhzcm5zZXprbGZ5cWpvdWVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUxMjgxNTQsImV4cCI6MjA5MDcwNDE1NH0.xdP-8jZju7TN3wALuOb8U-lsfZDpxCv3VDhYLX0qfmw';
+      if (window.supabase && window.supabase.createClient) {
+        window.supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+      }
+    })();
+  </script>
+  <script src="preferences.js"></script>
+  <script src="profiles.js"></script>
+  <script>
+    // Init ProfileManager au chargement — fonctionne avec ou sans session.
+    // Si l'utilisateur est connecté, on récupère son userId pour pointer
+    // vers ses profils Supabase ; sinon, init avec null (mode local).
+    (async function initProfilesPage() {
+      const client = window.supabaseClient;
+      let userId = null;
+      if (client && client.auth) {
+        try {
+          const { data: { session } } = await client.auth.getSession();
+          userId = session?.user?.id || null;
+        } catch (e) {
+          console.warn('Session lookup failed', e);
+        }
+      }
+      if (typeof ProfileManager !== 'undefined') {
+        ProfileManager.init(userId);
+      }
+    })();
+  </script>
+  <script src="js/nav.js"></script>
+</body>
+</html>
