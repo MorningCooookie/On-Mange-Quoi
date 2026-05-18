@@ -305,7 +305,47 @@ function getDinnerTags(dinner) {
   return tags.slice(0, 2);
 }
 
+// Cache des données pour pouvoir re-render au changement de préférences
+// sans re-fetcher le menu de la semaine.
+let __lastMenuData = null;
+let __lastHistory  = null;
+
+// Récupère les préférences du profil actif si chargées. Retourne null
+// si pas connecté ou si les profils n'ont pas encore été chargés.
+function getActivePreferences() {
+  if (typeof ProfileManager === 'undefined' || typeof PreferenceManager === 'undefined') return null;
+  const profileId = ProfileManager.activeProfile?.id;
+  if (!profileId) return null;
+  const prefs = PreferenceManager.getPreferences(profileId);
+  if (!prefs) return null;
+  const hasAny = (prefs.allergies?.length || prefs.restrictions?.length || prefs.dislikes?.length);
+  return hasAny ? prefs : null;
+}
+
+// Génère le bandeau "Ne correspond pas à vos préférences" + CTA premium
+// pour un plat qui ne respecte pas les préférences chargées. Retourne
+// une chaîne vide si le plat est safe ou si pas de prefs.
+function renderMealWarning(meal, currentPreferences) {
+  if (!currentPreferences || !meal || typeof PreferenceManager === 'undefined') return '';
+  const ingredients = meal.ingredients || [];
+  if (PreferenceManager.isDishSafe(meal.name, ingredients, currentPreferences)) return '';
+  const safeMealName = (meal.name || '').replace(/"/g, '&quot;');
+  return `
+    <div class="meal-warning">
+      <div class="meal-warning__main">
+        <span class="meal-warning__icon" aria-hidden="true">!</span>
+        <span class="meal-warning__text">Ce plat ne correspond pas à vos préférences.</span>
+      </div>
+      <button type="button" class="meal-warning__cta" data-action="suggest-alternative" data-meal-name="${safeMealName}">
+        Voir une alternative
+        <span class="meal-warning__premium-badge">Premium</span>
+      </button>
+    </div>`;
+}
+
 function renderMenu(data, history) {
+  __lastMenuData = data;
+  __lastHistory  = history;
   const score = data.healthScore || 'A';
   const ws = data.weekStart;
   const we = data.weekEnd;
@@ -374,6 +414,7 @@ function renderMenu(data, history) {
     grid.appendChild(card);
 
     const mealsEl = card.querySelector('.semaine-day-meals');
+    const currentPreferences = getActivePreferences();
     ['breakfast', 'lunch', 'snack', 'dinner'].forEach(type => {
       const meal = day.meals?.[type];
       if (!meal) return;
@@ -383,6 +424,12 @@ function renderMenu(data, history) {
       row.className = 'semaine-meal-row' + (isClickable ? ' semaine-meal-row--clickable' : '');
       const dotColor = riskDotColor(meal.riskLevel);
       const label    = riskLabel(meal.riskLevel);
+
+      // Check préférences — si le plat ne respecte pas, on tag la row
+      // .meal-unsafe et on injecte le warning + CTA premium juste après.
+      const warning = renderMealWarning(meal, currentPreferences);
+      if (warning) row.classList.add('meal-unsafe');
+
       if (isClickable) {
         row.setAttribute('role', 'button');
         row.setAttribute('tabindex', '0');
@@ -407,6 +454,16 @@ function renderMenu(data, history) {
         });
       }
       mealsEl.appendChild(row);
+
+      // Le warning est ajouté APRÈS la row (en frère, pas enfant), car
+      // .semaine-meal-row est un flex-row — l'embarquer dedans casserait
+      // le layout horizontal.
+      if (warning) {
+        const wrapper = document.createElement('div');
+        wrapper.innerHTML = warning;
+        const warningEl = wrapper.firstElementChild;
+        if (warningEl) mealsEl.appendChild(warningEl);
+      }
     });
   });
 }
@@ -452,29 +509,20 @@ function updateTemporalGreeting() {
   titleEl.innerHTML = `${greetingHTML} <span class="semaine-page-title__sub">${sub}</span>`;
 }
 
+// Quand les préférences du profil actif arrivent (auth + auto-select
+// async), on re-render le menu pour appliquer les warnings sans
+// forcer un reload. Dispatch déclenché par profiles.js après loadPreferences.
+window.addEventListener('omq:preferences-ready', () => {
+  if (__lastMenuData) renderMenu(__lastMenuData, __lastHistory);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   init();
   updateTemporalGreeting();
 
-  // Fiche technique — fermeture
-  // Filter chips
-  document.querySelectorAll('.filter-chip').forEach(chip => {
-    chip.addEventListener('click', () => {
-      document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('filter-chip--active'));
-      chip.classList.add('filter-chip--active');
-      const filter = chip.dataset.filter;
-      document.querySelectorAll('.semaine-day-card').forEach(card => {
-        if (filter === 'all') { card.hidden = false; return; }
-        const tags = (card.dataset.dinnerTags || '').split(',');
-        const prep = parseInt(card.dataset.dinnerPrep || '999', 10);
-        let match = false;
-        if (filter === 'vege')   match = tags.includes('vege') || tags.includes('végé');
-        if (filter === 'rapide') match = prep <= 30;
-        if (filter === 'saison') match = tags.includes('saison');
-        card.hidden = !match;
-      });
-    });
-  });
+  // Filter chips retirés (Végé/Rapide/Saison) — faisaient doublon avec
+  // le système de préférences (allergies/régimes/dislikes via
+  // PreferenceManager). Le markup est aussi retiré de semaine.html.
 
   document.getElementById('fiche-close')?.addEventListener('click', closeFiche);
   document.getElementById('fiche-overlay')?.addEventListener('click', e => {

@@ -82,14 +82,11 @@
     </section>
 
 
-    <!-- Barre de filtres — desktop uniquement -->
+    <!-- Filter chips retirés : faisaient doublon avec les préférences
+         (Végé maintenant géré par PreferenceManager) et n'apportaient
+         pas de valeur claire (Saison/Rapide rarement utilisés).
+         Le compteur d'ingrédients reste dispo via #filter-summary. -->
     <div class="filter-bar">
-      <div class="filter-bar__chips">
-        <span class="filter-chip filter-chip--active" data-filter="all">Tous les dîners</span>
-        <span class="filter-chip" data-filter="vege">Végé</span>
-        <span class="filter-chip" data-filter="rapide">Rapide &lt; 30 min</span>
-        <span class="filter-chip" data-filter="saison">Saison</span>
-      </div>
       <div class="filter-bar__summary" id="filter-summary"></div>
     </div>
 

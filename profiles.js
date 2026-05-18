@@ -118,6 +118,12 @@ const ProfileManager = {
       setSupabaseProfile(profileId, profileName);
     }
 
+    // Custom event pour que semaine.js (et autres consommateurs) puissent
+    // re-render le menu avec les bonnes préférences.
+    window.dispatchEvent(new CustomEvent('omq:preferences-ready', {
+      detail: { profileId, profileName }
+    }));
+
     // Close the modal
     const modal = document.getElementById('profiles-modal');
     if (modal) {
@@ -184,6 +190,12 @@ const ProfileManager = {
       if (typeof setSupabaseProfile === 'function') {
         setSupabaseProfile(firstProfile.id, firstProfile.name);
       }
+      // Signale aux pages (semaine.js, etc.) que les préférences du
+      // profil actif sont chargées en cache et peuvent être lues pour
+      // appliquer les warnings sur les plats.
+      window.dispatchEvent(new CustomEvent('omq:preferences-ready', {
+        detail: { profileId: firstProfile.id, profileName: firstProfile.name }
+      }));
     }
   },
 

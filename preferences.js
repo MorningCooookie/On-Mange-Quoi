@@ -386,11 +386,15 @@ const PreferenceManager = {
         try { showToast('Préférences enregistrées', 'Le menu s\'adapte à vos choix.', 'success'); }
         catch { try { showToast('✓ Préférences enregistrées'); } catch {} }
       }
-      // Refresh menu if currently viewing
+      // Signale aux consommateurs (semaine.js, app.js) que les préférences
+      // ont changé — déclenche un re-render du menu sans reload.
+      window.dispatchEvent(new CustomEvent('omq:preferences-ready', {
+        detail: { profileId }
+      }));
+      // Refresh menu if currently viewing (fallback pour app.js qui a son
+      // propre cycle de rendu)
       if (typeof renderAll === 'function') {
         renderAll();
-      } else if (typeof renderMenu === 'function') {
-        renderMenu();
       }
     } else {
       console.error('❌ Failed to save preferences');
