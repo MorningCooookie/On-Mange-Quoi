@@ -222,28 +222,31 @@ if (document.readyState === 'loading') {
 // ============================================
 // LOGOUT HANDLERS
 // ============================================
-function setupLogoutHandlers() {
-  const logoutBtn = document.getElementById('btn-logout');
+// Event delegation au niveau document — robuste pour les pages où le
+// markup user-menu (et donc #btn-logout) est injecté dynamiquement par
+// ensureAuthMarkup(). Idempotent via window.__logoutDelegationAttached.
+if (!window.__logoutDelegationAttached) {
+  window.__logoutDelegationAttached = true;
+  document.addEventListener('click', async (e) => {
+    if (!e.target.closest('#btn-logout')) return;
 
-  if (logoutBtn) {
-    logoutBtn.addEventListener('click', async () => {
-      if (!window.supabaseClient || !window.supabaseClient.auth) {
-        updateAuthUI(null);
-        return;
-      }
+    if (!window.supabaseClient || !window.supabaseClient.auth) {
+      updateAuthUI(null);
+      window.location.href = '/';
+      return;
+    }
 
-      try {
-        await window.supabaseClient.auth.signOut();
-        showToast('Déconnecté', 'À bientôt!', 'success');
-        // Close menu if open
-        const menu = document.getElementById('user-menu');
-        if (menu) menu.style.display = 'none';
-      } catch (err) {
-        showToast('Erreur', err.message, 'error');
-      }
-    });
-  }
+    try {
+      await window.supabaseClient.auth.signOut();
+      showToast('Déconnecté', 'À bientôt !', 'success');
+      const menu = document.getElementById('user-menu');
+      if (menu) menu.style.display = 'none';
+      // Redirection vers la home après un court délai pour laisser le
+      // toast s'afficher. La home a l'état "non connecté" naturellement
+      // et est le point de départ logique post-logout.
+      setTimeout(() => { window.location.href = '/'; }, 800);
+    } catch (err) {
+      showToast('Erreur', err.message || 'Déconnexion impossible', 'error');
+    }
+  });
 }
-
-// Setup logout when page is ready
-setTimeout(setupLogoutHandlers, 500);
