@@ -68,6 +68,7 @@ function ensureAuthMarkup() {
       <button class="landing-header__user-btn" id="user-email-header" type="button">Mon compte ▾</button>
       <div id="user-menu" class="user-menu-dropdown" style="display:none;">
         <div class="user-menu-header">
+          <div class="user-menu-profile-name" id="current-profile-name">Mon profil</div>
           <div class="user-menu-email" id="user-email"></div>
         </div>
         <div class="user-menu-body">

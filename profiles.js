@@ -109,6 +109,10 @@ const ProfileManager = {
     // Load preferences for this profile
     await PreferenceManager.loadPreferences(profileId);
 
+    // Mémorise l'actif côté ProfileManager pour les autres pages
+    this.activeProfile = { id: profileId, name: profileName };
+    this.updateActiveProfileDisplay(profileName);
+
     // Notify app.js to update menu with this profile's preferences
     if (typeof setSupabaseProfile === 'function') {
       setSupabaseProfile(profileId, profileName);
@@ -119,6 +123,19 @@ const ProfileManager = {
     if (modal) {
       modal.style.display = 'none';
     }
+  },
+
+  // Met à jour le nom affiché dans le dropdown "Mon compte" (#current-profile-name).
+  // Indépendant d'app.js (qui n'est pas chargé partout) — fonctionne sur
+  // toutes les pages où auth.js a injecté le markup user-menu.
+  updateActiveProfileDisplay(name) {
+    const el = document.getElementById('current-profile-name');
+    if (!el) return;
+    // Strip emojis éventuels (cohérent avec setSupabaseProfile dans app.js)
+    const cleanName = (name || 'Mon profil')
+      .replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{27BF}]|[\u{2300}-\u{23FF}]|[\u{2000}-\u{206F}]/gu, '')
+      .trim();
+    el.textContent = cleanName || 'Mon profil';
   },
 
   async renderProfiles() {
@@ -160,9 +177,13 @@ const ProfileManager = {
     if (countEl) countEl.textContent = this.profiles.length;
 
     // Auto-select first profile (ensures preferences are loaded into cache)
-    if (this.profiles.length > 0 && typeof setSupabaseProfile === 'function') {
+    if (this.profiles.length > 0) {
       const firstProfile = this.profiles[0];
-      setSupabaseProfile(firstProfile.id, firstProfile.name);
+      this.activeProfile = { id: firstProfile.id, name: firstProfile.name };
+      this.updateActiveProfileDisplay(firstProfile.name);
+      if (typeof setSupabaseProfile === 'function') {
+        setSupabaseProfile(firstProfile.id, firstProfile.name);
+      }
     }
   },
 
