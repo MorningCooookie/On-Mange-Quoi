@@ -627,6 +627,10 @@
     }
 
     async function handleLogin() {
+      console.log('[auth] handleLogin start', {
+        hasClient: !!window.supabaseClient,
+        hasAuth: !!(window.supabaseClient && window.supabaseClient.auth)
+      });
       const email = document.getElementById('login-email').value.trim();
       const password = document.getElementById('login-password').value;
       const loginBtn = document.getElementById('btn-login');
@@ -637,6 +641,7 @@
       }
 
       if (!window.supabaseClient || !window.supabaseClient.auth) {
+        console.error('[auth] supabaseClient missing or no .auth property');
         showToast('Erreur', 'Service d\'authentification indisponible. Rechargez la page.', 'error');
         return;
       }
@@ -678,21 +683,23 @@
       }
     }
 
-    // Exposer en global pour rétro-compatibilité (au cas où d'autres pages
-    // les appelleraient encore inline). Mais l'attachement officiel est
-    // via addEventListener ci-dessous — plus robuste que onclick="" inline
-    // (qui peut échouer silencieusement si le scope global est altéré).
+    // Exposer en global pour rétro-compatibilité.
     window.handleLogin = handleLogin;
     window.handleSignup = handleSignup;
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const loginForm  = document.getElementById('login-form');
-      const signupForm = document.getElementById('signup-form');
-      if (loginForm) {
-        loginForm.addEventListener('submit', (e) => { e.preventDefault(); handleLogin(); });
-      }
-      if (signupForm) {
-        signupForm.addEventListener('submit', (e) => { e.preventDefault(); handleSignup(); });
+    // Event delegation : on écoute tous les submits du document plutôt que
+    // d'attendre DOMContentLoaded + getElementById. Plus robuste — marche
+    // même si le form est injecté dynamiquement ou si DOMContentLoaded a
+    // déjà été émis quand ce script tourne.
+    document.addEventListener('submit', (e) => {
+      if (e.target && e.target.id === 'login-form') {
+        e.preventDefault();
+        console.log('[auth] login form submitted');
+        handleLogin();
+      } else if (e.target && e.target.id === 'signup-form') {
+        e.preventDefault();
+        console.log('[auth] signup form submitted');
+        handleSignup();
       }
     });
   </script>
