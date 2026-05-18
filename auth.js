@@ -135,7 +135,10 @@ async function updateAuthUI(session) {
 
   if (session && session.user) {
     console.log('✅ User logged in:', session.user.email);
-    authButtons.style.display = 'none !important';
+    // Note : element.style ne supporte pas '!important' — la valeur serait
+    // silencieusement ignorée. Le display: none seul suffit ; les overrides
+    // CSS éventuels doivent passer par une classe dédiée.
+    authButtons.style.display = 'none';
     authButtons.style.visibility = 'hidden';
     userMenu.style.display = 'flex';
     userMenu.style.visibility = 'visible';

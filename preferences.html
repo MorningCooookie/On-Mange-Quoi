@@ -84,26 +84,10 @@
   <script src="profiles.js"></script>
   <script src="js/preferences-button.js"></script>
   <script src="auth.js"></script>
-  <script>
-    // Init ProfileManager au chargement — fonctionne avec ou sans session.
-    // Si l'utilisateur est connecté, on récupère son userId pour pointer
-    // vers ses profils Supabase ; sinon, init avec null (mode local).
-    (async function initProfilesPage() {
-      const client = window.supabaseClient;
-      let userId = null;
-      if (client && client.auth) {
-        try {
-          const { data: { session } } = await client.auth.getSession();
-          userId = session?.user?.id || null;
-        } catch (e) {
-          console.warn('Session lookup failed', e);
-        }
-      }
-      if (typeof ProfileManager !== 'undefined') {
-        ProfileManager.init(userId);
-      }
-    })();
-  </script>
+  <!-- Pas d'init ProfileManager inline ici : auth.js le fait dans
+       updateAuthUI() au moment où la session Supabase est restaurée.
+       Avoir deux inits concurrents créait une race condition sur userId
+       et un risque d'écrasement de activeProfile par le 2e init. -->
   <script src="js/nav.js"></script>
 </body>
 </html>

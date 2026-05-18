@@ -94,7 +94,11 @@ const ProfileManager = {
       this.profiles.push(data);
       showToast('Profil créé', `${name || 'Nouveau profil'} ajouté avec succès.`, 'success');
       this.renderProfiles();
-      document.getElementById('new-profile-name').value = '';
+      // Garde : #new-profile-name n'existe que sur preferences.html (et
+      // jadis dans la modale d'index.html). Sans cette garde, l'appel
+      // depuis n'importe quelle autre page crasherait avec TypeError.
+      const input = document.getElementById('new-profile-name');
+      if (input) input.value = '';
       return true;
     } catch (err) {
       console.error('Error creating profile:', err);
