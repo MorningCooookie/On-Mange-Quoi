@@ -3137,6 +3137,23 @@ body.modal-open { overflow: hidden; }
   margin: 4px 0 0;
 }
 
+/* "Mot de passe oublié ?" — entre le bouton submit et le footer.
+   Discret pour ne pas concurrencer le CTA principal. */
+.auth-modal__forgot {
+  text-align: center;
+  margin: 4px 0 0;
+}
+.auth-modal__forgot .auth-modal__link {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  text-decoration: none;
+}
+.auth-modal__forgot .auth-modal__link:hover {
+  color: var(--green-800);
+  text-decoration: underline;
+}
+
 .auth-modal__link {
   background: none;
   border: none;

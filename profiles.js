@@ -15,8 +15,33 @@ const ProfileManager = {
     }
     await this.loadProfiles();
     await this.checkSubscription();
+
+    // Chargement des préférences + autoselect — DOIT être indépendant
+    // du rendu DOM (renderProfiles retournait early sur les pages sans
+    // #profiles-list comme semaine.html, ce qui empêchait le menu de
+    // refléter les prefs même quand un profil existait).
+    await this.activateFirstProfile();
+
     await this.renderProfiles();
     this.setupEventListeners();
+  },
+
+  // Précharge les prefs de tous les profils + auto-active le premier.
+  // Indépendant du rendu DOM — fonctionne sur toutes les pages.
+  async activateFirstProfile() {
+    if (!this.profiles || this.profiles.length === 0) return;
+    for (const profile of this.profiles) {
+      await PreferenceManager.loadPreferences(profile.id);
+    }
+    const firstProfile = this.profiles[0];
+    this.activeProfile = { id: firstProfile.id, name: firstProfile.name };
+    this.updateActiveProfileDisplay(firstProfile.name);
+    if (typeof setSupabaseProfile === 'function') {
+      setSupabaseProfile(firstProfile.id, firstProfile.name);
+    }
+    window.dispatchEvent(new CustomEvent('omq:preferences-ready', {
+      detail: { profileId: firstProfile.id, profileName: firstProfile.name }
+    }));
   },
 
   async loadProfiles() {
@@ -147,11 +172,10 @@ const ProfileManager = {
   async renderProfiles() {
     const list = document.getElementById('profiles-list');
     if (!list) return;
-
-    // Load preferences for each profile
-    for (const profile of this.profiles) {
-      await PreferenceManager.loadPreferences(profile.id);
-    }
+    // Note : le chargement des préférences + l'autoselect ont été
+    // déplacés dans activateFirstProfile() appelé par init() —
+    // indépendant du rendu DOM (sinon, semaine.html sans #profiles-list
+    // ne chargeait jamais les prefs et le menu n'avait pas les warnings).
 
     let html = '';
 
@@ -182,21 +206,9 @@ const ProfileManager = {
     const countEl = document.getElementById('profile-count');
     if (countEl) countEl.textContent = this.profiles.length;
 
-    // Auto-select first profile (ensures preferences are loaded into cache)
-    if (this.profiles.length > 0) {
-      const firstProfile = this.profiles[0];
-      this.activeProfile = { id: firstProfile.id, name: firstProfile.name };
-      this.updateActiveProfileDisplay(firstProfile.name);
-      if (typeof setSupabaseProfile === 'function') {
-        setSupabaseProfile(firstProfile.id, firstProfile.name);
-      }
-      // Signale aux pages (semaine.js, etc.) que les préférences du
-      // profil actif sont chargées en cache et peuvent être lues pour
-      // appliquer les warnings sur les plats.
-      window.dispatchEvent(new CustomEvent('omq:preferences-ready', {
-        detail: { profileId: firstProfile.id, profileName: firstProfile.name }
-      }));
-    }
+    // Autoselect retiré d'ici — fait dans activateFirstProfile() avant
+    // renderProfiles, pour être sûr que ça tourne aussi quand la modale
+    // Profils n'est pas dans le DOM (pages internes).
   },
 
   openPreferenceModal(profileId, profileName) {

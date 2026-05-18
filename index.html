@@ -78,9 +78,27 @@
       <input type="email" id="login-email" class="auth-modal__input" placeholder="Votre email" autocomplete="email" required>
       <input type="password" id="login-password" class="auth-modal__input" placeholder="Mot de passe" autocomplete="current-password" required>
       <button type="submit" id="btn-login" class="auth-modal__btn">Se connecter</button>
+      <p class="auth-modal__forgot">
+        <button type="button" class="auth-modal__link" data-action="open-forgot-modal">Mot de passe oublié ?</button>
+      </p>
       <p class="auth-modal__footer">
         Pas encore de compte ?
         <button type="button" class="auth-modal__link" onclick="document.getElementById('login-modal').style.display='none'; document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();">Créer un compte</button>
+      </p>
+    </form>
+  </div>
+
+  <!-- ============ FORGOT PASSWORD MODAL ============ -->
+  <div id="forgot-modal" class="auth-modal" onclick="if(event.target.id==='forgot-modal') this.style.display='none'">
+    <form class="auth-modal__box" id="forgot-form" novalidate>
+      <button type="button" class="auth-modal__close" data-action="close-forgot-modal" aria-label="Fermer">✕</button>
+      <h2 class="auth-modal__title">Mot de passe oublié</h2>
+      <p class="auth-modal__subtitle">Entrez votre email — on vous envoie un lien pour le réinitialiser.</p>
+      <input type="email" id="forgot-email" class="auth-modal__input" placeholder="Votre email" autocomplete="email" required>
+      <button type="submit" id="btn-forgot" class="auth-modal__btn">Envoyer le lien</button>
+      <p class="auth-modal__footer">
+        Vous vous en souvenez ?
+        <button type="button" class="auth-modal__link" data-action="back-to-login">Se connecter</button>
       </p>
     </form>
   </div>
@@ -704,6 +722,40 @@
     window.handleLogin = handleLogin;
     window.handleSignup = handleSignup;
 
+    // Forgot password — envoie un email Supabase avec lien de reset.
+    async function handleForgotPassword() {
+      const email = document.getElementById('forgot-email').value.trim();
+      const btn = document.getElementById('btn-forgot');
+      if (!email) {
+        showToast('Champ manquant', 'Entrez votre email.', 'error');
+        return;
+      }
+      if (!window.supabaseClient || !window.supabaseClient.auth) {
+        showToast('Erreur', 'Service indisponible. Rechargez la page.', 'error');
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = 'Envoi en cours…';
+      try {
+        const { error } = await window.supabaseClient.auth.resetPasswordForEmail(email, {
+          redirectTo: window.location.origin + '/reset-password.html'
+        });
+        if (error) {
+          showToast('Erreur', error.message || 'Envoi impossible', 'error');
+          return;
+        }
+        document.getElementById('forgot-modal').style.display = 'none';
+        document.getElementById('forgot-email').value = '';
+        showToast('Email envoyé', `Un lien de réinitialisation a été envoyé à ${email}. Vérifiez votre boîte mail.`, 'email');
+      } catch (err) {
+        showToast('Erreur', err.message || 'Envoi impossible', 'error');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Envoyer le lien';
+      }
+    }
+    window.handleForgotPassword = handleForgotPassword;
+
     // Event delegation : on écoute tous les submits du document plutôt que
     // d'attendre DOMContentLoaded + getElementById. Plus robuste — marche
     // même si le form est injecté dynamiquement ou si DOMContentLoaded a
@@ -717,6 +769,26 @@
         e.preventDefault();
         console.log('[auth] signup form submitted');
         handleSignup();
+      } else if (e.target && e.target.id === 'forgot-form') {
+        e.preventDefault();
+        handleForgotPassword();
+      }
+    });
+
+    // Routage clics modales : ouvre/ferme forgot-modal, back-to-login.
+    document.addEventListener('click', (e) => {
+      const action = e.target.closest('[data-action]')?.dataset.action;
+      if (!action) return;
+      if (action === 'open-forgot-modal') {
+        document.getElementById('login-modal').style.display = 'none';
+        document.getElementById('forgot-modal').style.display = 'flex';
+        document.getElementById('forgot-email').focus();
+      } else if (action === 'close-forgot-modal') {
+        document.getElementById('forgot-modal').style.display = 'none';
+      } else if (action === 'back-to-login') {
+        document.getElementById('forgot-modal').style.display = 'none';
+        document.getElementById('login-modal').style.display = 'flex';
+        document.getElementById('login-email').focus();
       }
     });
   </script>
