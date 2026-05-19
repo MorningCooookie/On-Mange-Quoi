@@ -562,7 +562,10 @@
       setTimeout(removeToast, 3000);
     }
 
-    // Ouvre/ferme le menu Mon compte — position calculée avant affichage
+    // Ouvre/ferme le menu Mon compte — position calculée avant affichage.
+    // On pose le flag AVANT d'attacher, pour qu'auth.js (chargé après)
+    // ne crée pas un 2e listener identique qui annulerait celui-ci.
+    window.__userMenuToggleAttached = true;
     document.addEventListener('click', (e) => {
       const menu = document.getElementById('user-menu');
       const accountBtn = document.getElementById('user-email-header');

@@ -2710,8 +2710,28 @@ body.modal-open { overflow: hidden; }
 .toast.removing { animation: toastSlideUp 0.3s ease-out forwards; }
 
 /* ============================================================
-   MEAL WARNING — badge "Ne correspond pas à vos préférences"
+   MEAL WARNING — tag inline sous le nom du plat
    ============================================================ */
+
+/* Tag inline — affiché sous le nom quand le plat ne correspond pas aux prefs */
+.meal-warning-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-top: 0.2rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #B45309;
+  background: #FFFBEB;
+  border: 1px solid #F59E0B;
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+/* Ancien bloc séparé — conservé au cas où mais plus généré */
 .meal-warning {
   display: flex;
   align-items: center;

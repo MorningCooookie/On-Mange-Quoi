@@ -154,6 +154,42 @@ const PreferenceManager = {
       .toLowerCase();
   },
 
+  // Retourne un court label expliquant pourquoi le plat ne correspond pas
+  // aux préférences ("Allergie", "Végétarien", "Contient X"…).
+  // Retourne null si le plat est compatible.
+  getDishWarningLabel(dishName, dishIngredients, preferences) {
+    if (!preferences) return null;
+    const dishText = this._normalize(`${dishName} ${(dishIngredients || []).join(' ')}`);
+    if (preferences.allergies?.length > 0) {
+      for (const allergen of preferences.allergies) {
+        if (dishText.includes(this._normalize(allergen))) return 'Allergie';
+      }
+    }
+    if (preferences.restrictions?.length > 0) {
+      for (const restriction of preferences.restrictions) {
+        if (this.breaksRestriction(dishText, restriction)) {
+          const labelMap = {
+            'végétarien': 'Végétarien', 'végétalien': 'Végétalien',
+            'vegan': 'Vegan', 'sans gluten': 'Sans gluten',
+            'sans lactose': 'Sans lactose', 'halal': 'Halal', 'casher': 'Casher',
+          };
+          return labelMap[restriction.toLowerCase()] || restriction;
+        }
+      }
+    }
+    if (preferences.dislikes?.length > 0) {
+      for (const dislike of preferences.dislikes) {
+        const dislikeNorm = this._normalize(dislike);
+        if (dishText.includes(dislikeNorm)) return `Contient ${dislike}`;
+        const synonyms = this.DISLIKE_SYNONYMS[dislikeNorm] || this.DISLIKE_SYNONYMS[dislike.toLowerCase()] || [];
+        for (const synonym of synonyms) {
+          if (dishText.includes(this._normalize(synonym))) return `Contient ${dislike}`;
+        }
+      }
+    }
+    return 'Non compatible';
+  },
+
   isDishSafe(dishName, dishIngredients, preferences) {
     if (!preferences || (!preferences.allergies?.length && !preferences.restrictions?.length && !preferences.dislikes?.length)) {
       return true; // No restrictions = all dishes safe

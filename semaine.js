@@ -322,29 +322,20 @@ function getActivePreferences() {
   return hasAny ? prefs : null;
 }
 
-// Génère le bandeau "Ne correspond pas à vos préférences" + CTA premium
-// pour un plat qui ne respecte pas les préférences chargées. Retourne
-// une chaîne vide si le plat est safe ou si pas de prefs.
+// Retourne un petit tag inline si le plat ne correspond pas aux préférences.
+// Le plat reste toujours visible — le tag s'affiche sous le nom du plat.
+// Retourne une chaîne vide si le plat est safe ou si pas de prefs.
 function renderMealWarning(meal, currentPreferences) {
   if (!currentPreferences || !meal || typeof PreferenceManager === 'undefined') return '';
   const ingredients = meal.ingredients || [];
   if (PreferenceManager.isDishSafe(meal.name, ingredients, currentPreferences)) return '';
-  // Escape complet (cf. C2 audit code review — replace de quotes seules
-  // laissait passer XSS via & et < dans meal.name).
-  const safeMealName = (typeof window.escapeHTML === 'function')
-    ? window.escapeHTML(meal.name || '')
-    : String(meal.name ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  return `
-    <div class="meal-warning">
-      <div class="meal-warning__main">
-        <span class="meal-warning__icon" aria-hidden="true">!</span>
-        <span class="meal-warning__text">Ce plat ne correspond pas à vos préférences.</span>
-      </div>
-      <button type="button" class="meal-warning__cta" data-action="suggest-alternative" data-meal-name="${safeMealName}">
-        Voir une alternative
-        <span class="meal-warning__premium-badge">Premium</span>
-      </button>
-    </div>`;
+  const raw = (typeof PreferenceManager.getDishWarningLabel === 'function')
+    ? PreferenceManager.getDishWarningLabel(meal.name, ingredients, currentPreferences) || 'Non compatible'
+    : 'Non compatible';
+  const esc = (typeof window.escapeHTML === 'function')
+    ? window.escapeHTML
+    : (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  return `<span class="meal-warning-tag" title="Ce plat ne correspond pas à vos préférences">⚠ ${esc(raw)}</span>`;
 }
 
 function renderMenu(data, history) {
@@ -429,10 +420,9 @@ function renderMenu(data, history) {
       const dotColor = riskDotColor(meal.riskLevel);
       const label    = riskLabel(meal.riskLevel);
 
-      // Check préférences — si le plat ne respecte pas, on tag la row
-      // .meal-unsafe et on injecte le warning + CTA premium juste après.
+      // Tag inline si le plat ne correspond pas aux prefs — le plat reste
+      // toujours visible, le badge s'affiche sous le nom.
       const warning = renderMealWarning(meal, currentPreferences);
-      if (warning) row.classList.add('meal-unsafe');
 
       if (isClickable) {
         row.setAttribute('role', 'button');
@@ -444,6 +434,7 @@ function renderMenu(data, history) {
         <div class="semaine-meal-info">
           <div class="semaine-meal-type">${MEAL_LABELS[type]}</div>
           <div class="semaine-meal-name">${meal.name}</div>
+          ${warning}
         </div>
         ${isClickable ? `<span class="semaine-prep-badge">⏱${meal.prepTime}'</span>` : ''}
         <span class="semaine-risk-dot" style="background:${dotColor}" title="${label}" aria-label="${label}"></span>
@@ -458,16 +449,6 @@ function renderMenu(data, history) {
         });
       }
       mealsEl.appendChild(row);
-
-      // Le warning est ajouté APRÈS la row (en frère, pas enfant), car
-      // .semaine-meal-row est un flex-row — l'embarquer dedans casserait
-      // le layout horizontal.
-      if (warning) {
-        const wrapper = document.createElement('div');
-        wrapper.innerHTML = warning;
-        const warningEl = wrapper.firstElementChild;
-        if (warningEl) mealsEl.appendChild(warningEl);
-      }
     });
   });
 }
