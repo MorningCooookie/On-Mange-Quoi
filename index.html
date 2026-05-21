@@ -553,35 +553,6 @@
       margin: 0 auto 28px auto;
     }
 
-    /* ── Sticky CTA mobile : visible non-connecté, bouton compte gratuit ── */
-    .mobile-sticky-cta {
-      display: none;
-    }
-    @media (max-width: 768px) {
-      .mobile-sticky-cta:not(.is-hidden) {
-        display: block;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
-        background: rgba(255,255,255,0.96);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        border-top: 1px solid rgba(0,0,0,.08);
-        z-index: 90;
-        box-shadow: 0 -4px 16px rgba(0,0,0,.06);
-      }
-      .mobile-sticky-cta .btn--landing {
-        width: 100%;
-        padding: 14px 20px;
-        font-size: 15px;
-      }
-      /* Réserver l'espace en bas du body pour ne pas masquer le footer */
-      body.has-mobile-sticky {
-        padding-bottom: 76px;
-      }
-    }
   </style>
 
   <script>
@@ -1191,10 +1162,6 @@
     <span>© 2026 · Paris · Basé sur les recommandations ANSES + EFSA · Sans pub, sans tracking publicitaire</span>
   </footer>
 
-  <!-- Sticky CTA mobile (non-connectés uniquement, masqué via JS si session active) -->
-  <div class="mobile-sticky-cta" id="mobile-sticky-cta" aria-label="Créer un compte">
-    <button class="btn--landing" onclick="document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();">Créer mon compte</button>
-  </div>
 
 
 
@@ -1266,38 +1233,22 @@
         el.textContent = 'Prochain menu : lundi ' + next.getDate() + ' ' + mois[next.getMonth()];
       }
 
-      async function adaptForSession() {
+      async function adaptHeroCta() {
         var cta = document.getElementById('hero-cta-primary');
-        var sticky = document.getElementById('mobile-sticky-cta');
-        if (!window.supabaseClient || !window.supabaseClient.auth) {
-          // Sans Supabase chargé : on suppose non-connecté → on active le sticky mobile
-          if (sticky) document.body.classList.add('has-mobile-sticky');
-          return;
-        }
+        if (!cta || !window.supabaseClient || !window.supabaseClient.auth) return;
         try {
           var res = await window.supabaseClient.auth.getSession();
-          var isLogged = !!(res && res.data && res.data.session);
-          if (isLogged) {
-            if (cta) {
-              cta.textContent = 'Voir mon menu de la semaine →';
-              cta.setAttribute('href', 'semaine.html');
-            }
-            if (sticky) {
-              sticky.classList.add('is-hidden');
-              document.body.classList.remove('has-mobile-sticky');
-            }
-          } else {
-            if (sticky) document.body.classList.add('has-mobile-sticky');
+          if (res && res.data && res.data.session) {
+            cta.textContent = 'Voir mon menu de la semaine →';
+            cta.setAttribute('href', 'semaine.html');
           }
-        } catch (e) {
-          if (sticky) document.body.classList.add('has-mobile-sticky');
-        }
+        } catch (e) { /* silencieux */ }
       }
 
       window.addEventListener('DOMContentLoaded', function() {
         setNextMondayLabel();
         // Petit délai pour laisser le SDK Supabase s'initialiser
-        setTimeout(adaptForSession, 400);
+        setTimeout(adaptHeroCta, 400);
       });
     })();
   </script>
