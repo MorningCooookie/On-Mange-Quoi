@@ -121,6 +121,35 @@ body {
   text-align: center;
 }
 
+/* ── Bouton partage (visible mobile + desktop, sous la date) ─────── */
+.semaine-share-row {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 1.5rem;
+}
+.semaine-share-btn {
+  font-family: var(--font-body, 'Work Sans', sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1.5px solid var(--green-light, #40916C);
+  background: transparent;
+  color: var(--green, #1B4332);
+  cursor: pointer;
+  transition: background 150ms, color 150ms, border-color 150ms;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: .01em;
+}
+.semaine-share-btn:hover {
+  background: var(--green, #1B4332);
+  color: #fff;
+  border-color: var(--green, #1B4332);
+}
+.semaine-share-btn:active { transform: scale(0.97); }
+
 /* ── Day grid ───────────────────────────────────────────── */
 .semaine-grid {
   display: flex;

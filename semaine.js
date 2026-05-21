@@ -526,19 +526,27 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.getElementById('btn-partager')?.addEventListener('click', () => {
+    const shareData = {
+      url: location.href,
+      title: 'Menu de la semaine, On mange quoi ?',
+      text: 'Le menu de cette semaine : sept dîners pensés pour la famille, score santé et liste de courses. Sur onmangequoi.eu'
+    };
+    const btn = document.getElementById('btn-partager');
+    const flash = (msg, ms) => {
+      if (!btn) return;
+      const orig = btn.textContent;
+      btn.textContent = msg;
+      setTimeout(() => { btn.textContent = orig; }, ms || 2000);
+    };
     if (navigator.share) {
-      navigator.share({ url: location.href, title: 'Menu de la semaine — On mange quoi ?' });
-    } else {
+      navigator.share(shareData).catch(() => { /* l'utilisateur a annulé, silencieux */ });
+    } else if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard
         .writeText(location.href)
-        .then(() => {
-          const btn = document.getElementById('btn-partager');
-          if (btn) { const orig = btn.textContent; btn.textContent = '✓ Lien copié !'; setTimeout(() => btn.textContent = orig, 2000); }
-        })
-        .catch(() => {
-          const btn = document.getElementById('btn-partager');
-          if (btn) { const orig = btn.textContent; btn.textContent = location.href; setTimeout(() => btn.textContent = orig, 4000); }
-        });
+        .then(() => flash('✓ Lien copié'))
+        .catch(() => flash(location.href, 4000));
+    } else {
+      flash(location.href, 4000);
     }
   });
 

@@ -49,19 +49,23 @@
     <!-- En-tête desktop — masqué sur mobile -->
     <div class="semaine-page-header" id="semaine-page-header">
       <div>
-        <span class="semaine-page-eyebrow" id="semaine-page-eyebrow">Semaine —</span>
+        <span class="semaine-page-eyebrow" id="semaine-page-eyebrow">Semaine en cours</span>
         <h1 class="semaine-page-title">Bonjour. <span class="semaine-page-title__sub">Voici votre semaine.</span></h1>
       </div>
       <div class="semaine-page-nav">
         <a class="semaine-week-btn" id="btn-prev-week" href="#">← sem. préc.</a>
         <a class="semaine-week-btn" id="btn-next-week" href="#">sem. suiv. →</a>
-        <!-- "Régénérer" retiré (placeholder éternellement disabled, jamais
-             câblé en JS). Sera réintroduit comme feature premium dans le
-             point (c) du plan freemium. -->
       </div>
     </div>
 
     <div class="semaine-date" id="semaine-date"></div>
+
+    <!-- Bouton partage visible mobile + desktop, placé sous la date -->
+    <div class="semaine-share-row">
+      <button type="button" class="semaine-share-btn" id="btn-partager" aria-label="Partager ce menu">
+        <span aria-hidden="true">↗</span> Partager ce menu
+      </button>
+    </div>
 
     <!-- ── Score hero band ──────────────────────────────────── -->
     <section class="score-band" id="score-band" hidden>
@@ -145,10 +149,6 @@
     <footer class="semaine-footer">
       onmangequoi.eu · Menu complet, liste de courses et budget sur le site
     </footer>
-
-    <div class="semaine-actions">
-      <button class="semaine-btn semaine-btn--share" id="btn-partager">Partager ce lien</button>
-    </div>
   </main>
   </div><!-- /.semaine-layout -->
 
