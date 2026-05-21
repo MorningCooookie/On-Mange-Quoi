@@ -550,7 +550,6 @@ function renderMenu() {
               </div>
               <button type="button" class="meal-warning__cta" data-action="suggest-alternative" data-meal-name="${safeMealName}">
                 Voir une alternative
-                <span class="meal-warning__premium-badge">Premium</span>
               </button>
             </div>`;
         }
@@ -1554,16 +1553,9 @@ function openPremiumUpgradeModal(mealName) {
     modal.innerHTML = `
       <div class="premium-modal__panel" role="dialog" aria-modal="true" aria-labelledby="premium-modal-title">
         <button type="button" class="premium-modal__close" data-action="close-premium-modal" aria-label="Fermer">✕</button>
-        <span class="premium-modal__badge">Premium</span>
-        <h2 class="premium-modal__title" id="premium-modal-title">Une alternative qui vous ressemble</h2>
-        <p class="premium-modal__intro" id="premium-modal-intro">Avec l'abonnement Premium, on génère un plat de remplacement adapté à vos préférences, sans toucher au reste de votre menu.</p>
-        <ul class="premium-modal__perks">
-          <li>Alternatives illimitées par semaine</li>
-          <li>Profils familiaux multiples</li>
-          <li>Liste de courses ajustée automatiquement</li>
-        </ul>
-        <a class="btn btn--primary btn--block" href="/?premium=1">Découvrir Premium</a>
-        <button type="button" class="premium-modal__link" data-action="close-premium-modal">Plus tard</button>
+        <h2 class="premium-modal__title" id="premium-modal-title">Bientôt disponible</h2>
+        <p class="premium-modal__intro" id="premium-modal-intro">La génération d'un plat de remplacement n'est pas encore disponible. On y travaille, elle arrivera dans les prochaines semaines.</p>
+        <button type="button" class="btn btn--primary btn--block" data-action="close-premium-modal">Compris</button>
       </div>
     `;
     modal.addEventListener('click', (e) => {
@@ -1573,7 +1565,7 @@ function openPremiumUpgradeModal(mealName) {
   }
   if (mealName) {
     const intro = modal.querySelector('#premium-modal-intro');
-    if (intro) intro.textContent = `« ${mealName} » ne correspond pas à vos préférences. Avec Premium, on génère un plat de remplacement sans toucher au reste du menu.`;
+    if (intro) intro.textContent = `La génération d'une alternative pour « ${mealName} » n'est pas encore disponible. On y travaille, elle arrivera dans les prochaines semaines.`;
   }
   modal.style.display = 'flex';
 }

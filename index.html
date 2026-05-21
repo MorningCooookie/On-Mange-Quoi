@@ -35,16 +35,15 @@
       </a>
       <nav class="landing-header__nav" aria-label="Navigation principale" id="primary-nav">
         <a href="semaine.html">Mon menu</a>
-        <a href="courses.html">Liste de courses</a>
         <a href="recettes.html">Recettes</a>
         <a href="score-sante.html">Score santé</a>
-        <a href="fiche.html">Mémo santé</a>
+        <a href="fiche.html">Aliments à éviter</a>
         <a href="preferences.html">Préférences</a>
       </nav>
     </div>
     <div id="auth-button-group" class="landing-header__actions">
       <button class="landing-header__login" onclick="document.getElementById('login-modal').style.display='flex'; document.getElementById('login-email').focus();">Se connecter</button>
-      <button class="btn--landing btn--landing-sm" onclick="document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();">Commencer — c'est gratuit</button>
+      <button class="btn--landing btn--landing-sm" onclick="document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();">Commencer, c'est gratuit</button>
     </div>
     <div id="user-menu-header" class="landing-header__user" style="display:none;">
       <button class="landing-header__user-btn" id="user-email-header" type="button">Mon compte ▾</button>
@@ -108,7 +107,12 @@
     <form class="auth-modal__box" id="signup-form" novalidate>
       <button type="button" class="auth-modal__close" onclick="document.getElementById('signup-modal').style.display='none'" aria-label="Fermer">✕</button>
       <h2 class="auth-modal__title">Créer un compte</h2>
-      <p class="auth-modal__subtitle">Gratuit · Menus familiaux sains chaque semaine.</p>
+      <p class="auth-modal__subtitle">Gratuit, sans carte bancaire. Vous obtenez :</p>
+      <ul class="auth-modal__benefits" style="list-style:none;padding:0;margin:0 0 18px 0;font-size:14px;color:var(--ink-700);line-height:1.6;">
+        <li style="padding-left:22px;position:relative;margin-bottom:6px;"><span style="position:absolute;left:0;top:0;color:var(--green-800);font-weight:700;">✓</span>Un menu hebdo personnalisé selon vos préférences</li>
+        <li style="padding-left:22px;position:relative;margin-bottom:6px;"><span style="position:absolute;left:0;top:0;color:var(--green-800);font-weight:700;">✓</span>La liste de courses regroupée par rayon</li>
+        <li style="padding-left:22px;position:relative;"><span style="position:absolute;left:0;top:0;color:var(--green-800);font-weight:700;">✓</span>Un score santé basé sur ANSES et EFSA</li>
+      </ul>
       <input type="email" id="signup-email" class="auth-modal__input" placeholder="Votre email" autocomplete="email" required>
       <input type="password" id="signup-password" class="auth-modal__input" placeholder="Mot de passe (min. 6 caractères)" autocomplete="new-password" required minlength="6">
       <button type="submit" id="btn-signup" class="auth-modal__btn">Créer mon compte</button>
@@ -521,6 +525,63 @@
       background: rgba(0,0,0,.07);
       margin: 0.2rem 0;
     }
+
+    /* ── Last-CTA avant footer : pousse à l'inscription en fin de scroll ── */
+    .landing-final-cta {
+      padding: 56px 24px;
+      text-align: center;
+      background: var(--cream-50, #fdf9f3);
+      border-top: 1px solid rgba(0,0,0,.05);
+    }
+    .landing-final-cta__title {
+      font-family: var(--font-display, 'Fraunces', serif);
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin: 0 0 12px 0;
+      color: var(--ink-900, #1a1a1a);
+    }
+    .landing-final-cta__title em {
+      font-style: italic;
+      color: var(--green-800, #2d7a3c);
+    }
+    .landing-final-cta__body {
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--ink-600, #555);
+      max-width: 520px;
+      margin: 0 auto 28px auto;
+    }
+
+    /* ── Sticky CTA mobile : visible non-connecté, bouton compte gratuit ── */
+    .mobile-sticky-cta {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .mobile-sticky-cta:not(.is-hidden) {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+        background: rgba(255,255,255,0.96);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-top: 1px solid rgba(0,0,0,.08);
+        z-index: 90;
+        box-shadow: 0 -4px 16px rgba(0,0,0,.06);
+      }
+      .mobile-sticky-cta .btn--landing {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 15px;
+      }
+      /* Réserver l'espace en bas du body pour ne pas masquer le footer */
+      body.has-mobile-sticky {
+        padding-bottom: 76px;
+      }
+    }
   </style>
 
   <script>
@@ -846,7 +907,7 @@
         Une décision en moins, chaque soir.
       </p>
       <div class="landing-hero__ctas">
-        <a class="btn--landing" href="semaine.html">Voir mon menu de la semaine →</a>
+        <a class="btn--landing" href="#exemple" id="hero-cta-primary">Voir un exemple de menu →</a>
         <a class="btn--landing-ghost" href="#comment">Comment c'est noté</a>
       </div>
     </div>
@@ -889,7 +950,7 @@
         </div>
       </div>
       <div class="score-artifact__footer">
-        <span>Mis à jour chaque lundi</span>
+        <span id="next-menu-date">Prochain menu : chaque lundi</span>
         <span class="mono--landing">un menu par semaine</span>
       </div>
     </div>
@@ -968,10 +1029,10 @@
   </section>
 
   <!-- Week preview -->
-  <section class="landing-preview">
+  <section class="landing-preview" id="exemple">
     <div class="landing-preview__header">
       <div>
-        <span class="eyebrow--landing">Aperçu — exemple</span>
+        <span class="eyebrow--landing">Aperçu, exemple</span>
         <h2 class="landing-preview__h2">Voilà à quoi ressemble une semaine.</h2>
       </div>
       <span class="chip--landing">cuisine méditerranéenne · 2 adultes · 1 enfant</span>
@@ -1073,16 +1134,16 @@
           Gratuit. <span style="color:var(--ink-500);font-style:italic;">Vraiment.</span>
         </h2>
         <p class="landing-pricing__body">
-          Tout ce dont vous avez besoin pour bien manger en famille
-          est dans la version gratuite. Une version plus avancée arrivera plus tard,
-          uniquement pour ceux qui veulent aller plus loin.
+          Tout ce dont vous avez besoin pour bien manger en famille, gratuitement.
+          Sans publicité, sans carte bancaire, sans tracking. Créez votre compte
+          en 30 secondes et recevez votre premier menu lundi prochain.
         </p>
         <div class="landing-pricing__actions">
-          <button class="btn--landing" onclick="document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();">Commencer maintenant</button>
-          <button class="landing-pricing__link">Voir ce qui est inclus</button>
+          <button class="btn--landing" onclick="document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();">Créer mon compte gratuit</button>
+          <button type="button" class="landing-pricing__link" onclick="document.getElementById('features-list').scrollIntoView({behavior:'smooth',block:'center'});">Voir ce qui est inclus</button>
         </div>
       </div>
-      <ul class="landing-pricing__list" aria-label="Ce qui est inclus">
+      <ul class="landing-pricing__list" id="features-list" aria-label="Ce qui est inclus">
         <li class="landing-pricing__item">
           <span class="landing-pricing__check mono--landing">✓</span>
           Menu hebdo personnalisé
@@ -1111,6 +1172,16 @@
     </div>
   </section>
 
+  <!-- Last CTA avant footer -->
+  <section class="landing-final-cta" id="final-cta" aria-label="Créer un compte">
+    <h2 class="landing-final-cta__title">Prêt à essayer <em>cette semaine</em>&nbsp;?</h2>
+    <p class="landing-final-cta__body">
+      Créez votre compte gratuit en 30 secondes. Premier menu lundi prochain,
+      directement sur le site. Sans carte bancaire.
+    </p>
+    <button class="btn--landing" onclick="document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();">Créer mon compte gratuit</button>
+  </section>
+
   <!-- Footer -->
   <footer class="landing-footer">
     <a class="brand--landing" href="/" style="font-size:14px;" aria-label="On mange quoi ?">
@@ -1119,6 +1190,11 @@
     </a>
     <span>© 2026 · Paris · Basé sur les recommandations ANSES + EFSA · Sans pub, sans tracking publicitaire</span>
   </footer>
+
+  <!-- Sticky CTA mobile (non-connectés uniquement, masqué via JS si session active) -->
+  <div class="mobile-sticky-cta" id="mobile-sticky-cta" aria-label="Créer un compte gratuit">
+    <button class="btn--landing" onclick="document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();">Créer mon compte gratuit</button>
+  </div>
 
 
 
@@ -1172,6 +1248,58 @@
         menu.style.display = 'none';
       }
     });
+  </script>
+  <script>
+    // Hook de rétention : affiche "Prochain menu : lundi X" calculé dynamiquement
+    // dans le score artifact, et adapte le CTA hero selon la session Supabase.
+    (function() {
+      function setNextMondayLabel() {
+        var el = document.getElementById('next-menu-date');
+        if (!el) return;
+        var now = new Date();
+        var day = now.getDay(); // 0=dim, 1=lun, ..., 6=sam
+        var daysUntilMonday = day === 1 ? 7 : ((8 - day) % 7);
+        if (daysUntilMonday === 0) daysUntilMonday = 7;
+        var next = new Date(now);
+        next.setDate(now.getDate() + daysUntilMonday);
+        var mois = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
+        el.textContent = 'Prochain menu : lundi ' + next.getDate() + ' ' + mois[next.getMonth()];
+      }
+
+      async function adaptForSession() {
+        var cta = document.getElementById('hero-cta-primary');
+        var sticky = document.getElementById('mobile-sticky-cta');
+        if (!window.supabaseClient || !window.supabaseClient.auth) {
+          // Sans Supabase chargé : on suppose non-connecté → on active le sticky mobile
+          if (sticky) document.body.classList.add('has-mobile-sticky');
+          return;
+        }
+        try {
+          var res = await window.supabaseClient.auth.getSession();
+          var isLogged = !!(res && res.data && res.data.session);
+          if (isLogged) {
+            if (cta) {
+              cta.textContent = 'Voir mon menu de la semaine →';
+              cta.setAttribute('href', 'semaine.html');
+            }
+            if (sticky) {
+              sticky.classList.add('is-hidden');
+              document.body.classList.remove('has-mobile-sticky');
+            }
+          } else {
+            if (sticky) document.body.classList.add('has-mobile-sticky');
+          }
+        } catch (e) {
+          if (sticky) document.body.classList.add('has-mobile-sticky');
+        }
+      }
+
+      window.addEventListener('DOMContentLoaded', function() {
+        setNextMondayLabel();
+        // Petit délai pour laisser le SDK Supabase s'initialiser
+        setTimeout(adaptForSession, 400);
+      });
+    })();
   </script>
   <script src="js/nav.js"></script>
 </body>
