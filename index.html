@@ -557,6 +557,103 @@
       margin: 0 auto 28px auto;
     }
 
+    /* ── Approche santé : pointe vers les articles blog (maillage SEO + crédibilité) ── */
+    .landing-approach {
+      padding: 80px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .landing-approach__header {
+      max-width: 640px;
+      margin: 0 0 48px 0;
+    }
+    .landing-approach__h2 {
+      font-family: var(--font-display, 'Fraunces', serif);
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin: 12px 0 16px 0;
+      color: var(--ink-900, #1a1a1a);
+    }
+    .landing-approach__h2 em {
+      font-style: italic;
+      color: var(--green-800, #2d7a3c);
+    }
+    .landing-approach__intro {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--ink-600, #555);
+      margin: 0;
+    }
+    .landing-approach__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 900px) {
+      .landing-approach__grid { grid-template-columns: 1fr; gap: 16px; }
+      .landing-approach { padding: 56px 24px; }
+    }
+    .landing-approach__card {
+      display: flex;
+      flex-direction: column;
+      padding: 28px 24px;
+      background: var(--cream-50, #fdf9f3);
+      border: 1px solid rgba(0,0,0,.04);
+      border-radius: 12px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+    }
+    .landing-approach__card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,.06);
+      border-color: var(--green-light, #40916C);
+    }
+    .landing-approach__card-tag {
+      font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--green-800, #2d7a3c);
+      margin-bottom: 12px;
+    }
+    .landing-approach__card-title {
+      font-family: var(--font-display, 'Fraunces', serif);
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.25;
+      margin: 0 0 12px 0;
+      color: var(--ink-900, #1a1a1a);
+    }
+    .landing-approach__card-desc {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--ink-600, #555);
+      margin: 0 0 16px 0;
+      flex: 1;
+    }
+    .landing-approach__card-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green-800, #2d7a3c);
+      letter-spacing: .01em;
+    }
+    .landing-approach__footer {
+      margin-top: 32px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--ink-600, #555);
+    }
+    .landing-approach__footer a {
+      color: var(--green-800, #2d7a3c);
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
   </style>
 
   <script>
@@ -1101,6 +1198,47 @@
   </section>
 
   <!-- Pricing -->
+  <!-- Approche santé : pointe vers les articles blog (maillage SEO + crédibilité) -->
+  <section class="landing-approach" id="approche" aria-label="Notre approche santé">
+    <div class="landing-approach__header">
+      <span class="eyebrow--landing">L'approche santé</span>
+      <h2 class="landing-approach__h2">Ce qu'on regarde dans <em>vos menus</em>.</h2>
+      <p class="landing-approach__intro">
+        Les scores santé du site s'appuient sur les seuils publiés par l'ANSES et l'EFSA.
+        Trois familles de contaminants alimentaires structurent l'évaluation des plats proposés.
+      </p>
+    </div>
+    <div class="landing-approach__grid">
+      <a class="landing-approach__card" href="/blog/cadmium-alimentation.html">
+        <span class="landing-approach__card-tag">Métaux lourds</span>
+        <h3 class="landing-approach__card-title">Cadmium dans l'alimentation</h3>
+        <p class="landing-approach__card-desc">
+          Quels aliments concentrent ce métal qui s'accumule dans les reins, et comment limiter son apport au quotidien.
+        </p>
+        <span class="landing-approach__card-link">Lire l'article →</span>
+      </a>
+      <a class="landing-approach__card" href="/blog/mercure-poissons.html">
+        <span class="landing-approach__card-tag">Poissons et fruits de mer</span>
+        <h3 class="landing-approach__card-title">Mercure dans les poissons</h3>
+        <p class="landing-approach__card-desc">
+          Tous les poissons ne se valent pas. Voici lesquels garder au menu et lesquels éviter, sans renoncer au poisson.
+        </p>
+        <span class="landing-approach__card-link">Lire l'article →</span>
+      </a>
+      <a class="landing-approach__card" href="/blog/pesticides-fruits-legumes.html">
+        <span class="landing-approach__card-tag">Fruits et légumes</span>
+        <h3 class="landing-approach__card-title">Pesticides dans les produits frais</h3>
+        <p class="landing-approach__card-desc">
+          Données EFSA et classement EWG : quels fruits et légumes prioriser en bio, et lesquels ne justifient pas le surcoût.
+        </p>
+        <span class="landing-approach__card-link">Lire l'article →</span>
+      </a>
+    </div>
+    <p class="landing-approach__footer">
+      Plus de questions ? <a href="/blog/faq.html">Voir la FAQ complète</a>
+    </p>
+  </section>
+
   <section class="landing-pricing" id="tarifs">
     <div class="landing-pricing__inner">
       <div>
