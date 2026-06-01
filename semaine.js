@@ -147,7 +147,7 @@ function renderScoreBand(data) {
   const descs = {
     A: 'Dans les niveaux recommandés ANSES, bonne variété. On garde le rythme.',
     B: 'Quelques ajustements possibles pour la semaine prochaine.',
-    C: 'À équilibrer — pensez à diversifier les protéines et légumes.'
+    C: 'À équilibrer : pensez à diversifier les protéines et légumes.'
   };
 
   // Score circle
@@ -223,7 +223,7 @@ function renderDesktopHeader(data, history) {
       .toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
     const weFmt = new Date(data.weekEnd   + 'T12:00:00')
       .toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
-    eyebrow.textContent = `Semaine ${weekNum} · ${wsFmt} — ${weFmt}`;
+    eyebrow.textContent = `Semaine ${weekNum} : ${wsFmt} au ${weFmt}`;
   }
 
   if (history?.menus) {
@@ -262,15 +262,15 @@ function renderRiskSuggestions(data) {
       titleText: 'Trois petits ajustements pour passer A → A+',
       cards: [
         { tag: 'Cadmium',    title: 'Alterner les céréales complètes', body: 'La semoule et le blé complet concentrent le cadmium. Un repas sur trois avec du riz blanc ou des pommes de terre réduit l\'exposition.' },
-        { tag: 'Variété',    title: 'Tester un légume nouveau', body: 'Bonne variété cette semaine — essayer un légume hors habitude (topinambour, chou romanesco) consolide le score.' },
-        { tag: 'Mercure',    title: 'Vérifier le cumul poisson', body: 'Si vous avez mangé du thon ou maquereau en dehors du menu, comptez-le — la règle ANSES porte sur la semaine entière.' }
+        { tag: 'Variété',    title: 'Tester un légume nouveau', body: 'Bonne variété cette semaine, essayer un légume hors habitude (topinambour, chou romanesco) consolide le score.' },
+        { tag: 'Mercure',    title: 'Vérifier le cumul poisson', body: 'Si vous avez mangé du thon ou maquereau en dehors du menu, comptez-le : la règle ANSES porte sur la semaine entière.' }
       ]
     },
     B: {
       titleText: 'Trois ajustements pour revenir en A',
       cards: [
         { tag: 'Cadmium',    title: 'Réduire les céréales complètes', body: 'Alterner avec du riz blanc ou des pommes de terre sur 2 repas diminuerait sensiblement l’exposition au cadmium.' },
-        { tag: 'Pesticides', title: 'Passer en bio sur 2 légumes', body: 'Priorité aux légumes-feuilles et fraises — ils figurent en tête des résidus dans les données ANSES.' },
+        { tag: 'Pesticides', title: 'Passer en bio sur 2 légumes', body: 'Priorité aux légumes-feuilles et fraises : ils figurent en tête des résidus dans les données ANSES.' },
         { tag: 'Variété',    title: 'Ajouter une légumineuse', body: 'Lentilles ou pois chiches en milieu de semaine diversifient les protéines et améliorent le score variété.' }
       ]
     },
@@ -577,18 +577,29 @@ document.addEventListener('DOMContentLoaded', () => {
           btn.disabled = false;
           // Message de confirmation qui disparaît après 2 secondes
           const msg = document.createElement('p');
-          msg.textContent = "✅ C'est noté — à lundi !";
+          msg.textContent = "✅ C'est noté, à lundi !";
           msg.style.cssText = 'color:#fff;font-size:.82rem;font-weight:600;margin:.5rem 0 0;opacity:1;transition:opacity 1s;';
           newsletterForm.after(msg);
           setTimeout(() => { msg.style.opacity = '0'; }, 1500);
           setTimeout(() => { msg.remove(); }, 2500);
         } else {
+          // Feedback erreur visible (audit UX v2 : silence en cas d'erreur = mauvais UX)
           btn.disabled = false;
           btn.textContent = "S'abonner →";
+          const err = document.createElement('p');
+          err.textContent = data?.error || "Envoi impossible, réessayez dans un instant.";
+          err.style.cssText = 'color:#fca5a5;font-size:.82rem;font-weight:500;margin:.5rem 0 0;';
+          newsletterForm.after(err);
+          setTimeout(() => { err.remove(); }, 4000);
         }
       } catch {
         btn.disabled = false;
         btn.textContent = "S'abonner →";
+        const err = document.createElement('p');
+        err.textContent = "Pas de réseau, réessayez plus tard.";
+        err.style.cssText = 'color:#fca5a5;font-size:.82rem;font-weight:500;margin:.5rem 0 0;';
+        newsletterForm.after(err);
+        setTimeout(() => { err.remove(); }, 4000);
       }
     });
   }
