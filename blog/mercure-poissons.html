@@ -107,6 +107,24 @@
     }
     .header-cta:hover { opacity: 0.88; }
 
+    /* Nav header (sort les articles de leur isolement maillage + UX) */
+    .site-nav {
+      display: none;
+      align-items: center;
+      gap: 18px;
+    }
+    .site-nav a {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,.85);
+      text-decoration: none;
+      transition: color 150ms;
+    }
+    .site-nav a:hover { color: #fff; }
+    @media (min-width: 900px) {
+      .site-nav { display: flex; }
+    }
+
     .breadcrumb {
       max-width: 740px;
       margin: 1.5rem auto 0;
@@ -331,7 +349,13 @@
         </svg>
         On mange quoi ?
       </a>
-      <a class="header-cta" href="https://onmangequoi.eu">Générer mon menu →</a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <a href="/semaine.html">Mon menu</a>
+        <a href="/recettes.html">Recettes</a>
+        <a href="/score-sante.html">Score santé</a>
+        <a href="/fiche.html">Aliments à éviter</a>
+      </nav>
+      <a class="header-cta" href="/?signup=1">Commencer, c'est gratuit</a>
     </div>
   </header>
 
@@ -486,7 +510,7 @@
             <h3>Un menu qui choisit les bons poissons pour vous</h3>
             <p>Basé sur les recommandations ANSES/EFSA. Gratuit.</p>
           </div>
-          <a class="cta-btn" href="https://onmangequoi.eu">Générer mon menu →</a>
+          <a class="cta-btn" href="/?signup=1">Commencer, c'est gratuit →</a>
         </div>
       </div>
 

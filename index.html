@@ -1231,10 +1231,17 @@
       window.addEventListener('hashchange', openIfHash);
 
       // Auto-ouvrir la modale login si ?login=1 dans l'URL
+      // Auto-ouvrir la modale signup si ?signup=1 (utilisé depuis les articles blog)
       window.addEventListener('DOMContentLoaded', () => {
-        if (new URLSearchParams(window.location.search).get('login') === '1') {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('login') === '1') {
           const modal = document.getElementById('login-modal');
           const emailField = document.getElementById('login-email');
+          if (modal) { modal.style.display = 'flex'; emailField?.focus(); }
+        }
+        if (params.get('signup') === '1') {
+          const modal = document.getElementById('signup-modal');
+          const emailField = document.getElementById('signup-email');
           if (modal) { modal.style.display = 'flex'; emailField?.focus(); }
         }
       });
