@@ -2089,7 +2089,7 @@ body.modal-open { overflow: hidden; }
 }
 .fiche-overlay.is-open .fiche-modal { transform: translateY(0); }
 
-/* Handle bar */
+/* Handle bar (mobile uniquement, cf. media query plus bas) */
 .fiche-modal::before {
   content: '';
   display: block;
@@ -2098,6 +2098,37 @@ body.modal-open { overflow: hidden; }
   background: var(--border);
   border-radius: 2px;
   margin: .75rem auto .9rem;
+}
+
+/* ── Fiche modale en desktop : centre l'ecran au lieu de bottom-sheet ── */
+@media (min-width: 768px) {
+  .fiche-overlay {
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+  .fiche-modal {
+    max-width: 560px;
+    max-height: min(85dvh, 760px);
+    border-radius: 18px;
+    padding: 1.75rem 1.75rem 2rem;
+    transform: scale(0.96);
+    opacity: 0;
+    transition: transform 220ms cubic-bezier(0.32, 0.72, 0, 1), opacity 200ms ease-out;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18), 0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+  .fiche-overlay.is-open .fiche-modal {
+    transform: scale(1);
+    opacity: 1;
+  }
+  /* Pas de handle bar en desktop (signal mobile-only) */
+  .fiche-modal::before {
+    display: none;
+  }
+  /* Bouton fermer : un peu plus aere en desktop */
+  .fiche-close {
+    top: 1rem;
+    right: 1rem;
+  }
 }
 
 /* Bouton fermer — 44px touch target (WCAG AA) */
