@@ -27,7 +27,10 @@ const HISTORY_FILE = join(ROOT, 'data', 'history.json');
 const PROMPT_FILE = join(__dirname, 'menu-prompt.md');
 
 const MODEL = process.env.MODEL || 'claude-sonnet-4-5-20250929';
-const MAX_TOKENS = 16000;
+// 32000 tokens : un menu complet (28 repas + shoppingList + alerts) fait
+// typiquement 15000 à 20000 tokens en sortie JSON pretty-printed.
+// Avec 16000 on tronquait à mi-parcours.
+const MAX_TOKENS = 32000;
 
 // Mois en français pour l'injection dans le prompt
 const MONTHS_FR = [
