@@ -150,6 +150,70 @@ body {
 }
 .semaine-share-btn:active { transform: scale(0.97); }
 
+/* ── Bannière non-connecté : pousse à l'inscription depuis le menu générique ── */
+.semaine-anon-banner {
+  display: none;
+  flex-direction: column;
+  gap: .75rem;
+  background: var(--cream-50, #fdf9f3);
+  border: 1px solid rgba(45, 122, 60, .15);
+  border-left: 3px solid var(--green-mid, #40916C);
+  border-radius: 10px;
+  padding: .9rem 1.1rem;
+  margin: 0 1rem 1.25rem;
+}
+@media (min-width: 768px) {
+  .semaine-anon-banner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto 1.5rem;
+    max-width: 880px;
+  }
+}
+.semaine-anon-banner__text {
+  margin: 0;
+  font-size: .9rem;
+  line-height: 1.45;
+  color: var(--ink-700, #333);
+  flex: 1;
+}
+.semaine-anon-banner__text strong {
+  color: var(--green-dark, #1B4332);
+  font-weight: 600;
+}
+.semaine-anon-banner__actions {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+.semaine-anon-banner__btn {
+  font-size: .82rem;
+  font-weight: 600;
+  padding: .45rem .95rem;
+  border-radius: 999px;
+  border: 1px solid var(--ink-300, #ccc);
+  background: transparent;
+  color: var(--ink-700, #333);
+  text-decoration: none;
+  transition: all 150ms;
+  white-space: nowrap;
+}
+.semaine-anon-banner__btn:hover {
+  background: var(--ink-700, #333);
+  color: #fff;
+  border-color: var(--ink-700, #333);
+}
+.semaine-anon-banner__btn--primary {
+  background: var(--green-dark, #1B4332);
+  color: #fff;
+  border-color: var(--green-dark, #1B4332);
+}
+.semaine-anon-banner__btn--primary:hover {
+  background: var(--green-mid, #40916C);
+  border-color: var(--green-mid, #40916C);
+}
+
 /* ── Day grid ───────────────────────────────────────────── */
 .semaine-grid {
   display: flex;

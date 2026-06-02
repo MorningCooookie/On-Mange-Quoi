@@ -46,6 +46,17 @@
   <div class="semaine-layout">
 
   <main class="semaine-main">
+
+    <!-- Bannière non-connecté : audit UX v2 (le menu générique sonne personnalisé) -->
+    <div class="semaine-anon-banner" id="semaine-anon-banner" style="display:none;" role="region" aria-label="Personnaliser le menu">
+      <p class="semaine-anon-banner__text">
+        Ce menu est un exemple générique. <strong>Créez un compte gratuit</strong> pour le personnaliser selon vos allergies, votre budget et le nombre de personnes.
+      </p>
+      <div class="semaine-anon-banner__actions">
+        <a class="semaine-anon-banner__btn semaine-anon-banner__btn--primary" href="/?signup=1">Créer mon compte</a>
+        <a class="semaine-anon-banner__btn" href="/?login=1">Se connecter</a>
+      </div>
+    </div>
     <!-- En-tête desktop — masqué sur mobile -->
     <div class="semaine-page-header" id="semaine-page-header">
       <div>
@@ -198,6 +209,23 @@
       if (window.supabase && window.supabase.createClient && !window.supabaseClient) {
         window.supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
       }
+    })();
+
+    // Bannière non-connecté : affiche un appel à inscription si pas de session active
+    (function() {
+      async function maybeShowAnonBanner() {
+        var banner = document.getElementById('semaine-anon-banner');
+        if (!banner || !window.supabaseClient || !window.supabaseClient.auth) return;
+        try {
+          var res = await window.supabaseClient.auth.getSession();
+          if (!res || !res.data || !res.data.session) {
+            banner.style.display = 'flex';
+          }
+        } catch (e) { /* silencieux */ }
+      }
+      window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(maybeShowAnonBanner, 400);
+      });
     })();
   </script>
   <script src="preferences.js"></script>
