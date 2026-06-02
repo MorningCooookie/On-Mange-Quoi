@@ -530,6 +530,24 @@
       margin: 0.2rem 0;
     }
 
+    /* Footer : liens légaux discrets sous le copyright */
+    .landing-footer__legal {
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      color: var(--ink-500, #777);
+      margin-top: 8px;
+    }
+    .landing-footer__legal a {
+      color: var(--ink-600, #555);
+      text-decoration: underline;
+      text-decoration-color: rgba(0,0,0,.15);
+      text-underline-offset: 2px;
+      transition: color 150ms;
+    }
+    .landing-footer__legal a:hover { color: var(--green-800, #2d7a3c); }
+    .landing-footer__legal span { margin: 0 6px; color: var(--ink-300, #ccc); }
+
     /* Hook rétention : lien calendrier dans le score artifact */
     .next-menu-cal {
       font-family: var(--font-mono, 'IBM Plex Mono', monospace);
@@ -1228,7 +1246,12 @@
       <span class="brand-mark--landing" aria-hidden="true"></span>
       onmangequoi.eu
     </a>
-    <span>© 2026 · Paris · Basé sur les recommandations ANSES + EFSA · Sans pub, sans tracking publicitaire</span>
+    <span class="landing-footer__meta">© 2026 · Paris · Basé sur les recommandations ANSES + EFSA · Sans pub, sans tracking publicitaire</span>
+    <nav class="landing-footer__legal" aria-label="Liens légaux">
+      <a href="/mentions-legales.html">Mentions légales</a>
+      <span aria-hidden="true">·</span>
+      <a href="/politique-confidentialite.html">Politique de confidentialité</a>
+    </nav>
   </footer>
 
 
