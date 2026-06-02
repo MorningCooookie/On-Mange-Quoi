@@ -48,7 +48,10 @@ jobs:
             if [ -z "$WEEK_START_VAL" ]; then
               WEEK_START_VAL="$(date -u -d 'next-monday' +%Y-%m-%d 2>/dev/null || date -u +%Y-%m-%d)"
             fi
-            git commit -m "chore(menu): genere automatiquement le menu de la semaine $WEEK_START_VAL [skip ci]"
+            # Pas de [skip ci] : Netlify ignorerait le push et le menu
+            # ne serait pas deploye. Le workflow GitHub Actions ne fait pas
+            # de loop car il est sur cron + workflow_dispatch, pas sur push.
+            git commit -m "chore(menu): genere automatiquement le menu de la semaine $WEEK_START_VAL"
             git push origin main
           else
             echo "Aucun changement à committer (menu déjà présent ou rien généré)."
