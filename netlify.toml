@@ -8,7 +8,7 @@
   to = "/"
   status = 301
 
-# Phase 2E : about.html → score-sante.html
+# Phase 2E : about.html supprime (21/05/2026), redirects vers score-sante.html
 [[redirects]]
   from = "/about"
   to = "/score-sante.html"
@@ -17,6 +17,15 @@
   from = "/about.html"
   to = "/score-sante.html"
   status = 301
+
+# Canonicalisation : /score-sante (sans .html) -> /score-sante.html
+# Sans cette regle, Netlify resolve le .html automatiquement et sert le meme contenu
+# pour les 2 URLs, ce qui cree un duplicate aux yeux de Google.
+[[redirects]]
+  from = "/score-sante"
+  to = "/score-sante.html"
+  status = 301
+  force = true
 
 # JS et JSON : pas de cache long pour voir les mises à jour immédiatement
 [[headers]]
