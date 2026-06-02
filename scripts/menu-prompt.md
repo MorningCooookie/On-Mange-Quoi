@@ -71,6 +71,7 @@ Mois courant injecté en variable `{{MONTH}}`. Utilise les fruits et légumes de
 
 - **Tous les textes en français** sobre, factuel
 - **Aucun tiret long "—"** nulle part dans les chaînes de caractères. Utiliser " : ", " , ", " ; " ou " et " selon le contexte
+- **Aucun emoji** dans aucun champ texte (ni dans `name`, ni dans `note`, ni dans `prepSteps`, ni dans `healthScoreHighlights`, ni dans `healthAlerts`, ni dans `shoppingList`). Le champ `icon` doit être une chaîne **vide** `""`. Le site a son propre système d'icônes côté frontend, les emojis dans la data cassent le ton sobre et magazine de la marque.
 - **Pas de jargon nutritionnel** ("micronutriments", "antioxydants" à éviter sauf nécessité)
 - **Pas de vocabulaire AI** : éviter "crucial", "robust", "comprehensive", "delve", "harness"
 - **Phrases courtes** dans les `note` et `prepSteps`
@@ -97,7 +98,7 @@ Tu dois retourner **exclusivement un JSON valide** correspondant à la structure
       "meals": {
         "breakfast": {
           "name": "Nom du repas (max 8 mots)",
-          "icon": "1 emoji adapté",
+          "icon": "",
           "riskLevel": "low | medium",
           "riskType": null,
           "prepTime": "10",

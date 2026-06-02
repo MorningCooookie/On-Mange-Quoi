@@ -16,7 +16,7 @@
       "meals": {
         "breakfast": {
           "name": "Tartines beurre confiture et kiwi",
-          "icon": "🥖",
+          "icon": "",
           "riskLevel": "low",
           "riskType": null,
           "prepTime": "5",
@@ -52,7 +52,7 @@
         },
         "lunch": {
           "name": "Salade de lentilles tomate concombre feta",
-          "icon": "🥗",
+          "icon": "",
           "riskLevel": "medium",
           "riskType": "pesticides",
           "prepTime": "20",
@@ -110,7 +110,7 @@
         },
         "snack": {
           "name": "Fraises fraîches et yaourt nature",
-          "icon": "🍓",
+          "icon": "",
           "riskLevel": "medium",
           "riskType": "pesticides",
           "prepTime": "5",
@@ -135,7 +135,7 @@
         },
         "dinner": {
           "name": "Filet de cabillaud haricots verts vapeur",
-          "icon": "🐟",
+          "icon": "",
           "riskLevel": "low",
           "riskType": null,
           "prepTime": "25",
@@ -184,7 +184,7 @@
       "meals": {
         "breakfast": {
           "name": "Porridge flocons d'avoine cerises",
-          "icon": "🥣",
+          "icon": "",
           "riskLevel": "low",
           "riskType": null,
           "prepTime": "10",
@@ -221,7 +221,7 @@
         },
         "lunch": {
           "name": "Poulet rôti courgettes au four",
-          "icon": "🍗",
+          "icon": "",
           "riskLevel": "low",
           "riskType": null,
           "prepTime": "35",
@@ -264,7 +264,7 @@
         },
         "snack": {
           "name": "Compote de pomme maison",
-          "icon": "🍎",
+          "icon": "",
           "riskLevel": "low",
           "riskType": null,
           "prepTime": "5",
@@ -284,7 +284,7 @@
         },
         "dinner": {
           "name": "Salade composée thon maïs tomate",
-          "icon": "🥗",
+          "icon": "",
           "riskLevel": "medium",
           "riskType": "mercure",
           "prepTime": "15",
@@ -338,7 +338,7 @@
       "meals": {
         "breakfast": {
           "name": "Pain complet fromage blanc fraises",
-          "icon": "🍞",
+          "icon": "",
           "riskLevel": "medium",
           "riskType": "pesticides",
           "prepTime": "5",
@@ -369,7 +369,7 @@
         },
         "lunch": {
           "name": "Spaghetti bolognaise maison",
-          "icon": "🍝",
+          "icon": "",
           "riskLevel": "low",
           "riskType": null,
           "prepTime": "30",
@@ -422,7 +422,7 @@
         },
         "snack": {
           "name": "Cerises fraîches et amandes",
-          "icon": "🍒",
+          "icon": "",
           "riskLevel": "low",
           "riskType": null,
           "prepTime": "5",
@@ -447,7 +447,7 @@
         },
         "dinner": {
           "name": "Omelette petits pois salade verte",
-          "icon": "🥚",
+          "icon": "",
           "riskLevel": "low",
           "riskType": null,
           "prepTime": "20",
@@ -496,7 +496,7 @@
       "meals": {
         "breakfast": {
           "name": "Tartines pain complet beurre miel",
-          "icon": "🍯",
+          "icon": "",
           "riskLevel": "low",
           "riskType": null,
           "prepTime": "5",
@@ -527,7 +527,7 @@
         },
         "lunch": {
           "name": "Sardines grillées ratatouille",
-          "icon": "🐟",
+          "icon": "",
           "riskLevel": "low",
           "riskType": null,
           "prepTime": "30",
@@ -585,7 +585,7 @@
         },
         "snack": {
           "name": "Abricots frais et fromage blanc",
-          "icon": "🍑",
+          "icon": "",
           "riskLevel": "low",
           "riskType": null,
           "prepTime": "5",
@@ -610,7 +610,7 @@
         },
         "dinner": {
           "name": "Pâtes au pesto courgettes grillées",
-          "icon": "🍝",
+          "icon": "",
           "riskLevel": "low",
           "riskType": null,
           "prepTime": "20",
@@ -659,7 +659,7 @@
       "meals": {
         "breakfast": {
           "name": "Céréales muesli lait fraises",
-          "icon": "🥛",
+          "icon": "",
           "riskLevel": "medium",
           "riskType": "pesticides",
           "prepTime": "5",
@@ -690,7 +690,7 @@
         },
         "lunch": {
           "name": "Curry de pois chiches épinards",
-          "icon": "🍛",
+          "icon": "",
           "riskLevel": "low",
           "riskType": null,
           "prepTime": "25",
@@ -748,7 +748,7 @@
         },
         "snack": {
           "name": "Pain d'épices et compote",
-          "icon": "🍰",
+          "icon": "",
           "riskLevel": "low",
           "riskType": null,
           "prepTime": "5",
@@ -773,7 +773,7 @@
         },
         "dinner": {
           "name": "Papillote de saumon fenouil citron",
-          "icon": "🐟",
+          "icon": "",
           "riskLevel": "low",
           "riskType": null,
           "prepTime": "25",
@@ -822,7 +822,7 @@
       "meals": {
         "breakfast": {
           "name": "Pancakes banane sirop d'érable",
-          "icon": "🥞",
+          "icon": "",
           "riskLevel": "low",
           "riskType": null,
           "prepTime": "15",
@@ -870,7 +870,7 @@
         },
         "lunch": {
           "name": "Brochettes poulet mariné salade tomate",
-          "icon": "🍢",
+          "icon": "",
           "riskLevel": "medium",
           "riskType": "pesticides",
           "prepTime": "30",
@@ -928,7 +928,7 @@
         },
         "snack": {
           "name": "Smoothie fraises banane yaourt",
-          "icon": "🥤",
+          "icon": "",
           "riskLevel": "medium",
           "riskType": "pesticides",
           "prepTime": "5",
@@ -964,7 +964,7 @@
         },
         "dinner": {
           "name": "Pizza maison tomate mozzarella basilic",
-          "icon": "🍕",
+          "icon": "",
           "riskLevel": "medium",
           "riskType": "pesticides",
           "prepTime": "40",
@@ -1018,7 +1018,7 @@
       "meals": {
         "breakfast": {
           "name": "Brioche beurre confiture et fruits",
-          "icon": "🥐",
+          "icon": "",
           "riskLevel": "low",
           "riskType": null,
           "prepTime": "10",
@@ -1054,7 +1054,7 @@
         },
         "lunch": {
           "name": "Tajine d'agneau légumes d'été semoule",
-          "icon": "🍲",
+          "icon": "",
           "riskLevel": "low",
           "riskType": null,
           "prepTime": "90",
@@ -1134,7 +1134,7 @@
         },
         "snack": {
           "name": "Tarte aux fraises faite maison",
-          "icon": "🥧",
+          "icon": "",
           "riskLevel": "medium",
           "riskType": "pesticides",
           "prepTime": "60",
@@ -1168,7 +1168,7 @@
         },
         "dinner": {
           "name": "Soupe froide concombre menthe yaourt",
-          "icon": "🥒",
+          "icon": "",
           "riskLevel": "low",
           "riskType": null,
           "prepTime": "15",

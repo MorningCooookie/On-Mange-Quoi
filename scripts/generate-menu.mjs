@@ -139,6 +139,15 @@ function validateMenu(menu, expectedWeekStart) {
     errors.push('Tirets longs (—) détectés dans le menu. Règle stricte du projet.');
   }
 
+  // Check emojis dans tout le contenu sérialisé (le site a son propre
+  // système d'icônes côté frontend, les emojis dans la data cassent
+  // le ton sobre de la marque)
+  const emojiRegex = /\p{Extended_Pictographic}/u;
+  if (emojiRegex.test(serialized)) {
+    const found = serialized.match(/\p{Extended_Pictographic}/gu).slice(0, 5).join(' ');
+    errors.push(`Emojis détectés dans le menu (premiers : ${found}). Règle stricte du projet : pas d'emoji dans la data.`);
+  }
+
   if (errors.length > 0) {
     throw new Error('Validation menu échouée :\n  - ' + errors.join('\n  - '));
   }
