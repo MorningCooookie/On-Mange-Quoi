@@ -1,0 +1,55 @@
+name: Generate weekly menu
+
+# Tourne tous les lundis à 06:00 UTC (= 08:00 Paris en heure d'été, 07:00 en hiver)
+# Peut aussi être déclenché manuellement depuis l'onglet Actions.
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+    inputs:
+      week_start:
+        description: 'Forcer une date de lundi (YYYY-MM-DD). Laisser vide pour la semaine en cours.'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund --silent
+
+      - name: Generate menu
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          WEEK_START: ${{ inputs.week_start }}
+        run: node scripts/generate-menu.mjs
+
+      - name: Commit and push if changes
+        run: |
+          if [ -n "$(git status --porcelain data/menus data/history.json)" ]; then
+            git config user.name "menu-bot"
+            git config user.email "menu-bot@users.noreply.github.com"
+            git add data/menus data/history.json
+            WEEK_START_VAL="${{ inputs.week_start }}"
+            if [ -z "$WEEK_START_VAL" ]; then
+              WEEK_START_VAL="$(date -u -d 'next-monday' +%Y-%m-%d 2>/dev/null || date -u +%Y-%m-%d)"
+            fi
+            git commit -m "chore(menu): genere automatiquement le menu de la semaine $WEEK_START_VAL [skip ci]"
+            git push origin main
+          else
+            echo "Aucun changement à committer (menu déjà présent ou rien généré)."
+          fi
