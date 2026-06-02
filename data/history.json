@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-06-01",
+      "weekEnd": "2026-06-07",
+      "file": "data/menus/2026-06-01.json",
+      "label": "Semaine du 1 juin 2026",
+      "healthScore": "A",
+      "highlights": [
+        "Semaine équilibrée avec 3 repas de légumineuses et 2 portions de poisson gras.",
+        "Priorité aux fruits et légumes de saison : fraises, cerises, courgettes, tomates fraîches.",
+        "Viande rouge limitée à 1 fois, volaille privilégiée.",
+        "Attention aux fraises et tomates : bio recommandé pour limiter les pesticides.",
+        "Menu varié et gourmand, adapté aux familles avec enfants."
+      ]
+    },
+    {
       "weekStart": "2026-05-04",
       "weekEnd": "2026-05-10",
       "file": "data/menus/2026-05-04.json",

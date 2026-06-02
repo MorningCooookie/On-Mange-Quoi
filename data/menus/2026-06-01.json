@@ -1,0 +1,1877 @@
+{
+  "weekStart": "2026-06-01",
+  "weekEnd": "2026-06-07",
+  "healthScore": "A",
+  "healthScoreHighlights": [
+    "Semaine équilibrée avec 3 repas de légumineuses et 2 portions de poisson gras.",
+    "Priorité aux fruits et légumes de saison : fraises, cerises, courgettes, tomates fraîches.",
+    "Viande rouge limitée à 1 fois, volaille privilégiée.",
+    "Attention aux fraises et tomates : bio recommandé pour limiter les pesticides.",
+    "Menu varié et gourmand, adapté aux familles avec enfants."
+  ],
+  "days": [
+    {
+      "date": "2026-06-01",
+      "label": "Lundi",
+      "meals": {
+        "breakfast": {
+          "name": "Tartines beurre confiture et kiwi",
+          "icon": "🥖",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "5",
+          "isSeasonal": false,
+          "note": "Petit-déjeuner simple et rapide pour bien démarrer la semaine.",
+          "ingredients": [
+            {
+              "name": "Pain de mie complet",
+              "qty": 8,
+              "unit": "tranches"
+            },
+            {
+              "name": "Beurre doux",
+              "qty": 40,
+              "unit": "g"
+            },
+            {
+              "name": "Confiture de fraises",
+              "qty": 80,
+              "unit": "g"
+            },
+            {
+              "name": "Kiwi",
+              "qty": 4,
+              "unit": "unité"
+            }
+          ],
+          "prepSteps": [
+            "Faire griller légèrement le pain.",
+            "Tartiner de beurre et confiture.",
+            "Éplucher et couper les kiwis en quartiers."
+          ]
+        },
+        "lunch": {
+          "name": "Salade de lentilles tomate concombre feta",
+          "icon": "🥗",
+          "riskLevel": "medium",
+          "riskType": "pesticides",
+          "prepTime": "20",
+          "isSeasonal": true,
+          "note": "Tomates de saison : bio recommandé. Repas complet et frais.",
+          "ingredients": [
+            {
+              "name": "Lentilles vertes cuites",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Tomates",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Concombre",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Feta",
+              "qty": 150,
+              "unit": "g"
+            },
+            {
+              "name": "Oignon rouge",
+              "qty": 1,
+              "unit": "unité"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 40,
+              "unit": "ml"
+            },
+            {
+              "name": "Vinaigre de vin",
+              "qty": 20,
+              "unit": "ml"
+            },
+            {
+              "name": "Persil plat",
+              "qty": 1,
+              "unit": "bouquet"
+            }
+          ],
+          "prepSteps": [
+            "Rincer les lentilles cuites et les égoutter.",
+            "Couper les tomates en dés, le concombre en rondelles, émincer l'oignon.",
+            "Émietter la feta, ciseler le persil.",
+            "Mélanger tous les ingrédients avec l'huile et le vinaigre.",
+            "Assaisonner de sel et poivre, servir frais."
+          ]
+        },
+        "snack": {
+          "name": "Fraises fraîches et yaourt nature",
+          "icon": "🍓",
+          "riskLevel": "medium",
+          "riskType": "pesticides",
+          "prepTime": "5",
+          "isSeasonal": true,
+          "note": "Fraises de saison : bio impératif pour limiter les résidus de pesticides.",
+          "ingredients": [
+            {
+              "name": "Fraises",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Yaourt nature",
+              "qty": 4,
+              "unit": "pot"
+            }
+          ],
+          "prepSteps": [
+            "Laver et équeutér les fraises.",
+            "Servir avec les yaourts nature."
+          ]
+        },
+        "dinner": {
+          "name": "Filet de cabillaud haricots verts vapeur",
+          "icon": "🐟",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "25",
+          "isSeasonal": true,
+          "note": "Poisson blanc pauvre en mercure, haricots verts de saison.",
+          "ingredients": [
+            {
+              "name": "Filet de cabillaud MSC",
+              "qty": 600,
+              "unit": "g"
+            },
+            {
+              "name": "Haricots verts frais",
+              "qty": 600,
+              "unit": "g"
+            },
+            {
+              "name": "Beurre demi-sel",
+              "qty": 40,
+              "unit": "g"
+            },
+            {
+              "name": "Citron",
+              "qty": 1,
+              "unit": "unité"
+            },
+            {
+              "name": "Ail",
+              "qty": 2,
+              "unit": "gousse"
+            }
+          ],
+          "prepSteps": [
+            "Faire cuire les haricots verts à la vapeur 12 minutes.",
+            "Faire fondre le beurre dans une poêle avec l'ail émincé.",
+            "Cuire les filets de cabillaud 4 minutes de chaque côté.",
+            "Arroser de jus de citron.",
+            "Servir le poisson avec les haricots verts."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-06-02",
+      "label": "Mardi",
+      "meals": {
+        "breakfast": {
+          "name": "Porridge flocons d'avoine cerises",
+          "icon": "🥣",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "10",
+          "isSeasonal": true,
+          "note": "Cerises de saison pour un petit-déjeuner gourmand.",
+          "ingredients": [
+            {
+              "name": "Flocons d'avoine",
+              "qty": 120,
+              "unit": "g"
+            },
+            {
+              "name": "Lait demi-écrémé",
+              "qty": 600,
+              "unit": "ml"
+            },
+            {
+              "name": "Cerises fraîches",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Miel",
+              "qty": 40,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Faire chauffer le lait dans une casserole.",
+            "Ajouter les flocons d'avoine et cuire 5 minutes en remuant.",
+            "Laver et dénoyauter les cerises.",
+            "Servir le porridge avec les cerises et un filet de miel."
+          ]
+        },
+        "lunch": {
+          "name": "Poulet rôti courgettes au four",
+          "icon": "🍗",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "35",
+          "isSeasonal": true,
+          "note": "Courgettes de saison, cuisson simple au four.",
+          "ingredients": [
+            {
+              "name": "Cuisses de poulet",
+              "qty": 800,
+              "unit": "g"
+            },
+            {
+              "name": "Courgettes",
+              "qty": 800,
+              "unit": "g"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 40,
+              "unit": "ml"
+            },
+            {
+              "name": "Herbes de Provence",
+              "qty": 5,
+              "unit": "g"
+            },
+            {
+              "name": "Ail",
+              "qty": 3,
+              "unit": "gousse"
+            }
+          ],
+          "prepSteps": [
+            "Préchauffer le four à 200°C.",
+            "Couper les courgettes en rondelles épaisses.",
+            "Disposer le poulet et les courgettes dans un plat.",
+            "Arroser d'huile d'olive, parsemer d'ail émincé et d'herbes.",
+            "Enfourner 30 minutes en retournant à mi-cuisson."
+          ]
+        },
+        "snack": {
+          "name": "Compote de pomme maison",
+          "icon": "🍎",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "5",
+          "isSeasonal": false,
+          "note": "Compote sans sucre ajouté, pratique et saine.",
+          "ingredients": [
+            {
+              "name": "Compote de pomme sans sucre",
+              "qty": 400,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Répartir la compote dans 4 coupelles.",
+            "Servir à température ambiante ou frais."
+          ]
+        },
+        "dinner": {
+          "name": "Salade composée thon maïs tomate",
+          "icon": "🥗",
+          "riskLevel": "medium",
+          "riskType": "mercure",
+          "prepTime": "15",
+          "isSeasonal": true,
+          "note": "Thon listao en boîte, limiter à 1 fois par semaine. Tomates de saison : bio recommandé.",
+          "ingredients": [
+            {
+              "name": "Thon listao au naturel",
+              "qty": 240,
+              "unit": "g"
+            },
+            {
+              "name": "Maïs doux en boîte",
+              "qty": 200,
+              "unit": "g"
+            },
+            {
+              "name": "Tomates",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Œufs durs",
+              "qty": 4,
+              "unit": "unité"
+            },
+            {
+              "name": "Salade verte",
+              "qty": 200,
+              "unit": "g"
+            },
+            {
+              "name": "Vinaigrette",
+              "qty": 60,
+              "unit": "ml"
+            }
+          ],
+          "prepSteps": [
+            "Laver et essorer la salade.",
+            "Couper les tomates en quartiers, écaler et couper les œufs.",
+            "Égoutter le thon et le maïs.",
+            "Disposer tous les ingrédients dans un saladier.",
+            "Arroser de vinaigrette au moment de servir."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-06-03",
+      "label": "Mercredi",
+      "meals": {
+        "breakfast": {
+          "name": "Pain complet fromage blanc fraises",
+          "icon": "🍞",
+          "riskLevel": "medium",
+          "riskType": "pesticides",
+          "prepTime": "5",
+          "isSeasonal": true,
+          "note": "Fraises de saison : bio impératif.",
+          "ingredients": [
+            {
+              "name": "Pain complet",
+              "qty": 200,
+              "unit": "g"
+            },
+            {
+              "name": "Fromage blanc 3%",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Fraises",
+              "qty": 300,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Laver et équeutér les fraises.",
+            "Tartiner le pain de fromage blanc.",
+            "Servir avec les fraises."
+          ]
+        },
+        "lunch": {
+          "name": "Spaghetti bolognaise maison",
+          "icon": "🍝",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "30",
+          "isSeasonal": true,
+          "note": "Sauce tomate maison avec tomates fraîches de saison.",
+          "ingredients": [
+            {
+              "name": "Spaghetti",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Bœuf haché 5%",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Tomates fraîches",
+              "qty": 600,
+              "unit": "g"
+            },
+            {
+              "name": "Oignon",
+              "qty": 1,
+              "unit": "unité"
+            },
+            {
+              "name": "Ail",
+              "qty": 2,
+              "unit": "gousse"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 20,
+              "unit": "ml"
+            },
+            {
+              "name": "Basilic frais",
+              "qty": 1,
+              "unit": "bouquet"
+            }
+          ],
+          "prepSteps": [
+            "Faire revenir l'oignon et l'ail émincés dans l'huile.",
+            "Ajouter la viande hachée et faire dorer.",
+            "Couper les tomates en dés et ajouter à la viande.",
+            "Laisser mijoter 20 minutes, ajouter le basilic ciselé.",
+            "Cuire les spaghetti selon les indications, égoutter et mélanger à la sauce."
+          ]
+        },
+        "snack": {
+          "name": "Cerises fraîches et amandes",
+          "icon": "🍒",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "5",
+          "isSeasonal": true,
+          "note": "Cerises de saison, goûter simple et vitaminé.",
+          "ingredients": [
+            {
+              "name": "Cerises fraîches",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Amandes",
+              "qty": 80,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Laver les cerises.",
+            "Servir avec une poignée d'amandes par personne."
+          ]
+        },
+        "dinner": {
+          "name": "Omelette petits pois salade verte",
+          "icon": "🥚",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "20",
+          "isSeasonal": true,
+          "note": "Petits pois frais de saison pour une omelette légère.",
+          "ingredients": [
+            {
+              "name": "Œufs",
+              "qty": 8,
+              "unit": "unité"
+            },
+            {
+              "name": "Petits pois frais écossés",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Salade verte",
+              "qty": 200,
+              "unit": "g"
+            },
+            {
+              "name": "Beurre",
+              "qty": 30,
+              "unit": "g"
+            },
+            {
+              "name": "Vinaigrette",
+              "qty": 40,
+              "unit": "ml"
+            }
+          ],
+          "prepSteps": [
+            "Faire cuire les petits pois à l'eau bouillante 8 minutes.",
+            "Battre les œufs en omelette avec sel et poivre.",
+            "Faire fondre le beurre dans une poêle et cuire l'omelette.",
+            "Ajouter les petits pois égouttés dans l'omelette.",
+            "Servir avec la salade verte assaisonnée."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-06-04",
+      "label": "Jeudi",
+      "meals": {
+        "breakfast": {
+          "name": "Tartines pain complet beurre miel",
+          "icon": "🍯",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "5",
+          "isSeasonal": false,
+          "note": "Petit-déjeuner énergétique simple.",
+          "ingredients": [
+            {
+              "name": "Pain complet",
+              "qty": 200,
+              "unit": "g"
+            },
+            {
+              "name": "Beurre doux",
+              "qty": 40,
+              "unit": "g"
+            },
+            {
+              "name": "Miel",
+              "qty": 60,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Faire griller le pain.",
+            "Tartiner de beurre et miel.",
+            "Servir avec un verre de lait ou jus d'orange."
+          ]
+        },
+        "lunch": {
+          "name": "Sardines grillées ratatouille",
+          "icon": "🐟",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "30",
+          "isSeasonal": true,
+          "note": "Sardines riches en oméga-3, légumes d'été de saison.",
+          "ingredients": [
+            {
+              "name": "Sardines fraîches",
+              "qty": 800,
+              "unit": "g"
+            },
+            {
+              "name": "Courgettes",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Aubergine",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Poivron rouge",
+              "qty": 200,
+              "unit": "g"
+            },
+            {
+              "name": "Tomates",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Oignon",
+              "qty": 1,
+              "unit": "unité"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 40,
+              "unit": "ml"
+            },
+            {
+              "name": "Thym",
+              "qty": 2,
+              "unit": "branche"
+            }
+          ],
+          "prepSteps": [
+            "Couper tous les légumes en dés.",
+            "Faire revenir l'oignon dans l'huile, ajouter les légumes.",
+            "Laisser mijoter 20 minutes avec le thym.",
+            "Faire griller les sardines à la poêle 3 minutes par face.",
+            "Servir les sardines avec la ratatouille."
+          ]
+        },
+        "snack": {
+          "name": "Abricots frais et fromage blanc",
+          "icon": "🍑",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "5",
+          "isSeasonal": true,
+          "note": "Abricots de début de saison, goûter léger.",
+          "ingredients": [
+            {
+              "name": "Abricots",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Fromage blanc 3%",
+              "qty": 300,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Laver et dénoyauter les abricots.",
+            "Servir avec le fromage blanc."
+          ]
+        },
+        "dinner": {
+          "name": "Pâtes au pesto courgettes grillées",
+          "icon": "🍝",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "20",
+          "isSeasonal": true,
+          "note": "Courgettes de saison, repas végétarien complet.",
+          "ingredients": [
+            {
+              "name": "Penne",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Pesto au basilic",
+              "qty": 120,
+              "unit": "g"
+            },
+            {
+              "name": "Courgettes",
+              "qty": 600,
+              "unit": "g"
+            },
+            {
+              "name": "Parmesan râpé",
+              "qty": 60,
+              "unit": "g"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 20,
+              "unit": "ml"
+            }
+          ],
+          "prepSteps": [
+            "Cuire les pâtes selon les indications.",
+            "Couper les courgettes en rondelles et les griller à la poêle.",
+            "Égoutter les pâtes et mélanger avec le pesto.",
+            "Ajouter les courgettes grillées.",
+            "Servir avec le parmesan râpé."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-06-05",
+      "label": "Vendredi",
+      "meals": {
+        "breakfast": {
+          "name": "Céréales muesli lait fraises",
+          "icon": "🥛",
+          "riskLevel": "medium",
+          "riskType": "pesticides",
+          "prepTime": "5",
+          "isSeasonal": true,
+          "note": "Fraises de saison : bio impératif.",
+          "ingredients": [
+            {
+              "name": "Muesli sans sucre ajouté",
+              "qty": 160,
+              "unit": "g"
+            },
+            {
+              "name": "Lait demi-écrémé",
+              "qty": 600,
+              "unit": "ml"
+            },
+            {
+              "name": "Fraises",
+              "qty": 300,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Répartir le muesli dans 4 bols.",
+            "Verser le lait.",
+            "Laver, équeuter et ajouter les fraises."
+          ]
+        },
+        "lunch": {
+          "name": "Curry de pois chiches épinards",
+          "icon": "🍛",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "25",
+          "isSeasonal": false,
+          "note": "Plat végétarien riche en protéines et fer.",
+          "ingredients": [
+            {
+              "name": "Pois chiches cuits",
+              "qty": 500,
+              "unit": "g"
+            },
+            {
+              "name": "Épinards frais",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Lait de coco",
+              "qty": 400,
+              "unit": "ml"
+            },
+            {
+              "name": "Curry en poudre",
+              "qty": 15,
+              "unit": "g"
+            },
+            {
+              "name": "Oignon",
+              "qty": 1,
+              "unit": "unité"
+            },
+            {
+              "name": "Ail",
+              "qty": 2,
+              "unit": "gousse"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 20,
+              "unit": "ml"
+            },
+            {
+              "name": "Riz basmati",
+              "qty": 300,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Faire revenir l'oignon et l'ail dans l'huile.",
+            "Ajouter le curry, puis les pois chiches.",
+            "Verser le lait de coco et laisser mijoter 10 minutes.",
+            "Ajouter les épinards et cuire 5 minutes.",
+            "Servir avec le riz cuit à part."
+          ]
+        },
+        "snack": {
+          "name": "Pain d'épices et compote",
+          "icon": "🍰",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "5",
+          "isSeasonal": false,
+          "note": "Goûter réconfortant et simple.",
+          "ingredients": [
+            {
+              "name": "Pain d'épices",
+              "qty": 160,
+              "unit": "g"
+            },
+            {
+              "name": "Compote de pomme",
+              "qty": 300,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Couper le pain d'épices en tranches.",
+            "Servir avec la compote."
+          ]
+        },
+        "dinner": {
+          "name": "Papillote de saumon fenouil citron",
+          "icon": "🐟",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "25",
+          "isSeasonal": true,
+          "note": "Saumon riche en oméga-3, fenouil de saison.",
+          "ingredients": [
+            {
+              "name": "Pavé de saumon",
+              "qty": 600,
+              "unit": "g"
+            },
+            {
+              "name": "Fenouil",
+              "qty": 600,
+              "unit": "g"
+            },
+            {
+              "name": "Citron",
+              "qty": 2,
+              "unit": "unité"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 40,
+              "unit": "ml"
+            },
+            {
+              "name": "Aneth frais",
+              "qty": 1,
+              "unit": "bouquet"
+            }
+          ],
+          "prepSteps": [
+            "Préchauffer le four à 180°C.",
+            "Émincer le fenouil finement.",
+            "Disposer le fenouil sur 4 feuilles de papier sulfurisé.",
+            "Poser le saumon dessus, arroser d'huile et de jus de citron, parsemer d'aneth.",
+            "Fermer les papillotes et enfourner 20 minutes."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-06-06",
+      "label": "Samedi",
+      "meals": {
+        "breakfast": {
+          "name": "Pancakes banane sirop d'érable",
+          "icon": "🥞",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "15",
+          "isSeasonal": false,
+          "note": "Petit-déjeuner gourmand du week-end.",
+          "ingredients": [
+            {
+              "name": "Farine",
+              "qty": 200,
+              "unit": "g"
+            },
+            {
+              "name": "Œufs",
+              "qty": 2,
+              "unit": "unité"
+            },
+            {
+              "name": "Lait demi-écrémé",
+              "qty": 300,
+              "unit": "ml"
+            },
+            {
+              "name": "Banane",
+              "qty": 2,
+              "unit": "unité"
+            },
+            {
+              "name": "Sirop d'érable",
+              "qty": 80,
+              "unit": "ml"
+            },
+            {
+              "name": "Beurre",
+              "qty": 20,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Mélanger la farine, les œufs et le lait pour obtenir une pâte lisse.",
+            "Écraser 1 banane et l'incorporer à la pâte.",
+            "Faire chauffer une poêle avec du beurre.",
+            "Verser des petites louches de pâte et cuire 2 minutes par face.",
+            "Servir avec la banane en rondelles et le sirop d'érable."
+          ]
+        },
+        "lunch": {
+          "name": "Brochettes poulet mariné salade tomate",
+          "icon": "🍢",
+          "riskLevel": "medium",
+          "riskType": "pesticides",
+          "prepTime": "30",
+          "isSeasonal": true,
+          "note": "Tomates de saison : bio recommandé. Repas d'été convivial.",
+          "ingredients": [
+            {
+              "name": "Blanc de poulet",
+              "qty": 700,
+              "unit": "g"
+            },
+            {
+              "name": "Poivron rouge",
+              "qty": 2,
+              "unit": "unité"
+            },
+            {
+              "name": "Courgette",
+              "qty": 1,
+              "unit": "unité"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 40,
+              "unit": "ml"
+            },
+            {
+              "name": "Citron",
+              "qty": 1,
+              "unit": "unité"
+            },
+            {
+              "name": "Paprika",
+              "qty": 5,
+              "unit": "g"
+            },
+            {
+              "name": "Tomates",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Salade verte",
+              "qty": 200,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Couper le poulet en cubes, mariner 15 minutes avec huile, citron et paprika.",
+            "Couper les poivrons et la courgette en morceaux.",
+            "Monter les brochettes en alternant poulet et légumes.",
+            "Faire griller au four ou à la plancha 15 minutes.",
+            "Servir avec la salade de tomates et salade verte."
+          ]
+        },
+        "snack": {
+          "name": "Smoothie fraises banane yaourt",
+          "icon": "🥤",
+          "riskLevel": "medium",
+          "riskType": "pesticides",
+          "prepTime": "5",
+          "isSeasonal": true,
+          "note": "Fraises de saison : bio impératif.",
+          "ingredients": [
+            {
+              "name": "Fraises",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Banane",
+              "qty": 2,
+              "unit": "unité"
+            },
+            {
+              "name": "Yaourt nature",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Miel",
+              "qty": 30,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Laver et équeuter les fraises.",
+            "Mixer tous les ingrédients ensemble.",
+            "Servir bien frais."
+          ]
+        },
+        "dinner": {
+          "name": "Pizza maison tomate mozzarella basilic",
+          "icon": "🍕",
+          "riskLevel": "medium",
+          "riskType": "pesticides",
+          "prepTime": "40",
+          "isSeasonal": true,
+          "note": "Tomates de saison : bio recommandé. Soirée pizza conviviale.",
+          "ingredients": [
+            {
+              "name": "Pâte à pizza",
+              "qty": 2,
+              "unit": "unité"
+            },
+            {
+              "name": "Sauce tomate",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Mozzarella",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Tomates fraîches",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Basilic frais",
+              "qty": 1,
+              "unit": "bouquet"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 20,
+              "unit": "ml"
+            }
+          ],
+          "prepSteps": [
+            "Préchauffer le four à 240°C.",
+            "Étaler les pâtes à pizza sur une plaque.",
+            "Tartiner de sauce tomate.",
+            "Répartir la mozzarella et les tomates en tranches.",
+            "Enfourner 12 minutes, parsemer de basilic frais à la sortie."
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-06-07",
+      "label": "Dimanche",
+      "meals": {
+        "breakfast": {
+          "name": "Brioche beurre confiture et fruits",
+          "icon": "🥐",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "10",
+          "isSeasonal": true,
+          "note": "Petit-déjeuner dominical gourmand.",
+          "ingredients": [
+            {
+              "name": "Brioche",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Beurre doux",
+              "qty": 50,
+              "unit": "g"
+            },
+            {
+              "name": "Confiture d'abricots",
+              "qty": 100,
+              "unit": "g"
+            },
+            {
+              "name": "Cerises",
+              "qty": 300,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Trancher la brioche.",
+            "Tartiner de beurre et confiture.",
+            "Servir avec les cerises lavées."
+          ]
+        },
+        "lunch": {
+          "name": "Tajine d'agneau légumes d'été semoule",
+          "icon": "🍲",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "90",
+          "isSeasonal": true,
+          "note": "Plat festif du dimanche, légumes de saison mijotés.",
+          "ingredients": [
+            {
+              "name": "Épaule d'agneau en cubes",
+              "qty": 700,
+              "unit": "g"
+            },
+            {
+              "name": "Courgettes",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Aubergine",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Tomates",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Pois chiches cuits",
+              "qty": 200,
+              "unit": "g"
+            },
+            {
+              "name": "Oignon",
+              "qty": 2,
+              "unit": "unité"
+            },
+            {
+              "name": "Ail",
+              "qty": 3,
+              "unit": "gousse"
+            },
+            {
+              "name": "Ras-el-hanout",
+              "qty": 15,
+              "unit": "g"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 40,
+              "unit": "ml"
+            },
+            {
+              "name": "Bouillon de légumes",
+              "qty": 500,
+              "unit": "ml"
+            },
+            {
+              "name": "Semoule moyenne",
+              "qty": 300,
+              "unit": "g"
+            },
+            {
+              "name": "Coriandre fraîche",
+              "qty": 1,
+              "unit": "bouquet"
+            }
+          ],
+          "prepSteps": [
+            "Faire revenir l'oignon et l'ail dans l'huile.",
+            "Ajouter l'agneau et faire dorer.",
+            "Incorporer le ras-el-hanout, les légumes coupés en morceaux.",
+            "Verser le bouillon et laisser mijoter 60 minutes à feu doux.",
+            "Ajouter les pois chiches 15 minutes avant la fin.",
+            "Préparer la semoule selon les indications.",
+            "Servir le tajine sur la semoule, parsemer de coriandre."
+          ]
+        },
+        "snack": {
+          "name": "Tarte aux fraises faite maison",
+          "icon": "🥧",
+          "riskLevel": "medium",
+          "riskType": "pesticides",
+          "prepTime": "60",
+          "isSeasonal": true,
+          "note": "Fraises de saison : bio impératif. Dessert du dimanche.",
+          "ingredients": [
+            {
+              "name": "Pâte sablée",
+              "qty": 1,
+              "unit": "unité"
+            },
+            {
+              "name": "Crème pâtissière",
+              "qty": 400,
+              "unit": "g"
+            },
+            {
+              "name": "Fraises",
+              "qty": 600,
+              "unit": "g"
+            }
+          ],
+          "prepSteps": [
+            "Préchauffer le four à 180°C.",
+            "Étaler la pâte dans un moule et la piquer.",
+            "Enfourner à blanc 15 minutes.",
+            "Laisser refroidir, étaler la crème pâtissière.",
+            "Disposer les fraises lavées et équeutées.",
+            "Réserver au frais avant de servir."
+          ]
+        },
+        "dinner": {
+          "name": "Soupe froide concombre menthe yaourt",
+          "icon": "🥒",
+          "riskLevel": "low",
+          "riskType": null,
+          "prepTime": "15",
+          "isSeasonal": true,
+          "note": "Soupe légère et rafraîchissante après un déjeuner copieux.",
+          "ingredients": [
+            {
+              "name": "Concombre",
+              "qty": 800,
+              "unit": "g"
+            },
+            {
+              "name": "Yaourt nature",
+              "qty": 500,
+              "unit": "g"
+            },
+            {
+              "name": "Menthe fraîche",
+              "qty": 1,
+              "unit": "bouquet"
+            },
+            {
+              "name": "Ail",
+              "qty": 1,
+              "unit": "gousse"
+            },
+            {
+              "name": "Huile d'olive",
+              "qty": 30,
+              "unit": "ml"
+            },
+            {
+              "name": "Citron",
+              "qty": 1,
+              "unit": "unité"
+            }
+          ],
+          "prepSteps": [
+            "Éplucher et couper les concombres en morceaux.",
+            "Mixer avec le yaourt, l'ail, la menthe, l'huile et le jus de citron.",
+            "Saler, poivrer.",
+            "Réserver au frais 1 heure minimum.",
+            "Servir bien frais avec quelques feuilles de menthe."
+          ]
+        }
+      }
+    }
+  ],
+  "shoppingList": [
+    {
+      "category": "Fruits & Légumes",
+      "items": [
+        {
+          "name": "Fraises",
+          "qty": "2.2kg",
+          "price_discount": 6.5,
+          "price_standard": 8,
+          "price_bio": 12,
+          "isSeasonal": true
+        },
+        {
+          "name": "Cerises",
+          "qty": "1kg",
+          "price_discount": 5,
+          "price_standard": 6.5,
+          "price_bio": 9,
+          "isSeasonal": true
+        },
+        {
+          "name": "Abricots",
+          "qty": "400g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Kiwi",
+          "qty": "4 unités",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Banane",
+          "qty": "4 unités",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Citron",
+          "qty": "5 unités",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Tomates",
+          "qty": "3kg",
+          "price_discount": 6,
+          "price_standard": 7.5,
+          "price_bio": 10.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Courgettes",
+          "qty": "2.7kg",
+          "price_discount": 3.5,
+          "price_standard": 4.5,
+          "price_bio": 6.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Concombre",
+          "qty": "1.1kg",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": true
+        },
+        {
+          "name": "Aubergine",
+          "qty": "600g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Poivron rouge",
+          "qty": "4 unités",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Haricots verts frais",
+          "qty": "600g",
+          "price_discount": 3,
+          "price_standard": 4,
+          "price_bio": 5.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Petits pois frais écossés",
+          "qty": "300g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Fenouil",
+          "qty": "600g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Salade verte",
+          "qty": "600g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Épinards frais",
+          "qty": "400g",
+          "price_discount": 2.5,
+          "price_standard": 3,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Oignon",
+          "qty": "8 unités",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Oignon rouge",
+          "qty": "1 unité",
+          "price_discount": 0.5,
+          "price_standard": 0.7,
+          "price_bio": 1,
+          "isSeasonal": false
+        },
+        {
+          "name": "Ail",
+          "qty": "15 gousses",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Viandes & Poissons",
+      "items": [
+        {
+          "name": "Filet de cabillaud MSC",
+          "qty": "600g",
+          "price_discount": 12,
+          "price_standard": 15,
+          "price_bio": null,
+          "isSeasonal": false
+        },
+        {
+          "name": "Cuisses de poulet",
+          "qty": "800g",
+          "price_discount": 6,
+          "price_standard": 7.5,
+          "price_bio": 12,
+          "isSeasonal": false
+        },
+        {
+          "name": "Blanc de poulet",
+          "qty": "700g",
+          "price_discount": 7,
+          "price_standard": 9,
+          "price_bio": 14,
+          "isSeasonal": false
+        },
+        {
+          "name": "Bœuf haché 5%",
+          "qty": "400g",
+          "price_discount": 4,
+          "price_standard": 5,
+          "price_bio": 7.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Sardines fraîches",
+          "qty": "800g",
+          "price_discount": 8,
+          "price_standard": 10,
+          "price_bio": null,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pavé de saumon",
+          "qty": "600g",
+          "price_discount": 14,
+          "price_standard": 18,
+          "price_bio": null,
+          "isSeasonal": false
+        },
+        {
+          "name": "Épaule d'agneau en cubes",
+          "qty": "700g",
+          "price_discount": 10,
+          "price_standard": 13,
+          "price_bio": 18,
+          "isSeasonal": false
+        },
+        {
+          "name": "Thon listao au naturel",
+          "qty": "240g",
+          "price_discount": 3.5,
+          "price_standard": 4.5,
+          "price_bio": null,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Crémerie & Œufs",
+      "items": [
+        {
+          "name": "Lait demi-écrémé",
+          "qty": "1.5L",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Yaourt nature",
+          "qty": "12 pots",
+          "price_discount": 3,
+          "price_standard": 4,
+          "price_bio": 5.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Fromage blanc 3%",
+          "qty": "700g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Beurre doux",
+          "qty": "250g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Beurre demi-sel",
+          "qty": "40g",
+          "price_discount": 0.5,
+          "price_standard": 0.7,
+          "price_bio": 1,
+          "isSeasonal": false
+        },
+        {
+          "name": "Feta",
+          "qty": "150g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Mozzarella",
+          "qty": "300g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Parmesan râpé",
+          "qty": "60g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Œufs",
+          "qty": "18 unités",
+          "price_discount": 3,
+          "price_standard": 4,
+          "price_bio": 6,
+          "isSeasonal": false
+        },
+        {
+          "name": "Lait de coco",
+          "qty": "400ml",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Crème pâtissière",
+          "qty": "400g",
+          "price_discount": 2.5,
+          "price_standard": 3,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Épicerie sèche",
+      "items": [
+        {
+          "name": "Pain de mie complet",
+          "qty": "1 paquet",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pain complet",
+          "qty": "1 baguette",
+          "price_discount": 1,
+          "price_standard": 1.3,
+          "price_bio": 1.8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Brioche",
+          "qty": "300g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pain d'épices",
+          "qty": "160g",
+          "price_discount": 2.5,
+          "price_standard": 3,
+          "price_bio": 4,
+          "isSeasonal": false
+        },
+        {
+          "name": "Flocons d'avoine",
+          "qty": "500g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Muesli sans sucre ajouté",
+          "qty": "500g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Confiture de fraises",
+          "qty": "250g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Confiture d'abricots",
+          "qty": "250g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Miel",
+          "qty": "250g",
+          "price_discount": 4,
+          "price_standard": 5,
+          "price_bio": 7,
+          "isSeasonal": false
+        },
+        {
+          "name": "Sirop d'érable",
+          "qty": "250ml",
+          "price_discount": 5,
+          "price_standard": 6.5,
+          "price_bio": 8.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Compote de pomme sans sucre",
+          "qty": "700g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Lentilles vertes cuites",
+          "qty": "400g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pois chiches cuits",
+          "qty": "700g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Maïs doux en boîte",
+          "qty": "200g",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Spaghetti",
+          "qty": "400g",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Penne",
+          "qty": "400g",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Riz basmati",
+          "qty": "300g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Semoule moyenne",
+          "qty": "300g",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Farine",
+          "qty": "1kg",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pâte à pizza",
+          "qty": "2 unités",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pâte sablée",
+          "qty": "1 unité",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Sauce tomate",
+          "qty": "300g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pesto au basilic",
+          "qty": "120g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Huile d'olive",
+          "qty": "500ml",
+          "price_discount": 4,
+          "price_standard": 5.5,
+          "price_bio": 8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Vinaigre de vin",
+          "qty": "250ml",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Vinaigrette",
+          "qty": "200ml",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Amandes",
+          "qty": "200g",
+          "price_discount": 3.5,
+          "price_standard": 4.5,
+          "price_bio": 6.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Bouillon de légumes",
+          "qty": "500ml",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Herbes fraîches & Épices",
+      "items": [
+        {
+          "name": "Persil plat",
+          "qty": "1 bouquet",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Basilic frais",
+          "qty": "2 bouquets",
+          "price_discount": 2,
+          "price_standard": 3,
+          "price_bio": 4,
+          "isSeasonal": true
+        },
+        {
+          "name": "Aneth frais",
+          "qty": "1 bouquet",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Menthe fraîche",
+          "qty": "2 bouquets",
+          "price_discount": 2,
+          "price_standard": 3,
+          "price_bio": 4,
+          "isSeasonal": true
+        },
+        {
+          "name": "Coriandre fraîche",
+          "qty": "1 bouquet",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Thym",
+          "qty": "2 branches",
+          "price_discount": 0.5,
+          "price_standard": 1,
+          "price_bio": 1.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Herbes de Provence",
+          "qty": "10g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Curry en poudre",
+          "qty": "20g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Paprika",
+          "qty": "10g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Ras-el-hanout",
+          "qty": "20g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5,
+          "isSeasonal": false
+        }
+      ]
+    }
+  ],
+  "healthAlerts": [
+    {
+      "type": "warning",
+      "message": "Fraises et tomates : bio impératif ou bio recommandé pour limiter l'exposition aux pesticides (Dirty Dozen EWG)."
+    },
+    {
+      "type": "info",
+      "message": "Thon listao limité à 1 repas cette semaine pour respecter les recommandations mercure ANSES."
+    },
+    {
+      "type": "seasonal",
+      "message": "Juin offre une belle diversité de légumes d'été : courgettes, tomates, aubergines, poivrons, haricots verts, petits pois et fenouil."
+    },
+    {
+      "type": "seasonal",
+      "message": "Profitez des fruits rouges de saison : fraises, cerises et premiers abricots pour des desserts vitaminés."
+    },
+    {
+      "type": "info",
+      "message": "Cette semaine intègre 3 repas de légumineuses (lentilles, pois chiches) pour un apport optimal en protéines végétales et fibres."
+    }
+  ]
+}
