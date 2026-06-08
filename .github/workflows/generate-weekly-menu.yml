@@ -1,10 +1,13 @@
 name: Generate weekly menu
 
-# Tourne tous les lundis à 06:00 UTC (= 08:00 Paris en heure d'été, 07:00 en hiver)
+# Tourne tous les lundis à 06:17 UTC (= 08:17 Paris en heure d'été, 07:17 en hiver).
+# Pourquoi 06:17 et pas 06:00 : GitHub Actions saturent les scheduled workflows
+# qui tournent a pile l'heure (06:00, 07:00, etc.), souvent skip ou retarde de
+# plusieurs heures. Programmer a 17 minutes apres l'heure evite ce pic.
 # Peut aussi être déclenché manuellement depuis l'onglet Actions.
 on:
   schedule:
-    - cron: '0 6 * * 1'
+    - cron: '17 6 * * 1'
   workflow_dispatch:
     inputs:
       week_start:
