@@ -55,6 +55,9 @@ jobs:
             # ne serait pas deploye. Le workflow GitHub Actions ne fait pas
             # de loop car il est sur cron + workflow_dispatch, pas sur push.
             git commit -m "chore(menu): genere automatiquement le menu de la semaine $WEEK_START_VAL"
+            # Rebase sur main au cas ou des commits humains seraient arrives
+            # pendant la generation (workflow dure ~3 min, fenetre de conflit possible)
+            git pull --rebase origin main
             git push origin main
           else
             echo "Aucun changement à committer (menu déjà présent ou rien généré)."
