@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-06-15",
+      "weekEnd": "2026-06-21",
+      "file": "data/menus/2026-06-15.json",
+      "label": "Semaine du 15 juin 2026",
+      "healthScore": "A",
+      "highlights": [
+        "Semaine riche en légumes de saison et poissons variés, avec 2 portions de poisson dont 1 gras (sardines).",
+        "3 plats de légumineuses pour les protéines végétales (pois chiches, lentilles corail, haricots blancs).",
+        "Viande rouge limitée à 1 seule fois (bœuf du dimanche), privilégiant volaille et poisson.",
+        "Fruits et légumes d'été français en abondance : tomates, courgettes, fraises, cerises, abricots.",
+        "Attention aux fraises : bio impératif car figurent dans le Dirty Dozen."
+      ]
+    },
+    {
       "weekStart": "2026-06-08",
       "weekEnd": "2026-06-14",
       "file": "data/menus/2026-06-08.json",
