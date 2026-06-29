@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-06-29",
+      "weekEnd": "2026-07-05",
+      "file": "data/menus/2026-06-29.json",
+      "label": "Semaine du 29 juin 2026",
+      "healthScore": "A",
+      "highlights": [
+        "Cette semaine met à l'honneur les fruits et légumes d'été avec tomate, courgette, fraise et cerise.",
+        "Deux repas de poisson incluent sardines et cabillaud pour les oméga-3 sans risque mercure.",
+        "Les légumineuses sont présentes trois fois avec lentilles corail, pois chiches et haricots blancs.",
+        "La viande rouge est limitée à une seule fois, privilégiant volaille et œufs pour les protéines.",
+        "Le menu équilibre plaisir et santé avec un rôti dominical festif et des préparations simples en semaine."
+      ]
+    },
+    {
       "weekStart": "2026-06-22",
       "weekEnd": "2026-06-28",
       "file": "data/menus/2026-06-22.json",
