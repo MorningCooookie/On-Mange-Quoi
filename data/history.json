@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-07-06",
+      "weekEnd": "2026-07-12",
+      "file": "data/menus/2026-07-06.json",
+      "label": "Semaine du 6 juillet 2026",
+      "healthScore": "A",
+      "highlights": [
+        "Menu d'été équilibré avec 4 portions de légumineuses et 2 poissons gras riches en oméga-3.",
+        "Abondance de légumes de saison : tomates, courgettes, haricots verts, aubergines fraîchement récoltés.",
+        "Viande rouge limitée à 2 fois dans la semaine pour réduire l'exposition au cadmium.",
+        "Fruits d'été à volonté : pêches, abricots, melons et framboises au pic de leur saveur.",
+        "Attention aux pesticides : fraises et raisins en bio recommandé, poivrons et concombres bien lavés."
+      ]
+    },
+    {
       "weekStart": "2026-06-29",
       "weekEnd": "2026-07-05",
       "file": "data/menus/2026-06-29.json",
