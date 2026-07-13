@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-07-13",
+      "weekEnd": "2026-07-19",
+      "file": "data/menus/2026-07-13.json",
+      "label": "Semaine du 13 juillet 2026",
+      "healthScore": "A",
+      "highlights": [
+        "Semaine équilibrée avec 3 portions de légumineuses et 2 repas de poisson gras riches en oméga-3.",
+        "Saisonnalité respectée à 95% avec tomates, courgettes, aubergines et fruits d'été.",
+        "Viande rouge limitée à 1 seul repas, privilégiant volaille et poisson.",
+        "Attention aux légumes-feuilles et tomates : bio recommandé pour limiter l'exposition aux pesticides.",
+        "Menu gourmand et familial avec un dimanche festif autour d'un poulet rôti aux herbes."
+      ]
+    },
+    {
       "weekStart": "2026-07-06",
       "weekEnd": "2026-07-12",
       "file": "data/menus/2026-07-06.json",
