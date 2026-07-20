@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-07-20",
+      "weekEnd": "2026-07-26",
+      "file": "data/menus/2026-07-20.json",
+      "label": "Semaine du 20 juillet 2026",
+      "healthScore": "A",
+      "highlights": [
+        "Semaine riche en légumes de saison et poissons gras pour les oméga-3.",
+        "2 repas de poisson dont sardines et maquereau, sources de bons lipides.",
+        "3 portions de légumineuses réparties pour l'apport en protéines végétales et fibres.",
+        "Fruits d'été à volonté : pêches, abricots, melons et framboises de juillet.",
+        "Viande rouge limitée à 1 fois dans la semaine pour respecter les recommandations ANSES."
+      ]
+    },
+    {
       "weekStart": "2026-07-13",
       "weekEnd": "2026-07-19",
       "file": "data/menus/2026-07-13.json",
