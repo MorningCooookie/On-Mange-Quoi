@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-07-27",
+      "weekEnd": "2026-08-02",
+      "file": "data/menus/2026-07-27.json",
+      "label": "Semaine du 27 juillet 2026",
+      "healthScore": "A",
+      "highlights": [
+        "Semaine estivale riche en légumes de saison et poissons gras (sardine, maquereau).",
+        "3 repas avec légumineuses pour les protéines végétales et les fibres.",
+        "Fruits d'été à chaque repas : abricots, pêches, melons et framboises de saison.",
+        "Viande rouge limitée à 1 fois, volaille privilégiée.",
+        "Attention : tomates et poivrons en version bio recommandée (Dirty Dozen)."
+      ]
+    },
+    {
       "weekStart": "2026-07-20",
       "weekEnd": "2026-07-26",
       "file": "data/menus/2026-07-20.json",
