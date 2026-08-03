@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-08-03",
+      "weekEnd": "2026-08-09",
+      "file": "data/menus/2026-08-03.json",
+      "label": "Semaine du 3 août 2026",
+      "healthScore": "A",
+      "highlights": [
+        "Excellente semaine avec 3 repas de légumineuses et 2 portions de poisson gras.",
+        "Les fruits et légumes d'août sont à leur apogée : tomates, courgettes, pêches et melons.",
+        "Viande rouge limitée à 1 seul repas, privilégiant volaille et poisson.",
+        "Attention aux poivrons et tomates : bio recommandé pour limiter les pesticides.",
+        "Un dimanche festif avec tajine d'agneau, sans excès dans la semaine."
+      ]
+    },
+    {
       "weekStart": "2026-07-27",
       "weekEnd": "2026-08-02",
       "file": "data/menus/2026-07-27.json",
