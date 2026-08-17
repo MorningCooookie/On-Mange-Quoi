@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-08-17",
+      "weekEnd": "2026-08-23",
+      "file": "data/menus/2026-08-17.json",
+      "label": "Semaine du 17 août 2026",
+      "healthScore": "A",
+      "highlights": [
+        "Semaine estivale riche en légumes de saison (tomates, courgettes, aubergines) avec 2 portions par dîner.",
+        "2 repas de poisson gras (sardines, maquereau) pour les oméga-3, aucun poisson à risque mercure.",
+        "4 plats végétariens avec légumineuses (lentilles corail, pois chiches, haricots blancs) pour les protéines végétales.",
+        "Fruits d'août à chaque repas : melons, pêches, prunes et figues fraîches de saison.",
+        "Plat dominical festif avec agneau rôti et légumes du soleil pour clore la semaine en gourmandise."
+      ]
+    },
+    {
       "weekStart": "2026-08-10",
       "weekEnd": "2026-08-16",
       "file": "data/menus/2026-08-10.json",
