@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-08-24",
+      "weekEnd": "2026-08-30",
+      "file": "data/menus/2026-08-24.json",
+      "label": "Semaine du 24 août 2026",
+      "healthScore": "A",
+      "highlights": [
+        "Semaine estivale équilibrée avec 3 repas de poissons variés et 4 portions de légumineuses.",
+        "Fruits et légumes de saison d'août à leur apogée nutritionnelle : tomates, courgettes, aubergines, melon, pêches.",
+        "Viande rouge limitée à 2 fois, équilibre protéines animales et végétales respecté.",
+        "Aucun poisson à risque mercure élevé, privilège des petits poissons gras riches en oméga-3.",
+        "Attention aux pesticides sur les poivrons et haricots verts : bio recommandé."
+      ]
+    },
+    {
       "weekStart": "2026-08-17",
       "weekEnd": "2026-08-23",
       "file": "data/menus/2026-08-17.json",
