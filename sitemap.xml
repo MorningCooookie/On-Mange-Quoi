@@ -3,35 +3,42 @@
 
   <url>
     <loc>https://onmangequoi.eu/</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://onmangequoi.eu/blog/faq.html</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://onmangequoi.eu/blog/planificateur-repas-familial-anses-efsa.html</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://onmangequoi.eu/blog/cadmium-alimentation.html</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://onmangequoi.eu/blog/mercure-poissons.html</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://onmangequoi.eu/blog/pesticides-fruits-legumes.html</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -45,28 +52,28 @@
 
   <url>
     <loc>https://onmangequoi.eu/semaine.html</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://onmangequoi.eu/fiche.html</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://onmangequoi.eu/mentions-legales.html</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://onmangequoi.eu/politique-confidentialite.html</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

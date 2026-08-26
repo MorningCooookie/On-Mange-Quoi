@@ -23,6 +23,30 @@
   <!-- Statistiques de fréquentation — Plausible Analytics (sans cookies, RGPD-compatible) -->
   <script async src="https://plausible.io/js/pa-ZaRseIh-nGhXVtbtWwn2-.js"></script>
   <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+
+  <!-- Schema.org WebSite + Organization — aide Google à distinguer ce site des autres marques homonymes ("on mange quoi" existe aussi ailleurs) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://onmangequoi.eu/#website",
+        "name": "On mange quoi ?",
+        "url": "https://onmangequoi.eu/",
+        "inLanguage": "fr-FR",
+        "description": "Planificateur de menus familiaux basé sur les recommandations ANSES et EFSA : sept dîners, score santé et liste de courses chaque semaine."
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://onmangequoi.eu/#organization",
+        "name": "On mange quoi ?",
+        "url": "https://onmangequoi.eu/",
+        "logo": "https://onmangequoi.eu/logo-instagram.svg"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -1180,7 +1204,7 @@
     </p>
     <p class="landing-approach__links">
       Pour aller plus loin :
-      <a href="/blog/cadmium-alimentation.html">cadmium</a><span class="landing-approach__sep">·</span><a href="/blog/mercure-poissons.html">mercure</a><span class="landing-approach__sep">·</span><a href="/blog/pesticides-fruits-legumes.html">pesticides</a><span class="landing-approach__sep">·</span><a href="/blog/faq.html">FAQ</a>
+      <a href="/blog/cadmium-alimentation.html">cadmium</a><span class="landing-approach__sep">·</span><a href="/blog/mercure-poissons.html">mercure</a><span class="landing-approach__sep">·</span><a href="/blog/pesticides-fruits-legumes.html">pesticides</a><span class="landing-approach__sep">·</span><a href="/blog/planificateur-repas-familial-anses-efsa.html">comment ça marche</a><span class="landing-approach__sep">·</span><a href="/blog/faq.html">FAQ</a>
     </p>
   </section>
 
