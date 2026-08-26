@@ -18,12 +18,74 @@
   to = "/score-sante.html"
   status = 301
 
-# Canonicalisation : /score-sante (sans .html) -> /score-sante.html
-# Sans cette regle, Netlify resolve le .html automatiquement et sert le meme contenu
-# pour les 2 URLs, ce qui cree un duplicate aux yeux de Google.
+# Canonicalisation : URLs sans .html -> URL avec .html
+# Sans ces regles, Netlify resout le .html automatiquement et sert le meme contenu
+# pour les 2 URLs, ce qui cree un duplicate aux yeux de Google. Trouve via Search
+# Console (26/08/2026) : /recettes atterrissait en "crawled, not indexed" au lieu
+# d'etre proprement redirige comme /score-sante l'etait deja.
 [[redirects]]
   from = "/score-sante"
   to = "/score-sante.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/recettes"
+  to = "/recettes.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/fiche"
+  to = "/fiche.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/courses"
+  to = "/courses.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/semaine"
+  to = "/semaine.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/mentions-legales"
+  to = "/mentions-legales.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/politique-confidentialite"
+  to = "/politique-confidentialite.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/blog/faq"
+  to = "/blog/faq.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/blog/cadmium-alimentation"
+  to = "/blog/cadmium-alimentation.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/blog/mercure-poissons"
+  to = "/blog/mercure-poissons.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/blog/pesticides-fruits-legumes"
+  to = "/blog/pesticides-fruits-legumes.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/blog/planificateur-repas-familial-anses-efsa"
+  to = "/blog/planificateur-repas-familial-anses-efsa.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/index.html"
+  to = "/"
   status = 301
   force = true
 
