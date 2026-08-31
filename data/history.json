@@ -1,20 +1,6 @@
 {
   "menus": [
     {
-      "weekStart": "2026-08-31",
-      "weekEnd": "2026-09-06",
-      "file": "data/menus/2026-08-31.json",
-      "label": "Semaine du 31 août 2026",
-      "healthScore": "A",
-      "highlights": [
-        "Menu estival équilibré avec fruits et légumes de saison en abondance.",
-        "2 repas de poisson dont 1 poisson gras pour les oméga-3.",
-        "4 portions de légumineuses réparties sur la semaine pour les protéines végétales.",
-        "Viande rouge limitée à 1 fois pour préserver la santé cardiovasculaire.",
-        "Aucun aliment à risque mercure élevé, cadmium maîtrisé."
-      ]
-    },
-    {
       "weekStart": "2026-08-24",
       "weekEnd": "2026-08-30",
       "file": "data/menus/2026-08-24.json",
