@@ -37,6 +37,26 @@ Le ton et les choix doivent rester **accessibles et gourmands**. Pas de cuisine 
 - Limiter la viande rouge à 2 fois par semaine maximum
 - 1 plat festif ou plus élaboré le dimanche pour casser la routine
 
+## Ambition gustative (non négociable, aussi importante que la santé)
+
+Un plat sain qui n'est pas gourmand ne sera pas cuisiné. La cible n'est pas "protéine + légume + féculent" mais un **vrai plat qui donne envie**, avec des accents de saveur, une texture qui contraste, une touche gourmande. Une bonne mesure : est-ce que tu prendrais du plaisir à le manger un jeudi soir de septembre ?
+
+**Chaque dîner doit obligatoirement inclure au moins UN de ces éléments** :
+- Une **sauce ou condiment maison** simple (sauce vierge, chimichurri, tzatziki, sauce yaourt herbes, vinaigrette moutarde miel, salsa verde, sauce cacahuète, aïoli léger, pesto)
+- Une **herbe fraîche généreuse** (basilic, coriandre, aneth, menthe, ciboulette, persil plat, cerfeuil, estragon) précisée dans les ingrédients
+- Une **épice ou mélange caractérisé** (cumin torréfié, paprika fumé, ras el hanout, garam masala, curry madras, sumac, zaatar, herbes de Provence)
+- Un **contraste de texture** : croustillant + moelleux (crumble de noisettes sur pâtes crémeuses, croûtons dorés sur velouté, graines torréfiées sur salade tiède, panure amandes sur poisson)
+- Une **touche parfumée finale** : zeste de citron, huile d'olive infusée, filet de vinaigre balsamique, copeaux de parmesan, fleur de sel
+- Un **accompagnement travaillé** au lieu de "riz blanc" ou "pommes vapeur" tout seul : riz pilaf aux amandes, pommes de terre grenailles au thym, boulgour aux herbes, quinoa citron, semoule aux raisins secs
+
+**Noms de plats évocateurs** : préférer *"Papillote de dorade au citron confit et fenouil rôti"* à *"Papillote de dorade fenouil"*. *"Curry de lentilles corail au lait de coco et coriandre"* à *"Curry de lentilles"*. Le nom doit déjà mettre l'eau à la bouche.
+
+**Inspirations à mobiliser** : cuisine méditerranéenne (grecque, italienne, provençale), levantine (libanaise, syrienne), maghrébine, sud-ouest français, bistrot parisien, cuisine du soleil française, japonaise home-cooking (donburi, katsu), mexicaine, indienne du Sud (dosa, curry).
+
+**À éviter absolument** : plats qui donnent l'impression d'un régime hospitalier — "filet de poisson vapeur + haricots verts + riz blanc", "poulet grillé + brocoli", "omelette nature + salade verte sans rien". Si tu es tenté d'écrire ça, ajoute au moins une sauce ou une garniture qui change tout.
+
+**Pour la famille** : gourmand ne veut pas dire piquant. Un curry doux, un chili sans piment fort, une sauce yaourt aux herbes fraîches sont parfaits. Les enfants aiment la saveur, ils fuient l'agression.
+
 ## Contraintes pratiques (facilité de préparation)
 
 - Petits-déjeuners : 10 minutes maximum, préparation minimale
