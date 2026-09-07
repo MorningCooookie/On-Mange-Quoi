@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-09-07",
+      "weekEnd": "2026-09-13",
+      "file": "data/menus/2026-09-07.json",
+      "label": "Semaine du 7 septembre 2026",
+      "healthScore": "A",
+      "highlights": [
+        "Semaine équilibrée avec 4 repas de légumineuses et 2 poissons gras (sardine, maquereau).",
+        "Fruits et légumes de septembre en abondance : tomates, courgettes, aubergines, figues, raisin.",
+        "Viande rouge limitée à 1 fois dans la semaine, volailles et poissons privilégiés.",
+        "Plats gourmands avec sauces maison, herbes fraîches et contrastes de textures.",
+        "Attention aux tomates et poivrons (bio recommandé), signalés dans les alertes."
+      ]
+    },
+    {
       "weekStart": "2026-08-31",
       "weekEnd": "2026-09-06",
       "file": "data/menus/2026-08-31.json",
