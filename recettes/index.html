@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toutes nos recettes : 385 idées de repas | On mange quoi ?</title>
+  <meta name="description" content="385 recettes testées dans nos menus hebdomadaires, classées par petit-déjeuner, déjeuner, goûter et dîner. Basées sur les recommandations ANSES et EFSA.">
+  <link rel="canonical" href="https://onmangequoi.eu/recettes/">
+  <meta property="og:title" content="Toutes nos recettes : 385 idées de repas | On mange quoi ?">
+  <meta property="og:description" content="385 recettes testées dans nos menus hebdomadaires, classées par petit-déjeuner, déjeuner, goûter et dîner. Basées sur les recommandations ANSES et EFSA.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://onmangequoi.eu/recettes/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script async src="https://plausible.io/js/pa-ZaRseIh-nGhXVtbtWwn2-.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F7F3EE; --white: #FFFFFF; --text: #1A1A1A; --text-secondary: #6B7280;
+      --border: #E5E0D8; --green-dark: #1B4332; --green-mid: #40916C; --green-light: #D1FAE5;
+      --font-display: 'Fraunces', Georgia, serif; --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    .site-header { background: linear-gradient(135deg, var(--green-dark), var(--green-mid)); padding: 0.75rem 1.25rem; }
+    .header-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: var(--font-display); font-weight: 600; font-size: 1rem; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+    .logo svg { width: 20px; height: 20px; }
+    .header-cta { font-size: 0.8rem; font-weight: 600; color: var(--green-dark); background: #fff; border-radius: 8px; padding: 0.35rem 0.85rem; text-decoration: none; }
+    .site-nav { display: none; align-items: center; gap: 18px; }
+    .site-nav a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.85); text-decoration: none; }
+    .site-nav a:hover { color: #fff; }
+    @media (min-width: 600px) { .site-nav { display: flex; } }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+    h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.75rem, 4vw, 2.4rem); line-height: 1.15; margin-bottom: 0.75rem; }
+    .intro { font-size: 1.05rem; color: var(--text-secondary); max-width: 620px; margin-bottom: 2.5rem; }
+    .recipe-section { margin-bottom: 2.5rem; }
+    .recipe-section h2 { font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; margin-bottom: 1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); }
+    .recipe-section .count { font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary); font-weight: 400; }
+    .recipe-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.4rem 1.5rem; }
+    .recipe-list li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; gap: 0.75rem; align-items: baseline; }
+    .recipe-list a { color: var(--text); text-decoration: none; font-size: 0.92rem; }
+    .recipe-list a:hover { color: var(--green-dark); text-decoration: underline; }
+    .recipe-list .prep-time { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); white-space: nowrap; }
+    .landing-footer { max-width: 900px; margin: 0 auto; padding: 2rem 1.25rem; font-size: 0.8rem; color: var(--text-secondary); }
+    .landing-footer a { color: var(--green-mid); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="https://onmangequoi.eu" aria-label="On mange quoi ? accueil">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true">
+          <circle cx="10" cy="10" r="8.5" stroke-width="1.6"/>
+          <circle cx="10" cy="10" r="5" stroke-width="1.4"/>
+        </svg>
+        On mange quoi ?
+      </a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <a href="/semaine.html">Mon menu</a>
+        <a href="/score-sante.html">Score santé</a>
+        <a href="/fiche.html">Aliments à éviter</a>
+      </nav>
+      <a class="header-cta" href="/?signup=1">Commencer, c'est gratuit</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>Toutes nos recettes</h1>
+    <p class="intro">385 recettes testées dans nos menus hebdomadaires, classées par moment de la journée. Basées sur les recommandations ANSES et EFSA, sans additif superflu.</p>
+
+      <section class="recipe-section">
+        <h2>Petit-déjeuner <span class="count">(108)</span></h2>
+        <ul class="recipe-list">
+          <li><a href="/recettes/bol-de-fromage-blanc-fruits-rouges-et-granola.html">Bol de fromage blanc fruits rouges et granola</a> <span class="prep-time">7 min</span></li>
+          <li><a href="/recettes/brioche-beurre-confiture-et-fruits.html">Brioche beurre confiture et fruits</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/brioche-beurre-confiture-fruits-frais.html">Brioche beurre confiture fruits frais</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/brioche-maison-beurre-confiture-cafe-lait.html">Brioche maison beurre confiture café lait</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/brioche-maison-beurre-et-confiture-de-framboises.html">Brioche maison beurre et confiture de framboises</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/brioche-maison-et-confiture-de-fraise.html">Brioche maison et confiture de fraise</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/brioche-maison-et-salade-de-fruits-rouges.html">Brioche maison et salade de fruits rouges</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/brunch-oeufs-brouilles-avocat-radis-pain-au-levain.html">Brunch : œufs brouillés, avocat, radis, pain au levain</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/brunch-complet-oeufs-bacon-pain-tomates.html">Brunch complet œufs bacon pain tomates</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/brunch-croissants-et-fruits-de-saison.html">Brunch croissants et fruits de saison</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/brunch-croissants-fruits-salade-de-fruits.html">Brunch croissants fruits salade de fruits</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/brunch-dominical-omelette-saumon-avocat.html">Brunch dominical omelette saumon avocat</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/brunch-dominical-oeufs-brouilles-saumon-fume-blinis.html">Brunch dominical, œufs brouillés, saumon fumé, blinis</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/brunch-gourmand-oeufs-brouilles-saumon-fume-et-pain-complet.html">Brunch gourmand : œufs brouillés, saumon fumé et pain complet</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/crepes-a-la-farine-blanche-et-sirop-d-erable.html">Crêpes à la farine blanche et sirop d&#39;érable</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/crepes-au-sarrasin-et-compote-de-pommes.html">Crêpes au sarrasin et compote de pommes</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/crepes-au-sarrasin-compote-de-pommes-et-miel.html">Crêpes au sarrasin, compote de pommes et miel</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/crepes-au-sucre-et-jus-de-fruits-frais.html">Crêpes au sucre et jus de fruits frais</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/crepes-de-ble-complet-fromage-blanc-compote-de-rhubarbe.html">Crêpes de blé complet, fromage blanc, compote de rhubarbe</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/crepes-legeres-fraises-sirop-d-erable.html">Crêpes légères, fraises, sirop d&#39;érable</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/croissants-et-jus-d-orange-presse.html">Croissants et jus d&#39;orange pressé</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/fromage-blanc-fruits-rouges-granola.html">Fromage blanc fruits rouges granola</a> <span class="prep-time">5 min</span></li>
+          <li><a href="/recettes/fromage-blanc-miel-framboises-fraiches.html">Fromage blanc miel framboises fraîches</a> <span class="prep-time">7 min</span></li>
+          <li><a href="/recettes/muesli-aux-fruits-rouges.html">Muesli aux fruits rouges</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/muesli-maison-aux-fruits-rouges.html">Muesli maison aux fruits rouges</a> <span class="prep-time">7 min</span></li>
+          <li><a href="/recettes/muesli-maison-aux-prunes-et-lait.html">Muesli maison aux prunes et lait</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/muesli-maison-fruits-rouges.html">Muesli maison fruits rouges</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/oeufs-brouilles-pain-grille-avocat.html">Œufs brouillés pain grillé avocat</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/oeufs-brouilles-saumon-fume-et-pain-complet.html">Œufs brouillés saumon fumé et pain complet</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/pain-aux-cereales-confiture-abricot-et-lait.html">Pain aux céréales confiture abricot et lait</a> <span class="prep-time">5 min</span></li>
+          <li><a href="/recettes/pain-aux-cereales-confiture-et-smoothie-bowl.html">Pain aux céréales confiture et smoothie bowl</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/pain-blanc-beurre-compote-de-prune-maison.html">Pain blanc beurre compote de prune maison</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/pain-blanc-beurre-confiture-abricot-jus-d-orange.html">Pain blanc beurre confiture abricot jus d&#39;orange</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/pain-blanc-beurre-confiture-figue.html">Pain blanc beurre confiture figue</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/pain-blanc-beurre-confiture-fraises.html">Pain blanc beurre confiture fraises</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/pain-blanc-beurre-et-confiture-de-fraise.html">Pain blanc beurre et confiture de fraise</a> <span class="prep-time">5 min</span></li>
+          <li><a href="/recettes/pain-blanc-beurre-et-salade-de-fruits-d-ete.html">Pain blanc beurré et salade de fruits d&#39;été</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/pain-blanc-beurre-framboises-fraiches.html">Pain blanc beurre framboises fraîches</a> <span class="prep-time">7 min</span></li>
+          <li><a href="/recettes/pain-blanc-beurre-miel-tartine-raisin.html">Pain blanc beurre miel tartine raisin</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/pain-complet-au-miel-et-figues-fraiches.html">Pain complet au miel et figues fraîches</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/pain-complet-beurre-et-compote-de-prune.html">Pain complet beurre et compote de prune</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/pain-complet-beurre-miel-et-smoothie-fraise-banane.html">Pain complet beurre miel et smoothie fraise banane</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/pain-complet-confiture-et-jus-d-orange.html">Pain complet confiture et jus d&#39;orange</a> <span class="prep-time">5 min</span></li>
+          <li><a href="/recettes/pain-complet-fromage-blanc-et-abricot.html">Pain complet fromage blanc et abricot</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/pain-complet-avocat-ecrase-oeuf-poche.html">Pain complet, avocat écrasé, œuf poché</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/pain-de-mie-complet-fromage-frais-et-poire.html">Pain de mie complet, fromage frais et poire</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/pain-perdu-et-fruits-de-saison.html">Pain perdu et fruits de saison</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/pancakes-a-la-banane-et-sirop-d-erable.html">Pancakes à la banane et sirop d&#39;érable</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/pancakes-a-la-farine-d-epeautre-miel-fraises-fraiches.html">Pancakes à la farine d&#39;épeautre, miel, fraises fraîches</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/pancakes-aux-myrtilles-et-sirop-d-erable.html">Pancakes aux myrtilles et sirop d&#39;érable</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/pancakes-banane-myrtilles.html">Pancakes banane myrtilles</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/pancakes-banane-myrtilles-miel.html">Pancakes banane myrtilles miel</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/pancakes-banane-myrtilles-sirop-erable.html">Pancakes banane myrtilles sirop érable</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/pancakes-banane-sirop-d-erable.html">Pancakes banane sirop d&#39;érable</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/pancakes-et-sirop-d-erable.html">Pancakes et sirop d&#39;érable</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/pancakes-maison-framboises-sirop-erable.html">Pancakes maison framboises sirop érable</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/pancakes-moelleux-coulis-de-fraises-maison.html">Pancakes moelleux, coulis de fraises maison</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/pancakes-moelleux-fraises-sirop-d-erable.html">Pancakes moelleux, fraises, sirop d&#39;érable</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/pancakes-moelleux-sirop-d-erable-myrtilles-fraiches.html">Pancakes moelleux, sirop d&#39;érable, myrtilles fraîches</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/pancakes-myrtilles-sirop-d-erable.html">Pancakes myrtilles sirop d&#39;érable</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/pancakes-myrtilles-sirop-erable.html">Pancakes myrtilles sirop érable</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/porridge-aux-abricots-frais.html">Porridge aux abricots frais</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/porridge-aux-abricots-frais-et-amandes.html">Porridge aux abricots frais et amandes</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/porridge-aux-framboises-et-amandes.html">Porridge aux framboises et amandes</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/porridge-aux-framboises-et-noisettes.html">Porridge aux framboises et noisettes</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/porridge-aux-pommes-et-cannelle.html">Porridge aux pommes et cannelle</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/porridge-avoine-banane-et-noisettes-torrefiees.html">Porridge avoine banane et noisettes torréfiées</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/porridge-avoine-lait-peche.html">Porridge avoine lait pêche</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/porridge-avoine-lait-prunes-roties.html">Porridge avoine lait prunes rôties</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/porridge-banane-et-myrtilles.html">Porridge banane et myrtilles</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/porridge-d-avoine-aux-peches-fraiches.html">Porridge d&#39;avoine aux pêches fraîches</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/porridge-d-avoine-banane-miel.html">Porridge d&#39;avoine, banane, miel</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/porridge-d-avoine-banane-miel-et-noix.html">Porridge d&#39;avoine, banane, miel et noix</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/porridge-d-avoine-fraises-bio-miel.html">Porridge d&#39;avoine, fraises bio, miel</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/porridge-d-avoine-fraises-graines-de-chia-miel.html">Porridge d&#39;avoine, fraises, graines de chia, miel</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/porridge-flocons-avoine-et-framboises.html">Porridge flocons avoine et framboises</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/porridge-flocons-d-avoine-cerises.html">Porridge flocons d&#39;avoine cerises</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/porridge-flocons-d-avoine-fraises-amandes.html">Porridge flocons d&#39;avoine fraises amandes</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/porridge-lait-amande-abricots-frais.html">Porridge lait amande abricots frais</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/smoothie-bowl-banane-myrtilles-et-granola.html">Smoothie bowl banane myrtilles et granola</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/smoothie-bowl-fraises-banane-granola.html">Smoothie bowl fraises banane granola</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/smoothie-bowl-fraises-banane-graines-de-chia-granola.html">Smoothie bowl fraises-banane, graines de chia, granola</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/smoothie-bowl-framboise-banane-granola.html">Smoothie bowl framboise banane granola</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/smoothie-epinards-banane-lait-d-amande-tartine-levain.html">Smoothie épinards, banane, lait d&#39;amande, tartine levain</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/tartines-beurre-confiture-et-fraises-fraiches.html">Tartines beurre confiture et fraises fraîches</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/tartines-beurre-confiture-et-kiwi.html">Tartines beurre confiture et kiwi</a> <span class="prep-time">5 min</span></li>
+          <li><a href="/recettes/tartines-beurre-confiture-fraises-du-jardin.html">Tartines beurre confiture fraises du jardin</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/tartines-de-pain-complet-et-confiture-de-figues.html">Tartines de pain complet et confiture de figues</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/tartines-de-pain-complet-et-peches-fraiches.html">Tartines de pain complet et pêches fraîches</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/tartines-fraises-et-fromage-blanc.html">Tartines fraises et fromage blanc</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/tartines-miel-et-peche-fraiche.html">Tartines miel et pêche fraîche</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/tartines-pain-blanc-beurre-miel.html">Tartines pain blanc beurre miel</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/tartines-pain-complet-avocat-oeuf-poche.html">Tartines pain complet avocat œuf poché</a> <span class="prep-time">12 min</span></li>
+          <li><a href="/recettes/tartines-pain-complet-confiture-abricot.html">Tartines pain complet confiture abricot</a> <span class="prep-time">5 min</span></li>
+          <li><a href="/recettes/tartines-pain-complet-confiture-abricot-maison.html">Tartines pain complet confiture abricot maison</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/tartines-pain-complet-confiture-de-figues.html">Tartines pain complet confiture de figues</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/tartines-pain-complet-confiture-de-fraises.html">Tartines pain complet confiture de fraises</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/tartines-pain-complet-confiture-de-prunes-maison.html">Tartines pain complet confiture de prunes maison</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/toasts-complets-avocat-ecrase-oeuf-poche.html">Toasts complets, avocat écrasé, œuf poché</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/toasts-complets-fromage-blanc-miel-radis.html">Toasts complets, fromage blanc, miel, radis</a> <span class="prep-time">5 min</span></li>
+          <li><a href="/recettes/toasts-complets-oeuf-a-la-coque-radis-beurre.html">Toasts complets, œuf à la coque, radis beurre</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/yaourt-nature-miel-et-framboises.html">Yaourt nature miel et framboises</a> <span class="prep-time">5 min</span></li>
+          <li><a href="/recettes/yaourt-nature-miel-et-peches-fraiches.html">Yaourt nature miel et pêches fraîches</a> <span class="prep-time">5 min</span></li>
+          <li><a href="/recettes/yaourt-nature-miel-melon.html">Yaourt nature miel melon</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/yaourt-nature-muesli-figues-fraiches.html">Yaourt nature muesli figues fraîches</a> <span class="prep-time">5 min</span></li>
+          <li><a href="/recettes/yaourt-nature-granola-banane.html">Yaourt nature, granola, banane</a> <span class="prep-time">5 min</span></li>
+          <li><a href="/recettes/yaourt-nature-granola-fraises-gariguette.html">Yaourt nature, granola, fraises Gariguette</a> <span class="prep-time">5 min</span></li>
+          <li><a href="/recettes/yaourt-nature-muesli-et-prunes-fraiches.html">Yaourt nature, muesli et prunes fraîches</a> <span class="prep-time">5 min</span></li>
+        </ul>
+      </section>
+
+      <section class="recipe-section">
+        <h2>Déjeuner <span class="count">(125)</span></h2>
+        <ul class="recipe-list">
+          <li><a href="/recettes/blancs-de-poulet-rotis-haricots-verts-sautes.html">Blancs de poulet rôtis haricots verts sautés</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/blanquette-de-veau-a-l-ancienne-riz-pilaf-aux-amandes.html">Blanquette de veau à l&#39;ancienne, riz pilaf aux amandes</a> <span class="prep-time">90 min</span></li>
+          <li><a href="/recettes/blanquette-de-veau-aux-petits-legumes-et-riz-pilaf.html">Blanquette de veau aux petits légumes et riz pilaf</a> <span class="prep-time">90 min</span></li>
+          <li><a href="/recettes/boeuf-bourguignon-et-gratin-dauphinois.html">Bœuf bourguignon et gratin dauphinois</a> <span class="prep-time">90 min</span></li>
+          <li><a href="/recettes/boeuf-grille-aubergine-poivron-marine.html">Bœuf grillé aubergine poivron mariné</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/boeuf-saute-poivrons-oignons-riz-blanc.html">Bœuf sauté poivrons oignons riz blanc</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/brochettes-de-poulet-marine-et-legumes-grilles.html">Brochettes de poulet mariné et légumes grillés</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/brochettes-de-poulet-marine-et-taboule-maison.html">Brochettes de poulet mariné et taboulé maison</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/brochettes-de-poulet-marine-ratatouille-maison.html">Brochettes de poulet mariné ratatouille maison</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/brochettes-poulet-marine-salade-tomate.html">Brochettes poulet mariné salade tomate</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/bruschetta-tomate-basilic-burrata.html">Bruschetta tomate basilic burrata</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/burger-maison-avec-frites-de-patate-douce.html">Burger maison avec frites de patate douce</a> <span class="prep-time">40 min</span></li>
+          <li><a href="/recettes/burger-maison-boeuf-tomate-salade-cornichon-frites.html">Burger maison bœuf tomate salade cornichon frites</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/burger-maison-et-frites-de-patate-douce.html">Burger maison et frites de patate douce</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/cabillaud-en-papillote-asperges-blanches-et-citron-riz-basmati.html">Cabillaud en papillote, asperges blanches et citron, riz basmati</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/cabillaud-roti-croute-de-persil-legumes-vapeur-printaniers.html">Cabillaud rôti croûte de persil, légumes vapeur printaniers</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/curry-de-lentilles-corail-aubergines-riz-basmati.html">Curry de lentilles corail aubergines riz basmati</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/curry-de-lentilles-corail-courgettes.html">Curry de lentilles corail courgettes</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/curry-de-lentilles-corail-et-riz-basmati.html">Curry de lentilles corail et riz basmati</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/curry-de-pois-chiches-epinards.html">Curry de pois chiches épinards</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/dos-de-cabillaud-msc-en-papillote-citronne-asperges-vertes-riz-basmati.html">Dos de cabillaud MSC en papillote citronné, asperges vertes, riz basmati</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/epaule-d-agneau-confite-legumes-printaniers-rotis-semoule.html">Épaule d&#39;agneau confite, légumes printaniers rôtis, semoule</a> <span class="prep-time">90 min</span></li>
+          <li><a href="/recettes/escalope-de-veau-aux-petits-pois-et-menthe-pommes-de-terre-vapeur.html">Escalope de veau aux petits pois et menthe, pommes de terre vapeur</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/gigot-agneau-haricots-blancs-romarin.html">Gigot agneau haricots blancs romarin</a> <span class="prep-time">90 min</span></li>
+          <li><a href="/recettes/gigot-agneau-roti-flageolets-persilles.html">Gigot agneau rôti flageolets persillés</a> <span class="prep-time">90 min</span></li>
+          <li><a href="/recettes/gigot-agneau-roti-legumes-du-soleil.html">Gigot agneau rôti légumes du soleil</a> <span class="prep-time">90 min</span></li>
+          <li><a href="/recettes/gigot-d-agneau-de-printemps-flageolets-mijotes-gratin-dauphinois.html">Gigot d&#39;agneau de printemps, flageolets mijotés, gratin dauphinois</a> <span class="prep-time">120 min</span></li>
+          <li><a href="/recettes/gigot-d-agneau-roti-aux-herbes-de-provence-flageolets-mijotes-petits-pois-frais.html">Gigot d&#39;agneau rôti aux herbes de Provence, flageolets mijotés, petits pois frais</a> <span class="prep-time">120 min</span></li>
+          <li><a href="/recettes/gigot-d-agneau-roti-aux-herbes-flageolets-haricots-verts.html">Gigot d&#39;agneau rôti aux herbes, flageolets, haricots verts</a> <span class="prep-time">120 min</span></li>
+          <li><a href="/recettes/gigot-d-agneau-roti-et-tian-provencal.html">Gigot d&#39;agneau rôti et tian provençal</a> <span class="prep-time">90 min</span></li>
+          <li><a href="/recettes/gigot-d-agneau-roti-haricots-blancs-et-legumes.html">Gigot d&#39;agneau rôti haricots blancs et légumes</a> <span class="prep-time">90 min</span></li>
+          <li><a href="/recettes/gigot-d-agneau-roti-petits-pois-carottes-nouvelles.html">Gigot d&#39;agneau rôti petits pois carottes nouvelles</a> <span class="prep-time">90 min</span></li>
+          <li><a href="/recettes/gratin-courgette-aubergine-tomate-parmesan.html">Gratin courgette aubergine tomate parmesan</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/maquereau-atlantique-grille-petits-pois-a-la-francaise-riz-complet.html">Maquereau atlantique grillé, petits pois à la française, riz complet</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/maquereau-en-papillote-fenouil-roti-boulgour.html">Maquereau en papillote, fenouil rôti, boulgour</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/omelette-aux-courgettes-tomates-sechees-et-feta.html">Omelette aux courgettes tomates séchées et feta</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/omelette-aux-fines-herbes-et-salade.html">Omelette aux fines herbes et salade</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/omelette-aux-herbes-et-salade-verte.html">Omelette aux herbes et salade verte</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/pates-au-pesto-et-tomates-cerises.html">Pâtes au pesto et tomates cerises</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/pates-aux-courgettes-et-parmesan.html">Pâtes aux courgettes et parmesan</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/pates-aux-lardons-petits-pois-parmesan.html">Pâtes aux lardons, petits pois, parmesan</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/pates-aux-legumes-du-soleil-et-parmesan.html">Pâtes aux légumes du soleil et parmesan</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/pates-aux-sardines-et-tomates-cerises.html">Pâtes aux sardines et tomates cerises</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/pates-completes-pesto-basilic-tomates-cerises.html">Pâtes complètes pesto basilic tomates cerises</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/pates-completes-sauce-tomate-basilic.html">Pâtes complètes sauce tomate basilic</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/pates-completes-sauce-tomate-basilic-mozzarella.html">Pâtes complètes sauce tomate basilic mozzarella</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/pois-chiches-grilles-aux-epices-et-salade-d-ete.html">Pois chiches grillés aux épices et salade d&#39;été</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/pois-chiches-rotis-poivrons-et-feta.html">Pois chiches rôtis poivrons et feta</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/poke-bowl-au-maquereau-marine-et-legumes-croquants.html">Poke bowl au maquereau mariné et légumes croquants</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/poke-bowl-thon-concombre-avocat-riz.html">Poke bowl thon concombre avocat riz</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/poulet-fermier-roti-aux-herbes-puree-de-carottes-au-gingembre.html">Poulet fermier rôti aux herbes, purée de carottes au gingembre</a> <span class="prep-time">40 min</span></li>
+          <li><a href="/recettes/poulet-roti-aux-herbes-et-haricots-verts.html">Poulet rôti aux herbes et haricots verts</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/poulet-roti-aux-herbes-et-ratatouille.html">Poulet rôti aux herbes et ratatouille</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/poulet-roti-courgettes-au-four.html">Poulet rôti courgettes au four</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/poulet-roti-et-salade-verte-tomates-oignon.html">Poulet rôti et salade verte tomates oignon</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/poulet-roti-herbes-legumes-du-soleil.html">Poulet rôti herbes légumes du soleil</a> <span class="prep-time">90 min</span></li>
+          <li><a href="/recettes/quiche-aux-epinards-et-chevre.html">Quiche aux épinards et chèvre</a> <span class="prep-time">50 min</span></li>
+          <li><a href="/recettes/quiche-aux-epinards-et-chevre-dejeuner-de-fete.html">Quiche aux épinards et chèvre (déjeuner de fête)</a> <span class="prep-time">50 min</span></li>
+          <li><a href="/recettes/quiche-aux-poireaux-et-saumon-fume.html">Quiche aux poireaux et saumon fumé</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/quiche-aux-poireaux-et-saumon-fume-salade-verte.html">Quiche aux poireaux et saumon fumé, salade verte</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/quiche-lorraine-salade-verte.html">Quiche lorraine salade verte</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/risotto-aux-champignons-et-parmesan.html">Risotto aux champignons et parmesan</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/risotto-courgette-citron-basilic.html">Risotto courgette citron basilic</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/risotto-courgettes-parmesan-basilic.html">Risotto courgettes parmesan basilic</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/risotto-primavera-petits-pois-asperges-parmesan-menthe.html">Risotto primavera (petits pois, asperges, parmesan, menthe)</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/roti-de-porc-aux-abricots-et-haricots-blancs.html">Rôti de porc aux abricots et haricots blancs</a> <span class="prep-time">90 min</span></li>
+          <li><a href="/recettes/roti-de-veau-aux-morilles-flageolets-et-asperges-blanches.html">Rôti de veau aux morilles, flageolets et asperges blanches</a> <span class="prep-time">90 min</span></li>
+          <li><a href="/recettes/roti-porc-four-courgette-farcie-riz-pilaf.html">Rôti porc four courgette farcie riz pilaf</a> <span class="prep-time">75 min</span></li>
+          <li><a href="/recettes/salade-composee-tomate-mozzarella-basilic.html">Salade composée tomate mozzarella basilic</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/salade-de-feves-fraiches-chevre-frais-roquette-citron.html">Salade de fèves fraîches, chèvre frais, roquette, citron</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/salade-de-haricots-blancs-au-thon-et-legumes-croquants.html">Salade de haricots blancs au thon et légumes croquants</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/salade-de-lentilles-au-fenouil-et-tomate.html">Salade de lentilles au fenouil et tomate</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/salade-de-lentilles-carottes-et-oignons.html">Salade de lentilles carottes et oignons</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/salade-de-lentilles-concombre-feta-menthe.html">Salade de lentilles concombre feta menthe</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/salade-de-lentilles-corail-tomate-concombre.html">Salade de lentilles corail tomate concombre</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/salade-de-lentilles-tomate-concombre-feta.html">Salade de lentilles tomate concombre feta</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/salade-de-lentilles-tomate-concombre-feta-menthe.html">Salade de lentilles tomate concombre feta menthe</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/salade-de-lentilles-vertes-aux-tomates-cerises.html">Salade de lentilles vertes aux tomates cerises</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/salade-de-lentilles-vertes-du-puy-sardines-a-l-huile-carottes-rapees.html">Salade de lentilles vertes du Puy, sardines à l&#39;huile, carottes râpées</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/salade-de-lentilles-vertes-et-feta.html">Salade de lentilles vertes et feta</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/salade-de-lentilles-vertes-tomates-mozza.html">Salade de lentilles vertes tomates mozza</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/salade-de-pates-au-thon-et-tomates-cerises.html">Salade de pâtes au thon et tomates cerises</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/salade-de-pates-au-thon-listao-et-tomates-cerises.html">Salade de pâtes au thon listao et tomates cerises</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/salade-de-pois-chiches-poivrons-grilles.html">Salade de pois chiches poivrons grillés</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/salade-de-pois-chiches-rotis-aux-poivrons-et-feta.html">Salade de pois chiches rôtis aux poivrons et feta</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/salade-de-pois-chiches-tomate-feta.html">Salade de pois chiches tomate feta</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/salade-de-pois-chiches-tomates-concombre.html">Salade de pois chiches tomates concombre</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/salade-de-pois-chiches-tomates-concombre-feta.html">Salade de pois chiches tomates concombre feta</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/salade-lentilles-vertes-chevre-frais.html">Salade lentilles vertes chèvre frais</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/salade-melon-jambon-mozzarella.html">Salade melon jambon mozzarella</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/salade-nicoise-aux-sardines-haricots-verts-tomates-cerises.html">Salade niçoise aux sardines, haricots verts, tomates cerises</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/salade-nicoise-complete-aux-haricots-verts-et-anchois.html">Salade niçoise complète aux haricots verts et anchois</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/salade-nicoise-estivale.html">Salade niçoise estivale</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/salade-nicoise-thon-tomate-oeuf-olive-anchois.html">Salade niçoise thon tomate œuf olive anchois</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/salade-printaniere-roquette-feves-petits-pois-parmesan-citron.html">Salade printanière (roquette, fèves, petits pois, parmesan, citron)</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/salade-tomates-mozzarella-basilic.html">Salade tomates mozzarella basilic</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/salade-tomates-mozzarella-basilic-frais.html">Salade tomates mozzarella basilic frais</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/sardines-grillees-et-ratatouille-express.html">Sardines grillées et ratatouille express</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/sardines-grillees-et-ratatouille-maison.html">Sardines grillées et ratatouille maison</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/sardines-grillees-ratatouille.html">Sardines grillées ratatouille</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/sardines-grillees-salade-de-tomates.html">Sardines grillées salade de tomates</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/sardines-marinees-salade-de-petits-pois-et-radis-quinoa.html">Sardines marinées, salade de petits pois et radis, quinoa</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/sardines-roties-au-four-tabboule-printanier-citron.html">Sardines rôties au four, tabboulé printanier, citron</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/sardines-roties-tabboule-printanier-boulghour-menthe-tomates.html">Sardines rôties, tabboulé printanier (boulghour, menthe, tomates)</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/soupe-printaniere-petits-pois-menthe-tartines-chevre-radis.html">Soupe printanière petits pois-menthe, tartines chèvre-radis</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/spaghetti-bolognaise-maison.html">Spaghetti bolognaise maison</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/taboule-de-quinoa-au-concombre-et-menthe.html">Taboulé de quinoa au concombre et menthe</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/taboule-de-quinoa-aux-legumes-d-ete.html">Taboulé de quinoa aux légumes d&#39;été</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/taboule-de-quinoa-aux-pois-chiches-et-herbes-fraiches.html">Taboulé de quinoa aux pois chiches et herbes fraîches</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/taboule-de-quinoa-feves-menthe-feta.html">Taboulé de quinoa fèves menthe feta</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/taboule-libanais-et-falafels.html">Taboulé libanais et falafels</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/taboule-maison-tomate-menthe-pois-chiches-grilles.html">Taboulé maison tomate menthe pois chiches grillés</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/taboule-maison-tomates-concombre-menthe.html">Taboulé maison tomates concombre menthe</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/taboule-oriental-pois-chiches-menthe.html">Taboulé oriental pois chiches menthe</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/tabule-de-quinoa-legumes-d-ete.html">Tabulé de quinoa légumes d&#39;été</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/tagliatelles-courgettes-tomates-cerises-basilic.html">Tagliatelles courgettes tomates cerises basilic</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/tajine-d-agneau-aux-abricots-et-amandes.html">Tajine d&#39;agneau aux abricots et amandes</a> <span class="prep-time">90 min</span></li>
+          <li><a href="/recettes/tajine-d-agneau-legumes-d-ete-semoule.html">Tajine d&#39;agneau légumes d&#39;été semoule</a> <span class="prep-time">90 min</span></li>
+          <li><a href="/recettes/tajine-de-poulet-aux-abricots-et-semoule.html">Tajine de poulet aux abricots et semoule</a> <span class="prep-time">90 min</span></li>
+          <li><a href="/recettes/truite-de-france-poelee-artichauts-vapeur-pommes-de-terre-nouvelles.html">Truite de France poêlée, artichauts vapeur, pommes de terre nouvelles</a> <span class="prep-time">40 min</span></li>
+          <li><a href="/recettes/truite-de-france-poelee-asperges-vertes-quinoa-citronne.html">Truite de France poêlée, asperges vertes, quinoa citronné</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/truite-meuniere-pommes-de-terre-nouvelles-persillees-salade-verte.html">Truite meunière, pommes de terre nouvelles persillées, salade verte</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/veloute-d-asperges-blanches-tartines-de-pain-au-levain.html">Velouté d&#39;asperges blanches, tartines de pain au levain</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/wraps-au-poulet-grille-sauce-yaourt-coriandre.html">Wraps au poulet grillé sauce yaourt coriandre</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/wraps-au-thon-legumes-croquants.html">Wraps au thon légumes croquants</a> <span class="prep-time">15 min</span></li>
+        </ul>
+      </section>
+
+      <section class="recipe-section">
+        <h2>Goûter <span class="count">(26)</span></h2>
+        <ul class="recipe-list">
+          <li><a href="/recettes/brochettes-de-fruits-d-ete.html">Brochettes de fruits d&#39;été</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/cake-a-la-rhubarbe-fait-maison.html">Cake à la rhubarbe (fait maison)</a> <span class="prep-time">45 min</span></li>
+          <li><a href="/recettes/compote-de-fraises-maison-tartine-pain-blanc.html">Compote de fraises maison tartine pain blanc</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/compote-de-peche-maison.html">Compote de pêche maison</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/crepes-au-sucre.html">Crêpes au sucre</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/fromage-blanc-framboises-granola.html">Fromage blanc framboises granola</a> <span class="prep-time">5 min</span></li>
+          <li><a href="/recettes/gateau-au-yaourt-maison.html">Gâteau au yaourt maison</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/gateau-aux-peches-maison.html">Gâteau aux pêches maison</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/gateau-aux-pommes-maison.html">Gâteau aux pommes maison</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/gateau-aux-prunes-et-the-glace.html">Gâteau aux prunes et thé glacé</a> <span class="prep-time">60 min</span></li>
+          <li><a href="/recettes/gateau-yaourt-aux-peches.html">Gâteau yaourt aux pêches</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/salade-de-fruits-d-ete.html">Salade de fruits d&#39;été</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/salade-de-fruits-d-ete-frais.html">Salade de fruits d&#39;été frais</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/salade-de-fruits-rouges.html">Salade de fruits rouges</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/salade-de-fruits-rouges-au-miel.html">Salade de fruits rouges au miel</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/smoothie-fraise-banane.html">Smoothie fraise banane</a> <span class="prep-time">5 min</span></li>
+          <li><a href="/recettes/smoothie-fraise-et-banane.html">Smoothie fraise et banane</a> <span class="prep-time">5 min</span></li>
+          <li><a href="/recettes/smoothie-fraise-framboises.html">Smoothie fraise framboises</a> <span class="prep-time">5 min</span></li>
+          <li><a href="/recettes/smoothie-fraises-banane.html">Smoothie fraises banane</a> <span class="prep-time">8 min</span></li>
+          <li><a href="/recettes/smoothie-fraises-banane-yaourt.html">Smoothie fraises banane yaourt</a> <span class="prep-time">5 min</span></li>
+          <li><a href="/recettes/smoothie-peche-et-framboise.html">Smoothie pêche et framboise</a> <span class="prep-time">5 min</span></li>
+          <li><a href="/recettes/tarte-aux-abricots-et-the-glace.html">Tarte aux abricots et thé glacé</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/tarte-aux-abricots-maison.html">Tarte aux abricots maison</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/tarte-aux-cerises-pate-sablee-maison.html">Tarte aux cerises pâte sablée maison</a> <span class="prep-time">50 min</span></li>
+          <li><a href="/recettes/tarte-aux-fraises-maison-pate-sablee-creme-patissiere.html">Tarte aux fraises maison (pâte sablée, crème pâtissière)</a> <span class="prep-time">60 min</span></li>
+          <li><a href="/recettes/tarte-aux-fraises-maison-pate-sablee.html">Tarte aux fraises maison (pâte sablée)</a> <span class="prep-time">60 min</span></li>
+        </ul>
+      </section>
+
+      <section class="recipe-section">
+        <h2>Dîner <span class="count">(126)</span></h2>
+        <ul class="recipe-list">
+          <li><a href="/recettes/aubergines-farcies-au-boeuf-et-riz.html">Aubergines farcies au bœuf et riz</a> <span class="prep-time">60 min</span></li>
+          <li><a href="/recettes/boeuf-hache-sauce-tomate-haricot-vert-semoule.html">Bœuf haché sauce tomate haricot vert semoule</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/boeuf-saute-aux-haricots-verts-et-riz.html">Bœuf sauté aux haricots verts et riz</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/bouillon-de-legumes-printanier-restes-d-agneau-en-salade-tiede.html">Bouillon de légumes printanier, restes d&#39;agneau en salade tiède</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/bouillon-de-legumes-printanier-restes-d-agneau-en-salade-tiede-a-la-roquette.html">Bouillon de légumes printanier, restes d&#39;agneau en salade tiède à la roquette</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/brochettes-de-boeuf-et-legumes-grilles.html">Brochettes de bœuf et légumes grillés</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/brochettes-de-boeuf-marine-legumes-grilles.html">Brochettes de bœuf mariné légumes grillés</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/cabillaud-en-papillote-aux-petits-legumes.html">Cabillaud en papillote aux petits légumes</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/cabillaud-msc-papillote-et-poireaux-vapeur.html">Cabillaud MSC papillote et poireaux vapeur</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/cabillaud-papillote-fenouil-citron.html">Cabillaud papillote fenouil citron</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/cabillaud-papillote-tomate-fenouil-citron.html">Cabillaud papillote tomate fenouil citron</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/cabillaud-roti-fenouil-et-pommes-de-terre.html">Cabillaud rôti fenouil et pommes de terre</a> <span class="prep-time">40 min</span></li>
+          <li><a href="/recettes/chili-vegetarien-haricots-rouges-mais.html">Chili végétarien haricots rouges maïs</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/cotes-d-agneau-de-printemps-grillees-puree-de-petits-pois-a-la-menthe.html">Côtes d&#39;agneau de printemps grillées, purée de petits pois à la menthe</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/curry-de-lentilles-corail-au-lait-de-coco-et-coriandre.html">Curry de lentilles corail au lait de coco et coriandre</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/curry-de-lentilles-corail-legumes-de-printemps-riz-basmati.html">Curry de lentilles corail, légumes de printemps, riz basmati</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/filet-de-cabillaud-haricots-verts-vapeur.html">Filet de cabillaud haricots verts vapeur</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/filet-de-cabillaud-vapeur-et-poelee-de-courgettes.html">Filet de cabillaud vapeur et poêlée de courgettes</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/filet-de-lieu-poele-et-ratatouille.html">Filet de lieu poêlé et ratatouille</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/filet-de-lieu-sauce-vierge-haricots-verts-et-quinoa-citron.html">Filet de lieu sauce vierge, haricots verts et quinoa citron</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/filet-de-veau-fermier-poele-puree-de-petits-pois-a-la-menthe.html">Filet de veau fermier poêlé, purée de petits pois à la menthe</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/filets-de-lieu-poeles-courgette-vapeur-riz-blanc.html">Filets de lieu poêlés courgette vapeur riz blanc</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/filets-de-maquereau-grilles-courgettes-vapeur.html">Filets de maquereau grillés courgettes vapeur</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/filets-de-maquereau-grilles-ratatouille.html">Filets de maquereau grillés ratatouille</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/filets-de-maquereau-rotis-haricots-verts.html">Filets de maquereau rôtis haricots verts</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/filets-de-perche-poeles-et-haricots-verts-vapeur.html">Filets de perche poêlés et haricots verts vapeur</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/filets-de-sardine-grilles-ratatouille.html">Filets de sardine grillés ratatouille</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/gratin-d-aubergines-tomates-feta.html">Gratin d&#39;aubergines tomates feta</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/gratin-de-courgettes-au-chevre-frais.html">Gratin de courgettes au chèvre frais</a> <span class="prep-time">40 min</span></li>
+          <li><a href="/recettes/gratin-de-pates-aux-epinards-et-ricotta.html">Gratin de pâtes aux épinards et ricotta</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/gratin-de-pommes-de-terre-epinards-gruyere.html">Gratin de pommes de terre, épinards, gruyère</a> <span class="prep-time">50 min</span></li>
+          <li><a href="/recettes/lieu-papillote-legumes-d-ete-et-riz.html">Lieu papillote légumes d&#39;été et riz</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/maquereau-atlantique-grille-epinards-sautes-a-l-ail-riz-complet.html">Maquereau atlantique grillé, épinards sautés à l&#39;ail, riz complet</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/maquereau-grille-fenouil-braise-et-pain-complet.html">Maquereau grillé fenouil braisé et pain complet</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/maquereau-poele-haricots-verts-amandine.html">Maquereau poêlé haricots verts amandine</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/maquereaux-rotis-a-la-moutarde-et-ratatouille-maison.html">Maquereaux rôtis à la moutarde et ratatouille maison</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/merlu-au-four-avec-fenouil-et-tomates.html">Merlu au four avec fenouil et tomates</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/minestrone-printanier-petits-pois-epinards-carottes-vermicelles.html">Minestrone printanier (petits pois, épinards, carottes, vermicelles)</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/omelette-aux-epinards-chevre-frais-et-pignons-salade-verte.html">Omelette aux épinards, chèvre frais et pignons, salade verte</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/omelette-aux-fines-herbes-et-salade-verte.html">Omelette aux fines herbes et salade verte</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/omelette-aux-fines-herbes-salade-verte-tartines-de-pain-de-seigle.html">Omelette aux fines herbes, salade verte, tartines de pain de seigle</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/omelette-aux-herbes-et-salade-composee.html">Omelette aux herbes et salade composée</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/omelette-aux-herbes-salade-verte.html">Omelette aux herbes salade verte</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/omelette-aux-herbes-salade-verte-vinaigrette.html">Omelette aux herbes salade verte vinaigrette</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/omelette-aux-pointes-d-asperges-et-gruyere-salade-de-radis.html">Omelette aux pointes d&#39;asperges et gruyère, salade de radis</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/omelette-courgette-parmesan-salade-verte.html">Omelette courgette parmesan salade verte</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/omelette-courgettes-tomates-herbes.html">Omelette courgettes tomates herbes</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/omelette-petits-pois-salade-verte.html">Omelette petits pois salade verte</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/papillote-cabillaud-fenouil-tomate.html">Papillote cabillaud fenouil tomate</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/papillote-de-cabillaud-aux-courgettes-et-fenouil.html">Papillote de cabillaud aux courgettes et fenouil</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/papillote-de-cabillaud-tomate-courgette-basilic.html">Papillote de cabillaud tomate courgette basilic</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/papillote-de-dorade-au-citron-confit-et-fenouil-roti.html">Papillote de dorade au citron confit et fenouil rôti</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/papillote-de-sardines-au-citron-et-fenouil-roti.html">Papillote de sardines au citron et fenouil rôti</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/papillote-de-saumon-fenouil-citron.html">Papillote de saumon fenouil citron</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/papillote-maquereau-tomate-fenouil-citron-pommes.html">Papillote maquereau tomate fenouil citron pommes</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/papillotes-de-cabillaud-courgettes-citron.html">Papillotes de cabillaud courgettes citron</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/pates-au-pesto-courgettes-grillees.html">Pâtes au pesto courgettes grillées</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/pates-aux-aubergines-roties-tomates-confites-et-basilic.html">Pâtes aux aubergines rôties, tomates confites et basilic</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/pates-aux-haricots-verts-et-parmesan.html">Pâtes aux haricots verts et parmesan</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/pates-bolognaises-boeuf-hache-label-rouge.html">Pâtes bolognaises, bœuf haché Label Rouge</a> <span class="prep-time">40 min</span></li>
+          <li><a href="/recettes/pizza-maison-a-la-burrata-roquette-et-tomates-cerises.html">Pizza maison à la burrata, roquette et tomates cerises</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/pizza-maison-aux-asperges-epinards-et-mozzarella.html">Pizza maison aux asperges, épinards et mozzarella</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/pizza-maison-aux-legumes-grilles.html">Pizza maison aux légumes grillés</a> <span class="prep-time">45 min</span></li>
+          <li><a href="/recettes/pizza-maison-aux-legumes-printaniers-artichauts-roquette-mozzarella.html">Pizza maison aux légumes printaniers (artichauts, roquette, mozzarella)</a> <span class="prep-time">40 min</span></li>
+          <li><a href="/recettes/pizza-maison-tomate-mozzarella-basilic.html">Pizza maison tomate mozzarella basilic</a> <span class="prep-time">40 min</span></li>
+          <li><a href="/recettes/pizza-maison-tomate-mozzarella-basilic-et-roquette.html">Pizza maison tomate mozzarella basilic et roquette</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/pizza-maison-tomate-mozzarella-basilic-roquette.html">Pizza maison tomate mozzarella basilic roquette</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/pizza-maison-tomate-mozzarella-roquette.html">Pizza maison tomate mozzarella roquette</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/pizza-maison-mozzarella-poivrons-rotis-roquette-fraiche.html">Pizza maison, mozzarella, poivrons rôtis, roquette fraîche</a> <span class="prep-time">40 min</span></li>
+          <li><a href="/recettes/plateau-de-fromages-salade-mache-radis-fruits-de-saison.html">Plateau de fromages, salade mâche-radis, fruits de saison</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/poelee-de-gnocchis-aux-epinards-ail-et-parmesan.html">Poêlée de gnocchis aux épinards, ail et parmesan</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/poulet-fermier-roti-aux-herbes-carottes-nouvelles-glacees-quinoa.html">Poulet fermier rôti aux herbes, carottes nouvelles glacées, quinoa</a> <span class="prep-time">55 min</span></li>
+          <li><a href="/recettes/poulet-fermier-roti-asperges-blanches-quinoa-citronne.html">Poulet fermier rôti, asperges blanches, quinoa citronné</a> <span class="prep-time">55 min</span></li>
+          <li><a href="/recettes/poulet-fermier-roti-carottes-nouvelles-glacees-semoule.html">Poulet fermier rôti, carottes nouvelles glacées, semoule</a> <span class="prep-time">55 min</span></li>
+          <li><a href="/recettes/poulet-grille-courgettes-et-riz-blanc.html">Poulet grillé courgettes et riz blanc</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/poulet-grille-haricots-verts-amandine.html">Poulet grillé haricots verts amandine</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/poulet-roti-au-citron-et-courgettes-grillees-au-thym.html">Poulet rôti au citron et courgettes grillées au thym</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/poulet-roti-aubergines-grillees-salade-verte.html">Poulet rôti aubergines grillées salade verte</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/poulet-roti-courgettes-et-haricots-verts.html">Poulet rôti courgettes et haricots verts</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/poulet-roti-courgettes-et-riz-blanc.html">Poulet rôti courgettes et riz blanc</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/poulet-roti-courgettes-farcies-quinoa.html">Poulet rôti courgettes farcies quinoa</a> <span class="prep-time">40 min</span></li>
+          <li><a href="/recettes/poulet-roti-fenouil-carottes-nouvelles.html">Poulet rôti fenouil carottes nouvelles</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/poulet-roti-haricots-verts-ail-pommes-vapeur.html">Poulet rôti haricots verts ail pommes vapeur</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/ratatouille-et-riz-complet.html">Ratatouille et riz complet</a> <span class="prep-time">40 min</span></li>
+          <li><a href="/recettes/restes-du-roti-salade-mesclun-et-vinaigrette-a-la-moutarde.html">Restes du rôti, salade mesclun et vinaigrette à la moutarde</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/risotto-aux-asperges-vertes-dos-de-cabillaud-poele.html">Risotto aux asperges vertes, dos de cabillaud poêlé</a> <span class="prep-time">40 min</span></li>
+          <li><a href="/recettes/risotto-aux-courgettes-menthe-et-parmesan.html">Risotto aux courgettes menthe et parmesan</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/risotto-aux-petits-pois-et-menthe.html">Risotto aux petits pois et menthe</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/risotto-aux-petits-pois-et-menthe-fraiche-parmesan.html">Risotto aux petits pois et menthe fraîche, parmesan</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/salade-composee-feves-jambon-blanc.html">Salade composée fèves jambon blanc</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/salade-composee-reste-gigot-haricots-verts.html">Salade composée reste gigot haricots verts</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/salade-composee-thon-mais-tomate.html">Salade composée thon maïs tomate</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/salade-nicoise-aux-haricots-verts-et-anchois.html">Salade niçoise aux haricots verts et anchois</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/sardines-grillees-au-citron-et-salade-de-tomates-anciennes.html">Sardines grillées au citron et salade de tomates anciennes</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/sardines-grillees-et-poelee-de-fenouil.html">Sardines grillées et poêlée de fenouil</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/sardines-grillees-fenouil-braise-citron.html">Sardines grillées fenouil braisé citron</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/sardines-grillees-haricots-verts-et-pommes-vapeur.html">Sardines grillées haricots verts et pommes vapeur</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/sardines-grillees-ratatouille-express.html">Sardines grillées ratatouille express</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/sardines-grillees-ratatouille-maison.html">Sardines grillées ratatouille maison</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/sardines-grillees-salade-tomate-oignon-rouge-pain.html">Sardines grillées salade tomate oignon rouge pain</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/sardines-grillees-salade-tomates-concombre.html">Sardines grillées salade tomates concombre</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/saute-de-veau-aux-petits-pois-frais-et-carottes-riz-basmati.html">Sauté de veau aux petits pois frais et carottes, riz basmati</a> <span class="prep-time">40 min</span></li>
+          <li><a href="/recettes/soupe-de-butternut-rotie-au-cumin-et-croutons-dores.html">Soupe de butternut rôtie au cumin et croûtons dorés</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/soupe-de-feves-fraiches-toasts-complets-fromage.html">Soupe de fèves fraîches, toasts complets, fromage</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/soupe-de-haricots-blancs-et-jambon.html">Soupe de haricots blancs et jambon</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/soupe-de-legumes-d-ete-et-tartines-de-chevre.html">Soupe de légumes d&#39;été et tartines de chèvre</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/soupe-de-lentilles-vertes-carottes-pain-de-campagne.html">Soupe de lentilles vertes, carottes, pain de campagne</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/soupe-froide-concombre-menthe-et-oeufs-durs.html">Soupe froide concombre menthe et œufs durs</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/soupe-froide-concombre-menthe-et-tartines.html">Soupe froide concombre menthe et tartines</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/soupe-froide-concombre-menthe-yaourt.html">Soupe froide concombre menthe yaourt</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/soupe-froide-concombre-menthe-yaourt-grec.html">Soupe froide concombre menthe yaourt grec</a> <span class="prep-time">10 min</span></li>
+          <li><a href="/recettes/soupe-froide-de-concombre-a-la-menthe.html">Soupe froide de concombre à la menthe</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/soupe-froide-de-concombre-et-menthe.html">Soupe froide de concombre et menthe</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/soupe-froide-de-concombre-menthe.html">Soupe froide de concombre menthe</a> <span class="prep-time">15 min</span></li>
+          <li><a href="/recettes/soupe-froide-de-tomate-et-tartines.html">Soupe froide de tomate et tartines</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/soupe-froide-de-tomates-au-basilic-et-tartines-chevre-miel.html">Soupe froide de tomates au basilic et tartines chèvre miel</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/soupe-froide-tomate-basilic-tartines.html">Soupe froide tomate basilic tartines</a> <span class="prep-time">20 min</span></li>
+          <li><a href="/recettes/steaks-de-saumon-sauce-yaourt-aneth.html">Steaks de saumon sauce yaourt aneth</a> <span class="prep-time">25 min</span></li>
+          <li><a href="/recettes/tajine-de-legumes-aux-abricots-secs-et-semoule-parfumee.html">Tajine de légumes aux abricots secs et semoule parfumée</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/tarte-courgettes-chevre-et-salade-verte.html">Tarte courgettes chèvre et salade verte</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/tarte-courgettes-chevre-frais-basilic.html">Tarte courgettes chèvre frais basilic</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/tarte-fine-tomate-moutarde-et-chevre.html">Tarte fine tomate moutarde et chèvre</a> <span class="prep-time">30 min</span></li>
+          <li><a href="/recettes/tartiflette-legere-et-salade-verte.html">Tartiflette légère et salade verte</a> <span class="prep-time">40 min</span></li>
+          <li><a href="/recettes/tian-de-courgettes-et-aubergines-au-chevre.html">Tian de courgettes et aubergines au chèvre</a> <span class="prep-time">40 min</span></li>
+          <li><a href="/recettes/tian-de-legumes-provencal-chevre-frais.html">Tian de légumes provençal chèvre frais</a> <span class="prep-time">35 min</span></li>
+          <li><a href="/recettes/veloute-d-asperges-vertes-croutons-au-parmesan.html">Velouté d&#39;asperges vertes, croûtons au parmesan</a> <span class="prep-time">20 min</span></li>
+        </ul>
+      </section>
+  </main>
+
+  <footer class="landing-footer">
+    <a href="https://onmangequoi.eu">onmangequoi.eu</a> &middot; &copy; 2026 &middot; Paris
+  </footer>
+
+</body>
+</html>
