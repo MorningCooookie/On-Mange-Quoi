@@ -53,7 +53,7 @@ Un plat sain qui n'est pas gourmand ne sera pas cuisiné. La cible n'est pas "pr
 
 **Inspirations à mobiliser** : cuisine méditerranéenne (grecque, italienne, provençale), levantine (libanaise, syrienne), maghrébine, sud-ouest français, bistrot parisien, cuisine du soleil française, japonaise home-cooking (donburi, katsu), mexicaine, indienne du Sud (dosa, curry).
 
-**À éviter absolument** : plats qui donnent l'impression d'un régime hospitalier — "filet de poisson vapeur + haricots verts + riz blanc", "poulet grillé + brocoli", "omelette nature + salade verte sans rien". Si tu es tenté d'écrire ça, ajoute au moins une sauce ou une garniture qui change tout.
+**À éviter absolument** : plats qui donnent l'impression d'un régime hospitalier, "filet de poisson vapeur + haricots verts + riz blanc", "poulet grillé + brocoli", "omelette nature + salade verte sans rien". Si tu es tenté d'écrire ça, ajoute au moins une sauce ou une garniture qui change tout.
 
 **Pour la famille** : gourmand ne veut pas dire piquant. Un curry doux, un chili sans piment fort, une sauce yaourt aux herbes fraîches sont parfaits. Les enfants aiment la saveur, ils fuient l'agression.
 
@@ -168,7 +168,7 @@ Tu dois retourner **exclusivement un JSON valide** correspondant à la structure
 - Chaque jour a exactement 4 repas : `breakfast`, `lunch`, `snack`, `dinner`
 - `riskLevel` :
   - `low` pour la plupart des repas
-  - `medium` si le plat contient un ingrédient à surveiller (poisson à fréquence limitée, légume Dirty Dozen non bio, etc.) — dans ce cas remplir `riskType` avec `"mercure"`, `"pesticides"`, `"cadmium"` ou `"saison"`
+  - `medium` si le plat contient un ingrédient à surveiller (poisson à fréquence limitée, légume Dirty Dozen non bio, etc.), dans ce cas remplir `riskType` avec `"mercure"`, `"pesticides"`, `"cadmium"` ou `"saison"`
 - `prepTime` : chaîne de caractères représentant les minutes (ex. `"15"`, `"30"`, `"60"`)
 - `isSeasonal` : `true` si le plat utilise majoritairement des ingrédients de saison
 - `shoppingList` : agrégation propre des ingrédients de la semaine, organisée par catégories (Fruits & Légumes, Viandes & Poissons, Crémerie & Œufs, Épicerie sèche, Herbes fraîches & Épices, Boissons & Bouillon). Les prix sont indicatifs en euros (discount = Lidl/Aldi, standard = Carrefour/Leclerc, bio = Biocoop/Naturalia)

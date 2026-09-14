@@ -1,5 +1,5 @@
 /* ============================================================
-   ON MANGE QUOI ? — styles.css
+   ON MANGE QUOI ?, styles.css
    Mobile-first · Vanilla CSS · No dependencies
    ============================================================ */
 
@@ -50,7 +50,7 @@
   --shadow-hover: 0 8px 24px rgba(0,0,0,.14);
   --bottom-bar-h: 96px;
 
-  /* ── Scale d'espacement (base 8px) — DESIGN.md §Spacing System ──
+  /* ── Scale d'espacement (base 8px), DESIGN.md §Spacing System ──
      On-grid : --space-0/1/2/3/4/5/6/7/8 (multiples 8px ou demi-pas 4px)
      Intercalaires : pour les valeurs hors-grille déjà présentes en prod
      (à utiliser uniquement quand on-grid casse le rythme visuel) */
@@ -75,7 +75,7 @@
   --space-9:     5rem;      /* 80px - extra-large gaps */
 
   /* ── Scale typographique (DESIGN.md §Typography System) ──
-     clamp(min, prefer, max) — fluidité mobile→desktop sans media query.
+     clamp(min, prefer, max), fluidité mobile→desktop sans media query.
      Min = valeur mobile (320-375px), Max = valeur desktop (≥1024px). */
   --fs-h1:    clamp(1.75rem, 1.55rem + 1vw, 2rem);      /* 28→32 - display */
   --fs-h2:    clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);  /* 20→24 - section */
@@ -86,14 +86,14 @@
   --fs-label: 0.85rem;                                   /* 13.6 - labels, eyebrow */
   --fs-mono:  0.9rem;                                    /* 14.4 - data, quantités */
 
-  /* Line-heights — DESIGN.md §Typography */
+  /* Line-heights, DESIGN.md §Typography */
   --lh-tight:  1.2;   /* h1, h2 */
   --lh-normal: 1.4;   /* h3, h4 */
   --lh-loose:  1.6;   /* body */
   --font-display: 'Fraunces', Georgia, serif;
   /* --font-body redéfini plus bas avec Plus Jakarta Sans (direction solaire) */
 
-  /* Header design tokens — compact & professional */
+  /* Header design tokens, compact & professional */
   --header-padding-vertical: 0.75rem;
   --header-padding-horizontal: 1.25rem;
   --header-text-size: 0.8rem;
@@ -120,17 +120,17 @@
   --btn-focus-outline: 3px solid #1B4332;
   --btn-focus-offset: 2px;
 
-  /* Prep Time Indicators — saturés (utilisés par .prep-time-dot, fill 10x10) */
+  /* Prep Time Indicators, saturés (utilisés par .prep-time-dot, fill 10x10) */
   --prep-fast: #10B981;   /* Green */
   --prep-medium: #F59E0B; /* Amber */
   --prep-slow: #EF4444;   /* Red */
 
-  /* Prep Time Badges (pills) — pastels distincts du score-band (axe sémantique différent) */
+  /* Prep Time Badges (pills), pastels distincts du score-band (axe sémantique différent) */
   --prep-fast-bg:   #DCFCE7; --prep-fast-text:   #14532D;
   --prep-medium-bg: #FEF3C7; --prep-medium-text: #78350F;
   --prep-slow-bg:   #FEE2E2; --prep-slow-text:   #7F1D1D;
 
-  /* Item price text — couleurs lisibles par tier (discount/standard/bio) */
+  /* Item price text, couleurs lisibles par tier (discount/standard/bio) */
   --discount-text: #B45309;
   --standard-text: #0369A1;
   --bio-text:      #15803D;
@@ -229,7 +229,7 @@
   --r-inner:       var(--r-8);
 
   /* ═══════════════════════════════════════════════════════════
-     DIRECTION SOLAIRE — Override tokens
+     DIRECTION SOLAIRE, Override tokens
      Phase 1 · Mai 2026
      Override en fin de :root : prend le pas sur tous les tokens
      déclarés au-dessus (cascade CSS) sans casser la compat v1/v2.
@@ -257,7 +257,7 @@
   --green:        #3A7D5C;
   --green-light:  #5AAD84;
 
-  /* Accent solaire — nouveau token */
+  /* Accent solaire, nouveau token */
   --sun-500:      #D4902A;
   --sun-200:      #FCE8C0;
   --sun-50:       #FEF8EC;
@@ -266,12 +266,12 @@
   --header-from:  #FFFFFF;
   --header-to:    #F5F2EE;
 
-  /* Scores A/B/C — pastels vivides */
+  /* Scores A/B/C, pastels vivides */
   --score-a-bg:   #D4F5E5;  --score-a-text: #0C5430;
   --score-b-bg:   #D0EEFF;  --score-b-text: #0B4A72;
   --score-c-bg:   #FDE8CC;  --score-c-text: #7A3B0E;
 
-  /* Cercles de score — composant iconique */
+  /* Cercles de score, composant iconique */
   --score-a-fill: #2AB97A;
   --score-b-fill: #2597CC;
   --score-c-fill: #E8852F;
@@ -307,7 +307,7 @@ h4 { font-size: var(--fs-h4); font-weight: 600; line-height: var(--lh-normal); m
 /* Garantit que l'attribut HTML natif [hidden] est respecté partout,
    même quand un sélecteur de composant définit display: flex/grid
    avec la même spécificité (ex : .semaine-day-card en desktop écrasait
-   silencieusement l'attribut hidden — cassait les filter chips). */
+   silencieusement l'attribut hidden, cassait les filter chips). */
 [hidden] { display: none !important; }
 
 /* ── Skip link ─────────────────────────────────────────────── */
@@ -348,7 +348,7 @@ h4 { font-size: var(--fs-h4); font-weight: 600; line-height: var(--lh-normal); m
 }
 
 /* ═══════════════════════════════════════════════════════════
-   HEADER — UPDATED
+   HEADER, UPDATED
    ═══════════════════════════════════════════════════════════ */
 #site-header {
   position: sticky; top: 0; z-index: 100;
@@ -417,7 +417,7 @@ h4 { font-size: var(--fs-h4); font-weight: 600; line-height: var(--lh-normal); m
   margin-left: auto;
 }
 
-/* Secondary selector bar — on second row if needed */
+/* Secondary selector bar, on second row if needed */
 .header-selectors {
   display: flex; gap: 1.5rem; align-items: center;
   padding: 0;
@@ -543,7 +543,7 @@ h4 { font-size: var(--fs-h4); font-weight: 600; line-height: var(--lh-normal); m
     display: flex !important;
     gap: 0.4rem;
   }
-  /* Cacher "Créer un compte" sur mobile — accès via modal login */
+  /* Cacher "Créer un compte" sur mobile, accès via modal login */
   #btn-signup-header { display: none !important; }
   #btn-login-header, #btn-logout-header {
     font-size: 0.75rem;
@@ -586,7 +586,7 @@ h4 { font-size: var(--fs-h4); font-weight: 600; line-height: var(--lh-normal); m
     width: 1px; height: 18px; background: var(--ink-200, #D9D2C5);
     flex-shrink: 0; margin: 0 .2rem;
   }
-  /* Override WCAG 44px — les pills de la barre du bas sont petites par design */
+  /* Override WCAG 44px, les pills de la barre du bas sont petites par design */
   .bottom-bar .profile-pill,
   .bottom-bar .selector-btn {
     font-size: .72rem; padding: .3rem .6rem; font-weight: 500;
@@ -1013,7 +1013,7 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
   border-radius: 50%;
   flex-shrink: 0;
   /* La couleur runtime est injectée via --freshness-color (style inline)
-     par app.js getPriceFreshness() — fraîcheur des prix produits. */
+     par app.js getPriceFreshness(), fraîcheur des prix produits. */
   background: var(--freshness-color, var(--text-secondary));
 }
 .price-indicative-note {
@@ -1119,7 +1119,7 @@ main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
   padding: .6rem 1.2rem; border-radius: 25px;
   font-size: .83rem; font-weight: 600;
   opacity: 0; pointer-events: none;
-  /* Spring easing — léger rebond à l'entrée (overshoot naturel) */
+  /* Spring easing, léger rebond à l'entrée (overshoot naturel) */
   transition: opacity .22s ease, transform .35s cubic-bezier(.34, 1.56, .64, 1);
   z-index: 500; white-space: nowrap;
 }
@@ -1137,7 +1137,7 @@ footer a { color: var(--header-to); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
 
 /* ═══════════════════════════════════════════════════════════
-   MOBILE OPTIMIZATIONS — Touch targets & Card hierarchy
+   MOBILE OPTIMIZATIONS, Touch targets & Card hierarchy
    ═══════════════════════════════════════════════════════════ */
 @media (max-width: 767px) {
   /* Prevent footer from being hidden by fixed bottom-bar */
@@ -1145,7 +1145,7 @@ footer a:hover { text-decoration: underline; }
   /* Hide secondary selector bar on mobile */
   .header-selectors { display: none; }
 
-  /* WCAG 2.1 AA — 44px min touch targets */
+  /* WCAG 2.1 AA, 44px min touch targets */
   .profile-pill,
   .selector-btn,
   .btn-auth-ghost,
@@ -1159,13 +1159,13 @@ footer a:hover { text-decoration: underline; }
   }
 }
 
-/* Card visual hierarchy — Meal name & badges */
+/* Card visual hierarchy, Meal name & badges */
 .meal-name { font-weight: 600; }
 .risk-dot { width: 11px; height: 11px; }
 .badge-prep, .badge-season { font-weight: 700; }
 
 /* ═══════════════════════════════════════════════════════════
-   PRINT — courses
+   PRINT, courses
    ═══════════════════════════════════════════════════════════ */
 @media print {
   #site-header, .bottom-bar, #menu, #historique,
@@ -1179,7 +1179,7 @@ footer a:hover { text-decoration: underline; }
 }
 
 /* ═══════════════════════════════════════════════════════════
-   PRINT FRIGO — overlay A4 paysage
+   PRINT FRIGO, overlay A4 paysage
    ═══════════════════════════════════════════════════════════ */
 #print-frigo-overlay { display: none; }
 
@@ -1467,7 +1467,7 @@ textarea:focus {
   gap: 1rem;
 }
 
-/* ── Boutons — système unifié (BEM, basé sur recettes.css) ───
+/* ── Boutons, système unifié (BEM, basé sur recettes.css) ───
    .btn (base) + variantes : .btn--primary, .btn--ghost, .btn--block
    Variante landing pages dédiée : .btn--landing (plus bas, ~ligne 2238) */
 .btn {
@@ -1691,7 +1691,7 @@ textarea:focus {
 }
 
 /* ============================================================
-   UPGRADE MODAL (contextuel — fonctionnalité premium verrouillée)
+   UPGRADE MODAL (contextuel, fonctionnalité premium verrouillée)
    ============================================================ */
 
 #upgrade-modal {
@@ -1850,7 +1850,7 @@ textarea:focus {
   background-color: var(--prep-slow);
 }
 
-/* Tooltip on hover — matches .risk-dot::after style */
+/* Tooltip on hover, matches .risk-dot::after style */
 .prep-time-badge::after {
   content: attr(data-tooltip);
   position: absolute;
@@ -2035,7 +2035,7 @@ body.modal-open { overflow: hidden; }
   box-shadow: var(--shadow-hover);
 }
 
-/* ── Fiche technique — bottom sheet ─────────────────────── */
+/* ── Fiche technique, bottom sheet ─────────────────────── */
 
 /* Chevron sur les repas cliquables */
 .meal-row--clickable { cursor: pointer; }
@@ -2131,7 +2131,7 @@ body.modal-open { overflow: hidden; }
   }
 }
 
-/* Bouton fermer — 44px touch target (WCAG AA) */
+/* Bouton fermer, 44px touch target (WCAG AA) */
 .fiche-close {
   position: absolute;
   top: .6rem;
@@ -2351,7 +2351,7 @@ body.modal-open { overflow: hidden; }
 
 
 /* ============================================================
-   LANDING PAGE — Phase 4 design system extensions
+   LANDING PAGE, Phase 4 design system extensions
    ============================================================ */
 
 /* --- Boutons landing ----------------------------------------- */
@@ -2475,10 +2475,10 @@ body.modal-open { overflow: hidden; }
   color: var(--green-800);
 }
 
-/* --- Placeholder image — masqué en direction solaire --------- */
+/* --- Placeholder image, masqué en direction solaire --------- */
 /* Les placeholders hachurés "PLAT" sortaient de l'esprit lumineux ;
    les .img-placeholder du week-strip sont décoratifs et n'ajoutent
-   rien de signal — on les retire complètement. */
+   rien de signal, on les retire complètement. */
 .img-placeholder { display: none; }
 
 /* ============================================================
@@ -2558,9 +2558,9 @@ body.modal-open { overflow: hidden; }
 .landing-header__user-btn:hover { background: var(--green-300); }
 
 /* ── User dropdown menu ── */
-/* Dropdown Mon compte — aligné sur le style des modales Préférences
+/* Dropdown Mon compte, aligné sur le style des modales Préférences
    (tokens partout, padding aéré, hover Grove, animation d'apparition).
-   Note : le toggle JS met display:flex — on force flex-direction:column
+   Note : le toggle JS met display:flex, on force flex-direction:column
    pour empêcher header + body de s'aligner en row (bug visuel). */
 .user-menu-dropdown {
   position: fixed;
@@ -2627,7 +2627,7 @@ body.modal-open { overflow: hidden; }
 }
 .user-menu-btn:hover { background: var(--cream-50); color: var(--green-800); }
 
-/* Bouton "Se déconnecter" — variante danger subtile sans hex hardcodé.
+/* Bouton "Se déconnecter", variante danger subtile sans hex hardcodé.
    Le bouton dans le markup est repéré par son id #btn-logout. */
 #btn-logout { color: var(--text-secondary); }
 #btn-logout:hover { color: #B91C1C; background: var(--cream-100); }
@@ -2648,7 +2648,7 @@ body.modal-open { overflow: hidden; }
 }
 
 /* ============================================================
-   TOAST NOTIFICATIONS — disponibles partout via auth.js fallback
+   TOAST NOTIFICATIONS, disponibles partout via auth.js fallback
    ============================================================ */
 #toast-container {
   position: fixed;
@@ -2741,10 +2741,10 @@ body.modal-open { overflow: hidden; }
 .toast.removing { animation: toastSlideUp 0.3s ease-out forwards; }
 
 /* ============================================================
-   MEAL WARNING — tag inline sous le nom du plat
+   MEAL WARNING, tag inline sous le nom du plat
    ============================================================ */
 
-/* Tag inline — affiché sous le nom quand le plat ne correspond pas aux prefs */
+/* Tag inline, affiché sous le nom quand le plat ne correspond pas aux prefs */
 .meal-warning-tag {
   display: inline-flex;
   align-items: center;
@@ -2762,7 +2762,7 @@ body.modal-open { overflow: hidden; }
   line-height: 1.4;
 }
 
-/* Ancien bloc séparé — conservé au cas où mais plus généré */
+/* Ancien bloc séparé, conservé au cas où mais plus généré */
 .meal-warning {
   display: flex;
   align-items: center;
@@ -2835,7 +2835,7 @@ body.modal-open { overflow: hidden; }
 }
 
 /* ============================================================
-   PREMIUM UPGRADE MODAL — ouverte depuis meal-warning CTA
+   PREMIUM UPGRADE MODAL, ouverte depuis meal-warning CTA
    ============================================================ */
 .premium-modal {
   position: fixed;
@@ -3033,10 +3033,10 @@ body.modal-open { overflow: hidden; }
     height: 6px;
   }
 
-  /* Actions header — compactes sur mobile.
+  /* Actions header, compactes sur mobile.
      Sur petit écran le pill bouffe l'espace et entre en compétition
      visuelle avec le logo (centre visuel parasite). On bascule en
-     text-link discret en Grove — moins lourd, reste accrocheur. */
+     text-link discret en Grove, moins lourd, reste accrocheur. */
   .landing-header__actions {
     gap: 6px;
   }
@@ -3055,7 +3055,7 @@ body.modal-open { overflow: hidden; }
     text-decoration: underline;
     text-underline-offset: 3px;
   }
-  /* CTA "Commencer — c'est gratuit" : compact (pill) */
+  /* CTA "Commencer, c'est gratuit" : compact (pill) */
   .landing-header__actions .btn--landing-sm {
     padding: 7px 14px;
     font-size: 12px;
@@ -3124,7 +3124,7 @@ body.modal-open { overflow: hidden; }
 .auth-modal__close:hover { background: var(--cream-100); color: var(--ink-700); }
 
 /* Logo cube retiré du markup (commit refresh modale auth). Les règles
-   .auth-modal__logo* ne sont plus utilisées — cleanup possible plus tard. */
+   .auth-modal__logo* ne sont plus utilisées, cleanup possible plus tard. */
 
 .auth-modal__title {
   font-family: var(--font-display);
@@ -3188,7 +3188,7 @@ body.modal-open { overflow: hidden; }
   margin: 4px 0 0;
 }
 
-/* "Mot de passe oublié ?" — entre le bouton submit et le footer.
+/* "Mot de passe oublié ?", entre le bouton submit et le footer.
    Discret pour ne pas concurrencer le CTA principal. */
 .auth-modal__forgot {
   text-align: center;
@@ -3220,7 +3220,7 @@ body.modal-open { overflow: hidden; }
 .auth-modal__link:hover { color: var(--green-900); }
 
 /* ============================================================
-   PROFILES MODAL — Profils familiaux
+   PROFILES MODAL, Profils familiaux
    ============================================================ */
 .profiles-modal {
   position: fixed;
@@ -3415,7 +3415,7 @@ body.modal-open { overflow: hidden; }
 }
 
 /* ============================================================
-   PREFERENCE MODAL — Préférences alimentaires d'un profil
+   PREFERENCE MODAL, Préférences alimentaires d'un profil
    ============================================================ */
 .preference-modal {
   position: fixed;
@@ -3556,7 +3556,7 @@ body.modal-open { overflow: hidden; }
   .preference-modal__body { padding: var(--space-4); }
 }
 
-/* Preference tags — chip "Votre menu" (rendu par app.js renderPreferenceTags) */
+/* Preference tags, chip "Votre menu" (rendu par app.js renderPreferenceTags) */
 .preference-tags__heading {
   font-weight: 600;
   color: var(--green-800);
@@ -3580,7 +3580,7 @@ body.modal-open { overflow: hidden; }
 }
 
 /* ============================================================
-   PREFERENCES PAGE — page dédiée /preferences.html
+   PREFERENCES PAGE, page dédiée /preferences.html
    ============================================================ */
 .preferences-page {
   max-width: 720px;
@@ -3633,7 +3633,7 @@ body.modal-open { overflow: hidden; }
 }
 
 /* ============================================================
-   LANDING — HERO
+   LANDING, HERO
    ============================================================ */
 .landing-hero {
   display: grid;
@@ -3797,7 +3797,7 @@ body.modal-open { overflow: hidden; }
 }
 
 /* ============================================================
-   LANDING — DIFFERENTIATOR STRIP
+   LANDING, DIFFERENTIATOR STRIP
    ============================================================ */
 .landing-strip {
   padding: 32px 48px;
@@ -3841,7 +3841,7 @@ body.modal-open { overflow: hidden; }
 }
 
 /* ============================================================
-   LANDING — HOW IT WORKS
+   LANDING, HOW IT WORKS
    ============================================================ */
 .landing-how {
   padding: 80px 48px;
@@ -3917,7 +3917,7 @@ body.modal-open { overflow: hidden; }
 }
 
 /* ============================================================
-   LANDING — WEEK PREVIEW
+   LANDING, WEEK PREVIEW
    ============================================================ */
 .landing-preview {
   padding: 0 48px 80px;
@@ -4016,7 +4016,7 @@ body.modal-open { overflow: hidden; }
 }
 
 /* ============================================================
-   LANDING — PRICING
+   LANDING, PRICING
    ============================================================ */
 .landing-pricing {
   padding: 64px 48px;
@@ -4096,7 +4096,7 @@ body.modal-open { overflow: hidden; }
 }
 
 /* ============================================================
-   LANDING — FOOTER (minimaliste)
+   LANDING, FOOTER (minimaliste)
    ============================================================ */
 .landing-footer {
   padding: 48px 48px 56px;
@@ -4133,7 +4133,7 @@ body.modal-open { overflow: hidden; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   DIRECTION SOLAIRE — Override composants
+   DIRECTION SOLAIRE, Override composants
    Phase 2 + 3 · Mai 2026
    Append en fin de fichier : la cascade CSS garantit que ces
    règles écrasent les définitions antérieures sans toucher au
@@ -4284,8 +4284,8 @@ body.modal-open { overflow: hidden; }
   background: linear-gradient(135deg, var(--green-800), var(--green-600));
 }
 
-/* ── Phase 2 · Score circles — classes additionnelles ────────── */
-/* Landing demo (.score-circle) — toujours grade A dans le hero */
+/* ── Phase 2 · Score circles, classes additionnelles ────────── */
+/* Landing demo (.score-circle), toujours grade A dans le hero */
 .score-circle {
   background: linear-gradient(145deg, #3DD88E, var(--score-a-fill));
   color: var(--white);

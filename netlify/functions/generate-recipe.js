@@ -1,19 +1,19 @@
 // Netlify Function : proxy sécurisé vers l'API Claude
-// Clé API dans les variables d'env Netlify — jamais dans le code
+// Clé API dans les variables d'env Netlify, jamais dans le code
 // Utilise fetch natif (Node 18+) pour éviter les problèmes de bundling esbuild avec le SDK
 
 // Contraintes santé communes aux deux modes
 const HEALTH_CONSTRAINTS = `
 CONTRAINTES SANTÉ (toujours actives) :
 - Anti-cadmium : limiter pommes de terre (max 3×/semaine), pain blanc, céréales industrielles
-- Anti-mercure : pas de thon ni espadon, saumon max 2×/mois — préférer cabillaud, lieu noir, maquereau
+- Anti-mercure : pas de thon ni espadon, saumon max 2×/mois, préférer cabillaud, lieu noir, maquereau
 - Pesticides : fruits bio recommandés pour fraises, raisins, pêches, pommes
 - Élevage : préférer volailles Label Rouge ou plein air, œufs code 0 ou 1
 - Privilégier légumineuses (lentilles, pois chiches, haricots), poissons blancs, légumes colorés`;
 
 // Profils génériques
 const PROFILES = {
-  famille: "Famille avec enfants : 4 portions adultes et enfants. Pas épicé (enfants) — paprika doux, cumin, curcuma OK, pas de piment ni curry fort. Recette accessible et conviviale.",
+  famille: "Famille avec enfants : 4 portions adultes et enfants. Pas épicé (enfants), paprika doux, cumin, curcuma OK, pas de piment ni curry fort. Recette accessible et conviviale.",
   couple: "Couple adulte : 2 portions. Peut être légèrement relevé mais rester accessible.",
   solo: "1 personne adulte : 1 portion."
 };

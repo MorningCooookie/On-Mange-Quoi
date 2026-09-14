@@ -4,7 +4,7 @@
   "healthScore": "A",
   "healthScoreHighlights": [
     "3 poissons sûrs · Cabillaud, sardines, truite de France",
-    "Pâtes bolognaises mercredi — le plat préféré des enfants",
+    "Pâtes bolognaises mercredi, le plat préféré des enfants",
     "20 plats de saison sur 28 🌸",
     "Gigot d'agneau de lait dominical"
   ],
@@ -20,7 +20,7 @@
           "riskType": null,
           "prepTime": "2",
           "isSeasonal": true,
-          "note": "Granola sans sucre ajouté — premières fraises françaises, choisir bio"
+          "note": "Granola sans sucre ajouté, premières fraises françaises, choisir bio"
         },
         "lunch": {
           "name": "Poulet fermier sauté aux asperges, quinoa",
@@ -29,7 +29,7 @@
           "riskType": null,
           "prepTime": "25",
           "isSeasonal": true,
-          "note": "Hauts de cuisse Label Rouge — asperges en plein pic de saison"
+          "note": "Hauts de cuisse Label Rouge, asperges en plein pic de saison"
         },
         "snack": {
           "name": "Pomme fraîche, noix",
@@ -47,7 +47,7 @@
           "riskType": null,
           "prepTime": "20",
           "isSeasonal": false,
-          "note": "Lentilles corail riches en fer — carottes anti-cadmium naturel"
+          "note": "Lentilles corail riches en fer, carottes anti-cadmium naturel"
         }
       }
     },
@@ -62,7 +62,7 @@
           "riskType": null,
           "prepTime": "10",
           "isSeasonal": false,
-          "note": "Flocons d'avoine nature — pas de céréales industrielles"
+          "note": "Flocons d'avoine nature, pas de céréales industrielles"
         },
         "lunch": {
           "name": "Cabillaud vapeur, petits pois à la menthe, riz basmati",
@@ -71,7 +71,7 @@
           "riskType": null,
           "prepTime": "25",
           "isSeasonal": true,
-          "note": "Cabillaud MSC — petits pois en pleine saison, riz basmati faible en cadmium"
+          "note": "Cabillaud MSC, petits pois en pleine saison, riz basmati faible en cadmium"
         },
         "snack": {
           "name": "Fromage blanc, miel",
@@ -89,7 +89,7 @@
           "riskType": null,
           "prepTime": "15",
           "isSeasonal": true,
-          "note": "Œufs label rouge — radis et laitue de saison"
+          "note": "Œufs label rouge, radis et laitue de saison"
         }
       }
     },
@@ -104,7 +104,7 @@
           "riskType": null,
           "prepTime": "10",
           "isSeasonal": false,
-          "note": "Pain de boulanger — œuf label rouge code 0 ou 1"
+          "note": "Pain de boulanger, œuf label rouge code 0 ou 1"
         },
         "lunch": {
           "name": "Sauté de dinde, pommes de terre nouvelles et petits pois",
@@ -113,7 +113,7 @@
           "riskType": null,
           "prepTime": "25",
           "isSeasonal": true,
-          "note": "Dinde Label Rouge — pommes de terre nouvelles et petits pois de saison"
+          "note": "Dinde Label Rouge, pommes de terre nouvelles et petits pois de saison"
         },
         "snack": {
           "name": "Yaourt grec, fraises de saison",
@@ -122,7 +122,7 @@
           "riskType": null,
           "prepTime": "2",
           "isSeasonal": true,
-          "note": "Fraises françaises — choisir bio"
+          "note": "Fraises françaises, choisir bio"
         },
         "dinner": {
           "name": "Pâtes bolognaises, bœuf haché Label Rouge, parmesan",
@@ -131,7 +131,7 @@
           "riskType": null,
           "prepTime": "25",
           "isSeasonal": false,
-          "note": "Le plat préféré des enfants — bœuf haché LR, sauce tomate concassée"
+          "note": "Le plat préféré des enfants, bœuf haché LR, sauce tomate concassée"
         }
       }
     },
@@ -146,7 +146,7 @@
           "riskType": null,
           "prepTime": "8",
           "isSeasonal": true,
-          "note": "Épinards frais de saison — pain au levain artisanal"
+          "note": "Épinards frais de saison, pain au levain artisanal"
         },
         "lunch": {
           "name": "Sardines marinées, tabulé de quinoa aux petits pois et menthe",
@@ -155,7 +155,7 @@
           "riskType": null,
           "prepTime": "20",
           "isSeasonal": true,
-          "note": "Sardines MSC, riches en oméga-3 — petits pois de saison"
+          "note": "Sardines MSC, riches en oméga-3, petits pois de saison"
         },
         "snack": {
           "name": "Fraises de saison, amandes",
@@ -164,7 +164,7 @@
           "riskType": null,
           "prepTime": "2",
           "isSeasonal": true,
-          "note": "Fraises françaises — choisir bio"
+          "note": "Fraises françaises, choisir bio"
         },
         "dinner": {
           "name": "Velouté de brocoli au comté, croûtons de pain complet",
@@ -173,7 +173,7 @@
           "riskType": null,
           "prepTime": "20",
           "isSeasonal": true,
-          "note": "Brocoli de fin de saison — comté pour le calcium"
+          "note": "Brocoli de fin de saison, comté pour le calcium"
         }
       }
     },
@@ -188,7 +188,7 @@
           "riskType": null,
           "prepTime": "2",
           "isSeasonal": true,
-          "note": "Petit-déjeuner express — fraises de saison en accompagnement"
+          "note": "Petit-déjeuner express, fraises de saison en accompagnement"
         },
         "lunch": {
           "name": "Gratin de pommes de terre nouvelles aux lardons et comté",
@@ -197,7 +197,7 @@
           "riskType": null,
           "prepTime": "30",
           "isSeasonal": true,
-          "note": "Pommes de terre nouvelles de saison — lardons fumés en petite quantité"
+          "note": "Pommes de terre nouvelles de saison, lardons fumés en petite quantité"
         },
         "snack": {
           "name": "Compote de pommes, biscuit",
@@ -215,7 +215,7 @@
           "riskType": null,
           "prepTime": "20",
           "isSeasonal": true,
-          "note": "Plat apprécié des enfants — petits pois de saison, riz basmati"
+          "note": "Plat apprécié des enfants, petits pois de saison, riz basmati"
         }
       }
     },
@@ -230,7 +230,7 @@
           "riskType": null,
           "prepTime": "20",
           "isSeasonal": true,
-          "note": "Petit-déjeuner du week-end — farine T65, sans céréales industrielles"
+          "note": "Petit-déjeuner du week-end, farine T65, sans céréales industrielles"
         },
         "lunch": {
           "name": "Risotto aux asperges vertes et parmesan",
@@ -239,7 +239,7 @@
           "riskType": null,
           "prepTime": "35",
           "isSeasonal": true,
-          "note": "Asperges au pic de saison — riz arborio, parmesan en petite quantité"
+          "note": "Asperges au pic de saison, riz arborio, parmesan en petite quantité"
         },
         "snack": {
           "name": "Fraises fraîches, fromage blanc",
@@ -248,7 +248,7 @@
           "riskType": null,
           "prepTime": "2",
           "isSeasonal": true,
-          "note": "Simple et de saison — fraises françaises bio"
+          "note": "Simple et de saison, fraises françaises bio"
         },
         "dinner": {
           "name": "Gnocchis sautés aux épinards et ricotta",
@@ -257,7 +257,7 @@
           "riskType": null,
           "prepTime": "15",
           "isSeasonal": true,
-          "note": "Plat festif et rapide — épinards de saison, ricotta crémeuse"
+          "note": "Plat festif et rapide, épinards de saison, ricotta crémeuse"
         }
       }
     },
@@ -272,7 +272,7 @@
           "riskType": null,
           "prepTime": "20",
           "isSeasonal": false,
-          "note": "Brunch dominical — truite fumée de France, moins exposée que le saumon atlantique"
+          "note": "Brunch dominical, truite fumée de France, moins exposée que le saumon atlantique"
         },
         "lunch": {
           "name": "Gigot d'agneau de lait rôti, flageolets et gratin dauphinois",
@@ -281,7 +281,7 @@
           "riskType": null,
           "prepTime": "120",
           "isSeasonal": true,
-          "note": "Agneau de lait de saison — plat festif du dimanche"
+          "note": "Agneau de lait de saison, plat festif du dimanche"
         },
         "snack": {
           "name": "Fraises fraîches, yaourt grec",
@@ -290,7 +290,7 @@
           "riskType": null,
           "prepTime": "2",
           "isSeasonal": true,
-          "note": "Simple et de saison — fraises françaises bio"
+          "note": "Simple et de saison, fraises françaises bio"
         },
         "dinner": {
           "name": "Restes du gigot, salade verte à la moutarde",
@@ -299,7 +299,7 @@
           "riskType": null,
           "prepTime": "10",
           "isSeasonal": true,
-          "note": "Anti-gaspi — les restes du gigot s'utilisent froids ou réchauffés"
+          "note": "Anti-gaspi, les restes du gigot s'utilisent froids ou réchauffés"
         }
       }
     }
@@ -381,11 +381,11 @@
   "healthAlerts": [
     {
       "type": "tip",
-      "message": "Seulement 3 repas poisson cette semaine (cabillaud, sardines, truite fumée) — budget allégé, diversité protéinée assurée par le poulet, la dinde et le bœuf."
+      "message": "Seulement 3 repas poisson cette semaine (cabillaud, sardines, truite fumée), budget allégé, diversité protéinée assurée par le poulet, la dinde et le bœuf."
     },
     {
       "type": "info",
-      "message": "Les asperges et petits pois sont en plein pic de saison — profitez-en avant fin avril."
+      "message": "Les asperges et petits pois sont en plein pic de saison, profitez-en avant fin avril."
     }
   ]
 }

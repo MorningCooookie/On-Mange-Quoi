@@ -29,7 +29,7 @@
           "riskType": null,
           "prepTime": "35",
           "isSeasonal": true,
-          "note": "Carottes de printemps — riz basmati faible teneur cadmium"
+          "note": "Carottes de printemps, riz basmati faible teneur cadmium"
         },
         "snack": {
           "name": "Pomme fraîche, fromage blanc",
@@ -47,7 +47,7 @@
           "riskType": null,
           "prepTime": "20",
           "isSeasonal": true,
-          "note": "Poireaux de printemps — lentilles corail riche en fer, anti-cadmium"
+          "note": "Poireaux de printemps, lentilles corail riche en fer, anti-cadmium"
         }
       }
     },
@@ -62,7 +62,7 @@
           "riskType": "cadmium",
           "prepTime": "10",
           "isSeasonal": true,
-          "note": "Œufs code 0 ou 1 — pain de campagne : source modérée de cadmium via le blé, préférer pain au levain"
+          "note": "Œufs code 0 ou 1, pain de campagne : source modérée de cadmium via le blé, préférer pain au levain"
         },
         "lunch": {
           "name": "Saumon vapeur, brocolis, quinoa",
@@ -71,7 +71,7 @@
           "riskType": "elevage",
           "prepTime": "20",
           "isSeasonal": true,
-          "note": "Brocolis de printemps — saumon d'élevage max 2×/mois"
+          "note": "Brocolis de printemps, saumon d'élevage max 2×/mois"
         },
         "snack": {
           "name": "Poire fraîche, amandes nature",
@@ -89,7 +89,7 @@
           "riskType": null,
           "prepTime": "30",
           "isSeasonal": true,
-          "note": "Carottes et poireaux de printemps — pois chiches bio"
+          "note": "Carottes et poireaux de printemps, pois chiches bio"
         }
       }
     },
@@ -104,7 +104,7 @@
           "riskType": null,
           "prepTime": "5",
           "isSeasonal": true,
-          "note": "Granola fait maison — fraises bio (fort risque pesticides)"
+          "note": "Granola fait maison, fraises bio (fort risque pesticides)"
         },
         "lunch": {
           "name": "Escalope de dinde plein air, purée de carottes, salade verte",
@@ -113,7 +113,7 @@
           "riskType": null,
           "prepTime": "25",
           "isSeasonal": true,
-          "note": "Carottes de printemps — dinde Label Rouge ou plein air"
+          "note": "Carottes de printemps, dinde Label Rouge ou plein air"
         },
         "snack": {
           "name": "Banane, carré de chocolat noir 70%",
@@ -122,7 +122,7 @@
           "riskType": "cadmium",
           "prepTime": "2",
           "isSeasonal": false,
-          "note": "Chocolat noir : teneur en cadmium modérée — consommation occasionnelle"
+          "note": "Chocolat noir : teneur en cadmium modérée, consommation occasionnelle"
         },
         "dinner": {
           "name": "Soupe poireaux, œuf dur, pain levain",
@@ -154,7 +154,7 @@
           "riskType": null,
           "prepTime": "30",
           "isSeasonal": true,
-          "note": "Haricots blancs : légumineuse anti-cadmium — carottes de saison"
+          "note": "Haricots blancs : légumineuse anti-cadmium, carottes de saison"
         },
         "snack": {
           "name": "Clémentines, fromage blanc",
@@ -172,7 +172,7 @@
           "riskType": null,
           "prepTime": "25",
           "isSeasonal": true,
-          "note": "Fenouil de printemps — cabillaud très faible teneur en polluants"
+          "note": "Fenouil de printemps, cabillaud très faible teneur en polluants"
         }
       }
     },
@@ -187,7 +187,7 @@
           "riskType": "cadmium",
           "prepTime": "15",
           "isSeasonal": true,
-          "note": "Pain blanc : source modérée de cadmium — préférer du pain au levain pour ce plat"
+          "note": "Pain blanc : source modérée de cadmium, préférer du pain au levain pour ce plat"
         },
         "lunch": {
           "name": "Taboulé de boulgour, roquette fraîche, falafels maison, tzatziki",
@@ -196,7 +196,7 @@
           "riskType": null,
           "prepTime": "30",
           "isSeasonal": true,
-          "note": "Roquette de printemps — boulgour faible indice glycémique"
+          "note": "Roquette de printemps, boulgour faible indice glycémique"
         },
         "snack": {
           "name": "Raisins frais bio, cacahuètes nature",
@@ -214,7 +214,7 @@
           "riskType": null,
           "prepTime": "30",
           "isSeasonal": true,
-          "note": "5ème légumineuse de la semaine — roquette de saison"
+          "note": "5ème légumineuse de la semaine, roquette de saison"
         }
       }
     },
@@ -229,7 +229,7 @@
           "riskType": null,
           "prepTime": "20",
           "isSeasonal": true,
-          "note": "Recette sans farine industrielle — fraises bio"
+          "note": "Recette sans farine industrielle, fraises bio"
         },
         "lunch": {
           "name": "Poulet basquaise Label Rouge, riz basmati, salade verte",
@@ -238,7 +238,7 @@
           "riskType": null,
           "prepTime": "45",
           "isSeasonal": true,
-          "note": "Poulet Label Rouge, salade verte de printemps — plat mijoté"
+          "note": "Poulet Label Rouge, salade verte de printemps, plat mijoté"
         },
         "snack": {
           "name": "Kiwi, yaourt à la vanille naturelle",
@@ -255,7 +255,7 @@
           "riskType": null,
           "prepTime": "40",
           "isSeasonal": false,
-          "note": "Pâte maison ou levain — éviter les pizzas industrielles"
+          "note": "Pâte maison ou levain, éviter les pizzas industrielles"
         }
       }
     },
@@ -270,7 +270,7 @@
           "riskType": "cadmium",
           "prepTime": "20",
           "isSeasonal": false,
-          "note": "Brioche à base de farine de blé : source modérée de cadmium — repas festif du dimanche, ponctuel"
+          "note": "Brioche à base de farine de blé : source modérée de cadmium, repas festif du dimanche, ponctuel"
         },
         "lunch": {
           "name": "Gigot d'agneau, flageolets, gratin dauphinois",
@@ -279,7 +279,7 @@
           "riskType": "cadmium",
           "prepTime": "90",
           "isSeasonal": false,
-          "note": "Gratin dauphinois : pommes de terre = 1ère source cadmium chez l'adulte — flageolets compensent l'absorption"
+          "note": "Gratin dauphinois : pommes de terre = 1ère source cadmium chez l'adulte, flageolets compensent l'absorption"
         },
         "snack": {
           "name": "Salade de fraises et pommes fraîches",
@@ -288,7 +288,7 @@
           "riskType": null,
           "prepTime": "10",
           "isSeasonal": true,
-          "note": "Fraises de saison — début de printemps"
+          "note": "Fraises de saison, début de printemps"
         },
         "dinner": {
           "name": "Velouté poireaux-chèvre, œuf mollet, pain levain",
@@ -297,7 +297,7 @@
           "riskType": null,
           "prepTime": "20",
           "isSeasonal": true,
-          "note": "Poireaux de printemps — velouté léger"
+          "note": "Poireaux de printemps, velouté léger"
         }
       }
     }
@@ -387,11 +387,11 @@
   ],
   "healthAlerts": {
     "news": [
-      "ANSES 2026 : le pain et les produits céréaliers (pain de campagne, brioche, pâtes) représentent 20 à 30 % de l'exposition au cadmium chez les adultes français. Privilégier le pain au levain — la fermentation réduit la biodisponibilité du cadmium.",
+      "ANSES 2026 : le pain et les produits céréaliers (pain de campagne, brioche, pâtes) représentent 20 à 30 % de l'exposition au cadmium chez les adultes français. Privilégier le pain au levain, la fermentation réduit la biodisponibilité du cadmium.",
       "ANSES 2026 : les pommes de terre sont la 1ère source de cadmium chez l'adulte en France. Limiter à 3–4 fois par semaine et ne pas les manger tous les jours.",
       "ANSES 2026 : les céréales complètes industrielles (corn flakes, muesli sucré) restent la 1ère source d'exposition au cadmium chez les enfants de 3 à 10 ans. Préférer les flocons d'avoine nature.",
-      "ANSES fév. 2026 : 1 enfant sur 15 dépasse les seuils tolérables en mercure — le thon en conserve reste la principale source. Max 1 fois/2 semaines pour les enfants.",
-      "Générations Futures 2025 : 73 % des fruits non-bio analysés présentent des résidus de pesticides. Fraises, raisins et pêches en tête — acheter bio en priorité.",
+      "ANSES fév. 2026 : 1 enfant sur 15 dépasse les seuils tolérables en mercure, le thon en conserve reste la principale source. Max 1 fois/2 semaines pour les enfants.",
+      "Générations Futures 2025 : 73 % des fruits non-bio analysés présentent des résidus de pesticides. Fraises, raisins et pêches en tête, acheter bio en priorité.",
       "Étude INRAE 2025 : consommer des légumineuses régulièrement (lentilles, pois chiches, haricots) réduit l'absorption intestinale du cadmium grâce aux phytates et au zinc."
     ]
   }

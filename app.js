@@ -1,9 +1,9 @@
 /* ============================================================
-   ON MANGE QUOI ? — app.js
+   ON MANGE QUOI ? : app.js
    Vanilla JS · Fetch-based · No dependencies
    ============================================================ */
 
-// Fix 3 — reset URL hash avant tout scroll automatique du navigateur
+// Fix 3 : reset URL hash avant tout scroll automatique du navigateur
 if (window.location.hash) {
   history.replaceState(null, null, ' ');
   window.scrollTo(0, 0);
@@ -19,9 +19,9 @@ const state = {
   veilleData: null,     // External health news (independent of menu)
   currentProfile: 'famille_jeunes_enfants',
   currentStore: 'discount',
-  checkedItems: {},   // { "Cat__idx": true }  — progress mode
+  checkedItems: {},   // { "Cat__idx": true }  : progress mode
   fridgeMode: false,
-  fridgeItems: {},    // { "Cat__idx": true }  — already owned
+  fridgeItems: {},    // { "Cat__idx": true }  : already owned
   isViewingCurrentMenu: true,
   supabaseProfileId: null,  // User profile UUID from Supabase
   supabaseProfileName: null // User profile name (for filtering)
@@ -162,7 +162,7 @@ function riskTooltip(level, type) {
     elevage:    'Élevage intensif'
   };
   const l = level === 'medium' ? 'modéré' : 'élevé';
-  const t = labels[type] ? ` — ${labels[type]}` : '';
+  const t = labels[type] ? ` : ${labels[type]}` : '';
   return `Risque ${l}${t}`;
 }
 
@@ -174,10 +174,10 @@ function getPriceFreshness(dateStr) {
   if (days < 90) {
     const d = new Date(dateStr + 'T12:00:00');
     const m = d.toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
-    return { color: '#CA8A04', msg: `Prix de ${m} — à vérifier en magasin` };
+    return { color: '#CA8A04', msg: `Prix de ${m}, à vérifier en magasin` };
   }
   const d = new Date(dateStr + 'T12:00:00');
-  return { color: '#DC2626', msg: `Prix potentiellement obsolètes — mis à jour le ${d.toLocaleDateString('fr-FR')}` };
+  return { color: '#DC2626', msg: `Prix potentiellement obsolètes, mis à jour le ${d.toLocaleDateString('fr-FR')}` };
 }
 
 // ── Item label class ───────────────────────────────────────
@@ -232,7 +232,7 @@ async function loadData() {
   // Chemins absolus pour éviter tout bug de résolution d'URL sur mobile
   let cfg, menu, hist;
 
-  // Calcule la semaine courante dynamiquement — avec fallback sur la semaine précédente
+  // Calcule la semaine courante dynamiquement, avec fallback sur la semaine précédente
   const currentMonday = getCurrentMenuMonday();
   const prevMonday = (() => {
     const d = new Date(currentMonday + 'T12:00:00');
@@ -252,10 +252,10 @@ async function loadData() {
   try {
     let cfg, menu, hist, veille;
     [cfg, menu, hist, veille] = await Promise.all([
-      fetch('/data/config.json').then(r => { if (!r.ok) throw new Error(`HTTP ${r.status} — config.json`); return r.json(); }),
+      fetch('/data/config.json').then(r => { if (!r.ok) throw new Error(`HTTP ${r.status} : config.json`); return r.json(); }),
       fetchMenu(),
-      fetch('/data/history.json').then(r => { if (!r.ok) throw new Error(`HTTP ${r.status} — history.json`); return r.json(); }),
-      fetch('/data/veille.json').then(r => { if (!r.ok) throw new Error(`HTTP ${r.status} — veille.json`); return r.json(); })
+      fetch('/data/history.json').then(r => { if (!r.ok) throw new Error(`HTTP ${r.status} : history.json`); return r.json(); }),
+      fetch('/data/veille.json').then(r => { if (!r.ok) throw new Error(`HTTP ${r.status} : veille.json`); return r.json(); })
     ]);
 
     state.config      = cfg;
@@ -325,7 +325,7 @@ function renderAll() {
   });
 }
 
-// Fix 1 — labels courts pour la bottom bar mobile
+// Fix 1 : labels courts pour la bottom bar mobile
 const PROFILE_SHORT_LABELS = {
   famille_jeunes_enfants: 'Famille',
   couple:                 'Couple',
@@ -464,13 +464,13 @@ function renderMenu() {
     return; // Exit early, renderMenu will be called again after substitution
   }
 
-  // Preferences feature is disabled — no message needed
+  // Preferences feature is disabled, no message needed
   // Users with preferences simply see the menu as-is
 
   // History banner
   renderHistoryBanner();
 
-  // Fix 2 — swipe hint: hide on first scroll
+  // Fix 2 : swipe hint: hide on first scroll
   const hint = document.getElementById('swipe-hint');
   if (hint) {
     const onFirstScroll = () => {
@@ -554,7 +554,7 @@ function renderMenu() {
             </div>`;
         }
       }
-      // Fiche technique — repas cliquable si ingrédients disponibles (pas de snack)
+      // Fiche technique : repas cliquable si ingrédients disponibles (pas de snack)
       const isClickable = type !== 'snack' && (meal.ingredients?.length > 0);
       if (isClickable) rowClass += ' meal-row--clickable';
       row.className = rowClass;
@@ -822,7 +822,7 @@ function updateFridgeBar() {
 
   const txt = bar.querySelector('.fridge-bar-text');
   if (txt) {
-    txt.innerHTML = `🧊 <strong>${count} article${count > 1 ? 's' : ''} déjà disponible${count > 1 ? 's' : ''}</strong> — vous économisez <strong>${fmt(amount)}</strong>`;
+    txt.innerHTML = `🧊 <strong>${count} article${count > 1 ? 's' : ''} déjà disponible${count > 1 ? 's' : ''}</strong>, vous économisez <strong>${fmt(amount)}</strong>`;
   }
 }
 
@@ -884,7 +884,7 @@ function renderBudget() {
   // Mise à jour du budget quick view dans la toolbar courses
   document.querySelectorAll('.budget-amount').forEach(el => { el.textContent = fmt(cur); });
 
-  // Fix 4 — Solo : masquer les lignes redondantes
+  // Fix 4 : Solo, masquer les lignes redondantes
   const perPersonItem    = document.getElementById('budget-per-person')?.parentElement;
   const perPersonDayItem = document.getElementById('budget-per-person-day')?.parentElement;
   const personsItem      = document.getElementById('budget-persons')?.parentElement;
@@ -938,7 +938,7 @@ function renderHistory() {
   grid.innerHTML = '';
 
   state.historyData.menus.forEach((menu, i) => {
-    if (i === 0) return; // semaine en cours — affichée sur la page principale, pas dans l'historique
+    if (i === 0) return; // semaine en cours, affichée sur la page principale, pas dans l'historique
     const card = document.createElement('div');
     card.className = 'history-card';
 
@@ -994,7 +994,7 @@ function copyShoppingList() {
   const store   = state.config.stores[state.currentStore];
 
   const lines = [
-    '🛒 Liste de courses — On mange quoi ?',
+    '🛒 Liste de courses, On mange quoi ?',
     `Profil : ${profile.emoji} ${profile.label}`,
     `Enseigne : ${store.label}`,
     ''
@@ -1007,7 +1007,7 @@ function copyShoppingList() {
     });
     if (!visibleItems.length) return;
     lines.push(`${cat.emoji} ${cat.category}`);
-    visibleItems.forEach(item => lines.push(`  ☐ ${item.name} (${item.qty}) — ${fmt(calcItemPrice(item))}`));
+    visibleItems.forEach(item => lines.push(`  ☐ ${item.name} (${item.qty}) : ${fmt(calcItemPrice(item))}`));
     lines.push('');
   });
 
@@ -1056,7 +1056,7 @@ function resetFridge() {
   renderShoppingList();
   updateFridgeBar();
   renderBudget();
-  showToast('Frigo remis à zéro — bonne semaine');
+  showToast('Frigo remis à zéro, bonne semaine');
 }
 
 // ── Print frigo ─────────────────────────────────────────────
@@ -1085,7 +1085,7 @@ function printFrigo() {
   }).join('');
 
   overlay.innerHTML = `
-    <div class="frigo-title">🥗 On mange quoi ? — Semaine du ${formatDate(state.menuData.weekStart)}</div>
+    <div class="frigo-title">🥗 On mange quoi ? Semaine du ${formatDate(state.menuData.weekStart)}</div>
     <div class="frigo-subtitle">Score santé ${state.menuData.healthScore || 'A'} · Imprimé le ${new Date().toLocaleDateString('fr-FR')}</div>
     <div class="frigo-grid">${daysHtml}</div>`;
 
@@ -1129,7 +1129,7 @@ function showToast(msg) {
   toastTimer = setTimeout(() => el.classList.remove('visible'), 3000);
 }
 
-// ── Fiche technique — bottom sheet ─────────────────────────
+// ── Fiche technique : bottom sheet ─────────────────────────
 const FICHE_MEAL_LABELS = {
   breakfast: 'Petit-déj', lunch: 'Déjeuner', snack: 'Goûter', dinner: 'Dîner',
   dejeuner: 'Déjeuner',   diner: 'Dîner',    gouter: 'Goûter'
@@ -1208,7 +1208,7 @@ function openFiche(meal, type, triggerEl) {
   document.getElementById('fiche-overlay').classList.add('is-open');
   document.body.style.overflow = 'hidden';
 
-  // Focus trap — aller sur le bouton × à l'ouverture
+  // Focus trap : aller sur le bouton × à l'ouverture
   requestAnimationFrame(() => document.getElementById('fiche-close')?.focus());
 }
 
@@ -1266,7 +1266,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = `semaine.html?week=${week}`;
   });
 
-  // Fiche technique — fermeture
+  // Fiche technique : fermeture
   document.getElementById('fiche-close')?.addEventListener('click', () => closeFiche());
   document.getElementById('fiche-overlay')?.addEventListener('click', e => {
     if (e.target.id === 'fiche-overlay') closeFiche();
@@ -1275,7 +1275,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape' && ficheState.meal) closeFiche();
   });
 
-  // Fiche technique — sélecteur de profil
+  // Fiche technique : sélecteur de profil
   document.querySelectorAll('#fiche-overlay .fiche-profile-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('#fiche-overlay .fiche-profile-btn').forEach(b =>
@@ -1293,7 +1293,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ============================================
-// FEEDBACK SYSTEM — localStorage Utilities
+// FEEDBACK SYSTEM : localStorage Utilities
 // ============================================
 
 const FEEDBACK_STORAGE = {
@@ -1338,7 +1338,7 @@ const FEEDBACK_STORAGE = {
 };
 
 // ============================================
-// FEEDBACK SYSTEM — Event Handlers
+// FEEDBACK SYSTEM : Event Handlers
 // ============================================
 
 document.addEventListener('click', (e) => {
@@ -1370,7 +1370,7 @@ document.addEventListener('click', (e) => {
 });
 
 // ============================================
-// FEEDBACK SYSTEM — Restore State & Init
+// FEEDBACK SYSTEM : Restore State & Init
 // ============================================
 
 // Restore previous meal ratings from localStorage
@@ -1386,7 +1386,7 @@ function initWeeklyCheckin() {
 }
 
 // ============================================
-// MENU FILTERING — Dietary Personalization
+// MENU FILTERING : Dietary Personalization
 // ============================================
 
 // Get filtered menu data for current profile based on preferences
@@ -1515,7 +1515,7 @@ function renderMealWithSafetyCheck(meal, mealType, dayDate) {
         emailInput.value = '';
         btn.textContent = "S'abonner →";
         btn.disabled = false;
-        showToast('✅ Inscription confirmée — à lundi !');
+        showToast('✅ Inscription confirmée, à lundi !');
       } else {
         btn.disabled = false;
         btn.textContent = "S'abonner →";

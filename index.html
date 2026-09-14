@@ -18,13 +18,13 @@
   <link rel="stylesheet" href="styles.css">
   <!-- Favicon inline -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231B4332'/><circle cx='16' cy='16' r='11' fill='none' stroke='white' stroke-width='2'/><circle cx='16' cy='16' r='6.5' fill='none' stroke='white' stroke-width='1.8'/></svg>">
-  <!-- URL canonique — indique à Google que la version HTTPS est l'URL officielle -->
+  <!-- URL canonique : indique à Google que la version HTTPS est l'URL officielle -->
   <link rel="canonical" href="https://onmangequoi.eu/">
-  <!-- Statistiques de fréquentation — Plausible Analytics (sans cookies, RGPD-compatible) -->
+  <!-- Statistiques de fréquentation : Plausible Analytics (sans cookies, RGPD-compatible) -->
   <script async src="https://plausible.io/js/pa-ZaRseIh-nGhXVtbtWwn2-.js"></script>
   <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
 
-  <!-- Schema.org WebSite + Organization — aide Google à distinguer ce site des autres marques homonymes ("on mange quoi" existe aussi ailleurs) -->
+  <!-- Schema.org WebSite + Organization : aide Google à distinguer ce site des autres marques homonymes ("on mange quoi" existe aussi ailleurs) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -57,7 +57,7 @@
   <!-- ── Header landing ────────────────────────────────────── -->
   <header class="landing-header">
     <div style="display:flex;align-items:center;gap:40px;">
-      <a class="brand--landing" href="/" aria-label="On mange quoi ? — accueil">
+      <a class="brand--landing" href="/" aria-label="On mange quoi ? accueil">
         <span class="brand-mark--landing" aria-hidden="true"></span>
         on mange quoi<span style="color:var(--green-800)">?</span>
       </a>
@@ -75,7 +75,7 @@
     </div>
     <div id="user-menu-header" class="landing-header__user" style="display:none;">
       <button class="landing-header__user-btn" id="user-email-header" type="button">Mon compte ▾</button>
-      <!-- Dropdown user-menu — affiché au clic sur "Mon compte ▾". Le
+      <!-- Dropdown user-menu : affiché au clic sur "Mon compte ▾". Le
            toggle est géré par le listener global plus bas (ligne ~540). -->
       <div id="user-menu" class="user-menu-dropdown" style="display:none;">
         <div class="user-menu-header">
@@ -694,7 +694,7 @@
       setTimeout(removeToast, 3000);
     }
 
-    // Ouvre/ferme le menu Mon compte — position calculée avant affichage.
+    // Ouvre/ferme le menu Mon compte, position calculée avant affichage.
     // On pose le flag AVANT d'attacher, pour qu'auth.js (chargé après)
     // ne crée pas un 2e listener identique qui annulerait celui-ci.
     window.__userMenuToggleAttached = true;
@@ -829,7 +829,7 @@
           // Specific handling for common errors
           let displayMsg = errorMsg;
           if (errorMsg.toLowerCase().includes('not confirmed')) {
-            displayMsg = 'Veuillez d\'abord confirmer votre email — vérifiez votre boîte mail pour le lien d\'activation.';
+            displayMsg = 'Veuillez d\'abord confirmer votre email : vérifiez votre boîte mail pour le lien d\'activation.';
           } else if (errorMsg.toLowerCase().includes('invalid') || errorMsg.toLowerCase().includes('credentials')) {
             displayMsg = 'Email ou mot de passe incorrect.';
           }
@@ -857,7 +857,7 @@
     window.handleLogin = handleLogin;
     window.handleSignup = handleSignup;
 
-    // Forgot password — envoie un email Supabase avec lien de reset.
+    // Forgot password : envoie un email Supabase avec lien de reset.
     async function handleForgotPassword() {
       const email = document.getElementById('forgot-email').value.trim();
       const btn = document.getElementById('btn-forgot');
@@ -892,7 +892,7 @@
     window.handleForgotPassword = handleForgotPassword;
 
     // Event delegation : on écoute tous les submits du document plutôt que
-    // d'attendre DOMContentLoaded + getElementById. Plus robuste — marche
+    // d'attendre DOMContentLoaded + getElementById. Plus robuste, marche
     // même si le form est injecté dynamiquement ou si DOMContentLoaded a
     // déjà été émis quand ce script tourne.
     document.addEventListener('submit', (e) => {
@@ -910,7 +910,7 @@
       }
     });
 
-    // ?premium=1 — depuis le CTA "Découvrir Premium" des modales premium.
+    // ?premium=1 : depuis le CTA "Découvrir Premium" des modales premium.
     // Si user connecté, lance Stripe checkout. Sinon, ouvre signup pour
     // créer un compte d'abord (le checkout exigeant un user_id).
     (function handlePremiumQuery() {
@@ -1314,7 +1314,7 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    // Initialise le client Supabase global — utilisé par auth.js et les handlers de modale
+    // Initialise le client Supabase global, utilisé par auth.js et les handlers de modale
     (function() {
       const SUPABASE_URL  = 'https://pozhsrnsezklfyqjoues.supabase.co';
       const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBvemhzcm5zZXprbGZ5cWpvdWVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUxMjgxNTQsImV4cCI6MjA5MDcwNDE1NH0.xdP-8jZju7TN3wALuOb8U-lsfZDpxCv3VDhYLX0qfmw';

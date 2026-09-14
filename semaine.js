@@ -1,5 +1,5 @@
 /* ============================================================
-   SEMAINE.JS — Vue semaine partageable
+   SEMAINE.JS : Vue semaine partageable
    Charge le menu depuis ?week=YYYY-MM-DD ou le plus récent
    ============================================================ */
 
@@ -161,7 +161,7 @@ function renderScoreBand(data) {
   document.getElementById('sb-headline').textContent = headlines[score] || headlines.A;
   document.getElementById('sb-desc').textContent = descs[score] || descs.A;
 
-  // Metrics — use data.metrics if present, fall back to display values derived from score
+  // Metrics: use data.metrics if present, fall back to display values derived from score
   const defaultMetrics = score === 'A'
     ? [
         { label: 'Cadmium', num: '14', unit: 'μg/j', delta: '−42% vs recommandé' },
@@ -323,7 +323,7 @@ function getActivePreferences() {
 }
 
 // Retourne un petit tag inline si le plat ne correspond pas aux préférences.
-// Le plat reste toujours visible — le tag s'affiche sous le nom du plat.
+// Le plat reste toujours visible, le tag s'affiche sous le nom du plat.
 // Retourne une chaîne vide si le plat est safe ou si pas de prefs.
 function renderMealWarning(meal, currentPreferences) {
   if (!currentPreferences || !meal || typeof PreferenceManager === 'undefined') return '';
@@ -420,7 +420,7 @@ function renderMenu(data, history) {
       const dotColor = riskDotColor(meal.riskLevel);
       const label    = riskLabel(meal.riskLevel);
 
-      // Tag inline si le plat ne correspond pas aux prefs — le plat reste
+      // Tag inline si le plat ne correspond pas aux prefs, le plat reste
       // toujours visible, le badge s'affiche sous le nom.
       const warning = renderMealWarning(meal, currentPreferences);
 
@@ -472,7 +472,7 @@ async function init() {
   }
 }
 
-// Salutation temporelle — l'accueil change selon l'heure et le jour
+// Salutation temporelle : l'accueil change selon l'heure et le jour
 function updateTemporalGreeting() {
   const titleEl = document.querySelector('.semaine-page-title');
   if (!titleEl) return;
@@ -505,7 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
   init();
   updateTemporalGreeting();
 
-  // Filter chips retirés (Végé/Rapide/Saison) — faisaient doublon avec
+  // Filter chips retirés (Végé/Rapide/Saison), faisaient doublon avec
   // le système de préférences (allergies/régimes/dislikes via
   // PreferenceManager). Le markup est aussi retiré de semaine.html.
 
@@ -515,7 +515,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeFiche(); });
 
-  // Fiche technique — sélecteur de profil
+  // Fiche technique : sélecteur de profil
   document.querySelectorAll('.fiche-profile-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.fiche-profile-btn').forEach(b =>

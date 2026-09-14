@@ -5,7 +5,7 @@
   "healthScoreHighlights": [
     "3 poissons sûrs · Maquereau atlantique, sardines de Bretagne, truite de France",
     "Légumes de saison : petits pois, fèves, artichauts, épinards, rhubarbe 🌿",
-    "Fraises Gariguette françaises — bio impératif",
+    "Fraises Gariguette françaises, bio impératif",
     "Gigot d'agneau de printemps pour le dimanche festif"
   ],
   "days": [
@@ -20,7 +20,7 @@
           "riskType": null,
           "prepTime": "10",
           "isSeasonal": true,
-          "note": "Avoine complète rassasiante — fraises Gariguette bio de pleine saison.",
+          "note": "Avoine complète rassasiante, fraises Gariguette bio de pleine saison.",
           "ingredients": [
             {
               "name": "Flocons d'avoine",
@@ -56,7 +56,7 @@
           "riskType": null,
           "prepTime": "30",
           "isSeasonal": true,
-          "note": "Maquereau atlantique — mercure quasi nul, oméga-3 très élevés. Petits pois à la française : laitue, oignon, beurre.",
+          "note": "Maquereau atlantique, mercure quasi nul, oméga-3 très élevés. Petits pois à la française : laitue, oignon, beurre.",
           "ingredients": [
             {
               "name": "Filets de maquereau atlantique",
@@ -118,7 +118,7 @@
           "riskType": null,
           "prepTime": "2",
           "isSeasonal": true,
-          "note": "Fraises françaises de pleine saison — amandes pour les bons lipides."
+          "note": "Fraises françaises de pleine saison, amandes pour les bons lipides."
         },
         "dinner": {
           "name": "Soupe de fèves fraîches, toasts complets, fromage",
@@ -127,7 +127,7 @@
           "riskType": null,
           "prepTime": "30",
           "isSeasonal": true,
-          "note": "Soupe légère de saison — fèves fraîches mixées pour une texture veloutée.",
+          "note": "Soupe légère de saison, fèves fraîches mixées pour une texture veloutée.",
           "ingredients": [
             {
               "name": "Fèves fraîches en cosse",
@@ -190,7 +190,7 @@
           "riskType": null,
           "prepTime": "10",
           "isSeasonal": true,
-          "note": "Petit-déjeuner complet — radis croquants de saison pour démarrer la journée.",
+          "note": "Petit-déjeuner complet, radis croquants de saison pour démarrer la journée.",
           "ingredients": [
             {
               "name": "Pain complet",
@@ -231,7 +231,7 @@
           "riskType": null,
           "prepTime": "25",
           "isSeasonal": false,
-          "note": "Sardines à l'huile d'olive — mercure quasi nul, oméga-3 élevés. Lentilles du Puy IGP pour les protéines végétales.",
+          "note": "Sardines à l'huile d'olive, mercure quasi nul, oméga-3 élevés. Lentilles du Puy IGP pour les protéines végétales.",
           "ingredients": [
             {
               "name": "Lentilles vertes du Puy",
@@ -298,7 +298,7 @@
           "riskType": null,
           "prepTime": "55",
           "isSeasonal": true,
-          "note": "Poulet Label Rouge ou fermier. Asperges blanches en toute fin de saison — à saisir.",
+          "note": "Poulet Label Rouge ou fermier. Asperges blanches en toute fin de saison, à saisir.",
           "ingredients": [
             {
               "name": "Poulet fermier entier",
@@ -356,7 +356,7 @@
           "riskType": null,
           "prepTime": "5",
           "isSeasonal": true,
-          "note": "Fraises Gariguette bio de pleine saison — granola artisanal sans sucres ajoutés.",
+          "note": "Fraises Gariguette bio de pleine saison, granola artisanal sans sucres ajoutés.",
           "ingredients": [
             {
               "name": "Yaourt nature entier",
@@ -391,7 +391,7 @@
           "riskType": null,
           "prepTime": "50",
           "isSeasonal": true,
-          "note": "Épinards frais de saison — chèvre pour le calcium. Pâte brisée maison ou du commerce.",
+          "note": "Épinards frais de saison, chèvre pour le calcium. Pâte brisée maison ou du commerce.",
           "ingredients": [
             {
               "name": "Pâte brisée",
@@ -458,7 +458,7 @@
           "riskType": null,
           "prepTime": "40",
           "isSeasonal": false,
-          "note": "Classique mercredi soir — bœuf haché 5% MG Label Rouge, sauce tomate longue.",
+          "note": "Classique mercredi soir, bœuf haché 5% MG Label Rouge, sauce tomate longue.",
           "ingredients": [
             {
               "name": "Pâtes tagliatelles ou spaghetti",
@@ -542,7 +542,7 @@
           "riskType": null,
           "prepTime": "5",
           "isSeasonal": false,
-          "note": "Müsli sans sucres ajoutés — banane pour la satiété et les glucides naturels.",
+          "note": "Müsli sans sucres ajoutés, banane pour la satiété et les glucides naturels.",
           "ingredients": [
             {
               "name": "Müsli nature",
@@ -572,7 +572,7 @@
           "riskType": null,
           "prepTime": "40",
           "isSeasonal": true,
-          "note": "Truite d'élevage français — mercure nul. Artichauts de pleine saison. Pommes de terre nouvelles françaises.",
+          "note": "Truite d'élevage français, mercure nul. Artichauts de pleine saison. Pommes de terre nouvelles françaises.",
           "ingredients": [
             {
               "name": "Filets de truite de France",
@@ -629,7 +629,7 @@
           "riskType": null,
           "prepTime": "15",
           "isSeasonal": true,
-          "note": "Rhubarbe de saison — peu sucrée, acidulée. Faire en grande quantité pour plusieurs jours.",
+          "note": "Rhubarbe de saison, peu sucrée, acidulée. Faire en grande quantité pour plusieurs jours.",
           "ingredients": [
             {
               "name": "Rhubarbe fraîche",
@@ -660,7 +660,7 @@
           "riskType": null,
           "prepTime": "30",
           "isSeasonal": true,
-          "note": "Plat végétarien complet — lentilles corail pour les protéines, épinards et carottes pour les vitamines.",
+          "note": "Plat végétarien complet, lentilles corail pour les protéines, épinards et carottes pour les vitamines.",
           "ingredients": [
             {
               "name": "Lentilles corail",
@@ -748,7 +748,7 @@
           "riskType": null,
           "prepTime": "20",
           "isSeasonal": true,
-          "note": "Jour férié — petit-déjeuner festif avec les fraises de saison.",
+          "note": "Jour férié, petit-déjeuner festif avec les fraises de saison.",
           "ingredients": [
             {
               "name": "Farine T65",
@@ -794,7 +794,7 @@
           "riskType": null,
           "prepTime": "20",
           "isSeasonal": false,
-          "note": "Sardines — mercure quasi nul, oméga-3 très élevés. Tabboulé frais et herbacé.",
+          "note": "Sardines, mercure quasi nul, oméga-3 très élevés. Tabboulé frais et herbacé.",
           "ingredients": [
             {
               "name": "Sardines fraîches ou en boîte à l'huile d'olive",
@@ -852,7 +852,7 @@
           "riskType": null,
           "prepTime": "2",
           "isSeasonal": false,
-          "note": "Collation protéinée — noix pour les oméga-3 végétaux."
+          "note": "Collation protéinée, noix pour les oméga-3 végétaux."
         },
         "dinner": {
           "name": "Gratin de pommes de terre, épinards, gruyère",
@@ -861,7 +861,7 @@
           "riskType": null,
           "prepTime": "50",
           "isSeasonal": true,
-          "note": "Plat végétarien réconfortant — épinards frais de saison pour alléger le gratin.",
+          "note": "Plat végétarien réconfortant, épinards frais de saison pour alléger le gratin.",
           "ingredients": [
             {
               "name": "Pommes de terre nouvelles",
@@ -925,7 +925,7 @@
           "riskType": null,
           "prepTime": "15",
           "isSeasonal": false,
-          "note": "Petit-déjeuner protéiné du week-end — avocat pour les bons lipides, œuf pour les protéines.",
+          "note": "Petit-déjeuner protéiné du week-end, avocat pour les bons lipides, œuf pour les protéines.",
           "ingredients": [
             {
               "name": "Pain complet",
@@ -972,7 +972,7 @@
           "riskType": null,
           "prepTime": "25",
           "isSeasonal": true,
-          "note": "Salade 100% de saison — fèves et petits pois frais pour un maximum de saveurs.",
+          "note": "Salade 100% de saison, fèves et petits pois frais pour un maximum de saveurs.",
           "ingredients": [
             {
               "name": "Fèves fraîches en cosse",
@@ -1035,7 +1035,7 @@
           "riskType": null,
           "prepTime": "45",
           "isSeasonal": true,
-          "note": "Cake de saison — la rhubarbe apporte une acidité qui équilibre la douceur du cake.",
+          "note": "Cake de saison, la rhubarbe apporte une acidité qui équilibre la douceur du cake.",
           "ingredients": [
             {
               "name": "Farine T65",
@@ -1088,7 +1088,7 @@
           "riskType": null,
           "prepTime": "30",
           "isSeasonal": true,
-          "note": "Veau fermier français — viande tendre et légère, parfaite au printemps. Purée de petits pois fraîche et herbacée.",
+          "note": "Veau fermier français, viande tendre et légère, parfaite au printemps. Purée de petits pois fraîche et herbacée.",
           "ingredients": [
             {
               "name": "Filet de veau fermier",
@@ -1151,7 +1151,7 @@
           "riskType": null,
           "prepTime": "20",
           "isSeasonal": true,
-          "note": "Petit-déjeuner festif du dimanche — fraises Gariguette bio pour garnir.",
+          "note": "Petit-déjeuner festif du dimanche, fraises Gariguette bio pour garnir.",
           "ingredients": [
             {
               "name": "Farine T65",
@@ -1207,7 +1207,7 @@
           "riskType": null,
           "prepTime": "120",
           "isSeasonal": true,
-          "note": "Grand repas du dimanche — gigot d'agneau de printemps français, rosé à cœur. Haricots verts en début de saison.",
+          "note": "Grand repas du dimanche, gigot d'agneau de printemps français, rosé à cœur. Haricots verts en début de saison.",
           "ingredients": [
             {
               "name": "Gigot d'agneau de printemps",
@@ -1275,7 +1275,7 @@
           "riskType": null,
           "prepTime": "60",
           "isSeasonal": true,
-          "note": "Dessert de saison par excellence — fraises Gariguette bio sur crème pâtissière vanillée.",
+          "note": "Dessert de saison par excellence, fraises Gariguette bio sur crème pâtissière vanillée.",
           "ingredients": [
             {
               "name": "Pâte sablée maison ou du commerce",
@@ -1328,7 +1328,7 @@
           "riskType": null,
           "prepTime": "15",
           "isSeasonal": true,
-          "note": "Dîner léger après le festif du midi — valoriser les restes de gigot.",
+          "note": "Dîner léger après le festif du midi, valoriser les restes de gigot.",
           "ingredients": [
             {
               "name": "Bouillon de légumes",
@@ -2129,15 +2129,15 @@
   "healthAlerts": [
     {
       "type": "seasonal",
-      "message": "Fraises Gariguette : choisir impérativement bio ou HVE — figurent régulièrement parmi les fruits les plus chargés en résidus de pesticides."
+      "message": "Fraises Gariguette : choisir impérativement bio ou HVE, figurent régulièrement parmi les fruits les plus chargés en résidus de pesticides."
     },
     {
       "type": "info",
-      "message": "Asperges blanches : fin de saison en mai, à consommer rapidement après l'achat — elles perdent rapidement leur tendreté."
+      "message": "Asperges blanches : fin de saison en mai, à consommer rapidement après l'achat, elles perdent rapidement leur tendreté."
     },
     {
       "type": "info",
-      "message": "Fèves fraîches : double épluchage recommandé (cosse + peau grise) pour les jeunes enfants — meilleure digestibilité."
+      "message": "Fèves fraîches : double épluchage recommandé (cosse + peau grise) pour les jeunes enfants, meilleure digestibilité."
     }
   ]
 }

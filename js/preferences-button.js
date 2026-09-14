@@ -2,7 +2,7 @@
  * Preferences Button Controller
  * Shows/hides "Fix preferences" button and triggers modal when preferences exist
  *
- * PREMIUM FEATURE — requires user authentication and saved preferences
+ * PREMIUM FEATURE : requires user authentication and saved preferences
  */
 
 class PreferencesButton {
@@ -92,7 +92,7 @@ class PreferencesButton {
   }
 
   /**
-   * Handle button click — show substitution modal
+   * Handle button click : show substitution modal
    */
   async handleClick() {
     if (!this.currentMeals.length || !this.userPreferences) {

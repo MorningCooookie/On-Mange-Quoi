@@ -12,7 +12,7 @@
     "allergens": ["dairy"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Yaourt entier de ferme — muesli sans sucre ajouté"
+    "note": "Yaourt entier de ferme, muesli sans sucre ajouté"
   },
   {
     "id": "meal-002",
@@ -27,7 +27,7 @@
     "allergens": ["fish"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Asperges en plein pic de saison — riz basmati faible en cadmium"
+    "note": "Asperges en plein pic de saison, riz basmati faible en cadmium"
   },
   {
     "id": "meal-003",
@@ -57,7 +57,7 @@
     "allergens": ["gluten", "dairy"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Petits pois frais de saison — dîner léger"
+    "note": "Petits pois frais de saison, dîner léger"
   },
   {
     "id": "meal-005",
@@ -72,7 +72,7 @@
     "allergens": ["gluten"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Flocons d'avoine nature — pas de céréales industrielles"
+    "note": "Flocons d'avoine nature, pas de céréales industrielles"
   },
   {
     "id": "meal-006",
@@ -87,7 +87,7 @@
     "allergens": ["fish"],
     "riskLevel": "medium",
     "riskType": "cadmium",
-    "note": "Maquereau riche en oméga-3 — limiter à 2x/semaine (cadmium modéré)"
+    "note": "Maquereau riche en oméga-3, limiter à 2x/semaine (cadmium modéré)"
   },
   {
     "id": "meal-007",
@@ -102,7 +102,7 @@
     "allergens": ["dairy"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Fromage blanc nature — miel français"
+    "note": "Fromage blanc nature, miel français"
   },
   {
     "id": "meal-008",
@@ -132,7 +132,7 @@
     "allergens": ["fish"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Sardines fraîches — riches en oméga-3"
+    "note": "Sardines fraîches, riches en oméga-3"
   },
   {
     "id": "meal-010",
@@ -147,7 +147,7 @@
     "allergens": ["eggs", "gluten"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Œufs fermiers — pain sans additifs"
+    "note": "Œufs fermiers, pain sans additifs"
   },
   {
     "id": "meal-011",
@@ -162,7 +162,7 @@
     "allergens": [],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Lentilles riches en protéines — option végétarienne"
+    "note": "Lentilles riches en protéines, option végétarienne"
   },
   {
     "id": "meal-012",
@@ -207,7 +207,7 @@
     "allergens": ["shellfish"],
     "riskLevel": "medium",
     "riskType": "cadmium",
-    "note": "Crevettes fraîches — limiter à 1x/semaine (cadmium modéré)"
+    "note": "Crevettes fraîches, limiter à 1x/semaine (cadmium modéré)"
   },
   {
     "id": "meal-015",
@@ -222,7 +222,7 @@
     "allergens": [],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Recette faite maison — sans sucre ajouté"
+    "note": "Recette faite maison, sans sucre ajouté"
   },
   {
     "id": "meal-016",
@@ -237,7 +237,7 @@
     "allergens": ["gluten"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Pâtes complètes — sauce simple et naturelle"
+    "note": "Pâtes complètes, sauce simple et naturelle"
   },
   {
     "id": "meal-017",
@@ -252,7 +252,7 @@
     "allergens": ["gluten"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Jus pressé frais — pain sans levain commercial"
+    "note": "Jus pressé frais, pain sans levain commercial"
   },
   {
     "id": "meal-018",
@@ -267,7 +267,7 @@
     "allergens": ["eggs"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Légumes de saison — ratatouille provençale"
+    "note": "Légumes de saison, ratatouille provençale"
   },
   {
     "id": "meal-019",
@@ -282,7 +282,7 @@
     "allergens": ["fish"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Saumon sauvage — asperges de printemps"
+    "note": "Saumon sauvage, asperges de printemps"
   },
   {
     "id": "meal-020",
@@ -297,7 +297,7 @@
     "allergens": ["peanuts"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Houmous fait maison — sans conservateurs"
+    "note": "Houmous fait maison, sans conservateurs"
   },
   {
     "id": "meal-021",
@@ -312,7 +312,7 @@
     "allergens": ["eggs", "gluten"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Œufs fermiers — champignons de Paris frais"
+    "note": "Œufs fermiers, champignons de Paris frais"
   },
   {
     "id": "meal-022",
@@ -327,7 +327,7 @@
     "allergens": ["fish"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Lieu blanc maigre — facile à digérer"
+    "note": "Lieu blanc maigre, facile à digérer"
   },
   {
     "id": "meal-023",
@@ -342,7 +342,7 @@
     "allergens": ["dairy"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Risotto traditionnel — champignons de saison"
+    "note": "Risotto traditionnel, champignons de saison"
   },
   {
     "id": "meal-024",
@@ -357,7 +357,7 @@
     "allergens": ["dairy"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Yaourt grec nature — riche en protéines"
+    "note": "Yaourt grec nature, riche en protéines"
   },
   {
     "id": "meal-025",
@@ -372,7 +372,7 @@
     "allergens": ["fish"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Bar entier de ligne — légumes vapeur"
+    "note": "Bar entier de ligne, légumes vapeur"
   },
   {
     "id": "meal-026",
@@ -387,7 +387,7 @@
     "allergens": ["gluten"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Couscous complet — riche en fibres"
+    "note": "Couscous complet, riche en fibres"
   },
   {
     "id": "meal-027",
@@ -402,7 +402,7 @@
     "allergens": ["dairy"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Compote sans conservateurs — yaourt entier"
+    "note": "Compote sans conservateurs, yaourt entier"
   },
   {
     "id": "meal-028",
@@ -417,7 +417,7 @@
     "allergens": ["gluten", "dairy"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Soupe à l'oignon gratinée — recette traditionnelle"
+    "note": "Soupe à l'oignon gratinée, recette traditionnelle"
   },
   {
     "id": "meal-029",
@@ -432,7 +432,7 @@
     "allergens": ["tree nuts"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Recette maison — sans sucre ajouté"
+    "note": "Recette maison, sans sucre ajouté"
   },
   {
     "id": "meal-030",
@@ -447,7 +447,7 @@
     "allergens": ["eggs", "dairy"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Omelette généreuse — fromage français"
+    "note": "Omelette généreuse, fromage français"
   },
   {
     "id": "meal-031",
@@ -462,7 +462,7 @@
     "allergens": ["fish"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Poisson blanc vapeur — léger et digeste"
+    "note": "Poisson blanc vapeur, léger et digeste"
   },
   {
     "id": "meal-032",
@@ -477,7 +477,7 @@
     "allergens": [],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Riz complet — riche en minéraux"
+    "note": "Riz complet, riche en minéraux"
   },
   {
     "id": "meal-033",
@@ -492,7 +492,7 @@
     "allergens": ["soy"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Tofu fermenté — miso naturel"
+    "note": "Tofu fermenté, miso naturel"
   },
   {
     "id": "meal-034",
@@ -507,7 +507,7 @@
     "allergens": ["eggs"],
     "riskLevel": "low",
     "riskType": null,
-    "note": "Asperges fraîches de saison — œufs fermiers"
+    "note": "Asperges fraîches de saison, œufs fermiers"
   },
   {
     "id": "meal-035",

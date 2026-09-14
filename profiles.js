@@ -16,7 +16,7 @@ const ProfileManager = {
     await this.loadProfiles();
     await this.checkSubscription();
 
-    // Chargement des préférences + autoselect — DOIT être indépendant
+    // Chargement des préférences + autoselect, DOIT être indépendant
     // du rendu DOM (renderProfiles retournait early sur les pages sans
     // #profiles-list comme semaine.html, ce qui empêchait le menu de
     // refléter les prefs même quand un profil existait).
@@ -27,7 +27,7 @@ const ProfileManager = {
   },
 
   // Précharge les prefs de tous les profils + auto-active le premier.
-  // Indépendant du rendu DOM — fonctionne sur toutes les pages.
+  // Indépendant du rendu DOM, fonctionne sur toutes les pages.
   async activateFirstProfile() {
     if (!this.profiles || this.profiles.length === 0) return;
     for (const profile of this.profiles) {
@@ -161,7 +161,7 @@ const ProfileManager = {
   },
 
   // Met à jour le nom affiché dans le dropdown "Mon compte" (#current-profile-name).
-  // Indépendant d'app.js (qui n'est pas chargé partout) — fonctionne sur
+  // Indépendant d'app.js (qui n'est pas chargé partout), fonctionne sur
   // toutes les pages où auth.js a injecté le markup user-menu.
   updateActiveProfileDisplay(name) {
     const el = document.getElementById('current-profile-name');
@@ -177,7 +177,7 @@ const ProfileManager = {
     const list = document.getElementById('profiles-list');
     if (!list) return;
     // Note : le chargement des préférences + l'autoselect ont été
-    // déplacés dans activateFirstProfile() appelé par init() —
+    // déplacés dans activateFirstProfile() appelé par init(),
     // indépendant du rendu DOM (sinon, semaine.html sans #profiles-list
     // ne chargeait jamais les prefs et le menu n'avait pas les warnings).
 
@@ -192,7 +192,7 @@ const ProfileManager = {
       const prefs = PreferenceManager.getPreferences(profile.id);
       const tags = PreferenceManager.getPreferenceTags(prefs);
       // tags vient de PreferenceManager (allergies/restrictions/dislikes user)
-      // — escape chaque tag individuellement.
+      // Escape chaque tag individuellement.
       const tagDisplay = tags.length > 0
         ? `<div class="profile-item__tags">${tags.map(esc).join(' ')}</div>`
         : '';
@@ -224,7 +224,7 @@ const ProfileManager = {
     const countEl = document.getElementById('profile-count');
     if (countEl) countEl.textContent = this.profiles.length;
 
-    // Autoselect retiré d'ici — fait dans activateFirstProfile() avant
+    // Autoselect retiré d'ici, fait dans activateFirstProfile() avant
     // renderProfiles, pour être sûr que ça tourne aussi quand la modale
     // Profils n'est pas dans le DOM (pages internes).
   },

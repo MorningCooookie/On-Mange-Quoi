@@ -1,5 +1,5 @@
 // Netlify Function : inscription newsletter via Brevo
-// Clé API dans les variables d'env Netlify — jamais dans le code
+// Clé API dans les variables d'env Netlify, jamais dans le code
 // Utilise fetch natif (Node 18+)
 
 exports.handler = async (event) => {

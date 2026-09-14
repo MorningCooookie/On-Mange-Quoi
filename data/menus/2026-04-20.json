@@ -5,7 +5,7 @@
   "healthScoreHighlights": [
     "3 poissons sûrs · Truite de France, maquereau atlantique, cabillaud MSC",
     "Asperges vertes et blanches au pic de saison 🌿",
-    "Fraises Gariguette françaises — privilégier bio ou circuit court",
+    "Fraises Gariguette françaises, privilégier bio ou circuit court",
     "Agneau de printemps français pour le dimanche festif"
   ],
   "days": [
@@ -20,7 +20,7 @@
           "riskType": null,
           "prepTime": "10",
           "isSeasonal": false,
-          "note": "Avoine complète rassasiante — noix pour les oméga-3 du matin",
+          "note": "Avoine complète rassasiante, noix pour les oméga-3 du matin",
           "ingredients": [
             {
               "name": "Flocons d'avoine",
@@ -61,7 +61,7 @@
           "riskType": null,
           "prepTime": "25",
           "isSeasonal": true,
-          "note": "Truite d'élevage français — teneur en mercure très faible. Asperges vertes en pleine saison.",
+          "note": "Truite d'élevage français, teneur en mercure très faible. Asperges vertes en pleine saison.",
           "ingredients": [
             {
               "name": "Filets de truite de France",
@@ -108,7 +108,7 @@
           "riskType": null,
           "prepTime": "2",
           "isSeasonal": true,
-          "note": "Fraises françaises de saison — amandes pour les bons lipides"
+          "note": "Fraises françaises de saison, amandes pour les bons lipides"
         },
         "dinner": {
           "name": "Gratin de pâtes aux épinards et ricotta",
@@ -117,7 +117,7 @@
           "riskType": null,
           "prepTime": "35",
           "isSeasonal": true,
-          "note": "Épinards frais de saison — ricotta légère en lieu de béchamel. Plat complet sans viande.",
+          "note": "Épinards frais de saison, ricotta légère en lieu de béchamel. Plat complet sans viande.",
           "ingredients": [
             {
               "name": "Pâtes rigatoni",
@@ -175,7 +175,7 @@
           "riskType": null,
           "prepTime": "15",
           "isSeasonal": false,
-          "note": "Pain complet pour les fibres — avocat source de bons lipides. Œuf poché pour les protéines.",
+          "note": "Pain complet pour les fibres, avocat source de bons lipides. Œuf poché pour les protéines.",
           "ingredients": [
             {
               "name": "Pain complet",
@@ -222,7 +222,7 @@
           "riskType": null,
           "prepTime": "20",
           "isSeasonal": false,
-          "note": "Sardines à l'huile d'olive — parmi les poissons les plus sains (oméga-3 élevés, mercure quasi nul).",
+          "note": "Sardines à l'huile d'olive, parmi les poissons les plus sains (oméga-3 élevés, mercure quasi nul).",
           "ingredients": [
             {
               "name": "Sardines à l'huile d'olive",
@@ -274,7 +274,7 @@
           "riskType": null,
           "prepTime": "2",
           "isSeasonal": false,
-          "note": "Collation protéinée — fromage blanc 0% ou entier selon les besoins"
+          "note": "Collation protéinée, fromage blanc 0% ou entier selon les besoins"
         },
         "dinner": {
           "name": "Poulet fermier rôti, carottes nouvelles glacées, semoule",
@@ -283,7 +283,7 @@
           "riskType": null,
           "prepTime": "55",
           "isSeasonal": true,
-          "note": "Poulet Label Rouge ou fermier. Carottes nouvelles de saison — tendres et sucrées.",
+          "note": "Poulet Label Rouge ou fermier. Carottes nouvelles de saison, tendres et sucrées.",
           "ingredients": [
             {
               "name": "Poulet fermier entier",
@@ -341,7 +341,7 @@
           "riskType": null,
           "prepTime": "5",
           "isSeasonal": true,
-          "note": "Fraises Gariguette françaises à leur pic — choisir issues d'agriculture raisonnée ou bio.",
+          "note": "Fraises Gariguette françaises à leur pic, choisir issues d'agriculture raisonnée ou bio.",
           "ingredients": [
             {
               "name": "Yaourt nature entier",
@@ -424,7 +424,7 @@
           "riskType": null,
           "prepTime": "3",
           "isSeasonal": true,
-          "note": "Yaourt grec riche en protéines — fraises fraîches pour la vitamine C"
+          "note": "Yaourt grec riche en protéines, fraises fraîches pour la vitamine C"
         },
         "dinner": {
           "name": "Sauté de veau aux petits pois frais et carottes, riz basmati",
@@ -433,7 +433,7 @@
           "riskType": null,
           "prepTime": "40",
           "isSeasonal": true,
-          "note": "Petits pois frais en début de saison — écosser soi-même pour la meilleure saveur. Veau de lait français.",
+          "note": "Petits pois frais en début de saison, écosser soi-même pour la meilleure saveur. Veau de lait français.",
           "ingredients": [
             {
               "name": "Épaule de veau",
@@ -496,7 +496,7 @@
           "riskType": null,
           "prepTime": "25",
           "isSeasonal": true,
-          "note": "Rhubarbe en début de saison — acidulée et légère. Fromage blanc protéiné en garniture.",
+          "note": "Rhubarbe en début de saison, acidulée et légère. Fromage blanc protéiné en garniture.",
           "ingredients": [
             {
               "name": "Farine de blé complète",
@@ -548,7 +548,7 @@
           "riskType": null,
           "prepTime": "30",
           "isSeasonal": false,
-          "note": "Maquereau atlantique — poisson gras riche en oméga-3, mercure très faible. Préférer MSC.",
+          "note": "Maquereau atlantique, poisson gras riche en oméga-3, mercure très faible. Préférer MSC.",
           "ingredients": [
             {
               "name": "Filets de maquereau",
@@ -595,7 +595,7 @@
           "riskType": null,
           "prepTime": "2",
           "isSeasonal": false,
-          "note": "Collation équilibrée — sucres lents de la pomme, protéines du beurre d'amande"
+          "note": "Collation équilibrée, sucres lents de la pomme, protéines du beurre d'amande"
         },
         "dinner": {
           "name": "Omelette aux épinards, chèvre frais et pignons, salade verte",
@@ -662,7 +662,7 @@
           "riskType": null,
           "prepTime": "10",
           "isSeasonal": true,
-          "note": "Fraises Gariguette en vedette — smoothie bowl épais et rassasiant grâce aux graines de chia.",
+          "note": "Fraises Gariguette en vedette, smoothie bowl épais et rassasiant grâce aux graines de chia.",
           "ingredients": [
             {
               "name": "Fraises Gariguette",
@@ -708,7 +708,7 @@
           "riskType": null,
           "prepTime": "30",
           "isSeasonal": true,
-          "note": "Cabillaud MSC — faible teneur en mercure. Radis et asperges vertes de saison en accompagnement.",
+          "note": "Cabillaud MSC, faible teneur en mercure. Radis et asperges vertes de saison en accompagnement.",
           "ingredients": [
             {
               "name": "Dos de cabillaud",
@@ -760,7 +760,7 @@
           "riskType": null,
           "prepTime": "3",
           "isSeasonal": true,
-          "note": "Collation légère de saison — protéines du yaourt, vitamine C des fraises"
+          "note": "Collation légère de saison, protéines du yaourt, vitamine C des fraises"
         },
         "dinner": {
           "name": "Pizza maison, mozzarella, poivrons rôtis, roquette fraîche",
@@ -769,7 +769,7 @@
           "riskType": null,
           "prepTime": "40",
           "isSeasonal": false,
-          "note": "Rituel du vendredi en famille — pâte fine maison, garniture légère, roquette ajoutée après cuisson.",
+          "note": "Rituel du vendredi en famille, pâte fine maison, garniture légère, roquette ajoutée après cuisson.",
           "ingredients": [
             {
               "name": "Farine T65",
@@ -827,7 +827,7 @@
           "riskType": null,
           "prepTime": "25",
           "isSeasonal": false,
-          "note": "Brunch du samedi — pancakes riches en protéines (œufs, lait). À déguster sans se presser.",
+          "note": "Brunch du samedi, pancakes riches en protéines (œufs, lait). À déguster sans se presser.",
           "ingredients": [
             {
               "name": "Farine T45",
@@ -883,7 +883,7 @@
           "riskType": null,
           "prepTime": "25",
           "isSeasonal": true,
-          "note": "Petits pois frais en pleine saison avec menthe fraîche — classique du printemps. Servir chaud ou tiède.",
+          "note": "Petits pois frais en pleine saison avec menthe fraîche, classique du printemps. Servir chaud ou tiède.",
           "ingredients": [
             {
               "name": "Petits pois frais (avec cosse)",
@@ -935,7 +935,7 @@
           "riskType": null,
           "prepTime": "2",
           "isSeasonal": true,
-          "note": "Collation légère du samedi après-midi — fraises de saison"
+          "note": "Collation légère du samedi après-midi, fraises de saison"
         },
         "dinner": {
           "name": "Risotto aux asperges vertes, dos de cabillaud poêlé",
@@ -944,7 +944,7 @@
           "riskType": null,
           "prepTime": "40",
           "isSeasonal": true,
-          "note": "Repas du samedi soir — risotto crémeux fait maison. Cabillaud MSC pour finir la semaine sainement.",
+          "note": "Repas du samedi soir, risotto crémeux fait maison. Cabillaud MSC pour finir la semaine sainement.",
           "ingredients": [
             {
               "name": "Dos de cabillaud",
@@ -994,7 +994,7 @@
           ],
           "prepSteps": [
             "Couper les asperges en tronçons (garder les pointes séparées). Faire revenir les échalotes au beurre 3 min.",
-            "Ajouter le riz, nacrer 2 min. Déglacer au vin blanc. Ajouter le bouillon chaud louche par louche en remuant — 18 min de cuisson.",
+            "Ajouter le riz, nacrer 2 min. Déglacer au vin blanc. Ajouter le bouillon chaud louche par louche en remuant, 18 min de cuisson.",
             "Ajouter les tronçons d'asperge à mi-cuisson, les pointes 5 min avant la fin. Mantecatura : incorporer beurre froid et parmesan.",
             "Poêler le cabillaud dans l'huile d'olive 3 min par face. Saler. Servir sur le risotto."
           ]
@@ -1006,7 +1006,7 @@
       "label": "Dimanche",
       "meals": {
         "breakfast": {
-          "name": "Brunch dominical — œufs brouillés, saumon fumé, blinis",
+          "name": "Brunch dominical, œufs brouillés, saumon fumé, blinis",
           "icon": "🥂",
           "riskLevel": "low",
           "riskType": null,
@@ -1052,7 +1052,7 @@
           ],
           "prepSteps": [
             "Réchauffer les blinis à la poêle 1 min par face ou au four à 150°C pendant 5 min.",
-            "Battre les œufs avec sel. Cuire à feu très doux avec beurre en remuant constamment — œufs crémeux et moelleux.",
+            "Battre les œufs avec sel. Cuire à feu très doux avec beurre en remuant constamment, œufs crémeux et moelleux.",
             "Dresser les blinis avec crème fraîche, saumon fumé et câpres.",
             "Servir les œufs brouillés à côté, parsemer de ciboulette ciselée."
           ]
@@ -1064,7 +1064,7 @@
           "riskType": null,
           "prepTime": "120",
           "isSeasonal": true,
-          "note": "Agneau de printemps français au pic en avril — repas dominical festif et convivial.",
+          "note": "Agneau de printemps français au pic en avril, repas dominical festif et convivial.",
           "ingredients": [
             {
               "name": "Gigot d'agneau de printemps",
@@ -1126,7 +1126,7 @@
           "riskType": null,
           "prepTime": "45",
           "isSeasonal": true,
-          "note": "Dessert de saison dominical — fraises Gariguette sur crème pâtissière légère"
+          "note": "Dessert de saison dominical, fraises Gariguette sur crème pâtissière légère"
         },
         "dinner": {
           "name": "Plateau de fromages, salade mâche-radis, fruits de saison",
@@ -1135,7 +1135,7 @@
           "riskType": null,
           "prepTime": "10",
           "isSeasonal": true,
-          "note": "Dîner léger après le festin du midi — fromages à température ambiante, fraises de saison.",
+          "note": "Dîner léger après le festin du midi, fromages à température ambiante, fraises de saison.",
           "ingredients": [
             {
               "name": "Assortiment de fromages",
@@ -1934,7 +1934,7 @@
   "healthAlerts": [
     {
       "type": "info",
-      "message": "Saumon fumé (dimanche matin) : limiter à 1 portion/semaine pour les enfants de moins de 3 ans — recommandation ANSES sur les contaminants."
+      "message": "Saumon fumé (dimanche matin) : limiter à 1 portion/semaine pour les enfants de moins de 3 ans, recommandation ANSES sur les contaminants."
     },
     {
       "type": "seasonal",

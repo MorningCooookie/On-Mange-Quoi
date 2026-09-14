@@ -1,4 +1,4 @@
-// Menu hamburger mobile — toggle la nav principale en dropdown
+// Menu hamburger mobile : toggle la nav principale en dropdown
 // CSS gère le breakpoint, ce JS gère uniquement l'état ouvert/fermé.
 //
 // Note : sur des navigations inter-pages rapides (bfcache, prefetch), l'event

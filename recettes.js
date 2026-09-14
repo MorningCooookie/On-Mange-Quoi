@@ -1,5 +1,5 @@
 /* ============================================================
-   RECETTES.JS — Générateur de recettes IA
+   RECETTES.JS : Générateur de recettes IA
    Appelle la Netlify Function generate-recipe
    ============================================================ */
 
@@ -23,7 +23,7 @@ function isLoggedIn() {
   }
 }
 
-// Affiche un message si l'utilisateur n'est pas connecté — calme, pas alarmant
+// Affiche un message si l'utilisateur n'est pas connecté, calme, pas alarmant
 function checkAuthAndShowBanner() {
   if (isLoggedIn()) return;
   const form = document.querySelector('.recettes-form');
@@ -125,7 +125,7 @@ async function generateRecipe() {
 // ── Affichage ────────────────────────────────────────────────
 // Les 4 états (empty, loading, error, recipe) sont mutuellement exclusifs.
 // showState() affiche exclusivement l'état nommé et masque tous les autres.
-// setLoading(false) ne touche PAS la visibilité — sinon le finally
+// setLoading(false) ne touche PAS la visibilité, sinon le finally
 // écrase l'état recipe/error que displayRecipe/displayError vient de poser.
 function setLoading(isLoading) {
   const btn = document.getElementById('btn-generate');
@@ -164,7 +164,7 @@ function markdownToHtml(text) {
     .replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>')
     .replace(/\*([^*\n]+)\*/g, '<em>$1</em>')
     .replace(/<strong>💡 Astuce[^<]*<\/strong>\s*:?\s*(.+)/g,
-      '<div class="astuce"><strong>Astuce</strong> — $1</div>')
+      '<div class="astuce"><strong>Astuce</strong> : $1</div>')
     .replace(/^- (.+)$/gm, '<li>$1</li>')
     .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
     .replace(/^\d+\. (.+)$/gm, '<li>$1</li>')

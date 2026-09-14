@@ -1,5 +1,5 @@
 /* ============================================================
-   SEMAINE.CSS — Vue semaine partageable
+   SEMAINE.CSS, Vue semaine partageable
    Mobile-first · Pensé pour screenshot / partage
    ============================================================ */
 
@@ -229,7 +229,7 @@ body {
   padding: 2rem;
 }
 
-/* ── Day card — Yuka-style (mobile) ─────────────────────── */
+/* ── Day card, Yuka-style (mobile) ─────────────────────── */
 .semaine-day-card {
   background: var(--card-bg);
   border-radius: 28px;
@@ -257,7 +257,7 @@ body {
   }
 }
 
-/* Accessibilité — respecte la préférence "réduire les animations" */
+/* Accessibilité, respecte la préférence "réduire les animations" */
 @media (prefers-reduced-motion: reduce) {
   .semaine-day-card {
     opacity: 1;
@@ -345,7 +345,7 @@ body {
   align-self: flex-start;
 }
 
-/* ── Footer minimaliste — bloc cohérent ──────────────────── */
+/* ── Footer minimaliste, bloc cohérent ──────────────────── */
 .semaine-footer {
   text-align: center;
   font-size: .75rem;
@@ -401,7 +401,7 @@ body {
   color: var(--green-800);
 }
 
-/* Bouton retour — bordure verte, texte vert, hover inversé */
+/* Bouton retour, bordure verte, texte vert, hover inversé */
 .semaine-btn--back {
   background: var(--card-bg);
   border-color: var(--green);
@@ -423,7 +423,7 @@ body {
   padding: 2.5rem 1rem;
 }
 
-/* ── Health Legend — inline, calme, sans titre lourd ────── */
+/* ── Health Legend, inline, calme, sans titre lourd ────── */
 .health-legend {
   margin: 2.5rem 0 0;
   padding: 0;
@@ -694,7 +694,7 @@ body {
 
 .fiche-note:empty { display: none; }
 
-/* Lignes de repas cliquables — affordance "carte / bouton" premium */
+/* Lignes de repas cliquables, affordance "carte / bouton" premium */
 .semaine-meal-row--clickable {
   cursor: pointer;
   position: relative;
@@ -718,7 +718,7 @@ body {
   }
 }
 
-/* Feedback tactile mobile — sensation bouton */
+/* Feedback tactile mobile, sensation bouton */
 .semaine-meal-row--clickable:active {
   transform: scale(0.97);
   transition-duration: 0.1s;
@@ -782,7 +782,7 @@ body {
   margin-right: .25rem;
 }
 
-/* ── Newsletter strip — minimalist (Yuka-style) ──────────── */
+/* ── Newsletter strip, minimalist (Yuka-style) ──────────── */
 .newsletter-strip {
   display: flex;
   align-items: center;
@@ -876,7 +876,7 @@ body {
 
 /* ── Score hero band (Phase 2 redesign) ─────────────────── */
 
-/* Widen main for desktop — keep narrow on mobile */
+/* Widen main for desktop, keep narrow on mobile */
 @media (min-width: 768px) {
   .semaine-main {
     max-width: 900px;
@@ -904,7 +904,7 @@ body {
   }
 }
 
-/* Left column — circle + text */
+/* Left column, circle + text */
 .score-band__left {
   display: flex;
   align-items: center;
@@ -972,7 +972,7 @@ body {
   line-height: 1.5;
 }
 
-/* Middle column — 4 metrics */
+/* Middle column, 4 metrics */
 .score-band__metrics {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1071,7 +1071,7 @@ body {
 
 
 /* ============================================================
-   PHASE 3 — Layout desktop, side rail, filter bar, day grid 7 cols
+   PHASE 3, Layout desktop, side rail, filter bar, day grid 7 cols
    ============================================================ */
 
 /* ── Utilitaires boutons ─────────────────────────────────── */
@@ -1407,7 +1407,7 @@ body {
 
   .semaine-loading { grid-column: 1 / -1; }
 
-  /* Day card — vue desktop (Yuka-style : doux, flottant) */
+  /* Day card, vue desktop (Yuka-style : doux, flottant) */
   .semaine-day-card {
     display: flex;
     flex-direction: column;
@@ -1697,15 +1697,15 @@ body {
     margin-top: 4px;
   }
 
-  /* Newsletter — ajuster les marges */
+  /* Newsletter, ajuster les marges */
   .newsletter-strip { margin: 2rem 0; }
 
 } /* fin @media min-width: 1024px */
 
 /* ═══════════════════════════════════════════════════════════════
-   DIRECTION SOLAIRE — Override semaine
+   DIRECTION SOLAIRE, Override semaine
    Phase 2 + 3 · Mai 2026
-   Append en fin de fichier — la cascade CSS garantit que ces
+   Append en fin de fichier, la cascade CSS garantit que ces
    règles écrasent les définitions antérieures de semaine.css.
    ═══════════════════════════════════════════════════════════════ */
 

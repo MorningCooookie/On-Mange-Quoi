@@ -5,7 +5,7 @@
   "healthScoreHighlights": [
     "3 poissons sûrs · Cabillaud MSC, sardines de Bretagne, maquereau atlantique",
     "Légumes de saison : asperges, petits pois, fèves, épinards 🌿",
-    "Fraises Gariguette françaises — privilégier bio",
+    "Fraises Gariguette françaises, privilégier bio",
     "Agneau de printemps français pour les repas festifs du week-end"
   ],
   "days": [
@@ -56,7 +56,7 @@
           "riskType": null,
           "prepTime": "30",
           "isSeasonal": true,
-          "note": "Cabillaud MSC — pêche durable, mercure faible. Asperges vertes en fin de saison.",
+          "note": "Cabillaud MSC, pêche durable, mercure faible. Asperges vertes en fin de saison.",
           "ingredients": [
             {
               "name": "Dos de cabillaud MSC",
@@ -109,7 +109,7 @@
           "riskType": null,
           "prepTime": "2",
           "isSeasonal": true,
-          "note": "Fraises françaises de saison — choisir bio pour limiter les pesticides."
+          "note": "Fraises françaises de saison, choisir bio pour limiter les pesticides."
         },
         "dinner": {
           "name": "Minestrone printanier (petits pois, épinards, carottes, vermicelles)",
@@ -118,7 +118,7 @@
           "riskType": null,
           "prepTime": "30",
           "isSeasonal": true,
-          "note": "Soupe complète de saison — petits pois et épinards frais pour un max de nutriments.",
+          "note": "Soupe complète de saison, petits pois et épinards frais pour un max de nutriments.",
           "ingredients": [
             {
               "name": "Petits pois frais en cosse",
@@ -187,7 +187,7 @@
           "riskType": null,
           "prepTime": "5",
           "isSeasonal": true,
-          "note": "Pain complet pour les fibres — radis croquants de saison en accompagnement.",
+          "note": "Pain complet pour les fibres, radis croquants de saison en accompagnement.",
           "ingredients": [
             {
               "name": "Pain complet",
@@ -295,7 +295,7 @@
           "riskType": null,
           "prepTime": "55",
           "isSeasonal": true,
-          "note": "Poulet Label Rouge ou fermier. Carottes nouvelles tendres et sucrées — en pleine saison.",
+          "note": "Poulet Label Rouge ou fermier. Carottes nouvelles tendres et sucrées, en pleine saison.",
           "ingredients": [
             {
               "name": "Poulet fermier entier",
@@ -358,7 +358,7 @@
           "riskType": null,
           "prepTime": "20",
           "isSeasonal": true,
-          "note": "Mercredi convivial — fraises de saison pour garnir les crêpes.",
+          "note": "Mercredi convivial, fraises de saison pour garnir les crêpes.",
           "ingredients": [
             {
               "name": "Farine T65",
@@ -404,7 +404,7 @@
           "riskType": null,
           "prepTime": "20",
           "isSeasonal": true,
-          "note": "Plat préféré des enfants — petits pois frais de saison pour alléger et verdir.",
+          "note": "Plat préféré des enfants, petits pois frais de saison pour alléger et verdir.",
           "ingredients": [
             {
               "name": "Pâtes penne",
@@ -457,7 +457,7 @@
           "riskType": null,
           "prepTime": "3",
           "isSeasonal": false,
-          "note": "Goûter rassasiant pour les enfants — beurre de cacahuète sans huile de palme ni sucre ajouté."
+          "note": "Goûter rassasiant pour les enfants, beurre de cacahuète sans huile de palme ni sucre ajouté."
         },
         "dinner": {
           "name": "Maquereau atlantique grillé, épinards sautés à l'ail, riz complet",
@@ -466,7 +466,7 @@
           "riskType": null,
           "prepTime": "25",
           "isSeasonal": false,
-          "note": "Maquereau atlantique — parmi les poissons les plus riches en oméga-3, mercure quasi nul. Pêche française.",
+          "note": "Maquereau atlantique, parmi les poissons les plus riches en oméga-3, mercure quasi nul. Pêche française.",
           "ingredients": [
             {
               "name": "Filets de maquereau atlantique",
@@ -524,7 +524,7 @@
           "riskType": null,
           "prepTime": "10",
           "isSeasonal": true,
-          "note": "Graines de chia pour les oméga-3 végétaux — fraises bio de saison.",
+          "note": "Graines de chia pour les oméga-3 végétaux, fraises bio de saison.",
           "ingredients": [
             {
               "name": "Flocons d'avoine",
@@ -565,7 +565,7 @@
           "riskType": null,
           "prepTime": "35",
           "isSeasonal": true,
-          "note": "Risotto végétarien de saison — petits pois et asperges pour un plat printanier complet.",
+          "note": "Risotto végétarien de saison, petits pois et asperges pour un plat printanier complet.",
           "ingredients": [
             {
               "name": "Riz arborio",
@@ -621,7 +621,7 @@
           "prepSteps": [
             "Écosser les petits pois, blanchir 2 min. Casser les pieds des asperges, couper en tronçons.",
             "Faire revenir l'oignon émincé dans huile + beurre. Ajouter le riz, nacrer 2 min.",
-            "Déglacer au vin blanc. Ajouter le bouillon chaud louche par louche en remuant — 18-20 min.",
+            "Déglacer au vin blanc. Ajouter le bouillon chaud louche par louche en remuant, 18-20 min.",
             "À mi-cuisson, incorporer les asperges. En fin, ajouter les petits pois et le parmesan.",
             "Garnir de menthe ciselée. Servir crémeux."
           ]
@@ -633,7 +633,7 @@
           "riskType": null,
           "prepTime": "15",
           "isSeasonal": true,
-          "note": "Rhubarbe de saison — peu sucrée, acidulée. Faire en grande quantité pour la semaine.",
+          "note": "Rhubarbe de saison, peu sucrée, acidulée. Faire en grande quantité pour la semaine.",
           "ingredients": [
             {
               "name": "Rhubarbe fraîche",
@@ -664,7 +664,7 @@
           "riskType": null,
           "prepTime": "15",
           "isSeasonal": false,
-          "note": "Dîner léger après le risotto copieux du déjeuner — œufs pour les protéines du soir.",
+          "note": "Dîner léger après le risotto copieux du déjeuner, œufs pour les protéines du soir.",
           "ingredients": [
             {
               "name": "Œufs",
@@ -727,7 +727,7 @@
           "riskType": null,
           "prepTime": "20",
           "isSeasonal": true,
-          "note": "Jour férié — petit-déjeuner festif avec les fraises de saison.",
+          "note": "Jour férié, petit-déjeuner festif avec les fraises de saison.",
           "ingredients": [
             {
               "name": "Farine T65",
@@ -778,7 +778,7 @@
           "riskType": null,
           "prepTime": "50",
           "isSeasonal": true,
-          "note": "Déjeuner convivial du 1er mai — épinards frais et chèvre, pâte brisée maison ou du commerce.",
+          "note": "Déjeuner convivial du 1er mai, épinards frais et chèvre, pâte brisée maison ou du commerce.",
           "ingredients": [
             {
               "name": "Pâte brisée",
@@ -845,7 +845,7 @@
           "riskType": null,
           "prepTime": "40",
           "isSeasonal": true,
-          "note": "Pizza blanche de saison — artichauts cuits et roquette fraîche posée après cuisson.",
+          "note": "Pizza blanche de saison, artichauts cuits et roquette fraîche posée après cuisson.",
           "ingredients": [
             {
               "name": "Pâte à pizza maison ou du commerce",
@@ -909,7 +909,7 @@
           "riskType": null,
           "prepTime": "15",
           "isSeasonal": false,
-          "note": "Petit-déjeuner protéiné du week-end — avocat pour les bons lipides.",
+          "note": "Petit-déjeuner protéiné du week-end, avocat pour les bons lipides.",
           "ingredients": [
             {
               "name": "Pain complet",
@@ -1014,7 +1014,7 @@
           "riskType": null,
           "prepTime": "45",
           "isSeasonal": true,
-          "note": "Cake de saison — la rhubarbe apporte une acidité qui équilibre la douceur du cake.",
+          "note": "Cake de saison, la rhubarbe apporte une acidité qui équilibre la douceur du cake.",
           "ingredients": [
             {
               "name": "Farine T65",
@@ -1067,7 +1067,7 @@
           "riskType": null,
           "prepTime": "25",
           "isSeasonal": true,
-          "note": "Agneau de printemps français — côtes grillées rosées pour préserver les qualités gustatives.",
+          "note": "Agneau de printemps français, côtes grillées rosées pour préserver les qualités gustatives.",
           "ingredients": [
             {
               "name": "Côtes d'agneau de printemps",
@@ -1140,7 +1140,7 @@
           "riskType": null,
           "prepTime": "120",
           "isSeasonal": true,
-          "note": "Repas festif du dimanche — gigot d'agneau de printemps français, rosé à cœur.",
+          "note": "Repas festif du dimanche, gigot d'agneau de printemps français, rosé à cœur.",
           "ingredients": [
             {
               "name": "Gigot d'agneau de printemps",
@@ -1208,7 +1208,7 @@
           "riskType": null,
           "prepTime": "60",
           "isSeasonal": true,
-          "note": "Dessert de saison — fraises Gariguette bio sur crème pâtissière légère.",
+          "note": "Dessert de saison, fraises Gariguette bio sur crème pâtissière légère.",
           "ingredients": [
             {
               "name": "Pâte sablée maison ou du commerce",
@@ -1261,7 +1261,7 @@
           "riskType": null,
           "prepTime": "15",
           "isSeasonal": true,
-          "note": "Dîner léger après le festif du midi — bouillon réconfortant et restes valorisés.",
+          "note": "Dîner léger après le festif du midi, bouillon réconfortant et restes valorisés.",
           "ingredients": [
             {
               "name": "Bouillon de légumes",
@@ -1977,11 +1977,11 @@
   "healthAlerts": [
     {
       "type": "seasonal",
-      "message": "Fraises Gariguette : choisir impérativement bio ou HVE — elles figurent parmi les fruits les plus traités en agriculture conventionnelle."
+      "message": "Fraises Gariguette : choisir impérativement bio ou HVE, elles figurent parmi les fruits les plus traités en agriculture conventionnelle."
     },
     {
       "type": "info",
-      "message": "Fèves fraîches : double épluchage recommandé (cosse + peau grise) — texture plus douce et meilleure digestibilité, surtout pour les enfants."
+      "message": "Fèves fraîches : double épluchage recommandé (cosse + peau grise), texture plus douce et meilleure digestibilité, surtout pour les enfants."
     }
   ]
 }

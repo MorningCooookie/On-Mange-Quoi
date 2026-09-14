@@ -4,7 +4,7 @@
 // Auth module utilisable sur toutes les pages avec une .landing-header.
 // Responsabilités :
 //   1. S'assurer que le markup user-menu (#user-menu-header + #user-menu)
-//      existe dans la landing-header — l'injecter si absent.
+//      existe dans la landing-header, l'injecter si absent.
 //   2. Écouter la session Supabase et basculer le UI (login button ↔
 //      Mon compte dropdown).
 //   3. Gérer le logout.
@@ -12,7 +12,7 @@
 // que ce script s'exécute. Sur la home, c'est fait inline dans index.html.
 
 // Helper global pour échapper les chaînes injectées en innerHTML.
-// Utilisé pour profile.name, meal.name, dislikes — toute valeur d'origine
+// Utilisé pour profile.name, meal.name, dislikes, toute valeur d'origine
 // utilisateur (Supabase) ou potentiellement adverse. CRITIQUE pour la
 // sécurité : sans cet escape, un nom de profil "<img src=x onerror=alert(1)>"
 // exécuterait du JS dans la session de qui le rend.
@@ -24,7 +24,7 @@ if (typeof window.escapeHTML !== 'function') {
   };
 }
 
-// Fallback showToast — auth.js est inclus sur toutes les pages avec une
+// Fallback showToast, auth.js est inclus sur toutes les pages avec une
 // landing-header. Les pages spécifiques (index.html, app.js, recettes.js)
 // peuvent redéfinir showToast avec leur propre signature ; on ne fait
 // l'override que si rien n'existe déjà, pour ne pas casser ces définitions.
@@ -61,7 +61,7 @@ if (typeof window.showToast !== 'function') {
   };
 }
 
-// Injecte le markup user-menu si absent — utilisé sur les pages internes
+// Injecte le markup user-menu si absent, utilisé sur les pages internes
 // qui n'ont pas le markup hardcodé. Idempotent.
 function ensureAuthMarkup() {
   const actions = document.querySelector('.landing-header__actions');
@@ -96,7 +96,7 @@ function ensureAuthMarkup() {
 }
 
 // Toggle du dropdown user-menu (auparavant dans le inline d'index.html).
-// On l'attache une seule fois au document — idempotent.
+// On l'attache une seule fois au document, idempotent.
 function ensureUserMenuToggle() {
   if (window.__userMenuToggleAttached) return;
   window.__userMenuToggleAttached = true;
@@ -148,7 +148,7 @@ async function updateAuthUI(session) {
 
   if (session && session.user) {
     console.log('✅ User logged in:', session.user.email);
-    // Note : element.style ne supporte pas '!important' — la valeur serait
+    // Note : element.style ne supporte pas '!important', la valeur serait
     // silencieusement ignorée. Le display: none seul suffit ; les overrides
     // CSS éventuels doivent passer par une classe dédiée.
     authButtons.style.display = 'none';
@@ -239,7 +239,7 @@ if (document.readyState === 'loading') {
 // ============================================
 // LOGOUT HANDLERS
 // ============================================
-// Event delegation au niveau document — robuste pour les pages où le
+// Event delegation au niveau document, robuste pour les pages où le
 // markup user-menu (et donc #btn-logout) est injecté dynamiquement par
 // ensureAuthMarkup(). Idempotent via window.__logoutDelegationAttached.
 if (!window.__logoutDelegationAttached) {

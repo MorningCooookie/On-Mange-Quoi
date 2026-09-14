@@ -5,7 +5,7 @@
   "healthScoreHighlights": [
     "3 poissons sûrs · Cabillaud, sardines, truite de France",
     "Asperges et petits pois au pic de saison 🌱",
-    "Saison des fraises françaises — choisir bio",
+    "Saison des fraises françaises, choisir bio",
     "Rôti de veau festif le dimanche"
   ],
   "days": [
@@ -20,7 +20,7 @@
           "riskType": null,
           "prepTime": "5",
           "isSeasonal": true,
-          "note": "Muesli sans sucre ajouté — premières fraises françaises, choisir bio",
+          "note": "Muesli sans sucre ajouté, premières fraises françaises, choisir bio",
           "ingredients": [
             {
               "name": "Yaourt nature",
@@ -51,7 +51,7 @@
           "riskType": null,
           "prepTime": "25",
           "isSeasonal": true,
-          "note": "Cabillaud MSC — asperges blanches en pleine saison, cuisson douce en papillote",
+          "note": "Cabillaud MSC, asperges blanches en pleine saison, cuisson douce en papillote",
           "ingredients": [
             {
               "name": "Filets de cabillaud",
@@ -94,7 +94,7 @@
           "riskType": null,
           "prepTime": "2",
           "isSeasonal": true,
-          "note": "Fraises françaises bio — collation légère et de saison"
+          "note": "Fraises françaises bio, collation légère et de saison"
         },
         "dinner": {
           "name": "Soupe de lentilles vertes, carottes, pain de campagne",
@@ -103,7 +103,7 @@
           "riskType": null,
           "prepTime": "25",
           "isSeasonal": false,
-          "note": "Lentilles vertes du Puy — riches en fer et en fibres",
+          "note": "Lentilles vertes du Puy, riches en fer et en fibres",
           "ingredients": [
             {
               "name": "Lentilles vertes du Puy",
@@ -157,7 +157,7 @@
           "riskType": null,
           "prepTime": "10",
           "isSeasonal": false,
-          "note": "Pain de boulanger — œuf label rouge code 0 ou 1",
+          "note": "Pain de boulanger, œuf label rouge code 0 ou 1",
           "ingredients": [
             {
               "name": "Œufs",
@@ -189,7 +189,7 @@
           "riskType": null,
           "prepTime": "25",
           "isSeasonal": true,
-          "note": "Veau rosé de saison — petits pois frais au pic, menthe fraîche",
+          "note": "Veau rosé de saison, petits pois frais au pic, menthe fraîche",
           "ingredients": [
             {
               "name": "Escalopes de veau",
@@ -240,7 +240,7 @@
           "riskType": "cadmium",
           "prepTime": "15",
           "isSeasonal": true,
-          "note": "Épinards frais de saison — légume-feuille accumulateur de cadmium (niveau modéré) · choisir bio et ne pas en manger tous les jours",
+          "note": "Épinards frais de saison, légume-feuille accumulateur de cadmium (niveau modéré) · choisir bio et ne pas en manger tous les jours",
           "ingredients": [
             {
               "name": "Gnocchis de pomme de terre",
@@ -269,7 +269,7 @@
             }
           ],
           "prepSteps": [
-            "Cuire les gnocchis dans une grande casserole d'eau bouillante salée — ils sont prêts quand ils remontent à la surface (2 à 3 min). Égoutter.",
+            "Cuire les gnocchis dans une grande casserole d'eau bouillante salée, ils sont prêts quand ils remontent à la surface (2 à 3 min). Égoutter.",
             "Faire revenir l'ail émincé 1 min dans l'huile d'olive.",
             "Ajouter les épinards et laisser tomber 2 min à feu moyen.",
             "Incorporer les gnocchis, mélanger 2 min à feu vif. Hors du feu, parsemer de parmesan."
@@ -288,7 +288,7 @@
           "riskType": null,
           "prepTime": "10",
           "isSeasonal": false,
-          "note": "Flocons d'avoine nature — pas de céréales industrielles",
+          "note": "Flocons d'avoine nature, pas de céréales industrielles",
           "ingredients": [
             {
               "name": "Flocons d'avoine",
@@ -325,7 +325,7 @@
           "riskType": null,
           "prepTime": "40",
           "isSeasonal": false,
-          "note": "Hauts de cuisse Label Rouge — gingembre frais pour relever la purée de carottes",
+          "note": "Hauts de cuisse Label Rouge, gingembre frais pour relever la purée de carottes",
           "ingredients": [
             {
               "name": "Hauts de cuisse de poulet fermier",
@@ -372,7 +372,7 @@
           "riskType": null,
           "prepTime": "2",
           "isSeasonal": true,
-          "note": "Fraises françaises — choisir bio"
+          "note": "Fraises françaises, choisir bio"
         },
         "dinner": {
           "name": "Omelette aux pointes d'asperges et gruyère, salade de radis",
@@ -381,7 +381,7 @@
           "riskType": null,
           "prepTime": "15",
           "isSeasonal": true,
-          "note": "Œufs label rouge — asperges et radis de saison, dîner léger",
+          "note": "Œufs label rouge, asperges et radis de saison, dîner léger",
           "ingredients": [
             {
               "name": "Œufs",
@@ -434,7 +434,7 @@
           "riskType": "cadmium",
           "prepTime": "8",
           "isSeasonal": true,
-          "note": "Épinards frais de saison — cadmium modéré, quantité faible dans un smoothie · choisir bio",
+          "note": "Épinards frais de saison, cadmium modéré, quantité faible dans un smoothie · choisir bio",
           "ingredients": [
             {
               "name": "Épinards frais",
@@ -471,7 +471,7 @@
           "riskType": null,
           "prepTime": "15",
           "isSeasonal": true,
-          "note": "Sardines MSC, riches en oméga-3 — petits pois et radis de saison",
+          "note": "Sardines MSC, riches en oméga-3, petits pois et radis de saison",
           "ingredients": [
             {
               "name": "Sardines marinées (bocal)",
@@ -527,7 +527,7 @@
           "riskType": null,
           "prepTime": "20",
           "isSeasonal": true,
-          "note": "Asperges vertes au pic de saison — velouté onctueux, croûtons de pain complet",
+          "note": "Asperges vertes au pic de saison, velouté onctueux, croûtons de pain complet",
           "ingredients": [
             {
               "name": "Asperges vertes",
@@ -581,7 +581,7 @@
           "riskType": null,
           "prepTime": "20",
           "isSeasonal": true,
-          "note": "Farine d'épeautre T65 — sans céréales industrielles, fraises de saison",
+          "note": "Farine d'épeautre T65, sans céréales industrielles, fraises de saison",
           "ingredients": [
             {
               "name": "Farine d'épeautre T65",
@@ -633,7 +633,7 @@
           "riskType": null,
           "prepTime": "25",
           "isSeasonal": true,
-          "note": "Truite de France — moins exposée que le saumon atlantique, pommes de terre nouvelles de saison",
+          "note": "Truite de France, moins exposée que le saumon atlantique, pommes de terre nouvelles de saison",
           "ingredients": [
             {
               "name": "Filets de truite de France",
@@ -695,7 +695,7 @@
           "riskType": null,
           "prepTime": "35",
           "isSeasonal": true,
-          "note": "Riz arborio — petits pois de saison, menthe fraîche, parmesan en petite quantité",
+          "note": "Riz arborio, petits pois de saison, menthe fraîche, parmesan en petite quantité",
           "ingredients": [
             {
               "name": "Riz arborio",
@@ -764,7 +764,7 @@
           "riskType": null,
           "prepTime": "15",
           "isSeasonal": true,
-          "note": "Brunch du samedi — œufs label rouge, radis de saison, pain artisanal",
+          "note": "Brunch du samedi, œufs label rouge, radis de saison, pain artisanal",
           "ingredients": [
             {
               "name": "Œufs",
@@ -794,7 +794,7 @@
           ],
           "prepSteps": [
             "Battre les œufs avec sel et poivre.",
-            "Faire fondre le beurre à feu très doux. Verser les œufs et remuer lentement à la spatule pendant 5 à 7 min — ils doivent rester bien crémeux.",
+            "Faire fondre le beurre à feu très doux. Verser les œufs et remuer lentement à la spatule pendant 5 à 7 min, ils doivent rester bien crémeux.",
             "Trancher les avocats, couper les radis en rondelles.",
             "Faire griller le pain. Dresser œufs brouillés, avocat et radis sur les toasts."
           ]
@@ -806,7 +806,7 @@
           "riskType": null,
           "prepTime": "90",
           "isSeasonal": true,
-          "note": "Agneau de saison — légumes de printemps (asperges, petits pois, carottes) rôtis au four",
+          "note": "Agneau de saison, légumes de printemps (asperges, petits pois, carottes) rôtis au four",
           "ingredients": [
             {
               "name": "Épaule d'agneau",
@@ -859,7 +859,7 @@
           "riskType": null,
           "prepTime": "2",
           "isSeasonal": true,
-          "note": "Simple et de saison — fraises françaises bio"
+          "note": "Simple et de saison, fraises françaises bio"
         },
         "dinner": {
           "name": "Pizza maison aux asperges, épinards et mozzarella",
@@ -868,7 +868,7 @@
           "riskType": "cadmium",
           "prepTime": "30",
           "isSeasonal": true,
-          "note": "Pâte maison farine T65 — épinards en garniture légère (cadmium modéré) · choisir bio",
+          "note": "Pâte maison farine T65, épinards en garniture légère (cadmium modéré) · choisir bio",
           "ingredients": [
             {
               "name": "Pâte à pizza (pâton)",
@@ -922,7 +922,7 @@
           "riskType": null,
           "prepTime": "5",
           "isSeasonal": true,
-          "note": "Petit-déjeuner du dimanche — oranges pressées à la maison, fraises de saison",
+          "note": "Petit-déjeuner du dimanche, oranges pressées à la maison, fraises de saison",
           "ingredients": [
             {
               "name": "Viennoiseries (croissants, pains au chocolat)",
@@ -953,7 +953,7 @@
           "riskType": null,
           "prepTime": "90",
           "isSeasonal": true,
-          "note": "Veau de saison — morilles fraîches en épicerie fine ou déshydratées, asperges de saison",
+          "note": "Veau de saison, morilles fraîches en épicerie fine ou déshydratées, asperges de saison",
           "ingredients": [
             {
               "name": "Rôti de veau",
@@ -1006,7 +1006,7 @@
           "riskType": null,
           "prepTime": "40",
           "isSeasonal": true,
-          "note": "Fraises françaises bio — pâte sablée maison, crème pâtissière légère"
+          "note": "Fraises françaises bio, pâte sablée maison, crème pâtissière légère"
         },
         "dinner": {
           "name": "Restes du rôti, salade mesclun et vinaigrette à la moutarde",
@@ -1015,7 +1015,7 @@
           "riskType": null,
           "prepTime": "10",
           "isSeasonal": true,
-          "note": "Anti-gaspi — le rôti froid est excellent en tranches fines avec une salade croquante",
+          "note": "Anti-gaspi, le rôti froid est excellent en tranches fines avec une salade croquante",
           "ingredients": [
             {
               "name": "Restes du rôti de veau (froid)",
@@ -1421,11 +1421,11 @@
   "healthAlerts": [
     {
       "type": "info",
-      "message": "Asperges blanches et vertes disponibles — profitez-en, la saison se termine à la mi-mai."
+      "message": "Asperges blanches et vertes disponibles, profitez-en, la saison se termine à la mi-mai."
     },
     {
       "type": "tip",
-      "message": "Morilles fraîches disponibles chez les primeurs en ce moment — sinon, les morilles séchées en épicerie fine font très bien l'affaire pour le rôti du dimanche."
+      "message": "Morilles fraîches disponibles chez les primeurs en ce moment, sinon, les morilles séchées en épicerie fine font très bien l'affaire pour le rôti du dimanche."
     }
   ]
 }

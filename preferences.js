@@ -1,5 +1,5 @@
 // ============================================
-// PREFERENCES MANAGER — Dietary personalization
+// PREFERENCES MANAGER : Dietary personalization
 // ============================================
 // Manages user dietary preferences (allergies, restrictions, dislikes)
 // and filters menus accordingly
@@ -129,7 +129,7 @@ const PreferenceManager = {
     };
   },
 
-  // Synonyms for generic food category terms — maps user input to specific ingredient names
+  // Synonyms for generic food category terms, maps user input to specific ingredient names
   DISLIKE_SYNONYMS: {
     'poisson':   ['saumon', 'cabillaud', 'maquereau', 'sardine', 'thon', 'dorade', 'truite', 'lieu', 'merlan', 'bar', 'sole', 'hareng', 'anchois', 'tilapia', 'daurade', 'rouget'],
     'fish':      ['saumon', 'cabillaud', 'maquereau', 'sardine', 'thon', 'dorade', 'truite', 'lieu', 'merlan', 'bar', 'sole', 'hareng', 'anchois', 'poisson'],
@@ -143,7 +143,7 @@ const PreferenceManager = {
 
   // Check if a dish is safe for preferences
   // Normalisation : enlève accents + lowercase. Critique pour les allergies
-  // — sans ça, "Œufs" en pref ne matche pas "œuf" dans un plat, "Sésame"
+  // Sans ça, "Œufs" en pref ne matche pas "œuf" dans un plat, "Sésame"
   // ne matche pas "sesame", "Arachides" ne matche pas "arachide" (singulier).
   // Risque sanitaire majeur identifié dans l'audit code review (H8).
   _normalize(s) {
@@ -197,7 +197,7 @@ const PreferenceManager = {
 
     const dishText = this._normalize(`${dishName} ${(dishIngredients || []).join(' ')}`);
 
-    // Check allergies — normalisation des deux côtés pour éviter les faux
+    // Check allergies, normalisation des deux côtés pour éviter les faux
     // négatifs (les allergies sont une exigence sanitaire, pas une préférence).
     if (preferences.allergies?.length > 0) {
       for (const allergen of preferences.allergies) {
@@ -325,7 +325,7 @@ const PreferenceManager = {
     if (!profileId) return;
 
     const prefs = this.getPreferences(profileId);
-    // Escape — profileName et dislikes viennent d'input utilisateur stocké
+    // Escape : profileName et dislikes viennent d'input utilisateur stocké
     // en Supabase, doivent être échappés avant injection en innerHTML.
     const esc = (typeof window.escapeHTML === 'function')
       ? window.escapeHTML
@@ -337,7 +337,7 @@ const PreferenceManager = {
       <div id="preference-modal-${idEsc}" class="preference-modal" style="display: none;">
         <div class="preference-modal__panel">
           <div class="preference-modal__header">
-            <h2 class="preference-modal__title">Préférences alimentaires — ${nameEsc}</h2>
+            <h2 class="preference-modal__title">Préférences alimentaires : ${nameEsc}</h2>
             <button class="preference-modal__close" data-action="close-pref-modal" data-profile-id="${profileId}" type="button" aria-label="Fermer">✕</button>
           </div>
 
@@ -389,7 +389,7 @@ const PreferenceManager = {
               <legend class="preference-form__legend">Ingrédients à éviter <span class="preference-form__legend-hint">(optionnel)</span></legend>
               <input type="text" id="dislikes-${idEsc}"
                      class="preference-form__input"
-                     placeholder="coriandre, champignons, etc. — séparés par des virgules"
+                     placeholder="coriandre, champignons, etc., séparés par des virgules"
                      value="${esc((prefs.dislikes || []).join(', '))}">
             </fieldset>
 
@@ -433,7 +433,7 @@ const PreferenceManager = {
       console.log('✅ Preferences saved successfully');
       const modalEl = document.getElementById(`preference-modal-${profileId}`);
       if (modalEl) modalEl.style.display = 'none';
-      // Feedback utilisateur — sans toast la fermeture silencieuse donne
+      // Feedback utilisateur, sans toast la fermeture silencieuse donne
       // l'impression que "rien ne se passe" (signalé en QA mobile).
       if (typeof showToast === 'function') {
         // showToast a 2 signatures dans la codebase (3 args sur index.html,
@@ -443,7 +443,7 @@ const PreferenceManager = {
         catch { try { showToast('✓ Préférences enregistrées'); } catch {} }
       }
       // Signale aux consommateurs (semaine.js, app.js) que les préférences
-      // ont changé — déclenche un re-render du menu sans reload.
+      // ont changé, déclenche un re-render du menu sans reload.
       window.dispatchEvent(new CustomEvent('omq:preferences-ready', {
         detail: { profileId }
       }));

@@ -89,7 +89,7 @@
       border-color: var(--green-700);
     }
 
-    /* Toolbar — enseigne + tier */
+    /* Toolbar : enseigne + tier */
     .courses-toolbar {
       display: flex;
       justify-content: space-between;
@@ -335,7 +335,7 @@
 
   <header class="landing-header">
     <div style="display:flex;align-items:center;gap:32px;">
-      <a class="brand--landing" href="/" aria-label="On mange quoi ? — accueil">
+      <a class="brand--landing" href="/" aria-label="On mange quoi ? accueil">
         <span class="brand-mark--landing" aria-hidden="true"></span>
         on mange quoi<span style="color:var(--green-800)">?</span>
       </a>
@@ -361,10 +361,10 @@
 
     <header class="courses-header">
       <div>
-        <span class="courses-eyebrow" id="courses-eyebrow">Liste de courses · semaine —</span>
+        <span class="courses-eyebrow" id="courses-eyebrow">Liste de courses · semaine...</span>
         <h1 class="courses-h1">
-          <span class="count" id="courses-count">— ingrédients</span>
-          <span class="price" id="courses-total"> · ≈ —,— €</span>
+          <span class="count" id="courses-count">... ingrédients</span>
+          <span class="price" id="courses-total"> · ≈ ...,... €</span>
         </h1>
       </div>
       <div class="courses-actions">
@@ -383,7 +383,7 @@
           <button class="courses-chip" data-tier="bio">Bio</button>
         </div>
       </div>
-      <span class="toolbar-progress" id="progress-label">— / — cochés</span>
+      <span class="toolbar-progress" id="progress-label">... / ... cochés</span>
     </div>
 
     <div class="courses-grid" id="courses-grid">
@@ -537,7 +537,7 @@
               <span class="item-name">${isHotspot ? '<span class="item-risk" aria-hidden="true"></span>' : ''}${item.name}${isHotspot ? '<span class="item-tag">+ pesticides</span>' : ''}</span>
               <span class="item-meta">${item.qty || ''}${item.isSeasonal ? ' · saison' : ''}</span>
             </div>
-            <span class="item-price">${typeof price === 'number' ? '≈ ' + price.toFixed(2).replace('.', ',') + ' €' : '—'}</span>
+            <span class="item-price">${typeof price === 'number' ? '≈ ' + price.toFixed(2).replace('.', ',') + ' €' : '...'}</span>
           `;
           row.addEventListener('click', () => toggleItem(id, row));
           section.appendChild(row);
@@ -602,13 +602,13 @@
     document.getElementById('btn-export').addEventListener('click', () => {
       if (!state.data) return;
       const lines = [];
-      lines.push(`Liste de courses — On mange quoi ? — semaine du ${state.weekStart}`);
+      lines.push(`Liste de courses, On mange quoi ? Semaine du ${state.weekStart}`);
       lines.push('');
       state.data.shoppingList.forEach(cat => {
         lines.push(`-- ${cat.category} --`);
         cat.items.forEach(it => {
           const p = getPrice(it, state.tier);
-          lines.push(` - ${it.name} — ${it.qty || ''}${typeof p === 'number' ? ' — ' + p.toFixed(2).replace('.', ',') + ' €' : ''}`);
+          lines.push(` - ${it.name} : ${it.qty || ''}${typeof p === 'number' ? ', ' + p.toFixed(2).replace('.', ',') + ' €' : ''}`);
         });
         lines.push('');
       });
@@ -624,7 +624,7 @@
 
     document.getElementById('btn-share').addEventListener('click', async () => {
       const shareData = {
-        title: 'Liste de courses — On mange quoi ?',
+        title: 'Liste de courses | On mange quoi ?',
         text: `Liste de courses pour la semaine du ${state.weekStart}.`,
         url: window.location.href
       };

@@ -1,7 +1,7 @@
 /**
  * Preference Substitution Module
  * Automatically substitutes meals that violate user preferences with safe alternatives
- * PREMIUM FEATURE — requires subscription
+ * PREMIUM FEATURE : requires subscription
  */
 
 const PreferenceSubstitution = {
@@ -9,7 +9,7 @@ const PreferenceSubstitution = {
   substitutions: {}, // { "meal-id": { original: {...}, substitute: {...} } }
   substitutionHistory: {}, // Cache: { "user-id": [{ mealId, substituteId, usedDate }, ...] }
 
-  // Initialize — load meal database
+  // Initialize: load meal database
   async init() {
     try {
       const res = await fetch('/data/meals.json');
@@ -164,7 +164,7 @@ const PreferenceSubstitution = {
   scoreMealMatch(original, candidate) {
     let score = 0;
 
-    // Kid-friendliness match (0.3) — prefer to keep meal type consistent
+    // Kid-friendliness match (0.3): prefer to keep meal type consistent
     if (original.kidFriendly === candidate.kidFriendly) {
       score += 0.3;
     } else if (candidate.kidFriendly) {
@@ -172,14 +172,14 @@ const PreferenceSubstitution = {
       score += 0.15;
     }
 
-    // Difficulty similarity (0.3) — keep prep time reasonable
+    // Difficulty similarity (0.3): keep prep time reasonable
     const difficultyMap = { 'very-easy': 1, 'easy': 2, 'medium': 3, 'hard': 4 };
     const origDiff = difficultyMap[original.difficulty] || 2;
     const candDiff = difficultyMap[candidate.difficulty] || 2;
     const diffDelta = Math.abs(origDiff - candDiff);
     score += Math.max(0, 0.3 - (diffDelta * 0.1)); // Penalize very different difficulty
 
-    // Ingredient overlap (0.4) — prefer similar ingredients
+    // Ingredient overlap (0.4): prefer similar ingredients
     if (original.ingredients && candidate.ingredients) {
       const origSet = new Set(original.ingredients);
       const candSet = new Set(candidate.ingredients);
@@ -206,7 +206,7 @@ const PreferenceSubstitution = {
     // Get user preferences
     const preferences = PreferenceManager.getPreferences(profileId);
     if (!preferences || (!preferences.allergies?.length && !preferences.restrictions?.length && !preferences.dislikes?.length)) {
-      // No preferences set — return menu as-is
+      // No preferences set, return menu as-is
       return { menu, alerts: [], substitutionCount: 0 };
     }
 

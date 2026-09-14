@@ -12,7 +12,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231B4332'/><circle cx='16' cy='16' r='11' fill='none' stroke='white' stroke-width='2'/><circle cx='16' cy='16' r='6.5' fill='none' stroke='white' stroke-width='1.8'/></svg>">
   <link rel="canonical" href="https://onmangequoi.eu/fiche.html">
   <style>
-    /* ── Fiche-specific styles — Phase 2D redesign ── */
+    /* ── Fiche-specific styles : Phase 2D redesign ── */
     body { background: var(--bg); }
 
     /* Page shell */
@@ -82,7 +82,7 @@
       margin-bottom: var(--s-20);
     }
 
-    /* Section per signal — mono numeral + accent dot + name */
+    /* Section per signal, mono numeral + accent dot + name */
     .fmm-section { margin-bottom: var(--s-32); }
 
     .fmm-section-title {
@@ -116,7 +116,7 @@
       transform: translateY(-2px);
     }
 
-    /* Single accent color per signal — calm */
+    /* Single accent color per signal, calm */
     .signal-cadmium .dot   { background: var(--score-b); }
     .signal-mercure .dot   { background: var(--ink-700); }
     .signal-pesticides .dot{ background: #7C8A2A; }
@@ -159,7 +159,7 @@
       letter-spacing: 0.02em;
     }
 
-    /* Prefer rows — calm green check */
+    /* Prefer rows, calm green check */
     .prefer-row {
       display: flex;
       align-items: flex-start;
@@ -209,7 +209,7 @@
     }
     .fiche-sources a:hover { text-decoration: underline; }
 
-    /* Print A5 landscape — preserve */
+    /* Print A5 landscape, preserve */
     @media print {
       .landing-header, .landing-footer, .fiche-actions { display: none !important; }
       body { background: white; }
@@ -219,7 +219,7 @@
       @page { size: A5 landscape; margin: 0.5cm; }
     }
   </style>
-  <!-- Statistiques de fréquentation — Plausible Analytics (sans cookies, RGPD-compatible) -->
+  <!-- Statistiques de fréquentation : Plausible Analytics (sans cookies, RGPD-compatible) -->
   <script async src="https://plausible.io/js/pa-ZaRseIh-nGhXVtbtWwn2-.js"></script>
   <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
 </head>
@@ -227,7 +227,7 @@
 
   <header class="landing-header">
     <div style="display:flex;align-items:center;gap:32px;">
-      <a class="brand--landing" href="/" aria-label="On mange quoi ? — accueil">
+      <a class="brand--landing" href="/" aria-label="On mange quoi ? accueil">
         <span class="brand-mark--landing" aria-hidden="true"></span>
         on mange quoi<span style="color:var(--green-800)">?</span>
       </a>
@@ -296,7 +296,7 @@
           </div>
           <div class="fiche-row">
             <span class="fiche-row-item">Abats</span>
-            <span class="fiche-row-detail">Foie, rognons — concentration élevée.
+            <span class="fiche-row-detail">Foie, rognons : concentration élevée.
               <span class="fiche-row-limit">À éviter pour les enfants</span>
             </span>
           </div>
@@ -308,7 +308,7 @@
           </div>
           <div class="fiche-row">
             <span class="fiche-row-item">Coquillages</span>
-            <span class="fiche-row-detail">Huîtres, moules — concentration variable.
+            <span class="fiche-row-detail">Huîtres, moules : concentration variable.
               <span class="fiche-row-limit">Adultes uniquement, max 1×/mois</span>
             </span>
           </div>
@@ -329,19 +329,19 @@
           </div>
           <div class="fiche-row">
             <span class="fiche-row-item">Espadon · Marlin · Requin · Thon rouge</span>
-            <span class="fiche-row-detail">Poissons prédateurs — concentration très élevée.
+            <span class="fiche-row-detail">Poissons prédateurs : concentration très élevée.
               <span class="fiche-row-limit">À proscrire (enfants, femmes enceintes)</span>
             </span>
           </div>
           <div class="fiche-row">
             <span class="fiche-row-item">Saumon d'élevage atlantique</span>
             <span class="fiche-row-detail">Mercure + contaminants organiques.
-              <span class="fiche-row-limit">Max 2×/mois — alterner sardines / maquereau</span>
+              <span class="fiche-row-limit">Max 2×/mois : alterner sardines / maquereau</span>
             </span>
           </div>
           <div class="fiche-row">
             <span class="fiche-row-item">Raie · Lotte · Bar sauvage</span>
-            <span class="fiche-row-detail">Poissons à vie longue — accumulation.
+            <span class="fiche-row-detail">Poissons à vie longue : accumulation.
               <span class="fiche-row-limit">Limiter adultes · Éviter enfants</span>
             </span>
           </div>
@@ -384,19 +384,19 @@
           <div class="fiche-row">
             <span class="fiche-row-item">Poulet / dinde intensif</span>
             <span class="fiche-row-detail">Antibiotiques, conditions d'élevage.
-              <span class="fiche-row-limit">Éviter code 3 — préférer Label Rouge / AB</span>
+              <span class="fiche-row-limit">Éviter code 3 : préférer Label Rouge / AB</span>
             </span>
           </div>
           <div class="fiche-row">
             <span class="fiche-row-item">Œufs code 3</span>
-            <span class="fiche-row-detail">Poules en cage — qualité nutritionnelle moindre.
+            <span class="fiche-row-detail">Poules en cage : qualité nutritionnelle moindre.
               <span class="fiche-row-limit">Préférer code 0 (bio) ou 1 (plein air)</span>
             </span>
           </div>
           <div class="fiche-row">
             <span class="fiche-row-item">Charcuterie industrielle</span>
             <span class="fiche-row-detail">Nitrites, additifs.
-              <span class="fiche-row-limit">Jambon supérieur français — limiter la quantité</span>
+              <span class="fiche-row-limit">Jambon supérieur français : limiter la quantité</span>
             </span>
           </div>
         </section>
@@ -414,19 +414,19 @@
             <span class="name">Alternatives cadmium</span>
           </header>
           <div class="prefer-row">
-            <span class="prefer-row-text"><strong>Riz basmati</strong> — bien plus faible en cadmium que le riz long grain</span>
+            <span class="prefer-row-text"><strong>Riz basmati</strong> : bien plus faible en cadmium que le riz long grain</span>
           </div>
           <div class="prefer-row">
-            <span class="prefer-row-text"><strong>Flocons d'avoine nature</strong> — céréale du petit-déjeuner idéale</span>
+            <span class="prefer-row-text"><strong>Flocons d'avoine nature</strong> : céréale du petit-déjeuner idéale</span>
           </div>
           <div class="prefer-row">
-            <span class="prefer-row-text"><strong>Légumineuses</strong> — lentilles, pois chiches, haricots : réduisent l'absorption du cadmium</span>
+            <span class="prefer-row-text"><strong>Légumineuses</strong> : lentilles, pois chiches, haricots : réduisent l'absorption du cadmium</span>
           </div>
           <div class="prefer-row">
-            <span class="prefer-row-text"><strong>Pain au levain</strong> — fermentation réduit la disponibilité du cadmium</span>
+            <span class="prefer-row-text"><strong>Pain au levain</strong> : fermentation réduit la disponibilité du cadmium</span>
           </div>
           <div class="prefer-row">
-            <span class="prefer-row-text"><strong>Boulgour · quinoa</strong> — faible indice glycémique et faible teneur</span>
+            <span class="prefer-row-text"><strong>Boulgour · quinoa</strong> : faible indice glycémique et faible teneur</span>
           </div>
         </section>
 
@@ -438,16 +438,16 @@
             <span class="name">Poissons sûrs</span>
           </header>
           <div class="prefer-row">
-            <span class="prefer-row-text"><strong>Sardines · Anchois · Maquereaux · Harengs</strong> — petits poissons gras, très faible mercure et riches en oméga-3</span>
+            <span class="prefer-row-text"><strong>Sardines · Anchois · Maquereaux · Harengs</strong> : petits poissons gras, très faible mercure et riches en oméga-3</span>
           </div>
           <div class="prefer-row">
-            <span class="prefer-row-text"><strong>Cabillaud · Lieu noir · Merlu</strong> — poissons blancs maigres, très sûrs</span>
+            <span class="prefer-row-text"><strong>Cabillaud · Lieu noir · Merlu</strong> : poissons blancs maigres, très sûrs</span>
           </div>
           <div class="prefer-row">
-            <span class="prefer-row-text"><strong>Truite d'élevage France</strong> — filière contrôlée, faible contamination</span>
+            <span class="prefer-row-text"><strong>Truite d'élevage France</strong> : filière contrôlée, faible contamination</span>
           </div>
           <div class="prefer-row">
-            <span class="prefer-row-text"><strong>Dorade · Bar d'élevage</strong> — bien plus sûrs que les espèces sauvages prédatrices</span>
+            <span class="prefer-row-text"><strong>Dorade · Bar d'élevage</strong> : bien plus sûrs que les espèces sauvages prédatrices</span>
           </div>
         </section>
 
@@ -459,16 +459,16 @@
             <span class="name">Sans pesticides</span>
           </header>
           <div class="prefer-row">
-            <span class="prefer-row-text"><strong>Bananes · Avocats · Oignons</strong> — peau épaisse = protection naturelle, pas besoin de bio</span>
+            <span class="prefer-row-text"><strong>Bananes · Avocats · Oignons</strong> : peau épaisse = protection naturelle, pas besoin de bio</span>
           </div>
           <div class="prefer-row">
-            <span class="prefer-row-text"><strong>Carottes · Choux · Brocolis</strong> — légumes à faible résidu en France</span>
+            <span class="prefer-row-text"><strong>Carottes · Choux · Brocolis</strong> : légumes à faible résidu en France</span>
           </div>
           <div class="prefer-row">
-            <span class="prefer-row-text"><strong>Courgettes · Courges</strong> — faible absorption, production souvent locale</span>
+            <span class="prefer-row-text"><strong>Courgettes · Courges</strong> : faible absorption, production souvent locale</span>
           </div>
           <div class="prefer-row">
-            <span class="prefer-row-text"><strong>Fruits et légumes de saison locaux</strong> — moins de traitements post-récolte</span>
+            <span class="prefer-row-text"><strong>Fruits et légumes de saison locaux</strong> : moins de traitements post-récolte</span>
           </div>
         </section>
 
@@ -480,19 +480,19 @@
             <span class="name">Élevage responsable</span>
           </header>
           <div class="prefer-row">
-            <span class="prefer-row-text"><strong>Label Rouge · Agriculture Biologique</strong> — garanties sur les conditions d'élevage</span>
+            <span class="prefer-row-text"><strong>Label Rouge · Agriculture Biologique</strong> : garanties sur les conditions d'élevage</span>
           </div>
           <div class="prefer-row">
-            <span class="prefer-row-text"><strong>Œufs code 0 (bio) ou 1 (plein air)</strong> — premier chiffre sur l'emballage</span>
+            <span class="prefer-row-text"><strong>Œufs code 0 (bio) ou 1 (plein air)</strong> : premier chiffre sur l'emballage</span>
           </div>
           <div class="prefer-row">
-            <span class="prefer-row-text"><strong>Légumineuses comme protéines</strong> — lentilles, pois chiches, haricots 3–5×/sem</span>
+            <span class="prefer-row-text"><strong>Légumineuses comme protéines</strong> : lentilles, pois chiches, haricots 3–5×/sem</span>
           </div>
           <div class="prefer-row">
-            <span class="prefer-row-text"><strong>Volailles plein air France</strong> — meilleur profil nutritionnel et éthique</span>
+            <span class="prefer-row-text"><strong>Volailles plein air France</strong> : meilleur profil nutritionnel et éthique</span>
           </div>
           <div class="prefer-row">
-            <span class="prefer-row-text"><strong>Jambon supérieur français</strong> — sans additifs superflus, limité à 2–3 tranches/sem</span>
+            <span class="prefer-row-text"><strong>Jambon supérieur français</strong> : sans additifs superflus, limité à 2–3 tranches/sem</span>
           </div>
         </section>
 
@@ -536,7 +536,7 @@
     // Share API
     document.getElementById('btn-share')?.addEventListener('click', async () => {
       const shareData = {
-        title: 'Mémo santé — Alimentation saine',
+        title: 'Mémo santé : Alimentation saine',
         text: 'Aliments à limiter et à privilégier : cadmium, mercure, pesticides, élevage. Recommandations ANSES / EFSA.',
         url: window.location.href
       };
