@@ -84,6 +84,11 @@
   status = 301
   force = true
 [[redirects]]
+  from = "/blog/alimentation-post-partum"
+  to = "/blog/alimentation-post-partum.html"
+  status = 301
+  force = true
+[[redirects]]
   from = "/index.html"
   to = "/"
   status = 301
