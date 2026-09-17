@@ -94,6 +94,11 @@
   status = 301
   force = true
 [[redirects]]
+  from = "/blog/aliments-a-eviter-grossesse"
+  to = "/blog/aliments-a-eviter-grossesse.html"
+  status = 301
+  force = true
+[[redirects]]
   from = "/index.html"
   to = "/"
   status = 301
