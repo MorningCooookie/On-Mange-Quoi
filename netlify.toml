@@ -89,6 +89,11 @@
   status = 301
   force = true
 [[redirects]]
+  from = "/blog/diversification-metaux-lourds"
+  to = "/blog/diversification-metaux-lourds.html"
+  status = 301
+  force = true
+[[redirects]]
   from = "/index.html"
   to = "/"
   status = 301
