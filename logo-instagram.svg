@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+
+    <!-- Header gradient: #1B4332 → #40916C, direction 135deg -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#1B4332"/>
+      <stop offset="100%" stop-color="#40916C"/>
+    </linearGradient>
+
+    <!-- Arc text path : circle centered at (540,540), radius 310 -->
+    <!-- Arcs from left to right over the top -->
+    <path id="topArc" d="M 230,540 A 310,310 0 0,1 850,540" fill="none"/>
+
+  </defs>
+
+  <!-- Background square with gradient -->
+  <rect width="1080" height="1080" fill="url(#bgGrad)"/>
+
+  <!-- ─────────────────────────────────────── -->
+  <!-- Concentric circles : cream color       -->
+  <!-- ─────────────────────────────────────── -->
+
+  <!-- Outer ring -->
+  <circle cx="540" cy="540" r="295" fill="none" stroke="#F5F0E8" stroke-width="14"/>
+
+  <!-- Middle ring -->
+  <circle cx="540" cy="540" r="175" fill="none" stroke="#F5F0E8" stroke-width="11"/>
+
+  <!-- Center dot -->
+  <circle cx="540" cy="540" r="48" fill="#F5F0E8"/>
+
+  <!-- ─────────────────────────────────────── -->
+  <!-- Arc text : "ON MANGE QUOI ?"           -->
+  <!-- ─────────────────────────────────────── -->
+  <text
+    font-family="'Georgia', 'Times New Roman', serif"
+    font-size="68"
+    font-weight="400"
+    fill="#F5F0E8"
+    letter-spacing="10">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">ON MANGE QUOI ?</textPath>
+  </text>
+
+</svg>
