@@ -120,3 +120,12 @@
   for = "/sitemap.xml"
   [headers.values]
     Content-Type = "application/xml; charset=utf-8"
+
+# En-tetes de securite de base : pas de risque de casser Plausible/GA4/Fonts/Supabase
+# (pas de CSP ici, volontairement : trop de scripts tiers a lister sans tests en direct)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
