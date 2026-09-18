@@ -103,8 +103,8 @@
       <button type="button" class="auth-modal__close" onclick="document.getElementById('login-modal').style.display='none'" aria-label="Fermer">✕</button>
       <h2 class="auth-modal__title">Bon retour</h2>
       <p class="auth-modal__subtitle">Retrouvez votre menu de la semaine.</p>
-      <input type="email" id="login-email" class="auth-modal__input" placeholder="Votre email" autocomplete="email" required>
-      <input type="password" id="login-password" class="auth-modal__input" placeholder="Mot de passe" autocomplete="current-password" required>
+      <input type="email" id="login-email" class="auth-modal__input" placeholder="Votre email" aria-label="Votre email" autocomplete="email" required>
+      <input type="password" id="login-password" class="auth-modal__input" placeholder="Mot de passe" aria-label="Mot de passe" autocomplete="current-password" required>
       <button type="submit" id="btn-login" class="auth-modal__btn">Se connecter</button>
       <p class="auth-modal__forgot">
         <button type="button" class="auth-modal__link" data-action="open-forgot-modal">Mot de passe oublié ?</button>
@@ -122,7 +122,7 @@
       <button type="button" class="auth-modal__close" data-action="close-forgot-modal" aria-label="Fermer">✕</button>
       <h2 class="auth-modal__title">Mot de passe oublié</h2>
       <p class="auth-modal__subtitle">Entrez votre email, on vous envoie un lien pour le réinitialiser.</p>
-      <input type="email" id="forgot-email" class="auth-modal__input" placeholder="Votre email" autocomplete="email" required>
+      <input type="email" id="forgot-email" class="auth-modal__input" placeholder="Votre email" aria-label="Votre email" autocomplete="email" required>
       <button type="submit" id="btn-forgot" class="auth-modal__btn">Envoyer le lien</button>
       <p class="auth-modal__footer">
         Vous vous en souvenez ?
@@ -142,8 +142,8 @@
         <li style="padding-left:22px;position:relative;margin-bottom:6px;"><span style="position:absolute;left:0;top:0;color:var(--green-800);font-weight:700;">✓</span>La liste de courses regroupée par rayon</li>
         <li style="padding-left:22px;position:relative;"><span style="position:absolute;left:0;top:0;color:var(--green-800);font-weight:700;">✓</span>Un score santé basé sur ANSES et EFSA</li>
       </ul>
-      <input type="email" id="signup-email" class="auth-modal__input" placeholder="Votre email" autocomplete="email" required>
-      <input type="password" id="signup-password" class="auth-modal__input" placeholder="Mot de passe (min. 6 caractères)" autocomplete="new-password" required minlength="6">
+      <input type="email" id="signup-email" class="auth-modal__input" placeholder="Votre email" aria-label="Votre email" autocomplete="email" required>
+      <input type="password" id="signup-password" class="auth-modal__input" placeholder="Mot de passe (min. 6 caractères)" aria-label="Mot de passe, minimum 6 caractères" autocomplete="new-password" required minlength="6">
       <button type="submit" id="btn-signup" class="auth-modal__btn">Créer mon compte</button>
       <p class="auth-modal__footer">
         Déjà un compte ?
