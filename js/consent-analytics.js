@@ -1,4 +1,4 @@
-/* On Mange Quoi — consentement cookies + Google Analytics (GA4)
+/* On Mange Quoi : consentement cookies + Google Analytics (GA4)
    Plausible Analytics (sans cookies) reste toujours actif, indépendamment de ce script.
    Google Analytics n'est chargé qu'après consentement explicite (RGPD/CNIL). */
 (function () {
