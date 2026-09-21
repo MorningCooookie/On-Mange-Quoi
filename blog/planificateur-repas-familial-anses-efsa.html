@@ -37,6 +37,54 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Le planificateur remplace-t-il un avis médical ou diététique ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Le score santé et les seuils appliqués sont un repère de tendance sur la semaine, pas un avis médical personnalisé. En cas de grossesse, de pathologie ou de question spécifique à votre situation, l'avis d'un professionnel de santé reste la référence. Le planificateur sert à rendre visible une information déjà publique (les recommandations ANSES et EFSA), pas à la remplacer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Le menu hebdomadaire couvre-t-il aussi les petits-déjeuners et les déjeuners ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le menu automatique généré chaque lundi se concentre sur les sept dîners de la semaine, avec la liste de courses correspondante. Le générateur de recettes propose par ailleurs des idées de petit-déjeuner, de déjeuner et de goûter à consulter à la carte, mais ces repas ne sont pas encore intégrés au menu hebdomadaire automatique."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il ressaisir les préférences de la famille chaque semaine ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Le profil famille (allergies, restrictions, ce qui ne passe pas avec les enfants) se remplit une seule fois dans les préférences, puis est réutilisé automatiquement à chaque nouvelle génération de menu. Il peut être modifié à tout moment si les besoins changent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les seuils ANSES et EFSA sont-ils les mêmes pour un enfant et pour un adulte ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Les seuils de sécurité, comme la dose hebdomadaire tolérable, sont exprimés par kilogramme de poids corporel. À quantité d'aliment égale, un enfant est donc proportionnellement plus exposé qu'un adulte, ce qui explique pourquoi les recommandations sont plus strictes pour les enfants et les femmes enceintes, sans que l'aliment en question pose problème pour un adulte au même rythme de consommation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Le planificateur peut-il tenir compte des allergies et intolérances alimentaires ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Le profil famille permet d'indiquer les allergies, les régimes spécifiques et les ingrédients à éviter par personne. Le menu généré chaque semaine exclut automatiquement ces ingrédients, sans avoir à les repérer manuellement dans chaque recette."
+      }
+    }
+  ]
+}
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -133,6 +181,10 @@
     article h2 {
       font-family: var(--font-display); font-weight: 600; font-size: 1.35rem; color: var(--text);
       margin: 2.25rem 0 0.9rem;
+    }
+    article h3 {
+      font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; color: var(--text);
+      margin: 1.75rem 0 0.5rem;
     }
     article p { font-size: 1rem; color: var(--text); margin-bottom: 1rem; line-height: 1.75; }
     article p.lede { font-size: 1.05rem; color: var(--text-secondary); }
@@ -262,6 +314,22 @@
     <h2>Pourquoi ça compte, surtout en famille</h2>
     <p>Les seuils ANSES et EFSA sont plus stricts pour les enfants et les femmes enceintes, à poids égal l'exposition compte davantage. C'est justement le moment où la charge mentale de la cuisine est déjà la plus lourde : allergies à gérer, goûts différents à table, courses à ne pas oublier. Ajouter un calcul de seuils de contaminants à la liste n'est réaliste pour personne sans automatisation.</p>
     <p>L'objectif n'est pas de faire peur ni de tout interdire. Il est de rendre visible une information qui existe déjà dans la littérature scientifique, mais que personne n'a le temps de recalculer chaque dimanche soir.</p>
+
+    <h2>Foire aux questions</h2>
+    <h3>Le planificateur remplace-t-il un avis médical ou diététique ?</h3>
+    <p>Non. Le score santé et les seuils appliqués sont un repère de tendance sur la semaine, pas un avis médical personnalisé. En cas de grossesse, de pathologie ou de question spécifique à votre situation, l'avis d'un professionnel de santé reste la référence. Le planificateur sert à rendre visible une information déjà publique (les recommandations ANSES et EFSA), pas à la remplacer.</p>
+
+    <h3>Le menu hebdomadaire couvre-t-il aussi les petits-déjeuners et les déjeuners ?</h3>
+    <p>Le menu automatique généré chaque lundi se concentre sur les sept dîners de la semaine, avec la liste de courses correspondante. Le générateur de recettes propose par ailleurs des idées de petit-déjeuner, de déjeuner et de goûter à consulter à la carte, mais ces repas ne sont pas encore intégrés au menu hebdomadaire automatique.</p>
+
+    <h3>Faut-il ressaisir les préférences de la famille chaque semaine ?</h3>
+    <p>Non. Le profil famille (allergies, restrictions, ce qui ne passe pas avec les enfants) se remplit une seule fois dans les préférences, puis est réutilisé automatiquement à chaque nouvelle génération de menu. Il peut être modifié à tout moment si les besoins changent.</p>
+
+    <h3>Les seuils ANSES et EFSA sont-ils les mêmes pour un enfant et pour un adulte ?</h3>
+    <p>Non. Les seuils de sécurité, comme la dose hebdomadaire tolérable, sont exprimés par kilogramme de poids corporel. À quantité d'aliment égale, un enfant est donc proportionnellement plus exposé qu'un adulte, ce qui explique pourquoi les recommandations sont plus strictes pour les enfants et les femmes enceintes, sans que l'aliment en question pose problème pour un adulte au même rythme de consommation.</p>
+
+    <h3>Le planificateur peut-il tenir compte des allergies et intolérances alimentaires ?</h3>
+    <p>Oui. Le profil famille permet d'indiquer les allergies, les régimes spécifiques et les ingrédients à éviter par personne. Le menu généré chaque semaine exclut automatiquement ces ingrédients, sans avoir à les repérer manuellement dans chaque recette.</p>
 
     <div class="related">
       <span class="label">Pour aller plus loin</span>
