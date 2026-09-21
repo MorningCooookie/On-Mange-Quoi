@@ -478,37 +478,55 @@ async function main() {
   for (const file of files) {
     const weekStart = file.replace('.json', '');
     const data = JSON.parse(await readFile(join(MENUS_DIR, file), 'utf8'));
-    for (const day of data.days || []) {
-      for (const [mealType, meal] of Object.entries(day.meals || {})) {
-        if (!meal?.name) continue;
-        const steps = meal.prepSteps || [];
-        const ingredients = meal.ingredients || [];
-        if (steps.length < MIN_STEPS || ingredients.length < MIN_INGREDIENTS) continue;
 
-        const slug = slugify(meal.name);
-        if (!slug) continue;
-
-        const existing = recipes.get(slug);
-        if (existing) {
-          // Déjà vue : on garde le contenu, on met juste à jour la date de dernière apparition
-          if (weekStart > existing.lastSeen) existing.lastSeen = weekStart;
-          continue;
+    // Deux formats possibles : la nouvelle structure "moins de friction"
+    // (dinners/weekend/breakfasts/snacks/lunches) depuis la refonte, ou
+    // l'ancien format (days[7] x meals{4}) pour les semaines archivées
+    // générées avant. `lunches` est volontairement ignoré ici : ce sont
+    // des idées légères sans ingrédients ni étapes, jamais de fiche page.
+    const candidates = [];
+    if (Array.isArray(data.dinners)) {
+      for (const meal of data.dinners || []) candidates.push({ mealType: 'dinner', meal });
+      for (const meal of data.weekend || []) candidates.push({ mealType: 'dinner', meal });
+      for (const meal of data.breakfasts || []) candidates.push({ mealType: 'breakfast', meal });
+      for (const meal of data.snacks || []) candidates.push({ mealType: 'snack', meal });
+    } else {
+      for (const day of data.days || []) {
+        for (const [mealType, meal] of Object.entries(day.meals || {})) {
+          candidates.push({ mealType, meal });
         }
-
-        recipes.set(slug, {
-          slug,
-          name: meal.name,
-          mealType,
-          prepTime: String(meal.prepTime || '20'),
-          riskLevel: meal.riskLevel || 'low',
-          riskType: meal.riskType || null,
-          isSeasonal: !!meal.isSeasonal,
-          note: meal.note || '',
-          ingredients,
-          prepSteps: steps,
-          lastSeen: weekStart,
-        });
       }
+    }
+
+    for (const { mealType, meal } of candidates) {
+      if (!meal?.name) continue;
+      const steps = meal.prepSteps || [];
+      const ingredients = meal.ingredients || [];
+      if (steps.length < MIN_STEPS || ingredients.length < MIN_INGREDIENTS) continue;
+
+      const slug = slugify(meal.name);
+      if (!slug) continue;
+
+      const existing = recipes.get(slug);
+      if (existing) {
+        // Déjà vue : on garde le contenu, on met juste à jour la date de dernière apparition
+        if (weekStart > existing.lastSeen) existing.lastSeen = weekStart;
+        continue;
+      }
+
+      recipes.set(slug, {
+        slug,
+        name: meal.name,
+        mealType,
+        prepTime: String(meal.prepTime || '20'),
+        riskLevel: meal.riskLevel || 'low',
+        riskType: meal.riskType || null,
+        isSeasonal: !!meal.isSeasonal,
+        note: meal.note || '',
+        ingredients,
+        prepSteps: steps,
+        lastSeen: weekStart,
+      });
     }
   }
 

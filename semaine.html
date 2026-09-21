@@ -110,9 +110,62 @@
       <div class="filter-bar__summary" id="filter-summary"></div>
     </div>
 
-    <div class="semaine-grid" id="semaine-grid">
-      <div class="semaine-loading">On dresse la table…</div>
-    </div>
+    <!-- ── Dîners de semaine (Lundi-Vendredi, 20 min max) ────── -->
+    <section class="semaine-dinners-section" id="semaine-dinners-section">
+      <div class="risk-suggestions__header">
+        <div>
+          <span class="risk-suggestions__eyebrow">Cette semaine</span>
+          <h2 class="risk-suggestions__title" id="semaine-dinners-title">Dîners de semaine</h2>
+        </div>
+      </div>
+      <div class="semaine-grid" id="semaine-grid-dinners">
+        <div class="semaine-loading">On dresse la table…</div>
+      </div>
+    </section>
+
+    <!-- ── Week-end (Samedi, Dimanche, plus convivial) ───────── -->
+    <section class="semaine-weekend-section" id="semaine-weekend-section" hidden>
+      <div class="risk-suggestions__header">
+        <div>
+          <span class="risk-suggestions__eyebrow">Un peu plus de temps</span>
+          <h2 class="risk-suggestions__title">Le week-end</h2>
+        </div>
+      </div>
+      <div class="semaine-grid" id="semaine-grid-weekend"></div>
+    </section>
+
+    <!-- ── Petits-déjeuners réutilisables ─────────────────────── -->
+    <section class="semaine-breakfasts-section" id="semaine-breakfasts-section" hidden>
+      <div class="risk-suggestions__header">
+        <div>
+          <span class="risk-suggestions__eyebrow">À répéter dans la semaine</span>
+          <h2 class="risk-suggestions__title">Petits-déjeuners</h2>
+        </div>
+      </div>
+      <div class="semaine-grid" id="semaine-grid-breakfasts"></div>
+    </section>
+
+    <!-- ── Encas réutilisables ─────────────────────────────────── -->
+    <section class="semaine-snacks-section" id="semaine-snacks-section" hidden>
+      <div class="risk-suggestions__header">
+        <div>
+          <span class="risk-suggestions__eyebrow">À répéter dans la semaine</span>
+          <h2 class="risk-suggestions__title">Encas</h2>
+        </div>
+      </div>
+      <div class="semaine-grid" id="semaine-grid-snacks"></div>
+    </section>
+
+    <!-- ── Déjeuners, idées légères sans fiche recette ────────── -->
+    <section class="semaine-lunches-section" id="semaine-lunches-section" hidden>
+      <div class="risk-suggestions__header">
+        <div>
+          <span class="risk-suggestions__eyebrow">Simple, pas une recette complète</span>
+          <h2 class="risk-suggestions__title">Idées déjeuner</h2>
+        </div>
+      </div>
+      <div class="risk-suggestions__grid" id="semaine-grid-lunches"></div>
+    </section>
 
     <!-- Suggestions santé, desktop uniquement -->
     <section class="risk-suggestions" id="risk-suggestions">
@@ -202,6 +255,16 @@
       </div>
 
       <p class="fiche-note" id="fiche-note"></p>
+
+      <div class="fiche-section" id="fiche-twist-section" hidden>
+        <h3 class="fiche-section-label">Le twist du chef</h3>
+        <p class="fiche-twist" id="fiche-twist"></p>
+      </div>
+
+      <div class="fiche-section" id="fiche-conservation-section" hidden>
+        <h3 class="fiche-section-label">Conservation</h3>
+        <p class="fiche-conservation" id="fiche-conservation"></p>
+      </div>
     </div>
   </div>
 

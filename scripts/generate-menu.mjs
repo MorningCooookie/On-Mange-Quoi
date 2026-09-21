@@ -27,9 +27,10 @@ const HISTORY_FILE = join(ROOT, 'data', 'history.json');
 const PROMPT_FILE = join(__dirname, 'menu-prompt.md');
 
 const MODEL = process.env.MODEL || 'claude-sonnet-4-5-20250929';
-// 32000 tokens : un menu complet (28 repas + shoppingList + alerts) fait
-// typiquement 15000 à 20000 tokens en sortie JSON pretty-printed.
-// Avec 16000 on tronquait à mi-parcours.
+// 32000 tokens : marge large. Depuis la refonte "moins de friction"
+// (5 dinners + 2 weekend + 2 breakfasts + 2 snacks + 2-3 lunches allégés
+// au lieu de 28 repas complets), la sortie réelle est bien plus courte
+// qu'avant, mais on garde la même limite haute par sécurité.
 const MAX_TOKENS = 32000;
 
 // Mois en français pour l'injection dans le prompt
@@ -40,6 +41,9 @@ const MONTHS_FR = [
 
 // Labels jours en français pour validation
 const DAY_LABELS = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+const WEEKDAY_LABELS = DAY_LABELS.slice(0, 5);
+const WEEKEND_LABELS = DAY_LABELS.slice(5);
+const MAX_MAIN_INGREDIENTS = 5;
 
 /**
  * Calcule la date du lundi de la semaine en cours (Europe/Paris)
@@ -78,8 +82,38 @@ function formatLabel(isoDate) {
 }
 
 /**
+ * Valide un plat complet (dinners / weekend / breakfasts / snacks) :
+ * champs communs, nombre d'ingrédients, présence de twist/conservation.
+ */
+function validateDish(dish, pathLabel, errors, { maxPrepTime } = {}) {
+  if (!dish) {
+    errors.push(`${pathLabel} manquant`);
+    return;
+  }
+  if (!dish.name) errors.push(`${pathLabel}.name manquant`);
+  if (!Array.isArray(dish.ingredients) || dish.ingredients.length === 0) {
+    errors.push(`${pathLabel}.ingredients manquant ou vide`);
+  } else if (dish.ingredients.length > MAX_MAIN_INGREDIENTS) {
+    errors.push(`${pathLabel}.ingredients dépasse ${MAX_MAIN_INGREDIENTS} ingrédients principaux (reçu ${dish.ingredients.length})`);
+  }
+  if (!Array.isArray(dish.prepSteps) || dish.prepSteps.length === 0) {
+    errors.push(`${pathLabel}.prepSteps manquant ou vide`);
+  }
+  if (!dish.twist) errors.push(`${pathLabel}.twist manquant`);
+  if (!dish.conservation) errors.push(`${pathLabel}.conservation manquant`);
+  if (maxPrepTime && Number(dish.prepTime) > maxPrepTime) {
+    errors.push(`${pathLabel}.prepTime dépasse ${maxPrepTime} min (reçu ${dish.prepTime})`);
+  }
+}
+
+/**
  * Valide grossièrement la structure du menu généré.
  * Lance une erreur si quelque chose de critique manque.
+ *
+ * Structure (depuis la refonte "moins de friction") : 5 dinners (Lundi à
+ * Vendredi, 20 min max), 2 weekend (Samedi + Dimanche), 2 breakfasts
+ * réutilisables (sucré/salé), 2 snacks réutilisables (rapide/dense), 2 ou 3
+ * lunches allégés (juste name + note, pas de fiche recette complète).
  */
 function validateMenu(menu, expectedWeekStart) {
   const errors = [];
@@ -99,33 +133,70 @@ function validateMenu(menu, expectedWeekStart) {
   if (!Array.isArray(menu.healthScoreHighlights) || menu.healthScoreHighlights.length < 3) {
     errors.push('healthScoreHighlights doit contenir au moins 3 éléments');
   }
-  if (!Array.isArray(menu.days) || menu.days.length !== 7) {
-    errors.push(`days doit contenir exactement 7 jours, reçu ${menu.days?.length}`);
+
+  if (!Array.isArray(menu.dinners) || menu.dinners.length !== 5) {
+    errors.push(`dinners doit contenir exactement 5 plats, reçu ${menu.dinners?.length}`);
   } else {
-    menu.days.forEach((day, i) => {
-      if (day.label !== DAY_LABELS[i]) {
-        errors.push(`day[${i}].label attendu ${DAY_LABELS[i]}, reçu ${day.label}`);
+    menu.dinners.forEach((dish, i) => {
+      if (dish.day !== WEEKDAY_LABELS[i]) {
+        errors.push(`dinners[${i}].day attendu ${WEEKDAY_LABELS[i]}, reçu ${dish.day}`);
       }
       const expectedDate = addDays(expectedWeekStart, i);
-      if (day.date !== expectedDate) {
-        errors.push(`day[${i}].date attendu ${expectedDate}, reçu ${day.date}`);
+      if (dish.date !== expectedDate) {
+        errors.push(`dinners[${i}].date attendu ${expectedDate}, reçu ${dish.date}`);
       }
-      ['breakfast', 'lunch', 'snack', 'dinner'].forEach((mealKey) => {
-        const meal = day.meals?.[mealKey];
-        if (!meal) {
-          errors.push(`day[${i}].meals.${mealKey} manquant`);
-        } else {
-          if (!meal.name) errors.push(`day[${i}].meals.${mealKey}.name manquant`);
-          if (!Array.isArray(meal.ingredients) || meal.ingredients.length === 0) {
-            errors.push(`day[${i}].meals.${mealKey}.ingredients manquant ou vide`);
-          }
-          if (!Array.isArray(meal.prepSteps) || meal.prepSteps.length === 0) {
-            errors.push(`day[${i}].meals.${mealKey}.prepSteps manquant ou vide`);
-          }
-        }
-      });
+      validateDish(dish, `dinners[${i}]`, errors, { maxPrepTime: 20 });
     });
   }
+
+  if (!Array.isArray(menu.weekend) || menu.weekend.length !== 2) {
+    errors.push(`weekend doit contenir exactement 2 plats, reçu ${menu.weekend?.length}`);
+  } else {
+    menu.weekend.forEach((dish, i) => {
+      if (dish.day !== WEEKEND_LABELS[i]) {
+        errors.push(`weekend[${i}].day attendu ${WEEKEND_LABELS[i]}, reçu ${dish.day}`);
+      }
+      const expectedDate = addDays(expectedWeekStart, 5 + i);
+      if (dish.date !== expectedDate) {
+        errors.push(`weekend[${i}].date attendu ${expectedDate}, reçu ${dish.date}`);
+      }
+      validateDish(dish, `weekend[${i}]`, errors);
+    });
+  }
+
+  if (!Array.isArray(menu.breakfasts) || menu.breakfasts.length !== 2) {
+    errors.push(`breakfasts doit contenir exactement 2 options, reçu ${menu.breakfasts?.length}`);
+  } else {
+    const expectedVariants = ['sucre', 'sale'];
+    menu.breakfasts.forEach((dish, i) => {
+      if (dish.variant !== expectedVariants[i]) {
+        errors.push(`breakfasts[${i}].variant attendu ${expectedVariants[i]}, reçu ${dish.variant}`);
+      }
+      validateDish(dish, `breakfasts[${i}]`, errors);
+    });
+  }
+
+  if (!Array.isArray(menu.snacks) || menu.snacks.length !== 2) {
+    errors.push(`snacks doit contenir exactement 2 options, reçu ${menu.snacks?.length}`);
+  } else {
+    const expectedVariants = ['rapide', 'dense'];
+    menu.snacks.forEach((dish, i) => {
+      if (dish.variant !== expectedVariants[i]) {
+        errors.push(`snacks[${i}].variant attendu ${expectedVariants[i]}, reçu ${dish.variant}`);
+      }
+      validateDish(dish, `snacks[${i}]`, errors);
+    });
+  }
+
+  if (!Array.isArray(menu.lunches) || menu.lunches.length < 2 || menu.lunches.length > 3) {
+    errors.push(`lunches doit contenir 2 ou 3 idées, reçu ${menu.lunches?.length}`);
+  } else {
+    menu.lunches.forEach((dish, i) => {
+      if (!dish.name) errors.push(`lunches[${i}].name manquant`);
+      if (!dish.note) errors.push(`lunches[${i}].note manquant`);
+    });
+  }
+
   if (!Array.isArray(menu.shoppingList) || menu.shoppingList.length === 0) {
     errors.push('shoppingList manquant ou vide');
   }
@@ -208,7 +279,7 @@ async function main() {
     .replaceAll('{{MONTH}}', month)
     .replaceAll('{{YEAR}}', year);
 
-  const userMessage = `Génère le menu hebdomadaire complet pour la semaine du ${weekStart} (lundi) au ${weekEnd} (dimanche). Mois courant : ${month} ${year}. Respecte scrupuleusement la saisonnalité française de ce mois, toutes les contraintes santé (ANSES/EFSA), les contraintes pratiques et éditoriales. Retourne uniquement le JSON valide, sans aucun texte avant ou après.`;
+  const userMessage = `Génère le menu hebdomadaire pour la semaine du ${weekStart} (lundi) au ${weekEnd} (dimanche) : 5 dinners (Lundi à Vendredi), 2 weekend (Samedi, Dimanche), 2 breakfasts (sucré, salé), 2 snacks (rapide, dense), 2 ou 3 lunches allégés. Mois courant : ${month} ${year}. Respecte scrupuleusement la saisonnalité française de ce mois, l'esprit "moins de friction" du menu, toutes les contraintes santé (ANSES/EFSA), les contraintes pratiques et éditoriales. Retourne uniquement le JSON valide, sans aucun texte avant ou après.`;
 
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
@@ -272,10 +343,17 @@ async function main() {
 
   console.log(`✓ Menu écrit : ${targetFile}`);
   console.log(`✓ history.json mis à jour`);
-  console.log(`✓ Score : ${menu.healthScore} · ${menu.days.length} jours · ${menu.shoppingList.length} catégories de courses`);
+  console.log(`✓ Score : ${menu.healthScore} · ${menu.dinners.length} dîners · ${menu.weekend.length} week-end · ${menu.breakfasts.length} petit-déj · ${menu.snacks.length} encas · ${menu.lunches.length} déjeuners · ${menu.shoppingList.length} catégories de courses`);
 }
 
-main().catch((err) => {
-  console.error('✗ Erreur inattendue :', err);
-  process.exit(1);
-});
+// Ne lance main() que si le fichier est exécuté directement (node
+// scripts/generate-menu.mjs), pas quand il est importé (ex. par un test
+// qui a besoin de valider la structure du menu sans appeler l'API).
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch((err) => {
+    console.error('✗ Erreur inattendue :', err);
+    process.exit(1);
+  });
+}
+
+export { validateMenu, validateDish };

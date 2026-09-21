@@ -8,8 +8,15 @@
 const MEAL_LABELS = {
   breakfast: 'Petit-déj',
   lunch:     'Déjeuner',
-  snack:     'Goûter',
-  dinner:    'Dîner'
+  snack:     'Encas',
+  dinner:    'Dîner',
+  weekend:   'Week-end'
+};
+
+// Libellés de variante pour les petits-déj et encas réutilisables
+// (nouvelle structure : 2 options fixes, pas un plat par jour).
+const VARIANT_LABELS = {
+  sucre: 'Sucré', sale: 'Salé', rapide: 'Rapide', dense: 'Costaud'
 };
 
 /* ── Fiche technique ─────────────────────────────────────── */
@@ -78,6 +85,20 @@ function openFiche(meal, type) {
 
   const noteEl = document.getElementById('fiche-note');
   noteEl.textContent = meal.note || '';
+
+  // Twist du chef et conservation : nouveaux champs depuis la refonte
+  // "moins de friction". Absents sur les recettes des semaines archivées
+  // avant la refonte, la section reste alors masquée.
+  const twistSection = document.getElementById('fiche-twist-section');
+  if (twistSection) {
+    twistSection.hidden = !meal.twist;
+    document.getElementById('fiche-twist').textContent = meal.twist || '';
+  }
+  const conservationSection = document.getElementById('fiche-conservation-section');
+  if (conservationSection) {
+    conservationSection.hidden = !meal.conservation;
+    document.getElementById('fiche-conservation').textContent = meal.conservation || '';
+  }
 
   document.getElementById('fiche-overlay').classList.add('is-open');
   document.body.style.overflow = 'hidden';
@@ -295,16 +316,6 @@ function renderRiskSuggestions(data) {
     </div>`).join('');
 }
 
-function getDinnerTags(dinner) {
-  if (!dinner) return [];
-  const tags = [];
-  if (dinner.riskLevel === 'low')    tags.push('faible risque');
-  else if (dinner.riskLevel === 'medium') tags.push('risque modéré');
-  if (dinner.prepTime && dinner.prepTime <= 20) tags.push('rapide');
-  else if (dinner.prepTime) tags.push(`${dinner.prepTime} min`);
-  return tags.slice(0, 2);
-}
-
 // Cache des données pour pouvoir re-render au changement de préférences
 // sans re-fetcher le menu de la semaine.
 let __lastMenuData = null;
@@ -338,6 +349,217 @@ function renderMealWarning(meal, currentPreferences) {
   return `<span class="meal-warning-tag" title="Ce plat ne correspond pas à vos préférences">⚠ ${esc(raw)}</span>`;
 }
 
+// Nouvelle structure (depuis la refonte "moins de friction") : le menu a
+// `dinners`/`weekend`/`breakfasts`/`snacks`/`lunches` au lieu de `days`.
+// Les semaines archivées avant la refonte gardent l'ancien format `days`
+// (7 jours x 4 repas) et restent affichées via le chemin de rendu legacy.
+function isNewMenuFormat(data) {
+  return Array.isArray(data.dinners);
+}
+
+// Construit UNE carte plat (utilisé pour dinners, weekend, breakfasts,
+// snacks). Réutilise exactement les classes CSS de l'ancienne day-card,
+// une carte = un plat au lieu d'une carte = un jour avec plusieurs repas.
+function buildDishCard(dish, opts) {
+  const { type, headerAbbrev, headerNum, headerName, headerSub, isToday, currentPreferences } = opts;
+  const card = document.createElement('article');
+  card.className = 'semaine-day-card' + (isToday ? ' is-today' : '');
+
+  const hasRisk  = dish.riskLevel != null;
+  const dotColor = hasRisk ? riskDotColor(dish.riskLevel) : '';
+  const dotLabel = hasRisk ? riskLabel(dish.riskLevel) : '';
+  const warning  = renderMealWarning(dish, currentPreferences);
+  const isClickable = dish.ingredients?.length > 0;
+  const safeName = (typeof window.escapeHTML === 'function')
+    ? window.escapeHTML(dish.name)
+    : String(dish.name ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+  card.innerHTML = `
+    ${isToday ? '<span class="today-pill">aujourd\'hui</span>' : ''}
+    <div class="day-card__top">
+      <span class="day-card__abbrev">${headerAbbrev}</span>
+      <span class="day-card__num">${headerNum}</span>
+    </div>
+    <div class="semaine-day-header">
+      <span class="semaine-day-name">${headerName}</span>
+      <span class="semaine-day-date">${headerSub}</span>
+    </div>
+    <div class="semaine-day-meals">
+      <div class="semaine-meal-row${isClickable ? ' semaine-meal-row--clickable' : ''}"
+        ${isClickable ? `role="button" tabindex="0" aria-label="Voir la recette : ${safeName}"` : ''}>
+        <span class="semaine-meal-icon" aria-hidden="true"></span>
+        <div class="semaine-meal-info">
+          <div class="semaine-meal-type">${MEAL_LABELS[type] || type}</div>
+          <div class="semaine-meal-name">${dish.name}</div>
+          ${warning}
+        </div>
+        ${dish.prepTime ? `<span class="semaine-prep-badge">${dish.prepTime}'</span>` : ''}
+        ${hasRisk ? `<span class="semaine-risk-dot" style="background:${dotColor}" title="${dotLabel}" aria-label="${dotLabel}"></span>` : ''}
+        ${isClickable ? `<span class="semaine-meal-cta" aria-hidden="true"><span class="semaine-meal-cta__text">Voir la recette</span><span class="semaine-meal-cta__arrow">→</span></span>` : ''}
+      </div>
+    </div>
+    <div class="day-card__footer">
+      ${hasRisk ? `<span class="day-card__risk-dot" style="background:${dotColor}" title="${dotLabel}"></span>` : ''}
+    </div>`;
+
+  if (isClickable) {
+    const row = card.querySelector('.semaine-meal-row');
+    row.addEventListener('click', () => openFiche(dish, type));
+    row.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openFiche(dish, type);
+      }
+    });
+  }
+  return card;
+}
+
+function renderDinnersNew(data, currentPreferences) {
+  const grid = document.getElementById('semaine-grid-dinners');
+  if (!grid) return;
+  grid.innerHTML = '';
+  const todayStr = new Date().toISOString().slice(0, 10);
+  (data.dinners || []).forEach(dish => {
+    const isToday   = dish.date === todayStr;
+    const abbrev    = (dish.day || '').slice(0, 3).toLowerCase();
+    const dayNum    = dish.date ? String(new Date(dish.date + 'T12:00:00').getDate()).padStart(2, '0') : '';
+    const dateShort = dish.date ? new Date(dish.date + 'T12:00:00').toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' }) : '';
+    grid.appendChild(buildDishCard(dish, {
+      type: 'dinner', headerAbbrev: abbrev, headerNum: dayNum,
+      headerName: dish.day, headerSub: dateShort, isToday, currentPreferences
+    }));
+  });
+}
+
+function renderWeekendNew(data, currentPreferences) {
+  const grid = document.getElementById('semaine-grid-weekend');
+  if (!grid) return;
+  grid.innerHTML = '';
+  const todayStr = new Date().toISOString().slice(0, 10);
+  (data.weekend || []).forEach(dish => {
+    const isToday   = dish.date === todayStr;
+    const abbrev    = (dish.day || '').slice(0, 3).toLowerCase();
+    const dayNum    = dish.date ? String(new Date(dish.date + 'T12:00:00').getDate()).padStart(2, '0') : '';
+    const dateShort = dish.date ? new Date(dish.date + 'T12:00:00').toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' }) : '';
+    grid.appendChild(buildDishCard(dish, {
+      type: 'weekend', headerAbbrev: abbrev, headerNum: dayNum,
+      headerName: dish.day, headerSub: dateShort, isToday, currentPreferences
+    }));
+  });
+}
+
+// Petits-déj et encas : 2 options fixes réutilisables dans la semaine,
+// pas un plat par jour. La carte affiche la variante (Sucré/Salé/Rapide/
+// Costaud) à la place d'un jour.
+function renderReusableGroupNew(data, key, type, containerId, currentPreferences) {
+  const grid = document.getElementById(containerId);
+  if (!grid) return;
+  grid.innerHTML = '';
+  (data[key] || []).forEach(dish => {
+    const variantLabel = VARIANT_LABELS[dish.variant] || '';
+    grid.appendChild(buildDishCard(dish, {
+      type, headerAbbrev: variantLabel.slice(0, 3).toLowerCase(), headerNum: '',
+      headerName: variantLabel, headerSub: 'Toute la semaine',
+      isToday: false, currentPreferences
+    }));
+  });
+}
+
+// Déjeuners : idées légères, pas de fiche recette (pas d'ingrédients ni
+// d'étapes dans la donnée). Réutilise les cartes de suggestion déjà
+// existantes (risk-suggestions) plutôt que d'inventer un nouveau style.
+function renderLunchesNew(data) {
+  const grid = document.getElementById('semaine-grid-lunches');
+  if (!grid) return;
+  grid.innerHTML = (data.lunches || []).map(l => `
+    <div class="suggestion-card">
+      <span class="suggestion-card__tag">Déjeuner</span>
+      <h4 class="suggestion-card__title">${l.name}</h4>
+      <p class="suggestion-card__body">${l.note}</p>
+    </div>`).join('');
+}
+
+// Chemin de compatibilité : semaines archivées avant la refonte, encore
+// au format `days` (7 jours x 4 repas). Affiché dans le même conteneur
+// que les dîners de la nouvelle structure, sections week-end/petit-déj/
+// encas/déjeuners masquées puisque tout est déjà dans chaque jour.
+function renderLegacyDays(data, currentPreferences) {
+  const grid = document.getElementById('semaine-grid-dinners');
+  if (!grid) return;
+  grid.innerHTML = '';
+  const todayStr = new Date().toISOString().slice(0, 10);
+
+  (data.days || []).forEach(day => {
+    const card      = document.createElement('article');
+    const isToday   = day.date === todayStr;
+    const dinner    = day.meals?.dinner;
+    const abbrev    = (day.label || '').slice(0, 3).toLowerCase();
+    const dayNum    = String(new Date(day.date + 'T12:00:00').getDate()).padStart(2, '0');
+    const dotColor  = riskDotColor(dinner?.riskLevel || 'low');
+    const dotLabel  = riskLabel(dinner?.riskLevel || 'low');
+    const dateShort = new Date(day.date + 'T12:00:00')
+      .toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
+
+    card.className = 'semaine-day-card' + (isToday ? ' is-today' : '');
+    card.innerHTML = `
+      ${isToday ? '<span class="today-pill">aujourd\'hui</span>' : ''}
+      <div class="day-card__top">
+        <span class="day-card__abbrev">${abbrev}</span>
+        <span class="day-card__num">${dayNum}</span>
+      </div>
+      <div class="semaine-day-header">
+        <span class="semaine-day-name">${day.label}</span>
+        <span class="semaine-day-date">${dateShort}</span>
+      </div>
+      <div class="semaine-day-meals" id="semaine-meals-${day.date}"></div>
+      <div class="day-card__footer">
+        <span class="day-card__risk-dot" style="background:${dotColor}" title="${dotLabel}"></span>
+      </div>`;
+
+    grid.appendChild(card);
+
+    const mealsEl = card.querySelector('.semaine-day-meals');
+    ['breakfast', 'lunch', 'snack', 'dinner'].forEach(type => {
+      const meal = day.meals?.[type];
+      if (!meal) return;
+
+      const row = document.createElement('div');
+      const isClickable = type !== 'snack' && meal.ingredients?.length > 0;
+      row.className = 'semaine-meal-row' + (isClickable ? ' semaine-meal-row--clickable' : '');
+      const rowDot   = riskDotColor(meal.riskLevel);
+      const rowLabel = riskLabel(meal.riskLevel);
+      const warning  = renderMealWarning(meal, currentPreferences);
+
+      if (isClickable) {
+        row.setAttribute('role', 'button');
+        row.setAttribute('tabindex', '0');
+        row.setAttribute('aria-label', `Voir la recette : ${meal.name} (${MEAL_LABELS[type]})`);
+      }
+      row.innerHTML = `
+        <span class="semaine-meal-icon" aria-hidden="true"></span>
+        <div class="semaine-meal-info">
+          <div class="semaine-meal-type">${MEAL_LABELS[type]}</div>
+          <div class="semaine-meal-name">${meal.name}</div>
+          ${warning}
+        </div>
+        ${isClickable ? `<span class="semaine-prep-badge">${meal.prepTime}'</span>` : ''}
+        <span class="semaine-risk-dot" style="background:${rowDot}" title="${rowLabel}" aria-label="${rowLabel}"></span>
+        ${isClickable ? `<span class="semaine-meal-cta" aria-hidden="true"><span class="semaine-meal-cta__text">Voir la recette</span><span class="semaine-meal-cta__arrow">→</span></span>` : ''}`;
+      if (isClickable) {
+        row.addEventListener('click', () => openFiche(meal, type));
+        row.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openFiche(meal, type);
+          }
+        });
+      }
+      mealsEl.appendChild(row);
+    });
+  });
+}
+
 function renderMenu(data, history) {
   __lastMenuData = data;
   __lastHistory  = history;
@@ -368,89 +590,32 @@ function renderMenu(data, history) {
     dateEl.textContent = `Semaine du ${formatDate(ws)} au ${formatDate(we)}`;
   }
 
-  // Day cards
-  const grid = document.getElementById('semaine-grid');
-  if (!grid) return;
-  grid.innerHTML = '';
+  const currentPreferences = getActivePreferences();
+  const titleEl            = document.getElementById('semaine-dinners-title');
+  const weekendSection     = document.getElementById('semaine-weekend-section');
+  const breakfastsSection  = document.getElementById('semaine-breakfasts-section');
+  const snacksSection      = document.getElementById('semaine-snacks-section');
+  const lunchesSection     = document.getElementById('semaine-lunches-section');
 
-  (data.days || []).forEach(day => {
-    const card = document.createElement('article');
-    const todayStr  = new Date().toISOString().slice(0, 10);
-    const isToday   = day.date === todayStr;
-    const dinner    = day.meals?.dinner;
-    const dinnerTags = getDinnerTags(dinner);
-    const abbrev    = (day.label || '').slice(0, 3).toLowerCase();
-    const dayNum    = String(new Date(day.date + 'T12:00:00').getDate()).padStart(2, '0');
-    const dotColor  = riskDotColor(dinner?.riskLevel || 'low');
-    const dotLabel  = riskLabel(dinner?.riskLevel || 'low');
-
-    card.className = 'semaine-day-card' + (isToday ? ' is-today' : '');
-    card.dataset.dinnerTags = (dinner?.tags || []).join(',').toLowerCase();
-    card.dataset.dinnerPrep = dinner?.prepTime ?? 999;
-
-    const dateShort = new Date(day.date + 'T12:00:00')
-      .toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
-
-    card.innerHTML = `
-      ${isToday ? '<span class="today-pill">aujourd\'hui</span>' : ''}
-      <div class="day-card__top">
-        <span class="day-card__abbrev">${abbrev}</span>
-        <span class="day-card__num">${dayNum}</span>
-      </div>
-      <div class="semaine-day-header">
-        <span class="semaine-day-name">${day.label}</span>
-        <span class="semaine-day-date">${dateShort}</span>
-      </div>
-      <div class="semaine-day-meals" id="semaine-meals-${day.date}"></div>
-      <div class="day-card__footer">
-        <span class="day-card__risk-dot" style="background:${dotColor}" title="${dotLabel}"></span>
-      </div>`;
-
-    grid.appendChild(card);
-
-    const mealsEl = card.querySelector('.semaine-day-meals');
-    const currentPreferences = getActivePreferences();
-    ['breakfast', 'lunch', 'snack', 'dinner'].forEach(type => {
-      const meal = day.meals?.[type];
-      if (!meal) return;
-
-      const row = document.createElement('div');
-      const isClickable = type !== 'snack' && meal.ingredients?.length > 0;
-      row.className = 'semaine-meal-row' + (isClickable ? ' semaine-meal-row--clickable' : '');
-      const dotColor = riskDotColor(meal.riskLevel);
-      const label    = riskLabel(meal.riskLevel);
-
-      // Tag inline si le plat ne correspond pas aux prefs, le plat reste
-      // toujours visible, le badge s'affiche sous le nom.
-      const warning = renderMealWarning(meal, currentPreferences);
-
-      if (isClickable) {
-        row.setAttribute('role', 'button');
-        row.setAttribute('tabindex', '0');
-        row.setAttribute('aria-label', `Voir la recette : ${meal.name} (${MEAL_LABELS[type]})`);
-      }
-      row.innerHTML = `
-        <span class="semaine-meal-icon" aria-hidden="true"></span>
-        <div class="semaine-meal-info">
-          <div class="semaine-meal-type">${MEAL_LABELS[type]}</div>
-          <div class="semaine-meal-name">${meal.name}</div>
-          ${warning}
-        </div>
-        ${isClickable ? `<span class="semaine-prep-badge">⏱${meal.prepTime}'</span>` : ''}
-        <span class="semaine-risk-dot" style="background:${dotColor}" title="${label}" aria-label="${label}"></span>
-        ${isClickable ? `<span class="semaine-meal-cta" aria-hidden="true"><span class="semaine-meal-cta__text">Voir la recette</span><span class="semaine-meal-cta__arrow">→</span></span>` : ''}`;
-      if (isClickable) {
-        row.addEventListener('click', () => openFiche(meal, type));
-        row.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            openFiche(meal, type);
-          }
-        });
-      }
-      mealsEl.appendChild(row);
-    });
-  });
+  if (isNewMenuFormat(data)) {
+    if (titleEl) titleEl.textContent = 'Dîners de semaine';
+    renderDinnersNew(data, currentPreferences);
+    renderWeekendNew(data, currentPreferences);
+    renderReusableGroupNew(data, 'breakfasts', 'breakfast', 'semaine-grid-breakfasts', currentPreferences);
+    renderReusableGroupNew(data, 'snacks', 'snack', 'semaine-grid-snacks', currentPreferences);
+    renderLunchesNew(data);
+    if (weekendSection)    weekendSection.hidden = false;
+    if (breakfastsSection) breakfastsSection.hidden = false;
+    if (snacksSection)     snacksSection.hidden = false;
+    if (lunchesSection)    lunchesSection.hidden = false;
+  } else {
+    if (titleEl) titleEl.textContent = 'Menu de la semaine';
+    renderLegacyDays(data, currentPreferences);
+    if (weekendSection)    weekendSection.hidden = true;
+    if (breakfastsSection) breakfastsSection.hidden = true;
+    if (snacksSection)     snacksSection.hidden = true;
+    if (lunchesSection)    lunchesSection.hidden = true;
+  }
 }
 
 async function init() {
