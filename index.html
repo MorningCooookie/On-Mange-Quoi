@@ -181,6 +181,8 @@
   </div>
 
   <style>
+    .landing-strip__card-title { font-family: 'Fraunces', Georgia, serif; font-size: 17px; font-weight: 600; line-height: 23.8px; margin: 6px 0 4px; color: #14110D; }
+    main#main { max-width: none; margin: 0; padding: 0; }
     /* Toast notification styles */
     #toast-container {
       position: fixed;
@@ -966,6 +968,7 @@
   <!-- ── Landing page content ─────────────────────────────── -->
 
   <!-- Hero -->
+  <main id="main">
   <section class="landing-hero" id="hero">
     <div class="landing-hero__content">
       <span class="chip--landing chip--landing-green">
@@ -1036,22 +1039,22 @@
       <span class="eyebrow--landing">La différence</span>
       <div class="landing-strip__card">
         <span class="landing-strip__num">01</span>
-        <h4>Basé sur les recommandations</h4>
+        <h2 class="landing-strip__card-title">Basé sur les recommandations</h2>
         <p>Les menus s'appuient sur les seuils ANSES et EFSA, ce n'est pas un contrôle officiel.</p>
       </div>
       <div class="landing-strip__card">
         <span class="landing-strip__num">02</span>
-        <h4>Personnalisé</h4>
+        <h2 class="landing-strip__card-title">Personnalisé</h2>
         <p>Allergies, budget, temps, goûts : votre menu.</p>
       </div>
       <div class="landing-strip__card">
         <span class="landing-strip__num">03</span>
-        <h4>Coordonné</h4>
+        <h2 class="landing-strip__card-title">Coordonné</h2>
         <p>Recettes + liste de courses dans un même flux.</p>
       </div>
       <div class="landing-strip__card">
         <span class="landing-strip__num">04</span>
-        <h4>Familial</h4>
+        <h2 class="landing-strip__card-title">Familial</h2>
         <p>Un dîner, plusieurs régimes, zéro double cuisson.</p>
       </div>
     </div>
@@ -1267,9 +1270,11 @@
     <button class="btn--landing" onclick="document.getElementById('signup-modal').style.display='flex'; document.getElementById('signup-email').focus();">Créer mon compte</button>
   </section>
 
+  </main>
+
   <!-- Footer -->
   <footer class="landing-footer">
-    <a class="brand--landing" href="/" style="font-size:14px;" aria-label="On mange quoi ?">
+    <a class="brand--landing" href="/" style="font-size:14px;">
       <span class="brand-mark--landing" aria-hidden="true"></span>
       onmangequoi.eu
     </a>
