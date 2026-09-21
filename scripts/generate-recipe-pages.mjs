@@ -255,9 +255,13 @@ ${JSON.stringify(schemaRecipe, null, 2)}
     .last-seen { font-size: 0.8rem; color: var(--text-secondary); margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
     .landing-footer { max-width: 740px; margin: 0 auto; padding: 2rem 1.25rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; align-items: center; justify-content: space-between; font-size: 0.8rem; color: var(--text-secondary); }
     .landing-footer a { color: var(--green-mid); text-decoration: none; }
+    .skip-link { position: absolute; top: -999px; left: 0; background: var(--green-dark); color: var(--white); padding: 0.75rem 1.25rem; border-radius: 0 0 8px 0; font-size: 0.9rem; font-weight: 600; text-decoration: none; z-index: 9999; }
+    .skip-link:focus-visible { top: 0; }
   </style>
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Aller au contenu principal</a>
 
   <header class="site-header">
     <div class="header-inner">
@@ -284,7 +288,7 @@ ${JSON.stringify(schemaRecipe, null, 2)}
     ${escapeHtml(recipe.name)}
   </nav>
 
-  <main>
+  <main id="main">
     <article class="article-wrap">
 
       <div class="recipe-meta">
@@ -404,9 +408,13 @@ ${links}
     .recipe-list .prep-time { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); white-space: nowrap; }
     .landing-footer { max-width: 900px; margin: 0 auto; padding: 2rem 1.25rem; font-size: 0.8rem; color: var(--text-secondary); }
     .landing-footer a { color: var(--green-mid); text-decoration: none; }
+    .skip-link { position: absolute; top: -999px; left: 0; background: var(--green-dark); color: var(--white); padding: 0.75rem 1.25rem; border-radius: 0 0 8px 0; font-size: 0.9rem; font-weight: 600; text-decoration: none; z-index: 9999; }
+    .skip-link:focus-visible { top: 0; }
   </style>
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Aller au contenu principal</a>
 
   <header class="site-header">
     <div class="header-inner">
@@ -426,7 +434,7 @@ ${links}
     </div>
   </header>
 
-  <main class="wrap">
+  <main class="wrap" id="main">
     <h1>Toutes nos recettes</h1>
     <p class="intro">${total} recettes testées dans nos menus hebdomadaires, classées par moment de la journée. Basées sur les recommandations ANSES et EFSA, sans additif superflu.</p>
 ${section('breakfast')}
