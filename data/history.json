@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-09-21",
+      "weekEnd": "2026-09-27",
+      "file": "data/menus/2026-09-21.json",
+      "label": "Semaine du 21 septembre 2026",
+      "healthScore": "A",
+      "highlights": [
+        "Semaine équilibrée avec 3 repas à base de légumineuses et 2 portions de poisson dont 1 poisson gras.",
+        "Fruits et légumes de septembre à leur apogée : tomates, courgettes, aubergines, poires et raisins.",
+        "Viande rouge limitée à 1 repas, priorité aux protéines végétales et au poisson.",
+        "Attention aux poivrons et tomates : privilégier le bio ou bien laver.",
+        "Repas de semaine ultra-rapides, week-end convivial avec une poêlée méditerranéenne et un plat réconfortant."
+      ]
+    },
+    {
       "weekStart": "2026-09-07",
       "weekEnd": "2026-09-13",
       "file": "data/menus/2026-09-07.json",

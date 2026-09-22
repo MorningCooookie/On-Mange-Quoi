@@ -1,0 +1,917 @@
+{
+  "weekStart": "2026-09-21",
+  "weekEnd": "2026-09-27",
+  "healthScore": "A",
+  "healthScoreHighlights": [
+    "Semaine équilibrée avec 3 repas à base de légumineuses et 2 portions de poisson dont 1 poisson gras.",
+    "Fruits et légumes de septembre à leur apogée : tomates, courgettes, aubergines, poires et raisins.",
+    "Viande rouge limitée à 1 repas, priorité aux protéines végétales et au poisson.",
+    "Attention aux poivrons et tomates : privilégier le bio ou bien laver.",
+    "Repas de semaine ultra-rapides, week-end convivial avec une poêlée méditerranéenne et un plat réconfortant."
+  ],
+  "dinners": [
+    {
+      "day": "Lundi",
+      "date": "2026-09-21",
+      "name": "Pâtes crémeuses courgette, feta et menthe",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "18",
+      "isSeasonal": true,
+      "note": "Courgettes de septembre fondantes, menthe fraîche pour la touche parfumée.",
+      "ingredients": [
+        {
+          "name": "Penne ou fusilli",
+          "qty": 320,
+          "unit": "g"
+        },
+        {
+          "name": "Courgette",
+          "qty": 600,
+          "unit": "g"
+        },
+        {
+          "name": "Feta",
+          "qty": 150,
+          "unit": "g"
+        },
+        {
+          "name": "Menthe fraîche",
+          "qty": 15,
+          "unit": "g"
+        },
+        {
+          "name": "Crème liquide 15%",
+          "qty": 100,
+          "unit": "ml"
+        }
+      ],
+      "prepSteps": [
+        "Cuire les pâtes selon le paquet. Pendant ce temps, couper les courgettes en rondelles et les faire revenir 8 minutes à feu vif avec un filet d'huile d'olive.",
+        "Égoutter les pâtes en gardant une louche d'eau de cuisson. Ajouter les courgettes, la crème, la feta émiettée et l'eau de cuisson pour lier.",
+        "Ciseler généreusement la menthe fraîche, mélanger et servir aussitôt avec un trait d'huile d'olive et du poivre noir."
+      ],
+      "twist": "Ajouter des pignons de pin torréfiés à sec pour le croustillant.",
+      "conservation": "Se conserve 2 jours au frigo, la menthe perd son éclat mais le plat reste bon."
+    },
+    {
+      "day": "Mardi",
+      "date": "2026-09-22",
+      "name": "Riz pilaf aux amandes, pois chiches et poulet paprika",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "20",
+      "isSeasonal": true,
+      "note": "Pois chiches pour les fibres, paprika fumé pour la profondeur.",
+      "ingredients": [
+        {
+          "name": "Riz basmati",
+          "qty": 280,
+          "unit": "g"
+        },
+        {
+          "name": "Filet de poulet",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Pois chiches cuits en bocal",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Amandes effilées",
+          "qty": 40,
+          "unit": "g"
+        },
+        {
+          "name": "Paprika fumé",
+          "qty": 5,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Rincer le riz, le cuire dans 1,5 fois son volume d'eau bouillante salée pendant 12 minutes à couvert. Pendant ce temps, couper le poulet en cubes, les faire dorer 8 minutes avec le paprika fumé.",
+        "Ajouter les pois chiches égouttés dans la poêle, réchauffer 2 minutes. Torréfier les amandes à sec dans une petite poêle.",
+        "Mélanger le riz cuit avec le poulet et les pois chiches, parsemer d'amandes torréfiées et servir avec un filet d'huile d'olive."
+      ],
+      "twist": "Ajouter des raisins secs dorés dans le riz pour une touche sucrée-salée.",
+      "conservation": "Se congèle très bien, 3 mois. Au frigo 3 jours."
+    },
+    {
+      "day": "Mercredi",
+      "date": "2026-09-23",
+      "name": "Sardines grillées, tomates rôties et pain complet",
+      "icon": "",
+      "riskLevel": "medium",
+      "riskType": "pesticides",
+      "prepTime": "18",
+      "isSeasonal": true,
+      "note": "Tomates de fin de saison à privilégier bio ou bien lavées. Sardines riches en oméga-3.",
+      "ingredients": [
+        {
+          "name": "Sardines fraîches parées",
+          "qty": 600,
+          "unit": "g"
+        },
+        {
+          "name": "Tomate",
+          "qty": 600,
+          "unit": "g"
+        },
+        {
+          "name": "Pain complet",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "name": "Basilic frais",
+          "qty": 20,
+          "unit": "g"
+        },
+        {
+          "name": "Vinaigre balsamique",
+          "qty": 20,
+          "unit": "ml"
+        }
+      ],
+      "prepSteps": [
+        "Préchauffer une poêle grill. Couper les tomates en quartiers, les faire rôtir 8 minutes à feu moyen avec un filet d'huile d'olive, sel et poivre.",
+        "Griller les sardines 3 minutes de chaque côté dans la poêle chaude, légèrement huilées. Pendant ce temps, toaster le pain complet.",
+        "Servir les sardines et tomates rôties sur le pain grillé, parsemer de basilic frais ciselé et finir d'un filet de vinaigre balsamique."
+      ],
+      "twist": "Ajouter des câpres égouttées sur les tomates pour plus de peps.",
+      "conservation": "À consommer le jour même, les sardines et le pain ne se conservent pas bien."
+    },
+    {
+      "day": "Jeudi",
+      "date": "2026-09-24",
+      "name": "Omelette épaisse jambon, gruyère et salade verte",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "15",
+      "isSeasonal": true,
+      "note": "Plat doudou familial ultra-rapide, jambon et œufs pour les protéines.",
+      "ingredients": [
+        {
+          "name": "Œufs",
+          "qty": 8,
+          "unit": "unité"
+        },
+        {
+          "name": "Jambon blanc",
+          "qty": 150,
+          "unit": "g"
+        },
+        {
+          "name": "Gruyère râpé",
+          "qty": 80,
+          "unit": "g"
+        },
+        {
+          "name": "Salade verte mélangée",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "name": "Moutarde à l'ancienne",
+          "qty": 15,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Battre les œufs en omelette avec sel et poivre. Couper le jambon en dés. Faire chauffer une grande poêle antiadhésive avec un peu de beurre.",
+        "Verser les œufs, parsemer de jambon et de gruyère, cuire 5 minutes à feu doux en couvrant pour que le dessus prenne.",
+        "Préparer une vinaigrette moutarde miel pour la salade. Servir l'omelette épaisse coupée en parts avec la salade fraîche à côté."
+      ],
+      "twist": "Ajouter de la ciboulette fraîche ciselée dans les œufs avant cuisson.",
+      "conservation": "L'omelette se conserve 1 jour au frigo mais meilleure consommée aussitôt."
+    },
+    {
+      "day": "Vendredi",
+      "date": "2026-09-25",
+      "name": "Gnocchis poêlés, brocoli et noisettes grillées",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "18",
+      "isSeasonal": true,
+      "note": "Brocoli de début de saison, noisettes pour le croustillant et les bons lipides.",
+      "ingredients": [
+        {
+          "name": "Gnocchis frais",
+          "qty": 600,
+          "unit": "g"
+        },
+        {
+          "name": "Brocoli",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "name": "Noisettes concassées",
+          "qty": 50,
+          "unit": "g"
+        },
+        {
+          "name": "Parmesan râpé",
+          "qty": 60,
+          "unit": "g"
+        },
+        {
+          "name": "Citron",
+          "qty": 1,
+          "unit": "unité"
+        }
+      ],
+      "prepSteps": [
+        "Cuire le brocoli en fleurettes 5 minutes à la vapeur ou dans l'eau bouillante. Pendant ce temps, faire dorer les gnocchis 8 minutes dans une grande poêle avec un filet d'huile d'olive.",
+        "Ajouter le brocoli égoutté dans la poêle avec les gnocchis, faire revenir 2 minutes. Torréfier les noisettes à sec dans une petite poêle.",
+        "Servir aussitôt avec les noisettes grillées, le parmesan râpé et un généreux zeste de citron."
+      ],
+      "twist": "Remplacer le parmesan par de la ricotta pour une version plus douce.",
+      "conservation": "Se conserve 2 jours au frigo, réchauffer à la poêle pour garder la texture."
+    }
+  ],
+  "weekend": [
+    {
+      "day": "Samedi",
+      "date": "2026-09-26",
+      "name": "Poêlée méditerranéenne aubergine, poivron, merguez",
+      "icon": "",
+      "riskLevel": "medium",
+      "riskType": "pesticides",
+      "prepTime": "35",
+      "isSeasonal": true,
+      "note": "Aubergines et poivrons de septembre au top. Poivrons bio recommandés.",
+      "ingredients": [
+        {
+          "name": "Aubergine",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "name": "Poivron rouge et jaune",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Merguez",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Semoule",
+          "qty": 280,
+          "unit": "g"
+        },
+        {
+          "name": "Cumin en poudre",
+          "qty": 5,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Couper aubergines et poivrons en cubes, les faire revenir 15 minutes à feu moyen dans une grande poêle avec huile d'olive, ail écrasé et cumin. Saler, poivrer.",
+        "Pendant ce temps, cuire les merguez à la poêle ou au four 15 minutes. Préparer la semoule selon le paquet avec un bouillon de légumes.",
+        "Ajouter les merguez coupées en rondelles dans les légumes, réchauffer 2 minutes. Servir la poêlée sur la semoule aux herbes avec un filet d'huile d'olive.",
+        "Finir avec du persil plat frais ciselé et éventuellement une sauce yaourt menthe fraîche."
+      ],
+      "twist": "Ajouter des pois chiches rincés dans la poêlée pour plus de protéines végétales.",
+      "conservation": "Se congèle bien, 2 mois. Au frigo 3 jours."
+    },
+    {
+      "day": "Dimanche",
+      "date": "2026-09-27",
+      "name": "Cabillaud en papillote, fenouil braisé et pommes grenailles",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "40",
+      "isSeasonal": true,
+      "note": "Fenouil de septembre anisé, cabillaud MSC pour la traçabilité.",
+      "ingredients": [
+        {
+          "name": "Filet de cabillaud MSC",
+          "qty": 600,
+          "unit": "g"
+        },
+        {
+          "name": "Fenouil",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "name": "Pomme de terre grenaille",
+          "qty": 600,
+          "unit": "g"
+        },
+        {
+          "name": "Citron",
+          "qty": 2,
+          "unit": "unité"
+        },
+        {
+          "name": "Aneth frais",
+          "qty": 15,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Préchauffer le four à 180°C. Laver les grenailles, les couper en deux et les enfourner 25 minutes avec un filet d'huile, sel et thym.",
+        "Émincer le fenouil, le faire revenir 10 minutes à feu doux dans une sauteuse avec huile d'olive et un peu d'eau. Assaisonner.",
+        "Poser chaque filet de cabillaud sur une feuille de papier cuisson, ajouter fenouil braisé, rondelles de citron, aneth, sel, poivre. Refermer en papillote et enfourner 12 minutes.",
+        "Servir les papillotes ouvertes avec les grenailles rôties et un trait de jus de citron."
+      ],
+      "twist": "Ajouter des olives noires dans la papillote pour une touche méditerranéenne.",
+      "conservation": "Se conserve 1 jour au frigo, la texture du poisson reste correcte. Ne se congèle pas bien."
+    }
+  ],
+  "breakfasts": [
+    {
+      "variant": "sucre",
+      "name": "Porridge avoine, poire et cannelle",
+      "icon": "",
+      "prepTime": "10",
+      "isSeasonal": true,
+      "note": "Poires de septembre fondantes, avoine pour les fibres solubles.",
+      "ingredients": [
+        {
+          "name": "Flocons d'avoine",
+          "qty": 80,
+          "unit": "g"
+        },
+        {
+          "name": "Lait demi-écrémé",
+          "qty": 300,
+          "unit": "ml"
+        },
+        {
+          "name": "Poire",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "name": "Cannelle en poudre",
+          "qty": 2,
+          "unit": "g"
+        },
+        {
+          "name": "Miel",
+          "qty": 20,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Faire chauffer le lait dans une casserole, ajouter les flocons d'avoine et la cannelle, cuire 5 minutes à feu doux en remuant.",
+        "Pendant ce temps, couper la poire en dés. Servir le porridge dans des bols, garnir de poire fraîche et d'un filet de miel."
+      ],
+      "twist": "Ajouter des noix concassées et un peu de beurre de cacahuète pour plus de gourmandise.",
+      "conservation": "Le porridge se conserve 2 jours au frigo, ajouter la poire fraîche au moment de servir."
+    },
+    {
+      "variant": "sale",
+      "name": "Tartine pain complet, avocat écrasé et œuf mollet",
+      "icon": "",
+      "prepTime": "10",
+      "isSeasonal": false,
+      "note": "Classique indémodable, avocat pour les bons lipides, œuf pour les protéines.",
+      "ingredients": [
+        {
+          "name": "Pain complet",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "name": "Avocat",
+          "qty": 2,
+          "unit": "unité"
+        },
+        {
+          "name": "Œufs",
+          "qty": 4,
+          "unit": "unité"
+        },
+        {
+          "name": "Citron",
+          "qty": 1,
+          "unit": "unité"
+        },
+        {
+          "name": "Fleur de sel",
+          "qty": 2,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Cuire les œufs 6 minutes dans l'eau bouillante pour un mollet parfait, les refroidir à l'eau froide. Toaster le pain complet.",
+        "Écraser l'avocat à la fourchette avec jus de citron, sel et poivre. Tartiner généreusement le pain grillé, poser l'œuf mollet coupé en deux, saupoudrer de fleur de sel et de poivre noir."
+      ],
+      "twist": "Ajouter des graines de sésame torréfiées ou du zaatar pour plus de caractère.",
+      "conservation": "À préparer au dernier moment, l'avocat noircit et l'œuf ne se conserve pas bien."
+    }
+  ],
+  "snacks": [
+    {
+      "variant": "rapide",
+      "name": "Raisin frais et amandes",
+      "icon": "",
+      "prepTime": "5",
+      "isSeasonal": true,
+      "note": "Raisin de septembre juteux, amandes pour le croquant et les protéines.",
+      "ingredients": [
+        {
+          "name": "Raisin blanc ou noir",
+          "qty": 600,
+          "unit": "g"
+        },
+        {
+          "name": "Amandes entières",
+          "qty": 150,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Laver le raisin, le répartir dans des portions individuelles avec une poignée d'amandes. Conserver au frais."
+      ],
+      "twist": "Ajouter des carrés de chocolat noir 70% pour les plus gourmands.",
+      "conservation": "Le raisin se conserve 5 jours au frigo, les amandes plusieurs semaines dans un bocal hermétique."
+    },
+    {
+      "variant": "dense",
+      "name": "Granola maison noisettes et raisins secs",
+      "icon": "",
+      "prepTime": "15",
+      "isSeasonal": false,
+      "note": "À préparer une fois pour toute la semaine, se conserve longtemps.",
+      "ingredients": [
+        {
+          "name": "Flocons d'avoine",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "name": "Noisettes concassées",
+          "qty": 100,
+          "unit": "g"
+        },
+        {
+          "name": "Miel",
+          "qty": 60,
+          "unit": "g"
+        },
+        {
+          "name": "Huile de coco",
+          "qty": 40,
+          "unit": "g"
+        },
+        {
+          "name": "Raisins secs",
+          "qty": 80,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Préchauffer le four à 160°C. Mélanger flocons d'avoine, noisettes, miel fondu et huile de coco dans un saladier.",
+        "Étaler sur une plaque de cuisson, enfourner 20 minutes en remuant à mi-cuisson. Laisser refroidir complètement, ajouter les raisins secs.",
+        "Conserver dans un bocal hermétique, servir avec du yaourt nature ou du lait végétal."
+      ],
+      "twist": "Ajouter des pépites de chocolat noir après refroidissement pour une version plus gourmande.",
+      "conservation": "Se conserve 3 semaines dans un bocal hermétique à température ambiante."
+    }
+  ],
+  "lunches": [
+    {
+      "name": "Restes du dîner de la veille",
+      "note": "Réutiliser les plats de la semaine : pâtes courgette feta, riz pilaf poulet, ou poêlée méditerranéenne se réchauffent parfaitement."
+    },
+    {
+      "name": "Salade composée tomate, mozzarella, basilic",
+      "note": "Tomates de septembre, mozzarella fraîche, basilic, pain complet grillé. Vinaigrette huile d'olive et vinaigre balsamique."
+    },
+    {
+      "name": "Sandwich pain complet, jambon, fromage frais",
+      "note": "Pain complet grillé, jambon blanc, fromage frais aux herbes, salade verte. Prêt en 5 minutes."
+    }
+  ],
+  "shoppingList": [
+    {
+      "category": "Fruits & Légumes",
+      "items": [
+        {
+          "name": "Courgette",
+          "qty": "600g",
+          "price_discount": 1.2,
+          "price_standard": 1.5,
+          "price_bio": 2.8,
+          "isSeasonal": true
+        },
+        {
+          "name": "Tomate",
+          "qty": "1.2kg",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 4.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Brocoli",
+          "qty": "500g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Aubergine",
+          "qty": "500g",
+          "price_discount": 1.8,
+          "price_standard": 2.3,
+          "price_bio": 4,
+          "isSeasonal": true
+        },
+        {
+          "name": "Poivron rouge et jaune",
+          "qty": "400g",
+          "price_discount": 2.5,
+          "price_standard": 3,
+          "price_bio": 5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Fenouil",
+          "qty": "500g",
+          "price_discount": 1.8,
+          "price_standard": 2.2,
+          "price_bio": 3.8,
+          "isSeasonal": true
+        },
+        {
+          "name": "Salade verte mélangée",
+          "qty": "400g",
+          "price_discount": 1.2,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Pomme de terre grenaille",
+          "qty": "600g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3.2,
+          "isSeasonal": true
+        },
+        {
+          "name": "Avocat",
+          "qty": "2 unités",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Poire",
+          "qty": "800g",
+          "price_discount": 2.5,
+          "price_standard": 3,
+          "price_bio": 4.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Raisin blanc ou noir",
+          "qty": "600g",
+          "price_discount": 3,
+          "price_standard": 3.5,
+          "price_bio": 5.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Citron",
+          "qty": "4 unités",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Viandes & Poissons",
+      "items": [
+        {
+          "name": "Filet de poulet",
+          "qty": "400g",
+          "price_discount": 4.5,
+          "price_standard": 5.5,
+          "price_bio": 8.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Sardines fraîches parées",
+          "qty": "600g",
+          "price_discount": 8,
+          "price_standard": 10,
+          "price_bio": 12,
+          "isSeasonal": false
+        },
+        {
+          "name": "Merguez",
+          "qty": "400g",
+          "price_discount": 4,
+          "price_standard": 5,
+          "price_bio": 7,
+          "isSeasonal": false
+        },
+        {
+          "name": "Filet de cabillaud MSC",
+          "qty": "600g",
+          "price_discount": 12,
+          "price_standard": 15,
+          "price_bio": 18,
+          "isSeasonal": false
+        },
+        {
+          "name": "Jambon blanc",
+          "qty": "300g",
+          "price_discount": 3.5,
+          "price_standard": 4.5,
+          "price_bio": 6.5,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Crémerie & Œufs",
+      "items": [
+        {
+          "name": "Feta",
+          "qty": "150g",
+          "price_discount": 2.5,
+          "price_standard": 3,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Crème liquide 15%",
+          "qty": "100ml",
+          "price_discount": 1,
+          "price_standard": 1.3,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Gruyère râpé",
+          "qty": "80g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Parmesan râpé",
+          "qty": "60g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 4,
+          "isSeasonal": false
+        },
+        {
+          "name": "Œufs",
+          "qty": "16 unités",
+          "price_discount": 3.5,
+          "price_standard": 4.5,
+          "price_bio": 6,
+          "isSeasonal": false
+        },
+        {
+          "name": "Lait demi-écrémé",
+          "qty": "1L",
+          "price_discount": 1,
+          "price_standard": 1.3,
+          "price_bio": 1.8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Mozzarella fraîche",
+          "qty": "200g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Épicerie sèche",
+      "items": [
+        {
+          "name": "Penne ou fusilli",
+          "qty": "320g",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Riz basmati",
+          "qty": "280g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pois chiches cuits en bocal",
+          "qty": "800g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pain complet",
+          "qty": "600g",
+          "price_discount": 2.5,
+          "price_standard": 3,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Gnocchis frais",
+          "qty": "600g",
+          "price_discount": 2.5,
+          "price_standard": 3,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Semoule",
+          "qty": "280g",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Flocons d'avoine",
+          "qty": "400g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Amandes entières",
+          "qty": "150g",
+          "price_discount": 3,
+          "price_standard": 4,
+          "price_bio": 6,
+          "isSeasonal": false
+        },
+        {
+          "name": "Amandes effilées",
+          "qty": "40g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Noisettes concassées",
+          "qty": "150g",
+          "price_discount": 3.5,
+          "price_standard": 4.5,
+          "price_bio": 6.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Raisins secs",
+          "qty": "80g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Miel",
+          "qty": "100g",
+          "price_discount": 3,
+          "price_standard": 4,
+          "price_bio": 6,
+          "isSeasonal": false
+        },
+        {
+          "name": "Huile de coco",
+          "qty": "40g",
+          "price_discount": 2,
+          "price_standard": 3,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Vinaigre balsamique",
+          "qty": "50ml",
+          "price_discount": 1.5,
+          "price_standard": 2.5,
+          "price_bio": 4,
+          "isSeasonal": false
+        },
+        {
+          "name": "Moutarde à l'ancienne",
+          "qty": "50g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Herbes fraîches & Épices",
+      "items": [
+        {
+          "name": "Menthe fraîche",
+          "qty": "1 botte",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": true
+        },
+        {
+          "name": "Basilic frais",
+          "qty": "1 botte",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": true
+        },
+        {
+          "name": "Aneth frais",
+          "qty": "1 botte",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": true
+        },
+        {
+          "name": "Persil plat frais",
+          "qty": "1 botte",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": true
+        },
+        {
+          "name": "Paprika fumé",
+          "qty": "1 pot",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Cumin en poudre",
+          "qty": "1 pot",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Cannelle en poudre",
+          "qty": "1 pot",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        }
+      ]
+    }
+  ],
+  "healthAlerts": [
+    {
+      "type": "warning",
+      "message": "Tomates et poivrons : privilégier le bio ou laver soigneusement, ces légumes font partie du Dirty Dozen."
+    },
+    {
+      "type": "seasonal",
+      "message": "Septembre, dernières semaines des tomates et courgettes de plein champ. Profitez-en avant l'automne."
+    },
+    {
+      "type": "info",
+      "message": "Sardines fraîches riches en oméga-3, excellentes pour le cerveau et le cœur. Cabillaud MSC pour une pêche durable."
+    },
+    {
+      "type": "info",
+      "message": "3 repas à base de légumineuses cette semaine : pois chiches 2 fois et option supplémentaire suggérée. Fibres et protéines végétales au rendez-vous."
+    },
+    {
+      "type": "seasonal",
+      "message": "Poires et raisins de septembre à leur apogée, c'est le moment d'en profiter frais."
+    }
+  ]
+}
