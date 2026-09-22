@@ -149,9 +149,22 @@ function renderRiskCallout(recipe) {
         </div>`;
 }
 
+function renderBreadcrumbSchema(recipe, canonical) {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://onmangequoi.eu' },
+      { '@type': 'ListItem', position: 2, name: 'Recettes', item: 'https://onmangequoi.eu/recettes/' },
+      { '@type': 'ListItem', position: 3, name: recipe.name, item: canonical },
+    ],
+  };
+  return `  <script type="application/ld+json">\n${JSON.stringify(schema, null, 2)}\n  </script>`;
+}
+
 function renderPage(recipe) {
   const mealLabel = MEAL_TYPE_LABELS[recipe.mealType] || 'Repas';
-  const title = `${recipe.name} : recette ${mealLabel.toLowerCase()} | On mange quoi ?`;
+  const title = `${recipe.name} | On mange quoi ?`;
   const description = `${recipe.name}. Recette de ${mealLabel.toLowerCase()} en ${recipe.prepTime} minutes, ${recipe.ingredients.length} ingrédients, basée sur les recommandations ANSES et EFSA.`;
   const canonical = `https://onmangequoi.eu/recettes/${recipe.slug}.html`;
   const intro = buildIntro(recipe);
@@ -164,7 +177,7 @@ function renderPage(recipe) {
     description,
     recipeCategory: mealLabel,
     recipeCuisine: 'Française',
-    prepTime: `PT${recipe.prepTime}M`,
+    totalTime: `PT${recipe.prepTime}M`,
     recipeYield: '4 portions',
     recipeIngredient: recipe.ingredients.map((i) => `${i.qty} ${i.unit || ''} ${i.name}`.trim()),
     recipeInstructions: recipe.prepSteps.map((s) => ({ '@type': 'HowToStep', text: s })),
@@ -191,10 +204,13 @@ ${JSON.stringify(schemaRecipe, null, 2)}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
 
   <script async src="https://plausible.io/js/pa-ZaRseIh-nGhXVtbtWwn2-.js"></script>
   <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+  <script defer src="/js/consent-analytics.js"></script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -202,7 +218,7 @@ ${JSON.stringify(schemaRecipe, null, 2)}
       --bg: #F7F3EE;
       --white: #FFFFFF;
       --text: #1A1A1A;
-      --text-secondary: #6B7280;
+      --text-secondary: #686E7C;
       --border: #E5E0D8;
       --green-dark: #1B4332;
       --green-mid: #40916C;
@@ -226,7 +242,7 @@ ${JSON.stringify(schemaRecipe, null, 2)}
     .site-nav a:hover { color: #fff; }
     @media (min-width: 600px) { .site-nav { display: flex; } }
     .breadcrumb { max-width: 740px; margin: 1.5rem auto 0; padding: 0 1.25rem; font-size: 0.8rem; color: var(--text-secondary); }
-    .breadcrumb a { color: var(--green-mid); text-decoration: none; }
+    .breadcrumb a { color: #367A5B; text-decoration: underline; }
     .breadcrumb a:hover { text-decoration: underline; }
     .article-wrap { max-width: 740px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
     .recipe-meta { display: flex; gap: 0.75rem; margin-bottom: 1.25rem; flex-wrap: wrap; align-items: center; }
@@ -254,10 +270,11 @@ ${JSON.stringify(schemaRecipe, null, 2)}
     .cta-btn:hover { opacity: 0.9; }
     .last-seen { font-size: 0.8rem; color: var(--text-secondary); margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
     .landing-footer { max-width: 740px; margin: 0 auto; padding: 2rem 1.25rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; align-items: center; justify-content: space-between; font-size: 0.8rem; color: var(--text-secondary); }
-    .landing-footer a { color: var(--green-mid); text-decoration: none; }
+    .landing-footer a { color: #367A5B; text-decoration: none; }
     .skip-link { position: absolute; top: -999px; left: 0; background: var(--green-dark); color: var(--white); padding: 0.75rem 1.25rem; border-radius: 0 0 8px 0; font-size: 0.9rem; font-weight: 600; text-decoration: none; z-index: 9999; }
     .skip-link:focus-visible { top: 0; }
   </style>
+${renderBreadcrumbSchema(recipe, canonical)}
 </head>
 <body>
 
@@ -371,15 +388,18 @@ ${links}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
 
   <script async src="https://plausible.io/js/pa-ZaRseIh-nGhXVtbtWwn2-.js"></script>
   <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+  <script defer src="/js/consent-analytics.js"></script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #F7F3EE; --white: #FFFFFF; --text: #1A1A1A; --text-secondary: #6B7280;
+      --bg: #F7F3EE; --white: #FFFFFF; --text: #1A1A1A; --text-secondary: #686E7C;
       --border: #E5E0D8; --green-dark: #1B4332; --green-mid: #40916C; --green-light: #D1FAE5;
       --font-display: 'Fraunces', Georgia, serif; --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
       --font-mono: 'IBM Plex Mono', monospace;
@@ -407,7 +427,7 @@ ${links}
     .recipe-list a:hover { color: var(--green-dark); text-decoration: underline; }
     .recipe-list .prep-time { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); white-space: nowrap; }
     .landing-footer { max-width: 900px; margin: 0 auto; padding: 2rem 1.25rem; font-size: 0.8rem; color: var(--text-secondary); }
-    .landing-footer a { color: var(--green-mid); text-decoration: none; }
+    .landing-footer a { color: #367A5B; text-decoration: none; }
     .skip-link { position: absolute; top: -999px; left: 0; background: var(--green-dark); color: var(--white); padding: 0.75rem 1.25rem; border-radius: 0 0 8px 0; font-size: 0.9rem; font-weight: 600; text-decoration: none; z-index: 9999; }
     .skip-link:focus-visible { top: 0; }
   </style>
@@ -453,22 +473,37 @@ ${section('dinner')}
 }
 
 async function updateSitemap(recipes) {
-  let sitemap = await readFile(SITEMAP_FILE, 'utf8');
+  const sitemap = await readFile(SITEMAP_FILE, 'utf8');
 
-  // Retire les anciennes entrées /recettes/ générées par ce script (idempotence)
-  sitemap = sitemap.replace(/\n  <url>\n    <loc>https:\/\/onmangequoi\.eu\/recettes\/[^<]*<\/loc>[\s\S]*?<\/url>\n/g, '\n');
+  // Reconstruction plutôt que substitution par regex sur l'espacement :
+  // l'ancienne version retirait les entrées /recettes/ avec un motif qui
+  // supposait un espacement exact entre entrées, laissant un \n orphelin
+  // par suppression (bug constaté le 22/09 : des centaines d'entrées
+  // retirées d'un coup -> un bloc de ~385 lignes vides), et une variante
+  // plus stricte du motif en a laissé d'autres non retirées -> doublons.
+  // Ici on extrait chaque bloc <url>...</url> indépendamment de l'espacement
+  // autour, on retire ceux qui pointent vers /recettes/, et on reconstruit
+  // avec un espacement uniforme (une ligne vide entre chaque entrée).
+  const urlBlockRe = /<url>[\s\S]*?<\/url>/g;
+  const blocks = sitemap.match(urlBlockRe) || [];
+  const keptBlocks = blocks.filter((b) => !/<loc>https:\/\/onmangequoi\.eu\/recettes\//.test(b));
+
+  const header = sitemap.slice(0, sitemap.indexOf('<url>')).replace(/[ \t]+$/, '');
 
   const today = new Date().toISOString().slice(0, 10);
-  const entries = [
-    `  <url>\n    <loc>https://onmangequoi.eu/recettes/</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`,
+  const newRecipeBlocks = [
+    `<url>\n    <loc>https://onmangequoi.eu/recettes/</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`,
     ...recipes.map(
       (r) =>
-        `  <url>\n    <loc>https://onmangequoi.eu/recettes/${r.slug}.html</loc>\n    <lastmod>${r.lastSeen}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.5</priority>\n  </url>\n`
+        `<url>\n    <loc>https://onmangequoi.eu/recettes/${r.slug}.html</loc>\n    <lastmod>${r.lastSeen}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.5</priority>\n  </url>`
     ),
-  ].join('\n');
+  ];
 
-  sitemap = sitemap.replace('</urlset>', entries + '\n</urlset>');
-  await writeFile(SITEMAP_FILE, sitemap, 'utf8');
+  const allBlocks = [...keptBlocks, ...newRecipeBlocks];
+  const body = allBlocks.map((b) => '  ' + b).join('\n\n');
+
+  const rebuilt = `${header}${body}\n\n</urlset>\n`;
+  await writeFile(SITEMAP_FILE, rebuilt, 'utf8');
 }
 
 async function main() {
@@ -534,9 +569,23 @@ async function main() {
 
   await mkdir(RECIPES_DIR, { recursive: true });
 
+  // N'écrit que les pages qui n'existent pas encore. Les pages déjà
+  // publiées peuvent porter des ajustements faits directement dessus
+  // (ex. "Recettes similaires", corrections ponctuelles) que ce template
+  // ne reproduit pas forcément : les réécrire à chaque run effacerait ces
+  // ajustements. Conforme au but déjà documenté en tête de fichier
+  // ("Idempotent... sans dupliquer les pages existantes").
+  let written = 0;
+  let skipped = 0;
   for (const recipe of list) {
+    const path = join(RECIPES_DIR, `${recipe.slug}.html`);
+    if (existsSync(path)) {
+      skipped++;
+      continue;
+    }
     const html = renderPage(recipe);
-    await writeFile(join(RECIPES_DIR, `${recipe.slug}.html`), html, 'utf8');
+    await writeFile(path, html, 'utf8');
+    written++;
   }
 
   const indexHtml = renderIndexPage(list);
@@ -544,9 +593,9 @@ async function main() {
 
   await updateSitemap(list);
 
-  console.log(`✓ ${list.length} pages recettes générées dans ${RECIPES_DIR}`);
+  console.log(`✓ ${written} nouvelle(s) page(s) recette écrite(s) dans ${RECIPES_DIR} (${skipped} déjà existantes, inchangées)`);
   console.log(`✓ Index généré : recettes/index.html`);
-  console.log(`✓ sitemap.xml mis à jour (+${list.length + 1} URLs)`);
+  console.log(`✓ sitemap.xml mis à jour (${list.length + 1} URLs)`);
 }
 
 main().catch((err) => {

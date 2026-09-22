@@ -98,6 +98,7 @@
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
+
   <url>
     <loc>https://onmangequoi.eu/mentions-legales.html</loc>
     <lastmod>2026-06-02</lastmod>
@@ -114,7 +115,7 @@
 
   <url>
     <loc>https://onmangequoi.eu/recettes/</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -381,6 +382,13 @@
   <url>
     <loc>https://onmangequoi.eu/recettes/cabillaud-en-papillote-asperges-blanches-et-citron-riz-basmati.html</loc>
     <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://onmangequoi.eu/recettes/cabillaud-en-papillote-fenouil-braise-et-pommes-grenailles.html</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -771,6 +779,20 @@
   </url>
 
   <url>
+    <loc>https://onmangequoi.eu/recettes/gnocchis-poeles-brocoli-et-noisettes-grillees.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://onmangequoi.eu/recettes/granola-maison-noisettes-et-raisins-secs.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
     <loc>https://onmangequoi.eu/recettes/gratin-courgette-aubergine-tomate-parmesan.html</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
@@ -990,6 +1012,13 @@
   <url>
     <loc>https://onmangequoi.eu/recettes/omelette-courgettes-tomates-herbes.html</loc>
     <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://onmangequoi.eu/recettes/omelette-epaisse-jambon-gruyere-et-salade-verte.html</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1366,6 +1395,13 @@
   </url>
 
   <url>
+    <loc>https://onmangequoi.eu/recettes/pates-cremeuses-courgette-feta-et-menthe.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
     <loc>https://onmangequoi.eu/recettes/pizza-maison-a-la-burrata-roquette-et-tomates-cerises.html</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
@@ -1438,6 +1474,13 @@
   <url>
     <loc>https://onmangequoi.eu/recettes/poelee-de-gnocchis-aux-epinards-ail-et-parmesan.html</loc>
     <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://onmangequoi.eu/recettes/poelee-mediterraneenne-aubergine-poivron-merguez.html</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1828,6 +1871,13 @@
   </url>
 
   <url>
+    <loc>https://onmangequoi.eu/recettes/riz-pilaf-aux-amandes-pois-chiches-et-poulet-paprika.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
     <loc>https://onmangequoi.eu/recettes/roti-de-porc-aux-abricots-et-haricots-blancs.html</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -2187,6 +2237,13 @@
   <url>
     <loc>https://onmangequoi.eu/recettes/sardines-grillees-salade-tomates-concombre.html</loc>
     <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://onmangequoi.eu/recettes/sardines-grillees-tomates-roties-et-pain-complet.html</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
