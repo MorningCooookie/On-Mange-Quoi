@@ -365,10 +365,10 @@ function buildDishCard(dish, opts) {
   const card = document.createElement('article');
   card.className = 'semaine-day-card' + (isToday ? ' is-today' : '');
 
-  const hasRisk  = dish.riskLevel != null;
-  const dotColor = hasRisk ? riskDotColor(dish.riskLevel) : '';
-  const dotLabel = hasRisk ? riskLabel(dish.riskLevel) : '';
-  const warning  = renderMealWarning(dish, currentPreferences);
+  const hasRisk   = dish.riskLevel != null;
+  const dotLabel  = hasRisk ? riskLabel(dish.riskLevel) : '';
+  const riskShort = hasRisk ? dotLabel.replace('Risque ', '') : '';
+  const warning   = renderMealWarning(dish, currentPreferences);
   const isClickable = dish.ingredients?.length > 0;
   const safeName = (typeof window.escapeHTML === 'function')
     ? window.escapeHTML(dish.name)
@@ -391,15 +391,16 @@ function buildDishCard(dish, opts) {
         <div class="semaine-meal-info">
           <div class="semaine-meal-type">${MEAL_LABELS[type] || type}</div>
           <div class="semaine-meal-name">${dish.name}</div>
+          ${dish.note ? `<div class="semaine-meal-note">${dish.note}</div>` : ''}
           ${warning}
         </div>
         ${dish.prepTime ? `<span class="semaine-prep-badge">${dish.prepTime}'</span>` : ''}
-        ${hasRisk ? `<span class="semaine-risk-dot" style="background:${dotColor}" title="${dotLabel}" aria-label="${dotLabel}"></span>` : ''}
+        ${hasRisk ? `<span class="semaine-risk-dot risk-${dish.riskLevel}" title="${dotLabel}" aria-label="${dotLabel}">${riskShort}</span>` : ''}
         ${isClickable ? `<span class="semaine-meal-cta" aria-hidden="true"><span class="semaine-meal-cta__text">Voir la recette</span><span class="semaine-meal-cta__arrow">→</span></span>` : ''}
       </div>
     </div>
     <div class="day-card__footer">
-      ${hasRisk ? `<span class="day-card__risk-dot" style="background:${dotColor}" title="${dotLabel}"></span>` : ''}
+      ${hasRisk ? `<span class="day-card__risk-dot risk-${dish.riskLevel}" title="${dotLabel}">${riskShort}</span>` : ''}
     </div>`;
 
   if (isClickable) {
@@ -496,7 +497,6 @@ function renderLegacyDays(data, currentPreferences) {
     const dinner    = day.meals?.dinner;
     const abbrev    = (day.label || '').slice(0, 3).toLowerCase();
     const dayNum    = String(new Date(day.date + 'T12:00:00').getDate()).padStart(2, '0');
-    const dotColor  = riskDotColor(dinner?.riskLevel || 'low');
     const dotLabel  = riskLabel(dinner?.riskLevel || 'low');
     const dateShort = new Date(day.date + 'T12:00:00')
       .toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
@@ -514,7 +514,7 @@ function renderLegacyDays(data, currentPreferences) {
       </div>
       <div class="semaine-day-meals" id="semaine-meals-${day.date}"></div>
       <div class="day-card__footer">
-        <span class="day-card__risk-dot" style="background:${dotColor}" title="${dotLabel}"></span>
+        <span class="day-card__risk-dot risk-${dinner?.riskLevel || 'low'}" title="${dotLabel}">${dotLabel.replace('Risque ', '')}</span>
       </div>`;
 
     grid.appendChild(card);
@@ -527,7 +527,6 @@ function renderLegacyDays(data, currentPreferences) {
       const row = document.createElement('div');
       const isClickable = type !== 'snack' && meal.ingredients?.length > 0;
       row.className = 'semaine-meal-row' + (isClickable ? ' semaine-meal-row--clickable' : '');
-      const rowDot   = riskDotColor(meal.riskLevel);
       const rowLabel = riskLabel(meal.riskLevel);
       const warning  = renderMealWarning(meal, currentPreferences);
 
@@ -541,10 +540,11 @@ function renderLegacyDays(data, currentPreferences) {
         <div class="semaine-meal-info">
           <div class="semaine-meal-type">${MEAL_LABELS[type]}</div>
           <div class="semaine-meal-name">${meal.name}</div>
+          ${meal.note ? `<div class="semaine-meal-note">${meal.note}</div>` : ''}
           ${warning}
         </div>
         ${isClickable ? `<span class="semaine-prep-badge">${meal.prepTime}'</span>` : ''}
-        <span class="semaine-risk-dot" style="background:${rowDot}" title="${rowLabel}" aria-label="${rowLabel}"></span>
+        <span class="semaine-risk-dot risk-${meal.riskLevel || 'low'}" title="${rowLabel}" aria-label="${rowLabel}">${rowLabel.replace('Risque ', '')}</span>
         ${isClickable ? `<span class="semaine-meal-cta" aria-hidden="true"><span class="semaine-meal-cta__text">Voir la recette</span><span class="semaine-meal-cta__arrow">→</span></span>` : ''}`;
       if (isClickable) {
         row.addEventListener('click', () => openFiche(meal, type));
