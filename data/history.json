@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-09-28",
+      "weekEnd": "2026-10-04",
+      "file": "data/menus/2026-09-28.json",
+      "label": "Semaine du 28 septembre 2026",
+      "healthScore": "A",
+      "highlights": [
+        "Semaine équilibrée avec 3 plats à base de légumineuses et 2 poissons dont 1 gras (sardines).",
+        "Fruits et légumes de septembre en vedette : tomates, courgettes, aubergines, raisin, figues.",
+        "Viande rouge limitée à 1 repas, protéines variées sur la semaine.",
+        "Aucun ingrédient à risque mercure ou cadmium, tous les plats réalisables en moins de 20 minutes en semaine.",
+        "Poivrons en version bio recommandée cette semaine pour limiter l'exposition aux pesticides."
+      ]
+    },
+    {
       "weekStart": "2026-09-21",
       "weekEnd": "2026-09-27",
       "file": "data/menus/2026-09-21.json",

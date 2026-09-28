@@ -1,0 +1,926 @@
+{
+  "weekStart": "2026-09-28",
+  "weekEnd": "2026-10-04",
+  "healthScore": "A",
+  "healthScoreHighlights": [
+    "Semaine équilibrée avec 3 plats à base de légumineuses et 2 poissons dont 1 gras (sardines).",
+    "Fruits et légumes de septembre en vedette : tomates, courgettes, aubergines, raisin, figues.",
+    "Viande rouge limitée à 1 repas, protéines variées sur la semaine.",
+    "Aucun ingrédient à risque mercure ou cadmium, tous les plats réalisables en moins de 20 minutes en semaine.",
+    "Poivrons en version bio recommandée cette semaine pour limiter l'exposition aux pesticides."
+  ],
+  "dinners": [
+    {
+      "day": "Lundi",
+      "date": "2026-09-28",
+      "name": "Pâtes aux sardines, tomates cerises et basilic",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "18",
+      "isSeasonal": true,
+      "note": "Sardines en boîte pour un apport en oméga-3, tomates cerises de septembre gorgées de soleil.",
+      "ingredients": [
+        {
+          "name": "Pâtes courtes",
+          "qty": 320,
+          "unit": "g"
+        },
+        {
+          "name": "Sardines en boîte à l'huile d'olive",
+          "qty": 240,
+          "unit": "g"
+        },
+        {
+          "name": "Tomates cerises",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Basilic frais",
+          "qty": 30,
+          "unit": "g"
+        },
+        {
+          "name": "Parmesan râpé",
+          "qty": 60,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Cuire les pâtes selon les instructions. Pendant ce temps, couper les tomates cerises en deux et ciseler le basilic.",
+        "Égoutter les sardines et les émietter grossièrement. Dans une poêle chaude, faire revenir les tomates 3 minutes avec un filet d'huile.",
+        "Égoutter les pâtes, mélanger avec les tomates, les sardines, le basilic et le parmesan. Servir chaud."
+      ],
+      "twist": "Ajouter une pincée de piment d'Espelette et des câpres pour un côté méditerranéen plus marqué.",
+      "conservation": "À consommer le jour même, les sardines et le basilic frais ne supportent pas bien la conservation."
+    },
+    {
+      "day": "Mardi",
+      "date": "2026-09-29",
+      "name": "Bol riz, pois chiches rôtis et poulet mariné citron",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "20",
+      "isSeasonal": true,
+      "note": "Pois chiches au four pour le croustillant, poulet mariné express au citron et herbes fraîches.",
+      "ingredients": [
+        {
+          "name": "Riz basmati",
+          "qty": 280,
+          "unit": "g"
+        },
+        {
+          "name": "Pois chiches cuits en conserve",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Filets de poulet",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "name": "Citron",
+          "qty": 2,
+          "unit": "unité"
+        },
+        {
+          "name": "Coriandre fraîche",
+          "qty": 20,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Préchauffer le four à 200°C. Rincer les pois chiches, les sécher et les étaler sur une plaque avec un filet d'huile, cumin et paprika. Enfourner 15 minutes.",
+        "Cuire le riz. Pendant ce temps, couper le poulet en cubes, mélanger avec le jus d'1 citron, huile et coriandre ciselée. Faire revenir à feu vif 8 minutes.",
+        "Dresser le riz dans des bols, ajouter le poulet, les pois chiches croustillants et des quartiers de citron. Parsemer de coriandre."
+      ],
+      "twist": "Remplacer la coriandre par de la menthe fraîche et ajouter un filet de yaourt nature pour une version plus douce.",
+      "conservation": "Se conserve 2 jours au frais, les pois chiches perdent leur croustillant mais le plat reste bon."
+    },
+    {
+      "day": "Mercredi",
+      "date": "2026-09-30",
+      "name": "Omelette épaisse jambon-courgettes et salade de tomates",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "15",
+      "isSeasonal": true,
+      "note": "Courgettes de septembre poêlées, omelette généreuse façon tortilla espagnole express.",
+      "ingredients": [
+        {
+          "name": "Œufs",
+          "qty": 8,
+          "unit": "unité"
+        },
+        {
+          "name": "Courgettes",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Jambon blanc",
+          "qty": 150,
+          "unit": "g"
+        },
+        {
+          "name": "Tomates",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Persil plat",
+          "qty": 15,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Couper les courgettes en rondelles fines et le jambon en dés. Faire revenir les courgettes 5 minutes à feu moyen dans une poêle huilée.",
+        "Battre les œufs avec sel, poivre et persil ciselé. Ajouter le jambon aux courgettes, verser les œufs et laisser cuire 6 minutes à feu doux avec un couvercle.",
+        "Pendant ce temps, couper les tomates en quartiers, assaisonner avec huile, vinaigre balsamique et basilic. Servir l'omelette chaude avec la salade."
+      ],
+      "twist": "Ajouter des dés de feta dans l'omelette pour une touche grecque et plus de fondant.",
+      "conservation": "L'omelette se mange tiède ou froide, se conserve 1 jour mais la texture est meilleure le jour même."
+    },
+    {
+      "day": "Jeudi",
+      "date": "2026-10-01",
+      "name": "Wok de nouilles soba, brocoli et tofu sauce cacahuète",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "18",
+      "isSeasonal": true,
+      "note": "Brocoli de septembre, tofu ferme poêlé, sauce cacahuète maison en 2 minutes pour un bol réconfortant.",
+      "ingredients": [
+        {
+          "name": "Nouilles soba",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "name": "Brocoli",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Tofu ferme",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "name": "Beurre de cacahuète",
+          "qty": 80,
+          "unit": "g"
+        },
+        {
+          "name": "Sauce soja",
+          "qty": 40,
+          "unit": "ml"
+        }
+      ],
+      "prepSteps": [
+        "Cuire les nouilles soba selon les instructions. Couper le brocoli en petits bouquets et le tofu en cubes. Faire revenir le tofu 5 minutes à feu vif dans un wok huilé.",
+        "Ajouter le brocoli au wok avec 3 cuillères à soupe d'eau, couvrir 4 minutes. Pendant ce temps, mélanger le beurre de cacahuète, la sauce soja et 2 cuillères d'eau chaude.",
+        "Égoutter les nouilles, les ajouter au wok avec la sauce cacahuète. Mélanger 1 minute à feu vif. Servir parsemé de graines de sésame."
+      ],
+      "twist": "Ajouter des rondelles de piment frais et un filet de jus de citron vert pour plus de peps.",
+      "conservation": "Se conserve 2 jours au frais, réchauffer à la poêle avec un peu d'eau pour détendre la sauce."
+    },
+    {
+      "day": "Vendredi",
+      "date": "2026-10-02",
+      "name": "Patate douce rôtie, haricots blancs et feta épicée",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "20",
+      "isSeasonal": true,
+      "note": "Patate douce au four micro-ondes pour gagner du temps, haricots blancs pour les fibres, feta grillée au miel.",
+      "ingredients": [
+        {
+          "name": "Patate douce",
+          "qty": 800,
+          "unit": "g"
+        },
+        {
+          "name": "Haricots blancs cuits en conserve",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Feta",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "name": "Miel",
+          "qty": 20,
+          "unit": "g"
+        },
+        {
+          "name": "Thym frais",
+          "qty": 10,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Laver les patates douces, les piquer avec une fourchette et les cuire au micro-ondes 12 minutes à puissance maximale. Rincer les haricots blancs.",
+        "Pendant ce temps, couper la feta en tranches épaisses. Dans une poêle, faire dorer la feta 2 minutes de chaque côté, badigeonner de miel et saupoudrer de thym.",
+        "Fendre les patates douces, garnir de haricots blancs réchauffés avec un filet d'huile d'olive et poser les tranches de feta caramélisée. Servir chaud."
+      ],
+      "twist": "Remplacer la feta par du chèvre frais et ajouter des noix concassées pour plus de croquant.",
+      "conservation": "Se conserve 2 jours au frais, la patate douce se réchauffe bien au four ou micro-ondes."
+    }
+  ],
+  "weekend": [
+    {
+      "day": "Samedi",
+      "date": "2026-10-03",
+      "name": "Tajine de poulet aux lentilles, abricots secs et citron confit",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "40",
+      "isSeasonal": false,
+      "note": "Plat mijoté du week-end aux saveurs marocaines, lentilles vertes pour les protéines végétales.",
+      "ingredients": [
+        {
+          "name": "Cuisses de poulet",
+          "qty": 800,
+          "unit": "g"
+        },
+        {
+          "name": "Lentilles vertes",
+          "qty": 250,
+          "unit": "g"
+        },
+        {
+          "name": "Abricots secs",
+          "qty": 150,
+          "unit": "g"
+        },
+        {
+          "name": "Citron confit",
+          "qty": 1,
+          "unit": "unité"
+        },
+        {
+          "name": "Ras el hanout",
+          "qty": 15,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Faire dorer les cuisses de poulet dans une cocotte avec huile d'olive et ras el hanout 5 minutes. Ajouter les lentilles rincées, les abricots et le citron confit coupé en quartiers.",
+        "Couvrir d'eau à hauteur, saler, porter à ébullition puis baisser le feu et laisser mijoter 30 minutes à couvert.",
+        "Vérifier la cuisson des lentilles et du poulet. Servir avec de la semoule nature ou du pain pour saucer."
+      ],
+      "twist": "Ajouter des pois chiches en plus des lentilles et une poignée de coriandre fraîche au moment de servir.",
+      "conservation": "Se congèle parfaitement, se conserve 3 jours au frais et le goût s'améliore le lendemain."
+    },
+    {
+      "day": "Dimanche",
+      "date": "2026-10-04",
+      "name": "Aubergines farcies au bœuf haché, tomates et pignons",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "45",
+      "isSeasonal": true,
+      "note": "Aubergines de septembre fondantes, viande hachée épicée façon Moyen-Orient, pignons torréfiés pour le croquant.",
+      "ingredients": [
+        {
+          "name": "Aubergines",
+          "qty": 4,
+          "unit": "unité"
+        },
+        {
+          "name": "Bœuf haché",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Tomates",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Pignons de pin",
+          "qty": 40,
+          "unit": "g"
+        },
+        {
+          "name": "Menthe fraîche",
+          "qty": 20,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Préchauffer le four à 200°C. Couper les aubergines en deux dans la longueur, inciser la chair en croisillons et badigeonner d'huile. Enfourner 20 minutes.",
+        "Pendant ce temps, faire revenir le bœuf haché avec oignon émincé, cumin et paprika 8 minutes. Ajouter les tomates concassées, les pignons et laisser mijoter 5 minutes.",
+        "Sortir les aubergines, creuser légèrement la chair pour faire un puits, garnir de farce. Remettre au four 10 minutes. Parsemer de menthe ciselée avant de servir."
+      ],
+      "twist": "Remplacer le bœuf par de l'agneau haché et ajouter des raisins secs dans la farce pour une version plus sucrée-salée.",
+      "conservation": "Se conserve 2 jours au frais, se réchauffe bien au four. Ne se congèle pas idéalement car les aubergines rendent de l'eau."
+    }
+  ],
+  "breakfasts": [
+    {
+      "variant": "sucre",
+      "name": "Porridge avoine, figues fraîches et miel",
+      "icon": "",
+      "prepTime": "8",
+      "isSeasonal": true,
+      "note": "Figues de septembre pour le côté gourmand, porridge crémeux réconfortant pour les matins d'automne.",
+      "ingredients": [
+        {
+          "name": "Flocons d'avoine",
+          "qty": 80,
+          "unit": "g"
+        },
+        {
+          "name": "Lait demi-écrémé",
+          "qty": 250,
+          "unit": "ml"
+        },
+        {
+          "name": "Figues fraîches",
+          "qty": 3,
+          "unit": "unité"
+        },
+        {
+          "name": "Miel",
+          "qty": 20,
+          "unit": "g"
+        },
+        {
+          "name": "Amandes effilées",
+          "qty": 20,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Faire chauffer le lait dans une casserole, ajouter les flocons d'avoine et une pincée de sel. Cuire 5 minutes à feu doux en remuant.",
+        "Couper les figues en quartiers. Verser le porridge dans des bols, garnir de figues, miel et amandes effilées torréfiées."
+      ],
+      "twist": "Remplacer les figues par du raisin noir de septembre et ajouter une pincée de cannelle.",
+      "conservation": "Le porridge se prépare à l'avance pour 2 jours, réchauffer avec un peu de lait. Ajouter les figues au moment de servir."
+    },
+    {
+      "variant": "sale",
+      "name": "Tartines avocat, œuf mollet et tomate",
+      "icon": "",
+      "prepTime": "10",
+      "isSeasonal": true,
+      "note": "Petit-déjeuner salé équilibré, tomates de septembre encore bien juteuses, avocat pour les bons gras.",
+      "ingredients": [
+        {
+          "name": "Pain de campagne",
+          "qty": 4,
+          "unit": "tranche"
+        },
+        {
+          "name": "Avocat",
+          "qty": 2,
+          "unit": "unité"
+        },
+        {
+          "name": "Œufs",
+          "qty": 4,
+          "unit": "unité"
+        },
+        {
+          "name": "Tomates",
+          "qty": 2,
+          "unit": "unité"
+        },
+        {
+          "name": "Ciboulette",
+          "qty": 10,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Faire cuire les œufs 6 minutes dans l'eau bouillante pour un jaune mollet. Pendant ce temps, toaster les tranches de pain.",
+        "Écraser l'avocat à la fourchette avec un filet de citron, sel et poivre. Tartiner le pain, ajouter des rondelles de tomate et l'œuf coupé en deux. Parsemer de ciboulette ciselée."
+      ],
+      "twist": "Ajouter une tranche de saumon fumé sur l'avocat pour un petit-déjeuner nordique encore plus protéiné.",
+      "conservation": "À préparer et consommer le jour même, l'avocat et l'œuf mollet ne se conservent pas bien une fois écrasés ou cuits."
+    }
+  ],
+  "snacks": [
+    {
+      "variant": "rapide",
+      "name": "Raisin noir et yaourt grec au miel",
+      "icon": "",
+      "prepTime": "3",
+      "isSeasonal": true,
+      "note": "Raisin de septembre sucré, yaourt grec pour les protéines, encas prêt en 3 minutes.",
+      "ingredients": [
+        {
+          "name": "Raisin noir",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Yaourt grec nature",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Miel",
+          "qty": 40,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Laver le raisin et le répartir dans des petits bols. Ajouter une grosse cuillère de yaourt grec et un filet de miel."
+      ],
+      "twist": "Remplacer le miel par du sirop d'érable et ajouter des noix concassées pour plus de croquant.",
+      "conservation": "Le raisin se conserve 5 jours au frais. Assembler au moment de manger pour que le yaourt reste frais."
+    },
+    {
+      "variant": "dense",
+      "name": "Barres maison amandes, dattes et cacao",
+      "icon": "",
+      "prepTime": "15",
+      "isSeasonal": false,
+      "note": "Barres énergétiques maison sans cuisson, à préparer le dimanche pour toute la semaine.",
+      "ingredients": [
+        {
+          "name": "Amandes",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "name": "Dattes Medjool dénoyautées",
+          "qty": 250,
+          "unit": "g"
+        },
+        {
+          "name": "Cacao en poudre non sucré",
+          "qty": 30,
+          "unit": "g"
+        },
+        {
+          "name": "Huile de coco",
+          "qty": 40,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Mixer les amandes au robot jusqu'à obtenir une texture grossière. Ajouter les dattes, le cacao et l'huile de coco fondue, mixer jusqu'à obtenir une pâte collante.",
+        "Étaler la pâte dans un moule rectangulaire sur 2 cm d'épaisseur. Mettre au frais 2 heures puis découper en barres."
+      ],
+      "twist": "Ajouter des pépites de chocolat noir ou des graines de chia pour varier les textures.",
+      "conservation": "Se conserve 1 semaine au frais dans une boîte hermétique, se congèle très bien pour 1 mois."
+    }
+  ],
+  "lunches": [
+    {
+      "name": "Restes du dîner de la veille",
+      "note": "Réchauffer les restes de tajine, pâtes ou bol de riz dans une boîte hermétique au micro-ondes, gain de temps garanti."
+    },
+    {
+      "name": "Sandwich poulet-crudités maison",
+      "note": "Pain complet, restes de poulet du mardi, salade, tomate, avocat et sauce yaourt citron, prêt en 5 minutes."
+    },
+    {
+      "name": "Salade composée express",
+      "note": "Mélanger lentilles ou pois chiches en conserve, tomates cerises, feta, concombre, huile d'olive et citron, se prépare la veille."
+    }
+  ],
+  "shoppingList": [
+    {
+      "category": "Fruits & Légumes",
+      "items": [
+        {
+          "name": "Tomates cerises",
+          "qty": "800g",
+          "price_discount": 2.8,
+          "price_standard": 3.5,
+          "price_bio": 4.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Tomates",
+          "qty": "1.5kg",
+          "price_discount": 2.2,
+          "price_standard": 2.8,
+          "price_bio": 3.8,
+          "isSeasonal": true
+        },
+        {
+          "name": "Courgettes",
+          "qty": "800g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 2.8,
+          "isSeasonal": true
+        },
+        {
+          "name": "Brocoli",
+          "qty": "400g",
+          "price_discount": 1.8,
+          "price_standard": 2.2,
+          "price_bio": 3,
+          "isSeasonal": true
+        },
+        {
+          "name": "Aubergines",
+          "qty": "4 unités",
+          "price_discount": 2.5,
+          "price_standard": 3.2,
+          "price_bio": 4.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Patate douce",
+          "qty": "800g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Avocat",
+          "qty": "4 unités",
+          "price_discount": 3,
+          "price_standard": 4,
+          "price_bio": 5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Citron",
+          "qty": "4 unités",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 2.8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Raisin noir",
+          "qty": "800g",
+          "price_discount": 3.5,
+          "price_standard": 4.5,
+          "price_bio": 6,
+          "isSeasonal": true
+        },
+        {
+          "name": "Figues fraîches",
+          "qty": "12 unités",
+          "price_discount": 4,
+          "price_standard": 5,
+          "price_bio": 6.5,
+          "isSeasonal": true
+        }
+      ]
+    },
+    {
+      "category": "Viandes & Poissons",
+      "items": [
+        {
+          "name": "Filets de poulet",
+          "qty": "500g",
+          "price_discount": 5.5,
+          "price_standard": 7,
+          "price_bio": 10,
+          "isSeasonal": false
+        },
+        {
+          "name": "Cuisses de poulet",
+          "qty": "800g",
+          "price_discount": 4.5,
+          "price_standard": 6,
+          "price_bio": 9,
+          "isSeasonal": false
+        },
+        {
+          "name": "Bœuf haché 5% MG",
+          "qty": "400g",
+          "price_discount": 4.8,
+          "price_standard": 6.5,
+          "price_bio": 9.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Sardines en boîte à l'huile d'olive",
+          "qty": "240g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Jambon blanc",
+          "qty": "150g",
+          "price_discount": 2,
+          "price_standard": 2.8,
+          "price_bio": 4,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Crémerie & Œufs",
+      "items": [
+        {
+          "name": "Œufs",
+          "qty": "2 boîtes de 6",
+          "price_discount": 3.5,
+          "price_standard": 4.5,
+          "price_bio": 6,
+          "isSeasonal": false
+        },
+        {
+          "name": "Feta",
+          "qty": "400g",
+          "price_discount": 4,
+          "price_standard": 5.5,
+          "price_bio": 7,
+          "isSeasonal": false
+        },
+        {
+          "name": "Parmesan râpé",
+          "qty": "60g",
+          "price_discount": 1.8,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Yaourt grec nature",
+          "qty": "800g",
+          "price_discount": 3,
+          "price_standard": 4,
+          "price_bio": 5.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Lait demi-écrémé",
+          "qty": "1L",
+          "price_discount": 1,
+          "price_standard": 1.3,
+          "price_bio": 1.8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Tofu ferme",
+          "qty": "300g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Épicerie sèche",
+      "items": [
+        {
+          "name": "Pâtes courtes",
+          "qty": "500g",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Riz basmati",
+          "qty": "500g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Nouilles soba",
+          "qty": "300g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pois chiches cuits en conserve",
+          "qty": "800g",
+          "price_discount": 1.8,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Haricots blancs cuits en conserve",
+          "qty": "400g",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2.2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Lentilles vertes",
+          "qty": "250g",
+          "price_discount": 1.2,
+          "price_standard": 1.8,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Flocons d'avoine",
+          "qty": "500g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Beurre de cacahuète",
+          "qty": "250g",
+          "price_discount": 2,
+          "price_standard": 3,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Sauce soja",
+          "qty": "150ml",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Miel",
+          "qty": "250g",
+          "price_discount": 4,
+          "price_standard": 5.5,
+          "price_bio": 7,
+          "isSeasonal": false
+        },
+        {
+          "name": "Abricots secs",
+          "qty": "150g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Dattes Medjool",
+          "qty": "250g",
+          "price_discount": 3,
+          "price_standard": 4,
+          "price_bio": 5.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Amandes",
+          "qty": "250g",
+          "price_discount": 3.5,
+          "price_standard": 5,
+          "price_bio": 7,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pignons de pin",
+          "qty": "50g",
+          "price_discount": 3,
+          "price_standard": 4,
+          "price_bio": 5.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Cacao en poudre non sucré",
+          "qty": "100g",
+          "price_discount": 2,
+          "price_standard": 2.8,
+          "price_bio": 4,
+          "isSeasonal": false
+        },
+        {
+          "name": "Huile de coco",
+          "qty": "100g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Citron confit",
+          "qty": "1 bocal",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pain de campagne",
+          "qty": "1 unité",
+          "price_discount": 1.5,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Herbes fraîches & Épices",
+      "items": [
+        {
+          "name": "Basilic frais",
+          "qty": "2 bottes",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 2.8,
+          "isSeasonal": true
+        },
+        {
+          "name": "Coriandre fraîche",
+          "qty": "2 bottes",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 2.8,
+          "isSeasonal": true
+        },
+        {
+          "name": "Persil plat",
+          "qty": "1 botte",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": true
+        },
+        {
+          "name": "Menthe fraîche",
+          "qty": "1 botte",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": true
+        },
+        {
+          "name": "Thym frais",
+          "qty": "1 botte",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": true
+        },
+        {
+          "name": "Ciboulette",
+          "qty": "1 botte",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": true
+        },
+        {
+          "name": "Cumin moulu",
+          "qty": "1 pot",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Paprika fumé",
+          "qty": "1 pot",
+          "price_discount": 1.8,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Ras el hanout",
+          "qty": "1 pot",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5,
+          "isSeasonal": false
+        }
+      ]
+    }
+  ],
+  "healthAlerts": [
+    {
+      "type": "seasonal",
+      "message": "Profitez des tomates, aubergines, courgettes et figues tant qu'elles sont encore de saison en septembre."
+    },
+    {
+      "type": "info",
+      "message": "Cette semaine contient 3 plats à base de légumineuses, idéal pour les fibres et les protéines végétales."
+    },
+    {
+      "type": "info",
+      "message": "Le poisson de la semaine : sardines en boîte, riches en oméga-3 et faibles en mercure, parfaites pour un dîner express."
+    },
+    {
+      "type": "warning",
+      "message": "Si vous achetez du raisin, des tomates ou des poivrons non bio, lavez-les soigneusement pour limiter les résidus de pesticides."
+    }
+  ]
+}
