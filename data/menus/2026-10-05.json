@@ -1,0 +1,887 @@
+{
+  "weekStart": "2026-10-05",
+  "weekEnd": "2026-10-11",
+  "healthScore": "A",
+  "healthScoreHighlights": [
+    "3 repas à base de légumineuses cette semaine pour les fibres et protéines végétales.",
+    "2 poissons dont 1 gras (sardines) pour les oméga-3, sans risque mercure.",
+    "Courges et légumes racines de saison pour la vitamine A et les fibres.",
+    "Viande rouge limitée à 1 seul repas, privilégiant poulet et protéines végétales.",
+    "Plats gourmands et rapides, avec sauces maison et herbes fraîches à chaque dîner."
+  ],
+  "dinners": [
+    {
+      "day": "Lundi",
+      "date": "2026-10-05",
+      "name": "Riz pilaf aux amandes, pois chiches rôtis épicés",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "20",
+      "isSeasonal": true,
+      "note": "Plat complet végétarien d'automne, cumin et paprika fumé apportent chaleur et profondeur.",
+      "ingredients": [
+        {
+          "name": "Riz basmati",
+          "qty": 280,
+          "unit": "g"
+        },
+        {
+          "name": "Pois chiches en conserve",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Amandes effilées",
+          "qty": 60,
+          "unit": "g"
+        },
+        {
+          "name": "Cumin moulu",
+          "qty": 5,
+          "unit": "g"
+        },
+        {
+          "name": "Paprika fumé",
+          "qty": 5,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Rincer les pois chiches, les sécher et les faire rôtir 12 min à la poêle avec cumin, paprika fumé, sel et un filet d'huile d'olive.",
+        "Pendant ce temps, cuire le riz dans 1,5 fois son volume d'eau salée, couvrir et laisser gonfler 12 min hors du feu.",
+        "Torréfier les amandes 2 min à sec, mélanger le riz avec les pois chiches épicés et parsemer d'amandes."
+      ],
+      "twist": "Ajouter une poignée de raisins secs dorés au riz en fin de cuisson pour une touche sucrée-salée.",
+      "conservation": "Se conserve 3 jours au frais, se réchauffe bien à la poêle avec un peu d'eau."
+    },
+    {
+      "day": "Mardi",
+      "date": "2026-10-06",
+      "name": "Sardines à la plancha, sauce vierge tomate basilic",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "18",
+      "isSeasonal": true,
+      "note": "Sardines fraîches riches en oméga-3, sauce vierge simple qui sublime le poisson.",
+      "ingredients": [
+        {
+          "name": "Sardines fraîches",
+          "qty": 600,
+          "unit": "g"
+        },
+        {
+          "name": "Tomates",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "name": "Basilic frais",
+          "qty": 20,
+          "unit": "g"
+        },
+        {
+          "name": "Citron",
+          "qty": 1,
+          "unit": "unité"
+        },
+        {
+          "name": "Pain complet",
+          "qty": 200,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Concasser les tomates en petits dés, mélanger avec basilic ciselé, jus de citron, huile d'olive, sel et poivre pour la sauce vierge.",
+        "Vider et écailler les sardines si nécessaire, les badigeonner d'huile d'olive et les cuire 3 min par face à la plancha bien chaude.",
+        "Servir les sardines nappées de sauce vierge avec des tranches de pain complet grillé."
+      ],
+      "twist": "Remplacer le basilic par de la coriandre fraîche et ajouter une pincée de piment d'Espelette.",
+      "conservation": "À consommer le jour même, le poisson frais et la sauce vierge ne se conservent pas bien."
+    },
+    {
+      "day": "Mercredi",
+      "date": "2026-10-07",
+      "name": "Patate douce rôtie, feta et poulet au cumin",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "20",
+      "isSeasonal": true,
+      "note": "Plat complet au four, patate douce d'automne caramélisée et feta crémeuse.",
+      "ingredients": [
+        {
+          "name": "Patate douce",
+          "qty": 800,
+          "unit": "g"
+        },
+        {
+          "name": "Filets de poulet",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Feta",
+          "qty": 150,
+          "unit": "g"
+        },
+        {
+          "name": "Cumin en grains",
+          "qty": 5,
+          "unit": "g"
+        },
+        {
+          "name": "Miel",
+          "qty": 20,
+          "unit": "ml"
+        }
+      ],
+      "prepSteps": [
+        "Préchauffer le four à 200°C, couper les patates douces en gros cubes et les filets de poulet en morceaux, tout disposer sur une plaque huilée.",
+        "Arroser de miel, saupoudrer de cumin en grains, sel et poivre, enfourner 18 min en remuant à mi-cuisson.",
+        "Émietter la feta sur le plat chaud en sortie de four et servir immédiatement."
+      ],
+      "twist": "Ajouter des pois chiches en conserve rincés sur la plaque pour encore plus de protéines végétales.",
+      "conservation": "Se conserve 2 jours au frais, réchauffer au four pour retrouver le croustillant."
+    },
+    {
+      "day": "Jeudi",
+      "date": "2026-10-08",
+      "name": "Soupe veloutée butternut, lentilles corail et croûtons",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "20",
+      "isSeasonal": true,
+      "note": "Courge butternut de saison, lentilles corail pour les protéines et cuisson éclair.",
+      "ingredients": [
+        {
+          "name": "Butternut",
+          "qty": 700,
+          "unit": "g"
+        },
+        {
+          "name": "Lentilles corail",
+          "qty": 120,
+          "unit": "g"
+        },
+        {
+          "name": "Lait de coco",
+          "qty": 200,
+          "unit": "ml"
+        },
+        {
+          "name": "Pain complet",
+          "qty": 150,
+          "unit": "g"
+        },
+        {
+          "name": "Curry madras",
+          "qty": 5,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Éplucher et couper la butternut en cubes, les faire revenir 3 min avec oignon émincé et curry madras, couvrir d'eau et cuire 12 min.",
+        "Ajouter les lentilles corail et cuire encore 5 min, mixer avec le lait de coco jusqu'à texture veloutée.",
+        "Tailler le pain en cubes et les dorer 3 min à la poêle avec un filet d'huile, servir la soupe parsemée de croûtons."
+      ],
+      "twist": "Torréfier des graines de courge 2 min à sec et les parsemer sur la soupe pour le croquant.",
+      "conservation": "Se congèle très bien jusqu'à 3 mois, préparer les croûtons au moment de servir."
+    },
+    {
+      "day": "Vendredi",
+      "date": "2026-10-09",
+      "name": "Omelette aux herbes, jambon et salade de mâche",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "15",
+      "isSeasonal": true,
+      "note": "Dîner léger de fin de semaine, mâche d'automne et herbes fraîches généreuses.",
+      "ingredients": [
+        {
+          "name": "Œufs",
+          "qty": 8,
+          "unit": "unité"
+        },
+        {
+          "name": "Jambon blanc",
+          "qty": 150,
+          "unit": "g"
+        },
+        {
+          "name": "Mâche",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "name": "Persil plat",
+          "qty": 20,
+          "unit": "g"
+        },
+        {
+          "name": "Ciboulette",
+          "qty": 15,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Battre les œufs avec persil et ciboulette ciselés, sel et poivre, couper le jambon en petits dés.",
+        "Faire chauffer une poêle huilée, verser les œufs, parsemer de jambon et cuire 4 min à feu moyen en rabattant les bords.",
+        "Pendant ce temps, laver la mâche et la mélanger avec vinaigrette moutarde miel, servir l'omelette avec la salade."
+      ],
+      "twist": "Ajouter du fromage râpé sur l'omelette 1 min avant la fin de cuisson pour un côté fondant.",
+      "conservation": "À consommer le jour même, l'omelette et la salade fraîche ne se réchauffent pas bien."
+    }
+  ],
+  "weekend": [
+    {
+      "day": "Samedi",
+      "date": "2026-10-10",
+      "name": "Poulet rôti au four, légumes racines caramélisés",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "40",
+      "isSeasonal": true,
+      "note": "Plat du week-end festif avec légumes d'automne rôtis au miel et thym.",
+      "ingredients": [
+        {
+          "name": "Cuisses de poulet",
+          "qty": 800,
+          "unit": "g"
+        },
+        {
+          "name": "Carottes",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Panais",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "name": "Betterave",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "name": "Thym frais",
+          "qty": 10,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Préchauffer le four à 200°C, éplucher et couper tous les légumes en gros bâtonnets, les disposer sur une plaque avec les cuisses de poulet.",
+        "Arroser d'huile d'olive et de miel, parsemer de thym effeuillé, sel et poivre, enfourner 35 min en retournant à mi-cuisson.",
+        "Vérifier que le poulet est bien doré et les légumes caramélisés, servir avec le jus de cuisson."
+      ],
+      "twist": "Ajouter des quartiers de pomme en fin de cuisson pour une touche sucrée qui s'accorde au miel.",
+      "conservation": "Se conserve 3 jours au frais, se réchauffe bien au four ou à la poêle."
+    },
+    {
+      "day": "Dimanche",
+      "date": "2026-10-11",
+      "name": "Risotto crémeux aux champignons et parmesan",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "35",
+      "isSeasonal": true,
+      "note": "Champignons de saison d'automne, risotto réconfortant et généreux en parmesan.",
+      "ingredients": [
+        {
+          "name": "Riz arborio",
+          "qty": 320,
+          "unit": "g"
+        },
+        {
+          "name": "Champignons de Paris",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "name": "Parmesan",
+          "qty": 100,
+          "unit": "g"
+        },
+        {
+          "name": "Bouillon de légumes",
+          "qty": 1000,
+          "unit": "ml"
+        },
+        {
+          "name": "Persil plat",
+          "qty": 20,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Faire chauffer le bouillon et le garder frémissant, émincer les champignons et les faire revenir 5 min à feu vif pour les dorer.",
+        "Dans une sauteuse, nacrer le riz 2 min avec oignon émincé, ajouter le bouillon louche par louche en remuant régulièrement pendant 20 min.",
+        "Incorporer les champignons, le parmesan râpé et le persil ciselé hors du feu, rectifier l'assaisonnement et servir crémeux."
+      ],
+      "twist": "Ajouter une poignée de noisettes concassées torréfiées pour un contraste croquant.",
+      "conservation": "Se conserve 2 jours au frais, ajouter un peu de bouillon chaud pour détendre à la réchauffe."
+    }
+  ],
+  "breakfasts": [
+    {
+      "variant": "sucre",
+      "name": "Porridge pomme cannelle aux flocons d'avoine",
+      "icon": "",
+      "prepTime": "8",
+      "isSeasonal": true,
+      "note": "Pommes d'automne fondantes, porridge crémeux et réconfortant pour bien démarrer.",
+      "ingredients": [
+        {
+          "name": "Flocons d'avoine",
+          "qty": 80,
+          "unit": "g"
+        },
+        {
+          "name": "Lait",
+          "qty": 300,
+          "unit": "ml"
+        },
+        {
+          "name": "Pomme",
+          "qty": 150,
+          "unit": "g"
+        },
+        {
+          "name": "Cannelle",
+          "qty": 3,
+          "unit": "g"
+        },
+        {
+          "name": "Miel",
+          "qty": 20,
+          "unit": "ml"
+        }
+      ],
+      "prepSteps": [
+        "Couper la pomme en petits dés, les faire compoter 3 min avec cannelle et miel dans une casserole.",
+        "Ajouter les flocons d'avoine et le lait, cuire 4 min à feu doux en remuant jusqu'à texture crémeuse.",
+        "Servir chaud, éventuellement parsemé d'amandes effilées."
+      ],
+      "twist": "Remplacer la pomme par de la poire et ajouter une pincée de gingembre moulu.",
+      "conservation": "Se conserve 2 jours au frais, réchauffer avec un peu de lait pour détendre."
+    },
+    {
+      "variant": "sale",
+      "name": "Toast avocat œuf poché et graines de courge",
+      "icon": "",
+      "prepTime": "10",
+      "isSeasonal": false,
+      "note": "Petit-déjeuner protéiné et gourmand, graines de courge pour le croquant.",
+      "ingredients": [
+        {
+          "name": "Pain complet",
+          "qty": 120,
+          "unit": "g"
+        },
+        {
+          "name": "Avocat",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "name": "Œufs",
+          "qty": 4,
+          "unit": "unité"
+        },
+        {
+          "name": "Graines de courge",
+          "qty": 20,
+          "unit": "g"
+        },
+        {
+          "name": "Citron",
+          "qty": 0.5,
+          "unit": "unité"
+        }
+      ],
+      "prepSteps": [
+        "Porter une casserole d'eau à frémissement, casser chaque œuf dans une tasse et le faire glisser dans l'eau, pocher 3 min.",
+        "Pendant ce temps, écraser l'avocat avec jus de citron, sel et poivre, toaster le pain.",
+        "Tartiner le pain d'avocat écrasé, déposer l'œuf poché dessus et parsemer de graines de courge torréfiées."
+      ],
+      "twist": "Ajouter quelques gouttes de sauce pimentée ou une pincée de piment d'Espelette.",
+      "conservation": "À préparer au moment de consommer, ne se conserve pas."
+    }
+  ],
+  "snacks": [
+    {
+      "variant": "rapide",
+      "name": "Pomme au beurre de cacahuète et cannelle",
+      "icon": "",
+      "prepTime": "3",
+      "isSeasonal": true,
+      "note": "Pomme croquante d'automne, beurre de cacahuète pour les protéines et l'énergie.",
+      "ingredients": [
+        {
+          "name": "Pomme",
+          "qty": 150,
+          "unit": "g"
+        },
+        {
+          "name": "Beurre de cacahuète",
+          "qty": 30,
+          "unit": "g"
+        },
+        {
+          "name": "Cannelle",
+          "qty": 1,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Laver et couper la pomme en quartiers.",
+        "Disposer les quartiers sur une assiette et servir avec une cuillerée de beurre de cacahuète saupoudré de cannelle."
+      ],
+      "twist": "Remplacer la pomme par des bâtonnets de carotte ou de céleri pour varier.",
+      "conservation": "À préparer au moment, la pomme s'oxyde rapidement une fois coupée."
+    },
+    {
+      "variant": "dense",
+      "name": "Granola maison noisettes raisins secs",
+      "icon": "",
+      "prepTime": "15",
+      "isSeasonal": false,
+      "note": "Granola croustillant à préparer une fois pour la semaine, noisettes locales de saison.",
+      "ingredients": [
+        {
+          "name": "Flocons d'avoine",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "name": "Noisettes",
+          "qty": 100,
+          "unit": "g"
+        },
+        {
+          "name": "Raisins secs",
+          "qty": 80,
+          "unit": "g"
+        },
+        {
+          "name": "Miel",
+          "qty": 60,
+          "unit": "ml"
+        },
+        {
+          "name": "Huile de coco",
+          "qty": 40,
+          "unit": "ml"
+        }
+      ],
+      "prepSteps": [
+        "Préchauffer le four à 160°C, mélanger flocons d'avoine, noisettes concassées, miel et huile de coco fondue.",
+        "Étaler sur une plaque et enfourner 12 min en remuant à mi-cuisson pour dorer uniformément.",
+        "Laisser refroidir complètement, ajouter les raisins secs et conserver dans un bocal hermétique."
+      ],
+      "twist": "Ajouter des pépites de chocolat noir une fois refroidi pour un granola gourmand.",
+      "conservation": "Se conserve 3 semaines dans un bocal hermétique à température ambiante."
+    }
+  ],
+  "lunches": [
+    {
+      "name": "Reste de riz aux pois chiches réchauffé",
+      "note": "Réchauffer la portion du lundi à la poêle avec un trait d'eau, ajouter quelques feuilles de salade fraîche."
+    },
+    {
+      "name": "Sandwich poulet rôti légumes racines",
+      "note": "Pain complet garni avec reste de poulet du samedi, carottes râpées et fromage frais aux herbes."
+    },
+    {
+      "name": "Bol risotto champignons œuf mollet",
+      "note": "Réchauffer le risotto du dimanche avec un peu de bouillon, couronner d'un œuf mollet 6 min."
+    }
+  ],
+  "shoppingList": [
+    {
+      "category": "Fruits & Légumes",
+      "items": [
+        {
+          "name": "Patate douce",
+          "qty": "800g",
+          "price_discount": 1.6,
+          "price_standard": 2,
+          "price_bio": 3.2,
+          "isSeasonal": true
+        },
+        {
+          "name": "Butternut",
+          "qty": "1.4kg",
+          "price_discount": 2.1,
+          "price_standard": 2.8,
+          "price_bio": 4.2,
+          "isSeasonal": true
+        },
+        {
+          "name": "Carottes",
+          "qty": "400g",
+          "price_discount": 0.8,
+          "price_standard": 1,
+          "price_bio": 1.8,
+          "isSeasonal": true
+        },
+        {
+          "name": "Panais",
+          "qty": "300g",
+          "price_discount": 1.2,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Betterave",
+          "qty": "300g",
+          "price_discount": 0.9,
+          "price_standard": 1.2,
+          "price_bio": 2,
+          "isSeasonal": true
+        },
+        {
+          "name": "Champignons de Paris",
+          "qty": "500g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Tomates",
+          "qty": "300g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Mâche",
+          "qty": "200g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": true
+        },
+        {
+          "name": "Pomme",
+          "qty": "1kg",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Avocat",
+          "qty": "400g",
+          "price_discount": 2,
+          "price_standard": 3,
+          "price_bio": 4,
+          "isSeasonal": false
+        },
+        {
+          "name": "Citron",
+          "qty": "3 unités",
+          "price_discount": 1.2,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Viandes & Poissons",
+      "items": [
+        {
+          "name": "Filets de poulet",
+          "qty": "400g",
+          "price_discount": 4,
+          "price_standard": 5,
+          "price_bio": 8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Cuisses de poulet",
+          "qty": "800g",
+          "price_discount": 4.5,
+          "price_standard": 6,
+          "price_bio": 10,
+          "isSeasonal": false
+        },
+        {
+          "name": "Sardines fraîches",
+          "qty": "600g",
+          "price_discount": 6,
+          "price_standard": 8,
+          "price_bio": null,
+          "isSeasonal": false
+        },
+        {
+          "name": "Jambon blanc",
+          "qty": "150g",
+          "price_discount": 2,
+          "price_standard": 3,
+          "price_bio": 5,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Crémerie & Œufs",
+      "items": [
+        {
+          "name": "Œufs",
+          "qty": "20 unités",
+          "price_discount": 3,
+          "price_standard": 4,
+          "price_bio": 6,
+          "isSeasonal": false
+        },
+        {
+          "name": "Feta",
+          "qty": "150g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Parmesan",
+          "qty": "100g",
+          "price_discount": 2.5,
+          "price_standard": 4,
+          "price_bio": 6,
+          "isSeasonal": false
+        },
+        {
+          "name": "Lait",
+          "qty": "1L",
+          "price_discount": 1,
+          "price_standard": 1.3,
+          "price_bio": 1.8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Lait de coco",
+          "qty": "200ml",
+          "price_discount": 1.2,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Épicerie sèche",
+      "items": [
+        {
+          "name": "Riz basmati",
+          "qty": "280g",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Riz arborio",
+          "qty": "320g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Flocons d'avoine",
+          "qty": "500g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pois chiches en conserve",
+          "qty": "400g",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 1.8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Lentilles corail",
+          "qty": "120g",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Amandes effilées",
+          "qty": "60g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Noisettes",
+          "qty": "100g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 4,
+          "isSeasonal": true
+        },
+        {
+          "name": "Graines de courge",
+          "qty": "40g",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Raisins secs",
+          "qty": "80g",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Beurre de cacahuète",
+          "qty": "150g",
+          "price_discount": 2,
+          "price_standard": 3,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Miel",
+          "qty": "150ml",
+          "price_discount": 3,
+          "price_standard": 4.5,
+          "price_bio": 7,
+          "isSeasonal": false
+        },
+        {
+          "name": "Huile de coco",
+          "qty": "40ml",
+          "price_discount": 1.5,
+          "price_standard": 2.5,
+          "price_bio": 4,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pain complet",
+          "qty": "600g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 4,
+          "isSeasonal": false
+        },
+        {
+          "name": "Bouillon de légumes",
+          "qty": "1L",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Herbes fraîches & Épices",
+      "items": [
+        {
+          "name": "Basilic frais",
+          "qty": "1 bouquet",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Persil plat",
+          "qty": "2 bottes",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Ciboulette",
+          "qty": "1 botte",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Thym frais",
+          "qty": "1 bouquet",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Cumin moulu",
+          "qty": "10g",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Paprika fumé",
+          "qty": "5g",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Curry madras",
+          "qty": "5g",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Cannelle",
+          "qty": "5g",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        }
+      ]
+    }
+  ],
+  "healthAlerts": [
+    {
+      "type": "seasonal",
+      "message": "Champignons, courges et légumes racines sont au top de leur saison en octobre, profitez-en."
+    },
+    {
+      "type": "info",
+      "message": "Les sardines fraîches sont riches en oméga-3 et sans risque mercure, à privilégier sur le thon."
+    },
+    {
+      "type": "info",
+      "message": "Alterner pain blanc et complet permet de limiter l'exposition au cadmium des céréales complètes."
+    },
+    {
+      "type": "info",
+      "message": "3 repas à base de légumineuses cette semaine pour les fibres et protéines végétales accessibles."
+    }
+  ]
+}

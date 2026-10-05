@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-10-05",
+      "weekEnd": "2026-10-11",
+      "file": "data/menus/2026-10-05.json",
+      "label": "Semaine du 5 octobre 2026",
+      "healthScore": "A",
+      "highlights": [
+        "3 repas à base de légumineuses cette semaine pour les fibres et protéines végétales.",
+        "2 poissons dont 1 gras (sardines) pour les oméga-3, sans risque mercure.",
+        "Courges et légumes racines de saison pour la vitamine A et les fibres.",
+        "Viande rouge limitée à 1 seul repas, privilégiant poulet et protéines végétales.",
+        "Plats gourmands et rapides, avec sauces maison et herbes fraîches à chaque dîner."
+      ]
+    },
+    {
       "weekStart": "2026-09-28",
       "weekEnd": "2026-10-04",
       "file": "data/menus/2026-09-28.json",
