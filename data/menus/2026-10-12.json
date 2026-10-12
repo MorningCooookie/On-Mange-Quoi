@@ -1,0 +1,916 @@
+{
+  "weekStart": "2026-10-12",
+  "weekEnd": "2026-10-18",
+  "healthScore": "A",
+  "healthScoreHighlights": [
+    "Semaine riche en légumes de saison (courges, brocoli, poireau) et légumineuses (3 plats sur 7).",
+    "2 portions de poisson dont 1 gras (sardine), équilibre respecté sur le mercure.",
+    "Viande rouge limitée à 1 repas, protéines variées sur la semaine.",
+    "Attention aux épinards (bio recommandé) et au cacao dans le granola (quantité modérée).",
+    "Menu pensé pour la facilité : tous les dîners en 20 minutes, saveurs automne généreuses."
+  ],
+  "dinners": [
+    {
+      "day": "Lundi",
+      "date": "2026-10-12",
+      "name": "Riz pilaf, pois chiches épicés et poulet rôti",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "20",
+      "isSeasonal": true,
+      "note": "Plat complet réconfortant pour commencer la semaine, cumin et coriandre fraîche apportent du relief.",
+      "ingredients": [
+        {
+          "name": "Riz basmati",
+          "qty": 240,
+          "unit": "g"
+        },
+        {
+          "name": "Pois chiches cuits",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Filets de poulet",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "name": "Cumin en poudre",
+          "qty": 5,
+          "unit": "g"
+        },
+        {
+          "name": "Coriandre fraîche",
+          "qty": 20,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Faire chauffer une grande sauteuse avec un filet d'huile, cuire le poulet coupé en cubes 8 minutes à feu moyen.",
+        "Ajouter le riz, les pois chiches égouttés, le cumin, 500ml d'eau bouillante et couvrir 12 minutes.",
+        "Parsemer de coriandre ciselée au moment de servir."
+      ],
+      "twist": "Ajouter des raisins secs dorés et des amandes effilées grillées pour une touche sucrée salée.",
+      "conservation": "Se conserve 3 jours au frigo, se réchauffe très bien, ne convient pas à la congélation (texture du riz)."
+    },
+    {
+      "day": "Mardi",
+      "date": "2026-10-13",
+      "name": "Omelette aux champignons et patate douce rôtie",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "20",
+      "isSeasonal": true,
+      "note": "Légère et rapide, la patate douce au four en cubes réduit le temps de cuisson.",
+      "ingredients": [
+        {
+          "name": "Œufs",
+          "qty": 8,
+          "unit": "unités"
+        },
+        {
+          "name": "Champignons de Paris",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "name": "Patate douce",
+          "qty": 600,
+          "unit": "g"
+        },
+        {
+          "name": "Persil plat",
+          "qty": 15,
+          "unit": "g"
+        },
+        {
+          "name": "Comté râpé",
+          "qty": 80,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Préchauffer le four à 200°C, couper la patate douce en petits cubes, enfourner 15 minutes avec un filet d'huile.",
+        "Faire revenir les champignons émincés à la poêle 5 minutes, battre les œufs avec le comté et le persil ciselé.",
+        "Verser les œufs sur les champignons, cuire 3 minutes à feu doux en remuant, servir avec la patate douce rôtie."
+      ],
+      "twist": "Remplacer le comté par de la feta émiettée et ajouter une pincée de sumac sur la patate douce.",
+      "conservation": "À consommer le jour même, l'omelette ne se réchauffe pas bien."
+    },
+    {
+      "day": "Mercredi",
+      "date": "2026-10-14",
+      "name": "Gnocchis poêlés, brocoli et viande hachée sauce tomate",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "20",
+      "isSeasonal": true,
+      "note": "One-pan réconfortant, le brocoli de saison apporte du croquant et des fibres.",
+      "ingredients": [
+        {
+          "name": "Gnocchis frais",
+          "qty": 600,
+          "unit": "g"
+        },
+        {
+          "name": "Viande hachée de bœuf 5% MG",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Brocoli",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Coulis de tomate",
+          "qty": 300,
+          "unit": "ml"
+        },
+        {
+          "name": "Parmesan râpé",
+          "qty": 60,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Faire dorer la viande hachée dans une grande poêle 5 minutes, ajouter le brocoli en petits bouquets et 100ml d'eau, couvrir 5 minutes.",
+        "Ajouter les gnocchis et le coulis de tomate, mélanger et cuire 8 minutes à feu moyen.",
+        "Parsemer de parmesan râpé et servir directement dans la poêle."
+      ],
+      "twist": "Ajouter une poignée de basilic frais ciselé et un filet d'huile d'olive au moment de servir.",
+      "conservation": "Se conserve 2 jours au frigo, se réchauffe à la poêle avec un peu d'eau."
+    },
+    {
+      "day": "Jeudi",
+      "date": "2026-10-15",
+      "name": "Sardines grillées, salade tiède de butternut et lentilles",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "20",
+      "isSeasonal": true,
+      "note": "Poisson gras riche en oméga-3, courge butternut de saison rôtie au four express.",
+      "ingredients": [
+        {
+          "name": "Sardines fraîches",
+          "qty": 600,
+          "unit": "g"
+        },
+        {
+          "name": "Butternut",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "name": "Lentilles vertes cuites",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Vinaigre balsamique",
+          "qty": 30,
+          "unit": "ml"
+        },
+        {
+          "name": "Aneth frais",
+          "qty": 15,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Couper le butternut en petits cubes, enfourner à 200°C pendant 15 minutes avec un filet d'huile.",
+        "Griller les sardines à la plancha ou à la poêle 3 minutes de chaque côté.",
+        "Mélanger le butternut rôti avec les lentilles égouttées, un filet de vinaigre balsamique et l'aneth ciselé, servir avec les sardines."
+      ],
+      "twist": "Ajouter des graines de courge grillées et un filet de miel sur la salade tiède.",
+      "conservation": "Les sardines se consomment le jour même, la salade se garde 2 jours au frigo."
+    },
+    {
+      "day": "Vendredi",
+      "date": "2026-10-16",
+      "name": "Wok de nouilles soba, épinards et tofu mariné",
+      "icon": "",
+      "riskLevel": "medium",
+      "riskType": "pesticides",
+      "prepTime": "20",
+      "isSeasonal": true,
+      "note": "Épinards bio recommandés (Dirty Dozen), sauce soja sucrée salée pour un vendredi sans viande gourmand.",
+      "ingredients": [
+        {
+          "name": "Nouilles soba",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "name": "Tofu ferme",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "name": "Épinards frais bio",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "name": "Sauce soja",
+          "qty": 60,
+          "unit": "ml"
+        },
+        {
+          "name": "Graines de sésame",
+          "qty": 20,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Cuire les nouilles soba selon les instructions du paquet, égoutter et réserver.",
+        "Couper le tofu en cubes, faire revenir au wok 5 minutes avec la sauce soja et une cuillère de miel.",
+        "Ajouter les épinards lavés, les nouilles, mélanger 2 minutes, parsemer de graines de sésame grillées."
+      ],
+      "twist": "Ajouter un filet de vinaigre de riz et du gingembre frais râpé pour plus de peps.",
+      "conservation": "Se conserve 2 jours au frigo, se réchauffe au wok avec un peu d'eau."
+    }
+  ],
+  "weekend": [
+    {
+      "day": "Samedi",
+      "date": "2026-10-17",
+      "name": "Poulet rôti au four, courge rôtie et haricots blancs",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "40",
+      "isSeasonal": true,
+      "note": "Plat de saison réconfortant, tout au four pour un samedi sans stress.",
+      "ingredients": [
+        {
+          "name": "Cuisses de poulet",
+          "qty": 800,
+          "unit": "g"
+        },
+        {
+          "name": "Courge butternut",
+          "qty": 700,
+          "unit": "g"
+        },
+        {
+          "name": "Haricots blancs cuits",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Thym frais",
+          "qty": 10,
+          "unit": "g"
+        },
+        {
+          "name": "Miel",
+          "qty": 30,
+          "unit": "ml"
+        }
+      ],
+      "prepSteps": [
+        "Préchauffer le four à 180°C, disposer les cuisses de poulet et la courge coupée en gros cubes sur une plaque, arroser de miel et parsemer de thym.",
+        "Enfourner 35 minutes en retournant à mi-cuisson.",
+        "Réchauffer les haricots blancs à la casserole avec un filet d'huile d'olive et servir en accompagnement du poulet et de la courge."
+      ],
+      "twist": "Ajouter des échalotes entières rôties et un filet de vinaigre de cidre sur les haricots.",
+      "conservation": "Se conserve 3 jours au frigo, se congèle très bien en portions individuelles."
+    },
+    {
+      "day": "Dimanche",
+      "date": "2026-10-18",
+      "name": "Cabillaud MSC en papillote, fondue de poireaux et riz pilaf",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "35",
+      "isSeasonal": true,
+      "note": "Poisson blanc de saison, poireaux fondants et riz parfumé pour un dimanche léger.",
+      "ingredients": [
+        {
+          "name": "Filets de cabillaud MSC",
+          "qty": 600,
+          "unit": "g"
+        },
+        {
+          "name": "Poireaux",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "name": "Riz basmati",
+          "qty": 240,
+          "unit": "g"
+        },
+        {
+          "name": "Citron jaune",
+          "qty": 1,
+          "unit": "unité"
+        },
+        {
+          "name": "Estragon frais",
+          "qty": 15,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Préchauffer le four à 180°C, préparer 4 papillotes avec du papier sulfurisé : déposer les poireaux émincés et fondus 5 minutes à la poêle, le cabillaud, le jus de citron et l'estragon ciselé.",
+        "Fermer les papillotes et enfourner 20 minutes.",
+        "Pendant ce temps, cuire le riz dans 500ml d'eau bouillante salée pendant 12 minutes, égoutter et servir avec les papillotes."
+      ],
+      "twist": "Ajouter une noisette de beurre et des câpres dans les papillotes avant de les fermer.",
+      "conservation": "Se conserve 2 jours au frigo, ne se congèle pas bien (texture du poisson)."
+    }
+  ],
+  "breakfasts": [
+    {
+      "variant": "sucre",
+      "name": "Porridge pomme cannelle et granola croquant",
+      "icon": "",
+      "prepTime": "10",
+      "isSeasonal": true,
+      "note": "Flocons d'avoine réconfortants, pommes de saison râpées, granola préparé une fois pour la semaine.",
+      "ingredients": [
+        {
+          "name": "Flocons d'avoine",
+          "qty": 80,
+          "unit": "g"
+        },
+        {
+          "name": "Pomme",
+          "qty": 1,
+          "unit": "unité"
+        },
+        {
+          "name": "Lait",
+          "qty": 250,
+          "unit": "ml"
+        },
+        {
+          "name": "Cannelle en poudre",
+          "qty": 3,
+          "unit": "g"
+        },
+        {
+          "name": "Granola maison",
+          "qty": 40,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Faire chauffer le lait dans une casserole, ajouter les flocons d'avoine et la pomme râpée, cuire 5 minutes en remuant.",
+        "Saupoudrer de cannelle et servir avec une poignée de granola croquant.",
+        "Pour le granola : mélanger 200g de flocons d'avoine, 50g de miel, 30g d'huile de coco, enfourner 20 minutes à 160°C."
+      ],
+      "twist": "Ajouter une cuillère de beurre de cacahuète ou quelques morceaux de poire pour varier.",
+      "conservation": "Le porridge se consomme immédiatement, le granola se conserve 2 semaines dans une boîte hermétique."
+    },
+    {
+      "variant": "sale",
+      "name": "Toast avocat, œuf poché et tomate",
+      "icon": "",
+      "prepTime": "10",
+      "isSeasonal": true,
+      "note": "Protéines et bons gras pour démarrer la journée, rapide et rassasiant.",
+      "ingredients": [
+        {
+          "name": "Pain complet",
+          "qty": 4,
+          "unit": "tranches"
+        },
+        {
+          "name": "Avocat",
+          "qty": 2,
+          "unit": "unités"
+        },
+        {
+          "name": "Œufs",
+          "qty": 4,
+          "unit": "unités"
+        },
+        {
+          "name": "Tomate",
+          "qty": 2,
+          "unit": "unités"
+        },
+        {
+          "name": "Fleur de sel",
+          "qty": 2,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Faire griller le pain, écraser l'avocat à la fourchette avec un filet de citron et de fleur de sel.",
+        "Pocher les œufs 3 minutes dans une casserole d'eau frémissante vinaigrée.",
+        "Tartiner le pain d'avocat, déposer l'œuf poché et les rondelles de tomate, assaisonner de fleur de sel."
+      ],
+      "twist": "Ajouter du fromage frais type chèvre ou ricotta sous l'avocat et une pincée de piment d'Espelette.",
+      "conservation": "À consommer immédiatement, ne se conserve pas."
+    }
+  ],
+  "snacks": [
+    {
+      "variant": "rapide",
+      "name": "Compote pomme poire maison",
+      "icon": "",
+      "prepTime": "15",
+      "isSeasonal": true,
+      "note": "Fruits de saison sans sucre ajouté, se prépare en grande quantité pour la semaine.",
+      "ingredients": [
+        {
+          "name": "Pomme",
+          "qty": 6,
+          "unit": "unités"
+        },
+        {
+          "name": "Poire",
+          "qty": 4,
+          "unit": "unités"
+        },
+        {
+          "name": "Cannelle en poudre",
+          "qty": 3,
+          "unit": "g"
+        },
+        {
+          "name": "Vanille en gousse",
+          "qty": 1,
+          "unit": "unité"
+        }
+      ],
+      "prepSteps": [
+        "Éplucher et couper les pommes et poires en morceaux, les mettre dans une casserole avec 100ml d'eau et les graines de vanille.",
+        "Cuire 15 minutes à feu doux en remuant de temps en temps.",
+        "Mixer grossièrement ou laisser en morceaux selon la texture souhaitée, saupoudrer de cannelle."
+      ],
+      "twist": "Ajouter une poignée de framboises surgelées en fin de cuisson pour une touche acidulée.",
+      "conservation": "Se conserve 5 jours au frigo dans un bocal hermétique, se congèle très bien en portions."
+    },
+    {
+      "variant": "dense",
+      "name": "Barres énergétiques dattes noix cacao",
+      "icon": "",
+      "prepTime": "10",
+      "isSeasonal": false,
+      "note": "Sans cuisson, riches en fibres et magnésium, cacao en quantité modérée pour éviter l'excès de cadmium.",
+      "ingredients": [
+        {
+          "name": "Dattes Medjool",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "name": "Noix de Grenoble",
+          "qty": 100,
+          "unit": "g"
+        },
+        {
+          "name": "Cacao en poudre non sucré",
+          "qty": 20,
+          "unit": "g"
+        },
+        {
+          "name": "Flocons d'avoine",
+          "qty": 80,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Mixer les dattes dénoyautées, les noix, le cacao et les flocons d'avoine jusqu'à obtenir une pâte homogène.",
+        "Étaler la pâte dans un plat rectangulaire tapissé de papier sulfurisé sur 2cm d'épaisseur.",
+        "Réfrigérer 2 heures, découper en barres de la taille souhaitée."
+      ],
+      "twist": "Ajouter des pépites de chocolat noir 70% ou des graines de chia pour plus de croquant.",
+      "conservation": "Se conserve 1 semaine au frigo dans une boîte hermétique, se congèle très bien."
+    }
+  ],
+  "lunches": [
+    {
+      "name": "Restes du dîner précédent réchauffés",
+      "note": "La plupart des dîners se conservent bien et peuvent servir de déjeuner le lendemain ou surlendemain."
+    },
+    {
+      "name": "Sandwich poulet rôti, avocat et salade",
+      "note": "Pain complet, restes de poulet du weekend, avocat écrasé, salade, rapide à assembler le matin."
+    },
+    {
+      "name": "Bol express lentilles, butternut rôti et feta",
+      "note": "Réutiliser les restes de lentilles et butternut du jeudi, ajouter de la feta émiettée et un filet d'huile d'olive."
+    }
+  ],
+  "shoppingList": [
+    {
+      "category": "Fruits & Légumes",
+      "items": [
+        {
+          "name": "Pomme",
+          "qty": "2kg",
+          "price_discount": 2.5,
+          "price_standard": 3,
+          "price_bio": 4.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Poire",
+          "qty": "1kg",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 4,
+          "isSeasonal": true
+        },
+        {
+          "name": "Avocat",
+          "qty": "6 unités",
+          "price_discount": 3.5,
+          "price_standard": 4.5,
+          "price_bio": 6,
+          "isSeasonal": false
+        },
+        {
+          "name": "Citron jaune",
+          "qty": "4 unités",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Tomate",
+          "qty": "800g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 4,
+          "isSeasonal": false
+        },
+        {
+          "name": "Champignons de Paris",
+          "qty": "300g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": true
+        },
+        {
+          "name": "Brocoli",
+          "qty": "400g",
+          "price_discount": 1.2,
+          "price_standard": 1.8,
+          "price_bio": 3,
+          "isSeasonal": true
+        },
+        {
+          "name": "Butternut",
+          "qty": "1.8kg",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 4,
+          "isSeasonal": true
+        },
+        {
+          "name": "Épinards frais bio",
+          "qty": "300g",
+          "price_discount": 0,
+          "price_standard": 0,
+          "price_bio": 3.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Poireaux",
+          "qty": "500g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Patate douce",
+          "qty": "600g",
+          "price_discount": 1.8,
+          "price_standard": 2.2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Viandes & Poissons",
+      "items": [
+        {
+          "name": "Filets de poulet",
+          "qty": "500g",
+          "price_discount": 4.5,
+          "price_standard": 6,
+          "price_bio": 9,
+          "isSeasonal": false
+        },
+        {
+          "name": "Cuisses de poulet",
+          "qty": "800g",
+          "price_discount": 4,
+          "price_standard": 5.5,
+          "price_bio": 8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Viande hachée de bœuf 5% MG",
+          "qty": "400g",
+          "price_discount": 4,
+          "price_standard": 5.5,
+          "price_bio": 8.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Sardines fraîches",
+          "qty": "600g",
+          "price_discount": 6,
+          "price_standard": 8,
+          "price_bio": 0,
+          "isSeasonal": false
+        },
+        {
+          "name": "Filets de cabillaud MSC",
+          "qty": "600g",
+          "price_discount": 8,
+          "price_standard": 10,
+          "price_bio": 0,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Crémerie & Œufs",
+      "items": [
+        {
+          "name": "Œufs",
+          "qty": "12 unités",
+          "price_discount": 2.5,
+          "price_standard": 3,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Lait",
+          "qty": "1L",
+          "price_discount": 1,
+          "price_standard": 1.3,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Comté râpé",
+          "qty": "80g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Parmesan râpé",
+          "qty": "60g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Tofu ferme",
+          "qty": "300g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Épicerie sèche",
+      "items": [
+        {
+          "name": "Riz basmati",
+          "qty": "500g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pois chiches cuits",
+          "qty": "800g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Lentilles vertes cuites",
+          "qty": "400g",
+          "price_discount": 1.2,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Haricots blancs cuits",
+          "qty": "400g",
+          "price_discount": 1.2,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Gnocchis frais",
+          "qty": "600g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Nouilles soba",
+          "qty": "300g",
+          "price_discount": 2.5,
+          "price_standard": 3,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Flocons d'avoine",
+          "qty": "500g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Coulis de tomate",
+          "qty": "300ml",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Sauce soja",
+          "qty": "150ml",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Vinaigre balsamique",
+          "qty": "100ml",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Miel",
+          "qty": "100ml",
+          "price_discount": 3,
+          "price_standard": 4,
+          "price_bio": 6,
+          "isSeasonal": false
+        },
+        {
+          "name": "Dattes Medjool",
+          "qty": "200g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Noix de Grenoble",
+          "qty": "100g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 4,
+          "isSeasonal": false
+        },
+        {
+          "name": "Cacao en poudre non sucré",
+          "qty": "50g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 4,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pain complet",
+          "qty": "1 pain",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Herbes fraîches & Épices",
+      "items": [
+        {
+          "name": "Coriandre fraîche",
+          "qty": "1 botte",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Persil plat",
+          "qty": "1 botte",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Aneth frais",
+          "qty": "1 botte",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Estragon frais",
+          "qty": "1 botte",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Thym frais",
+          "qty": "1 botte",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Cumin en poudre",
+          "qty": "20g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Cannelle en poudre",
+          "qty": "20g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Graines de sésame",
+          "qty": "50g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Vanille en gousse",
+          "qty": "2 gousses",
+          "price_discount": 4,
+          "price_standard": 5,
+          "price_bio": 7,
+          "isSeasonal": false
+        }
+      ]
+    }
+  ],
+  "healthAlerts": [
+    {
+      "type": "warning",
+      "message": "Épinards bio impératifs le vendredi : ils figurent dans le Dirty Dozen EWG, fortement exposés aux pesticides en culture conventionnelle."
+    },
+    {
+      "type": "info",
+      "message": "Cacao en poudre utilisé avec modération dans les barres énergétiques pour limiter l'apport en cadmium."
+    },
+    {
+      "type": "seasonal",
+      "message": "Butternut, brocoli, poireaux et courge sont au cœur de leur saison en octobre : saveur optimale et prix doux."
+    },
+    {
+      "type": "info",
+      "message": "Sardines fraîches le jeudi : excellent apport en oméga-3 et vitamine D, poisson gras à privilégier."
+    },
+    {
+      "type": "info",
+      "message": "Cabillaud MSC le dimanche : label de pêche durable, poisson blanc à faible teneur en mercure."
+    }
+  ]
+}

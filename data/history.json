@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-10-12",
+      "weekEnd": "2026-10-18",
+      "file": "data/menus/2026-10-12.json",
+      "label": "Semaine du 12 octobre 2026",
+      "healthScore": "A",
+      "highlights": [
+        "Semaine riche en légumes de saison (courges, brocoli, poireau) et légumineuses (3 plats sur 7).",
+        "2 portions de poisson dont 1 gras (sardine), équilibre respecté sur le mercure.",
+        "Viande rouge limitée à 1 repas, protéines variées sur la semaine.",
+        "Attention aux épinards (bio recommandé) et au cacao dans le granola (quantité modérée).",
+        "Menu pensé pour la facilité : tous les dîners en 20 minutes, saveurs automne généreuses."
+      ]
+    },
+    {
       "weekStart": "2026-10-05",
       "weekEnd": "2026-10-11",
       "file": "data/menus/2026-10-05.json",
