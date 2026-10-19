@@ -1,0 +1,919 @@
+{
+  "weekStart": "2026-10-19",
+  "weekEnd": "2026-10-25",
+  "healthScore": "A",
+  "healthScoreHighlights": [
+    "3 repas à base de légumineuses cette semaine (lentilles, pois chiches) pour un apport équilibré en protéines végétales et fibres.",
+    "2 portions de poissons gras (sardines, maquereau) riches en oméga-3, conformes aux recommandations ANSES.",
+    "Légumes d'automne de saison majoritaires (courge, brocoli, carotte, poireau) pour profiter des nutriments au meilleur moment.",
+    "Équilibre protéines animales et végétales respecté : 2 viandes rouges maximum, alternance viande blanche, poisson, œufs, légumineuses.",
+    "Plats gourmands et réconfortants pour octobre, avec herbes fraîches, épices douces et sauces maison pour le plaisir sans complexité."
+  ],
+  "dinners": [
+    {
+      "day": "Lundi",
+      "date": "2026-10-19",
+      "name": "Pâtes aux sardines, tomates séchées et basilic",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "18",
+      "isSeasonal": true,
+      "note": "Poisson gras d'octobre riche en oméga-3, plat réconfortant qui se fait pendant la cuisson des pâtes",
+      "ingredients": [
+        {
+          "name": "Pâtes courtes",
+          "qty": 320,
+          "unit": "g"
+        },
+        {
+          "name": "Sardines en boîte à l'huile d'olive",
+          "qty": 240,
+          "unit": "g"
+        },
+        {
+          "name": "Tomates séchées",
+          "qty": 80,
+          "unit": "g"
+        },
+        {
+          "name": "Basilic frais",
+          "qty": 20,
+          "unit": "g"
+        },
+        {
+          "name": "Parmesan",
+          "qty": 40,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Cuire les pâtes selon le paquet. Pendant ce temps, égoutter les sardines et émietter grossièrement.",
+        "Dans une poêle à feu moyen, faire chauffer 2 cuillères d'huile des sardines, ajouter tomates séchées hachées, sardines émiettées et 3 cuillères d'eau de cuisson des pâtes.",
+        "Égoutter les pâtes, mélanger avec la préparation sardines-tomates, ajouter le basilic ciselé et copeaux de parmesan."
+      ],
+      "twist": "Ajouter une poignée de pignons de pin torréfiés et un filet de citron pour une touche méditerranéenne",
+      "conservation": "À consommer le jour même, les sardines ne se réchauffent pas bien"
+    },
+    {
+      "day": "Mardi",
+      "date": "2026-10-20",
+      "name": "Omelette jambon champignons et salade verte",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "15",
+      "isSeasonal": true,
+      "note": "Plat doudou express d'automne, les champignons de Paris sont de saison jusqu'en novembre",
+      "ingredients": [
+        {
+          "name": "Œufs",
+          "qty": 8,
+          "unit": "pièce"
+        },
+        {
+          "name": "Jambon blanc",
+          "qty": 120,
+          "unit": "g"
+        },
+        {
+          "name": "Champignons de Paris",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "name": "Salade verte mélangée",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "name": "Ciboulette fraîche",
+          "qty": 10,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Émincer les champignons et jambon. Faire revenir les champignons 5 minutes à feu vif dans une poêle avec un peu de beurre, saler, poivrer.",
+        "Battre les œufs avec la ciboulette ciselée, ajouter le jambon coupé en dés. Verser sur les champignons, cuire 3-4 minutes à feu moyen en remuant doucement.",
+        "Servir avec la salade assaisonnée d'une vinaigrette moutarde-miel."
+      ],
+      "twist": "Ajouter une poignée de gruyère râpé dans l'omelette et des croûtons aillés sur la salade",
+      "conservation": "À consommer le jour même, l'omelette ne se réchauffe pas bien"
+    },
+    {
+      "day": "Mercredi",
+      "date": "2026-10-21",
+      "name": "Riz pilaf aux lentilles corail, poulet épicé curcuma",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "20",
+      "isSeasonal": true,
+      "note": "Plat complet et réconfortant, les lentilles corail cuisent en 10 minutes avec le riz",
+      "ingredients": [
+        {
+          "name": "Riz basmati",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "name": "Lentilles corail",
+          "qty": 120,
+          "unit": "g"
+        },
+        {
+          "name": "Blancs de poulet",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Curcuma en poudre",
+          "qty": 8,
+          "unit": "g"
+        },
+        {
+          "name": "Yaourt nature",
+          "qty": 120,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Couper le poulet en morceaux, mélanger avec curcuma, sel, poivre et 2 cuillères de yaourt. Faire revenir 8 minutes à feu vif dans une sauteuse.",
+        "Pendant ce temps, rincer le riz et les lentilles. Les cuire ensemble dans 500ml d'eau bouillante salée pendant 12 minutes.",
+        "Servir le riz-lentilles avec le poulet épicé et une sauce au yaourt nature mélangé avec ciboulette et jus de citron."
+      ],
+      "twist": "Torréfier des amandes effilées et parsemer sur le riz avec quelques raisins secs pour une version sucrée-salée",
+      "conservation": "Se conserve 2 jours au frais, se réchauffe bien, se congèle bien"
+    },
+    {
+      "day": "Jeudi",
+      "date": "2026-10-22",
+      "name": "Butternut rôtie, pois chiches et feta au four",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "20",
+      "isSeasonal": true,
+      "note": "Courge d'automne de saison, tout cuit sur une plaque au four pendant que vous faites autre chose",
+      "ingredients": [
+        {
+          "name": "Butternut",
+          "qty": 800,
+          "unit": "g"
+        },
+        {
+          "name": "Pois chiches cuits",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Feta",
+          "qty": 150,
+          "unit": "g"
+        },
+        {
+          "name": "Thym frais",
+          "qty": 5,
+          "unit": "g"
+        },
+        {
+          "name": "Miel",
+          "qty": 20,
+          "unit": "ml"
+        }
+      ],
+      "prepSteps": [
+        "Préchauffer le four à 200°C. Éplucher et couper la butternut en cubes de 2cm. Égoutter les pois chiches.",
+        "Sur une plaque, mélanger butternut et pois chiches avec huile d'olive, thym, sel, poivre. Enfourner 15 minutes.",
+        "Émietter la feta sur les légumes, arroser d'un filet de miel, remettre 5 minutes au four. Servir avec un filet d'huile d'olive."
+      ],
+      "twist": "Ajouter des graines de grenade et des feuilles de menthe fraîche au moment de servir pour une touche levantine",
+      "conservation": "Se conserve 3 jours au frais, se réchauffe bien au four, se congèle bien sans la feta"
+    },
+    {
+      "day": "Vendredi",
+      "date": "2026-10-23",
+      "name": "Cabillaud poêlé, brocoli sauce vierge",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "18",
+      "isSeasonal": true,
+      "note": "Poisson blanc à faible mercure, brocoli d'automne riche en vitamines, sauce fraîche qui change tout",
+      "ingredients": [
+        {
+          "name": "Filets de cabillaud",
+          "qty": 480,
+          "unit": "g"
+        },
+        {
+          "name": "Brocoli",
+          "qty": 600,
+          "unit": "g"
+        },
+        {
+          "name": "Tomates cerises",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "name": "Basilic frais",
+          "qty": 15,
+          "unit": "g"
+        },
+        {
+          "name": "Citron",
+          "qty": 1,
+          "unit": "pièce"
+        }
+      ],
+      "prepSteps": [
+        "Couper le brocoli en bouquets, cuire 8 minutes à la vapeur ou dans l'eau bouillante salée. Pendant ce temps, préparer la sauce vierge : tomates cerises coupées en quatre, basilic ciselé, jus de citron, huile d'olive, sel, poivre.",
+        "Saler et poivrer le cabillaud. Le cuire 3-4 minutes par face dans une poêle chaude avec un peu d'huile.",
+        "Servir le poisson sur le brocoli égoutté, napper généreusement de sauce vierge."
+      ],
+      "twist": "Ajouter des câpres et des olives noires dans la sauce vierge pour une version méditerranéenne plus marquée",
+      "conservation": "À consommer le jour même, le poisson ne se réchauffe pas bien"
+    }
+  ],
+  "weekend": [
+    {
+      "day": "Samedi",
+      "date": "2026-10-24",
+      "name": "Tajine poulet, carottes et abricots secs au miel",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "40",
+      "isSeasonal": true,
+      "note": "Plat réconfortant d'automne inspiré du Maghreb, carottes de saison, cuisson douce qui parfume la maison",
+      "ingredients": [
+        {
+          "name": "Cuisses de poulet",
+          "qty": 800,
+          "unit": "g"
+        },
+        {
+          "name": "Carottes",
+          "qty": 600,
+          "unit": "g"
+        },
+        {
+          "name": "Abricots secs",
+          "qty": 100,
+          "unit": "g"
+        },
+        {
+          "name": "Miel",
+          "qty": 30,
+          "unit": "ml"
+        },
+        {
+          "name": "Ras el hanout",
+          "qty": 12,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Faire dorer les cuisses de poulet dans une cocotte avec un peu d'huile, 5 minutes. Ajouter ras el hanout, mélanger.",
+        "Éplucher et couper les carottes en tronçons. Les ajouter dans la cocotte avec les abricots, le miel, 300ml d'eau et une pincée de sel. Couvrir, laisser mijoter 30 minutes à feu doux.",
+        "Vérifier l'assaisonnement, servir avec de la semoule nature ou du pain."
+      ],
+      "twist": "Ajouter des amandes effilées torréfiées et de la coriandre fraîche au moment de servir",
+      "conservation": "Se conserve 3 jours au frais, se réchauffe très bien, se congèle parfaitement"
+    },
+    {
+      "day": "Dimanche",
+      "date": "2026-10-25",
+      "name": "Filets de maquereau grillés, velouté de poireau et pommes de terre",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "35",
+      "isSeasonal": true,
+      "note": "Poisson gras d'automne riche en oméga-3, légumes de saison pour un dimanche gourmand et sain",
+      "ingredients": [
+        {
+          "name": "Filets de maquereau frais",
+          "qty": 480,
+          "unit": "g"
+        },
+        {
+          "name": "Poireaux",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "name": "Pommes de terre",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Crème fraîche épaisse",
+          "qty": 100,
+          "unit": "ml"
+        },
+        {
+          "name": "Aneth frais",
+          "qty": 10,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Éplucher et couper les pommes de terre en cubes. Laver et émincer les poireaux. Les cuire ensemble 20 minutes dans 600ml d'eau bouillante salée.",
+        "Mixer la soupe avec la crème, ajuster l'assaisonnement. Réserver au chaud.",
+        "Saler et poivrer les filets de maquereau. Les cuire 3-4 minutes par face dans une poêle chaude. Servir le poisson sur le velouté, parsemer d'aneth frais et d'un filet d'huile d'olive."
+      ],
+      "twist": "Ajouter une touche fumée avec du paprika fumé dans le velouté et des croûtons aillés pour le croquant",
+      "conservation": "Le velouté se conserve 3 jours au frais et se congèle bien, le poisson à consommer le jour même"
+    }
+  ],
+  "breakfasts": [
+    {
+      "variant": "sucre",
+      "name": "Porridge pomme cannelle et noix",
+      "icon": "",
+      "prepTime": "10",
+      "isSeasonal": true,
+      "note": "Petit-déjeuner chaud réconfortant d'automne, pommes de saison, se prépare en 8 minutes chrono",
+      "ingredients": [
+        {
+          "name": "Flocons d'avoine",
+          "qty": 80,
+          "unit": "g"
+        },
+        {
+          "name": "Lait",
+          "qty": 400,
+          "unit": "ml"
+        },
+        {
+          "name": "Pomme",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "name": "Noix concassées",
+          "qty": 40,
+          "unit": "g"
+        },
+        {
+          "name": "Cannelle en poudre",
+          "qty": 3,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Faire chauffer le lait dans une casserole, ajouter les flocons d'avoine et la cannelle. Cuire 5 minutes à feu doux en remuant.",
+        "Pendant ce temps, râper ou couper en petits dés une pomme.",
+        "Servir le porridge avec la pomme râpée, les noix concassées et un filet de miel si désiré."
+      ],
+      "twist": "Remplacer les noix par des noisettes torréfiées et ajouter une cuillère de beurre de cacahuète pour plus de gourmandise",
+      "conservation": "Se prépare à la portion, ne se conserve pas"
+    },
+    {
+      "variant": "sale",
+      "name": "Tartines œuf au plat, avocat et tomate",
+      "icon": "",
+      "prepTime": "8",
+      "isSeasonal": false,
+      "note": "Petit-déjeuner salé express et complet, avocat du Clean Fifteen donc pas besoin de bio",
+      "ingredients": [
+        {
+          "name": "Pain de campagne",
+          "qty": 4,
+          "unit": "tranche"
+        },
+        {
+          "name": "Œufs",
+          "qty": 4,
+          "unit": "pièce"
+        },
+        {
+          "name": "Avocat",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "name": "Tomate",
+          "qty": 2,
+          "unit": "pièce"
+        },
+        {
+          "name": "Fleur de sel",
+          "qty": 2,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Faire griller les tranches de pain. Écraser grossièrement la chair des avocats avec un filet de citron, sel, poivre.",
+        "Cuire les œufs au plat dans une poêle avec un peu de beurre.",
+        "Tartiner le pain d'avocat écrasé, ajouter des rondelles de tomate, poser l'œuf au plat dessus. Finir avec fleur de sel et poivre."
+      ],
+      "twist": "Ajouter des graines de sésame torréfiées et un trait de sauce soja pour une version fusion",
+      "conservation": "À préparer à la demande, ne se conserve pas"
+    }
+  ],
+  "snacks": [
+    {
+      "variant": "rapide",
+      "name": "Pomme au beurre de cacahuète et cannelle",
+      "icon": "",
+      "prepTime": "5",
+      "isSeasonal": true,
+      "note": "Encas croquant et rassasiant d'automne, pommes de saison, se prépare en 2 minutes",
+      "ingredients": [
+        {
+          "name": "Pomme",
+          "qty": 4,
+          "unit": "pièce"
+        },
+        {
+          "name": "Beurre de cacahuète",
+          "qty": 80,
+          "unit": "g"
+        },
+        {
+          "name": "Cannelle en poudre",
+          "qty": 2,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Laver et couper la pomme en quartiers.",
+        "Servir avec une cuillère de beurre de cacahuète et une pincée de cannelle."
+      ],
+      "twist": "Ajouter quelques pépites de chocolat noir et des amandes effilées pour une version plus gourmande",
+      "conservation": "À préparer à la demande, ne se conserve pas"
+    },
+    {
+      "variant": "dense",
+      "name": "Granola maison noisettes et chocolat",
+      "icon": "",
+      "prepTime": "15",
+      "isSeasonal": false,
+      "note": "Se prépare en une fois pour toute la semaine, conserve 10 jours dans une boîte hermétique",
+      "ingredients": [
+        {
+          "name": "Flocons d'avoine",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "name": "Noisettes concassées",
+          "qty": 100,
+          "unit": "g"
+        },
+        {
+          "name": "Miel",
+          "qty": 60,
+          "unit": "ml"
+        },
+        {
+          "name": "Huile de coco",
+          "qty": 40,
+          "unit": "ml"
+        },
+        {
+          "name": "Pépites de chocolat noir",
+          "qty": 80,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Préchauffer le four à 160°C. Mélanger flocons d'avoine, noisettes, miel fondu et huile de coco dans un saladier.",
+        "Étaler sur une plaque recouverte de papier cuisson. Enfourner 12 minutes en remuant à mi-cuisson.",
+        "Laisser refroidir complètement, ajouter les pépites de chocolat. Conserver dans une boîte hermétique."
+      ],
+      "twist": "Remplacer les noisettes par des amandes et ajouter des cranberries séchées pour une version fruité",
+      "conservation": "Se conserve 10 jours dans une boîte hermétique à température ambiante"
+    }
+  ],
+  "lunches": [
+    {
+      "name": "Restes du dîner de la veille",
+      "note": "Réchauffer le plat du soir précédent ou le manger froid selon le plat, pratique et anti-gaspi"
+    },
+    {
+      "name": "Bol quinoa feta légumes rôtis",
+      "note": "Quinoa cuit avec restes de butternut et brocoli, feta émiettée, vinaigrette citron, se prépare dimanche pour 2-3 jours"
+    },
+    {
+      "name": "Sandwich poulet crudités",
+      "note": "Pain complet, restes de poulet du tajine, salade, tomate, sauce yaourt herbes, rapide et nourrissant"
+    }
+  ],
+  "shoppingList": [
+    {
+      "category": "Fruits & Légumes",
+      "items": [
+        {
+          "name": "Pomme",
+          "qty": "2kg",
+          "price_discount": 2.4,
+          "price_standard": 3,
+          "price_bio": 4.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Butternut",
+          "qty": "800g",
+          "price_discount": 1.6,
+          "price_standard": 2,
+          "price_bio": 3.2,
+          "isSeasonal": true
+        },
+        {
+          "name": "Brocoli",
+          "qty": "600g",
+          "price_discount": 1.8,
+          "price_standard": 2.4,
+          "price_bio": 3.6,
+          "isSeasonal": true
+        },
+        {
+          "name": "Carotte",
+          "qty": "1.2kg",
+          "price_discount": 1.2,
+          "price_standard": 1.5,
+          "price_bio": 2.4,
+          "isSeasonal": true
+        },
+        {
+          "name": "Poireau",
+          "qty": "500g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": true
+        },
+        {
+          "name": "Champignons de Paris",
+          "qty": "200g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": true
+        },
+        {
+          "name": "Tomate",
+          "qty": "400g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Tomates cerises",
+          "qty": "200g",
+          "price_discount": 1.8,
+          "price_standard": 2.2,
+          "price_bio": 3.2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Avocat",
+          "qty": "4 pièces",
+          "price_discount": 3,
+          "price_standard": 4,
+          "price_bio": 5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Salade verte mélangée",
+          "qty": "200g",
+          "price_discount": 1.2,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Citron",
+          "qty": "3 pièces",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Abricots secs",
+          "qty": "100g",
+          "price_discount": 1.8,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Viandes & Poissons",
+      "items": [
+        {
+          "name": "Blancs de poulet",
+          "qty": "400g",
+          "price_discount": 4,
+          "price_standard": 5,
+          "price_bio": 7,
+          "isSeasonal": false
+        },
+        {
+          "name": "Cuisses de poulet",
+          "qty": "800g",
+          "price_discount": 4.5,
+          "price_standard": 5.5,
+          "price_bio": 8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Jambon blanc",
+          "qty": "120g",
+          "price_discount": 1.8,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Sardines en boîte à l'huile d'olive",
+          "qty": "240g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Filets de cabillaud",
+          "qty": "480g",
+          "price_discount": 8,
+          "price_standard": 10,
+          "price_bio": 12,
+          "isSeasonal": false
+        },
+        {
+          "name": "Filets de maquereau frais",
+          "qty": "480g",
+          "price_discount": 6,
+          "price_standard": 8,
+          "price_bio": 10,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Crémerie & Œufs",
+      "items": [
+        {
+          "name": "Œufs",
+          "qty": "18 pièces",
+          "price_discount": 3,
+          "price_standard": 4,
+          "price_bio": 5.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Lait",
+          "qty": "1L",
+          "price_discount": 1,
+          "price_standard": 1.3,
+          "price_bio": 1.8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Yaourt nature",
+          "qty": "250g",
+          "price_discount": 1.2,
+          "price_standard": 1.5,
+          "price_bio": 2.2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Crème fraîche épaisse",
+          "qty": "100ml",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Feta",
+          "qty": "150g",
+          "price_discount": 2,
+          "price_standard": 3,
+          "price_bio": 4,
+          "isSeasonal": false
+        },
+        {
+          "name": "Parmesan",
+          "qty": "40g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Beurre",
+          "qty": "100g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Épicerie sèche",
+      "items": [
+        {
+          "name": "Pâtes courtes",
+          "qty": "320g",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Riz basmati",
+          "qty": "200g",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Lentilles corail",
+          "qty": "120g",
+          "price_discount": 1.2,
+          "price_standard": 1.8,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pois chiches cuits",
+          "qty": "400g",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Flocons d'avoine",
+          "qty": "500g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Tomates séchées",
+          "qty": "80g",
+          "price_discount": 2,
+          "price_standard": 3,
+          "price_bio": 4,
+          "isSeasonal": false
+        },
+        {
+          "name": "Noix concassées",
+          "qty": "40g",
+          "price_discount": 2,
+          "price_standard": 3,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Noisettes concassées",
+          "qty": "100g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Beurre de cacahuète",
+          "qty": "80g",
+          "price_discount": 2,
+          "price_standard": 3,
+          "price_bio": 4,
+          "isSeasonal": false
+        },
+        {
+          "name": "Miel",
+          "qty": "150ml",
+          "price_discount": 4,
+          "price_standard": 6,
+          "price_bio": 8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Huile de coco",
+          "qty": "40ml",
+          "price_discount": 2,
+          "price_standard": 3,
+          "price_bio": 4,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pépites de chocolat noir",
+          "qty": "80g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pain de campagne",
+          "qty": "1 unité",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pommes de terre",
+          "qty": "400g",
+          "price_discount": 1,
+          "price_standard": 1.3,
+          "price_bio": 2,
+          "isSeasonal": true
+        }
+      ]
+    },
+    {
+      "category": "Herbes fraîches & Épices",
+      "items": [
+        {
+          "name": "Basilic frais",
+          "qty": "2 bouquets",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Ciboulette fraîche",
+          "qty": "1 bouquet",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Thym frais",
+          "qty": "1 bouquet",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Aneth frais",
+          "qty": "1 bouquet",
+          "price_discount": 1.2,
+          "price_standard": 1.8,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Curcuma en poudre",
+          "qty": "10g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Ras el hanout",
+          "qty": "15g",
+          "price_discount": 2,
+          "price_standard": 3,
+          "price_bio": 4,
+          "isSeasonal": false
+        },
+        {
+          "name": "Cannelle en poudre",
+          "qty": "10g",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2,
+          "isSeasonal": false
+        }
+      ]
+    }
+  ],
+  "healthAlerts": [
+    {
+      "type": "info",
+      "message": "2 portions de poissons gras cette semaine (sardines, maquereau) pour couvrir les besoins en oméga-3 recommandés par l'ANSES"
+    },
+    {
+      "type": "seasonal",
+      "message": "Profitez des courges d'automne (butternut) et légumes de saison (brocoli, carotte, poireau) pour un apport optimal en vitamines"
+    },
+    {
+      "type": "info",
+      "message": "3 repas avec légumineuses (lentilles corail, pois chiches) pour un bon équilibre protéines végétales et fibres"
+    },
+    {
+      "type": "info",
+      "message": "Avocat du Clean Fifteen : pas besoin de bio. Pommes du Dirty Dozen : bio recommandé pour limiter les pesticides"
+    }
+  ]
+}

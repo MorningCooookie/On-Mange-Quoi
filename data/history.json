@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-10-19",
+      "weekEnd": "2026-10-25",
+      "file": "data/menus/2026-10-19.json",
+      "label": "Semaine du 19 octobre 2026",
+      "healthScore": "A",
+      "highlights": [
+        "3 repas à base de légumineuses cette semaine (lentilles, pois chiches) pour un apport équilibré en protéines végétales et fibres.",
+        "2 portions de poissons gras (sardines, maquereau) riches en oméga-3, conformes aux recommandations ANSES.",
+        "Légumes d'automne de saison majoritaires (courge, brocoli, carotte, poireau) pour profiter des nutriments au meilleur moment.",
+        "Équilibre protéines animales et végétales respecté : 2 viandes rouges maximum, alternance viande blanche, poisson, œufs, légumineuses.",
+        "Plats gourmands et réconfortants pour octobre, avec herbes fraîches, épices douces et sauces maison pour le plaisir sans complexité."
+      ]
+    },
+    {
       "weekStart": "2026-10-12",
       "weekEnd": "2026-10-18",
       "file": "data/menus/2026-10-12.json",
