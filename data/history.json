@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-10-26",
+      "weekEnd": "2026-11-01",
+      "file": "data/menus/2026-10-26.json",
+      "label": "Semaine du 26 octobre 2026",
+      "healthScore": "A",
+      "highlights": [
+        "Semaine riche en légumes d'automne de saison : courge butternut, brocoli, carottes, poireaux.",
+        "Deux portions de poisson dont une de sardines (oméga-3), équilibre entre protéines animales et végétales.",
+        "Trois plats à base de légumineuses (lentilles, pois chiches) pour les fibres et protéines végétales.",
+        "Vaisselle limitée avec plusieurs recettes one-pan et cuisson rapide sous 20 minutes en semaine.",
+        "Aucun aliment à risque mercure élevé, pesticides surveillés signalés en bio recommandé."
+      ]
+    },
+    {
       "weekStart": "2026-10-19",
       "weekEnd": "2026-10-25",
       "file": "data/menus/2026-10-19.json",
