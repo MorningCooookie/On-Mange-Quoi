@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-11-02",
+      "weekEnd": "2026-11-08",
+      "file": "data/menus/2026-11-02.json",
+      "label": "Semaine du 2 novembre 2026",
+      "healthScore": "A",
+      "highlights": [
+        "Semaine riche en légumes de saison : courge butternut, chou, poireau et betterave à l'honneur.",
+        "3 plats à base de légumineuses bien répartis (lentilles, pois chiches) pour les protéines végétales.",
+        "2 portions de poisson dont 1 poisson gras (sardines), conforme aux recommandations ANSES.",
+        "Viande rouge limitée à 1 seul repas, privilégiant viandes blanches et protéines végétales.",
+        "Tous les plats de la semaine préparables en 20 minutes maximum, pour concilier santé et facilité au quotidien."
+      ]
+    },
+    {
       "weekStart": "2026-10-26",
       "weekEnd": "2026-11-01",
       "file": "data/menus/2026-10-26.json",
