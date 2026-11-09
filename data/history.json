@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-11-09",
+      "weekEnd": "2026-11-15",
+      "file": "data/menus/2026-11-09.json",
+      "label": "Semaine du 9 novembre 2026",
+      "healthScore": "A",
+      "highlights": [
+        "Semaine équilibrée avec 3 plats à base de légumineuses et 2 repas de poisson dont 1 gras riche en oméga-3.",
+        "Viande rouge limitée à 1 seul repas, privilégiant volaille et protéines végétales.",
+        "Légumes de saison novembre généreux : courge butternut, chou, poireau, carotte, endive.",
+        "Attention aux pesticides sur le chou kale du petit-déjeuner salé : privilégier le bio.",
+        "Plats conçus pour 20 minutes maximum en semaine, gourmands et réconfortants."
+      ]
+    },
+    {
       "weekStart": "2026-11-02",
       "weekEnd": "2026-11-08",
       "file": "data/menus/2026-11-02.json",
