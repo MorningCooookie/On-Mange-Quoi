@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-11-16",
+      "weekEnd": "2026-11-22",
+      "file": "data/menus/2026-11-16.json",
+      "label": "Semaine du 16 novembre 2026",
+      "healthScore": "A",
+      "highlights": [
+        "Cette semaine marie plaisir et équilibre avec 2 plats de poissons gras riches en oméga-3 (sardines, saumon), 4 plats à base de légumineuses et 7 portions généreuses de légumes de saison.",
+        "Les courges d'automne, choux et poireaux apportent fibres et vitamines tout en restant doux pour les enfants.",
+        "Viande rouge limitée à 1 seul plat, protéines végétales et poissons privilégiés pour un impact santé optimal.",
+        "Tous les plats se préparent en 20 minutes maximum en semaine, avec des sauces maison simples qui font toute la différence.",
+        "Pensez au bio pour les poivrons et épinards utilisés cette semaine, plus exposés aux résidus de pesticides."
+      ]
+    },
+    {
       "weekStart": "2026-11-09",
       "weekEnd": "2026-11-15",
       "file": "data/menus/2026-11-09.json",

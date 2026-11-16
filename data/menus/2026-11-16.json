@@ -1,0 +1,966 @@
+{
+  "weekStart": "2026-11-16",
+  "weekEnd": "2026-11-22",
+  "healthScore": "A",
+  "healthScoreHighlights": [
+    "Cette semaine marie plaisir et équilibre avec 2 plats de poissons gras riches en oméga-3 (sardines, saumon), 4 plats à base de légumineuses et 7 portions généreuses de légumes de saison.",
+    "Les courges d'automne, choux et poireaux apportent fibres et vitamines tout en restant doux pour les enfants.",
+    "Viande rouge limitée à 1 seul plat, protéines végétales et poissons privilégiés pour un impact santé optimal.",
+    "Tous les plats se préparent en 20 minutes maximum en semaine, avec des sauces maison simples qui font toute la différence.",
+    "Pensez au bio pour les poivrons et épinards utilisés cette semaine, plus exposés aux résidus de pesticides."
+  ],
+  "dinners": [
+    {
+      "day": "Lundi",
+      "date": "2026-11-16",
+      "name": "Sardines plancha, butternut rôtie et sauce vierge",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "20",
+      "isSeasonal": true,
+      "note": "Les sardines fraîches sont une mine d'oméga-3, la butternut de saison apporte douceur et vitamines.",
+      "ingredients": [
+        {
+          "name": "Sardines fraîches",
+          "qty": 600,
+          "unit": "g"
+        },
+        {
+          "name": "Butternut",
+          "qty": 800,
+          "unit": "g"
+        },
+        {
+          "name": "Tomates cerises",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "name": "Basilic frais",
+          "qty": 20,
+          "unit": "g"
+        },
+        {
+          "name": "Citron",
+          "qty": 1,
+          "unit": "unité"
+        }
+      ],
+      "prepSteps": [
+        "Couper la butternut en cubes, faire rôtir 15 min à la poêle avec un filet d'huile d'olive.",
+        "Faire griller les sardines vidées 3 min par face à la plancha, saler et poivrer.",
+        "Préparer la sauce vierge en mélangeant tomates cerises coupées en deux, basilic ciselé, jus de citron et huile d'olive, verser sur les sardines chaudes."
+      ],
+      "twist": "Ajouter des pignons de pin torréfiés sur la butternut pour un croquant gourmand.",
+      "conservation": "À consommer le jour même, les sardines fraîches ne se conservent pas."
+    },
+    {
+      "day": "Mardi",
+      "date": "2026-11-17",
+      "name": "Riz pilaf aux amandes, pois chiches et poulet épicé",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "20",
+      "isSeasonal": true,
+      "note": "Un plat complet réconfortant, le ras el hanout apporte des notes chaudes sans piquer.",
+      "ingredients": [
+        {
+          "name": "Riz basmati",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "name": "Pois chiches cuits",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Blanc de poulet",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Amandes effilées",
+          "qty": 60,
+          "unit": "g"
+        },
+        {
+          "name": "Ras el hanout",
+          "qty": 10,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Faire cuire le riz basmati 12 min dans un bouillon de volaille, ajouter les amandes effilées en fin de cuisson.",
+        "Couper le poulet en cubes, le faire revenir 8 min à feu vif avec le ras el hanout et un peu d'huile.",
+        "Ajouter les pois chiches égouttés dans la poêle du poulet, réchauffer 2 min, servir sur le riz pilaf."
+      ],
+      "twist": "Parsemer de coriandre fraîche ciselée et d'un filet de jus de citron au moment de servir.",
+      "conservation": "Se conserve 3 jours au frigo et se congèle très bien."
+    },
+    {
+      "day": "Mercredi",
+      "date": "2026-11-18",
+      "name": "Omelette au jambon blanc, chou vert sauté et pommes grenailles",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "20",
+      "isSeasonal": true,
+      "note": "Le chou vert d'automne est tendre et doux, parfait pour les enfants quand il est bien assaisonné.",
+      "ingredients": [
+        {
+          "name": "Œufs",
+          "qty": 8,
+          "unit": "unité"
+        },
+        {
+          "name": "Jambon blanc",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "name": "Chou vert",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Pommes de terre grenailles",
+          "qty": 600,
+          "unit": "g"
+        },
+        {
+          "name": "Thym frais",
+          "qty": 5,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Faire cuire les grenailles 15 min à l'eau bouillante salée, égoutter et les faire dorer à la poêle avec le thym.",
+        "Émincer finement le chou vert, le faire sauter 8 min à feu vif avec un peu de beurre, saler et poivrer.",
+        "Battre les œufs, ajouter le jambon coupé en dés, cuire l'omelette 5 min à feu moyen, servir avec le chou et les grenailles."
+      ],
+      "twist": "Ajouter une poignée de gruyère râpé dans l'omelette avant de la plier.",
+      "conservation": "À consommer le jour même, l'omelette ne se conserve pas bien."
+    },
+    {
+      "day": "Jeudi",
+      "date": "2026-11-19",
+      "name": "Saumon mi-cuit, lentilles vertes et poireaux vinaigrette",
+      "icon": "",
+      "riskLevel": "medium",
+      "riskType": "mercure",
+      "prepTime": "20",
+      "isSeasonal": true,
+      "note": "Le saumon est à consommer avec modération, les lentilles et poireaux de saison complètent parfaitement.",
+      "ingredients": [
+        {
+          "name": "Pavés de saumon",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "name": "Lentilles vertes cuites",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Poireaux",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "name": "Moutarde à l'ancienne",
+          "qty": 20,
+          "unit": "g"
+        },
+        {
+          "name": "Aneth frais",
+          "qty": 10,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Faire cuire les blancs de poireaux 12 min à la vapeur, préparer une vinaigrette moutarde miel avec la moutarde à l'ancienne, huile d'olive et vinaigre de cidre.",
+        "Réchauffer les lentilles 5 min à la casserole avec un peu de bouillon, ajouter l'aneth ciselé.",
+        "Saisir les pavés de saumon 2 min par face à feu vif, laisser le cœur rosé, servir avec les poireaux vinaigrette et les lentilles."
+      ],
+      "twist": "Ajouter des graines de sésame torréfiées sur le saumon avant de servir.",
+      "conservation": "Se conserve 2 jours au frigo, ne pas congeler le saumon mi-cuit."
+    },
+    {
+      "day": "Vendredi",
+      "date": "2026-11-20",
+      "name": "Gnocchis poêlés, champignons et noisettes torréfiées",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "20",
+      "isSeasonal": true,
+      "note": "Les champignons de saison apportent de l'umami, les noisettes un croquant gourmand.",
+      "ingredients": [
+        {
+          "name": "Gnocchis frais",
+          "qty": 800,
+          "unit": "g"
+        },
+        {
+          "name": "Champignons de Paris",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Noisettes",
+          "qty": 80,
+          "unit": "g"
+        },
+        {
+          "name": "Crème fraîche épaisse",
+          "qty": 150,
+          "unit": "ml"
+        },
+        {
+          "name": "Parmesan",
+          "qty": 60,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Faire dorer les gnocchis 8 min à la poêle avec un peu de beurre jusqu'à ce qu'ils soient croustillants.",
+        "Dans une autre poêle, faire sauter les champignons émincés 10 min à feu vif, ajouter la crème et le parmesan râpé, laisser réduire 3 min.",
+        "Concasser les noisettes et les torréfier 2 min à sec, mélanger les gnocchis à la sauce champignons, parsemer de noisettes."
+      ],
+      "twist": "Ajouter une poignée de persil plat ciselé et un filet d'huile de noisette au moment de servir.",
+      "conservation": "Se conserve 2 jours au frigo, les noisettes se ramollissent un peu au réchauffage."
+    }
+  ],
+  "weekend": [
+    {
+      "day": "Samedi",
+      "date": "2026-11-21",
+      "name": "Tajine végétarien pois chiches, patate douce et pruneaux",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "35",
+      "isSeasonal": true,
+      "note": "Un plat doux et parfumé qui plaît aux enfants, la patate douce de saison apporte une touche sucrée.",
+      "ingredients": [
+        {
+          "name": "Pois chiches cuits",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "name": "Patate douce",
+          "qty": 800,
+          "unit": "g"
+        },
+        {
+          "name": "Pruneaux dénoyautés",
+          "qty": 150,
+          "unit": "g"
+        },
+        {
+          "name": "Cumin en poudre",
+          "qty": 10,
+          "unit": "g"
+        },
+        {
+          "name": "Coriandre fraîche",
+          "qty": 30,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Couper la patate douce en gros cubes, les faire revenir 5 min avec l'oignon émincé, le cumin et un peu d'huile d'olive.",
+        "Ajouter les pois chiches, les pruneaux, 400 ml de bouillon de légumes, couvrir et laisser mijoter 25 min à feu doux.",
+        "En fin de cuisson, ajouter la coriandre ciselée généreusement, rectifier l'assaisonnement.",
+        "Servir avec de la semoule nature ou du boulgour."
+      ],
+      "twist": "Parsemer d'amandes effilées torréfées et d'un filet de miel au moment de servir.",
+      "conservation": "Se conserve 4 jours au frigo et se congèle parfaitement."
+    },
+    {
+      "day": "Dimanche",
+      "date": "2026-11-22",
+      "name": "Poulet rôti au four, courge butternut et oignons caramélisés",
+      "icon": "",
+      "riskLevel": "low",
+      "riskType": null,
+      "prepTime": "40",
+      "isSeasonal": true,
+      "note": "Un classique dominical réconfortant avec les légumes d'automne, le four fait tout le travail.",
+      "ingredients": [
+        {
+          "name": "Cuisses de poulet",
+          "qty": 800,
+          "unit": "g"
+        },
+        {
+          "name": "Butternut",
+          "qty": 1000,
+          "unit": "g"
+        },
+        {
+          "name": "Oignons rouges",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Romarin frais",
+          "qty": 15,
+          "unit": "g"
+        },
+        {
+          "name": "Miel",
+          "qty": 30,
+          "unit": "ml"
+        }
+      ],
+      "prepSteps": [
+        "Préchauffer le four à 200°C, couper la butternut en quartiers et les oignons en grosses rondelles, disposer dans un plat.",
+        "Poser les cuisses de poulet sur les légumes, parsemer de romarin, arroser d'un filet de miel et d'huile d'olive, saler et poivrer.",
+        "Enfourner 40 min, arroser à mi-cuisson avec le jus de cuisson.",
+        "Servir directement du plat, le poulet est doré et les légumes caramélisés."
+      ],
+      "twist": "Ajouter des gousses d'ail entières non pelées dans le plat pour un parfum plus prononcé.",
+      "conservation": "Se conserve 3 jours au frigo et se congèle bien sans les oignons."
+    }
+  ],
+  "breakfasts": [
+    {
+      "variant": "sucre",
+      "name": "Porridge pomme cannelle et noix",
+      "icon": "",
+      "prepTime": "10",
+      "isSeasonal": true,
+      "note": "Les pommes de novembre sont sucrées et parfumées, idéales pour un petit-déjeuner chaud réconfortant.",
+      "ingredients": [
+        {
+          "name": "Flocons d'avoine",
+          "qty": 80,
+          "unit": "g"
+        },
+        {
+          "name": "Pomme",
+          "qty": 1,
+          "unit": "unité"
+        },
+        {
+          "name": "Lait",
+          "qty": 300,
+          "unit": "ml"
+        },
+        {
+          "name": "Noix",
+          "qty": 40,
+          "unit": "g"
+        },
+        {
+          "name": "Cannelle en poudre",
+          "qty": 5,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Faire chauffer le lait avec les flocons d'avoine et la cannelle pendant 5 min à feu doux en remuant.",
+        "Couper la pomme en petits dés, les ajouter au porridge 2 min avant la fin de cuisson.",
+        "Concasser les noix et les parsemer sur le porridge chaud au moment de servir."
+      ],
+      "twist": "Ajouter une cuillère de miel ou de sirop d'érable et quelques raisins secs.",
+      "conservation": "Le porridge se prépare pour 1 ou 2 jours maximum au frigo, réchauffer avec un peu de lait."
+    },
+    {
+      "variant": "sale",
+      "name": "Tartine avocat œuf poché et graines",
+      "icon": "",
+      "prepTime": "10",
+      "isSeasonal": false,
+      "note": "Un classique protéiné qui cale bien, l'avocat apporte de bonnes graisses pour démarrer la journée.",
+      "ingredients": [
+        {
+          "name": "Pain de campagne",
+          "qty": 4,
+          "unit": "tranches"
+        },
+        {
+          "name": "Avocat",
+          "qty": 2,
+          "unit": "unité"
+        },
+        {
+          "name": "Œufs",
+          "qty": 4,
+          "unit": "unité"
+        },
+        {
+          "name": "Graines de courge",
+          "qty": 20,
+          "unit": "g"
+        },
+        {
+          "name": "Citron",
+          "qty": 1,
+          "unit": "unité"
+        }
+      ],
+      "prepSteps": [
+        "Faire griller les tranches de pain, écraser l'avocat à la fourchette avec un filet de jus de citron, sel et poivre.",
+        "Pocher les œufs 3 min dans de l'eau frémissante vinaigrée.",
+        "Tartiner le pain d'avocat écrasé, déposer l'œuf poché dessus, parsemer de graines de courge et d'un tour de moulin à poivre."
+      ],
+      "twist": "Ajouter quelques feuilles de roquette et un filet de sauce piquante douce.",
+      "conservation": "À consommer le jour même, l'avocat et l'œuf ne se conservent pas préparés."
+    }
+  ],
+  "snacks": [
+    {
+      "variant": "rapide",
+      "name": "Pomme au beurre de cacahuète et cannelle",
+      "icon": "",
+      "prepTime": "5",
+      "isSeasonal": true,
+      "note": "Les pommes de novembre sont croquantes et juteuses, le beurre de cacahuète apporte protéines et satiété.",
+      "ingredients": [
+        {
+          "name": "Pomme",
+          "qty": 1,
+          "unit": "unité"
+        },
+        {
+          "name": "Beurre de cacahuète",
+          "qty": 30,
+          "unit": "g"
+        },
+        {
+          "name": "Cannelle en poudre",
+          "qty": 2,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Laver et couper la pomme en quartiers fins.",
+        "Tartiner chaque quartier de beurre de cacahuète et saupoudrer légèrement de cannelle."
+      ],
+      "twist": "Ajouter quelques pépites de chocolat noir ou des graines de chia sur le beurre de cacahuète.",
+      "conservation": "À préparer juste avant de consommer, la pomme s'oxyde rapidement."
+    },
+    {
+      "variant": "dense",
+      "name": "Granola maison noisettes et miel",
+      "icon": "",
+      "prepTime": "15",
+      "isSeasonal": false,
+      "note": "Un granola croquant qui se conserve toute la semaine, parfait pour le petit-déjeuner ou l'encas.",
+      "ingredients": [
+        {
+          "name": "Flocons d'avoine",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "name": "Noisettes",
+          "qty": 100,
+          "unit": "g"
+        },
+        {
+          "name": "Miel",
+          "qty": 80,
+          "unit": "ml"
+        },
+        {
+          "name": "Huile de coco",
+          "qty": 40,
+          "unit": "ml"
+        },
+        {
+          "name": "Raisins secs",
+          "qty": 80,
+          "unit": "g"
+        }
+      ],
+      "prepSteps": [
+        "Préchauffer le four à 160°C, mélanger les flocons d'avoine et les noisettes concassées.",
+        "Faire fondre le miel et l'huile de coco, verser sur les flocons et noisettes, bien mélanger.",
+        "Étaler sur une plaque, enfourner 15 min en remuant à mi-cuisson, ajouter les raisins secs en fin de cuisson hors du four."
+      ],
+      "twist": "Ajouter des graines de sésame et de la noix de coco râpée avant cuisson.",
+      "conservation": "Se conserve 2 semaines dans un bocal hermétique à température ambiante."
+    }
+  ],
+  "lunches": [
+    {
+      "name": "Restes du dîner de la veille",
+      "note": "Réchauffer les plats de la semaine (tajine, riz poulet, gnocchis) pour un déjeuner rapide et sans gaspillage."
+    },
+    {
+      "name": "Sandwich jambon crudités et houmous",
+      "note": "Pain complet, jambon blanc, carottes râpées, salade, houmous maison ou du commerce, à assembler en 5 minutes."
+    },
+    {
+      "name": "Bol lentilles feta et légumes croquants",
+      "note": "Lentilles froides ou tièdes, dés de feta, concombre, tomates cerises, vinaigrette citron, prêt en 10 minutes."
+    }
+  ],
+  "shoppingList": [
+    {
+      "category": "Fruits & Légumes",
+      "items": [
+        {
+          "name": "Butternut",
+          "qty": "2kg",
+          "price_discount": 1.8,
+          "price_standard": 2.4,
+          "price_bio": 3.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Pommes",
+          "qty": "1.5kg",
+          "price_discount": 2.5,
+          "price_standard": 3,
+          "price_bio": 4.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Patate douce",
+          "qty": "800g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.8,
+          "isSeasonal": true
+        },
+        {
+          "name": "Poireaux",
+          "qty": "500g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": true
+        },
+        {
+          "name": "Chou vert",
+          "qty": "400g",
+          "price_discount": 1.2,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Champignons de Paris",
+          "qty": "400g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Oignons rouges",
+          "qty": "400g",
+          "price_discount": 1,
+          "price_standard": 1.3,
+          "price_bio": 2,
+          "isSeasonal": true
+        },
+        {
+          "name": "Tomates cerises",
+          "qty": "200g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Avocats",
+          "qty": "6 unités",
+          "price_discount": 4.5,
+          "price_standard": 6,
+          "price_bio": 8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Citrons",
+          "qty": "4 unités",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pommes de terre grenailles",
+          "qty": "600g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": true
+        },
+        {
+          "name": "Carottes",
+          "qty": "500g",
+          "price_discount": 0.8,
+          "price_standard": 1,
+          "price_bio": 1.8,
+          "isSeasonal": true
+        },
+        {
+          "name": "Concombre",
+          "qty": "1 unité",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 1.8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Salade verte",
+          "qty": "1 pièce",
+          "price_discount": 0.9,
+          "price_standard": 1.2,
+          "price_bio": 2,
+          "isSeasonal": true
+        }
+      ]
+    },
+    {
+      "category": "Viandes & Poissons",
+      "items": [
+        {
+          "name": "Sardines fraîches",
+          "qty": "600g",
+          "price_discount": 7,
+          "price_standard": 9,
+          "price_bio": 12,
+          "isSeasonal": true
+        },
+        {
+          "name": "Blanc de poulet",
+          "qty": "400g",
+          "price_discount": 4.5,
+          "price_standard": 6,
+          "price_bio": 9,
+          "isSeasonal": false
+        },
+        {
+          "name": "Cuisses de poulet",
+          "qty": "800g",
+          "price_discount": 4,
+          "price_standard": 5.5,
+          "price_bio": 8.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pavés de saumon",
+          "qty": "500g",
+          "price_discount": 10,
+          "price_standard": 13,
+          "price_bio": 18,
+          "isSeasonal": false
+        },
+        {
+          "name": "Jambon blanc",
+          "qty": "400g",
+          "price_discount": 4,
+          "price_standard": 5.5,
+          "price_bio": 8,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Crémerie & Œufs",
+      "items": [
+        {
+          "name": "Œufs",
+          "qty": "24 unités",
+          "price_discount": 3.5,
+          "price_standard": 4.5,
+          "price_bio": 6.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Crème fraîche épaisse",
+          "qty": "150ml",
+          "price_discount": 1.2,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Lait",
+          "qty": "1.5L",
+          "price_discount": 1.2,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Parmesan",
+          "qty": "120g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Feta",
+          "qty": "200g",
+          "price_discount": 2,
+          "price_standard": 2.8,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Épicerie sèche",
+      "items": [
+        {
+          "name": "Pois chiches cuits",
+          "qty": "1.3kg",
+          "price_discount": 2.5,
+          "price_standard": 3,
+          "price_bio": 4.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Lentilles vertes cuites",
+          "qty": "800g",
+          "price_discount": 1.8,
+          "price_standard": 2.3,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Riz basmati",
+          "qty": "300g",
+          "price_discount": 1,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Flocons d'avoine",
+          "qty": "500g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Gnocchis frais",
+          "qty": "800g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pain de campagne",
+          "qty": "1 unité",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pain complet",
+          "qty": "1 unité",
+          "price_discount": 1.8,
+          "price_standard": 2.3,
+          "price_bio": 3.8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Semoule ou boulgour",
+          "qty": "200g",
+          "price_discount": 0.8,
+          "price_standard": 1.2,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Pruneaux dénoyautés",
+          "qty": "150g",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Raisins secs",
+          "qty": "80g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        },
+        {
+          "name": "Miel",
+          "qty": "150ml",
+          "price_discount": 4,
+          "price_standard": 5.5,
+          "price_bio": 8,
+          "isSeasonal": false
+        },
+        {
+          "name": "Beurre de cacahuète",
+          "qty": "250g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Houmous",
+          "qty": "200g",
+          "price_discount": 2,
+          "price_standard": 2.8,
+          "price_bio": 4,
+          "isSeasonal": false
+        },
+        {
+          "name": "Moutarde à l'ancienne",
+          "qty": "1 pot",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Fruits secs & Oléagineux",
+      "items": [
+        {
+          "name": "Noisettes",
+          "qty": "280g",
+          "price_discount": 4.5,
+          "price_standard": 6,
+          "price_bio": 9,
+          "isSeasonal": true
+        },
+        {
+          "name": "Noix",
+          "qty": "80g",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5.5,
+          "isSeasonal": true
+        },
+        {
+          "name": "Amandes effilées",
+          "qty": "120g",
+          "price_discount": 3,
+          "price_standard": 4,
+          "price_bio": 6,
+          "isSeasonal": false
+        },
+        {
+          "name": "Graines de courge",
+          "qty": "40g",
+          "price_discount": 1.5,
+          "price_standard": 2,
+          "price_bio": 3.5,
+          "isSeasonal": false
+        }
+      ]
+    },
+    {
+      "category": "Herbes fraîches & Épices",
+      "items": [
+        {
+          "name": "Basilic frais",
+          "qty": "1 bouquet",
+          "price_discount": 1.2,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Coriandre fraîche",
+          "qty": "1 bouquet",
+          "price_discount": 1.2,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Aneth frais",
+          "qty": "1 bouquet",
+          "price_discount": 1.2,
+          "price_standard": 1.5,
+          "price_bio": 2.5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Thym frais",
+          "qty": "1 bouquet",
+          "price_discount": 1,
+          "price_standard": 1.3,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Romarin frais",
+          "qty": "1 bouquet",
+          "price_discount": 1,
+          "price_standard": 1.3,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Persil plat",
+          "qty": "1 bouquet",
+          "price_discount": 1,
+          "price_standard": 1.3,
+          "price_bio": 2,
+          "isSeasonal": false
+        },
+        {
+          "name": "Ras el hanout",
+          "qty": "1 pot",
+          "price_discount": 2.5,
+          "price_standard": 3.5,
+          "price_bio": 5,
+          "isSeasonal": false
+        },
+        {
+          "name": "Cumin en poudre",
+          "qty": "1 pot",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 4,
+          "isSeasonal": false
+        },
+        {
+          "name": "Cannelle en poudre",
+          "qty": "1 pot",
+          "price_discount": 2,
+          "price_standard": 2.5,
+          "price_bio": 4,
+          "isSeasonal": false
+        }
+      ]
+    }
+  ],
+  "healthAlerts": [
+    {
+      "type": "seasonal",
+      "message": "Profitez des courges, choux et poireaux de novembre, au sommet de leur qualité nutritionnelle et gustative."
+    },
+    {
+      "type": "info",
+      "message": "Cette semaine privilégie les poissons gras riches en oméga-3 (sardines, saumon) et limite la viande rouge à un seul plat."
+    },
+    {
+      "type": "warning",
+      "message": "Le saumon est à consommer avec modération en raison des risques de mercure, limité à 1 fois cette semaine."
+    },
+    {
+      "type": "info",
+      "message": "Les légumineuses (pois chiches, lentilles) apparaissent 4 fois cette semaine pour un apport optimal en protéines végétales et fibres."
+    }
+  ]
+}
