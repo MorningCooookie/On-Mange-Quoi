@@ -1,6 +1,20 @@
 {
   "menus": [
     {
+      "weekStart": "2026-11-23",
+      "weekEnd": "2026-11-29",
+      "file": "data/menus/2026-11-23.json",
+      "label": "Semaine du 23 novembre 2026",
+      "healthScore": "A",
+      "highlights": [
+        "3 repas à base de légumineuses sur la semaine, sources de fibres et protéines végétales",
+        "2 portions de poisson dont 1 poisson gras (sardine), pour les oméga-3",
+        "Courges et légumes d'automne de saison à chaque repas",
+        "Zéro viande rouge cette semaine, priorité volaille et poisson",
+        "Herbes fraîches et épices généreuses pour le plaisir sans sel ajouté"
+      ]
+    },
+    {
       "weekStart": "2026-11-16",
       "weekEnd": "2026-11-22",
       "file": "data/menus/2026-11-16.json",
